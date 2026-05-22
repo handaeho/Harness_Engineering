@@ -1,0 +1,28 @@
+{
+  "lanes": [
+    {
+      "lane": "skipped_case_review",
+      "status": "not_started",
+      "execution_required": false,
+      "purpose": "Review 12 skipped_not_mock_compatible cases and classify into provider/local/future lanes."
+    },
+    {
+      "lane": "additional_openai_provider_redteam",
+      "status": "candidate",
+      "execution_required": "conditional",
+      "purpose": "Run additional safe provider-compatible cases if needed after skipped case review."
+    },
+    {
+      "lane": "local_runtime_redteam",
+      "status": "blocked_by_missing_local_endpoint",
+      "execution_required": "future",
+      "purpose": "Run local redteam only after local no-tool canary passes."
+    },
+    {
+      "lane": "containment_boundary_verification",
+      "status": "not_started",
+      "execution_required": "future",
+      "purpose": "Verify sandbox/tool/approval boundaries beyond redteam prompts."
+    }
+  ]
+}

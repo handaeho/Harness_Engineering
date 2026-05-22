@@ -457,6 +457,300 @@ Additional rules:
 - selected case subset ready is not `redteam-passed`
 - preflight pass is not `containment-verified`
 
+## OpenAI Redteam Limited Execution Claim
+
+`openai-redteam-limited-execution-completed` means the approved limited OpenAI provider redteam subset was executed with redacted evidence, store:false, bounded provider calls, no local model execution, no external side effects, and critical/high failure counts recorded as zero for that limited subset.
+
+It allows:
+- limited OpenAI redteam execution completed statement
+- limited case result evidence recorded statement
+- limited redacted trace evidence recorded statement
+
+It does not allow:
+- `redteam-executed`
+- `redteam-passed`
+- `containment-verified`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+- `provider-verified`
+- `provider-diverse`
+
+Additional rules:
+- limited provider subset execution is not full redteam execution
+- zero critical/high failures in the limited subset is not `redteam-passed`
+- redacted traces recorded is not `containment-verified`
+- OpenAI-only execution is not provider diversity
+- limited execution pass is not `release-gated`
+
+## OpenAI Redteam Limited Result Review Claim
+
+`openai-redteam-limited-result-reviewed` means the limited OpenAI redteam execution result was reviewed and indexed, with canonical claim boundaries and blocker updates recorded.
+
+It allows:
+- limited redteam result review statement
+- limited execution evidence indexed statement
+- claim boundary audit statement
+- blocker update statement
+
+It does not allow:
+- `redteam-executed`
+- `redteam-passed`
+- `containment-verified`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+
+Additional rules:
+- limited result reviewed is not `redteam-passed`
+- 12/12 limited cases pass is not broad redteam coverage
+- zero critical/high failures in selected subset is not containment proof
+- blocker updated is not release gate passed
+- evidence mirrored is not source-of-truth promotion unless indexed
+
+## Broader Redteam Pass Gate Design Claim
+
+`broader-redteam-pass-gate-designed` means broader redteam pass criteria, coverage matrix, remaining gaps, thresholds, and claim boundaries were designed without additional execution.
+
+It allows:
+- broader redteam pass gate design statement
+- redteam coverage matrix draft statement
+- redteam gap analysis statement
+- redteam pass threshold draft statement
+
+It does not allow:
+- `redteam-passed`
+- `containment-verified`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+
+Additional rules:
+- broader pass gate designed is not `redteam-passed`
+- coverage matrix drafted is not coverage complete
+- gap analysis recorded is not gap resolved
+- thresholds drafted is not thresholds satisfied
+- limited execution pass is not containment proof
+- skipped case review pending means `redteam-passed` remains blocked
+
+## Skipped Redteam Case Review Claim
+
+`skipped-redteam-cases-reviewed` means redteam cases skipped from mock runtime dry-run were reviewed and classified into future execution or coverage lanes without new execution.
+
+It allows:
+- skipped case review statement
+- lane classification statement
+- future execution lane draft statement
+- skipped case blocker update statement
+
+It does not allow:
+- `redteam-passed`
+- `containment-verified`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+
+Additional rules:
+- skipped case review is not `redteam-passed`
+- lane classification is not case execution
+- future execution lane drafted is not gap resolved
+- duplicate/covered classification requires evidence reference
+- local lane remains blocked until local no-tool canary passes
+
+## Additional OpenAI Redteam Preflight Claim
+
+`additional-openai-redteam-preflight-completed` means additional OpenAI provider
+redteam cases identified from skipped-case review were prepared for execution,
+with approval gate, command plan, cost/stop/redaction/trace policies, and
+preflight checks completed without provider execution.
+
+It allows:
+- additional OpenAI redteam preflight statement
+- additional case subset selected statement
+- approval packet generated statement
+- command plan drafted statement
+
+It does not allow:
+- `redteam-executed`
+- `redteam-passed`
+- `containment-verified`
+- `release-gated`
+- `production-ready`
+
+Additional rules:
+- additional provider redteam preflight is not execution
+- case subset selected is not case passed
+- approval packet generated is not approval granted
+- command plan drafted is not command executed
+- additional provider execution remains blocked until exact approval phrase
+
+## Additional OpenAI Redteam Execution Claim
+
+`additional-openai-redteam-execution-completed` means the 4 additional OpenAI
+provider-compatible redteam cases selected from skipped-case review were
+executed under the approved additional execution stage, with redacted evidence,
+case results, severity summary, stop criteria, and claim impact recorded.
+
+It allows:
+- additional OpenAI provider redteam execution statement
+- additional case results recorded statement
+- additional redacted trace recorded statement
+- additional execution severity summary statement
+
+It does not allow:
+- `redteam-executed`
+- `redteam-passed`
+- `containment-verified`
+- `release-gated`
+- `production-ready`
+- `provider-verified`
+
+Additional rules:
+- additional execution pass is not generic redteam pass
+- 4/4 additional cases pass is not containment proof
+- zero critical/high failures in this subset is not release-gated
+- OpenAI-only execution remains not provider-diverse
+- additional execution evidence does not resolve local runtime or telemetry blockers
+
+## Containment Boundary Verification Design Claim
+
+`containment-boundary-verification-designed` means containment boundary taxonomy, fixtures, policies, coverage matrix, claim boundary, and verification gate were designed without executing dedicated containment verification.
+
+It allows:
+- containment boundary verification design statement
+- containment fixture authored statement
+- containment coverage matrix draft statement
+- containment verification gate designed statement
+
+It does not allow:
+- `containment-verified`
+- `redteam-passed`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+
+Additional rules:
+- containment design is not `containment-verified`
+- smoke-tested boundary is not containment proof
+- fixture authored is not fixture executed
+- coverage matrix drafted is not coverage complete
+- blocker updated is not blocker resolved
+
+## Containment Boundary Mock Dry-run Claim
+
+`containment-boundary-mock-dry-run-executed` means containment boundary fixtures were executed in deterministic mock containment runtime, validating result/trace schema, severity aggregation, no-side-effect boundaries, and redaction without provider/local/telemetry execution.
+
+It allows:
+- containment mock dry-run statement
+- containment fixture execution path checked statement
+- no-side-effect boundary checked statement
+- result/trace schema validation statement
+
+It does not allow:
+- `containment-verified`
+- `redteam-passed`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+
+Additional rules:
+- containment mock dry-run is not `containment-verified`
+- no-side-effect mock evidence is not production containment proof
+- blocked action simulated is not real sandbox proof
+- result schema validated is not release gate passed
+- blocker updated is not blocker resolved
+
+## Containment Verification Gate Refinement Claim
+
+`containment-verification-gate-refined` means containment evidence was mapped to boundaries and proof levels, and the containment verification gate was refined without additional execution.
+
+It allows:
+- containment verification gate refinement statement
+- containment evidence mapping statement
+- proof level classification statement
+- remaining criteria recorded statement
+
+It does not allow:
+- `containment-verified`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+
+Additional rules:
+- gate refined is not containment verified
+- proof levels classified is not proof completed
+- evidence mapped is not evidence sufficient
+- no boundary may be marked verified in this stage
+- cross-suite audit remains required
+
+## Cross-suite Storage Redaction Audit Claim
+
+`cross-suite-storage-redaction-audit-executed` means existing cross-suite artifacts were scanned for raw request/response storage, secret/auth leakage, and redaction boundary violations without new execution.
+
+It allows:
+- cross-suite storage/redaction audit statement
+- raw storage audit passed statement
+- secret pattern audit passed statement
+- allowed preview/hash/summary classification statement
+
+It does not allow:
+- `containment-verified`
+- `telemetry-connected`
+- `production-monitored`
+- `production-ready`
+- `release-gated`
+
+Additional rules:
+- storage/redaction audit pass is not containment verified
+- no secret findings is not telemetry connected
+- allowed preview/hash classification is not production monitoring
+- audit pass resolves one criterion only, not full containment proof
+
+## Dedicated Containment Verification Plan Claim
+
+`dedicated-containment-verification-plan-drafted` means dedicated containment verification plan, runner contract, acceptance criteria, failure policy, risk acceptance policy, approval gate, and command plan were drafted without executing verification.
+
+It allows:
+- dedicated containment verification plan statement
+- runner contract drafted statement
+- acceptance criteria drafted statement
+- verification gate designed statement
+
+It does not allow:
+- `containment-verified`
+- `production-ready`
+- `release-gated`
+- `production-monitored`
+
+Additional rules:
+- dedicated plan is not dedicated execution
+- acceptance criteria drafted is not criteria satisfied
+- command plan drafted is not command executed
+- risk acceptance policy drafted is not risk accepted
+- execution pass would still require post-execution claim audit
+
+## Dedicated Containment Verification Execution Claim
+
+`dedicated-containment-verification-executed` means the approved dedicated containment verification runner executed containment fixtures in mock containment dedicated verification mode, recorded case results, redacted traces, no-side-effect evidence, schema validation, and severity aggregation.
+
+It allows:
+- dedicated containment verification execution statement
+- dedicated containment case results recorded statement
+- dedicated containment redacted traces recorded statement
+- dedicated containment no-side-effect evidence recorded statement
+
+It does not allow:
+- `containment-verified`
+- `production-ready`
+- `release-gated`
+- `production-monitored`
+
+Additional rules:
+- dedicated containment execution pass is not `containment-verified`
+- no-side-effect evidence is not release gate approval
+- post-execution claim audit remains required
+- release owner review remains required
+
 ## Production Telemetry Design Claim
 
 `production-telemetry-design-drafted` means production telemetry schema, event taxonomy, metric catalog, OTel mapping, Langfuse integration plan, dashboard spec, anomaly thresholds, and telemetry claim gate were drafted without live telemetry connection.
@@ -480,6 +774,270 @@ Additional rules:
 - dashboard spec drafted is not dashboard available
 - anomaly thresholds drafted is not thresholds active
 - telemetry blocker updated is not blocker resolved
+
+## Production Telemetry Connection Preflight Claim
+
+`production-telemetry-connection-preflight-completed` means telemetry connection preflight, approval packet, credential readiness check, payload shape validation, exporter guard, and command plan were prepared without live telemetry connection.
+
+It allows:
+- telemetry connection preflight statement
+- credential readiness checked statement
+- OTel/Langfuse payload shape validated statement
+- telemetry connection command plan drafted statement
+
+It does not allow:
+- `telemetry-connected`
+- `production-monitored`
+- `production-ready`
+- `release-gated`
+- `integration-verified`
+
+Additional rules:
+- connection preflight is not telemetry connected
+- payload shape validation is not live telemetry received
+- credential readiness checked is not sink write
+- command plan drafted is not command executed
+- approval packet generated is not approval granted
+- telemetry blocker updated is not blocker resolved
+
+## Execution Readiness Dashboard Claim
+
+`execution-readiness-dashboard-drafted` means current blocked execution lanes, approval requirements, environment requirements, command plans, blocker resolution paths, and claim impacts were indexed without executing provider/local/telemetry actions.
+
+It allows:
+- execution readiness dashboard statement
+- blocker resolution plan statement
+- approval/environment requirements indexed statement
+- path portability audit statement
+
+It does not allow:
+- `redteam-executed`
+- `telemetry-connected`
+- `local-model-verified`
+- `provider-diverse`
+- `production-monitored`
+- `production-ready`
+- `release-gated`
+
+Additional rules:
+- readiness dashboard is not execution approval
+- approval phrase indexed is not approval granted
+- env requirements indexed is not credentials present
+- command plan indexed is not command executed
+- blocker resolution plan is not blocker resolved
+- path portability audit is not `release-gated`
+
+## Containment Post-execution Audit Claim
+
+`containment-post-execution-audit-completed` means dedicated containment verification results were reviewed, evidence completeness was audited, claim boundaries were checked, and owner review/decision draft was prepared without granting `containment-verified`.
+
+It allows:
+- containment post-execution audit statement
+- containment evidence completeness audit statement
+- containment owner review draft statement
+- containment claim decision draft statement
+
+It does not allow:
+- `containment-verified`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+
+Additional rules:
+- post-execution audit is not `containment-verified`
+- owner review draft is not owner approval
+- claim decision draft is not claim decision
+- proof level update may not mark any boundary verified in this stage
+- final containment decision gate remains required
+
+
+## Containment Verified Decision Gate Claim
+
+`containment-verified-decision-gate-executed` means final containment decision gate evaluated evidence sufficiency, owner decision, claim boundary, and release-gate impact without new execution.
+
+It allows:
+- containment decision gate execution statement
+- containment evidence sufficiency audit statement
+- owner final decision recorded statement
+- claim boundary audit statement
+
+It does not allow:
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+- `provider-diverse`
+- `provider-verified`
+
+Conditional claim rule:
+
+`containment-verified` is allowed only if:
+- evidence_sufficiency_audit_passed == true
+- owner_final_decision == approve_containment_verified
+- release_gated_allowed == false
+- production_ready_allowed == false
+
+It does not allow:
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+
+
+## Release Blocker Reevaluation Claim
+
+`release-blockers-reevaluated` means release blockers were reevaluated after `containment-verified` was allowed for beta scope, and rc.1 readiness paths were assessed without executing release gate.
+
+It allows:
+- release blocker reevaluation statement
+- rc.1 readiness assessment statement
+- OpenAI-only rc.1 candidate path statement
+
+It does not allow:
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+
+Additional rules:
+- blocker reevaluation is not `release-gated`
+- OpenAI-only rc.1 candidate is not `provider-diverse`
+- `containment-verified` is not `production-ready`
+- can_enter_openai_only_rc1_bundle is not stable release
+
+
+## RC1 OpenAI Scope Evidence Bundle Claim
+
+`rc1-openai-scope-evidence-bundle-drafted` means an OpenAI-only rc.1 evidence bundle was drafted from existing validated evidence without new execution.
+
+It allows:
+- OpenAI-only rc.1 evidence bundle statement
+- rc.1 evidence lineage indexed statement
+- rc.1 claim boundary audit statement
+- OpenAI-only scope declaration
+
+It does not allow:
+- `stable`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+
+Additional rules:
+- rc.1 evidence bundle is not stable release
+- OpenAI-only rc.1 is not `provider-diverse`
+- rc.1 readiness is not `release-gated`
+- `containment-verified` is not `production-ready`
+- no new execution in rc.1 bundle stage
+
+
+## AGENTS.md System of Record Alignment Claim
+
+`agents-md-root-entrypoint-added` means root `AGENTS.md` was added as the agent-facing System of Record index and aligned with `stack.yaml`, asset class manifest, directory roles, naming conventions, and agent workflow documentation.
+
+It allows:
+- AGENTS.md root entrypoint statement
+- System of Record alignment statement
+- asset class manifest statement
+- directory role documentation statement
+
+It does not allow:
+- `stable`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+
+Additional rules:
+- AGENTS.md is an index, not a hard policy engine.
+- AGENTS.md alignment does not replace machine-readable gates.
+- asset class manifest does not grant release claims.
+- System of Record alignment does not imply stable or release-gated.
+
+
+## RC1 OpenAI-scope Release Gate Dry-run Claim
+
+`rc1-release-gate-dry-run-executed` means OpenAI-only rc.1 release gate dry-run evaluated current evidence and deferred local/provider-diversity lanes without actual release gate execution.
+
+It allows:
+- OpenAI-only release gate dry-run statement
+- local endpoint deferred statement
+- provider diversity deferred statement
+- release gate actual preconditions drafted statement
+
+It does not allow:
+- `stable`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+
+Additional rules:
+- release gate dry-run is not actual release gate execution
+- local endpoint deferred is not `local-model-verified`
+- provider diversity deferred is not `provider-diverse`
+- OpenAI-only dry-run is not stable
+- OpenAI-only dry-run can lead to actual gate preflight, not release-gated claim directly
+
+
+## RC1 OpenAI-scope Actual Release Gate Preflight Claim
+
+`rc1-release-gate-actual-preflight-completed` means actual OpenAI-only rc.1 release gate preflight was completed, with approval packet, command plan, rollback readiness, owner/action readiness, and local/provider-diversity deferrals recorded, without executing the release gate.
+
+It allows:
+- actual release gate preflight statement
+- release approval packet generated statement
+- release command plan drafted statement
+- rollback readiness checked statement
+- owner/action readiness checked statement
+
+It does not allow:
+- `stable`
+- `release-gated`
+- `production-ready`
+- `production-monitored`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+
+Additional rules:
+- actual release gate preflight is not actual release gate execution
+- approval packet generated is not approval granted
+- command plan drafted is not command executed
+- OpenAI-only actual gate preflight is not stable
+- local endpoint deferred remains deferred until operator provides endpoint
+
+
+## RC1 OpenAI-scope Actual Release Gate Claim
+
+`rc1-openai-scope-release-gated` means OpenAI-only RC1 actual release gate passed using existing evidence, with local endpoint and provider diversity explicitly deferred.
+
+It allows:
+- OpenAI-only RC1 release-gated statement
+- OpenAI-only release decision record statement
+
+It does not allow:
+- `stable`
+- `production-ready`
+- `production-monitored`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+
+Additional rules:
+- OpenAI-only release-gated is not stable
+- OpenAI-only release-gated is not production-ready
+- OpenAI-only release-gated is not provider-diverse
+- local endpoint remains deferred until operator provides endpoint
+- telemetry remains disconnected unless separately approved and executed
+
 
 ## Later Claims
 

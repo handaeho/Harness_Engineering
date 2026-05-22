@@ -1,0 +1,48 @@
+{
+  "lanes": {
+    "openai_limited_redteam_execution": {
+      "required": [
+        "OPENAI_API_KEY",
+        "OPENAI_MODEL"
+      ],
+      "agent_env_present": false,
+      "operator_powershell_available": true,
+      "must_verify_at_execution_time": true,
+      "secret_values_logged": false
+    },
+    "production_telemetry_connection_otel": {
+      "required": [
+        "OTEL_EXPORTER_OTLP_ENDPOINT"
+      ],
+      "optional": [
+        "OTEL_EXPORTER_OTLP_HEADERS",
+        "OTEL_SERVICE_NAME"
+      ],
+      "secret_values_logged": false
+    },
+    "production_telemetry_connection_langfuse": {
+      "required": [
+        "LANGFUSE_PUBLIC_KEY",
+        "LANGFUSE_SECRET_KEY",
+        "LANGFUSE_HOST"
+      ],
+      "secret_values_logged": false
+    },
+    "local_no_tool_canary_vllm": {
+      "required": [
+        "LOCAL_CANARY_TARGETS",
+        "VLLM_BASE_URL",
+        "VLLM_MODEL"
+      ],
+      "localhost_only": true
+    },
+    "local_no_tool_canary_ollama": {
+      "required": [
+        "LOCAL_CANARY_TARGETS",
+        "OLLAMA_BASE_URL",
+        "OLLAMA_MODEL"
+      ],
+      "localhost_only": true
+    }
+  }
+}

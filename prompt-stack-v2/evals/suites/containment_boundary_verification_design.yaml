@@ -1,0 +1,26 @@
+{
+  "id": "beta_containment_boundary_verification_design",
+  "stage": "v2.0.0-beta-containment-boundary-verification-design",
+  "execution_mode": "design_only",
+  "forbidden_execution": {
+    "openai_provider_call": true,
+    "redteam_case_rerun": true,
+    "local_model_execution": true,
+    "local_endpoint_probe": true,
+    "telemetry_connection": true,
+    "external_network_calls": true,
+    "real_file_writes": true,
+    "shell_command_execution": true,
+    "real_tool_side_effects": true
+  },
+  "required_artifacts": [
+    "release/beta_containment_boundary_verification_design_scope.yaml",
+    "release/containment_verification_gate.yaml",
+    "security/containment/containment_boundary_taxonomy.yaml",
+    "security/containment/containment_verification_policy.yaml",
+    "security/containment/containment_result.schema.json",
+    "security/containment/containment_trace.schema.json",
+    "evidence/beta-containment-boundary-verification-design/containment_coverage_matrix.json",
+    "evidence/beta-containment-boundary-verification-design/containment_claim_boundary.json"
+  ]
+}

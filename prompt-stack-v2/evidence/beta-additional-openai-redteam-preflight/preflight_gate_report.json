@@ -1,0 +1,202 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-beta-additional-openai-redteam-preflight-and-approval",
+  "can_enter_additional_openai_redteam_execution": false,
+  "can_enter_redteam_passed_claim": false,
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "reason": "Additional OpenAI redteam preflight is complete, but explicit user approval is required before provider execution.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "check_skipped_redteam_case_review.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "validate_additional_openai_redteam_preflight.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "evals/fixtures/redteam_openai_additional/additional_openai_case_subset.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/fixtures/redteam_openai_additional/additional_openai_excluded_cases.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/additional_openai_redteam_approval_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/additional_openai_redteam_approval_request.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/additional_openai_redteam_command_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/redteam/additional_openai_redteam_cost_bound_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/redteam/additional_openai_redteam_stop_criteria.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/redteam/additional_openai_redteam_redaction_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/redteam/additional_openai_redteam_trace_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-additional-openai-redteam-preflight/preflight_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-additional-openai-redteam-preflight/additional_openai_redteam_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "selected cases total is 4",
+      "status": "pass",
+      "detail": {
+        "subset_lines": 4,
+        "selection_selected_cases_total": 4
+      }
+    },
+    {
+      "name": "selected cases source lane is additional_openai_provider_redteam",
+      "status": "pass",
+      "detail": {
+        "source_lane_failures": []
+      }
+    },
+    {
+      "name": "approval remains absent and execution blocked",
+      "status": "pass",
+      "detail": {
+        "explicit_user_approval_present": false,
+        "can_execute_additional_openai_redteam": false
+      }
+    },
+    {
+      "name": "no execution occurred",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_redteam_execution": false,
+        "local_model_execution": false,
+        "telemetry_connection": false
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "blocker update records approval pending",
+      "status": "pass",
+      "detail": {
+        "new_status": "additional_openai_provider_redteam_preflight_ready_approval_pending"
+      }
+    },
+    {
+      "name": "unresolved item records approval blocker only",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 1,
+        "ids": [
+          "AORP-001"
+        ]
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "additional-openai-redteam-preflight-completed",
+    "additional-openai-redteam-case-subset-selected",
+    "additional-openai-redteam-approval-packet-generated",
+    "additional-openai-redteam-command-plan-drafted",
+    "additional-openai-redteam-execution-preconditions-validated",
+    "additional-openai-redteam-blocker-updated"
+  ],
+  "claims_blocked": [
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "integration-verified"
+  ]
+}

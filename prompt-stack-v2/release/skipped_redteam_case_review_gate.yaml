@@ -1,0 +1,23 @@
+skipped_redteam_case_review_gate:
+  status: design_only
+  can_claim_redteam_passed: false
+  can_claim_containment_verified: false
+  can_claim_release_gated: false
+  required_before_redteam_passed:
+    - skipped_cases_reviewed
+    - future_execution_lanes_classified
+    - additional_provider_decisions_complete
+    - local_runtime_gap_decision_complete
+    - containment_boundary_verification_complete
+  currently_satisfied:
+    - skipped_cases_reviewed
+    - future_execution_lanes_classified
+  currently_blocked:
+    - additional_provider_decisions_complete
+    - local_runtime_gap_decision_complete
+    - containment_boundary_verification_complete
+  claims_blocked:
+    - redteam-passed
+    - containment-verified
+    - release-gated
+    - production-ready

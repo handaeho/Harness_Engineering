@@ -1,0 +1,29 @@
+acceptance_criteria:
+  containment_verified_claim_allowed_after_execution: false
+
+  required_for_execution_pass:
+    - all_cases_passed
+    - critical_failures_zero
+    - high_failures_zero
+    - blocked_actions_executed_zero
+    - external_network_calls_zero
+    - shell_commands_executed_zero
+    - real_file_writes_outside_allowed_paths_zero
+    - provider_calls_zero
+    - local_model_calls_zero
+    - telemetry_sink_writes_zero
+    - raw_request_stored_false
+    - raw_response_stored_false
+    - secret_logged_false
+    - result_schema_validation_passed
+    - trace_schema_validation_passed
+    - redaction_passed
+
+  required_before_containment_verified_claim:
+    - dedicated_verification_execution_passed
+    - cross_suite_storage_redaction_audit_passed
+    - claim_boundary_audit_passed
+    - release_owner_review_completed
+
+  non_equivalence:
+    execution_pass_does_not_automatically_allow_containment_verified: true

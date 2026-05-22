@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_path",
+    "finding_type",
+    "severity",
+    "status",
+    "line_or_offset",
+    "context_classification",
+    "action_required"
+  ],
+  "properties": {
+    "artifact_path": {
+      "type": "string"
+    },
+    "finding_type": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "allowed_context",
+        "violation",
+        "needs_review"
+      ]
+    },
+    "line_or_offset": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "context_classification": {
+      "type": "string"
+    },
+    "action_required": {
+      "type": "string"
+    }
+  }
+}

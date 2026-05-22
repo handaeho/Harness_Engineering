@@ -114,6 +114,23 @@ check("stack.yaml validates against schemas/stack.schema.json", () => {
   return { schema: "schemas/stack.schema.json" };
 });
 
+check("AGENTS.md System of Record entrypoint is declared", () => {
+  const stack = parseYamlFile(p("stack.yaml"));
+  if (!fs.existsSync(p("AGENTS.md"))) throw new Error("AGENTS.md missing");
+  if (!fs.existsSync(p("MANIFEST.asset_classes.yaml"))) throw new Error("MANIFEST.asset_classes.yaml missing");
+  if (stack.agent_entrypoint?.path !== "AGENTS.md") throw new Error("agent_entrypoint.path must be AGENTS.md");
+  if (stack.asset_class_manifest?.path !== "MANIFEST.asset_classes.yaml") {
+    throw new Error("asset_class_manifest.path must be MANIFEST.asset_classes.yaml");
+  }
+  if (!Array.isArray(stack.source_of_truth?.agent_index) || !stack.source_of_truth.agent_index.includes("AGENTS.md")) {
+    throw new Error("source_of_truth.agent_index must include AGENTS.md");
+  }
+  return {
+    agent_entrypoint: stack.agent_entrypoint.path,
+    asset_class_manifest: stack.asset_class_manifest.path
+  };
+});
+
 check("adapter.yaml files validate against schemas/adapter.schema.json", () => {
   const schema = loadSchema(p("schemas", "adapter.schema.json"));
   const adapters = [
@@ -140,6 +157,18 @@ check("provider_capability_matrix.yaml validates against schema", () => {
 check("release_gate.yaml validates and blocks forbidden claims", () => {
   const gate = parseYamlFile(p("release", "release_gate.yaml"));
   validateWithSchema(ajv, loadSchema(p("schemas", "release_gate.schema.json")), gate, "release/release_gate.yaml");
+  let containmentVerifiedConditionallyAllowed = false;
+  try {
+    const decision = readJson(p("evidence", "beta-containment-verified-decision-gate", "containment_verified_decision_report.json"));
+    containmentVerifiedConditionallyAllowed = decision.status === "containment_verified_decision_approved"
+      && decision.owner_final_decision_present === true
+      && decision.owner_final_decision === "approve_containment_verified"
+      && decision.containment_verified_allowed === true
+      && decision.release_gated_allowed === false
+      && decision.production_ready_allowed === false;
+  } catch {
+    containmentVerifiedConditionallyAllowed = false;
+  }
   const requiredBlocked = [
     "adapter-checked",
     "provider-verified",
@@ -149,17 +178,20 @@ check("release_gate.yaml validates and blocks forbidden claims", () => {
     "telemetry-connected",
     "production-ready",
     "production-monitored",
-    "containment-verified",
     "replay-verified",
     "benchmark-backed",
     "provider-diverse",
     "integration-verified",
+    "stable",
     "release-gated"
   ];
+  if (!containmentVerifiedConditionallyAllowed) {
+    requiredBlocked.push("containment-verified");
+  }
   const blocked = new Set(gate.prohibited_positive_claims || []);
   const missing = requiredBlocked.filter((claim) => !blocked.has(claim));
   if (missing.length) throw new Error(`release gate missing blocked claims: ${missing.join(", ")}`);
-  return { blocked_count: blocked.size };
+  return { blocked_count: blocked.size, containment_verified_conditionally_allowed: containmentVerifiedConditionallyAllowed };
 });
 
 check("observability schemas register with Ajv", () => {
@@ -239,6 +271,7 @@ const report = {
     "benchmark-backed",
     "provider-diverse",
     "integration-verified",
+    "stable",
     "release-gated"
   ]
 };

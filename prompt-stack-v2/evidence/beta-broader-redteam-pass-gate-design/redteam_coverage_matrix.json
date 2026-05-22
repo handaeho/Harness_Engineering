@@ -1,0 +1,111 @@
+{
+  "status": "partial",
+  "source_evidence": {
+    "redteam_suite_design": "pass",
+    "fixture_cases_total": 47,
+    "mock_runtime_dry_run": "pass",
+    "mock_cases_executed": 35,
+    "mock_cases_skipped_not_mock_compatible": 12,
+    "openai_limited_result_review": "pass",
+    "openai_limited_cases_executed": 12,
+    "openai_limited_cases_passed": 12
+  },
+  "surfaces": {
+    "mock_runtime": {
+      "coverage_status": "covered_mock_dry_run",
+      "evidence": [
+        "evidence/beta-redteam-mock-runtime-dry-run/redteam_mock_runtime_dry_run_report.json"
+      ],
+      "claim_level": "mock_dry_run_only"
+    },
+    "mock_tools": {
+      "coverage_status": "covered_mock_dry_run",
+      "evidence": [
+        "evidence/beta-redteam-mock-runtime-dry-run/redteam_case_results.jsonl"
+      ],
+      "claim_level": "mock_dry_run_only"
+    },
+    "approval_gate": {
+      "coverage_status": "covered_mock_dry_run",
+      "evidence": [
+        "evidence/beta-redteam-mock-runtime-dry-run/redteam_case_results.jsonl"
+      ],
+      "claim_level": "mock_dry_run_only"
+    },
+    "tool_output_reclassification": {
+      "coverage_status": "covered_mock_and_limited_provider_execution",
+      "evidence": [
+        "evidence/beta-redteam-mock-runtime-dry-run/redteam_case_results.jsonl",
+        "evidence/beta-openai-redteam-limited-execution/redteam_case_results.jsonl"
+      ],
+      "claim_level": "limited_provider_redteam_only"
+    },
+    "structured_output_boundary": {
+      "coverage_status": "covered_mock_and_limited_provider_execution",
+      "evidence": [
+        "evidence/beta-redteam-mock-runtime-dry-run/redteam_case_results.jsonl",
+        "evidence/beta-openai-redteam-limited-execution/redteam_case_results.jsonl"
+      ],
+      "claim_level": "limited_provider_redteam_only"
+    },
+    "schema_boundary": {
+      "coverage_status": "covered_mock_and_limited_provider_execution",
+      "evidence": [
+        "evidence/beta-redteam-mock-runtime-dry-run/redteam_case_results.jsonl",
+        "evidence/beta-openai-redteam-limited-execution/redteam_case_results.jsonl"
+      ],
+      "claim_level": "limited_provider_redteam_only"
+    },
+    "openai_no_tool": {
+      "coverage_status": "covered_limited_provider_execution",
+      "evidence": [
+        "evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json"
+      ],
+      "claim_level": "limited_provider_redteam_only"
+    },
+    "openai_structured_output": {
+      "coverage_status": "covered_limited_provider_execution",
+      "evidence": [
+        "evidence/beta-openai-redteam-limited-execution/redteam_case_results.jsonl"
+      ],
+      "claim_level": "limited_provider_redteam_only"
+    },
+    "openai_tool_calling_mock_tools": {
+      "coverage_status": "covered_limited_provider_execution",
+      "evidence": [
+        "evidence/beta-openai-redteam-limited-execution/redteam_case_results.jsonl"
+      ],
+      "claim_level": "limited_provider_redteam_only"
+    },
+    "local_vllm": {
+      "coverage_status": "not_executed_blocked_by_missing_endpoint",
+      "evidence": [
+        "evidence/beta-canary-matrix-summary/local_readiness_blockers.json"
+      ],
+      "claim_level": "blocked"
+    },
+    "local_ollama": {
+      "coverage_status": "not_executed_blocked_by_missing_endpoint",
+      "evidence": [
+        "evidence/beta-canary-matrix-summary/local_readiness_blockers.json"
+      ],
+      "claim_level": "blocked"
+    },
+    "future_rag": {
+      "coverage_status": "not_executed_future_lane",
+      "evidence": [
+        "security/redteam/redteam_taxonomy.yaml"
+      ],
+      "claim_level": "future_gap"
+    },
+    "production_telemetry": {
+      "coverage_status": "not_connected_design_and_preflight_only",
+      "evidence": [
+        "evidence/beta-production-telemetry-design/production_telemetry_design_report.json",
+        "evidence/beta-production-telemetry-connection-preflight/preflight_report.json"
+      ],
+      "claim_level": "telemetry_blocked"
+    }
+  },
+  "overall_coverage_status": "partial_not_redteam_passed"
+}

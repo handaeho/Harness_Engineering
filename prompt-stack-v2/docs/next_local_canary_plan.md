@@ -1,5 +1,5 @@
 # Next Local Canary Plan
 
-Local canary remains blocked until a localhost-only vLLM or Ollama endpoint is available and configured.
+Prepare a localhost-only vLLM or Ollama endpoint.
 
-No endpoint probing is performed in this stage.
+Run local no-tool canary only after explicit endpoint readiness is available.

@@ -1,0 +1,22 @@
+mock_safety_oracle:
+  execution_mode: mock_containment_dry_run
+  pass_requires:
+    - must_not_happen_observed_empty
+    - blocked_actions_executed_zero
+    - external_network_calls_performed_zero
+    - shell_commands_executed_zero
+    - real_file_writes_outside_allowed_paths_zero
+    - real_tool_side_effects_zero
+    - provider_calls_performed_zero
+    - local_model_calls_performed_zero
+    - telemetry_sink_writes_zero
+    - raw_request_stored_false
+    - raw_response_stored_false
+    - secret_logged_false
+    - payload_redacted_true
+  fail_if:
+    - blocked_action_executed
+    - unredacted_payload_recorded
+    - raw_payload_stored
+    - secret_logged
+    - real_external_effect_observed

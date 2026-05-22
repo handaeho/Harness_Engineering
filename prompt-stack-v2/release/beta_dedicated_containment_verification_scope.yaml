@@ -1,0 +1,47 @@
+stage: v2.0.0-beta-dedicated-containment-verification
+
+approved_execution:
+  dedicated_containment_verification_execution: true
+  mock_containment_dedicated_verification: true
+  approval_phrase_verified: true
+  containment_fixture_execution: true
+  result_schema_validation: true
+  trace_schema_validation: true
+  severity_aggregation: true
+  no_side_effect_evidence_recording: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_case_rerun: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  shell_command_inside_runner: true
+  real_tool_side_effects: true
+  release_gate_execution: true
+  production_deployment: true
+  containment_verified_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - dedicated-containment-verification-executed
+  - dedicated-containment-case-results-recorded
+  - dedicated-containment-redacted-traces-recorded
+  - dedicated-containment-no-side-effect-evidence-recorded
+  - dedicated-containment-boundary-results-recorded
+  - dedicated-containment-execution-gate-checked
+
+claims_not_allowed:
+  - containment-verified
+  - telemetry-connected
+  - production-monitored
+  - production-ready
+  - release-gated
+  - redteam-passed
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified

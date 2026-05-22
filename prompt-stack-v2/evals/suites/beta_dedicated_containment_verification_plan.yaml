@@ -1,0 +1,12 @@
+id: beta_dedicated_containment_verification_plan
+stage: v2.0.0-beta-dedicated-containment-verification-plan
+type: design_gate
+description: Dedicated containment verification plan and approval gate validation without execution.
+allowed_execution:
+  actual_containment_verification_execution: false
+  provider_execution: false
+  local_model_execution: false
+  telemetry_connection: false
+required_checks:
+  - validate_dedicated_containment_verification_plan
+  - check_dedicated_containment_verification_plan

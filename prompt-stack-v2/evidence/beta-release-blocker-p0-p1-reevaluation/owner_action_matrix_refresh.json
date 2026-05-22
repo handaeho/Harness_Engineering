@@ -1,0 +1,37 @@
+{
+  "status": "refreshed",
+  "actions": [
+    {
+      "lane": "openai_only_rc1",
+      "owner": "agent",
+      "next_action": "Build rc.1 evidence bundle with explicit OpenAI-only scope and blocked claims.",
+      "blocks": []
+    },
+    {
+      "lane": "strict_provider_diverse",
+      "owner": "human",
+      "next_action": "Provide local vLLM/Ollama endpoint or second provider path.",
+      "blocks": [
+        "provider-diverse",
+        "local-model-verified"
+      ]
+    },
+    {
+      "lane": "telemetry",
+      "owner": "human",
+      "next_action": "Provide telemetry approval phrase and sink credentials if production monitoring is desired.",
+      "blocks": [
+        "production-monitored",
+        "production-ready"
+      ]
+    },
+    {
+      "lane": "release_gate",
+      "owner": "agent",
+      "next_action": "Prepare rc.1 bundle before actual release gate execution.",
+      "blocks": [
+        "release-gated"
+      ]
+    }
+  ]
+}

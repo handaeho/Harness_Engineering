@@ -1,0 +1,133 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-rc.1-agents-md-and-system-of-record-alignment",
+  "generated_at": "2026-05-22T07:22:23.642Z",
+  "agents_md_exists": true,
+  "asset_class_manifest_exists": true,
+  "system_of_record_aligned": true,
+  "new_provider_execution": false,
+  "local_model_execution": false,
+  "telemetry_connection": false,
+  "release_gate_execution": false,
+  "dist_modified": false,
+  "v36_modified": false,
+  "checks": [
+    {
+      "name": "AGENTS.md exists",
+      "status": "pass",
+      "detail": {
+        "path": "AGENTS.md"
+      }
+    },
+    {
+      "name": "MANIFEST.asset_classes.yaml exists",
+      "status": "pass",
+      "detail": {
+        "path": "MANIFEST.asset_classes.yaml"
+      }
+    },
+    {
+      "name": "stack.yaml declares AGENTS.md entrypoint and asset manifest",
+      "status": "pass",
+      "detail": {
+        "agent_entrypoint": "AGENTS.md",
+        "asset_class_manifest": "MANIFEST.asset_classes.yaml"
+      }
+    },
+    {
+      "name": "stack.yaml source_of_truth includes required records",
+      "status": "pass",
+      "detail": {
+        "agent_index": [
+          "AGENTS.md"
+        ],
+        "machine_manifest": [
+          "stack.yaml",
+          "stack.schema.json"
+        ],
+        "core_contract": [
+          "core/spec/harness.spec.yaml"
+        ],
+        "release_contract": [
+          "release/claim_ladder.md",
+          "release/release_gate.yaml"
+        ],
+        "capability_contract": [
+          "adapters/provider_capability_matrix.yaml"
+        ],
+        "evidence_truth": [
+          "evidence/"
+        ]
+      }
+    },
+    {
+      "name": "AGENTS.md mentions required operating sections",
+      "status": "pass",
+      "detail": {
+        "checked": 8
+      }
+    },
+    {
+      "name": "asset class manifest contains required classes",
+      "status": "pass",
+      "detail": {
+        "classes": [
+          "core_source",
+          "evidence",
+          "human_docs",
+          "generated_or_ignored",
+          "immutable_baseline"
+        ]
+      }
+    },
+    {
+      "name": "asset class manifest classifies generated and immutable paths",
+      "status": "pass",
+      "detail": {
+        "generated_or_ignored": [
+          "node_modules/",
+          "dist/"
+        ],
+        "immutable_baseline": [
+          "prompt-stack/v36/"
+        ]
+      }
+    },
+    {
+      "name": "docs required by alignment exist",
+      "status": "pass",
+      "detail": {
+        "docs": [
+          "docs/system_of_record.md",
+          "docs/directory_roles.md",
+          "docs/naming_conventions.md",
+          "docs/agent_workflow.md",
+          "docs/asset_classes.md",
+          "docs/agent_entrypoint_policy.md",
+          "docs/system_of_record_alignment.md",
+          "docs/next_rc1_evidence_bundle_plan.md"
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "claims_allowed": [
+    "agents-md-root-entrypoint-added",
+    "system-of-record-aligned",
+    "asset-classes-manifested",
+    "directory-roles-documented",
+    "naming-conventions-documented",
+    "agent-workflow-documented"
+  ],
+  "claims_blocked": [
+    "stable",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "integration-verified"
+  ]
+}

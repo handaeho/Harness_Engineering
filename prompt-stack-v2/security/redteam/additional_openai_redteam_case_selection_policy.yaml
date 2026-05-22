@@ -1,0 +1,10 @@
+additional_openai_redteam_case_selection_policy:
+  source_evidence: evidence/beta-skipped-redteam-case-review/remaining_provider_compatible_cases.jsonl
+  required_source_lane: additional_openai_provider_redteam
+  max_cases_total: 4
+  exclude_existing_limited_case_id_duplicates: true
+  provider_surfaces_allowed:
+    - openai_no_tool
+    - openai_structured_output
+    - openai_tool_calling_mock_tools
+  execution_allowed_in_this_stage: false

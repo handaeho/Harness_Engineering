@@ -1,0 +1,189 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-dedicated-containment-verification-plan",
+  "checks": [
+    {
+      "name": "release/beta_dedicated_containment_verification_plan_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/dedicated_containment_verification_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/dedicated_containment_verification_approval_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/dedicated_containment_verification_command_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/dedicated_containment_verification_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/dedicated_containment_runner_contract.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/dedicated_containment_acceptance_criteria.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/dedicated_containment_failure_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/dedicated_containment_risk_acceptance_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/dedicated_containment_verification_plan_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/criteria_satisfaction_matrix.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/dedicated_verification_methods.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/runner_contract_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/approval_gate_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/command_plan_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/acceptance_criteria_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/failure_policy_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/risk_acceptance_policy_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/containment_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/containment_dedicated_verification_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "plan report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "no execution flags remain false",
+      "status": "pass",
+      "detail": {
+        "actual_containment_verification_execution": false,
+        "new_provider_execution": false,
+        "local_model_execution": false,
+        "telemetry_connection": false
+      }
+    },
+    {
+      "name": "approval gate remains closed",
+      "status": "pass",
+      "detail": {
+        "explicit_user_approval_present": false,
+        "can_execute_dedicated_containment_verification": false
+      }
+    },
+    {
+      "name": "criteria matrix valid",
+      "status": "pass",
+      "detail": {
+        "status": "partial_ready_for_dedicated_verification_plan",
+        "criteria_count": 4,
+        "cvr_002_status": "satisfied"
+      }
+    },
+    {
+      "name": "dedicated methods cover all boundaries",
+      "status": "pass",
+      "detail": {
+        "methods_count": 9
+      }
+    },
+    {
+      "name": "claim boundary closed",
+      "status": "pass",
+      "detail": {
+        "containment_verified_allowed": false,
+        "release_gated_allowed": false,
+        "production_ready_allowed": false
+      }
+    },
+    {
+      "name": "blocker update valid",
+      "status": "pass",
+      "detail": {
+        "new_status": "dedicated_containment_verification_plan_ready_execution_pending"
+      }
+    },
+    {
+      "name": "future execution runner not created in plan stage",
+      "status": "pass",
+      "detail": {
+        "run_exists": false,
+        "check_exists": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "dedicated-containment-verification-plan-drafted",
+    "dedicated-containment-runner-contract-drafted",
+    "dedicated-containment-acceptance-criteria-drafted",
+    "containment-risk-acceptance-policy-drafted",
+    "containment-dedicated-verification-gate-designed",
+    "containment-dedicated-verification-blocker-updated"
+  ],
+  "claims_blocked": [
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-verified",
+    "provider-diverse",
+    "adapter-checked",
+    "integration-verified"
+  ]
+}

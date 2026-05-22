@@ -1,0 +1,226 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-dedicated-containment-verification-plan",
+  "can_enter_dedicated_containment_verification_execution": false,
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "reason": "Dedicated containment verification plan is ready, but explicit approval and execution are required before any verification claim can be considered.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "check_cross_suite_storage_redaction_audit.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "validate_dedicated_containment_verification_plan.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "security/containment/dedicated_containment_verification_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/dedicated_containment_runner_contract.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/dedicated_containment_verification_approval_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/dedicated_containment_verification_command_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/dedicated_containment_acceptance_criteria.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/dedicated_containment_failure_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/dedicated_containment_risk_acceptance_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/dedicated_containment_verification_plan_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/criteria_satisfaction_matrix.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/dedicated_verification_methods.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/containment_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification-plan/containment_dedicated_verification_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "no execution occurred in plan stage",
+      "status": "pass",
+      "detail": {
+        "actual_containment_verification_execution": false,
+        "new_provider_execution": false,
+        "local_model_execution": false,
+        "telemetry_connection": false,
+        "containment_fixture_rerun": false
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "approval gate remains closed",
+      "status": "pass",
+      "detail": {
+        "explicit_user_approval_present": false,
+        "can_execute_dedicated_containment_verification": false
+      }
+    },
+    {
+      "name": "criteria satisfaction matrix ready",
+      "status": "pass",
+      "detail": {
+        "status": "partial_ready_for_dedicated_verification_plan",
+        "cvr_002_status": "satisfied"
+      }
+    },
+    {
+      "name": "dedicated verification methods drafted",
+      "status": "pass",
+      "detail": {
+        "methods_count": 9
+      }
+    },
+    {
+      "name": "claim boundary remains closed",
+      "status": "pass",
+      "detail": {
+        "containment_verified_allowed": false,
+        "release_gated_allowed": false,
+        "production_ready_allowed": false
+      }
+    },
+    {
+      "name": "blocker update records execution pending",
+      "status": "pass",
+      "detail": {
+        "new_status": "dedicated_containment_verification_plan_ready_execution_pending"
+      }
+    },
+    {
+      "name": "future execution runner absent",
+      "status": "pass",
+      "detail": {
+        "run_exists": false,
+        "check_exists": false
+      }
+    },
+    {
+      "name": "unresolved items empty on pass",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "dedicated-containment-verification-plan-drafted",
+    "dedicated-containment-runner-contract-drafted",
+    "dedicated-containment-acceptance-criteria-drafted",
+    "containment-risk-acceptance-policy-drafted",
+    "containment-dedicated-verification-gate-designed",
+    "containment-dedicated-verification-blocker-updated"
+  ],
+  "claims_blocked": [
+    "containment-verified",
+    "telemetry-connected",
+    "production-monitored",
+    "production-ready",
+    "release-gated",
+    "redteam-passed",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "integration-verified",
+    "benchmark-backed"
+  ]
+}

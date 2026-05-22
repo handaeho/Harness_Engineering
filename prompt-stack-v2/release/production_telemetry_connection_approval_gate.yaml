@@ -1,0 +1,22 @@
+approval_gate:
+  stage: v2.0.0-beta-production-telemetry-connection-preflight
+  explicit_user_approval_required: true
+  explicit_user_approval_present: false
+  can_connect_telemetry: false
+  approval_phrase_required: I explicitly approve v2.0.0-beta-production-telemetry-connection
+  approval_source_allowed:
+    - user_message
+  execution_not_allowed_until:
+    - explicit_user_approval_present
+    - telemetry_sink_credentials_present
+    - telemetry_schema_valid
+    - trace_schema_valid
+    - redaction_policy_valid
+    - exporter_guard_valid
+    - payload_shape_valid
+    - command_plan_exists
+  claims_blocked_until_connection:
+    - telemetry-connected
+    - production-monitored
+    - production-ready
+    - release-gated

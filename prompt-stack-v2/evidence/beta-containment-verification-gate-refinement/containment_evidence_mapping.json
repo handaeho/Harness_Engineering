@@ -1,0 +1,330 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-containment-verification-gate-refinement-and-release-blocker-refresh",
+  "mapping_status": "mapped_not_verified",
+  "entries": [
+    {
+      "boundary": "approval_boundary",
+      "evidence_path": "evidence/beta-mock-execution/approval_boundary_report.json",
+      "evidence_type": "mock_runtime",
+      "status": "pass",
+      "supports": [
+        "approval boundary smoke test"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "approval_boundary",
+      "evidence_path": "evidence/beta-tool-calling-canary-openai/approval_boundary_report.json",
+      "evidence_type": "canary",
+      "status": "pass",
+      "supports": [
+        "OpenAI tool-calling approval boundary canary"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "approval_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-mock-dry-run/containment_boundary_summary.json",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "pass",
+      "supports": [
+        "approval boundary mock dry-run pass"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "tool_execution_boundary",
+      "evidence_path": "evidence/beta-mock-execution/execution_report.json",
+      "evidence_type": "mock_runtime",
+      "status": "pass",
+      "supports": [
+        "blocked tools did not execute in mock runtime"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "tool_execution_boundary",
+      "evidence_path": "evidence/beta-tool-calling-canary-openai/tool_execution_report.json",
+      "evidence_type": "canary",
+      "status": "pass",
+      "supports": [
+        "tool execution canary path checked"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "tool_execution_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-mock-dry-run/containment_case_results.jsonl",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "pass",
+      "supports": [
+        "tool boundary cases passed in mock dry-run"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "external_side_effect_boundary",
+      "evidence_path": "evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json",
+      "evidence_type": "redteam",
+      "status": "pass",
+      "supports": [
+        "limited provider redteam recorded external_side_effects false"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "external_side_effect_boundary",
+      "evidence_path": "evidence/beta-additional-openai-redteam-execution/additional_openai_redteam_execution_report.json",
+      "evidence_type": "redteam",
+      "status": "pass",
+      "supports": [
+        "additional provider redteam recorded external_side_effects false"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "external_side_effect_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "pass",
+      "supports": [
+        "mock no-side-effect counters zero"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "file_write_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "pass",
+      "supports": [
+        "real file writes outside allowed paths zero"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "shell_execution_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "pass",
+      "supports": [
+        "shell commands executed zero"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "network_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "pass",
+      "supports": [
+        "external network calls performed zero"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "raw_storage_boundary",
+      "evidence_path": "evidence/beta-openai-redteam-limited-execution/redaction_report.json",
+      "evidence_type": "redteam",
+      "status": "pass",
+      "supports": [
+        "limited redteam raw request and response storage false"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": false
+    },
+    {
+      "boundary": "raw_storage_boundary",
+      "evidence_path": "evidence/beta-additional-openai-redteam-execution/redaction_report.json",
+      "evidence_type": "redteam",
+      "status": "pass",
+      "supports": [
+        "additional redteam raw request and response storage false"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "raw_storage_boundary",
+      "evidence_path": "evidence/beta-openai-canary-replay-suite/suite_redaction_report.json",
+      "evidence_type": "replay_suite",
+      "status": "pass",
+      "supports": [
+        "canary replay suite redaction report recorded"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "raw_storage_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "pass",
+      "supports": [
+        "mock raw request and response storage false"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "trace_redaction_boundary",
+      "evidence_path": "evidence/beta-openai-redteam-limited-execution/redteam_trace_samples.jsonl",
+      "evidence_type": "redteam",
+      "status": "pass",
+      "supports": [
+        "limited redteam redacted trace samples recorded"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "trace_redaction_boundary",
+      "evidence_path": "evidence/beta-additional-openai-redteam-execution/additional_openai_trace_samples.jsonl",
+      "evidence_type": "redteam",
+      "status": "pass",
+      "supports": [
+        "additional redteam redacted trace samples recorded"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "trace_redaction_boundary",
+      "evidence_path": "evidence/beta-openai-tool-calling-replay-rerun/replay_trace_comparison.json",
+      "evidence_type": "replay_suite",
+      "status": "pass",
+      "supports": [
+        "tool-calling replay trace comparison recorded"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "trace_redaction_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-mock-dry-run/containment_trace_samples.jsonl",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "pass",
+      "supports": [
+        "mock containment trace samples redacted"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "tool_output_trust_boundary",
+      "evidence_path": "evidence/beta-tool-calling-canary-openai/tool_argument_validation_report.json",
+      "evidence_type": "canary",
+      "status": "pass",
+      "supports": [
+        "tool argument schema canary validated"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "tool_output_trust_boundary",
+      "evidence_path": "evidence/beta-openai-tool-calling-replay-rerun/replay_comparison_report.json",
+      "evidence_type": "replay_suite",
+      "status": "pass",
+      "supports": [
+        "tool-calling replay comparison recorded"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "tool_output_trust_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-mock-dry-run/containment_case_results.jsonl",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "pass",
+      "supports": [
+        "tool output trust cases passed in mock dry-run"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    },
+    {
+      "boundary": "approval_boundary",
+      "evidence_path": "evidence/beta-containment-boundary-verification-design/containment_boundary_verification_design_report.json",
+      "evidence_type": "containment_mock_dry_run",
+      "status": "partial",
+      "supports": [
+        "containment boundary design exists"
+      ],
+      "does_not_support": [
+        "containment-verified"
+      ],
+      "evidence_exists": true
+    }
+  ],
+  "source_evidence_prefixes": [
+    "evidence/beta-mock-execution/",
+    "evidence/beta-tool-calling-canary-openai/",
+    "evidence/beta-openai-tool-calling-replay-rerun/",
+    "evidence/beta-openai-canary-replay-suite/",
+    "evidence/beta-openai-redteam-limited-execution/",
+    "evidence/beta-additional-openai-redteam-execution/",
+    "evidence/beta-containment-boundary-verification-design/",
+    "evidence/beta-containment-boundary-mock-dry-run/"
+  ],
+  "containment_verified_allowed": false
+}

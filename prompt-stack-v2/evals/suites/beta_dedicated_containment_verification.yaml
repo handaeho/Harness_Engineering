@@ -1,0 +1,17 @@
+id: beta_dedicated_containment_verification
+stage: v2.0.0-beta-dedicated-containment-verification
+type: execution_gate
+description: Approved dedicated containment verification execution in deterministic mock containment dedicated verification mode.
+approved_execution:
+  approval_phrase_required: "I explicitly approve v2.0.0-beta-dedicated-containment-verification"
+  provider_execution: false
+  local_model_execution: false
+  telemetry_connection: false
+  external_side_effects: false
+required_checks:
+  - run_dedicated_containment_verification
+  - check_dedicated_containment_verification
+claim_boundary:
+  containment_verified_allowed: false
+  release_gated_allowed: false
+  production_ready_allowed: false

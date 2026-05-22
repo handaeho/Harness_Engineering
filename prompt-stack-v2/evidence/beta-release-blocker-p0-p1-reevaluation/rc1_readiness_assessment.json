@@ -1,0 +1,25 @@
+{
+  "status": "candidate_possible_with_openai_only_scope",
+  "stage": "v2.0.0-beta-release-blocker-p0-p1-reevaluation",
+  "openai_only_rc1_possible": true,
+  "strict_provider_diverse_rc1_possible": false,
+  "reasons_openai_only_possible": [
+    "OpenAI canary replay suite passed",
+    "OpenAI limited and additional redteam executions passed",
+    "Containment-verified allowed for beta containment evidence scope",
+    "Cross-suite storage/redaction audit passed",
+    "Release evidence bundle exists"
+  ],
+  "reasons_strict_provider_diverse_blocked": [
+    "Local runtime canary not executed",
+    "Provider diversity not established",
+    "No second provider or local runtime evidence"
+  ],
+  "must_disclaim_for_openai_only_rc1": [
+    "not provider-diverse",
+    "not production-monitored",
+    "not local-model-verified",
+    "not production-ready"
+  ],
+  "recommended_next_stage": "v2.0.0-rc.1-evidence-bundle-openai-scope"
+}

@@ -1,0 +1,45 @@
+stage: v2.0.0-beta-broader-redteam-pass-gate-design
+
+approved_actions:
+  broader_redteam_pass_gate_design: true
+  redteam_coverage_matrix_generation: true
+  redteam_gap_analysis: true
+  redteam_pass_threshold_design: true
+  remaining_execution_lane_design: true
+  claim_boundary_audit: true
+  blocker_update: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_case_rerun: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  real_tool_side_effects: true
+  release_gate_execution: true
+  production_deployment: true
+  redteam_passed_claim: true
+  containment_verified_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - broader-redteam-pass-gate-designed
+  - redteam-coverage-matrix-drafted
+  - redteam-gap-analysis-recorded
+  - redteam-pass-thresholds-drafted
+  - redteam-pass-claim-boundary-audited
+  - redteam-remaining-execution-lanes-indexed
+
+claims_not_allowed:
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified

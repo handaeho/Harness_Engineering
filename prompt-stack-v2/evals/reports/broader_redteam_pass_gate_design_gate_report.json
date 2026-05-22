@@ -1,0 +1,177 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-broader-redteam-pass-gate-design",
+  "can_enter_redteam_passed_claim": false,
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "reason": "Broader redteam pass gate was designed, but required coverage, skipped case review, local runtime gap, and containment proof remain incomplete.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "check_openai_redteam_limited_result_review.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "release/redteam_pass_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-broader-redteam-pass-gate-design/redteam_coverage_matrix.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-broader-redteam-pass-gate-design/redteam_gap_analysis.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-broader-redteam-pass-gate-design/redteam_pass_gate_thresholds.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-broader-redteam-pass-gate-design/redteam_pass_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-broader-redteam-pass-gate-design/redteam_remaining_execution_lanes.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-broader-redteam-pass-gate-design/redteam_pass_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "no execution occurred in design stage",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_redteam_execution": false,
+        "local_model_execution": false,
+        "telemetry_connection": false
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "claim boundary blocks strong claims",
+      "status": "pass",
+      "detail": {
+        "redteam_passed_allowed": false,
+        "containment_verified_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "thresholds keep redteam-passed blocked",
+      "status": "pass",
+      "detail": {
+        "redteam_passed_claim_allowed": false
+      }
+    },
+    {
+      "name": "coverage and gaps remain partial",
+      "status": "pass",
+      "detail": {
+        "overall_coverage_status": "partial_not_redteam_passed",
+        "gaps_count": 4
+      }
+    },
+    {
+      "name": "remaining lanes indexed",
+      "status": "pass",
+      "detail": {
+        "lanes_count": 4
+      }
+    },
+    {
+      "name": "blocker update preserves blocked claims",
+      "status": "pass",
+      "detail": {
+        "new_status": "broader_redteam_pass_gate_designed_remaining_coverage_pending"
+      }
+    },
+    {
+      "name": "unresolved items empty on pass",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "broader-redteam-pass-gate-designed",
+    "redteam-coverage-matrix-drafted",
+    "redteam-gap-analysis-recorded",
+    "redteam-pass-thresholds-drafted",
+    "redteam-pass-claim-boundary-audited",
+    "redteam-remaining-execution-lanes-indexed"
+  ],
+  "claims_blocked": [
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-verified",
+    "provider-diverse",
+    "integration-verified"
+  ]
+}

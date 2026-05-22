@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-broader-redteam-pass-gate-design",
+  "redteam_passed_allowed": false,
+  "containment_verified_allowed": false,
+  "release_gated_allowed": false,
+  "checks": [
+    {
+      "name": "redteam-passed remains blocked",
+      "status": "pass"
+    },
+    {
+      "name": "containment-verified remains blocked",
+      "status": "pass"
+    },
+    {
+      "name": "release-gated remains blocked",
+      "status": "pass"
+    },
+    {
+      "name": "forbidden positive claim scan pass",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    }
+  ],
+  "claims_blocked": [
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready"
+  ]
+}

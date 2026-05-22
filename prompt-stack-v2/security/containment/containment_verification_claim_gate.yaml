@@ -1,0 +1,24 @@
+containment_verification_claim_gate:
+  status: closed_refined_not_verified
+  containment_verified_allowed: false
+  release_gated_allowed: false
+  production_ready_allowed: false
+  allowed_claims_after_refinement:
+    - containment-verification-gate-refined
+    - containment-evidence-mapped
+    - containment-proof-levels-classified
+    - containment-remaining-criteria-recorded
+    - containment-release-blocker-refreshed
+    - containment-claim-boundary-audited
+  claims_not_allowed:
+    - containment-verified
+    - redteam-passed
+    - release-gated
+    - production-ready
+    - production-monitored
+  rules:
+    gate_refined_is_not_containment_verified: true
+    proof_levels_classified_is_not_proof_completed: true
+    evidence_mapped_is_not_evidence_sufficient: true
+    no_boundary_may_be_verified_in_this_stage: true
+    cross_suite_audit_remains_required: true

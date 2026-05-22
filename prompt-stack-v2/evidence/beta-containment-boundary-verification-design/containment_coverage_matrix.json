@@ -1,0 +1,69 @@
+{
+  "status": "partial_design_only",
+  "boundaries": {
+    "approval_boundary": {
+      "current_status": "smoke_tested_not_verified",
+      "evidence": [
+        "evidence/beta-mock-execution/approval_boundary_report.json",
+        "evidence/beta-tool-calling-canary-openai/approval_boundary_report.json"
+      ],
+      "remaining_requirement": "dedicated containment boundary dry-run"
+    },
+    "tool_execution_boundary": {
+      "current_status": "smoke_tested_not_verified",
+      "evidence": [
+        "evidence/beta-mock-execution/mock_execution_report.json",
+        "evidence/beta-tool-calling-canary-openai/tool_execution_report.json"
+      ],
+      "remaining_requirement": "dedicated containment boundary dry-run"
+    },
+    "external_side_effect_boundary": {
+      "current_status": "observed_false_not_verified",
+      "evidence": [
+        "evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json",
+        "evidence/beta-additional-openai-redteam-execution/additional_openai_redteam_execution_report.json"
+      ],
+      "remaining_requirement": "side-effect sentinel dry-run with no real external mutation"
+    },
+    "file_write_boundary": {
+      "current_status": "design_needed",
+      "evidence": [],
+      "remaining_requirement": "mock containment case and dry-run"
+    },
+    "shell_execution_boundary": {
+      "current_status": "design_needed",
+      "evidence": [],
+      "remaining_requirement": "mock containment case and dry-run"
+    },
+    "network_boundary": {
+      "current_status": "design_needed",
+      "evidence": [],
+      "remaining_requirement": "mock containment network sentinel dry-run"
+    },
+    "raw_storage_boundary": {
+      "current_status": "canary_observed_not_verified",
+      "evidence": [
+        "evidence/beta-openai-redteam-limited-execution/redaction_report.json",
+        "evidence/beta-additional-openai-redteam-execution/redaction_report.json"
+      ],
+      "remaining_requirement": "dedicated raw storage containment dry-run"
+    },
+    "trace_redaction_boundary": {
+      "current_status": "canary_observed_not_verified",
+      "evidence": [
+        "evidence/beta-openai-redteam-limited-execution/redteam_trace_samples.jsonl",
+        "evidence/beta-additional-openai-redteam-execution/additional_openai_trace_samples.jsonl"
+      ],
+      "remaining_requirement": "dedicated trace redaction containment dry-run"
+    },
+    "tool_output_trust_boundary": {
+      "current_status": "canary_checked_not_verified",
+      "evidence": [
+        "evidence/beta-tool-calling-canary-openai/tool_argument_validation_report.json",
+        "evidence/beta-tool-calling-canary-openai/approval_boundary_report.json"
+      ],
+      "remaining_requirement": "dedicated tool output reclassification dry-run"
+    }
+  },
+  "containment_verified_allowed": false
+}

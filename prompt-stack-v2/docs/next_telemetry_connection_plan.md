@@ -1,3 +1,3 @@
 # Next Telemetry Connection Plan
 
-Future connection requires explicit approval, telemetry sink credentials, schema validation, redaction review, and a first live trace/metric receipt gate.
+Telemetry remains disconnected. Connect telemetry only in a later approved stage with credentials and explicit approval.

@@ -1,10 +1,35 @@
 id: prompt-stack-v2
 version: 2.0.0-alpha
 status: alpha-skeleton
-source_of_truth:
+
+agent_entrypoint:
+  path: AGENTS.md
+  role: human_and_agent_facing_system_of_record_index
+
+legacy_source_of_truth:
   - stack.yaml
   - stack.schema.json
   - core/spec/harness.spec.yaml
+
+source_of_truth:
+  agent_index:
+    - AGENTS.md
+  machine_manifest:
+    - stack.yaml
+    - stack.schema.json
+  core_contract:
+    - core/spec/harness.spec.yaml
+  release_contract:
+    - release/claim_ladder.md
+    - release/release_gate.yaml
+  capability_contract:
+    - adapters/provider_capability_matrix.yaml
+  evidence_truth:
+    - evidence/
+
+asset_class_manifest:
+  path: MANIFEST.asset_classes.yaml
+
 baseline:
   source_package: prompt-stack/v36
   evidence_path: evidence/v36-baseline

@@ -1,0 +1,23 @@
+storage_redaction_audit_gate:
+  stage: v2.0.0-beta-cross-suite-storage-redaction-audit
+  status: design_gate_for_cross_suite_audit
+  can_claim_containment_verified: false
+  can_claim_telemetry_connected: false
+  can_claim_release_gated: false
+  can_claim_production_ready: false
+
+  required_for_pass:
+    - raw_request_storage_violations_zero
+    - raw_response_storage_violations_zero
+    - secret_pattern_violations_zero
+    - auth_header_violations_zero
+    - needs_review_findings_zero
+    - redaction_boundary_audit_passed
+    - raw_storage_audit_passed
+    - secret_pattern_audit_passed
+
+  explicit_non_equivalence:
+    - storage_redaction_audit_pass_is_not_containment_verified
+    - no_secret_findings_is_not_telemetry_connected
+    - audit_pass_resolves_one_criterion_only
+    - audit_pass_is_not_release_gate_pass

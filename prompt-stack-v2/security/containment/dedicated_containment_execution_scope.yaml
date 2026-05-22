@@ -1,0 +1,28 @@
+dedicated_containment_execution_scope:
+  execution_mode: mock_containment_dedicated_verification
+  design_stage_execution_allowed: false
+
+  included_boundaries:
+    - approval_boundary
+    - tool_execution_boundary
+    - external_side_effect_boundary
+    - file_write_boundary
+    - shell_execution_boundary
+    - network_boundary
+    - raw_storage_boundary
+    - trace_redaction_boundary
+    - tool_output_trust_boundary
+
+  excluded_execution:
+    openai_provider_call: true
+    local_model_execution: true
+    telemetry_connection: true
+    external_network_calls: true
+    shell_command_execution: true
+    real_tool_side_effects: true
+    release_gate_execution: true
+    production_deployment: true
+
+  allowed_writes_after_approval:
+    - evidence/beta-dedicated-containment-verification/
+    - evals/reports/

@@ -1,0 +1,15 @@
+blocker_update:
+  blocker_id: RTG-003
+  previous_status: containment_boundary_verification_designed_execution_pending
+  new_status: containment_boundary_mock_dry_run_passed_dedicated_verification_pending
+  still_blocks:
+    - containment-verified
+    - release-gated
+    - production-ready
+  unblocks:
+    - containment_mock_execution_path_validation
+    - no_side_effect_boundary_evidence
+  does_not_unblock:
+    - containment-verified
+    - release-gated
+    - production-ready

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OTLP Dry Payload Shape",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "trace_id",
+    "span_id",
+    "service_name",
+    "stage",
+    "adapter_id",
+    "event_name",
+    "timestamp",
+    "attributes",
+    "payload_redacted"
+  ],
+  "properties": {
+    "trace_id": {
+      "type": "string"
+    },
+    "span_id": {
+      "type": "string"
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "adapter_id": {
+      "type": "string"
+    },
+    "event_name": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "object"
+    },
+    "payload_redacted": {
+      "type": "boolean",
+      "const": true
+    }
+  }
+}

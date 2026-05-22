@@ -1,0 +1,26 @@
+stage: v2.0.0-beta-production-telemetry-connection-preflight
+suite: beta_production_telemetry_connection_preflight
+design_only: true
+live_telemetry_connected: false
+telemetry_sink_write_enabled: false
+exporter_network_call_performed: false
+required_artifacts:
+  - release/production_telemetry_connection_approval_gate.yaml
+  - release/production_telemetry_connection_approval_request.md
+  - release/production_telemetry_connection_command_plan.yaml
+  - observability/otel/otlp_payload_shape.schema.json
+  - observability/langfuse/langfuse_payload_shape.schema.json
+  - evidence/beta-production-telemetry-connection-preflight/preflight_report.json
+claims_allowed:
+  - production-telemetry-connection-preflight-completed
+  - telemetry-approval-packet-generated
+  - telemetry-credential-readiness-checked
+  - telemetry-payload-shape-validated
+  - telemetry-exporter-guard-checked
+  - telemetry-connection-command-plan-drafted
+  - telemetry-connection-blocker-updated
+claims_not_allowed:
+  - telemetry-connected
+  - production-monitored
+  - production-ready
+  - release-gated

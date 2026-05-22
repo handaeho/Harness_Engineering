@@ -1,0 +1,21 @@
+containment_evidence_mapping_policy:
+  status: active_for_gate_refinement
+  evidence_mapping_is_not_verification: true
+  mapped_evidence_must_preserve_source_stage: true
+  mapped_evidence_must_record_does_not_support:
+    - containment-verified
+  allowed_evidence_types:
+    - mock_runtime
+    - canary
+    - replay_suite
+    - redteam
+    - containment_mock_dry_run
+  required_source_prefixes:
+    - evidence/beta-mock-execution/
+    - evidence/beta-tool-calling-canary-openai/
+    - evidence/beta-openai-tool-calling-replay-rerun/
+    - evidence/beta-openai-canary-replay-suite/
+    - evidence/beta-openai-redteam-limited-execution/
+    - evidence/beta-additional-openai-redteam-execution/
+    - evidence/beta-containment-boundary-verification-design/
+    - evidence/beta-containment-boundary-mock-dry-run/

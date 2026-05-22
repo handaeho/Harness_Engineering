@@ -1,0 +1,12 @@
+containment_remaining_criteria:
+  status: owner_decision_pending
+  containment_verified_allowed: false
+  satisfied:
+    - cross_suite_raw_storage_audit_pass
+    - cross_suite_redaction_audit_pass
+    - dedicated_containment_verification_gate_pass
+    - post_execution_claim_boundary_audit_pass
+  remaining:
+    - explicit_owner_review_decision
+    - final_containment_claim_decision_gate
+    - release_gate_interaction_review

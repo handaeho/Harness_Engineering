@@ -1,0 +1,221 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-dedicated-containment-verification",
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "reason": "Dedicated containment verification execution passed, but containment-verified remains blocked until post-execution claim audit and release owner review complete.",
+  "checks": [
+    {
+      "name": "tools/run_dedicated_containment_verification.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_dedicated_containment_verification.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification/dedicated_containment_verification_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification/dedicated_containment_case_results.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification/dedicated_containment_trace_samples.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification/dedicated_containment_boundary_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification/dedicated_containment_no_side_effect_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification/dedicated_containment_schema_validation_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification/dedicated_containment_claim_impact_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification/containment_post_execution_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-dedicated-containment-verification/dedicated_containment_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "approval phrase verified and execution recorded",
+      "status": "pass",
+      "detail": {
+        "approval_phrase_verified": true,
+        "actual_containment_verification_execution": true,
+        "execution_mode": "mock_containment_dedicated_verification"
+      }
+    },
+    {
+      "name": "case result and trace counts match report",
+      "status": "pass",
+      "detail": {
+        "cases_total": 18,
+        "cases_executed": 18,
+        "case_result_count": 18,
+        "trace_count": 110
+      }
+    },
+    {
+      "name": "dedicated containment execution report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fixtures_total": 9,
+        "cases_total": 18,
+        "cases_failed": 0,
+        "critical_failures": 0,
+        "high_failures": 0
+      }
+    },
+    {
+      "name": "no provider/local/telemetry/external execution",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_redteam_execution": false,
+        "local_model_execution": false,
+        "telemetry_connection": false,
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "schema and severity validation pass",
+      "status": "pass",
+      "detail": {
+        "result_schema_validation_passed": true,
+        "trace_schema_validation_passed": true,
+        "severity_aggregation_passed": true,
+        "schema_status": "pass"
+      }
+    },
+    {
+      "name": "no-side-effect counters remain zero",
+      "status": "pass",
+      "detail": {
+        "no_side_effect_status": "pass"
+      }
+    },
+    {
+      "name": "raw storage and secrets remain false",
+      "status": "pass",
+      "detail": {
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "secret_logged": false,
+        "redaction_passed": true
+      }
+    },
+    {
+      "name": "claim boundary remains closed",
+      "status": "pass",
+      "detail": {
+        "containment_verified_allowed": false,
+        "release_gated_allowed": false,
+        "production_ready_allowed": false
+      }
+    },
+    {
+      "name": "boundary summary pass",
+      "status": "pass",
+      "detail": {
+        "boundary_summary_status": "pass",
+        "containment_verified_allowed": false
+      }
+    },
+    {
+      "name": "blocker update records post-execution audit pending",
+      "status": "pass",
+      "detail": {
+        "new_status": "dedicated_containment_verification_execution_passed_post_execution_claim_audit_pending"
+      }
+    },
+    {
+      "name": "runner avoids forbidden imports",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "unresolved items empty on pass",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "dedicated-containment-verification-executed",
+    "dedicated-containment-case-results-recorded",
+    "dedicated-containment-redacted-traces-recorded",
+    "dedicated-containment-no-side-effect-evidence-recorded",
+    "dedicated-containment-boundary-results-recorded",
+    "dedicated-containment-execution-gate-checked"
+  ],
+  "claims_blocked": [
+    "containment-verified",
+    "telemetry-connected",
+    "production-monitored",
+    "production-ready",
+    "release-gated",
+    "redteam-passed",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "integration-verified",
+    "benchmark-backed"
+  ]
+}

@@ -1,0 +1,29 @@
+dedicated_containment_verification_plan:
+  stage: v2.0.0-beta-dedicated-containment-verification-plan
+  status: ready_execution_pending
+  design_only: true
+  actual_containment_verification_execution: false
+  containment_verified_allowed: false
+
+  inputs:
+    - containment_boundary_verification_design_pass
+    - containment_boundary_mock_dry_run_pass
+    - containment_verification_gate_refinement_pass
+    - cross_suite_storage_redaction_audit_pass
+
+  output_stage_after_approval: v2.0.0-beta-dedicated-containment-verification
+
+  verifies_boundaries:
+    - approval_boundary
+    - tool_execution_boundary
+    - external_side_effect_boundary
+    - file_write_boundary
+    - shell_execution_boundary
+    - network_boundary
+    - raw_storage_boundary
+    - trace_redaction_boundary
+    - tool_output_trust_boundary
+
+  still_required_after_execution_pass:
+    - post_execution_claim_boundary_audit
+    - release_owner_review_completed

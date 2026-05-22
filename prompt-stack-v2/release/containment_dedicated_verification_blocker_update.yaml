@@ -1,0 +1,14 @@
+containment_dedicated_verification_blocker_update:
+  blocker_id: RTG-003
+  previous_status: containment_gate_refined_dedicated_verification_and_cross_suite_audit_pending
+  new_status: dedicated_containment_verification_plan_ready_execution_pending
+  still_blocks:
+    - containment-verified
+    - release-gated
+    - production-ready
+  unblocks:
+    - dedicated_containment_verification_execution_readiness
+  does_not_unblock:
+    - containment-verified
+    - release-gated
+    - production-ready

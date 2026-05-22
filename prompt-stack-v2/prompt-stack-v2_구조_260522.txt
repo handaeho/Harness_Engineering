@@ -1,0 +1,297 @@
+맞아요. 지금 구조가 꽤 커져서 헷갈릴 수 있습니다. 현재 zip 기준으로 보면, **핵심 하네스 자산**과 **부가 산출물**은 이렇게 나누는 게 가장 정확합니다.
+
+한 줄로 말하면:
+
+> **핵심 하네스 자산은 “앞으로 실행·검증·릴리즈 판단을 가능하게 만드는 규칙/코드/스키마”이고, 부가 산출물은 “그 규칙을 실행한 결과, 보고서, 히스토리, 문서화 기록”입니다.**
+
+## 1. 가장 핵심인 source-of-truth
+
+현재 패키지의 최상위 source-of-truth는 이 세 개입니다.
+
+```text
+stack.yaml
+stack.schema.json
+core/spec/harness.spec.yaml
+```
+
+`stack.yaml`에도 source-of-truth가 이 구조로 명시되어 있습니다.
+
+```text
+source_of_truth:
+  - stack.yaml
+  - stack.schema.json
+  - core/spec/harness.spec.yaml
+```
+
+이 셋은 **프롬프트 스택 v2가 무엇인지 정의하는 최상위 계약**입니다.
+여기서부터 나머지 core, adapter, runtime, eval, release gate가 연결됩니다.
+
+---
+
+## 2. P0 핵심 하네스 자산
+
+아래는 **반드시 보존해야 하는 핵심 자산**입니다. 이걸 잃으면 v2 하네스의 의미가 무너집니다.
+
+| 위치                                         | 성격                             | 왜 핵심인가                                                                               |
+| ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------ |
+| `stack.yaml`                               | package manifest               | 전체 스택의 source-of-truth, baseline, dist policy, core/adapters/release 연결              |
+| `stack.schema.json`                        | manifest schema                | `stack.yaml` 검증 기준                                                                   |
+| `core/spec/*`                              | core harness spec              | 모델 독립 계약. behavior, context, tool, output, claim, failure policy                     |
+| `adapters/*`                               | provider/local adapter         | OpenAI, vLLM, Ollama 등 실행 환경별 변환 규칙                                                  |
+| `adapters/provider_capability_matrix.yaml` | capability matrix              | 어떤 기능이 canary, blocked, needs_verification인지 기록                                      |
+| `runtime/*`                                | runtime harness code           | mock execution, tool routing, approval gate, state, redteam runtime 등 실제 실행 하네스      |
+| `runtime/schemas/*`                        | runtime schemas                | run request/result, tool event, approval event, state transition 등 실행 계약             |
+| `schemas/*`                                | shared schemas                 | adapter, capability matrix, report, trace, telemetry, release gate 검증                |
+| `tools/*`                                  | validators/runners/checkers    | 하네스를 검증·실행·게이트하는 실제 스크립트                                                             |
+| `tools/lib/*`                              | shared tool library            | file walk, YAML/JSON schema loader, claim scanner 등 공통 검증 로직                         |
+| `evals/suites/*`                           | eval suite definitions         | 어떤 suite를 어떤 기준으로 실행하는지 정의                                                           |
+| `evals/fixtures/*`                         | eval/redteam fixtures          | adapter/runtime/redteam/tool canary case 입력                                          |
+| `release/*`                                | release/claim/governance gates | claim ladder, release gate, blockers, approval gate, rollback, thresholds            |
+| `security/redteam/*`                       | redteam policy/taxonomy        | redteam taxonomy, schema, severity rubric, mappings, execution policies              |
+| `observability/*`                          | trace/telemetry contract       | trace schema, telemetry schema, OTel/Langfuse mapping, redaction/metric/event policy |
+| `package.json`, `package-lock.json`        | dependency contract            | Ajv/YAML/OpenAI SDK 등 runner 검증 환경 고정                                                |
+
+이 그룹은 **“하네스가 어떻게 동작해야 하는가”**를 정의합니다.
+즉, 앞으로 수정할 때도 가장 조심해야 하는 곳입니다.
+
+---
+
+## 3. P1 중요하지만 source-of-truth는 아닌 증거 자산
+
+아래는 핵심 실행 규칙은 아니지만, **claim을 뒷받침하는 증거**입니다.
+
+| 위치                              | 성격                  | 취급 방식                                                   |
+| ------------------------------- | ------------------- | ------------------------------------------------------- |
+| `evidence/**`                   | 실행/검증 evidence      | claim을 뒷받침하는 감사 기록. 직접 수정하지 말고 runner로 생성/갱신            |
+| `evals/reports/**`              | eval/report outputs | runner 결과물. evidence와 비슷하지만 report 성격이 강함               |
+| `evidence/v36-baseline/*`       | v36 baseline 증거     | v36과 v2 claim을 분리하는 기준선                                 |
+| `evidence/beta-*/*`             | 단계별 evidence        | canary, redteam, telemetry, release gate dry-run 등 히스토리 |
+| `session_handoff_2026-05-22.md` | handoff 문서          | 대화/작업 인수인계용 기록                                          |
+
+이 그룹은 **“무엇을 했고, 어떤 claim을 할 수 있는가”**를 증명합니다.
+하네스 자체의 규칙은 아니지만, release gate와 claim ladder가 이 evidence를 참조합니다.
+
+따라서 `evidence/`는 부가 산출물이지만 **버리면 안 되는 부가 산출물**입니다.
+정확히는 **audit/evidence asset**입니다.
+
+---
+
+## 4. P2 문서/계획/설명 산출물
+
+아래는 사람이 이해하고 다음 작업을 이어가기 위한 문서입니다.
+
+| 위치                 | 성격          | 취급 방식                                |
+| ------------------ | ----------- | ------------------------------------ |
+| `docs/*`           | 설명/계획/운영 문서 | 사람이 읽는 보조 문서                         |
+| `README.md`        | 현재 상태 요약    | 유용하지만 claim의 source-of-truth는 아님     |
+| `docs/next_*`      | 다음 단계 계획    | roadmap/작업 지시 보조                     |
+| `docs/*_plan.md`   | 계획서         | 실행 전 설계/안내                           |
+| `docs/*_report.md` | 보고서 설명      | JSON evidence의 human-readable mirror |
+
+문서는 중요하지만, 보통 최종 판단은 문서보다 아래 순서가 우선입니다.
+
+```text
+1. stack/core/release/schema/tool source
+2. evidence JSON
+3. eval report JSON
+4. docs/README/handoff
+```
+
+---
+
+## 5. P3 generated / install output / 제외 대상
+
+아래는 하네스 자산으로 보면 안 됩니다.
+
+| 위치                    | 성격                        | 취급 방식                                         |
+| --------------------- | ------------------------- | --------------------------------------------- |
+| `node_modules/`       | dependency install output | repo/source/evidence 자산 아님. zip에는 들어있지만 제외 대상 |
+| `dist/`               | generated artifact 영역     | 사람이 편집하지 않음. 현재는 `README.md`만 있음              |
+| `.gitignore`          | ignore policy             | 보조 파일                                         |
+| raw provider response | 금지                        | 저장하면 안 됨                                      |
+| API key/env secret    | 금지                        | 어떤 report/evidence에도 저장하면 안 됨                 |
+
+특히 현재 zip 안에는 `node_modules/`가 포함되어 있습니다. 작업 스냅샷으로는 괜찮지만, **하네스 자산은 아닙니다.**
+레포나 공유 패키지로 관리한다면 `node_modules/`는 제외하고 `package-lock.json`만 유지하는 게 맞습니다.
+
+---
+
+## 6. “핵심 하네스 자산”만 뽑으면
+
+최소 핵심 세트는 이겁니다.
+
+```text
+stack.yaml
+stack.schema.json
+package.json
+package-lock.json
+
+core/
+adapters/
+runtime/
+schemas/
+tools/
+evals/suites/
+evals/fixtures/
+release/
+security/
+observability/
+```
+
+여기에 claim/evidence까지 보존하려면 추가로:
+
+```text
+evidence/
+evals/reports/
+```
+
+사람이 이어받기 쉽게 하려면 추가로:
+
+```text
+README.md
+docs/
+session_handoff_2026-05-22.md
+```
+
+제외 가능 또는 source로 취급하지 말아야 할 것:
+
+```text
+node_modules/
+dist/generated outputs
+raw provider responses
+secrets
+```
+
+현재 `dist/`에는 `README.md`만 있으므로 괜찮습니다. 나중에 prompt bundle이 생기더라도 `dist/`는 **빌드 결과물**이지 source-of-truth가 아닙니다.
+
+---
+
+## 7. 작업할 때의 판단 기준
+
+어떤 파일을 볼 때 이렇게 판단하면 됩니다.
+
+### A. “이걸 바꾸면 하네스의 행동이 바뀌나?”
+
+그렇다면 핵심 자산입니다.
+
+예:
+
+```text
+core/spec/tool_policy.md
+adapters/api/openai/request_mapper.mjs
+runtime/tools/approval_gate.mjs
+release/claim_ladder.md
+tools/lib/claim_scanner.mjs
+security/redteam/redteam_pass_fail_policy.yaml
+observability/telemetry_redaction_policy.yaml
+```
+
+### B. “이건 실행 결과인가?”
+
+그렇다면 evidence/report입니다.
+
+예:
+
+```text
+evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json
+evals/reports/openai_tool_calling_canary_report.json
+evidence/beta-release-gate-dry-run/release_gate_dry_run_report.json
+```
+
+직접 고치기보다 runner로 재생성해야 합니다.
+
+### C. “이건 사람이 이해하려고 만든 설명인가?”
+
+그렇다면 docs/handoff입니다.
+
+예:
+
+```text
+docs/next_local_canary_plan.md
+docs/openai_redteam_limited_execution.md
+session_handoff_2026-05-22.md
+```
+
+### D. “이건 설치 결과물인가?”
+
+그렇다면 자산이 아닙니다.
+
+예:
+
+```text
+node_modules/
+```
+
+---
+
+## 8. 실제 운영 관점의 4계층 모델
+
+이렇게 보면 가장 덜 헷갈립니다.
+
+```text
+Layer 1. Contract / Spec
+- stack.yaml
+- core/spec
+- schemas
+- release gates
+- security/observability policies
+
+Layer 2. Execution Harness
+- runtime
+- adapters
+- tools
+- evals/suites
+- evals/fixtures
+
+Layer 3. Evidence / Audit
+- evidence
+- evals/reports
+- checksums
+- validation reports
+- canary/redteam/telemetry reports
+
+Layer 4. Human Documentation
+- README
+- docs
+- session_handoff
+```
+
+Layer 1–2가 **핵심 하네스 자산**입니다.
+Layer 3은 **증거 자산**입니다.
+Layer 4는 **부가 문서 자산**입니다.
+
+---
+
+## 9. 현재 zip 기준으로 한 줄 평가
+
+현재 `prompt-stack-v2.zip`은 단순 prompt pack이 아니라:
+
+```text
+핵심 하네스 source
++ 실행/검증 runner
++ release/claim gate
++ redteam/telemetry policy
++ evidence archive
++ human handoff docs
++ node_modules install output
+```
+
+이 모두가 섞여 있는 **작업 스냅샷**입니다.
+
+정리하면:
+
+```text
+진짜 핵심:
+stack, core, adapters, runtime, schemas, tools, evals fixtures/suites, release, security, observability
+
+중요한 증거:
+evidence, evals/reports
+
+보조 문서:
+docs, README, session_handoff
+
+제외/비핵심:
+node_modules, dist generated output
+```
+
+개인적으로 다음 정리 작업을 한다면, `node_modules/`를 zip에서 제외하고, `MANIFEST.asset_classes.yaml` 같은 파일을 만들어 각 디렉터리를 `core_source`, `execution_harness`, `evidence`, `docs`, `generated_or_ignored`로 명시해 두는 걸 추천합니다.

@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-openai-redteam-limited-result-review-and-blocker-update",
+  "source_stage": "v2.0.0-beta-openai-redteam-limited-execution",
+  "source_claims": [
+    "openai-redteam-limited-execution-completed",
+    "openai-redteam-limited-case-results-recorded",
+    "openai-redteam-limited-redacted-traces-recorded"
+  ],
+  "canonicalized_source_claims": [
+    "openai-redteam-limited-execution-completed",
+    "openai-redteam-case-results-recorded",
+    "openai-redteam-trace-captured",
+    "openai-redteam-redaction-checked"
+  ],
+  "canonical_claims_allowed_after_review": [
+    "openai-redteam-limited-execution-completed",
+    "openai-redteam-limited-cases-executed",
+    "openai-redteam-case-results-recorded",
+    "openai-redteam-severity-aggregation-recorded",
+    "openai-redteam-trace-captured",
+    "openai-redteam-redaction-checked",
+    "openai-redteam-stop-criteria-enforced",
+    "openai-redteam-limited-result-reviewed",
+    "openai-redteam-limited-claim-boundary-audited",
+    "openai-redteam-limited-evidence-indexed",
+    "openai-redteam-limited-blocker-updated"
+  ],
+  "aliases_applied": [
+    {
+      "alias": "openai-redteam-limited-case-results-recorded",
+      "canonical": [
+        "openai-redteam-case-results-recorded"
+      ],
+      "handling": "legacy_source_report_alias"
+    },
+    {
+      "alias": "openai-redteam-limited-redacted-traces-recorded",
+      "canonical": [
+        "openai-redteam-trace-captured",
+        "openai-redteam-redaction-checked"
+      ],
+      "handling": "legacy_source_report_alias_split_into_trace_and_redaction_claims"
+    }
+  ],
+  "claims_not_allowed": [
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-verified",
+    "provider-diverse",
+    "adapter-checked",
+    "integration-verified"
+  ],
+  "note": "Legacy limited-report claim names are retained only as aliases; new review evidence uses canonical names."
+}

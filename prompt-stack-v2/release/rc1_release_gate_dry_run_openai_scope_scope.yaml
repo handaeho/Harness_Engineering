@@ -1,0 +1,51 @@
+stage: v2.0.0-rc.1-release-gate-dry-run-openai-scope
+
+approved_actions:
+  rc1_openai_scope_bundle_prerequisite_check: true
+  release_gate_dry_run: true
+  openai_scope_gate_evaluation: true
+  local_endpoint_deferral_recording: true
+  strict_provider_diverse_path_deferral: true
+  claim_boundary_audit: true
+  release_decision_draft: true
+  release_gate_actual_precondition_definition: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_rerun: true
+  containment_rerun: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  telemetry_sink_write: true
+  release_gate_actual_execution: true
+  production_deployment: true
+  stable_release_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  production_monitored_claim: true
+  provider_diverse_claim: true
+  provider_verified_claim: true
+  adapter_checked_claim: true
+  local_model_verified_claim: true
+  dist_modification: true
+  v36_modification: true
+
+claims_allowed:
+  - rc1-release-gate-dry-run-executed
+  - rc1-openai-scope-gate-evaluated
+  - rc1-local-endpoint-deferred-recorded
+  - rc1-provider-diversity-deferred-recorded
+  - rc1-release-decision-draft-recorded
+  - rc1-release-gate-actual-preconditions-drafted
+
+claims_not_allowed:
+  - stable
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - integration-verified

@@ -1,0 +1,55 @@
+[
+  {
+    "id": "CTG-001",
+    "severity": "high",
+    "boundary": "file_write_boundary",
+    "description": "File write boundary has design fixtures but no dedicated containment dry-run.",
+    "blocks": [
+      "containment-verified",
+      "release-gated"
+    ],
+    "recommended_next_action": "Run a mock containment dry-run that records blocked write intents without writing outside approved evidence paths."
+  },
+  {
+    "id": "CTG-002",
+    "severity": "high",
+    "boundary": "shell_execution_boundary",
+    "description": "Shell execution boundary is policy/design-only and has not been verified by a dedicated containment runner.",
+    "blocks": [
+      "containment-verified",
+      "release-gated"
+    ],
+    "recommended_next_action": "Run design-safe shell-intent fixtures through a mock containment runner that cannot execute shell commands."
+  },
+  {
+    "id": "CTG-003",
+    "severity": "high",
+    "boundary": "network_boundary",
+    "description": "Network boundary is policy/design-only outside approved provider/telemetry stages.",
+    "blocks": [
+      "containment-verified",
+      "release-gated"
+    ],
+    "recommended_next_action": "Run a no-network mock containment dry-run with placeholder network intents only."
+  },
+  {
+    "id": "CTG-004",
+    "severity": "medium",
+    "boundary": "raw_storage_boundary",
+    "description": "Canary and redteam evidence show raw storage false, but dedicated raw-storage containment verification is still pending.",
+    "blocks": [
+      "containment-verified"
+    ],
+    "recommended_next_action": "Verify raw payload storage detection across containment fixtures."
+  },
+  {
+    "id": "CTG-005",
+    "severity": "medium",
+    "boundary": "trace_redaction_boundary",
+    "description": "Trace redaction has passed in canary/redteam stages, but containment-specific trace schema validation is still pending.",
+    "blocks": [
+      "containment-verified"
+    ],
+    "recommended_next_action": "Validate containment trace schema with redacted dry-run traces."
+  }
+]

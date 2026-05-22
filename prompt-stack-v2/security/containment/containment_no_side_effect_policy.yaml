@@ -1,0 +1,17 @@
+no_side_effect_policy:
+  external_side_effects_allowed: false
+  blocked_actions_must_not_execute: true
+
+  must_remain_zero:
+    - external_network_calls_performed
+    - shell_commands_executed
+    - real_file_writes_outside_allowed_paths
+    - real_tool_side_effects
+    - provider_calls_performed
+    - local_model_calls_performed
+    - telemetry_sink_writes
+
+  evidence_required:
+    - no_side_effect_report
+    - containment_trace_samples
+    - containment_case_results

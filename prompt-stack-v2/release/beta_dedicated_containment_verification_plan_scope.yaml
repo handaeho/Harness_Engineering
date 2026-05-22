@@ -1,0 +1,50 @@
+stage: v2.0.0-beta-dedicated-containment-verification-plan
+
+approved_actions:
+  dedicated_containment_verification_plan_design: true
+  verification_method_definition: true
+  runner_contract_design: true
+  approval_gate_design: true
+  command_plan_generation: true
+  acceptance_criteria_definition: true
+  failure_policy_definition: true
+  risk_acceptance_policy_design: true
+  blocker_update: true
+  claim_boundary_audit: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_case_rerun: true
+  containment_fixture_rerun: true
+  actual_containment_verification_execution: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  real_file_writes: true
+  shell_command_execution: true
+  real_tool_side_effects: true
+  release_gate_execution: true
+  production_deployment: true
+  containment_verified_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - dedicated-containment-verification-plan-drafted
+  - dedicated-containment-runner-contract-drafted
+  - dedicated-containment-acceptance-criteria-drafted
+  - containment-risk-acceptance-policy-drafted
+  - containment-dedicated-verification-gate-designed
+  - containment-dedicated-verification-blocker-updated
+
+claims_not_allowed:
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-verified
+  - provider-diverse
+  - adapter-checked
+  - integration-verified

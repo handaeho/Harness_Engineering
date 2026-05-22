@@ -1,47 +1,30 @@
-stage: v2.0.0-beta-production-telemetry-design
-status: draft
+stage: v2.0.0-rc.1-release-gate-actual-openai-scope
+status: openai_scope_actual_gate_passed_remaining_blockers_recorded
 blockers:
-  - id: RGB-001
-    priority: P0
-    category: provider_diversity
-    description: Only OpenAI canary suite has passed; no local or second provider canary has passed.
-    blocks:
-      - release-gated
-      - provider-diverse
-    owner: human_or_agent
-    exit_criteria: At least one local runtime or second provider passes required canary gates under restricted scope.
-  - id: RGB-002
+  - id: AG-001
     priority: P0
     category: local_runtime
-    description: vLLM/Ollama endpoint is not available; local no-tool canary is blocked.
-    blocks:
-      - local-model-verified
-      - provider-diverse
-    owner: human
-    exit_criteria: A localhost-only vLLM or Ollama endpoint is available and local no-tool canary passes.
-  - id: RGB-003
+    current_status: deferred_until_operator_provides_endpoint
+    blocks_openai_only_actual_gate: false
+    blocks_provider_diverse: true
+    reason: "Local endpoint work is deferred until the operator provides endpoint readiness."
+  - id: AG-002
     priority: P0
-    category: security
-    description: Redteam suite is designed, mock runtime dry-run passed, and OpenAI limited execution plan is drafted; provider/local redteam execution remains pending.
-    blocks:
-      - release-gated
-      - production-ready
-    owner: agent
-    exit_criteria: Provider or local redteam suite is executed under approved scope and critical/high failures are zero.
-  - id: RGB-004
+    category: provider_diversity
+    current_status: deferred_not_in_openai_only_scope
+    blocks_openai_only_actual_gate: false
+    blocks_provider_diverse: true
+    reason: "Current rc.1 path is explicitly OpenAI-only."
+  - id: AG-003
     priority: P1
     category: telemetry
-    description: Production telemetry design is complete, but live telemetry connection is pending.
-    blocks:
-      - production-monitored
-      - production-ready
-    owner: agent
-    exit_criteria: Telemetry schema is connected to a live monitoring sink, first trace and metric are received, and anomaly response criteria are active.
-  - id: RGB-005
+    current_status: blocked_not_connected
+    blocks_production_monitored: true
+    blocks_production_ready: true
+    reason: "Production telemetry connection is not established."
+  - id: AG-004
     priority: P1
-    category: release_process
-    description: Rollback plan and owner/action matrix are draft, not finalized.
-    blocks:
-      - release-gated
-    owner: agent
-    exit_criteria: Rollback plan and owner/action matrix are finalized and referenced by release gate.
+    category: release_scope
+    current_status: scoped_openai_only_record
+    blocks_stable_release: true
+    reason: "The actual gate record is OpenAI-only and does not establish stable or provider-diverse scope."

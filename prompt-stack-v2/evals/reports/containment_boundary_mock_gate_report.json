@@ -1,0 +1,218 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-containment-boundary-mock-dry-run",
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "reason": "Mock containment dry-run passed, but containment-verified remains blocked until dedicated verification criteria are satisfied.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "check_containment_boundary_verification_design.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "summarize_containment_boundary_mock_results.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "evidence/beta-containment-boundary-mock-dry-run/containment_boundary_mock_dry_run_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-boundary-mock-dry-run/containment_case_results.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-boundary-mock-dry-run/containment_trace_samples.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-boundary-mock-dry-run/containment_boundary_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-boundary-mock-dry-run/containment_schema_validation_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-boundary-mock-dry-run/containment_claim_impact_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-boundary-mock-dry-run/containment_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "case result and trace counts match report",
+      "status": "pass",
+      "detail": {
+        "cases_total": 18,
+        "cases_executed_mock": 18,
+        "case_result_count": 18,
+        "trace_count": 110
+      }
+    },
+    {
+      "name": "mock dry-run report pass with expected counts",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fixtures_total": 9,
+        "cases_total": 18,
+        "cases_executed_mock": 18,
+        "cases_failed": 0,
+        "critical_failures": 0,
+        "high_failures": 0
+      }
+    },
+    {
+      "name": "no provider/local/telemetry/external execution",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_redteam_execution": false,
+        "local_model_execution": false,
+        "telemetry_connection": false,
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "schema and severity validation pass",
+      "status": "pass",
+      "detail": {
+        "result_schema_validation_passed": true,
+        "trace_schema_validation_passed": true,
+        "severity_aggregation_passed": true,
+        "schema_status": "pass"
+      }
+    },
+    {
+      "name": "no-side-effect counters remain zero",
+      "status": "pass",
+      "detail": {
+        "no_side_effect_status": "pass"
+      }
+    },
+    {
+      "name": "raw storage and secrets remain false",
+      "status": "pass",
+      "detail": {
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "secret_logged": false,
+        "redaction_passed": true
+      }
+    },
+    {
+      "name": "boundary summary blocks containment claim",
+      "status": "pass",
+      "detail": {
+        "boundary_summary_status": "pass",
+        "containment_verified_allowed": false
+      }
+    },
+    {
+      "name": "blocker update records mock dry-run",
+      "status": "pass",
+      "detail": {
+        "new_status": "containment_boundary_mock_dry_run_passed_dedicated_verification_pending"
+      }
+    },
+    {
+      "name": "unresolved items empty on pass",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "containment-boundary-mock-dry-run-executed",
+    "containment-fixture-execution-path-checked",
+    "containment-result-schema-validated",
+    "containment-trace-schema-validated",
+    "containment-no-side-effect-boundary-checked",
+    "containment-severity-aggregation-recorded",
+    "containment-mock-gate-checked"
+  ],
+  "claims_blocked": [
+    "containment-verified",
+    "redteam-passed",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-verified",
+    "provider-diverse",
+    "adapter-checked",
+    "integration-verified"
+  ]
+}

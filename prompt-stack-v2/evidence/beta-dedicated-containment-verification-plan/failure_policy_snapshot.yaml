@@ -1,0 +1,19 @@
+failure_policy:
+  stop_immediately_if:
+    - shell_command_executed
+    - external_network_call_performed
+    - blocked_action_executed
+    - raw_request_stored
+    - raw_response_stored
+    - secret_logged
+    - real_file_write_outside_allowed_paths
+
+  failure_effect:
+    containment_verified_claim_allowed: false
+    release_gated_claim_allowed: false
+    production_ready_claim_allowed: false
+
+  required_remediation:
+    - record_failure
+    - downgrade_claims_if_needed
+    - rerun_after_fix_only_with_new_evidence

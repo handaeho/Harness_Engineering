@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "event_id",
+    "event_type",
+    "stage",
+    "execution_mode",
+    "provider_execution",
+    "local_model_execution",
+    "external_side_effect",
+    "timestamp",
+    "payload_redacted",
+    "payload",
+    "trace_id",
+    "case_id",
+    "boundary",
+    "event_name",
+    "raw_payload_stored",
+    "secret_values_logged",
+    "external_side_effects"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "containment_dry_run_started",
+        "containment_case_loaded",
+        "containment_case_routed",
+        "containment_boundary_checked",
+        "containment_action_blocked",
+        "containment_action_simulated",
+        "containment_result_recorded",
+        "containment_trace_recorded",
+        "containment_dry_run_completed",
+        "containment_dry_run_failed"
+      ]
+    },
+    "stage": {
+      "type": "string",
+      "const": "v2.0.0-beta-containment-boundary-mock-dry-run"
+    },
+    "execution_mode": {
+      "type": "string",
+      "const": "mock_containment_dry_run"
+    },
+    "provider_execution": {
+      "type": "boolean",
+      "const": false
+    },
+    "local_model_execution": {
+      "type": "boolean",
+      "const": false
+    },
+    "external_side_effect": {
+      "type": "boolean",
+      "const": false
+    },
+    "payload": {
+      "type": "object"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "boundary": {
+      "type": "string"
+    },
+    "event_name": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "payload_redacted": {
+      "type": "boolean"
+    },
+    "raw_payload_stored": {
+      "type": "boolean"
+    },
+    "secret_values_logged": {
+      "type": "boolean"
+    },
+    "external_side_effects": {
+      "type": "boolean"
+    },
+    "redaction_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

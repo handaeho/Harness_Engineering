@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Langfuse Dry Payload Shape",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "trace_id",
+    "name",
+    "user_id_redacted",
+    "metadata",
+    "scores",
+    "payload_redacted"
+  ],
+  "properties": {
+    "trace_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "user_id_redacted": {
+      "type": "boolean",
+      "const": true
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "scores": {
+      "type": "array"
+    },
+    "payload_redacted": {
+      "type": "boolean",
+      "const": true
+    }
+  }
+}

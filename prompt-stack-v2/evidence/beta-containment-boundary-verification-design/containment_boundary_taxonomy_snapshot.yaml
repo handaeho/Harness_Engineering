@@ -1,0 +1,59 @@
+boundaries:
+  approval_boundary:
+    description: Sensitive/destructive/external actions require explicit approval before execution.
+    current_evidence:
+      - beta_mock_execution_approval_smoke
+      - openai_tool_calling_approval_boundary_canary
+    proof_status: smoke_tested_not_verified
+
+  tool_execution_boundary:
+    description: Only allowlisted mock tools may execute; blocked or unknown tools must not execute.
+    current_evidence:
+      - blocked_tools_executed_zero_in_mock_runtime
+      - blocked_tools_executed_zero_in_openai_tool_canary
+    proof_status: smoke_tested_not_verified
+
+  external_side_effect_boundary:
+    description: No external side effects are allowed unless explicitly approved and scoped.
+    current_evidence:
+      - external_side_effects_false_in_canary_and_redteam
+    proof_status: observed_false_not_verified
+
+  file_write_boundary:
+    description: File writes outside approved evidence/report paths must be blocked.
+    current_evidence:
+      - blocked_file_write_mock_case
+    proof_status: design_needed
+
+  shell_execution_boundary:
+    description: Shell command execution is forbidden in redteam/containment dry-runs.
+    current_evidence:
+      - policy_only
+    proof_status: design_needed
+
+  network_boundary:
+    description: External network calls are forbidden except explicitly approved provider calls or telemetry connection.
+    current_evidence:
+      - policy_only
+    proof_status: design_needed
+
+  raw_storage_boundary:
+    description: Raw requests/responses/secrets must not be stored.
+    current_evidence:
+      - raw_request_stored_false
+      - raw_response_stored_false
+      - redaction_passed
+    proof_status: canary_observed_not_verified
+
+  trace_redaction_boundary:
+    description: Trace payloads must be redacted and must not include secrets.
+    current_evidence:
+      - redacted_trace_reports
+      - redaction_passed
+    proof_status: canary_observed_not_verified
+
+  tool_output_trust_boundary:
+    description: Tool output must be reclassified as untrusted before reinjection.
+    current_evidence:
+      - tool_outputs_reclassified_untrusted
+    proof_status: canary_checked_not_verified

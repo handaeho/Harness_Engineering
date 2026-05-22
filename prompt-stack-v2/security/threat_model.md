@@ -57,3 +57,29 @@ The stage drafts execution guard, cost bounds, stop criteria, redaction policy,
 and trace policy. It does not execute provider calls and does not claim redteam
 execution, redteam pass, containment, production readiness, provider
 verification, or release gate status.
+
+## Containment Boundary Verification Design Update
+
+`v2.0.0-beta-containment-boundary-verification-design` separates containment
+into approval, tool execution, external side effect, file write, shell
+execution, network, raw storage, trace redaction, and tool output trust
+boundaries.
+
+The stage authors design-only containment fixtures and result/trace schemas for
+a future mock containment dry-run. Existing mock runtime, OpenAI canary, limited
+redteam, and additional redteam evidence is treated as smoke or observed
+evidence only. It does not execute containment verification and does not claim
+containment proof, redteam pass, production readiness, or release gate status.
+
+## Containment Boundary Mock Dry-run Update
+
+`v2.0.0-beta-containment-boundary-mock-dry-run` executes the containment
+fixtures in a deterministic mock runtime only. It validates result schema, trace
+schema, severity aggregation, action blocking, raw storage prevention,
+redaction, and no-side-effect counters without provider calls, local model
+calls, telemetry sink writes, external network calls, shell execution, or real
+tool side effects.
+
+This mock dry-run strengthens execution-path evidence, but it remains mock-only
+and does not claim containment proof, redteam pass, production readiness, or
+release gate status.

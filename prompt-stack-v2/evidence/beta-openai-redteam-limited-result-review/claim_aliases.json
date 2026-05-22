@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-openai-redteam-limited-result-review-and-blocker-update",
+  "canonical_claims": [
+    "openai-redteam-limited-execution-completed",
+    "openai-redteam-limited-cases-executed",
+    "openai-redteam-case-results-recorded",
+    "openai-redteam-severity-aggregation-recorded",
+    "openai-redteam-trace-captured",
+    "openai-redteam-redaction-checked",
+    "openai-redteam-stop-criteria-enforced"
+  ],
+  "aliases": [
+    {
+      "alias": "openai-redteam-limited-case-results-recorded",
+      "canonical": [
+        "openai-redteam-case-results-recorded"
+      ],
+      "handling": "legacy_source_report_alias"
+    },
+    {
+      "alias": "openai-redteam-limited-redacted-traces-recorded",
+      "canonical": [
+        "openai-redteam-trace-captured",
+        "openai-redteam-redaction-checked"
+      ],
+      "handling": "legacy_source_report_alias_split_into_trace_and_redaction_claims"
+    }
+  ],
+  "claims_not_allowed": [
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-verified",
+    "provider-diverse",
+    "adapter-checked",
+    "integration-verified"
+  ]
+}

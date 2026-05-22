@@ -1,0 +1,21 @@
+risk_acceptance_policy:
+  status: draft
+  risk_acceptance_allowed_for_release_gate: false
+
+  accepted_risk_record_required_if:
+    - sandbox_boundary_is_not_fully_verified
+    - local_runtime_boundary_not_executed
+    - network_boundary_only_mock_verified
+
+  accepted_risk_record_fields:
+    - risk_id
+    - description
+    - severity
+    - owner
+    - reason_for_acceptance
+    - compensating_controls
+    - expiration_or_review_date
+
+  claims_not_unlocked_by_risk_acceptance:
+    - containment-verified
+    - production-ready

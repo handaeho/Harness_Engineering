@@ -1,0 +1,16 @@
+storage_redaction_blocker_update:
+  blocker_id: CVR-002
+  previous_status: cross_suite_raw_storage_and_redaction_audit_not_complete
+  pass_status_after_audit: cross_suite_storage_redaction_audit_completed
+  needs_review_status_after_audit: cross_suite_storage_redaction_audit_needs_review
+  still_blocks:
+    - containment-verified
+    - release-gated
+    - production-ready
+  pass_unblocks:
+    - cross_suite_raw_storage_audit_pass
+    - cross_suite_redaction_audit_pass
+  does_not_unblock:
+    - containment-verified
+    - release-gated
+    - production-ready

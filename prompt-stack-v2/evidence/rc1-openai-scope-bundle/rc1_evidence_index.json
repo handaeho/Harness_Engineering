@@ -1,0 +1,398 @@
+[
+  {
+    "group_id": "v36 baseline",
+    "status": "pass",
+    "claim_level": "baseline_snapshot",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/v36-baseline/file_inventory.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/v36-baseline/checksums.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "alpha validation",
+    "status": "pass",
+    "claim_level": "alpha_static_validation",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/alpha/validation_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/alpha/baseline_comparison.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "alpha hardening",
+    "status": "pass",
+    "claim_level": "alpha_hardening_static",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/alpha/prohibited_claim_scan.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/alpha/unresolved_items.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "beta preflight",
+    "status": "pass",
+    "claim_level": "beta_preflight",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-preflight/dependency_validation_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-preflight/beta_entry_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "beta mock execution",
+    "status": "pass",
+    "claim_level": "mock_execution_only",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-mock-execution/execution_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-mock-execution/beta_mock_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "OpenAI no-tool canary",
+    "status": "pass",
+    "claim_level": "openai_provider_canary_only",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-provider-canary-openai/provider_canary_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "OpenAI structured output canary",
+    "status": "pass",
+    "claim_level": "openai_structured_output_canary_only",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-structured-output-canary-openai/structured_output_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "OpenAI tool-calling canary",
+    "status": "pass",
+    "claim_level": "openai_tool_calling_canary_only",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-tool-calling-canary-openai/tool_calling_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "OpenAI canary replay suite",
+    "status": "pass",
+    "claim_level": "canary_suite_only",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-openai-canary-replay-suite/suite_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "OpenAI limited redteam execution",
+    "status": "pass",
+    "claim_level": "openai_limited_redteam_scope",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-openai-redteam-limited-execution/redteam_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "OpenAI additional redteam execution",
+    "status": "pass",
+    "claim_level": "openai_additional_redteam_scope",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-additional-openai-redteam-execution/additional_openai_redteam_execution_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-additional-openai-redteam-execution/additional_openai_redteam_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "broader redteam pass gate design",
+    "status": "drafted",
+    "claim_level": "design_only",
+    "required_for_rc1_openai_scope": false,
+    "artifacts": [
+      {
+        "path": "evidence/beta-broader-redteam-pass-gate-design/broader_redteam_pass_gate_design_report.json",
+        "exists": true,
+        "status": "drafted"
+      },
+      {
+        "path": "evidence/beta-broader-redteam-pass-gate-design/broader_redteam_pass_gate_design_gate_report.json",
+        "exists": true,
+        "status": "drafted"
+      }
+    ]
+  },
+  {
+    "group_id": "skipped redteam case review",
+    "status": "pass",
+    "claim_level": "case_disposition_review",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-skipped-redteam-case-review/skipped_case_review_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-skipped-redteam-case-review/skipped_case_review_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "containment design",
+    "status": "pass",
+    "claim_level": "design_only",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-containment-boundary-verification-design/containment_boundary_verification_design_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-containment-boundary-verification-design/containment_coverage_matrix.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "containment mock dry-run",
+    "status": "pass",
+    "claim_level": "mock_dry_run_passed",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-containment-boundary-mock-dry-run/containment_boundary_mock_dry_run_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-containment-boundary-mock-dry-run/containment_mock_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "containment gate refinement",
+    "status": "pass",
+    "claim_level": "gate_refined_not_verified",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-containment-verification-gate-refinement/containment_verification_gate_refinement_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-containment-verification-gate-refinement/containment_gate_refinement_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "cross-suite storage/redaction audit",
+    "status": "pass",
+    "claim_level": "storage_redaction_audit_passed",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "dedicated containment verification plan",
+    "status": "pass",
+    "claim_level": "plan_ready_execution_pending_then_executed",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-dedicated-containment-verification-plan/dedicated_containment_verification_plan_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-dedicated-containment-verification-plan/dedicated_containment_plan_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "dedicated containment verification execution",
+    "status": "pass",
+    "claim_level": "dedicated_containment_execution_passed",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-dedicated-containment-verification/dedicated_containment_verification_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-dedicated-containment-verification/dedicated_containment_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "containment post-execution claim audit",
+    "status": "pass",
+    "claim_level": "post_execution_audit_passed",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-containment-post-execution-claim-audit/containment_post_execution_review_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-containment-post-execution-claim-audit/containment_post_execution_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "containment verified decision gate",
+    "status": "pass",
+    "claim_level": "containment_verified_allowed_beta_scope",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-containment-verified-decision-gate/containment_verified_decision_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-containment-verified-decision-gate/containment_verified_decision_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  },
+  {
+    "group_id": "release blocker P0/P1 reevaluation",
+    "status": "pass",
+    "claim_level": "openai_only_rc1_candidate",
+    "required_for_rc1_openai_scope": true,
+    "artifacts": [
+      {
+        "path": "evidence/beta-release-blocker-p0-p1-reevaluation/release_blocker_reevaluation_report.json",
+        "exists": true,
+        "status": "pass"
+      },
+      {
+        "path": "evidence/beta-release-blocker-p0-p1-reevaluation/release_blocker_p0_p1_gate_report.json",
+        "exists": true,
+        "status": "pass"
+      }
+    ]
+  }
+]

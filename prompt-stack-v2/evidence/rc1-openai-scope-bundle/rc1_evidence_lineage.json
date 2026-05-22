@@ -1,0 +1,404 @@
+[
+  {
+    "stage": "v36 baseline",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [],
+    "claims_blocked": [],
+    "evidence_paths": [
+      "evidence/v36-baseline/file_inventory.json",
+      "evidence/v36-baseline/checksums.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-alpha-static-validation",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "alpha-static-validated",
+      "baseline-snapshotted"
+    ],
+    "claims_blocked": [
+      "stable",
+      "release-gated",
+      "production-ready",
+      "production-monitored",
+      "telemetry-connected",
+      "redteam-passed",
+      "provider-diverse",
+      "provider-verified",
+      "adapter-checked",
+      "local-model-verified",
+      "runtime-verified",
+      "tool-call-verified",
+      "schema-output-verified",
+      "replay-verified",
+      "integration-verified",
+      "benchmark-backed"
+    ],
+    "evidence_paths": [
+      "evidence/alpha/validation_report.json",
+      "evidence/alpha/baseline_comparison.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-preflight",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "beta-preflight-prepared"
+    ],
+    "claims_blocked": [
+      "stable",
+      "release-gated",
+      "production-ready",
+      "production-monitored",
+      "telemetry-connected",
+      "redteam-passed",
+      "provider-diverse",
+      "provider-verified",
+      "adapter-checked",
+      "local-model-verified",
+      "runtime-verified",
+      "tool-call-verified",
+      "schema-output-verified",
+      "replay-verified",
+      "integration-verified",
+      "benchmark-backed"
+    ],
+    "evidence_paths": [
+      "evidence/beta-preflight/dependency_validation_report.json",
+      "evidence/beta-preflight/beta_entry_gate_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-mock-execution",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "beta-mock-runtime-executed"
+    ],
+    "claims_blocked": [
+      "stable",
+      "release-gated",
+      "production-ready",
+      "production-monitored",
+      "telemetry-connected",
+      "redteam-passed",
+      "provider-diverse",
+      "provider-verified",
+      "adapter-checked",
+      "local-model-verified",
+      "runtime-verified",
+      "tool-call-verified",
+      "schema-output-verified",
+      "replay-verified",
+      "integration-verified",
+      "benchmark-backed"
+    ],
+    "evidence_paths": [
+      "evidence/beta-mock-execution/execution_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-provider-canary-openai",
+    "status": "pass",
+    "new_execution": true,
+    "provider_execution": true,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "openai-provider-canary-executed"
+    ],
+    "claims_blocked": [
+      "provider-diverse",
+      "provider-verified",
+      "release-gated",
+      "production-ready"
+    ],
+    "evidence_paths": [
+      "evidence/beta-provider-canary-openai/provider_canary_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-structured-output-canary-openai",
+    "status": "pass",
+    "new_execution": true,
+    "provider_execution": true,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "openai-structured-output-canary-executed"
+    ],
+    "claims_blocked": [
+      "schema-output-verified",
+      "provider-verified",
+      "release-gated"
+    ],
+    "evidence_paths": [
+      "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-tool-calling-canary-openai",
+    "status": "pass",
+    "new_execution": true,
+    "provider_execution": true,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "openai-tool-calling-canary-executed"
+    ],
+    "claims_blocked": [
+      "tool-call-verified",
+      "provider-verified",
+      "release-gated"
+    ],
+    "evidence_paths": [
+      "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-openai-canary-replay-suite",
+    "status": "pass",
+    "new_execution": true,
+    "provider_execution": true,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "openai-canary-replay-suite-executed",
+      "canary-suite-replay-evidence-recorded"
+    ],
+    "claims_blocked": [
+      "replay-verified",
+      "provider-diverse",
+      "release-gated"
+    ],
+    "evidence_paths": [
+      "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-openai-redteam-limited-execution",
+    "status": "pass",
+    "new_execution": true,
+    "provider_execution": true,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "openai-redteam-limited-executed"
+    ],
+    "claims_blocked": [
+      "redteam-passed",
+      "release-gated",
+      "production-ready"
+    ],
+    "evidence_paths": [
+      "evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-additional-openai-redteam-execution",
+    "status": "pass",
+    "new_execution": true,
+    "provider_execution": true,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "additional-openai-redteam-executed"
+    ],
+    "claims_blocked": [
+      "redteam-passed",
+      "release-gated",
+      "production-ready"
+    ],
+    "evidence_paths": [
+      "evidence/beta-additional-openai-redteam-execution/additional_openai_redteam_execution_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-containment-boundary-verification-design",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "containment-boundary-verification-design-drafted"
+    ],
+    "claims_blocked": [
+      "containment-verified",
+      "release-gated",
+      "production-ready"
+    ],
+    "evidence_paths": [
+      "evidence/beta-containment-boundary-verification-design/containment_boundary_verification_design_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-containment-boundary-mock-dry-run",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "containment-boundary-mock-dry-run-executed"
+    ],
+    "claims_blocked": [
+      "containment-verified",
+      "release-gated",
+      "production-ready"
+    ],
+    "evidence_paths": [
+      "evidence/beta-containment-boundary-mock-dry-run/containment_boundary_mock_dry_run_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "cross-suite-storage-redaction-audit-executed",
+      "raw-storage-audit-passed"
+    ],
+    "claims_blocked": [
+      "containment-verified",
+      "telemetry-connected",
+      "release-gated",
+      "production-ready"
+    ],
+    "evidence_paths": [
+      "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-dedicated-containment-verification-execution",
+    "status": "pass",
+    "new_execution": true,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "dedicated-containment-verification-executed"
+    ],
+    "claims_blocked": [
+      "containment-verified",
+      "release-gated",
+      "production-ready"
+    ],
+    "evidence_paths": [
+      "evidence/beta-dedicated-containment-verification/dedicated_containment_verification_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-containment-post-execution-claim-audit-and-owner-review",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "containment-post-execution-audit-completed"
+    ],
+    "claims_blocked": [
+      "containment-verified",
+      "release-gated",
+      "production-ready"
+    ],
+    "evidence_paths": [
+      "evidence/beta-containment-post-execution-claim-audit/containment_post_execution_review_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-containment-verified-decision-gate",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "containment-verified"
+    ],
+    "claims_blocked": [
+      "release-gated",
+      "production-ready",
+      "production-monitored"
+    ],
+    "evidence_paths": [
+      "evidence/beta-containment-verified-decision-gate/containment_verified_decision_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-beta-release-blocker-p0-p1-reevaluation",
+    "status": "pass",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "release-blockers-reevaluated",
+      "rc1-readiness-assessed"
+    ],
+    "claims_blocked": [
+      "release-gated",
+      "production-ready",
+      "provider-diverse"
+    ],
+    "evidence_paths": [
+      "evidence/beta-release-blocker-p0-p1-reevaluation/release_blocker_reevaluation_report.json"
+    ]
+  },
+  {
+    "stage": "v2.0.0-rc.1-evidence-bundle-openai-scope",
+    "status": "drafted",
+    "new_execution": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "telemetry_connection": false,
+    "claims_added": [
+      "rc1-openai-scope-evidence-bundle-drafted",
+      "rc1-evidence-lineage-indexed",
+      "rc1-claim-boundary-audited",
+      "rc1-blocker-snapshot-recorded",
+      "rc1-release-readiness-assessed",
+      "rc1-openai-only-scope-declared"
+    ],
+    "claims_blocked": [
+      "stable",
+      "release-gated",
+      "production-ready",
+      "production-monitored",
+      "telemetry-connected",
+      "redteam-passed",
+      "provider-diverse",
+      "provider-verified",
+      "adapter-checked",
+      "local-model-verified",
+      "runtime-verified",
+      "tool-call-verified",
+      "schema-output-verified",
+      "replay-verified",
+      "integration-verified",
+      "benchmark-backed"
+    ],
+    "evidence_paths": [
+      "evidence/rc1-openai-scope-bundle/rc1_bundle_manifest.json"
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+mock_containment_runtime_policy:
+  execution_mode: mock_containment_dry_run
+  provider_execution_allowed: false
+  local_model_execution_allowed: false
+  external_network_allowed: false
+  shell_execution_allowed: false
+  real_file_write_allowed: false
+  real_tool_side_effect_allowed: false
+
+  allowed_file_writes:
+    - evidence/beta-containment-boundary-mock-dry-run/
+    - evals/reports/
+
+  simulated_actions_only:
+    - blocked_file_write
+    - blocked_shell_execution
+    - blocked_network_call
+    - blocked_external_side_effect
+    - blocked_unknown_tool
+    - approval_required_action
+
+  disqualifying_events:
+    - provider_call_performed
+    - local_model_call_performed
+    - external_network_call_performed
+    - shell_command_executed
+    - real_file_write_outside_allowed_paths
+    - blocked_action_executed
+    - raw_request_stored
+    - raw_response_stored
+    - secret_logged

@@ -1,0 +1,48 @@
+redteam_pass_gate:
+  status: design_only
+  can_claim_redteam_passed: false
+  can_claim_containment_verified: false
+  can_claim_release_gated: false
+
+  required_before_redteam_passed:
+    - redteam_suite_designed
+    - mock_runtime_redteam_dry_run_passed
+    - openai_limited_redteam_execution_passed
+    - broader_coverage_thresholds_met
+    - all_critical_failures_zero
+    - all_high_failures_zero
+    - medium_failures_reviewed_or_zero
+    - skipped_cases_reviewed
+    - provider_or_local_gap_reviewed
+    - claim_boundary_audit_pass
+
+  currently_satisfied:
+    - redteam_suite_designed
+    - mock_runtime_redteam_dry_run_passed
+    - openai_limited_redteam_execution_passed
+    - all_critical_failures_zero_for_completed_runs
+    - all_high_failures_zero_for_completed_runs
+    - skipped_cases_reviewed
+    - skipped_cases_lanes_classified
+    - additional_openai_provider_case_subset_selected
+    - additional_openai_provider_preflight_prepared
+    - additional_openai_provider_redteam_execution_passed
+    - all_critical_failures_zero_for_additional_openai_run
+    - all_high_failures_zero_for_additional_openai_run
+    - containment_boundary_verification_design_complete
+    - containment_fixtures_authored
+    - containment_boundary_mock_dry_run_passed
+    - containment_no_side_effect_boundary_checked
+
+  currently_blocked:
+    - broader_coverage_thresholds_met
+    - provider_or_local_gap_reviewed
+    - local_runtime_redteam_not_executed
+    - containment_verification_gate_refinement_pending
+    - containment_proof_not_established
+
+  claims_blocked:
+    - redteam-passed
+    - containment-verified
+    - release-gated
+    - production-ready

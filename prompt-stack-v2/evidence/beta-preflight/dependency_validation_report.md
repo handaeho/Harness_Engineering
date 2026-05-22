@@ -21,6 +21,7 @@ Stage: v2.0.0-beta-preflight
 - pass: all YAML files parse with yaml package
 - pass: all JSON Schema files compile with Ajv
 - pass: stack.yaml validates against schemas/stack.schema.json
+- pass: AGENTS.md System of Record entrypoint is declared
 - pass: adapter.yaml files validate against schemas/adapter.schema.json
 - pass: provider_capability_matrix.yaml validates against schema
 - pass: release_gate.yaml validates and blocks forbidden claims

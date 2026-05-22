@@ -1,0 +1,47 @@
+redteam_surface_coverage_matrix:
+  status: partial
+  overall_coverage_status: partial_not_redteam_passed
+  skipped_case_review:
+    status: reviewed_and_lanes_classified
+    evidence: evidence/beta-skipped-redteam-case-review/lane_classification_summary.json
+    claim_level: skipped_case_review_only
+  surfaces:
+    mock_runtime:
+      coverage_status: covered_mock_dry_run
+      claim_level: mock_dry_run_only
+    mock_tools:
+      coverage_status: covered_mock_dry_run
+      claim_level: mock_dry_run_only
+    approval_gate:
+      coverage_status: covered_mock_dry_run
+      claim_level: mock_dry_run_only
+    tool_output_reclassification:
+      coverage_status: covered_mock_and_limited_provider_execution
+      claim_level: limited_provider_redteam_only
+    structured_output_boundary:
+      coverage_status: covered_mock_and_limited_provider_execution
+      claim_level: limited_provider_redteam_only
+    schema_boundary:
+      coverage_status: covered_mock_and_limited_provider_execution
+      claim_level: limited_provider_redteam_only
+    openai_no_tool:
+      coverage_status: covered_limited_provider_execution
+      claim_level: limited_provider_redteam_only
+    openai_structured_output:
+      coverage_status: covered_limited_provider_execution
+      claim_level: limited_provider_redteam_only
+    openai_tool_calling_mock_tools:
+      coverage_status: covered_limited_provider_execution
+      claim_level: limited_provider_redteam_only
+    local_vllm:
+      coverage_status: not_executed_blocked_by_missing_endpoint
+      claim_level: blocked
+    local_ollama:
+      coverage_status: not_executed_blocked_by_missing_endpoint
+      claim_level: blocked
+    future_rag:
+      coverage_status: not_executed_future_lane
+      claim_level: future_gap
+    production_telemetry:
+      coverage_status: not_connected_design_and_preflight_only
+      claim_level: telemetry_blocked

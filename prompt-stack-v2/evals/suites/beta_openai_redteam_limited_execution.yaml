@@ -1,0 +1,24 @@
+stage: v2.0.0-beta-openai-redteam-limited-execution
+suite: beta_openai_redteam_limited_execution
+runner: tools/run_openai_redteam_limited_execution.mjs
+gate: tools/check_openai_redteam_limited_execution.mjs
+selected_case_subset: evals/fixtures/redteam_openai_limited/openai_limited_case_subset.jsonl
+max_cases_total: 12
+max_provider_calls: 24
+requires_operator_approval_phrase: true
+requires_openai_env: true
+provider_execution_allowed: true
+local_model_execution_allowed: false
+external_side_effects_allowed: false
+raw_request_stored: false
+raw_response_stored: false
+claims_allowed_after_success:
+  - openai-redteam-limited-execution-completed
+  - openai-redteam-limited-case-results-recorded
+  - openai-redteam-limited-redacted-traces-recorded
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready

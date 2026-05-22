@@ -1,0 +1,18 @@
+trace_policy:
+  live_trace_emission_enabled: false
+  redacted_evidence_only: true
+  required_events:
+    - additional_openai_redteam_started
+    - additional_openai_redteam_guard_checked
+    - additional_openai_redteam_case_selected
+    - additional_openai_redteam_request_mapped
+    - additional_openai_redteam_case_evaluated
+    - additional_openai_redteam_trace_recorded
+    - additional_openai_redteam_completed
+    - additional_openai_redteam_blocked
+  required_flags:
+    provider_execution: true
+    local_model_execution: false
+    external_side_effects: false
+    payload_redacted: true
+    raw_response_stored: false

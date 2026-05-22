@@ -1,0 +1,50 @@
+stage: v2.0.0-beta-containment-boundary-verification-design
+
+approved_actions:
+  containment_boundary_taxonomy_design: true
+  containment_policy_design: true
+  containment_fixture_design: true
+  containment_result_schema_design: true
+  containment_trace_schema_design: true
+  containment_coverage_matrix_generation: true
+  containment_claim_boundary_audit: true
+  containment_verification_gate_design: true
+  blocker_update: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_case_rerun: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  real_file_writes: true
+  shell_command_execution: true
+  real_tool_side_effects: true
+  release_gate_execution: true
+  production_deployment: true
+  containment_verified_claim: true
+  redteam_passed_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - containment-boundary-verification-designed
+  - containment-boundary-taxonomy-drafted
+  - containment-fixtures-authored
+  - containment-coverage-matrix-drafted
+  - containment-claim-boundary-audited
+  - containment-verification-gate-designed
+  - containment-blocker-updated
+
+claims_not_allowed:
+  - containment-verified
+  - redteam-passed
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-verified
+  - provider-diverse
+  - adapter-checked
+  - integration-verified

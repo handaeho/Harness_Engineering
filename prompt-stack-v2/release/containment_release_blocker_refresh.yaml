@@ -1,0 +1,15 @@
+containment_release_blocker_refresh:
+  blocker_id: RTG-003
+  previous_status: containment_boundary_mock_dry_run_passed_dedicated_verification_pending
+  new_status: containment_gate_refined_dedicated_verification_and_cross_suite_audit_pending
+  still_blocks:
+    - containment-verified
+    - release-gated
+    - production-ready
+  unblocks:
+    - containment_gate_refinement
+    - boundary_proof_level_visibility
+  does_not_unblock:
+    - containment-verified
+    - release-gated
+    - production-ready

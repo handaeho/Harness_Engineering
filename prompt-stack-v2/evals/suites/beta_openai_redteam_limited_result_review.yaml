@@ -1,0 +1,12 @@
+suite_id: beta_openai_redteam_limited_result_review
+stage: v2.0.0-beta-openai-redteam-limited-result-review-and-blocker-update
+mode: review_only
+source_stage: v2.0.0-beta-openai-redteam-limited-execution
+new_provider_execution_allowed: false
+checks:
+  - source_execution_report_pass
+  - evidence_completeness_mapped
+  - claim_aliases_recorded
+  - canonical_claims_recorded
+  - blocker_update_recorded
+  - release_gate_blocker_refresh_recorded

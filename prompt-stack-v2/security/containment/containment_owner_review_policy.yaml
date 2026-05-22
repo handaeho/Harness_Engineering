@@ -1,0 +1,14 @@
+containment_owner_review_policy:
+  status: draft_required
+  owner_review_required: true
+  owner_decision_record_required_before_claim: true
+  required_inputs:
+    - containment_post_execution_review_report.json
+    - containment_claim_boundary_audit.json
+    - containment_owner_review_draft.json
+    - cross_suite_storage_redaction_audit_report.json
+    - dedicated_containment_verification_report.json
+  draft_does_not_allow:
+    - containment-verified
+    - release-gated
+    - production-ready

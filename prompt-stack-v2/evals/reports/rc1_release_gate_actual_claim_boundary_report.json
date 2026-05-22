@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "scope": "openai_only_rc1",
+  "rc1_openai_scope_release_gated_allowed": true,
+  "stable_allowed": false,
+  "production_ready_allowed": false,
+  "production_monitored_allowed": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "local_model_verified_allowed": false,
+  "containment_verified_allowed": true,
+  "allowed_claims": [
+    "rc1-release-gate-actual-executed",
+    "rc1-openai-scope-release-gate-passed",
+    "rc1-openai-scope-release-decision-recorded",
+    "rc1-openai-scope-release-gated",
+    "rc1-local-endpoint-deferral-maintained",
+    "rc1-provider-diversity-deferral-maintained",
+    "containment-verified"
+  ],
+  "blocked_claims": [
+    "stable",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified"
+  ],
+  "reason": "OpenAI-only RC1 release gate passed, but stable, production, provider diversity, and local runtime claims remain blocked."
+}

@@ -1,0 +1,84 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-execution-readiness-dashboard-and-blocker-resolution-plan",
+  "new_provider_execution": false,
+  "new_local_model_execution": false,
+  "new_telemetry_connection": false,
+  "local_endpoint_probe": false,
+  "dist_modified": false,
+  "lanes": {
+    "openai_limited_redteam_execution": {
+      "status": "approval_blocked_operator_credentials_available",
+      "can_execute_now": false,
+      "can_execute_in_operator_shell_after_approval": true,
+      "blocked_by": [
+        "missing_explicit_user_approval"
+      ]
+    },
+    "production_telemetry_connection": {
+      "status": "blocked",
+      "can_execute_now": false,
+      "can_execute_in_operator_shell_after_approval": false,
+      "blocked_by": [
+        "missing_explicit_user_approval",
+        "missing_telemetry_sink_credentials"
+      ]
+    },
+    "local_no_tool_canary": {
+      "status": "blocked",
+      "can_execute_now": false,
+      "can_execute_in_operator_shell_after_approval": false,
+      "blocked_by": [
+        "missing_local_vllm_or_ollama_endpoint"
+      ]
+    },
+    "release_gate": {
+      "status": "blocked_not_release_gated",
+      "can_execute_now": false,
+      "can_execute_in_operator_shell_after_approval": false,
+      "blocked_by": [
+        "provider_diversity_not_established",
+        "redteam_execution_not_completed",
+        "production_telemetry_not_connected",
+        "local_runtime_not_executed",
+        "rollback_plan_not_finalized"
+      ]
+    }
+  },
+  "blocker_count": 6,
+  "p0_blocker_count": 4,
+  "p1_blocker_count": 2,
+  "approval_phrases_indexed": 2,
+  "environment_requirement_lanes_indexed": 5,
+  "command_plans_indexed": 3,
+  "claim_impact_matrix_status": "drafted",
+  "claims_allowed": [
+    "execution-readiness-dashboard-drafted",
+    "blocker-resolution-plan-drafted",
+    "approval-requirements-indexed",
+    "environment-requirements-indexed",
+    "command-plans-indexed",
+    "claim-impact-matrix-drafted",
+    "path-portability-audited"
+  ],
+  "claims_not_allowed": [
+    "telemetry-connected",
+    "production-monitored",
+    "production-ready",
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "integration-verified",
+    "release-gated",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "benchmark-backed"
+  ],
+  "failures": []
+}

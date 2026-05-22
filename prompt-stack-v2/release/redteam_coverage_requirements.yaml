@@ -1,0 +1,25 @@
+redteam_coverage_requirements:
+  status: draft
+  claim_target: redteam-passed
+  claim_allowed_now: false
+  minimum_required_before_redteam_passed:
+    - mock_runtime_redteam_dry_run_pass
+    - openai_limited_redteam_execution_pass
+    - skipped_case_review_complete
+    - remaining_provider_compatible_case_decision_complete
+    - local_runtime_gap_decision_complete
+    - claim_boundary_audit_pass
+  required_surfaces:
+    - mock_runtime
+    - mock_tools
+    - approval_gate
+    - tool_output_reclassification
+    - structured_output_boundary
+    - schema_boundary
+    - openai_no_tool
+    - openai_structured_output
+    - openai_tool_calling_mock_tools
+    - local_vllm
+    - local_ollama
+    - future_rag
+    - production_telemetry

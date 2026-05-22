@@ -1,0 +1,34 @@
+id: beta_containment_verification_gate_refinement
+stage: v2.0.0-beta-containment-verification-gate-refinement-and-release-blocker-refresh
+status: design_only_no_execution
+description: Refine containment verification gate from design and mock dry-run evidence without rerunning containment fixtures.
+
+inputs:
+  - evidence/beta-containment-boundary-verification-design/containment_boundary_verification_design_report.json
+  - evidence/beta-containment-boundary-mock-dry-run/containment_boundary_mock_dry_run_report.json
+  - evidence/beta-containment-boundary-mock-dry-run/containment_mock_gate_report.json
+
+commands:
+  - node prompt-stack-v2/tools/refine_containment_verification_gate.mjs
+  - node prompt-stack-v2/tools/map_containment_evidence_to_boundaries.mjs
+  - node prompt-stack-v2/tools/audit_containment_proof_levels.mjs
+  - node prompt-stack-v2/tools/check_containment_verification_gate_refinement.mjs
+
+expected_outputs:
+  - evidence/beta-containment-verification-gate-refinement/containment_verification_gate_refinement_report.json
+  - evidence/beta-containment-verification-gate-refinement/containment_evidence_mapping.json
+  - evidence/beta-containment-verification-gate-refinement/containment_proof_level_matrix.json
+  - evidence/beta-containment-verification-gate-refinement/containment_remaining_criteria.json
+  - evidence/beta-containment-verification-gate-refinement/containment_claim_boundary.json
+  - evidence/beta-containment-verification-gate-refinement/containment_release_blocker_refresh.json
+  - evidence/beta-containment-verification-gate-refinement/containment_gate_refinement_gate_report.json
+
+must_remain_false:
+  new_provider_execution: false
+  new_redteam_execution: false
+  containment_fixture_rerun: false
+  local_model_execution: false
+  telemetry_connection: false
+  containment_verified_allowed: false
+  release_gated_allowed: false
+  production_ready_allowed: false

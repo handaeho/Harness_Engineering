@@ -1,0 +1,15 @@
+boundary_policy:
+  boundary: raw_storage_boundary
+  status: design_only
+  description: Raw requests/responses/secrets must not be stored.
+  execution_allowed_in_this_stage: false
+  verification_required_before_containment_verified: true
+  current_proof_status: canary_observed_not_verified
+  required_evidence:
+    - containment_result_record
+    - redacted_trace_record
+    - no_forbidden_event_observed
+  claims_not_allowed:
+    - containment-verified
+    - release-gated
+    - production-ready

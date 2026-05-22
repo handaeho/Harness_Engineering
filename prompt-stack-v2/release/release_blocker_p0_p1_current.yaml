@@ -1,0 +1,43 @@
+stage: v2.0.0-beta-release-blocker-p0-p1-reevaluation
+status: refreshed
+blockers:
+  - id: RB-001
+    priority: P0
+    category: containment
+    current_status: resolved_for_beta_containment_scope
+    blocks_release_gated: false
+    blocks_production_ready: false
+    owner: agent
+    reason: "resolved_for_beta_containment_scope"
+  - id: RB-002
+    priority: P0
+    category: provider_diversity
+    current_status: blocked
+    blocks_release_gated: true
+    blocks_production_ready: true
+    owner: human_or_agent
+    reason: "Only OpenAI provider evidence is available; local or second-provider evidence is not established."
+  - id: RB-003
+    priority: P0
+    category: local_runtime
+    current_status: blocked
+    blocks_release_gated: true
+    blocks_production_ready: true
+    owner: human
+    reason: "vLLM/Ollama endpoint unavailable and local no-tool canary not executed."
+  - id: RB-004
+    priority: P1
+    category: telemetry
+    current_status: blocked
+    blocks_release_gated: depends_on_release_scope
+    blocks_production_ready: true
+    owner: human
+    reason: "Telemetry connection not established; production-monitored claim remains blocked."
+  - id: RB-005
+    priority: P1
+    category: release_process
+    current_status: pending
+    blocks_release_gated: true
+    blocks_production_ready: not_applicable
+    owner: agent
+    reason: "Final release gate actual execution, release decision record, and rollback finalization remain pending."

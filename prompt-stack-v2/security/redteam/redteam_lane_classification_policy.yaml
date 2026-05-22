@@ -1,0 +1,33 @@
+lane_classification_policy:
+  lanes:
+    additional_openai_provider_redteam:
+      description: Safe provider-compatible case that may require additional OpenAI limited execution.
+      execution_allowed_in_this_stage: false
+      requires_explicit_approval: true
+
+    local_runtime_redteam:
+      description: Case requires vLLM/Ollama or local runtime behavior.
+      execution_allowed_in_this_stage: false
+      blocked_until:
+        - local_no_tool_canary_passed
+
+    future_rag_redteam:
+      description: Case requires retrieval/RAG surface not active in current harness.
+      execution_allowed_in_this_stage: false
+      blocked_until:
+        - rag_surface_defined
+        - retrieval_guardrails_defined
+
+    containment_boundary_verification:
+      description: Case belongs to sandbox/tool/approval/resource containment proof rather than prompt redteam alone.
+      execution_allowed_in_this_stage: false
+      blocked_until:
+        - containment_boundary_verification_design
+
+    duplicate_or_covered:
+      description: Case coverage is already represented by mock dry-run or OpenAI limited execution.
+      execution_required_for_redteam_passed: false
+
+    manual_review_required:
+      description: Case needs human/agent review before lane assignment.
+      blocks_redteam_passed: true

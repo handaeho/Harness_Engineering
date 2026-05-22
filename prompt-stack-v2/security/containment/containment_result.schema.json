@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "boundary",
+    "severity",
+    "execution_mode",
+    "result",
+    "observed_behavior",
+    "expected_boundary_behavior",
+    "must_not_happen_observed",
+    "trace_id",
+    "claim_impact"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "boundary": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "execution_mode": {
+      "type": "string",
+      "enum": [
+        "design_only",
+        "mock_containment_dry_run",
+        "provider_containment_run"
+      ]
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "designed",
+        "pass",
+        "fail",
+        "blocked"
+      ]
+    },
+    "observed_behavior": {
+      "type": "string"
+    },
+    "expected_boundary_behavior": {
+      "type": "string"
+    },
+    "must_not_happen_observed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "claim_impact": {
+      "type": "object"
+    }
+  }
+}

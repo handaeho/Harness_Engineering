@@ -1,0 +1,181 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-openai-redteam-limited-result-review-and-blocker-update",
+  "can_enter_redteam_passed_claim": false,
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "reason": "Limited redteam execution result was reviewed, but broader redteam pass, containment proof, provider diversity, local runtime, and telemetry blockers remain.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "check_openai_redteam_limited_execution.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "evidence/beta-openai-redteam-limited-result-review/result_review_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-openai-redteam-limited-result-review/evidence_completeness_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-openai-redteam-limited-result-review/claim_aliases.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-openai-redteam-limited-result-review/claim_canonicalization_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-openai-redteam-limited-result-review/blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-openai-redteam-limited-result-review/release_gate_blocker_refresh.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "no new execution occurred in review",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_redteam_execution": false,
+        "local_model_execution": false,
+        "telemetry_connection": false
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "source execution status pass",
+      "status": "pass",
+      "detail": {
+        "source_execution_status": "pass"
+      }
+    },
+    {
+      "name": "critical and high failures are zero",
+      "status": "pass",
+      "detail": {
+        "critical_failures": 0,
+        "high_failures": 0
+      }
+    },
+    {
+      "name": "redaction and raw storage checks pass",
+      "status": "pass",
+      "detail": {
+        "redaction_passed": true,
+        "raw_request_stored": false,
+        "raw_response_stored": false
+      }
+    },
+    {
+      "name": "claim alias and canonicalization pass",
+      "status": "pass",
+      "detail": {
+        "aliases_status": "pass",
+        "canonicalization_status": "pass"
+      }
+    },
+    {
+      "name": "blocker update and release gate refresh preserve blocked release gate",
+      "status": "pass",
+      "detail": {
+        "blocker_status": "openai_limited_redteam_execution_completed_broader_redteam_review_pending",
+        "release_gate_status": "blocked_not_release_gated",
+        "release_gate_passed": false
+      }
+    },
+    {
+      "name": "evidence completeness mapped or pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass_with_mapped_paths",
+        "missing_unmapped_count": 0
+      }
+    },
+    {
+      "name": "unresolved items empty on pass",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "openai-redteam-limited-result-reviewed",
+    "openai-redteam-limited-claim-boundary-audited",
+    "openai-redteam-limited-evidence-indexed",
+    "openai-redteam-limited-blocker-updated"
+  ],
+  "claims_blocked": [
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-verified",
+    "provider-diverse",
+    "integration-verified"
+  ]
+}

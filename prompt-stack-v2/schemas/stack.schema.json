@@ -7,7 +7,9 @@
     "id",
     "version",
     "status",
+    "agent_entrypoint",
     "source_of_truth",
+    "asset_class_manifest",
     "baseline",
     "dist_policy",
     "core",
@@ -21,10 +23,71 @@
     "id": { "const": "prompt-stack-v2" },
     "version": { "type": "string" },
     "status": { "type": "string" },
-    "source_of_truth": {
+    "agent_entrypoint": {
+      "type": "object",
+      "required": ["path", "role"],
+      "properties": {
+        "path": { "const": "AGENTS.md" },
+        "role": { "const": "human_and_agent_facing_system_of_record_index" }
+      },
+      "additionalProperties": false
+    },
+    "legacy_source_of_truth": {
       "type": "array",
       "items": { "type": "string" },
       "contains": { "const": "core/spec/harness.spec.yaml" }
+    },
+    "source_of_truth": {
+      "type": "object",
+      "required": [
+        "agent_index",
+        "machine_manifest",
+        "core_contract",
+        "release_contract",
+        "capability_contract",
+        "evidence_truth"
+      ],
+      "properties": {
+        "agent_index": {
+          "type": "array",
+          "items": { "type": "string" },
+          "contains": { "const": "AGENTS.md" }
+        },
+        "machine_manifest": {
+          "type": "array",
+          "items": { "type": "string" },
+          "contains": { "const": "stack.yaml" }
+        },
+        "core_contract": {
+          "type": "array",
+          "items": { "type": "string" },
+          "contains": { "const": "core/spec/harness.spec.yaml" }
+        },
+        "release_contract": {
+          "type": "array",
+          "items": { "type": "string" },
+          "contains": { "const": "release/release_gate.yaml" }
+        },
+        "capability_contract": {
+          "type": "array",
+          "items": { "type": "string" },
+          "contains": { "const": "adapters/provider_capability_matrix.yaml" }
+        },
+        "evidence_truth": {
+          "type": "array",
+          "items": { "type": "string" },
+          "contains": { "const": "evidence/" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "asset_class_manifest": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": { "const": "MANIFEST.asset_classes.yaml" }
+      },
+      "additionalProperties": false
     },
     "baseline": {
       "type": "object",

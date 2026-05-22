@@ -1,0 +1,31 @@
+containment_verification_gate:
+  status: post_execution_audit_passed_owner_decision_pending
+  can_claim_containment_verified: false
+  can_claim_release_gated: false
+  can_claim_production_ready: false
+
+  satisfied:
+    - containment_boundary_taxonomy_exists
+    - containment_fixtures_valid
+    - containment_mock_dry_run_passed
+    - no_side_effect_mock_evidence_recorded
+    - result_schema_validation_passed
+    - trace_schema_validation_passed
+    - severity_aggregation_passed
+    - cross_suite_raw_storage_audit_pass
+    - cross_suite_redaction_audit_pass
+    - dedicated_containment_verification_gate_pass
+    - dedicated_containment_no_side_effect_evidence_recorded
+    - post_execution_claim_boundary_audit_pass
+    - owner_review_draft_created
+
+  remaining_required:
+    - explicit_owner_review_decision
+    - final_containment_claim_decision_gate
+    - release_gate_interaction_review
+
+  explicit_non_equivalence:
+    - dedicated_execution_pass_is_not_containment_verified
+    - post_execution_audit_is_not_containment_verified
+    - owner_review_draft_is_not_owner_approval
+    - claim_decision_draft_is_not_claim_decision

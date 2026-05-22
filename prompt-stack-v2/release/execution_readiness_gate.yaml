@@ -1,0 +1,22 @@
+execution_readiness_gate:
+  stage: v2.0.0-beta-execution-readiness-dashboard-and-blocker-resolution-plan
+  status: dashboard_only
+  can_enter_openai_redteam_execution: false
+  can_enter_telemetry_connection: false
+  can_enter_local_no_tool_canary: false
+  can_enter_release_gate: false
+  required_before_any_execution:
+    - exact_approval_phrase_when_required
+    - required_environment_variables_present
+    - command_plan_exists
+    - prior_preflight_gate_pass_or_blocked_with_no_execution
+    - claim_boundary_scan_pass
+  claims_blocked:
+    - telemetry-connected
+    - redteam-executed
+    - redteam-passed
+    - local-model-verified
+    - provider-diverse
+    - production-ready
+    - production-monitored
+    - release-gated

@@ -1,0 +1,9 @@
+connection_preflight_policy:
+  status: preflight_only
+  live_connection_enabled: false
+  api_call_allowed: false
+  required_env_presence_check:
+    - LANGFUSE_PUBLIC_KEY
+    - LANGFUSE_SECRET_KEY
+    - LANGFUSE_HOST
+  dry_payload_shape_validation_required: true

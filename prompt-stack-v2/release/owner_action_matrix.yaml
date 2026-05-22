@@ -1,48 +1,36 @@
-stage: v2.0.0-beta-production-telemetry-design
-status: draft
+stage: v2.0.0-rc.1-release-gate-actual-openai-scope
+status: refreshed_after_openai_scope_actual_gate
 entries:
-  - blocker_id: RGB-001
-    owner: human_or_agent
-    action: Prepare local endpoint or second provider canary path.
-    exit_criteria: Non-OpenAI or local canary passes.
-    claim_unblocked_after_exit:
-      - provider-diverse_candidate
-    claim_still_not_allowed:
-      - release-gated
-      - production-ready
-  - blocker_id: RGB-002
-    owner: human
-    action: Start localhost-only vLLM or Ollama endpoint and run local no-tool canary.
-    exit_criteria: Local no-tool canary passes with redacted trace and no external side effects.
-    claim_unblocked_after_exit:
-      - local-no-tool-canary-executed_candidate
-    claim_still_not_allowed:
-      - release-gated
-      - production-ready
-  - blocker_id: RGB-003
+  - lane: openai_only_actual_release_gate
     owner: agent
-    action: Keep provider redteam execution blocked until explicit user approval and credential readiness are present.
-    exit_criteria: Approved provider or local redteam execution records per-case evidence with zero critical and high failures.
+    action: Record scoped OpenAI-only actual gate result from existing evidence.
+    exit_criteria: Actual gate report and claim boundary are recorded.
     claim_unblocked_after_exit:
-      - redteam-provider-execution-candidate
+      - rc1-release-gate-actual-executed
+      - rc1-openai-scope-release-gate-passed
     claim_still_not_allowed:
-      - release-gated
+      - stable
       - production-ready
-  - blocker_id: RGB-004
-    owner: agent
-    action: Prepare telemetry connection preflight with sink credentials, redaction review, first trace receipt, and first metric receipt gates.
-    exit_criteria: Live telemetry sink is connected and anomaly response criteria are active with incident response path defined.
-    claim_unblocked_after_exit:
-      - production-monitoring-candidate
+      - production-monitored
+      - provider-diverse
+  - lane: local_endpoint
+    owner: operator
+    action: Provide endpoint readiness before any local canary or local redteam work.
+    exit_criteria: Operator explicitly provides a local endpoint and permits local canary work.
     claim_still_not_allowed:
-      - release-gated
-      - production-ready
-  - blocker_id: RGB-005
-    owner: agent
-    action: Finalize rollback plan and owner/action matrix.
-    exit_criteria: Final rollback and owner/action artifacts are referenced by release gate.
-    claim_unblocked_after_exit:
-      - release-process-readiness-candidate
+      - local-model-verified
+      - provider-diverse
+  - lane: telemetry_connection
+    owner: operator
+    action: Provide credentials and explicit approval before telemetry connection work.
+    exit_criteria: Telemetry credentials and approval are available in a separate stage.
     claim_still_not_allowed:
-      - release-gated
+      - production-monitored
       - production-ready
+  - lane: strict_provider_diverse
+    owner: operator
+    action: Provide local runtime or second provider evidence path later.
+    exit_criteria: Non-OpenAI evidence exists under a separate approved stage.
+    claim_still_not_allowed:
+      - provider-diverse
+      - stable

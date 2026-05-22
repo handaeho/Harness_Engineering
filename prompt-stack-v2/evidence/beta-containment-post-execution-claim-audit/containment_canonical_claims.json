@@ -1,0 +1,43 @@
+{
+  "canonical_allowed_claims": [
+    "dedicated-containment-verification-executed",
+    "dedicated-containment-boundaries-checked",
+    "dedicated-containment-no-side-effect-verified",
+    "dedicated-containment-result-schema-validated",
+    "dedicated-containment-trace-schema-validated",
+    "dedicated-containment-severity-aggregation-recorded",
+    "dedicated-containment-contract-guard-checked"
+  ],
+  "source_report_claims": [
+    "dedicated-containment-verification-executed",
+    "dedicated-containment-case-results-recorded",
+    "dedicated-containment-redacted-traces-recorded",
+    "dedicated-containment-no-side-effect-evidence-recorded",
+    "dedicated-containment-boundary-results-recorded",
+    "dedicated-containment-execution-gate-checked"
+  ],
+  "alias_mapping": {
+    "dedicated-containment-case-results-recorded": "dedicated-containment-boundaries-checked",
+    "dedicated-containment-redacted-traces-recorded": "dedicated-containment-trace-schema-validated",
+    "dedicated-containment-no-side-effect-evidence-recorded": "dedicated-containment-no-side-effect-verified",
+    "dedicated-containment-boundary-results-recorded": "dedicated-containment-boundaries-checked",
+    "dedicated-containment-execution-gate-checked": "dedicated-containment-contract-guard-checked"
+  },
+  "canonicalized_source_claims": [
+    "dedicated-containment-verification-executed",
+    "dedicated-containment-boundaries-checked",
+    "dedicated-containment-trace-schema-validated",
+    "dedicated-containment-no-side-effect-verified",
+    "dedicated-containment-contract-guard-checked"
+  ],
+  "additional_canonical_claims_supported_by_reports": [
+    "dedicated-containment-result-schema-validated",
+    "dedicated-containment-severity-aggregation-recorded"
+  ],
+  "canonicalization_status": "pass",
+  "claims_not_added": [
+    "containment-verified",
+    "release-gated",
+    "production-ready"
+  ]
+}

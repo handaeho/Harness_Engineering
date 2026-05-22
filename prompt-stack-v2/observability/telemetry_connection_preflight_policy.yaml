@@ -1,0 +1,14 @@
+preflight_policy:
+  live_connection_allowed: false
+  telemetry_sink_write_allowed: false
+  exporter_network_call_allowed: false
+  required_artifacts:
+    - observability/production_telemetry_policy.yaml
+    - observability/telemetry_event_taxonomy.yaml
+    - observability/telemetry_metric_catalog.yaml
+    - observability/telemetry_redaction_policy.yaml
+    - observability/otel/genai_semantic_mapping.yaml
+    - observability/langfuse/integration_plan.yaml
+    - release/production_telemetry_gate.yaml
+    - release/production_telemetry_connection_approval_gate.yaml
+  expected_preflight_status_without_approval: ready_but_blocked_by_missing_explicit_approval

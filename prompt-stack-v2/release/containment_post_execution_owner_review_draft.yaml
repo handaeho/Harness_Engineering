@@ -1,0 +1,19 @@
+owner_review_draft:
+  status: draft
+  owner_review_required: true
+  recommended_decision: eligible_for_final_containment_decision_gate
+  basis:
+    - dedicated containment verification execution passed
+    - cross-suite storage/redaction audit passed
+    - critical/high failures zero
+    - no-side-effect counters zero
+    - raw request/response stored false
+    - redaction passed
+  remaining_before_containment_verified:
+    - explicit owner review decision
+    - final containment claim decision gate
+    - release gate interaction review
+  does_not_allow:
+    - containment-verified
+    - release-gated
+    - production-ready

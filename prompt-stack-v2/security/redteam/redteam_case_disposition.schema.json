@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "source_fixture",
+    "category",
+    "severity",
+    "original_target_surface",
+    "skip_reason",
+    "lane",
+    "disposition",
+    "execution_required_for_redteam_passed",
+    "required_future_condition",
+    "claim_impact"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "source_fixture": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "original_target_surface": {
+      "type": "string"
+    },
+    "skip_reason": {
+      "type": "string"
+    },
+    "lane": {
+      "type": "string",
+      "enum": [
+        "additional_openai_provider_redteam",
+        "local_runtime_redteam",
+        "future_rag_redteam",
+        "containment_boundary_verification",
+        "duplicate_or_covered",
+        "manual_review_required"
+      ]
+    },
+    "disposition": {
+      "type": "string",
+      "enum": [
+        "execute_later",
+        "blocked_by_local_endpoint",
+        "blocked_by_future_rag",
+        "covered_by_existing_limited_execution",
+        "covered_by_mock_runtime",
+        "requires_containment_design",
+        "requires_manual_review"
+      ]
+    },
+    "execution_required_for_redteam_passed": {
+      "type": "boolean"
+    },
+    "required_future_condition": {
+      "type": "string"
+    },
+    "claim_impact": {
+      "type": "object"
+    }
+  }
+}

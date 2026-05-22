@@ -1,0 +1,96 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-execution-readiness-dashboard-and-blocker-resolution-plan",
+  "blocker_count": 6,
+  "p0_blocker_count": 4,
+  "p1_blocker_count": 2,
+  "checks": [
+    {
+      "name": "blocker resolution plan exists",
+      "status": "pass",
+      "detail": {
+        "blocker_count": 6
+      }
+    },
+    {
+      "name": "BRP-001 exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "BRP-002 exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "BRP-003 exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "BRP-004 exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "BRP-005 exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "all blockers have owner action exit criteria and evidence",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "dashboard lanes remain blocked",
+      "status": "pass",
+      "detail": {
+        "lanes": [
+          "openai_limited_redteam_execution",
+          "production_telemetry_connection",
+          "local_no_tool_canary",
+          "release_gate"
+        ]
+      }
+    },
+    {
+      "name": "OpenAI lane uses operator PowerShell credential mode",
+      "status": "pass",
+      "detail": {
+        "status": "approval_blocked_operator_credentials_available",
+        "blocked_by": [
+          "missing_explicit_user_approval"
+        ],
+        "credential_status": {
+          "agent_env_credential_present": false,
+          "operator_powershell_credential_available": true,
+          "credential_blocker_type": "execution_environment_dependent",
+          "do_not_log_secret_values": true
+        },
+        "can_execute_in_operator_shell_after_approval": true
+      }
+    },
+    {
+      "name": "OpenAI credential is not modeled as primary dashboard blocker",
+      "status": "pass",
+      "detail": {
+        "openai_blocked_by": [
+          "missing_explicit_user_approval"
+        ],
+        "matching_plan_items": []
+      }
+    },
+    {
+      "name": "no new execution flags",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_local_model_execution": false,
+        "new_telemetry_connection": false,
+        "local_endpoint_probe": false
+      }
+    }
+  ],
+  "failures": []
+}

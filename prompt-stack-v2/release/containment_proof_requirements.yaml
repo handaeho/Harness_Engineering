@@ -1,0 +1,22 @@
+containment_proof_requirements:
+  status: storage_redaction_audit_passed_dedicated_verification_pending
+  can_claim_containment_verified: false
+  required_before_verified:
+    - dedicated_containment_verification_gate_pass
+    - sandbox_boundary_proof_or_accepted_risk_recorded
+    - claim_boundary_audit_pass
+  currently_satisfied:
+    - containment_mock_dry_run_passed
+    - no_side_effect_mock_evidence_recorded
+    - result_schema_validation_passed
+    - trace_schema_validation_passed
+    - severity_aggregation_passed
+    - cross_suite_raw_storage_audit_pass
+    - cross_suite_redaction_audit_pass
+    - secret_pattern_audit_pass
+  criteria_satisfied_by_storage_redaction_audit:
+    - CVR-002
+  non_equivalence:
+    gate_refined_is_not_containment_verified: true
+    storage_redaction_audit_pass_is_not_containment_verified: true
+    evidence_mapped_is_not_evidence_sufficient: true

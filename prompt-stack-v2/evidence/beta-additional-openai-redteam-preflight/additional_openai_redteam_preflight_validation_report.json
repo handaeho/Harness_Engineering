@@ -1,0 +1,120 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-additional-openai-redteam-preflight-and-approval",
+  "selected_cases_total": 4,
+  "max_cases_total": 4,
+  "duplicate_with_limited_execution_count": 0,
+  "checks": [
+    {
+      "name": "required files exist",
+      "status": "pass",
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "name": "selected cases total is 4",
+      "status": "pass",
+      "detail": {
+        "selected_cases_total": 4
+      }
+    },
+    {
+      "name": "selection report matches subset",
+      "status": "pass",
+      "detail": {
+        "selection_selected_cases_total": 4,
+        "max_cases_total": 4
+      }
+    },
+    {
+      "name": "selected cases source lane is additional_openai_provider_redteam",
+      "status": "pass",
+      "detail": {
+        "source_lane_failures": []
+      }
+    },
+    {
+      "name": "selected cases are not duplicate exact limited case ids",
+      "status": "pass",
+      "detail": {
+        "duplicate_case_ids": []
+      }
+    },
+    {
+      "name": "provider surfaces are allowed",
+      "status": "pass",
+      "detail": {
+        "surface_failures": []
+      }
+    },
+    {
+      "name": "execution constraints block raw storage and side effects",
+      "status": "pass",
+      "detail": {
+        "storage_failures": []
+      }
+    },
+    {
+      "name": "approval and execution remain blocked",
+      "status": "pass",
+      "detail": {
+        "explicit_user_approval_present": false,
+        "can_execute_additional_openai_redteam": false
+      }
+    },
+    {
+      "name": "no execution occurred",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_redteam_execution": false,
+        "local_model_execution": false,
+        "telemetry_connection": false
+      }
+    },
+    {
+      "name": "guard blocks execution",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "can_execute_additional_openai_redteam": false
+      }
+    },
+    {
+      "name": "cost bound is strict",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "max_cases_per_run": 4,
+        "max_total_provider_calls": 8,
+        "max_output_tokens_per_call": 256,
+        "limited_redteam_policy_equal_or_stricter": true
+      }
+    },
+    {
+      "name": "stop criteria readiness pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stop_on_first_critical_failure": true,
+        "stop_on_high_failure_count_gte": 1,
+        "retry_failed_cases": false
+      }
+    },
+    {
+      "name": "redaction trace readiness pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "secrets_logged": false,
+        "redacted_evidence_only": true
+      }
+    }
+  ],
+  "redteam_passed_allowed": false,
+  "containment_verified_allowed": false,
+  "release_gated_allowed": false
+}

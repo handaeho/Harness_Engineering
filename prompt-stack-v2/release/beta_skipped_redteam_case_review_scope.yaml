@@ -1,0 +1,46 @@
+stage: v2.0.0-beta-skipped-redteam-case-review-and-lane-classification
+
+approved_actions:
+  skipped_case_review: true
+  lane_classification: true
+  disposition_assignment: true
+  coverage_gap_refinement: true
+  future_execution_lane_planning: true
+  blocker_update: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_case_execution: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  real_tool_side_effects: true
+  shell_command_execution: true
+  release_gate_execution: true
+  production_deployment: true
+  redteam_passed_claim: true
+  containment_verified_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - skipped-redteam-cases-reviewed
+  - redteam-case-lanes-classified
+  - redteam-case-dispositions-recorded
+  - redteam-skipped-case-gap-refined
+  - redteam-future-execution-lanes-drafted
+  - redteam-skipped-case-blocker-updated
+
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified

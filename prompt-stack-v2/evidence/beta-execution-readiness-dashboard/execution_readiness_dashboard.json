@@ -1,0 +1,151 @@
+{
+  "stage": "v2.0.0-beta-execution-readiness-dashboard-and-blocker-resolution-plan",
+  "generated_from_existing_evidence_only": true,
+  "new_provider_execution": false,
+  "new_local_model_execution": false,
+  "new_telemetry_connection": false,
+  "local_endpoint_probe": false,
+  "dist_modified": false,
+  "input_status": {
+    "openai_canary_suite": {
+      "no_tool": "pass",
+      "structured_output": "pass",
+      "tool_calling": "pass",
+      "canary_replay_suite": "pass",
+      "claim_level": "canary_suite_only"
+    },
+    "redteam": {
+      "suite_design": "pass",
+      "mock_runtime_dry_run": "pass",
+      "limited_openai_execution_plan": "pass",
+      "limited_execution_preflight": "blocked_by_missing_credential",
+      "actual_provider_redteam_execution": false
+    },
+    "telemetry": {
+      "production_telemetry_design": "pass",
+      "telemetry_connection_preflight": "blocked_by_missing_otel_endpoint",
+      "live_telemetry_connected": false
+    },
+    "local": {
+      "vllm_endpoint_available": false,
+      "ollama_endpoint_available": false,
+      "local_model_execution": false
+    },
+    "release_gate": {
+      "dry_run_status": "blocked_not_release_gated",
+      "release_gate_passed": false,
+      "production_ready": false,
+      "production_monitored": false,
+      "provider_diversity_established": false
+    }
+  },
+  "lanes": {
+    "openai_limited_redteam_execution": {
+      "status": "approval_blocked_operator_credentials_available",
+      "blocked_by": [
+        "missing_explicit_user_approval"
+      ],
+      "credential_status": {
+        "agent_env_credential_present": false,
+        "operator_powershell_credential_available": true,
+        "credential_blocker_type": "execution_environment_dependent",
+        "do_not_log_secret_values": true
+      },
+      "required_approval_phrase": "I explicitly approve v2.0.0-beta-openai-redteam-limited-execution",
+      "required_env": [
+        "OPENAI_API_KEY",
+        "OPENAI_MODEL"
+      ],
+      "operator_execution_mode": {
+        "supported": true,
+        "shell": "PowerShell",
+        "must_verify_env_at_execution_time": true,
+        "must_store_redacted_evidence_only": true
+      },
+      "command_plan": "release/openai_redteam_limited_execution_command_plan.yaml",
+      "can_execute_now": false,
+      "can_execute_in_operator_shell_after_approval": true,
+      "claims_unlocked_after_success_candidate": [
+        "openai-redteam-limited-execution-completed"
+      ],
+      "claims_still_blocked_after_success": [
+        "redteam-passed",
+        "containment-verified",
+        "release-gated",
+        "production-ready"
+      ]
+    },
+    "production_telemetry_connection": {
+      "status": "blocked",
+      "blocked_by": [
+        "missing_explicit_user_approval",
+        "missing_telemetry_sink_credentials"
+      ],
+      "required_approval_phrase": "I explicitly approve v2.0.0-beta-production-telemetry-connection",
+      "required_env_one_of": {
+        "otel_otlp": [
+          "OTEL_EXPORTER_OTLP_ENDPOINT"
+        ],
+        "langfuse": [
+          "LANGFUSE_PUBLIC_KEY",
+          "LANGFUSE_SECRET_KEY",
+          "LANGFUSE_HOST"
+        ]
+      },
+      "command_plan": "release/production_telemetry_connection_command_plan.yaml",
+      "can_execute_now": false,
+      "claims_unlocked_after_success_candidate": [
+        "telemetry-connection-executed"
+      ],
+      "claims_still_blocked_after_success": [
+        "production-monitored",
+        "production-ready",
+        "release-gated"
+      ]
+    },
+    "local_no_tool_canary": {
+      "status": "blocked",
+      "blocked_by": [
+        "missing_local_vllm_or_ollama_endpoint"
+      ],
+      "required_env_one_of": {
+        "vllm": [
+          "LOCAL_CANARY_TARGETS=vllm",
+          "VLLM_BASE_URL",
+          "VLLM_MODEL"
+        ],
+        "ollama": [
+          "LOCAL_CANARY_TARGETS=ollama",
+          "OLLAMA_BASE_URL",
+          "OLLAMA_MODEL"
+        ]
+      },
+      "can_execute_now": false,
+      "claims_unlocked_after_success_candidate": [
+        "local-no-tool-canary-executed"
+      ],
+      "claims_still_blocked_after_success": [
+        "provider-diverse",
+        "release-gated",
+        "production-ready"
+      ]
+    },
+    "release_gate": {
+      "status": "blocked_not_release_gated",
+      "blocked_by": [
+        "provider_diversity_not_established",
+        "redteam_execution_not_completed",
+        "production_telemetry_not_connected",
+        "local_runtime_not_executed",
+        "rollback_plan_not_finalized"
+      ],
+      "can_execute_now": false,
+      "claims_unlocked_after_success_candidate": [],
+      "claims_still_blocked": [
+        "release-gated",
+        "production-ready",
+        "production-monitored"
+      ]
+    }
+  }
+}

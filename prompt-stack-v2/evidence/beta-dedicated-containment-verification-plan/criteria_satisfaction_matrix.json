@@ -1,0 +1,36 @@
+{
+  "status": "partial_ready_for_dedicated_verification_plan",
+  "containment_verified_allowed": false,
+  "criteria": [
+    {
+      "id": "CVR-001",
+      "criterion": "dedicated_containment_verification_gate_pass",
+      "status": "pending",
+      "evidence": [],
+      "next_action": "Run dedicated containment verification after approval."
+    },
+    {
+      "id": "CVR-002",
+      "criterion": "cross_suite_raw_storage_and_redaction_audit_pass",
+      "status": "satisfied",
+      "evidence": [
+        "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json"
+      ],
+      "next_action": "Keep as satisfied unless future evidence changes."
+    },
+    {
+      "id": "CVR-003",
+      "criterion": "sandbox_boundary_proof_or_accepted_risk_recorded",
+      "status": "pending",
+      "evidence": [],
+      "next_action": "Define dedicated verification method or risk acceptance path."
+    },
+    {
+      "id": "CVR-004",
+      "criterion": "claim_boundary_audit_pass",
+      "status": "pending",
+      "evidence": [],
+      "next_action": "Run claim boundary audit after dedicated verification."
+    }
+  ]
+}

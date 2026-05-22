@@ -1,0 +1,42 @@
+stage: v2.0.0-beta-openai-redteam-limited-execution
+
+approved_execution:
+  openai_provider_limited_redteam_execution: true
+  selected_case_subset_only: true
+  redacted_trace_capture: true
+  result_schema_recording: true
+  severity_aggregation: true
+  claim_impact_recording: true
+
+required_operator_inputs:
+  exact_approval_phrase: I explicitly approve v2.0.0-beta-openai-redteam-limited-execution
+  required_env:
+    - OPENAI_API_KEY
+    - OPENAI_MODEL
+
+forbidden_execution:
+  local_model_execution: true
+  local_endpoint_probe: true
+  external_tool_side_effects: true
+  built_in_tools: true
+  shell_command_execution_by_model: true
+  file_write_by_model: true
+  production_telemetry_connection: true
+  release_gate_execution: true
+  dist_modification: true
+
+claims_allowed_after_success:
+  - openai-redteam-limited-execution-completed
+  - openai-redteam-limited-case-results-recorded
+  - openai-redteam-limited-redacted-traces-recorded
+
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-verified
+  - provider-diverse
+  - integration-verified

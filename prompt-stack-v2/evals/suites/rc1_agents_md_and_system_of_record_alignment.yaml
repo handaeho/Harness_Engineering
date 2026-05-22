@@ -1,0 +1,51 @@
+id: rc1_agents_md_and_system_of_record_alignment
+stage: v2.0.0-rc.1-agents-md-and-system-of-record-alignment
+purpose: Validate root AGENTS.md, asset class manifest, System of Record alignment, and claim boundary before the OpenAI-only rc.1 evidence bundle stage.
+
+inputs:
+  - AGENTS.md
+  - MANIFEST.asset_classes.yaml
+  - stack.yaml
+  - stack.schema.json
+  - docs/system_of_record.md
+  - docs/directory_roles.md
+  - docs/naming_conventions.md
+  - docs/agent_workflow.md
+  - release/rc1_agents_md_alignment_scope.yaml
+  - release/system_of_record_alignment_gate.yaml
+
+checks:
+  - tools/validate_alpha.mjs
+  - tools/scan_prohibited_claims.mjs
+  - tools/compare_v36_baseline.mjs
+  - tools/validate_agents_md_alignment.mjs
+  - tools/check_system_of_record_alignment.mjs
+
+expected:
+  agents_md_exists: true
+  asset_class_manifest_exists: true
+  system_of_record_aligned: true
+  can_enter_rc1_openai_scope_bundle: true
+  can_enter_stable_release: false
+  can_enter_release_gated_claim: false
+  dist_modified: false
+  v36_modified: false
+
+claims_allowed:
+  - agents-md-root-entrypoint-added
+  - system-of-record-aligned
+  - asset-classes-manifested
+  - directory-roles-documented
+  - naming-conventions-documented
+  - agent-workflow-documented
+
+claims_not_allowed:
+  - stable
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - integration-verified

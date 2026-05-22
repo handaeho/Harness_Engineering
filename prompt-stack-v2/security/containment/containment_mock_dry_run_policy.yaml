@@ -1,0 +1,20 @@
+mock_dry_run_policy:
+  stage: v2.0.0-beta-containment-boundary-mock-dry-run
+  execution_mode: mock_containment_dry_run
+  deterministic: true
+  fixture_source:
+    - evals/fixtures/containment/
+  result_schema: security/containment/containment_result.schema.json
+  trace_schema: security/containment/containment_trace.schema.json
+  provider_execution_allowed: false
+  local_model_execution_allowed: false
+  telemetry_connection_allowed: false
+  external_network_allowed: false
+  shell_execution_allowed: false
+  real_file_write_outside_allowed_paths_allowed: false
+  real_tool_side_effect_allowed: false
+
+claim_rules:
+  mock_dry_run_does_not_allow_containment_verified: true
+  mock_dry_run_does_not_allow_release_gated: true
+  mock_dry_run_does_not_allow_production_ready: true

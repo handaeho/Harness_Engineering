@@ -1,0 +1,12 @@
+exporter_guard_policy:
+  status: preflight_only
+  live_connection_allowed: false
+  telemetry_sink_write_allowed: false
+  exporter_network_call_allowed: false
+  langfuse_api_call_allowed: false
+  required_before_connection:
+    - explicit_user_approval_present
+    - sink_credentials_present
+    - payload_shape_valid
+    - redaction_policy_valid
+    - command_plan_exists

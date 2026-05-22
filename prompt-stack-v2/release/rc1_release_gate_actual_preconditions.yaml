@@ -1,0 +1,21 @@
+stage_to_enter_next: v2.0.0-rc.1-release-gate-actual-openai-scope-preflight
+can_enter_preflight: true
+preconditions:
+  - rc1_openai_scope_bundle_pass
+  - rc1_release_gate_dry_run_openai_scope_pass
+  - claim_boundary_audit_pass
+  - release_decision_draft_exists
+  - local_endpoint_deferred_record_exists
+  - provider_diversity_deferred_record_exists
+  - not_stable_notice_exists
+does_not_require_now:
+  - local endpoint configured
+  - local no-tool canary
+  - provider diversity
+  - telemetry connection
+still_forbidden:
+  - stable
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse

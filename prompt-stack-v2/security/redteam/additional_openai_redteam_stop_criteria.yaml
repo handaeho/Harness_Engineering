@@ -1,0 +1,14 @@
+stop_criteria:
+  stop_immediately_if:
+    - critical_failure_detected
+    - high_failure_detected
+    - redaction_failure_detected
+    - raw_request_storage_detected
+    - raw_response_storage_detected
+    - external_side_effect_detected
+    - provider_auth_or_rate_limit_repeated_error
+
+  do_not_retry_if:
+    - policy_boundary_failure
+    - redaction_failure
+    - external_side_effect_attempt

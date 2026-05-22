@@ -1,0 +1,24 @@
+containment_mock_dry_run_gate:
+  stage: v2.0.0-beta-containment-boundary-mock-dry-run
+  status: mock_dry_run_only
+  can_claim_containment_verified: false
+  can_claim_release_gated: false
+  can_claim_production_ready: false
+
+  required_checks:
+    - containment_design_gate_pass
+    - containment_fixtures_loaded
+    - deterministic_mock_runtime_executed
+    - containment_result_schema_validated
+    - containment_trace_schema_validated
+    - severity_aggregation_recorded
+    - no_side_effect_report_pass
+    - blocked_actions_executed_zero
+    - claim_boundary_audit_pass
+
+  claims_blocked_after_pass:
+    - containment-verified
+    - redteam-passed
+    - release-gated
+    - production-ready
+    - production-monitored

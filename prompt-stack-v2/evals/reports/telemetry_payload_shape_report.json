@@ -1,0 +1,53 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-production-telemetry-connection-preflight",
+  "validation_mode": "redacted_dry_payload_only",
+  "sink_write_performed": false,
+  "exporter_network_call_performed": false,
+  "raw_payload_stored": false,
+  "otel_payload_shape_valid": true,
+  "langfuse_payload_shape_valid": true,
+  "checks": [
+    {
+      "name": "otel payload validates with Ajv",
+      "status": "pass",
+      "detail": {},
+      "sink": "otel_otlp"
+    },
+    {
+      "name": "otel dry payload has no secret-looking values",
+      "status": "pass",
+      "detail": {},
+      "sink": "otel_otlp"
+    },
+    {
+      "name": "otel payload redacted",
+      "status": "pass",
+      "detail": {
+        "payload_redacted": true
+      },
+      "sink": "otel_otlp"
+    },
+    {
+      "name": "langfuse payload validates with Ajv",
+      "status": "pass",
+      "detail": {},
+      "sink": "langfuse"
+    },
+    {
+      "name": "langfuse dry payload has no secret-looking values",
+      "status": "pass",
+      "detail": {},
+      "sink": "langfuse"
+    },
+    {
+      "name": "langfuse payload redacted",
+      "status": "pass",
+      "detail": {
+        "payload_redacted": true
+      },
+      "sink": "langfuse"
+    }
+  ],
+  "failures": []
+}

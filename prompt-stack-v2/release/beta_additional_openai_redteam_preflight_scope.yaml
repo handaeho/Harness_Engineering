@@ -1,0 +1,50 @@
+stage: v2.0.0-beta-additional-openai-redteam-preflight-and-approval
+
+approved_actions:
+  additional_openai_case_subset_preparation: true
+  execution_preflight_validation: true
+  approval_packet_generation: true
+  operator_powershell_credential_mode_indexing: true
+  guard_policy_validation: true
+  cost_bound_validation: true
+  stop_criteria_validation: true
+  redaction_trace_policy_validation: true
+  command_plan_generation: true
+  blocker_update: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_case_execution: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  real_tool_side_effects: true
+  shell_command_execution: true
+  release_gate_execution: true
+  production_deployment: true
+  redteam_passed_claim: true
+  containment_verified_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - additional-openai-redteam-preflight-completed
+  - additional-openai-redteam-case-subset-selected
+  - additional-openai-redteam-approval-packet-generated
+  - additional-openai-redteam-command-plan-drafted
+  - additional-openai-redteam-execution-preconditions-validated
+  - additional-openai-redteam-blocker-updated
+
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified

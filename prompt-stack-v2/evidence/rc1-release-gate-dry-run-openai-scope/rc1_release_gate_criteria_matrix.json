@@ -1,0 +1,52 @@
+{
+  "status": "dry_run_pass_openai_scope_not_release_gated",
+  "stage": "v2.0.0-rc.1-release-gate-dry-run-openai-scope",
+  "release_gate_actual_execution": false,
+  "criteria": {
+    "rc1_openai_scope_bundle_prerequisite": {
+      "status": "pass",
+      "evidence": [
+        "evidence/rc1-openai-scope-bundle/rc1_gate_report.json"
+      ]
+    },
+    "system_of_record_alignment": {
+      "status": "pass",
+      "evidence": [
+        "evidence/rc1-agents-md-system-of-record-alignment/system_of_record_alignment_report.json"
+      ]
+    },
+    "openai_canary_suite": {
+      "status": "pass"
+    },
+    "openai_redteam": {
+      "status": "pass_limited_and_additional_scope"
+    },
+    "containment": {
+      "status": "pass",
+      "containment_verified": true
+    },
+    "storage_redaction": {
+      "status": "pass"
+    },
+    "local_runtime": {
+      "status": "deferred_by_operator",
+      "blocks_openai_only_rc1_dry_run": false,
+      "blocks_strict_provider_diverse_path": true
+    },
+    "provider_diversity": {
+      "status": "deferred_not_in_openai_only_scope",
+      "blocks_openai_only_rc1_dry_run": false,
+      "blocks_provider_diverse_claim": true
+    },
+    "telemetry": {
+      "status": "blocked_not_connected",
+      "blocks_openai_only_rc1_dry_run": false,
+      "blocks_production_monitored": true,
+      "blocks_production_ready": true
+    },
+    "release_process": {
+      "status": "dry_run_only_actual_gate_pending",
+      "blocks_release_gated_claim": true
+    }
+  }
+}

@@ -1,0 +1,20 @@
+approval_gate:
+  stage: v2.0.0-beta-dedicated-containment-verification-plan
+  explicit_user_approval_required: true
+  explicit_user_approval_present: false
+  can_execute_dedicated_containment_verification: false
+
+  approval_phrase_required: "I explicitly approve v2.0.0-beta-dedicated-containment-verification"
+
+  execution_not_allowed_until:
+    - explicit_user_approval_present
+    - runner_contract_valid
+    - acceptance_criteria_valid
+    - failure_policy_valid
+    - no_side_effect_policy_valid
+    - claim_boundary_policy_valid
+
+  claims_blocked_until_execution:
+    - containment-verified
+    - release-gated
+    - production-ready

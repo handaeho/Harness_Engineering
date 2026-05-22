@@ -1,0 +1,225 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-containment-verification-gate-refinement-and-release-blocker-refresh",
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "reason": "Containment gate was refined with mapped evidence and proof levels, but verified claim remains blocked by dedicated verification and cross-suite audit requirements.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "check_containment_boundary_mock_dry_run.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "map_containment_evidence_to_boundaries.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "audit_containment_proof_levels.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "release/containment_verification_gate_refined.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/containment_release_blocker_refresh.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/containment_proof_requirements.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/containment_proof_level_matrix.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/containment_remaining_criteria.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/containment_evidence_mapping_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "security/containment/containment_verification_claim_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-verification-gate-refinement/containment_verification_gate_refinement_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-verification-gate-refinement/containment_evidence_mapping.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-verification-gate-refinement/containment_proof_level_matrix.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-verification-gate-refinement/containment_remaining_criteria.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-verification-gate-refinement/containment_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-containment-verification-gate-refinement/containment_release_blocker_refresh.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "no execution occurred in refinement stage",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_redteam_execution": false,
+        "containment_fixture_rerun": false,
+        "local_model_execution": false,
+        "telemetry_connection": false
+      }
+    },
+    {
+      "name": "evidence mapping pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "entries": 24
+      }
+    },
+    {
+      "name": "proof level matrix partial and no verified boundaries",
+      "status": "pass",
+      "detail": {
+        "status": "partial_not_verified",
+        "boundaries_marked_verified_count": 0
+      }
+    },
+    {
+      "name": "remaining criteria recorded",
+      "status": "pass",
+      "detail": {
+        "status": "pending",
+        "remaining_criteria_count": 4
+      }
+    },
+    {
+      "name": "claim boundary remains closed",
+      "status": "pass",
+      "detail": {
+        "containment_verified_allowed": false,
+        "release_gated_allowed": false,
+        "production_ready_allowed": false
+      }
+    },
+    {
+      "name": "blocker refresh records refined gate",
+      "status": "pass",
+      "detail": {
+        "new_status": "containment_gate_refined_dedicated_verification_and_cross_suite_audit_pending"
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "unresolved items empty on pass",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "containment-verification-gate-refined",
+    "containment-evidence-mapped",
+    "containment-proof-levels-classified",
+    "containment-remaining-criteria-recorded",
+    "containment-release-blocker-refreshed",
+    "containment-claim-boundary-audited"
+  ],
+  "claims_blocked": [
+    "containment-verified",
+    "redteam-passed",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-verified",
+    "provider-diverse",
+    "adapter-checked",
+    "integration-verified"
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-rc.1-release-gate-actual-openai-scope-preflight",
+  "preflight_status": "ready_but_blocked_by_missing_explicit_approval",
+  "can_enter_release_gate_actual_execution": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_stable_release": false,
+  "can_enter_production_ready_claim": false,
+  "can_enter_provider_diverse_claim": false,
+  "local_endpoint_deferred": true,
+  "reason": "Actual release gate preflight is ready, but explicit user approval is required before release gate execution.",
+  "checks": [
+    {
+      "name": "check_rc1_release_gate_dry_run_openai_scope.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "can_enter_release_gate_actual_preflight_openai_scope": true
+      }
+    },
+    {
+      "name": "actual preflight artifacts generated",
+      "status": "pass",
+      "detail": {
+        "status": "ready_but_blocked_by_missing_explicit_approval",
+        "stage": "v2.0.0-rc.1-release-gate-actual-openai-scope-preflight"
+      }
+    },
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "release/rc1_release_gate_actual_openai_scope_preflight_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_release_gate_actual_approval_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_release_gate_actual_approval_request.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_release_gate_actual_command_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_release_gate_actual_preflight_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_release_decision_record_preflight.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_rollback_readiness.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_owner_action_readiness.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_local_endpoint_deferred_confirmation.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_provider_diversity_deferred_confirmation.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/run_rc1_release_gate_actual_preflight_openai_scope.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/audit_rc1_actual_gate_readiness.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/audit_rc1_rollback_owner_readiness.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_rc1_release_gate_actual_preflight_openai_scope.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/rc1_release_gate_actual_openai_scope_preflight.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_actual_preflight_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_actual_preflight_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_actual_gate_readiness_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_actual_gate_readiness_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_rollback_owner_readiness_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_rollback_owner_readiness_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_release_gate_actual_preflight_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_release_gate_actual_preflight_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_actual_gate_readiness.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_actual_gate_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_actual_gate_evidence_readiness.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_rollback_readiness.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_owner_action_readiness.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_local_endpoint_deferred_confirmation.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_provider_diversity_deferred_confirmation.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_release_decision_record_preflight.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_release_gate_actual_command_plan_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-actual-openai-scope-preflight/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_release_gate_actual_openai_scope_preflight.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_release_gate_actual_approval_request.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_release_gate_actual_command_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_rollback_readiness.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_owner_action_readiness.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_rc1_release_gate_actual_execution.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_local_canary_after_endpoint_ready.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "preflight report status is ready but approval-blocked",
+      "status": "pass",
+      "detail": {
+        "status": "ready_but_blocked_by_missing_explicit_approval"
+      }
+    },
+    {
+      "name": "new execution flags remain false",
+      "status": "pass",
+      "detail": {
+        "new_execution": false,
+        "openai_provider_call": false,
+        "local_model_execution": false,
+        "local_endpoint_probe": false,
+        "telemetry_connection": false,
+        "release_gate_actual_execution": false,
+        "dist_modified": false,
+        "v36_modified": false
+      }
+    },
+    {
+      "name": "evidence readiness pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "rc1_openai_scope_bundle_pass": true,
+        "rc1_release_gate_dry_run_openai_scope_pass": true,
+        "system_of_record_alignment_pass": true,
+        "containment_verified": true,
+        "storage_redaction_audit_pass": true,
+        "local_endpoint_deferred_record_exists": true,
+        "provider_diversity_deferred_record_exists": true,
+        "not_stable_notice_exists": true,
+        "missing_required_artifacts": []
+      }
+    },
+    {
+      "name": "rollback and owner readiness pass",
+      "status": "pass",
+      "detail": {
+        "rollback_readiness": "pass",
+        "owner_action_readiness": "pass"
+      }
+    },
+    {
+      "name": "explicit approval remains absent and actual gate cannot execute",
+      "status": "pass",
+      "detail": {
+        "explicit_user_approval_present": false,
+        "can_execute_release_gate_actual": false
+      }
+    },
+    {
+      "name": "claim boundary remains closed",
+      "status": "pass",
+      "detail": {
+        "release_gated_allowed": false,
+        "stable_allowed": false,
+        "production_ready_allowed": false,
+        "provider_diverse_allowed": false
+      }
+    },
+    {
+      "name": "local endpoint and provider diversity remain deferred",
+      "status": "pass",
+      "detail": {
+        "local_endpoint_deferred": true,
+        "provider_diversity_established": false
+      }
+    },
+    {
+      "name": "actual execution stage scripts were not created",
+      "status": "pass",
+      "detail": {
+        "run_actual_exists": false,
+        "check_actual_exists": false
+      }
+    },
+    {
+      "name": "unresolved items empty",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "v36 modified false",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "rc1-release-gate-actual-preflight-completed",
+    "rc1-release-gate-approval-packet-generated",
+    "rc1-release-gate-command-plan-drafted",
+    "rc1-rollback-readiness-checked",
+    "rc1-owner-action-readiness-checked",
+    "rc1-local-endpoint-deferral-confirmed",
+    "rc1-provider-diversity-deferral-confirmed"
+  ],
+  "claims_blocked": [
+    "stable",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "redteam-passed",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "integration-verified",
+    "benchmark-backed"
+  ]
+}

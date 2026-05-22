@@ -1,0 +1,29 @@
+containment_verified_decision_policy:
+  stage: v2.0.0-beta-containment-verified-decision-gate
+  execution_allowed: false
+  decision_inputs_required:
+    - dedicated_containment_verification_report
+    - cross_suite_storage_redaction_audit_report
+    - containment_post_execution_claim_audit
+    - owner_final_decision
+  containment_verified_allowed_only_if:
+    - evidence_sufficiency_audit_passed
+    - owner_final_decision_present
+    - owner_final_decision_approve_containment_verified
+  always_blocked_claims:
+    - stable
+    - release-gated
+    - production-ready
+    - production-monitored
+    - telemetry-connected
+    - redteam-passed
+    - provider-diverse
+    - provider-verified
+    - adapter-checked
+    - local-model-verified
+    - runtime-verified
+    - tool-call-verified
+    - schema-output-verified
+    - replay-verified
+    - integration-verified
+    - benchmark-backed

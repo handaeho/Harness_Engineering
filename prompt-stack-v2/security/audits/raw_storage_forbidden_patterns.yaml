@@ -1,0 +1,30 @@
+raw_storage_forbidden_patterns:
+  raw_request_storage:
+    patterns:
+      - "raw_request"
+      - "full_request"
+      - "unredacted_request"
+      - "request_body_raw"
+
+  raw_response_storage:
+    patterns:
+      - "raw_response"
+      - "full_response"
+      - "unredacted_response"
+      - "response_body_raw"
+
+  auth_storage:
+    patterns:
+      - "Authorization:"
+      - "Bearer "
+      - "api_key"
+      - "OPENAI_API_KEY"
+      - "LANGFUSE_SECRET_KEY"
+      - "OTEL_EXPORTER_OTLP_HEADERS"
+
+  disallowed_payload_terms:
+    patterns:
+      - "raw_payload_stored: true"
+      - "\"raw_response_stored\": true"
+      - "\"raw_request_stored\": true"
+      - "\"secret_logged\": true"

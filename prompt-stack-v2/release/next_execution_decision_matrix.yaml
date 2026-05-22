@@ -1,0 +1,14 @@
+stage: v2.0.0-beta-execution-readiness-dashboard-and-blocker-resolution-plan
+decisions:
+  - if_condition: exact OpenAI redteam approval phrase is present and operator PowerShell env will be verified at execution time
+    next_stage_candidate: v2.0.0-beta-openai-redteam-limited-execution
+    can_start_now: false
+  - if_condition: exact telemetry approval phrase and one supported sink credential set are present
+    next_stage_candidate: v2.0.0-beta-production-telemetry-connection
+    can_start_now: false
+  - if_condition: localhost-only vLLM or Ollama endpoint and required env are available
+    next_stage_candidate: v2.0.0-beta-local-no-tool-canary
+    can_start_now: false
+  - if_condition: provider diversity, local runtime, redteam execution, telemetry connection, production readiness, rollback plan, and owner-action blockers are resolved
+    next_stage_candidate: release gate execution
+    can_start_now: false

@@ -1,0 +1,39 @@
+{
+  "status": "blocked_for_release_gated",
+  "containment_verified": true,
+  "release_gate_passed": false,
+  "production_ready": false,
+  "production_monitored": false,
+  "provider_diversity_established": false,
+  "local_model_execution_verified": false,
+  "remaining_blockers": [
+    {
+      "id": "RCB-001",
+      "priority": "P0",
+      "category": "provider_diversity",
+      "status": "blocked",
+      "reason": "OpenAI-only evidence; no local or second provider evidence."
+    },
+    {
+      "id": "RCB-002",
+      "priority": "P0",
+      "category": "local_runtime",
+      "status": "blocked",
+      "reason": "vLLM/Ollama local endpoint unavailable; local no-tool canary not executed."
+    },
+    {
+      "id": "RCB-003",
+      "priority": "P1",
+      "category": "telemetry",
+      "status": "blocked",
+      "reason": "Telemetry connection not established; production-monitored claim blocked."
+    },
+    {
+      "id": "RCB-004",
+      "priority": "P1",
+      "category": "release_process",
+      "status": "pending",
+      "reason": "Release gate actual execution not performed."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+id: beta_containment_post_execution_claim_audit
+stage: v2.0.0-beta-containment-post-execution-claim-audit-and-owner-review
+mode: evidence_review_only
+source_stage: v2.0.0-beta-dedicated-containment-verification-execution
+execution:
+  new_execution: false
+  containment_fixture_rerun: false
+  provider_execution: false
+  local_model_execution: false
+  telemetry_connection: false
+expected_artifacts:
+  - evidence/beta-containment-post-execution-claim-audit/containment_post_execution_review_report.json
+  - evidence/beta-containment-post-execution-claim-audit/dedicated_containment_evidence_completeness_report.json
+  - evidence/beta-containment-post-execution-claim-audit/containment_claim_boundary_audit.json
+  - evidence/beta-containment-post-execution-claim-audit/containment_owner_review_draft.json
+  - evidence/beta-containment-post-execution-claim-audit/containment_claim_decision_draft.json

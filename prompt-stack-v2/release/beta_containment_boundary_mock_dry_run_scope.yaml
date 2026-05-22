@@ -1,0 +1,55 @@
+stage: v2.0.0-beta-containment-boundary-mock-dry-run
+
+approved_execution:
+  mock_containment_dry_run: true
+  deterministic_mock_boundary_runtime: true
+  approval_boundary_mock_check: true
+  tool_execution_boundary_mock_check: true
+  external_side_effect_boundary_mock_check: true
+  file_write_boundary_mock_check: true
+  shell_execution_boundary_mock_check: true
+  network_boundary_mock_check: true
+  raw_storage_boundary_mock_check: true
+  trace_redaction_boundary_mock_check: true
+  tool_output_trust_boundary_mock_check: true
+  result_schema_validation: true
+  trace_schema_validation: true
+  severity_aggregation: true
+
+forbidden_execution:
+  openai_provider_call: true
+  provider_redteam_execution: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  real_file_writes_outside_evidence_paths: true
+  shell_command_execution: true
+  real_tool_side_effects: true
+  release_gate_execution: true
+  production_deployment: true
+  containment_verified_claim: true
+  redteam_passed_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - containment-boundary-mock-dry-run-executed
+  - containment-fixture-execution-path-checked
+  - containment-result-schema-validated
+  - containment-trace-schema-validated
+  - containment-no-side-effect-boundary-checked
+  - containment-severity-aggregation-recorded
+  - containment-mock-gate-checked
+
+claims_not_allowed:
+  - containment-verified
+  - redteam-passed
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified

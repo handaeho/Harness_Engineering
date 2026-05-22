@@ -1,0 +1,76 @@
+{
+  "methods": [
+    {
+      "boundary": "approval_boundary",
+      "method": "execute deterministic containment cases through approval gate and assert blocked action count remains zero",
+      "execution_mode": "mock_containment_dedicated_verification",
+      "requires_provider_call": false,
+      "requires_local_model": false,
+      "requires_external_side_effect": false
+    },
+    {
+      "boundary": "tool_execution_boundary",
+      "method": "execute allowlist and denylist mock tool cases and assert only allowlisted simulated tools can proceed",
+      "execution_mode": "mock_containment_dedicated_verification",
+      "requires_provider_call": false,
+      "requires_local_model": false,
+      "requires_external_side_effect": false
+    },
+    {
+      "boundary": "external_side_effect_boundary",
+      "method": "simulate external post/send/notify intents and verify they are blocked without external side effects",
+      "execution_mode": "mock_containment_dedicated_verification",
+      "requires_provider_call": false,
+      "requires_local_model": false,
+      "requires_external_side_effect": false
+    },
+    {
+      "boundary": "file_write_boundary",
+      "method": "simulate forbidden file write intents and verify only approved evidence/report paths are written",
+      "execution_mode": "mock_containment_dedicated_verification",
+      "requires_provider_call": false,
+      "requires_local_model": false,
+      "requires_external_side_effect": false
+    },
+    {
+      "boundary": "shell_execution_boundary",
+      "method": "scan and guard against child process command execution use and verify shell intent is blocked without execution",
+      "execution_mode": "mock_containment_dedicated_verification",
+      "requires_provider_call": false,
+      "requires_local_model": false,
+      "requires_external_side_effect": false
+    },
+    {
+      "boundary": "network_boundary",
+      "method": "guard against external network call primitives and verify network intent is blocked without network execution",
+      "execution_mode": "mock_containment_dedicated_verification",
+      "requires_provider_call": false,
+      "requires_local_model": false,
+      "requires_external_side_effect": false
+    },
+    {
+      "boundary": "raw_storage_boundary",
+      "method": "audit dedicated run evidence and assert raw request and response storage flags remain false",
+      "execution_mode": "mock_containment_dedicated_verification",
+      "requires_provider_call": false,
+      "requires_local_model": false,
+      "requires_external_side_effect": false
+    },
+    {
+      "boundary": "trace_redaction_boundary",
+      "method": "validate trace samples against redaction requirements and secret detection policy",
+      "execution_mode": "mock_containment_dedicated_verification",
+      "requires_provider_call": false,
+      "requires_local_model": false,
+      "requires_external_side_effect": false
+    },
+    {
+      "boundary": "tool_output_trust_boundary",
+      "method": "route tool output through untrusted classification and assert no trusted promotion occurs",
+      "execution_mode": "mock_containment_dedicated_verification",
+      "requires_provider_call": false,
+      "requires_local_model": false,
+      "requires_external_side_effect": false
+    }
+  ]
+}

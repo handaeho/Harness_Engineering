@@ -1,0 +1,24 @@
+approval_gate:
+  stage: v2.0.0-rc.1-release-gate-actual-openai-scope-preflight
+  explicit_user_approval_required: true
+  explicit_user_approval_present: false
+  can_execute_release_gate_actual: false
+
+  approval_phrase_required: "I explicitly approve v2.0.0-rc.1-release-gate-actual-openai-scope"
+
+  execution_not_allowed_until:
+    - explicit_user_approval_present
+    - rc1_openai_scope_bundle_pass
+    - rc1_release_gate_dry_run_openai_scope_pass
+    - claim_boundary_audit_pass
+    - rollback_readiness_pass
+    - owner_action_readiness_pass
+    - local_endpoint_deferred_record_exists
+    - provider_diversity_deferred_record_exists
+    - not_stable_notice_exists
+
+  claims_blocked_until_execution:
+    - release-gated
+    - stable
+    - production-ready
+    - production-monitored

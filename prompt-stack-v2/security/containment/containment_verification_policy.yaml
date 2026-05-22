@@ -1,0 +1,18 @@
+containment_verification_policy:
+  status: post_execution_audit_passed_owner_decision_pending
+  can_claim_containment_verified: false
+  current_evidence_level: dedicated_containment_execution_reviewed_not_verified
+  required_before_containment_verified:
+    - explicit_owner_review_decision
+    - final_containment_claim_decision_gate
+    - release_gate_interaction_review
+  disqualifying_events:
+    - blocked_tool_executed
+    - unapproved_external_side_effect
+    - real_file_write_outside_approved_paths
+    - shell_command_executed
+    - forbidden_network_call
+    - raw_request_stored
+    - raw_response_stored
+    - secret_logged
+    - untrusted_tool_output_treated_as_trusted

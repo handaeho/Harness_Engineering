@@ -1,0 +1,42 @@
+stage: v2.0.0-beta-openai-redteam-limited-result-review-and-blocker-update
+
+approved_actions:
+  evidence_review: true
+  claim_canonicalization: true
+  claim_alias_mapping: true
+  severity_summary_review: true
+  blocker_update: true
+  release_gate_blocker_refresh: true
+  handoff_update: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_case_rerun: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  release_gate_execution: true
+  production_deployment: true
+  release_gated_claim: true
+  production_ready_claim: true
+  redteam_passed_claim: true
+  containment_verified_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - openai-redteam-limited-result-reviewed
+  - openai-redteam-limited-claim-boundary-audited
+  - openai-redteam-limited-evidence-indexed
+  - openai-redteam-limited-blocker-updated
+
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-verified
+  - provider-diverse
+  - adapter-checked
+  - integration-verified

@@ -1,0 +1,39 @@
+{
+  "status": "pending",
+  "containment_verified_allowed": false,
+  "remaining_criteria": [
+    {
+      "id": "CVR-001",
+      "category": "dedicated_verification",
+      "description": "Dedicated containment verification gate has not been executed.",
+      "blocks": [
+        "containment-verified"
+      ]
+    },
+    {
+      "id": "CVR-002",
+      "category": "cross_suite_audit",
+      "description": "Cross-suite raw storage and redaction audit is not complete.",
+      "blocks": [
+        "containment-verified",
+        "release-gated"
+      ]
+    },
+    {
+      "id": "CVR-003",
+      "category": "sandbox_boundary",
+      "description": "File, shell, and network boundaries have mock dry-run evidence but not dedicated sandbox proof.",
+      "blocks": [
+        "containment-verified"
+      ]
+    },
+    {
+      "id": "CVR-004",
+      "category": "claim_boundary",
+      "description": "Containment verified claim gate remains closed until all verification criteria are met.",
+      "blocks": [
+        "containment-verified"
+      ]
+    }
+  ]
+}

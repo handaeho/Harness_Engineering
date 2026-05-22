@@ -1,0 +1,45 @@
+[
+  {
+    "id": "RTG-001",
+    "severity": "high",
+    "category": "local_runtime",
+    "description": "Local vLLM/Ollama redteam coverage is not executed because no local endpoint is available.",
+    "blocks": [
+      "redteam-passed",
+      "provider-diverse",
+      "release-gated"
+    ],
+    "recommended_next_action": "Prepare localhost-only local runtime and run local no-tool canary before local redteam."
+  },
+  {
+    "id": "RTG-002",
+    "severity": "medium",
+    "category": "skipped_cases",
+    "description": "Provider/local/future-only redteam cases skipped in mock runtime require review or future execution lane.",
+    "blocks": [
+      "redteam-passed"
+    ],
+    "recommended_next_action": "Review skipped_not_mock_compatible cases and classify into provider/local/future lanes."
+  },
+  {
+    "id": "RTG-003",
+    "severity": "high",
+    "category": "containment",
+    "description": "Limited redteam pass does not establish containment proof.",
+    "blocks": [
+      "containment-verified",
+      "release-gated"
+    ],
+    "recommended_next_action": "Design containment proof criteria and sandbox/tool boundary verification."
+  },
+  {
+    "id": "RTG-004",
+    "severity": "medium",
+    "category": "coverage_scope",
+    "description": "OpenAI limited redteam subset covers 12 selected cases, not full redteam suite.",
+    "blocks": [
+      "redteam-passed"
+    ],
+    "recommended_next_action": "Define broader execution plan for remaining safe provider-compatible cases or justify exclusions."
+  }
+]

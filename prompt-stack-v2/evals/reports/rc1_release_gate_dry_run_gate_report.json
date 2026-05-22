@@ -1,0 +1,917 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-rc.1-release-gate-dry-run-openai-scope",
+  "can_enter_release_gate_actual_preflight_openai_scope": true,
+  "can_enter_stable_release": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "can_enter_provider_diverse_claim": false,
+  "local_endpoint_deferred": true,
+  "reason": "OpenAI-only release gate dry-run passed, local endpoint is explicitly deferred, and release-gated/stable claims remain blocked until actual release gate preflight/execution.",
+  "checks": [
+    {
+      "name": "rc1 OpenAI bundle prerequisite files exist before checker",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "gate_status": "pass",
+        "missing": []
+      }
+    },
+    {
+      "name": "check_rc1_openai_scope_bundle.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "can_enter_openai_scope_release_gate_dry_run": true
+      }
+    },
+    {
+      "name": "dry-run artifacts generated",
+      "status": "pass",
+      "detail": {
+        "stage": "v2.0.0-rc.1-release-gate-dry-run-openai-scope",
+        "status": "pass_openai_scope_dry_run_not_release_gated"
+      }
+    },
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stderr": "",
+        "status": "pass",
+        "generated_at": "2026-05-22T08:22:40.565Z",
+        "stage": "v2.0.0-beta-preflight",
+        "parser_status": {
+          "yaml": {
+            "parser": "yaml",
+            "external_parser_available": true,
+            "fallback_used": false
+          },
+          "json_schema": {
+            "validator": "ajv",
+            "external_validator_available": true,
+            "fallback_used": false
+          }
+        },
+        "checks": [
+          {
+            "name": "required files exist",
+            "status": "pass",
+            "detail": {
+              "checked": 155
+            }
+          },
+          {
+            "name": "package lock exists",
+            "status": "pass",
+            "detail": {
+              "package_json": true,
+              "package_lock": true
+            }
+          },
+          {
+            "name": "YAML parser dependency is active",
+            "status": "pass",
+            "detail": {
+              "parser": "yaml",
+              "external_parser_available": true,
+              "fallback_used": false
+            }
+          },
+          {
+            "name": "JSON Schema validator dependency is active",
+            "status": "pass",
+            "detail": {
+              "validator": "ajv",
+              "external_validator_available": true,
+              "fallback_used": false
+            }
+          },
+          {
+            "name": "all JSON files parse",
+            "status": "pass",
+            "detail": {
+              "checked": 508
+            }
+          },
+          {
+            "name": "all YAML files parse with yaml package",
+            "status": "pass",
+            "detail": {
+              "checked": [
+                "adapters/api/openai/adapter.yaml",
+                "adapters/local/ollama/adapter.yaml",
+                "adapters/local/vllm/adapter.yaml",
+                "adapters/provider_capability_matrix.yaml",
+                "core/spec/harness.spec.yaml",
+                "evals/suites/adapter_conformance_design.yaml",
+                "evals/suites/alpha_hardening.yaml",
+                "evals/suites/beta_additional_openai_redteam_preflight.yaml",
+                "evals/suites/beta_broader_redteam_pass_gate_design.yaml",
+                "evals/suites/beta_containment_boundary_mock_dry_run.yaml",
+                "evals/suites/beta_containment_boundary_verification_design.yaml",
+                "evals/suites/beta_containment_post_execution_claim_audit.yaml",
+                "evals/suites/beta_containment_verification_gate_refinement.yaml",
+                "evals/suites/beta_containment_verified_decision_gate.yaml",
+                "evals/suites/beta_cross_suite_storage_redaction_audit.yaml",
+                "evals/suites/beta_dedicated_containment_verification.yaml",
+                "evals/suites/beta_dedicated_containment_verification_plan.yaml",
+                "evals/suites/beta_execution_readiness_dashboard.yaml",
+                "evals/suites/beta_mock_execution.yaml",
+                "evals/suites/beta_openai_canary_replay_suite.yaml",
+                "evals/suites/beta_openai_redteam_limited_execution.yaml",
+                "evals/suites/beta_openai_redteam_limited_execution_plan.yaml",
+                "evals/suites/beta_openai_redteam_limited_execution_preflight.yaml",
+                "evals/suites/beta_openai_redteam_limited_result_review.yaml",
+                "evals/suites/beta_openai_tool_calling_replay_rerun.yaml",
+                "evals/suites/beta_production_telemetry_connection_preflight.yaml",
+                "evals/suites/beta_production_telemetry_design.yaml",
+                "evals/suites/beta_provider_canary_openai.yaml",
+                "evals/suites/beta_redteam_mock_runtime_dry_run.yaml",
+                "evals/suites/beta_redteam_suite_design.yaml",
+                "evals/suites/beta_release_blocker_p0_p1_reevaluation.yaml",
+                "evals/suites/beta_release_evidence_bundle_draft.yaml",
+                "evals/suites/beta_release_gate_thresholds_and_dry_run.yaml",
+                "evals/suites/beta_skipped_redteam_case_review.yaml",
+                "evals/suites/beta_structured_output_canary_openai.yaml",
+                "evals/suites/beta_tool_calling_canary_openai.yaml",
+                "evals/suites/containment_boundary_verification_design.yaml",
+                "evals/suites/openai_redteam_limited_execution_plan.yaml",
+                "evals/suites/rc1_agents_md_and_system_of_record_alignment.yaml",
+                "evals/suites/rc1_openai_scope_evidence_bundle.yaml",
+                "evals/suites/rc1_release_gate_actual_openai_scope_preflight.yaml",
+                "evals/suites/rc1_release_gate_dry_run_openai_scope.yaml",
+                "evals/suites/redteam_suite_design.yaml",
+                "evals/suites/static_structure.yaml",
+                "evidence/beta-additional-openai-redteam-preflight/command_plan_snapshot.yaml",
+                "evidence/beta-containment-boundary-verification-design/containment_boundary_taxonomy_snapshot.yaml",
+                "evidence/beta-dedicated-containment-verification-plan/acceptance_criteria_snapshot.yaml",
+                "evidence/beta-dedicated-containment-verification-plan/approval_gate_snapshot.yaml",
+                "evidence/beta-dedicated-containment-verification-plan/command_plan_snapshot.yaml",
+                "evidence/beta-dedicated-containment-verification-plan/failure_policy_snapshot.yaml",
+                "evidence/beta-dedicated-containment-verification-plan/risk_acceptance_policy_snapshot.yaml",
+                "evidence/beta-dedicated-containment-verification-plan/runner_contract_snapshot.yaml",
+                "evidence/beta-openai-redteam-limited-execution-plan/cost_bound_policy_snapshot.yaml",
+                "evidence/beta-openai-redteam-limited-execution-plan/redaction_policy_snapshot.yaml",
+                "evidence/beta-openai-redteam-limited-execution-plan/stop_criteria_snapshot.yaml",
+                "evidence/beta-openai-redteam-limited-execution-plan/trace_policy_snapshot.yaml",
+                "evidence/beta-openai-redteam-limited-execution-preflight/command_plan_snapshot.yaml",
+                "evidence/beta-production-telemetry-connection-preflight/command_plan_snapshot.yaml",
+                "evidence/beta-production-telemetry-design/langfuse_integration_plan_snapshot.yaml",
+                "evidence/beta-production-telemetry-design/otel_genai_mapping_snapshot.yaml",
+                "evidence/beta-production-telemetry-design/telemetry_anomaly_thresholds_snapshot.yaml",
+                "evidence/beta-production-telemetry-design/telemetry_dashboard_spec_snapshot.yaml",
+                "evidence/beta-production-telemetry-design/telemetry_event_taxonomy_snapshot.yaml",
+                "evidence/beta-production-telemetry-design/telemetry_metric_catalog_snapshot.yaml",
+                "evidence/beta-production-telemetry-design/telemetry_redaction_policy_snapshot.yaml",
+                "evidence/beta-redteam-suite-design/redteam_severity_rubric_snapshot.yaml",
+                "evidence/beta-redteam-suite-design/redteam_taxonomy_snapshot.yaml",
+                "evidence/beta-release-evidence-bundle/capability_matrix_snapshot.yaml",
+                "evidence/beta-release-evidence-bundle/release_gate_snapshot.yaml",
+                "evidence/rc1-agents-md-system-of-record-alignment/asset_class_manifest_snapshot.yaml",
+                "evidence/rc1-openai-scope-bundle/rc1_capability_matrix_snapshot.yaml",
+                "evidence/rc1-openai-scope-bundle/rc1_release_gate_snapshot.yaml",
+                "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_release_gate_actual_command_plan_snapshot.yaml",
+                "evidence/v36-baseline/migration_map.yaml",
+                "MANIFEST.asset_classes.yaml",
+                "observability/langfuse/connection_preflight_policy.yaml",
+                "observability/langfuse/dashboard_plan.yaml",
+                "observability/langfuse/integration_plan.yaml",
+                "observability/langfuse/score_mapping.yaml",
+                "observability/langfuse/trace_mapping.yaml",
+                "observability/otel/exporter_policy.yaml",
+                "observability/otel/exporter_preflight_policy.yaml",
+                "observability/otel/genai_semantic_mapping.yaml",
+                "observability/otel/metric_mapping.yaml",
+                "observability/otel/trace_attribute_mapping.yaml",
+                "observability/production_telemetry_policy.yaml",
+                "observability/telemetry_anomaly_thresholds.yaml",
+                "observability/telemetry_connection_preflight_policy.yaml",
+                "observability/telemetry_dashboard_spec.yaml",
+                "observability/telemetry_event_taxonomy.yaml",
+                "observability/telemetry_exporter_guard_policy.yaml",
+                "observability/telemetry_metric_catalog.yaml",
+                "observability/telemetry_payload_shape_policy.yaml",
+                "observability/telemetry_redaction_policy.yaml",
+                "observability/telemetry_retention_policy.yaml",
+                "observability/telemetry_sink_credential_policy.yaml",
+                "release/additional_openai_redteam_approval_gate.yaml",
+                "release/additional_openai_redteam_blocker_update.yaml",
+                "release/additional_openai_redteam_command_plan.yaml",
+                "release/approval_phrase_index.yaml",
+                "release/beta_additional_openai_redteam_preflight_scope.yaml",
+                "release/beta_broader_redteam_pass_gate_design_scope.yaml",
+                "release/beta_canary_matrix_summary_scope.yaml",
+                "release/beta_containment_boundary_mock_dry_run_scope.yaml",
+                "release/beta_containment_boundary_verification_design_scope.yaml",
+                "release/beta_containment_post_execution_claim_audit_scope.yaml",
+                "release/beta_containment_verification_gate_refinement_scope.yaml",
+                "release/beta_containment_verified_decision_gate_scope.yaml",
+                "release/beta_cross_suite_storage_redaction_audit_scope.yaml",
+                "release/beta_dedicated_containment_verification_plan_scope.yaml",
+                "release/beta_dedicated_containment_verification_scope.yaml",
+                "release/beta_execution_readiness_dashboard_scope.yaml",
+                "release/beta_mock_execution_scope.yaml",
+                "release/beta_openai_canary_replay_suite_scope.yaml",
+                "release/beta_openai_redteam_limited_execution_plan_scope.yaml",
+                "release/beta_openai_redteam_limited_execution_preflight_scope.yaml",
+                "release/beta_openai_redteam_limited_execution_scope.yaml",
+                "release/beta_openai_redteam_limited_result_review_scope.yaml",
+                "release/beta_openai_tool_calling_replay_rerun_scope.yaml",
+                "release/beta_production_telemetry_connection_preflight_scope.yaml",
+                "release/beta_production_telemetry_design_scope.yaml",
+                "release/beta_provider_canary_openai_scope.yaml",
+                "release/beta_redteam_mock_runtime_dry_run_scope.yaml",
+                "release/beta_redteam_suite_design_scope.yaml",
+                "release/beta_release_blockers.yaml",
+                "release/beta_release_blocker_p0_p1_reevaluation_scope.yaml",
+                "release/beta_release_evidence_bundle_scope.yaml",
+                "release/beta_release_gate_thresholds_scope.yaml",
+                "release/beta_release_readiness_draft.yaml",
+                "release/beta_skipped_redteam_case_review_scope.yaml",
+                "release/beta_structured_output_canary_openai_scope.yaml",
+                "release/beta_tool_calling_canary_openai_scope.yaml",
+                "release/blocked_execution_lanes.yaml",
+                "release/claim_impact_matrix.yaml",
+                "release/command_plan_index.yaml",
+                "release/containment_blocker_mock_dry_run_update.yaml",
+                "release/containment_blocker_update.yaml",
+                "release/containment_claim_decision_draft.yaml",
+                "release/containment_dedicated_verification_blocker_update.yaml",
+                "release/containment_mock_dry_run_gate.yaml",
+                "release/containment_owner_final_decision.yaml",
+                "release/containment_post_execution_blocker_update.yaml",
+                "release/containment_post_execution_owner_review_draft.yaml",
+                "release/containment_proof_requirements.yaml",
+                "release/containment_release_blocker_refresh.yaml",
+                "release/containment_verification_gate.yaml",
+                "release/containment_verification_gate_refined.yaml",
+                "release/containment_verified_blocker_update.yaml",
+                "release/containment_verified_decision_gate.yaml",
+                "release/dedicated_containment_verification_approval_gate.yaml",
+                "release/dedicated_containment_verification_command_plan.yaml",
+                "release/dedicated_containment_verification_gate.yaml",
+                "release/environment_requirement_index.yaml",
+                "release/execution_readiness_gate.yaml",
+                "release/next_execution_decision_matrix.yaml",
+                "release/openai_only_rc_path.yaml",
+                "release/openai_redteam_limited_execution_approval_gate.yaml",
+                "release/openai_redteam_limited_execution_command_plan.yaml",
+                "release/openai_redteam_limited_execution_gate.yaml",
+                "release/owner_action_matrix.yaml",
+                "release/production_telemetry_connection_approval_gate.yaml",
+                "release/production_telemetry_connection_command_plan.yaml",
+                "release/production_telemetry_gate.yaml",
+                "release/rc1_agents_md_alignment_scope.yaml",
+                "release/rc1_blocker_snapshot.yaml",
+                "release/rc1_claim_boundary.yaml",
+                "release/rc1_local_endpoint_deferred_confirmation.yaml",
+                "release/rc1_local_endpoint_deferred_policy.yaml",
+                "release/rc1_not_stable_notice.yaml",
+                "release/rc1_openai_scope_bundle_scope.yaml",
+                "release/rc1_openai_scope_release_candidate.yaml",
+                "release/rc1_openai_scope_release_decision_draft.yaml",
+                "release/rc1_owner_action_readiness.yaml",
+                "release/rc1_provider_diversity_deferred_confirmation.yaml",
+                "release/rc1_readiness_assessment.yaml",
+                "release/rc1_release_decision_record_preflight.yaml",
+                "release/rc1_release_gate_actual_approval_gate.yaml",
+                "release/rc1_release_gate_actual_command_plan.yaml",
+                "release/rc1_release_gate_actual_openai_scope_preflight_scope.yaml",
+                "release/rc1_release_gate_actual_preconditions.yaml",
+                "release/rc1_release_gate_actual_preflight_policy.yaml",
+                "release/rc1_release_gate_dry_run_openai_scope.yaml",
+                "release/rc1_release_gate_dry_run_openai_scope_scope.yaml",
+                "release/rc1_release_gate_readiness.yaml",
+                "release/rc1_rollback_readiness.yaml",
+                "release/rc1_strict_provider_diverse_deferred_policy.yaml",
+                "release/redteam_blocker_mock_dry_run_update.yaml",
+                "release/redteam_blocker_update.yaml",
+                "release/redteam_coverage_requirements.yaml",
+                "release/redteam_execution_gate.yaml",
+                "release/redteam_limited_execution_blocker_update.yaml",
+                "release/redteam_mock_dry_run_gate.yaml",
+                "release/redteam_pass_blocker_update.yaml",
+                "release/redteam_pass_gate.yaml",
+                "release/redteam_provider_execution_blocker_update.yaml",
+                "release/release_blocker_p0_p1_current.yaml",
+                "release/release_blocker_priority.yaml",
+                "release/release_gate.yaml",
+                "release/release_gate_dry_run_policy.yaml",
+                "release/release_gate_thresholds.yaml",
+                "release/release_path_decision_matrix.yaml",
+                "release/rollback_plan_draft.yaml",
+                "release/skipped_redteam_case_blocker_update.yaml",
+                "release/skipped_redteam_case_review_gate.yaml",
+                "release/storage_redaction_audit_gate.yaml",
+                "release/storage_redaction_blocker_update.yaml",
+                "release/strict_provider_diverse_rc_path.yaml",
+                "release/system_of_record_alignment_gate.yaml",
+                "release/telemetry_blocker_update.yaml",
+                "release/telemetry_connection_blocker_update.yaml",
+                "security/audits/allowed_evidence_payload_policy.yaml",
+                "security/audits/raw_storage_forbidden_patterns.yaml",
+                "security/audits/secret_detection_patterns.yaml",
+                "security/audits/storage_redaction_audit_policy.yaml",
+                "security/containment/approval_boundary_policy.yaml",
+                "security/containment/containment_boundary_taxonomy.yaml",
+                "security/containment/containment_canonical_claims.yaml",
+                "security/containment/containment_claim_policy.yaml",
+                "security/containment/containment_evidence_mapping_policy.yaml",
+                "security/containment/containment_mock_dry_run_policy.yaml",
+                "security/containment/containment_mock_runtime_policy.yaml",
+                "security/containment/containment_mock_safety_oracle.yaml",
+                "security/containment/containment_no_side_effect_policy.yaml",
+                "security/containment/containment_owner_review_policy.yaml",
+                "security/containment/containment_post_execution_audit_policy.yaml",
+                "security/containment/containment_post_execution_claim_policy.yaml",
+                "security/containment/containment_proof_level_matrix.yaml",
+                "security/containment/containment_remaining_criteria.yaml",
+                "security/containment/containment_verification_claim_gate.yaml",
+                "security/containment/containment_verification_policy.yaml",
+                "security/containment/containment_verified_claim_rules.yaml",
+                "security/containment/containment_verified_decision_policy.yaml",
+                "security/containment/containment_verified_evidence_sufficiency_policy.yaml",
+                "security/containment/dedicated_containment_acceptance_criteria.yaml",
+                "security/containment/dedicated_containment_execution_scope.yaml",
+                "security/containment/dedicated_containment_failure_policy.yaml",
+                "security/containment/dedicated_containment_risk_acceptance_policy.yaml",
+                "security/containment/dedicated_containment_runner_contract.yaml",
+                "security/containment/dedicated_containment_verification_methods.yaml",
+                "security/containment/dedicated_containment_verification_plan.yaml",
+                "security/containment/dedicated_containment_verification_policy.yaml",
+                "security/containment/external_side_effect_boundary_policy.yaml",
+                "security/containment/file_write_boundary_policy.yaml",
+                "security/containment/network_boundary_policy.yaml",
+                "security/containment/raw_storage_boundary_policy.yaml",
+                "security/containment/shell_execution_boundary_policy.yaml",
+                "security/containment/tool_execution_boundary_policy.yaml",
+                "security/containment/trace_redaction_boundary_policy.yaml",
+                "security/redteam/additional_openai_redteam_case_selection_policy.yaml",
+                "security/redteam/additional_openai_redteam_cost_bound_policy.yaml",
+                "security/redteam/additional_openai_redteam_guard_policy.yaml",
+                "security/redteam/additional_openai_redteam_preflight_policy.yaml",
+                "security/redteam/additional_openai_redteam_redaction_policy.yaml",
+                "security/redteam/additional_openai_redteam_stop_criteria.yaml",
+                "security/redteam/additional_openai_redteam_trace_policy.yaml",
+                "security/redteam/broader_redteam_pass_policy.yaml",
+                "security/redteam/mitre_atlas_mapping.yaml",
+                "security/redteam/mock_compatibility_policy.yaml",
+                "security/redteam/nist_genai_profile_mapping.yaml",
+                "security/redteam/openai_limited_execution_policy.yaml",
+                "security/redteam/openai_redteam_case_selection_policy.yaml",
+                "security/redteam/openai_redteam_cost_bound_policy.yaml",
+                "security/redteam/openai_redteam_credential_policy.yaml",
+                "security/redteam/openai_redteam_preflight_policy.yaml",
+                "security/redteam/openai_redteam_redaction_policy.yaml",
+                "security/redteam/openai_redteam_stop_criteria.yaml",
+                "security/redteam/openai_redteam_trace_policy.yaml",
+                "security/redteam/owasp_genai_mapping.yaml",
+                "security/redteam/redteam_gap_analysis_policy.yaml",
+                "security/redteam/redteam_lane_classification_policy.yaml",
+                "security/redteam/redteam_mock_dry_run_policy.yaml",
+                "security/redteam/redteam_pass_claim_policy.yaml",
+                "security/redteam/redteam_pass_fail_policy.yaml",
+                "security/redteam/redteam_severity_rubric.yaml",
+                "security/redteam/redteam_surface_coverage_matrix.yaml",
+                "security/redteam/redteam_taxonomy.yaml",
+                "security/redteam/skipped_case_future_execution_policy.yaml",
+                "security/redteam/skipped_case_review_policy.yaml",
+                "stack.yaml"
+              ],
+              "parser": "yaml"
+            }
+          },
+          {
+            "name": "all JSON Schema files compile with Ajv",
+            "status": "pass",
+            "detail": {
+              "checked": [
+                "schemas/adapter.schema.json",
+                "schemas/beta_entry_report.schema.json",
+                "schemas/capability_matrix.schema.json",
+                "schemas/conformance_case.schema.json",
+                "schemas/release_gate.schema.json",
+                "schemas/stack.schema.json",
+                "schemas/telemetry.schema.json",
+                "schemas/trace.schema.json",
+                "schemas/validation_report.schema.json",
+                "adapters/api/openai/tool_schemas/blocked_external_post.schema.json",
+                "adapters/api/openai/tool_schemas/canary_calculator.schema.json",
+                "adapters/api/openai/tool_schemas/canary_lookup.schema.json",
+                "core/spec/output_contract.schema.json",
+                "observability/langfuse/langfuse_payload_shape.schema.json",
+                "observability/otel/otlp_payload_shape.schema.json",
+                "observability/telemetry.schema.json",
+                "observability/trace.schema.json",
+                "runtime/schemas/approval_event.schema.json",
+                "runtime/schemas/context_packet.schema.json",
+                "runtime/schemas/failure_event.schema.json",
+                "runtime/schemas/run_request.schema.json",
+                "runtime/schemas/run_result.schema.json",
+                "runtime/schemas/state_transition.schema.json",
+                "runtime/schemas/tool_event.schema.json",
+                "security/audits/redaction_audit_result.schema.json",
+                "security/containment/containment_result.schema.json",
+                "security/containment/containment_trace.schema.json",
+                "security/redteam/openai_redteam_execution_approval.schema.json",
+                "security/redteam/redteam_case.schema.json",
+                "security/redteam/redteam_case_disposition.schema.json",
+                "security/redteam/redteam_result.schema.json",
+                "security/redteam/redteam_trace.schema.json",
+                "stack.schema.json"
+              ],
+              "validator": "ajv"
+            }
+          },
+          {
+            "name": "stack.yaml validates against schemas/stack.schema.json",
+            "status": "pass",
+            "detail": {
+              "schema": "schemas/stack.schema.json"
+            }
+          },
+          {
+            "name": "AGENTS.md System of Record entrypoint is declared",
+            "status": "pass",
+            "detail": {
+              "agent_entrypoint": "AGENTS.md",
+              "asset_class_manifest": "MANIFEST.asset_classes.yaml"
+            }
+          },
+          {
+            "name": "adapter.yaml files validate against schemas/adapter.schema.json",
+            "status": "pass",
+            "detail": {
+              "checked": [
+                "adapters/api/openai/adapter.yaml",
+                "adapters/local/vllm/adapter.yaml",
+                "adapters/local/ollama/adapter.yaml"
+              ]
+            }
+          },
+          {
+            "name": "provider_capability_matrix.yaml validates against schema",
+            "status": "pass",
+            "detail": {
+              "schema": "schemas/capability_matrix.schema.json"
+            }
+          },
+          {
+            "name": "release_gate.yaml validates and blocks forbidden claims",
+            "status": "pass",
+            "detail": {
+              "blocked_count": 16,
+              "containment_verified_conditionally_allowed": true
+            }
+          },
+          {
+            "name": "observability schemas register with Ajv",
+            "status": "pass",
+            "detail": {
+              "registered": [
+                "observability/trace.schema.json",
+                "observability/telemetry.schema.json"
+              ]
+            }
+          },
+          {
+            "name": "schema copies register with Ajv",
+            "status": "pass",
+            "detail": {
+              "registered": [
+                "schemas/trace.schema.json",
+                "schemas/telemetry.schema.json"
+              ]
+            }
+          },
+          {
+            "name": "core/spec remains provider-neutral",
+            "status": "pass",
+            "detail": {
+              "checked_files": [
+                "core/spec/behavior_policy.md",
+                "core/spec/claim_strength_policy.md",
+                "core/spec/context_policy.md",
+                "core/spec/failure_modes.md",
+                "core/spec/harness.spec.yaml",
+                "core/spec/output_contract.schema.json",
+                "core/spec/tool_policy.md"
+              ],
+              "provider_tokens": [
+                "OpenAI",
+                "Anthropic",
+                "Claude",
+                "Gemini",
+                "vLLM",
+                "Ollama",
+                "tokenizer",
+                "Responses API"
+              ]
+            }
+          },
+          {
+            "name": "dist boundary",
+            "status": "pass",
+            "detail": {
+              "files": [
+                "README.md"
+              ]
+            }
+          },
+          {
+            "name": "provider capability matrix has no true or verified feature values",
+            "status": "pass",
+            "detail": {
+              "providers_checked": [
+                "openai",
+                "vllm",
+                "ollama"
+              ]
+            }
+          }
+        ],
+        "fallback_used": false,
+        "warnings": [],
+        "errors": [],
+        "runner_reexecution": {
+          "v36_runners_reexecuted": false,
+          "provider_execution": false,
+          "local_model_execution": false,
+          "runtime_execution_loop_implemented": false,
+          "live_telemetry_connected": false
+        },
+        "claims_allowed_after_pass": [
+          "harness-designed",
+          "static-structure-created",
+          "baseline-snapshotted",
+          "adapter-skeleton-created",
+          "alpha-static-validated",
+          "dependency-static-validated"
+        ],
+        "claims_blocked": [
+          "adapter-checked",
+          "provider-verified",
+          "runtime-verified",
+          "tool-call-verified",
+          "schema-output-verified",
+          "telemetry-connected",
+          "production-ready",
+          "production-monitored",
+          "containment-verified",
+          "replay-verified",
+          "benchmark-backed",
+          "provider-diverse",
+          "integration-verified",
+          "stable",
+          "release-gated"
+        ]
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "evidence/rc1-openai-scope-bundle/rc1_bundle_manifest.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-openai-scope-bundle/rc1_bundle_checksums.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-openai-scope-bundle/rc1_evidence_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-openai-scope-bundle/rc1_evidence_lineage.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-openai-scope-bundle/rc1_openai_scope_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-openai-scope-bundle/rc1_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-openai-scope-bundle/rc1_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_release_gate_dry_run_openai_scope_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_release_gate_dry_run_openai_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_openai_scope_release_decision_draft.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_local_endpoint_deferred_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_strict_provider_diverse_deferred_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/rc1_release_gate_actual_preconditions.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/run_rc1_release_gate_dry_run_openai_scope.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/audit_rc1_release_gate_claim_boundaries.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/summarize_rc1_release_gate_readiness.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_rc1_release_gate_dry_run_openai_scope.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/rc1_release_gate_dry_run_openai_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_dry_run_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_dry_run_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_claim_boundary_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_claim_boundary_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_readiness_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_readiness_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_dry_run_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/rc1_release_gate_dry_run_gate_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_release_gate_dry_run_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_release_gate_dry_run_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_release_gate_criteria_matrix.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_release_gate_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_release_gate_readiness_assessment.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_local_endpoint_deferred_record.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_provider_diversity_deferred_record.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_release_decision_draft.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_release_gate_actual_preconditions.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/rc1_release_gate_dry_run_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/rc1-release-gate-dry-run-openai-scope/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_release_gate_dry_run_openai_scope.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_release_gate_claim_boundary.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_local_endpoint_deferred.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_provider_diversity_deferred.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/rc1_release_gate_actual_preconditions.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_rc1_release_gate_actual_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_local_canary_after_endpoint_ready.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "dry-run report flags are non-execution",
+      "status": "pass",
+      "detail": {
+        "new_execution": false,
+        "openai_provider_call": false,
+        "local_model_execution": false,
+        "local_endpoint_probe": false,
+        "telemetry_connection": false,
+        "release_gate_actual_execution": false,
+        "dist_modified": false,
+        "v36_modified": false
+      }
+    },
+    {
+      "name": "OpenAI scope gate passed and local endpoint deferred",
+      "status": "pass",
+      "detail": {
+        "prerequisite_rc1_openai_scope_bundle_passed": true,
+        "openai_scope_gate_passed": true,
+        "local_endpoint_status": "deferred_until_operator_provides_endpoint"
+      }
+    },
+    {
+      "name": "provider diversity and strict path deferred",
+      "status": "pass",
+      "detail": {
+        "provider_diversity_established": false,
+        "provider_status": "deferred_not_in_openai_only_scope"
+      }
+    },
+    {
+      "name": "release and production claims remain blocked",
+      "status": "pass",
+      "detail": {
+        "release_gated_allowed": false,
+        "stable_allowed": false,
+        "production_ready_allowed": false,
+        "provider_diverse_allowed": false
+      }
+    },
+    {
+      "name": "release decision draft and actual preconditions are ready",
+      "status": "pass",
+      "detail": {
+        "decision": "do_not_claim_release_gated_yet",
+        "can_enter_preflight": true
+      }
+    },
+    {
+      "name": "unresolved items empty",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "rc1-release-gate-dry-run-executed",
+    "rc1-openai-scope-gate-evaluated",
+    "rc1-local-endpoint-deferred-recorded",
+    "rc1-provider-diversity-deferred-recorded",
+    "rc1-release-decision-draft-recorded",
+    "rc1-release-gate-actual-preconditions-drafted"
+  ],
+  "claims_blocked": [
+    "stable",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "redteam-passed",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "integration-verified",
+    "benchmark-backed"
+  ]
+}

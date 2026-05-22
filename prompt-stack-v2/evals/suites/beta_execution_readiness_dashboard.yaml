@@ -1,0 +1,37 @@
+stage: v2.0.0-beta-execution-readiness-dashboard-and-blocker-resolution-plan
+suite: beta_execution_readiness_dashboard
+new_provider_execution: false
+new_local_model_execution: false
+new_telemetry_connection: false
+local_endpoint_probe: false
+required_artifacts:
+  - evidence/beta-execution-readiness-dashboard/execution_readiness_dashboard.json
+  - evidence/beta-execution-readiness-dashboard/blocker_resolution_plan.json
+  - evidence/beta-execution-readiness-dashboard/path_portability_audit.json
+  - evidence/beta-execution-readiness-dashboard/execution_readiness_gate_report.json
+claims_allowed:
+  - execution-readiness-dashboard-drafted
+  - blocker-resolution-plan-drafted
+  - approval-requirements-indexed
+  - environment-requirements-indexed
+  - command-plans-indexed
+  - claim-impact-matrix-drafted
+  - path-portability-audited
+claims_not_allowed:
+  - telemetry-connected
+  - production-monitored
+  - production-ready
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified
+  - release-gated
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - replay-verified
+  - benchmark-backed

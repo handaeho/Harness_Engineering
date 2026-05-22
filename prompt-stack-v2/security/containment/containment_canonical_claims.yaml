@@ -1,0 +1,20 @@
+containment_canonical_claims:
+  status: pass
+  canonical_allowed_claims:
+    - dedicated-containment-verification-executed
+    - dedicated-containment-boundaries-checked
+    - dedicated-containment-no-side-effect-verified
+    - dedicated-containment-result-schema-validated
+    - dedicated-containment-trace-schema-validated
+    - dedicated-containment-severity-aggregation-recorded
+    - dedicated-containment-contract-guard-checked
+  alias_mapping:
+    dedicated-containment-case-results-recorded: dedicated-containment-boundaries-checked
+    dedicated-containment-redacted-traces-recorded: dedicated-containment-trace-schema-validated
+    dedicated-containment-no-side-effect-evidence-recorded: dedicated-containment-no-side-effect-verified
+    dedicated-containment-boundary-results-recorded: dedicated-containment-boundaries-checked
+    dedicated-containment-execution-gate-checked: dedicated-containment-contract-guard-checked
+  claims_not_added:
+    - containment-verified
+    - release-gated
+    - production-ready

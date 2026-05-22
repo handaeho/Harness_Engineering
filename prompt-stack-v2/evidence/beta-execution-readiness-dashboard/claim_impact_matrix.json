@@ -1,0 +1,48 @@
+{
+  "claim_impacts": [
+    {
+      "lane": "openai_limited_redteam_execution",
+      "after_success_candidate_claims": [
+        "openai-redteam-limited-execution-completed"
+      ],
+      "still_not_allowed": [
+        "redteam-passed",
+        "containment-verified",
+        "release-gated",
+        "production-ready"
+      ],
+      "note": "Credentialed execution can be performed from the user's PowerShell environment after exact approval; this does not by itself unlock redteam-passed or release-gated claims."
+    },
+    {
+      "lane": "production_telemetry_connection",
+      "after_success_candidate_claims": [
+        "telemetry-connection-executed"
+      ],
+      "still_not_allowed": [
+        "production-monitored",
+        "production-ready",
+        "release-gated"
+      ]
+    },
+    {
+      "lane": "local_no_tool_canary",
+      "after_success_candidate_claims": [
+        "local-no-tool-canary-executed"
+      ],
+      "still_not_allowed": [
+        "provider-diverse",
+        "release-gated",
+        "production-ready"
+      ]
+    },
+    {
+      "lane": "release_gate",
+      "after_success_candidate_claims": [],
+      "still_not_allowed": [
+        "release-gated",
+        "production-ready",
+        "production-monitored"
+      ]
+    }
+  ]
+}

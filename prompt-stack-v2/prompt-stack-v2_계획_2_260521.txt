@@ -1,0 +1,933 @@
+아래 글을 보고 현재 버전의 prompt-stack을 어떻게 개편하고 확장해서 prompt-stack-v2를 구성할지 먼저 계획을 세워줘.
+
+---------------------------
+According to a document from 2026-05-21, 업로드된 기준 답변의 핵심은 **“Core는 모델 독립적으로, Adapter는 로컬/API별로 분리한다”**는 것입니다. 즉 prompt-stack-v2는 단순한 프롬프트 묶음이 아니라, **프롬프트·도구·컨텍스트·상태·검증·관측·보안·릴리즈 게이트를 포함한 실행 하네스 패키지**로 재구성해야 합니다. 
+
+## 1. 결론: prompt-stack-v2의 방향
+
+현재 `prompt-stack.zip` 내부를 보면 stable은 `v36`이고, 구조상 이미 `autonomous/`, `codex/`, `state/`, `verification/`, `lifecycle/`, `harness/`, `validation/`, `_evidence/v36/` 분리가 되어 있습니다. 이건 좋은 기반입니다. 다만 현재 패키지는 아직 **local validation 중심의 prompt harness package**에 가깝고, 자체 문서에서도 `production telemetry`, `containment proof`, `provider diversity`를 제한으로 두고 있습니다.
+
+따라서 v2는 다음처럼 가야 합니다.
+
+> **prompt-stack-v2 = Core Harness Spec + Provider/Runtime Adapters + Executable Runtime + Eval/Redteam + Observability + Release Evidence**
+
+기존 v36의 장점인 governance, claim ladder, active/evidence separation은 유지하되, `PROMPT_*` 문서 중심 구조에서 벗어나 **스펙 중심, 어댑터 중심, 실행 검증 중심**으로 바꾸는 것이 핵심입니다. OpenAI의 최신 프롬프트 가이드도 오래된 prompt stack의 모든 지시문을 그대로 가져가지 말고, 제품 계약을 보존하는 가장 작은 프롬프트에서 시작해 도구·eval·UX 목표에 맞춰 조정하라고 권합니다. ([OpenAI 개발자][1])
+
+---
+
+## 2. v36에서 v2로 바꿔야 하는 핵심 문제
+
+| 현재 v36 상태                                                      | v2에서의 개편 방향                                               |
+| -------------------------------------------------------------- | --------------------------------------------------------- |
+| `PROMPT_full`, `PROMPT_light`, `PROMPT_lightest`, overlays 중심  | `core/spec`가 source-of-truth, prompt 문서는 build artifact   |
+| `autonomous/99_total`이 조립 결과이지만 active 안에 존재                   | `dist/` 아래 generated bundle로 이동                           |
+| Codex runtime은 분리되어 있으나 provider adapter 체계는 없음                | OpenAI, Anthropic, Gemini, vLLM, Ollama, HF adapter 분리    |
+| local validation runner 중심                                     | provider matrix, replay eval, redteam, observability까지 확장 |
+| evidence는 잘 분리되어 있음                                            | evidence를 release-grade 증거 체계로 표준화                        |
+| production telemetry, containment proof, provider diversity 미완 | v2의 P0/P1 follow-up으로 승격                                  |
+
+즉 v2는 “더 많은 프롬프트”가 아니라 **프롬프트를 실행 가능한 계약으로 낮추고, 실행부를 어댑터와 하네스로 올리는 작업**입니다.
+
+---
+
+## 3. 제안 디렉터리 구조
+
+```text
+prompt-stack-v2/
+  README.md
+  AGENTS.md
+  stack.yaml
+  stack.schema.json
+
+  core/
+    spec/
+      harness.spec.yaml
+      task_contract.schema.json
+      behavior_policy.md
+      context_policy.md
+      tool_policy.md
+      output_contract.schema.json
+      failure_modes.md
+      claim_strength_policy.md
+    capabilities/
+      tool_use.md
+      retrieval_grounding.md
+      memory.md
+      planning_routing.md
+      multi_agent.md
+      evaluation_monitoring.md
+      guardrails_safety.md
+    prompts/
+      full.md
+      light.md
+      lightest.md
+      standalone.md
+    examples/
+      catalog.jsonl
+      injection_cases.jsonl
+
+  adapters/
+    api/
+      openai/
+        adapter.yaml
+        messages.mapper.ts
+        tools.schema.json
+        response_format.schema.json
+        evals.config.yaml
+      anthropic/
+        adapter.yaml
+        messages.mapper.ts
+        tools.schema.json
+      gemini/
+        adapter.yaml
+        messages.mapper.ts
+        tools.schema.json
+        structured_output.schema.json
+    local/
+      vllm/
+        adapter.yaml
+        openai_compatible_server.md
+        structured_outputs.yaml
+      ollama/
+        adapter.yaml
+        tool_calling.md
+        structured_outputs.yaml
+      hf-transformers/
+        adapter.yaml
+        chat_template.jinja
+        tool_use.md
+    common/
+      mcp/
+        server_contract.schema.json
+        tool_registry.schema.json
+      agents-md/
+        AGENTS.template.md
+
+  runtime/
+    orchestrator/
+      route_policy.ts
+      execution_loop.ts
+      retry_policy.ts
+    context/
+      context_builder.ts
+      compaction_policy.md
+      source_quality_gate.ts
+    tools/
+      tool_router.ts
+      allow_deny_policy.ts
+      approval_gate.ts
+      mock_tools/
+    state/
+      session_state.schema.json
+      memory_policy.md
+      handoff.schema.json
+    sandbox/
+      sandbox_policy.md
+      containment_checks.ts
+
+  evals/
+    datasets/
+      golden_cases.jsonl
+      adversarial_cases.jsonl
+      regression_cases.jsonl
+      provider_matrix_cases.jsonl
+      rag_cases.jsonl
+      tool_cases.jsonl
+    suites/
+      static_structure.yaml
+      behavioral.yaml
+      adapter_conformance.yaml
+      redteam.yaml
+      replay.yaml
+      ablation.yaml
+    graders/
+      deterministic.ts
+      llm_judge.prompt.md
+      schema_grader.ts
+      trace_grader.ts
+    reports/
+
+  observability/
+    trace.schema.json
+    telemetry.schema.json
+    otel/
+      semantic_mapping.md
+    langfuse/
+      integration.md
+    dashboards/
+      run_quality.md
+      cost_latency.md
+      failure_modes.md
+
+  security/
+    threat_model.md
+    prompt_injection_tests.jsonl
+    tool_poisoning_tests.jsonl
+    data_leakage_tests.jsonl
+    mcp_security.md
+    supply_chain.md
+
+  release/
+    release_gate.yaml
+    rollback_plan.md
+    claim_ladder.md
+    changelog.md
+    checksums/
+
+  dist/
+    autonomous_bundle/
+    codex_runtime/
+    provider_bundles/
+
+  evidence/
+    runs/
+    traces/
+    eval_reports/
+    redteam_reports/
+    release_records/
+```
+
+가장 중요한 변화는 `core/`와 `adapters/`입니다. 현재 답변에서 제안된 것처럼, 공통 자산은 `Core Harness Spec`으로 두고, 로컬 LLM과 API 모델은 각각 adapter로 분리해야 합니다. 
+
+---
+
+## 4. Core Harness Spec 설계
+
+`core/spec/harness.spec.yaml`은 v2의 중심입니다. 여기에 provider 이름, 모델명, tokenizer, chat template 같은 구현 세부사항을 넣으면 안 됩니다.
+
+```yaml
+id: prompt-stack-v2.core
+version: 2.0.0
+purpose: >
+  Model-independent harness contract for prompt-driven agent execution.
+
+role_contract:
+  identity: adaptive_engineering_assistant
+  default_language: ko
+  uncertainty_policy: explicit
+  hidden_reasoning_policy: no_private_reasoning_disclosure
+
+task_contract:
+  goal_required: true
+  clarify_when_blocked: true
+  proceed_with_assumptions_when_safe: true
+
+context_policy:
+  source_priority:
+    - user_provided_files
+    - official_docs
+    - primary_sources
+    - active_dev_community
+  freshness_required_for:
+    - api_docs
+    - laws
+    - prices
+    - current_models
+    - security_advisories
+
+tool_policy:
+  default_tool_mode: least_privilege
+  destructive_actions_require_approval: true
+  external_side_effects_require_approval: true
+  tool_outputs_are_untrusted: true
+
+output_contract:
+  schema_first: true
+  fallback_text_allowed: true
+  citations_required_for_researched_claims: true
+
+verification_policy:
+  require_task_specific_evidence: true
+  prohibit_claim_upgrades_without_evidence: true
+  eval_required_for_release: true
+```
+
+OpenAI 문서 기준으로 function/tool calling은 모델이 외부 시스템·데이터와 인터페이스할 수 있게 해주는 방식이고, OpenAI의 tools 문서도 built-in tools, function calling, tool search, remote MCP servers를 모델 기능 확장 수단으로 설명합니다. 따라서 v2의 `tool_policy`는 prompt 텍스트가 아니라 **실행 전 allow/deny, approval, traceable tool call**로 구현해야 합니다. ([OpenAI 개발자][2])
+
+---
+
+## 5. Adapter 계층 설계
+
+v2에서 adapter는 “프롬프트 번역기”가 아니라 **Core Spec을 특정 실행 환경에 맞게 낮추는 컴파일러**여야 합니다.
+
+| Adapter                          | 책임                                                                                     |
+| -------------------------------- | -------------------------------------------------------------------------------------- |
+| `adapters/api/openai`            | Responses API 메시지 구조, function tools, structured outputs, Agents SDK, tracing/evals 연결 |
+| `adapters/api/anthropic`         | Claude system/message/tool use/prompt caching 규칙 반영                                    |
+| `adapters/api/gemini`            | Gemini function calling, structured output, API migration/freshness 반영                 |
+| `adapters/local/vllm`            | OpenAI-compatible server, structured outputs, reasoning/tool parser 옵션                 |
+| `adapters/local/ollama`          | structured outputs, tool calling, local model capability 차이 반영                         |
+| `adapters/local/hf-transformers` | chat template, tool-use template, tokenizer-specific formatting                        |
+| `adapters/common/mcp`            | MCP server/tool/resource/prompt registry 표준화                                           |
+| `adapters/common/agents-md`      | coding agent용 repo instructions 표준화                                                    |
+
+OpenAI Agents SDK 문서는 애플리케이션이 orchestration, tool execution, approvals, state를 소유할 때 Agents SDK를 사용하라고 설명하고, OpenAI의 evals 문서도 모델·프롬프트·앱 출력이 기대 기준을 만족하는지 평가하는 것이 reliable application 구축의 핵심이라고 설명합니다. ([OpenAI 개발자][3])
+
+Anthropic 문서도 output control, tool use, agentic systems, verification tools 같은 실행 요소를 프롬프트 설계와 함께 다루고, Gemini 문서도 function calling과 structured outputs를 각각 외부 API 연결 및 JSON Schema 준수 출력으로 설명합니다. 따라서 v2 adapter는 provider마다 메시지 구조와 도구 호출 형식을 별도로 관리해야 합니다. ([Claude API Docs][4])
+
+로컬 쪽에서는 Hugging Face chat templates, vLLM structured outputs, Ollama structured outputs/tool calling이 이미 실무 표면으로 자리 잡아 있습니다. 그래서 local adapter에는 `chat_template`, `stop_tokens`, `sampling`, `guided_decoding`, `json_repair`, `tool_call_parser`가 반드시 들어가야 합니다. ([vLLM][5])
+
+---
+
+## 6. v2에서 반드시 추가해야 할 Capability Matrix
+
+`adapters/provider_capability_matrix.yaml`을 만들어야 합니다.
+
+```yaml
+providers:
+  openai:
+    message_roles: [system, developer, user, assistant, tool]
+    tools: true
+    function_calling: true
+    structured_outputs: true
+    mcp: true
+    hosted_tools: true
+    evals_api: true
+    tracing: true
+    adapter_status: required
+
+  anthropic:
+    message_roles: [system, user, assistant]
+    tools: true
+    strict_tool_use: adapter_checked
+    structured_outputs: adapter_checked
+    prompt_caching: true
+    adapter_status: required
+
+  gemini:
+    system_instruction: true
+    function_calling: true
+    structured_outputs: true
+    built_in_tools: true
+    api_freshness_check: required
+    adapter_status: required
+
+  vllm:
+    openai_compatible: true
+    structured_outputs: true
+    tool_calling_parser: model_dependent
+    chat_template: required
+    adapter_status: required
+
+  ollama:
+    structured_outputs: true
+    tool_calling: true
+    model_capability_varies: true
+    adapter_status: required
+
+  hf_transformers:
+    chat_template: required
+    tool_use_template: model_dependent
+    tokenizer_sensitive: true
+    adapter_status: required
+```
+
+이 matrix는 “이 모델은 가능할 것 같다”가 아니라, **adapter conformance eval을 통과한 기능만 true**로 두는 방식이어야 합니다.
+
+---
+
+## 7. MCP와 AGENTS.md를 v2 표준 표면으로 편입
+
+v2는 자체 독자 규격만 만들면 안 됩니다. 이미 현업에서 쓰이는 표준 표면을 받아들여야 합니다.
+
+MCP는 LLM application과 external data source/tool을 연결하는 open protocol로 정의되어 있고, Tools, Resources, Prompts 같은 primitive를 표준화합니다. AGENTS.md는 coding agents에게 프로젝트별 지침을 제공하는 open format이며, 공식 사이트 기준 6만 개 이상의 오픈소스 프로젝트에서 사용된다고 설명합니다. ([Model Context Protocol][6])
+
+따라서 v2에는 다음을 넣어야 합니다.
+
+```text
+adapters/common/mcp/
+  server_contract.schema.json
+  tool_registry.schema.json
+  resource_policy.md
+  prompt_registry.md
+  security_review.md
+
+adapters/common/agents-md/
+  AGENTS.template.md
+  repo_instruction_linter.ts
+  stale_instruction_check.ts
+```
+
+`AGENTS.md`는 현재 v36처럼 짧은 router 역할을 유지해야 합니다. 세부 정책과 긴 지침은 `docs/`, `core/spec`, `runtime/`, `evals/`로 내려야 합니다.
+
+---
+
+## 8. Eval 체계: v36의 local validation을 v2의 release-grade eval로 확장
+
+v36에는 이미 `validate_current_v36`, `validate_assembled_bundle`, `validate_codex_runtime`이 있습니다. v2는 이것을 다음 6층 eval로 확장해야 합니다.
+
+| Eval 층                     | 목적                                                                                |
+| -------------------------- | --------------------------------------------------------------------------------- |
+| Static structure eval      | 파일 존재, schema validity, link integrity, dist parity, forbidden claim scan         |
+| Core semantic eval         | core spec이 role, context, tool, output, safety 계약을 빠뜨리지 않았는지 검사                   |
+| Adapter conformance eval   | provider별 tool call, schema output, message mapping, retry behavior 검사            |
+| Behavioral regression eval | v36 대비 성능/안전/출력 형식 회귀 여부 검사                                                       |
+| Redteam eval               | prompt injection, tool poisoning, data leakage, excessive agency, RAG poison 검사   |
+| Replay/trace eval          | run_id, trace, tool event, approval event, retrieval event, final evidence 재현성 검사 |
+
+Promptfoo는 자동 eval, red teaming, CI/CD, multi-provider 비교를 지원한다고 설명하고, EleutherAI `lm-evaluation-harness`는 여러 평가 task에서 generative language model을 테스트하는 unified framework입니다. Ragas는 vibe check를 systematic evaluation loop로 바꾸는 데 초점을 두고, DeepEval은 LLM 앱을 pytest처럼 unit test하는 프레임워크로 설명됩니다. v2는 이들을 모두 dependency로 채택할 필요는 없지만, eval 설계의 기준점으로 반영해야 합니다. ([GitHub][7])
+
+---
+
+## 9. Observability: v2의 가장 큰 확장 지점
+
+v36의 제한 중 하나가 production telemetry입니다. v2에서는 `observability/`를 별도 1급 계층으로 둬야 합니다.
+
+```json
+{
+  "run_id": "uuid",
+  "stack_version": "2.0.0",
+  "core_spec_hash": "sha256",
+  "adapter_id": "openai.responses",
+  "model_id": "gpt-5.5",
+  "input_hash": "sha256",
+  "prompt_bundle_hash": "sha256",
+  "tool_calls": [],
+  "retrieval_events": [],
+  "approval_events": [],
+  "safety_events": [],
+  "latency_ms": 0,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_estimate": null,
+  "eval_results": [],
+  "claim_strength": "runner-executed"
+}
+```
+
+OpenTelemetry는 traces와 metrics를 수집하기 위한 vendor-neutral observability framework로 설명되고, Langfuse는 LLM 애플리케이션을 debug, analyze, iterate하기 위한 open-source LLM engineering platform으로 설명됩니다. v2는 OpenTelemetry 호환 trace schema를 기본으로 두고, Langfuse 같은 LLM observability 도구는 선택 integration으로 두는 것이 좋습니다. ([OpenTelemetry][8])
+
+---
+
+## 10. Security/Guardrails: v2에서 prompt-level 안전을 runtime-level 안전으로 올리기
+
+v36에도 guardrails overlay가 있지만, v2에서는 `security/`를 독립 계층으로 둬야 합니다. 이유는 prompt injection, sensitive information disclosure, supply chain, data/model poisoning, excessive agency가 LLM 앱의 핵심 위험으로 정리되어 있기 때문입니다. OWASP GenAI Security Project의 2025 Top 10은 prompt injection, sensitive information disclosure, supply chain, data/model poisoning 등을 주요 위험으로 다룹니다. ([OWASP Gen AI Security Project][9])
+
+v2 보안 계층은 다음을 포함해야 합니다.
+
+```text
+security/
+  threat_model.md
+  owasp_llm_top10_mapping.md
+  nist_genai_rmf_mapping.md
+  mitre_atlas_mapping.md
+  prompt_injection_tests.jsonl
+  indirect_prompt_injection_tests.jsonl
+  tool_poisoning_tests.jsonl
+  mcp_tool_poisoning_tests.jsonl
+  data_leakage_tests.jsonl
+  excessive_agency_tests.jsonl
+  sandbox_escape_tests.jsonl
+  approval_boundary_tests.jsonl
+  supply_chain_checklist.md
+```
+
+NIST의 GenAI Profile은 생성형 AI 고유 위험을 식별하고 AI RMF에 맞춘 위험관리 조치를 제안하는 자료이며, MITRE ATLAS는 AI 시스템 위협을 real-world insight 기반으로 정리한 프레임워크입니다. 그래서 v2 release gate는 OWASP만이 아니라 NIST/MITRE mapping도 포함해야 합니다. ([NIST][10])
+
+---
+
+## 11. 기존 v36 자산의 migration map
+
+| v36 위치                                         | v2 위치                                                                | 처리 방식                                      |
+| ---------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------ |
+| `autonomous/00_governance/PROMPT_guideline.md` | `core/spec/behavior_policy.md`, `core/spec/claim_strength_policy.md` | governance 문장을 spec으로 분해                   |
+| `autonomous/01_base/PROMPT_full.md`            | `core/prompts/full.md`                                               | source prompt로 보존, provider-specific 표현 제거 |
+| `PROMPT_light`, `PROMPT_lightest`              | `core/prompts/light.md`, `core/prompts/lightest.md`                  | compression target으로 유지                    |
+| `PROMPT_standalone.md`                         | `core/prompts/standalone.md`                                         | local/API 공통 standalone로 유지                |
+| overlays                                       | `core/capabilities/*`                                                | overlay가 아니라 capability spec으로 전환          |
+| `autonomous/04_harness/*`                      | `core/spec/*`, `runtime/*`, `release/*`                              | 문서형 하네스를 실행형 하네스로 분리                       |
+| `codex/`                                       | `adapters/api/openai/codex/` 또는 `dist/codex_runtime/`                | Codex runtime adapter로 유지                  |
+| `state/`                                       | `runtime/state/`                                                     | schema 기반 상태 관리로 전환                        |
+| `verification/`, `validation/`                 | `evals/`                                                             | eval suite와 grader로 재구성                    |
+| `harness/*.mjs`                                | `runtime/`, `evals/graders/`                                         | runner를 기능별로 분리                            |
+| `records/`, `reports/`                         | `evidence/`, `release/`                                              | release evidence로 표준화                      |
+| `_evidence/v36/`                               | `evidence/v36-baseline/`                                             | baseline evidence로 보존                      |
+| `autonomous/99_total/`                         | `dist/autonomous_bundle/`                                            | source가 아니라 generated output               |
+
+중요한 규칙은 하나입니다.
+
+> **v2에서는 `dist/`를 수정하지 않는다. `core/`, `adapters/`, `runtime/`, `evals/`를 수정하고 build가 `dist/`를 생성한다.**
+
+---
+
+## 12. 개발 단계별 계획
+
+### Phase 0 — v36 freeze와 baseline evidence 확정
+
+목표는 v36을 더 고치지 않고 v2의 기준선으로 고정하는 것입니다.
+
+해야 할 일:
+
+```text
+- v36 checksum snapshot 생성
+- v36 asset inventory 생성
+- v36 known limitation register 생성
+- v36 -> v2 migration map 생성
+- prohibited claims 목록 이관
+- rollback reference로 v36 보존
+```
+
+산출물:
+
+```text
+evidence/v36-baseline/
+  file_inventory.json
+  checksums.json
+  limitation_register.json
+  migration_map.yaml
+```
+
+완료 기준:
+
+```text
+- v36 파일 해시 100% 기록
+- v36 active/evidence boundary 기록
+- v2가 해결해야 할 P0/P1 gap 목록 확정
+```
+
+---
+
+### Phase 1 — Core Spec 추출
+
+목표는 v36의 긴 prompt 문서에서 provider-independent한 계약만 뽑는 것입니다.
+
+해야 할 일:
+
+```text
+- harness.spec.yaml 작성
+- behavior_policy.md 작성
+- context_policy.md 작성
+- tool_policy.md 작성
+- output_contract.schema.json 작성
+- claim_strength_policy.md 작성
+- failure_modes.md 작성
+- current PROMPT_full/light/lightest/standalone의 공통 의미 추출
+```
+
+완료 기준:
+
+```text
+- provider/model 이름이 core spec에 없음
+- core spec만 보고 task/output/tool/context 계약을 이해할 수 있음
+- prompt 문서와 policy 문서 간 중복률 감소
+- schema validation 100% pass
+```
+
+---
+
+### Phase 2 — Adapter 1차 구현
+
+목표는 API 모델과 로컬 모델을 같은 core spec에서 실행 가능하게 만드는 것입니다.
+
+우선순위:
+
+```text
+P0:
+- OpenAI adapter
+- vLLM adapter
+- Ollama adapter
+
+P1:
+- Anthropic adapter
+- Gemini adapter
+- Hugging Face Transformers adapter
+
+P2:
+- MCP server adapter
+- AGENTS.md adapter
+```
+
+OpenAI adapter는 Responses API, function tools, structured output, Agents SDK 사용 여부를 명시해야 합니다. Gemini adapter는 function calling과 structured output을 별도 surface로 다뤄야 하며, Google의 Interactions API처럼 breaking change가 있는 경우 freshness check를 강제해야 합니다. ([OpenAI 개발자][11])
+
+완료 기준:
+
+```text
+- 각 adapter별 capability_matrix.yaml 작성
+- tool call schema roundtrip test 통과
+- structured output schema test 통과
+- local model chat template smoke test 통과
+- provider별 unsupported feature는 명시적으로 false 처리
+```
+
+---
+
+### Phase 3 — Executable Runtime Harness 구현
+
+목표는 prompt-stack을 “읽는 문서”에서 “실행되는 하네스”로 바꾸는 것입니다.
+
+핵심 모듈:
+
+```text
+runtime/orchestrator/
+  - route_policy
+  - execution_loop
+  - retry_policy
+  - fallback_policy
+
+runtime/tools/
+  - tool_router
+  - allow_deny_policy
+  - approval_gate
+  - mock_tools
+
+runtime/context/
+  - context_builder
+  - source_quality_gate
+  - compaction_policy
+
+runtime/state/
+  - session_state
+  - memory_policy
+  - handoff
+
+runtime/sandbox/
+  - sandbox_policy
+  - containment_checks
+```
+
+LangGraph 문서는 durable execution, human-in-the-loop, short/long-term memory를 production agent의 핵심 기능으로 다룹니다. v2 runtime도 장기 작업, 승인 대기, 실패 복구, state resume를 고려해야 합니다. ([LangChain 문서][12])
+
+완료 기준:
+
+```text
+- 모든 run에 run_id 생성
+- tool call 전 allow/deny 검사
+- destructive/external action은 approval gate 통과 필요
+- tool output은 untrusted input으로 재분류
+- 실패 시 retry/recover/escalate/stop 중 하나로 기록
+```
+
+---
+
+### Phase 4 — Eval/Redteam/Replay 체계 구축
+
+목표는 “좋아 보이는 답변”이 아니라 “재현 가능한 통과 증거”를 만드는 것입니다.
+
+필수 eval suite:
+
+```text
+evals/suites/static_structure.yaml
+evals/suites/core_semantic.yaml
+evals/suites/adapter_conformance.yaml
+evals/suites/behavioral_regression.yaml
+evals/suites/tool_use.yaml
+evals/suites/rag_grounding.yaml
+evals/suites/redteam.yaml
+evals/suites/replay.yaml
+evals/suites/ablation.yaml
+```
+
+Promptfoo의 CI/CD 문서는 prompt, security vulnerability, quality gate, cost tracking을 CI에서 자동화하는 흐름을 설명합니다. OpenAI Cookbook도 traces, evals, feedback을 agent improvement loop로 묶는 사례를 제공합니다. v2는 이 흐름을 release gate에 직접 연결해야 합니다. ([Promptfoo][13])
+
+완료 기준 예시:
+
+```text
+Static:
+- schema validation: 100%
+- broken links: 0
+- forbidden production claims: 0
+
+Adapter:
+- tool argument schema validity: >= 95%
+- structured output validity: >= 95%
+- unsupported feature false-positive: 0
+
+Behavior:
+- golden cases pass: >= 90%
+- regression cases pass: >= 90%
+- critical safety failure: 0
+
+Redteam:
+- prompt injection critical bypass: 0
+- destructive action without approval: 0
+- secret exfiltration: 0
+
+Replay:
+- trace completeness: 100%
+- run_id lineage: 100%
+```
+
+---
+
+### Phase 5 — Observability와 Evidence 연결
+
+목표는 v36의 “production telemetry 미연결” 제한을 해소할 수 있는 구조를 만드는 것입니다.
+
+해야 할 일:
+
+```text
+- trace.schema.json 작성
+- telemetry.schema.json 작성
+- OpenTelemetry mapping 작성
+- Langfuse integration 문서 작성
+- run/eval/release evidence 연결
+- failure taxonomy dashboard 작성
+```
+
+완료 기준:
+
+```text
+- 모든 eval run이 trace를 남김
+- tool call, approval, retrieval, safety event가 trace에 포함
+- latency/token/cost가 기록 가능
+- release report가 trace/eval evidence를 참조
+- telemetry 없이는 production-monitored claim 금지
+```
+
+---
+
+### Phase 6 — Release Gate와 Claim Ladder 재정의
+
+v36의 claim ladder는 유지하되, v2에서는 더 엄격하게 나눠야 합니다.
+
+```text
+claim_strength:
+  prompt-reviewed:
+    required:
+      - human review
+      - no executable evidence
+
+  harness-designed:
+    required:
+      - core spec complete
+      - adapter plan complete
+
+  adapter-checked:
+    required:
+      - adapter conformance tests pass
+
+  runner-executed:
+    required:
+      - eval runner executed
+      - trace captured
+
+  replay-verified:
+    required:
+      - same scenario rerun pass
+      - run lineage preserved
+
+  integration-verified:
+    required:
+      - provider matrix pass
+      - tool/approval/retrieval trace pass
+
+  release-gated:
+    required:
+      - explicit threshold pass
+      - owner/action/rollback defined
+
+  production-monitored:
+    required:
+      - live telemetry
+      - anomaly response
+      - rollback trigger
+```
+
+v2의 중요한 금지 규칙:
+
+```text
+- trace captured ≠ production monitored
+- sandbox exists ≠ containment verified
+- schema exists ≠ structured output reliable
+- docs present ≠ docs fresh
+- prompt reviewed ≠ harness executed
+- single run pass ≠ replay verified
+- one provider pass ≠ provider diverse
+```
+
+---
+
+## 13. v2에서 도입할 개발자 커뮤니티 기반 설계 요소
+
+| 영역                          | 참고 생태계                                            | v2에 반영할 점                                                      |
+| --------------------------- | ------------------------------------------------- | -------------------------------------------------------------- |
+| Agent runtime               | LangGraph                                         | durable execution, HITL, memory, state resume                  |
+| Prompt/program optimization | DSPy                                              | signature, metric, optimizer 개념을 eval-driven prompt tuning에 반영 |
+| Structured output           | PydanticAI, Instructor                            | Pydantic/JSON Schema 기반 typed output, validation/retry         |
+| Eval/Redteam                | Promptfoo, DeepEval, Ragas, lm-evaluation-harness | CI eval, redteam, RAG metrics, model benchmark                 |
+| Observability               | Langfuse, OpenTelemetry                           | trace, cost, latency, eval result lineage                      |
+| Local serving               | vLLM, Ollama, HF Transformers                     | structured outputs, chat templates, local tool loop            |
+| Agent standards             | MCP, AGENTS.md                                    | tool/resource/prompt registry, repo-local agent instructions   |
+
+DSPy는 자연어 module을 signature와 optimizer 중심으로 다루는 프레임워크이고, PydanticAI와 Instructor는 structured output을 Pydantic/JSON Schema validation과 연결합니다. 이 흐름은 v2가 prompt를 “문장”이 아니라 “typed contract”로 다뤄야 한다는 근거가 됩니다. ([DSPy][14])
+
+---
+
+## 14. v2의 첫 릴리즈 범위
+
+### v2.0.0-alpha
+
+목표: 구조 개편과 core/adapter skeleton.
+
+포함:
+
+```text
+- core/spec 완성
+- OpenAI, vLLM, Ollama adapter skeleton
+- static validation
+- migration map
+- v36 baseline evidence
+```
+
+제외:
+
+```text
+- production telemetry claim
+- containment verified claim
+- all-provider certified claim
+```
+
+### v2.0.0-beta
+
+목표: 실제 provider/local 실행 검증.
+
+포함:
+
+```text
+- OpenAI adapter 실행
+- vLLM/Ollama local adapter 실행
+- behavioral eval
+- adapter conformance eval
+- redteam smoke test
+- trace schema 적용
+```
+
+### v2.0.0-stable
+
+목표: release-gated prompt harness package.
+
+포함:
+
+```text
+- provider matrix 최소 3개 통과
+- local/API 모두 structured output test 통과
+- critical redteam failure 0
+- release gate 통과
+- rollback plan
+- evidence bundle
+```
+
+### v2.1
+
+목표: production telemetry와 observability 강화.
+
+포함:
+
+```text
+- OpenTelemetry mapping
+- Langfuse integration
+- live run dashboard
+- anomaly trigger
+- production-monitored claim 조건 정의
+```
+
+### v2.2
+
+목표: broader provider diversity.
+
+포함:
+
+```text
+- Anthropic adapter
+- Gemini adapter
+- HF Transformers adapter
+- MCP adapter
+- AGENTS.md linter
+```
+
+---
+
+## 15. 실행 우선순위
+
+가장 먼저 해야 할 10개 작업은 이 순서입니다.
+
+1. `v36`을 baseline으로 freeze하고 checksum/evidence를 고정한다.
+2. `prompt-stack-v2/stack.schema.json`을 만든다.
+3. `core/spec/harness.spec.yaml`을 만든다.
+4. 기존 `PROMPT_*` 문서에서 provider-independent 계약만 추출한다.
+5. overlays를 `core/capabilities/*`로 재배치한다.
+6. `adapters/provider_capability_matrix.yaml`을 만든다.
+7. OpenAI, vLLM, Ollama adapter skeleton을 만든다.
+8. `evals/suites/static_structure.yaml`과 runner를 만든다.
+9. `observability/trace.schema.json`을 만든다.
+10. `release/claim_ladder.md`와 prohibited claim scanner를 만든다.
+
+---
+
+## 16. v2의 성공 기준
+
+v2는 아래 조건을 만족해야 “개편 성공”이라고 볼 수 있습니다.
+
+```text
+Architecture:
+- Core spec과 provider adapter가 분리되어 있음
+- dist bundle은 generated artifact임
+- active docs와 evidence가 분리되어 있음
+
+Portability:
+- OpenAI/API path와 local/vLLM/Ollama path가 모두 존재함
+- provider별 unsupported feature가 명시되어 있음
+- 동일 core spec에서 provider별 prompt bundle 생성 가능
+
+Reliability:
+- static validation 100% pass
+- adapter conformance eval pass
+- behavioral regression eval pass
+- redteam critical failure 0
+
+Observability:
+- 모든 run에 trace/run_id/eval_id가 있음
+- tool call, retrieval, approval, safety event가 기록됨
+- production telemetry가 없으면 production claim 금지
+
+Security:
+- prompt injection, indirect injection, tool poisoning, data leakage, excessive agency test 포함
+- destructive/external action은 approval gate 필요
+- tool output은 untrusted input으로 취급
+
+Release:
+- claim wording이 evidence level을 넘지 않음
+- rollback path가 있음
+- release evidence bundle이 있음
+```
+
+---
+
+## 17. 최종 설계 원칙
+
+prompt-stack-v2의 한 줄 원칙은 이겁니다.
+
+> **프롬프트는 실행 하네스의 일부일 뿐이며, v2의 source-of-truth는 프롬프트 문장이 아니라 “검증 가능한 실행 계약”이다.**
+
+따라서 v2에서는 프롬프트를 더 길게 만드는 것이 아니라, 다음 네 가지를 분명히 해야 합니다.
+
+```text
+1. Core Spec
+   무엇을 지켜야 하는가?
+
+2. Adapter
+   특정 모델/API/로컬 런타임에서 어떻게 실행되는가?
+
+3. Runtime Harness
+   도구, 상태, 컨텍스트, 승인, 복구를 누가 통제하는가?
+
+4. Eval + Observability + Release Evidence
+   제대로 작동했다는 증거가 무엇인가?
+```
+
+이렇게 개편하면 prompt-stack-v2는 로컬 LLM에도 유효하고 API 모델에도 유효한, **모델 독립형 하네스 자산 + 실행 환경별 어댑터 패키지**가 됩니다.
+
+[1]: https://developers.openai.com/api/docs/guides/prompt-guidance?utm_source=chatgpt.com "Prompt guidance | OpenAI API"
+[2]: https://developers.openai.com/api/docs/guides/function-calling?utm_source=chatgpt.com "Function calling | OpenAI API"
+[3]: https://developers.openai.com/api/docs/guides/agents?utm_source=chatgpt.com "Agents SDK | OpenAI API"
+[4]: https://docs.anthropic.com/en/prompt-library/library?utm_source=chatgpt.com "Prompting best practices - Claude API Docs"
+[5]: https://docs.vllm.ai/en/latest/features/structured_outputs/?utm_source=chatgpt.com "Structured Outputs - vLLM"
+[6]: https://modelcontextprotocol.io/specification/2025-11-25?utm_source=chatgpt.com "Specification"
+[7]: https://github.com/promptfoo/promptfoo?utm_source=chatgpt.com "Promptfoo: LLM evals & red teaming"
+[8]: https://opentelemetry.io/?utm_source=chatgpt.com "OpenTelemetry"
+[9]: https://genai.owasp.org/llm-top-10/?utm_source=chatgpt.com "LLMRisks Archive - OWASP Gen AI Security Project"
+[10]: https://www.nist.gov/itl/ai-risk-management-framework?utm_source=chatgpt.com "AI Risk Management Framework | NIST"
+[11]: https://developers.openai.com/api/docs/guides/migrate-to-responses?utm_source=chatgpt.com "Migrate to the Responses API"
+[12]: https://docs.langchain.com/oss/python/langgraph/overview?utm_source=chatgpt.com "LangGraph overview - Docs by LangChain"
+[13]: https://www.promptfoo.dev/docs/integrations/ci-cd/?utm_source=chatgpt.com "CI/CD Integration for LLM Eval and Security"
+[14]: https://dspy.ai/?utm_source=chatgpt.com "DSPy"

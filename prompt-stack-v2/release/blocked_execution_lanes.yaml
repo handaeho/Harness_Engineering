@@ -1,0 +1,31 @@
+stage: v2.0.0-beta-execution-readiness-dashboard-and-blocker-resolution-plan
+blocked_lanes:
+  - lane: openai_limited_redteam_execution
+    status: approval_blocked_operator_credentials_available
+    blocked_by:
+      - missing_explicit_user_approval
+    can_execute_now: false
+    can_execute_in_operator_shell_after_approval: true
+  - lane: production_telemetry_connection
+    status: blocked
+    blocked_by:
+      - missing_explicit_user_approval
+      - missing_telemetry_sink_credentials
+    can_execute_now: false
+    can_execute_in_operator_shell_after_approval: false
+  - lane: local_no_tool_canary
+    status: blocked
+    blocked_by:
+      - missing_local_vllm_or_ollama_endpoint
+    can_execute_now: false
+    can_execute_in_operator_shell_after_approval: false
+  - lane: release_gate
+    status: blocked_not_release_gated
+    blocked_by:
+      - provider_diversity_not_established
+      - redteam_execution_not_completed
+      - production_telemetry_not_connected
+      - local_runtime_not_executed
+      - rollback_plan_not_finalized
+    can_execute_now: false
+    can_execute_in_operator_shell_after_approval: false

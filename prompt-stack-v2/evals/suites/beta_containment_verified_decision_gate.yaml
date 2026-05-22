@@ -1,0 +1,16 @@
+id: beta_containment_verified_decision_gate
+stage: v2.0.0-beta-containment-verified-decision-gate
+mode: decision_gate_no_execution
+execution:
+  new_execution: false
+  containment_fixture_rerun: false
+  provider_execution: false
+  local_model_execution: false
+  telemetry_connection: false
+expected_status_without_owner_decision: ready_but_blocked_by_missing_owner_decision
+expected_artifacts:
+  - evidence/beta-containment-verified-decision-gate/containment_verified_decision_report.json
+  - evidence/beta-containment-verified-decision-gate/containment_evidence_sufficiency_audit.json
+  - evidence/beta-containment-verified-decision-gate/containment_verified_claim_boundary_audit.json
+  - evidence/beta-containment-verified-decision-gate/containment_owner_final_decision.json
+  - evidence/beta-containment-verified-decision-gate/release_gate_impact_report.json

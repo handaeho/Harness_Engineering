@@ -1,0 +1,163 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-rc.1-evidence-bundle-openai-scope",
+  "generated_at": "2026-05-22",
+  "scope": "openai_only_rc1",
+  "new_execution": false,
+  "excludes": [
+    "node_modules",
+    "dist",
+    "prompt-stack/v36 mutation",
+    "raw provider responses",
+    "secret-bearing data"
+  ],
+  "evidence_groups": [
+    {
+      "group_id": "v36 baseline",
+      "status": "pass",
+      "claim_level": "baseline_snapshot"
+    },
+    {
+      "group_id": "alpha validation",
+      "status": "pass",
+      "claim_level": "alpha_static_validation"
+    },
+    {
+      "group_id": "alpha hardening",
+      "status": "pass",
+      "claim_level": "alpha_hardening_static"
+    },
+    {
+      "group_id": "beta preflight",
+      "status": "pass",
+      "claim_level": "beta_preflight"
+    },
+    {
+      "group_id": "beta mock execution",
+      "status": "pass",
+      "claim_level": "mock_execution_only"
+    },
+    {
+      "group_id": "OpenAI no-tool canary",
+      "status": "pass",
+      "claim_level": "openai_provider_canary_only"
+    },
+    {
+      "group_id": "OpenAI structured output canary",
+      "status": "pass",
+      "claim_level": "openai_structured_output_canary_only"
+    },
+    {
+      "group_id": "OpenAI tool-calling canary",
+      "status": "pass",
+      "claim_level": "openai_tool_calling_canary_only"
+    },
+    {
+      "group_id": "OpenAI canary replay suite",
+      "status": "pass",
+      "claim_level": "canary_suite_only"
+    },
+    {
+      "group_id": "OpenAI limited redteam execution",
+      "status": "pass",
+      "claim_level": "openai_limited_redteam_scope"
+    },
+    {
+      "group_id": "OpenAI additional redteam execution",
+      "status": "pass",
+      "claim_level": "openai_additional_redteam_scope"
+    },
+    {
+      "group_id": "broader redteam pass gate design",
+      "status": "drafted",
+      "claim_level": "design_only"
+    },
+    {
+      "group_id": "skipped redteam case review",
+      "status": "pass",
+      "claim_level": "case_disposition_review"
+    },
+    {
+      "group_id": "containment design",
+      "status": "pass",
+      "claim_level": "design_only"
+    },
+    {
+      "group_id": "containment mock dry-run",
+      "status": "pass",
+      "claim_level": "mock_dry_run_passed"
+    },
+    {
+      "group_id": "containment gate refinement",
+      "status": "pass",
+      "claim_level": "gate_refined_not_verified"
+    },
+    {
+      "group_id": "cross-suite storage/redaction audit",
+      "status": "pass",
+      "claim_level": "storage_redaction_audit_passed"
+    },
+    {
+      "group_id": "dedicated containment verification plan",
+      "status": "pass",
+      "claim_level": "plan_ready_execution_pending_then_executed"
+    },
+    {
+      "group_id": "dedicated containment verification execution",
+      "status": "pass",
+      "claim_level": "dedicated_containment_execution_passed"
+    },
+    {
+      "group_id": "containment post-execution claim audit",
+      "status": "pass",
+      "claim_level": "post_execution_audit_passed"
+    },
+    {
+      "group_id": "containment verified decision gate",
+      "status": "pass",
+      "claim_level": "containment_verified_allowed_beta_scope"
+    },
+    {
+      "group_id": "release blocker P0/P1 reevaluation",
+      "status": "pass",
+      "claim_level": "openai_only_rc1_candidate"
+    }
+  ],
+  "required_bundle_files": [
+    "evidence/rc1-openai-scope-bundle/rc1_bundle_manifest.json",
+    "evidence/rc1-openai-scope-bundle/rc1_bundle_manifest.md",
+    "evidence/rc1-openai-scope-bundle/rc1_bundle_checksums.json",
+    "evidence/rc1-openai-scope-bundle/rc1_evidence_index.json",
+    "evidence/rc1-openai-scope-bundle/rc1_evidence_index.md",
+    "evidence/rc1-openai-scope-bundle/rc1_evidence_lineage.json",
+    "evidence/rc1-openai-scope-bundle/rc1_openai_scope_summary.json",
+    "evidence/rc1-openai-scope-bundle/rc1_claim_boundary.json",
+    "evidence/rc1-openai-scope-bundle/rc1_capability_matrix_snapshot.yaml",
+    "evidence/rc1-openai-scope-bundle/rc1_release_gate_snapshot.yaml",
+    "evidence/rc1-openai-scope-bundle/rc1_blocker_snapshot.json",
+    "evidence/rc1-openai-scope-bundle/rc1_release_readiness_assessment.json",
+    "evidence/rc1-openai-scope-bundle/rc1_not_stable_notice.json",
+    "evidence/rc1-openai-scope-bundle/rc1_gate_report.json",
+    "evidence/rc1-openai-scope-bundle/unresolved_items.json"
+  ],
+  "current_bundle_files": [
+    "evidence/rc1-openai-scope-bundle/rc1_blocker_snapshot.json",
+    "evidence/rc1-openai-scope-bundle/rc1_bundle_checksums.json",
+    "evidence/rc1-openai-scope-bundle/rc1_bundle_manifest.json",
+    "evidence/rc1-openai-scope-bundle/rc1_bundle_manifest.md",
+    "evidence/rc1-openai-scope-bundle/rc1_bundle_report.json",
+    "evidence/rc1-openai-scope-bundle/rc1_bundle_report.md",
+    "evidence/rc1-openai-scope-bundle/rc1_capability_matrix_snapshot.yaml",
+    "evidence/rc1-openai-scope-bundle/rc1_claim_boundary.json",
+    "evidence/rc1-openai-scope-bundle/rc1_evidence_index.json",
+    "evidence/rc1-openai-scope-bundle/rc1_evidence_index.md",
+    "evidence/rc1-openai-scope-bundle/rc1_evidence_lineage.json",
+    "evidence/rc1-openai-scope-bundle/rc1_gate_report.json",
+    "evidence/rc1-openai-scope-bundle/rc1_gate_report.md",
+    "evidence/rc1-openai-scope-bundle/rc1_not_stable_notice.json",
+    "evidence/rc1-openai-scope-bundle/rc1_openai_scope_summary.json",
+    "evidence/rc1-openai-scope-bundle/rc1_release_gate_snapshot.yaml",
+    "evidence/rc1-openai-scope-bundle/rc1_release_readiness_assessment.json",
+    "evidence/rc1-openai-scope-bundle/unresolved_items.json"
+  ]
+}

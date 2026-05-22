@@ -1,0 +1,284 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-beta-production-telemetry-connection-preflight",
+  "can_enter_telemetry_connection": false,
+  "can_enter_telemetry_connected_claim": false,
+  "can_enter_production_monitored_claim": false,
+  "can_enter_production_ready_claim": false,
+  "can_enter_release_gated_claim": false,
+  "reason": "Telemetry connection preflight is complete, but explicit user approval and sink credentials are required before live telemetry connection.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_production_telemetry_design.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "beta_production_telemetry_connection_preflight_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production_telemetry_connection_approval_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production_telemetry_connection_approval_request.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production_telemetry_connection_command_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_connection_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_connection_preflight_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_sink_credential_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_exporter_guard_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_payload_shape_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "exporter_preflight_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "otlp_payload_shape.schema.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "otlp_dry_payload_example.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "connection_preflight_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "langfuse_payload_shape.schema.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "langfuse_dry_payload_example.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "preflight_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "credential_readiness_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "approval_readiness_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "exporter_guard_readiness.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "otel_payload_shape_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "langfuse_payload_shape_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redaction_readiness_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "command_plan_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_connection_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "preflight status acceptable",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_missing_otel_endpoint"
+      }
+    },
+    {
+      "name": "OTel payload shape validation pass",
+      "status": "pass",
+      "detail": {
+        "preflight": true,
+        "report": "pass"
+      }
+    },
+    {
+      "name": "Langfuse payload shape validation pass",
+      "status": "pass",
+      "detail": {
+        "preflight": true,
+        "report": "pass"
+      }
+    },
+    {
+      "name": "approval gate remains closed",
+      "status": "pass",
+      "detail": {
+        "explicit_user_approval_present": false,
+        "can_connect_telemetry": false
+      }
+    },
+    {
+      "name": "no telemetry connection or sink write",
+      "status": "pass",
+      "detail": {
+        "live_telemetry_connected": false,
+        "telemetry_sink_write_enabled": false,
+        "exporter_network_call_performed": false
+      }
+    },
+    {
+      "name": "no provider or local execution",
+      "status": "pass",
+      "detail": {
+        "provider_execution": false,
+        "local_model_execution": false,
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "credential presence checked without secrets",
+      "status": "pass",
+      "detail": {
+        "credential_presence_checked": true,
+        "otel_endpoint_present": false,
+        "langfuse_credentials_present": false,
+        "secrets_logged": false
+      }
+    },
+    {
+      "name": "redaction readiness pass",
+      "status": "pass",
+      "detail": {
+        "redaction_status": "pass",
+        "secrets_logged": false,
+        "raw_payload_stored": false
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "production-telemetry-connection-preflight-completed",
+    "telemetry-approval-packet-generated",
+    "telemetry-credential-readiness-checked",
+    "telemetry-payload-shape-validated",
+    "telemetry-exporter-guard-checked",
+    "telemetry-connection-command-plan-drafted",
+    "telemetry-connection-blocker-updated"
+  ],
+  "claims_blocked": [
+    "telemetry-connected",
+    "production-monitored",
+    "production-ready",
+    "release-gated",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "redteam-passed",
+    "containment-verified",
+    "replay-verified",
+    "integration-verified",
+    "benchmark-backed"
+  ]
+}

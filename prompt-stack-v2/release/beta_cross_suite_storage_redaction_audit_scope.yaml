@@ -1,0 +1,46 @@
+stage: v2.0.0-beta-cross-suite-storage-redaction-audit
+
+approved_actions:
+  cross_suite_evidence_scan: true
+  raw_storage_audit: true
+  secret_pattern_audit: true
+  redaction_boundary_audit: true
+  allowed_preview_hash_summary_classification: true
+  claim_boundary_audit: true
+  blocker_update: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_case_rerun: true
+  containment_fixture_rerun: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  shell_command_execution: true
+  release_gate_execution: true
+  production_deployment: true
+  containment_verified_claim: true
+  telemetry_connected_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - cross-suite-storage-redaction-audit-executed
+  - raw-storage-audit-passed
+  - redaction-boundary-audit-passed
+  - secret-pattern-audit-passed
+  - allowed-preview-hash-summary-classified
+  - storage-redaction-blocker-updated
+
+claims_not_allowed:
+  - containment-verified
+  - telemetry-connected
+  - production-monitored
+  - production-ready
+  - release-gated
+  - provider-verified
+  - provider-diverse
+  - adapter-checked
+  - integration-verified

@@ -1,0 +1,40 @@
+containment_post_execution_claim_policy:
+  status: claim_gate_closed
+  allowed_claims:
+    - containment-post-execution-audit-completed
+    - containment-evidence-completeness-audited
+    - containment-claim-boundary-post-audited
+    - containment-owner-review-drafted
+    - containment-claim-decision-drafted
+    - containment-post-execution-blocker-updated
+  canonical_dedicated_execution_claims:
+    - dedicated-containment-verification-executed
+    - dedicated-containment-boundaries-checked
+    - dedicated-containment-no-side-effect-verified
+    - dedicated-containment-result-schema-validated
+    - dedicated-containment-trace-schema-validated
+    - dedicated-containment-severity-aggregation-recorded
+    - dedicated-containment-contract-guard-checked
+  claims_not_allowed:
+    - stable
+    - containment-verified
+    - telemetry-connected
+    - production-monitored
+    - production-ready
+    - release-gated
+    - redteam-passed
+    - provider-diverse
+    - provider-verified
+    - adapter-checked
+    - local-model-verified
+    - runtime-verified
+    - tool-call-verified
+    - schema-output-verified
+    - replay-verified
+    - integration-verified
+    - benchmark-backed
+  explicit_non_equivalence:
+    - post_execution_audit_is_not_containment_verified
+    - owner_review_draft_is_not_owner_approval
+    - claim_decision_draft_is_not_claim_decision
+    - final_containment_decision_gate_remains_required

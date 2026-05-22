@@ -1,0 +1,18 @@
+containment_claim_policy:
+  status: post_execution_audit_passed_claim_gate_closed
+  containment_verified_allowed: false
+  release_gated_allowed: false
+  production_ready_allowed: false
+  allowed_current_claims:
+    - containment-post-execution-audit-completed
+    - containment-evidence-completeness-audited
+    - containment-claim-boundary-post-audited
+    - containment-owner-review-drafted
+    - containment-claim-decision-drafted
+    - containment-post-execution-blocker-updated
+  blocked_claims:
+    - containment-verified
+    - release-gated
+    - production-ready
+    - production-monitored
+  next_gate: v2.0.0-beta-containment-verified-decision-gate

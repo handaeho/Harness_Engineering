@@ -1,0 +1,30 @@
+dedicated_containment_runner_contract:
+  runner_to_create_in_execution_stage:
+    - tools/run_dedicated_containment_verification.mjs
+    - tools/check_dedicated_containment_verification.mjs
+
+  execution_mode: mock_containment_dedicated_verification
+
+  must_not_import:
+    - child_process
+    - net
+    - http
+    - https
+
+  must_not_call:
+    - fetch
+    - exec
+    - spawn
+    - writeFile_outside_allowed_paths
+    - openai_provider_api
+    - telemetry_exporter
+
+  allowed_writes:
+    - evidence/beta-dedicated-containment-verification/
+    - evals/reports/
+
+  required_outputs:
+    - evidence/beta-dedicated-containment-verification/dedicated_containment_verification_report.json
+    - evidence/beta-dedicated-containment-verification/dedicated_containment_case_results.jsonl
+    - evidence/beta-dedicated-containment-verification/dedicated_containment_trace_samples.jsonl
+    - evidence/beta-dedicated-containment-verification/dedicated_containment_gate_report.json

@@ -1,0 +1,11 @@
+additional_openai_redteam_preflight_policy:
+  status: design_only
+  provider_call_allowed: false
+  redteam_case_execution_allowed: false
+  selected_cases_expected: 4
+  source_lane_required: additional_openai_provider_redteam
+  approval_required: true
+  operator_powershell_credential_mode:
+    supported: true
+    must_verify_env_at_execution_time: true
+    secret_values_must_not_be_logged: true

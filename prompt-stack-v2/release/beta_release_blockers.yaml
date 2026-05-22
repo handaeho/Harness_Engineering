@@ -1,45 +1,27 @@
-stage: v2.0.0-beta-release-evidence-bundle-draft
-blockers:
-  - id: BRB-001
-    severity: medium
-    category: local_runtime
-    description: vLLM/Ollama local endpoint is not available.
-    blocks:
-      - local-model-verified
-      - provider-diverse
-    owner: human
-    recommended_next_action: Prepare localhost-only vLLM or Ollama endpoint and run local no-tool canary.
-  - id: BRB-002
-    severity: medium
+stage: v2.0.0-rc.1-evidence-bundle-openai-scope
+status: rc1-openai-scope-snapshot
+containment_verified: true
+openai_only_rc1_ready: true
+strict_provider_diverse_ready: false
+release_gate_status: blocked_not_release_gated
+remaining_blockers:
+  - id: RCB-001
+    priority: P0
     category: provider_diversity
-    description: Only OpenAI provider canary suite has passed.
-    blocks:
-      - provider-diverse
-    owner: agent
-    recommended_next_action: Run additional provider or local adapter canary after environment is available.
-  - id: BRB-003
-    severity: medium
+    status: blocked
+    reason: "OpenAI-only evidence; no local or second provider evidence."
+  - id: RCB-002
+    priority: P0
+    category: local_runtime
+    status: blocked
+    reason: "vLLM/Ollama local endpoint unavailable; local no-tool canary not executed."
+  - id: RCB-003
+    priority: P1
     category: telemetry
-    description: Production telemetry is not connected.
-    blocks:
-      - production-monitored
-      - production-ready
-    owner: agent
-    recommended_next_action: Define OpenTelemetry/Langfuse integration and live telemetry gate in a later stage.
-  - id: BRB-004
-    severity: medium
-    category: release_gate
-    description: Release gate has not been executed and release thresholds are not finalized.
-    blocks:
-      - release-gated
-    owner: agent
-    recommended_next_action: Define release gate thresholds, rollback plan, and owner/action matrix.
-  - id: BRB-005
-    severity: medium
-    category: security
-    description: Redteam execution has not been performed.
-    blocks:
-      - production-ready
-      - release-gated
-    owner: agent
-    recommended_next_action: Design and run redteam suite after beta evidence bundle draft.
+    status: blocked
+    reason: "Telemetry connection not established; production-monitored claim blocked."
+  - id: RCB-004
+    priority: P1
+    category: release_process
+    status: pending
+    reason: "Release gate actual execution not performed."

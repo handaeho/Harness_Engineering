@@ -1,0 +1,116 @@
+{
+  "status": "partial_not_verified",
+  "boundaries": {
+    "approval_boundary": {
+      "proof_level": "mock_dry_run_passed",
+      "evidence": [
+        "evidence/beta-containment-boundary-mock-dry-run/containment_boundary_summary.json"
+      ],
+      "mock_cases_total": 2,
+      "mock_cases_passed": 2,
+      "mock_cases_failed": 0,
+      "remaining_for_verified": [
+        "dedicated verification gate pass",
+        "claim boundary audit pass"
+      ]
+    },
+    "tool_execution_boundary": {
+      "proof_level": "mock_dry_run_passed",
+      "evidence": [
+        "evidence/beta-containment-boundary-mock-dry-run/containment_case_results.jsonl"
+      ],
+      "mock_cases_total": 2,
+      "mock_cases_passed": 2,
+      "mock_cases_failed": 0,
+      "remaining_for_verified": [
+        "dedicated verification gate pass"
+      ]
+    },
+    "external_side_effect_boundary": {
+      "proof_level": "mock_dry_run_passed",
+      "evidence": [
+        "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json"
+      ],
+      "mock_cases_total": 2,
+      "mock_cases_passed": 2,
+      "mock_cases_failed": 0,
+      "remaining_for_verified": [
+        "dedicated verification gate pass"
+      ]
+    },
+    "file_write_boundary": {
+      "proof_level": "mock_dry_run_passed",
+      "evidence": [
+        "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json"
+      ],
+      "mock_cases_total": 2,
+      "mock_cases_passed": 2,
+      "mock_cases_failed": 0,
+      "remaining_for_verified": [
+        "dedicated sandbox/file boundary verification"
+      ]
+    },
+    "shell_execution_boundary": {
+      "proof_level": "mock_dry_run_passed",
+      "evidence": [
+        "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json"
+      ],
+      "mock_cases_total": 2,
+      "mock_cases_passed": 2,
+      "mock_cases_failed": 0,
+      "remaining_for_verified": [
+        "dedicated sandbox/shell boundary verification"
+      ]
+    },
+    "network_boundary": {
+      "proof_level": "mock_dry_run_passed",
+      "evidence": [
+        "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json"
+      ],
+      "mock_cases_total": 2,
+      "mock_cases_passed": 2,
+      "mock_cases_failed": 0,
+      "remaining_for_verified": [
+        "dedicated network boundary verification"
+      ]
+    },
+    "raw_storage_boundary": {
+      "proof_level": "mock_dry_run_passed",
+      "evidence": [
+        "evidence/beta-containment-boundary-mock-dry-run/containment_no_side_effect_report.json"
+      ],
+      "mock_cases_total": 2,
+      "mock_cases_passed": 2,
+      "mock_cases_failed": 0,
+      "remaining_for_verified": [
+        "raw storage audit across provider, redteam, telemetry, and containment evidence"
+      ]
+    },
+    "trace_redaction_boundary": {
+      "proof_level": "mock_dry_run_passed",
+      "evidence": [
+        "evidence/beta-containment-boundary-mock-dry-run/containment_trace_samples.jsonl"
+      ],
+      "mock_cases_total": 2,
+      "mock_cases_passed": 2,
+      "mock_cases_failed": 0,
+      "remaining_for_verified": [
+        "cross-suite redaction audit"
+      ]
+    },
+    "tool_output_trust_boundary": {
+      "proof_level": "mock_dry_run_passed",
+      "evidence": [
+        "evidence/beta-containment-boundary-mock-dry-run/containment_case_results.jsonl"
+      ],
+      "mock_cases_total": 2,
+      "mock_cases_passed": 2,
+      "mock_cases_failed": 0,
+      "remaining_for_verified": [
+        "cross-check against tool-calling canary and mock runtime evidence"
+      ]
+    }
+  },
+  "boundaries_marked_verified_count": 0,
+  "containment_verified_allowed": false
+}

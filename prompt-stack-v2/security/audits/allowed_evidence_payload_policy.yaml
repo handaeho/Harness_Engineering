@@ -1,0 +1,36 @@
+allowed_payload_forms:
+  output_preview:
+    allowed: true
+    max_chars: 300
+
+  input_preview:
+    allowed: true
+    max_chars: 300
+
+  raw_response_hash:
+    allowed: true
+
+  raw_request_hash:
+    allowed: true
+
+  usage_summary:
+    allowed: true
+
+  status_summary:
+    allowed: true
+
+  provider_response_id_present_boolean:
+    allowed: true
+
+  redacted_request_mapping:
+    allowed: true
+
+  redacted_response_mapping:
+    allowed: true
+
+disallowed_payload_forms:
+  full_raw_request: true
+  full_raw_response: true
+  authorization_header: true
+  environment_secret_value: true
+  unredacted_tool_payload: true

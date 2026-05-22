@@ -1,0 +1,77 @@
+version: 1
+stage: v2.0.0-rc.1-agents-md-and-system-of-record-alignment
+
+asset_classes:
+  core_source:
+    description: Core machine-readable or executable harness source.
+    paths:
+      - stack.yaml
+      - stack.schema.json
+      - core/
+      - adapters/
+      - runtime/
+      - schemas/
+      - tools/
+      - release/
+      - security/
+      - observability/
+      - evals/suites/
+      - evals/fixtures/
+    edit_policy: editable_with_validation
+
+  evidence:
+    description: Generated or reviewed evidence and audit records.
+    paths:
+      - evidence/
+      - evals/reports/
+    edit_policy: generated_or_review_record_only
+
+  human_docs:
+    description: Human-readable docs, plans, handoffs, and explanations.
+    paths:
+      - README.md
+      - AGENTS.md
+      - docs/
+      - session_handoff_2026-05-22.md
+    edit_policy: editable_with_claim_boundary_check
+
+  generated_or_ignored:
+    description: Install output or generated output that is not source-of-truth.
+    paths:
+      - node_modules/
+      - dist/
+    edit_policy: do_not_edit_manually
+
+  immutable_baseline:
+    description: Previous stable baseline.
+    paths:
+      - prompt-stack/v36/
+    edit_policy: read_only
+
+source_of_truth:
+  agent_index:
+    - AGENTS.md
+
+  machine_manifest:
+    - stack.yaml
+    - stack.schema.json
+
+  core_contract:
+    - core/spec/harness.spec.yaml
+
+  release_contract:
+    - release/claim_ladder.md
+    - release/release_gate.yaml
+
+  capability_contract:
+    - adapters/provider_capability_matrix.yaml
+
+  evidence_truth:
+    - evidence/
+
+rules:
+  dist_manual_edit_allowed: false
+  v36_edit_allowed: false
+  node_modules_is_asset: false
+  raw_provider_response_storage_allowed: false
+  secret_storage_allowed: false

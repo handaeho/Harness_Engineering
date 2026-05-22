@@ -1,0 +1,87 @@
+[
+  {
+    "id": "BRP-001",
+    "lane": "openai_limited_redteam_execution",
+    "priority": "P0",
+    "blocker": "missing_explicit_user_approval",
+    "owner": "human",
+    "next_action": "Provide exact approval phrase.",
+    "exit_criteria": "User message contains exact required approval phrase.",
+    "evidence_needed": [
+      "approval_gate updated",
+      "provider redteam execution report"
+    ]
+  },
+  {
+    "id": "BRP-002",
+    "lane": "openai_limited_redteam_execution",
+    "priority": "P0",
+    "blocker": "missing_explicit_user_approval",
+    "credential_note": "OPENAI_API_KEY and OPENAI_MODEL are not present in the agent environment, but the user can provide them in a separate PowerShell execution environment.",
+    "owner": "human",
+    "next_action": "Provide exact approval phrase, then run the approved command plan from a PowerShell session with OPENAI_API_KEY and OPENAI_MODEL set.",
+    "exit_criteria": "PowerShell execution report shows OPENAI_API_KEY and OPENAI_MODEL present without logging secret values, and provider redteam limited execution completes under approved scope.",
+    "evidence_needed": [
+      "credential readiness report",
+      "redaction report",
+      "openai limited redteam execution report"
+    ]
+  },
+  {
+    "id": "BRP-003",
+    "lane": "production_telemetry_connection",
+    "priority": "P1",
+    "blocker": "missing_telemetry_connection_approval",
+    "owner": "human",
+    "next_action": "Provide exact telemetry approval phrase.",
+    "exit_criteria": "User message contains exact required telemetry approval phrase.",
+    "evidence_needed": [
+      "telemetry approval gate update",
+      "telemetry connection report"
+    ]
+  },
+  {
+    "id": "BRP-004",
+    "lane": "production_telemetry_connection",
+    "priority": "P1",
+    "blocker": "missing_telemetry_sink_credentials",
+    "owner": "human",
+    "next_action": "Provide either OTEL or Langfuse env vars.",
+    "exit_criteria": "Credential readiness report shows configured sink credentials present.",
+    "evidence_needed": [
+      "credential readiness report",
+      "live trace receipt",
+      "live metric receipt"
+    ]
+  },
+  {
+    "id": "BRP-005",
+    "lane": "local_no_tool_canary",
+    "priority": "P0",
+    "blocker": "missing_local_endpoint",
+    "owner": "human",
+    "next_action": "Start localhost-only vLLM or Ollama endpoint and provide required env.",
+    "exit_criteria": "Local no-tool canary passes for at least one target.",
+    "evidence_needed": [
+      "local canary report",
+      "local trace samples",
+      "local redaction report"
+    ]
+  },
+  {
+    "id": "BRP-006",
+    "lane": "release_gate",
+    "priority": "P0",
+    "blocker": "release_gate_eligibility_blocked",
+    "owner": "human_or_agent",
+    "next_action": "Resolve provider diversity, local runtime, redteam execution, telemetry connection, production readiness, and finalized rollback/owner-action blockers.",
+    "exit_criteria": "Release gate dry-run inputs and final gate thresholds all pass with required evidence.",
+    "evidence_needed": [
+      "provider diversity evidence",
+      "redteam execution evidence",
+      "telemetry connection evidence",
+      "final rollback plan",
+      "release gate report"
+    ]
+  }
+]

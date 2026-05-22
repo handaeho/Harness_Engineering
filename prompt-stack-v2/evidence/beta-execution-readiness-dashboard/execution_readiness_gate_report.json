@@ -1,0 +1,309 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-execution-readiness-dashboard-and-blocker-resolution-plan",
+  "can_enter_openai_redteam_execution": false,
+  "can_enter_telemetry_connection": false,
+  "can_enter_local_no_tool_canary": false,
+  "can_enter_release_gate": false,
+  "reason": "Execution readiness dashboard is drafted, but execution lanes remain blocked. OpenAI redteam is approval-blocked; credentials can be supplied through operator PowerShell and must be verified at execution time.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_openai_redteam_limited_execution_preflight.mjs blocked/pass with no execution",
+      "status": "pass",
+      "detail": {
+        "status": "blocked",
+        "can_enter_provider_redteam_execution": false
+      }
+    },
+    {
+      "name": "check_production_telemetry_connection_preflight.mjs blocked/pass with no connection",
+      "status": "pass",
+      "detail": {
+        "status": "blocked",
+        "can_enter_telemetry_connection": false
+      }
+    },
+    {
+      "name": "check_release_gate_dry_run.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "beta_execution_readiness_dashboard_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "execution_readiness_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "next_execution_decision_matrix.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "blocked_execution_lanes.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "approval_phrase_index.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "environment_requirement_index.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "command_plan_index.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "claim_impact_matrix.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "execution_readiness_dashboard.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "blocked_execution_lanes.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "blocker_resolution_plan.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "approval_phrase_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "environment_requirement_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "command_plan_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "claim_impact_matrix.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "path_portability_audit.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "dashboard blocks all execution lanes",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_local_model_execution": false,
+        "new_telemetry_connection": false,
+        "local_endpoint_probe": false
+      }
+    },
+    {
+      "name": "OpenAI redteam lane approval-blocked with operator credential mode",
+      "status": "pass",
+      "detail": {
+        "status": "approval_blocked_operator_credentials_available",
+        "blocked_by": [
+          "missing_explicit_user_approval"
+        ],
+        "credential_status": {
+          "agent_env_credential_present": false,
+          "operator_powershell_credential_available": true,
+          "credential_blocker_type": "execution_environment_dependent",
+          "do_not_log_secret_values": true
+        },
+        "operator_execution_mode": {
+          "supported": true,
+          "shell": "PowerShell",
+          "must_verify_env_at_execution_time": true,
+          "must_store_redacted_evidence_only": true
+        },
+        "can_execute_in_operator_shell_after_approval": true
+      }
+    },
+    {
+      "name": "OpenAI credential missing is not primary readiness blocker",
+      "status": "pass",
+      "detail": {
+        "blocked_by": [
+          "missing_explicit_user_approval"
+        ]
+      }
+    },
+    {
+      "name": "blocker resolution plan valid",
+      "status": "pass",
+      "detail": {
+        "blocker_count": 6,
+        "audit_status": "pass"
+      }
+    },
+    {
+      "name": "approval phrase index valid",
+      "status": "pass",
+      "detail": {
+        "approval_phrases": 2
+      }
+    },
+    {
+      "name": "environment requirement index valid",
+      "status": "pass",
+      "detail": {
+        "lanes": 5
+      }
+    },
+    {
+      "name": "OpenAI environment requirement index uses operator PowerShell availability",
+      "status": "pass",
+      "detail": {
+        "openai_environment_requirements": {
+          "required": [
+            "OPENAI_API_KEY",
+            "OPENAI_MODEL"
+          ],
+          "agent_env_present": false,
+          "operator_powershell_available": true,
+          "must_verify_at_execution_time": true,
+          "secret_values_logged": false
+        }
+      }
+    },
+    {
+      "name": "command plan index valid",
+      "status": "pass",
+      "detail": {
+        "command_plans": 3
+      }
+    },
+    {
+      "name": "OpenAI command plan indexed for operator PowerShell but not executable yet",
+      "status": "pass",
+      "detail": {
+        "openai_command_plan": {
+          "lane": "openai_limited_redteam_execution",
+          "command_plan_path": "release/openai_redteam_limited_execution_command_plan.yaml",
+          "currently_executable_in_agent_env": false,
+          "operator_powershell_execution_supported": true,
+          "requires_exact_approval_phrase": true,
+          "currently_executable": false
+        }
+      }
+    },
+    {
+      "name": "claim impact matrix valid",
+      "status": "pass",
+      "detail": {
+        "claim_impacts": 4
+      }
+    },
+    {
+      "name": "path portability audit pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "disallowed_absolute_paths": 0,
+        "dist_modified": false
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "execution-readiness-dashboard-drafted",
+    "blocker-resolution-plan-drafted",
+    "approval-requirements-indexed",
+    "environment-requirements-indexed",
+    "command-plans-indexed",
+    "claim-impact-matrix-drafted",
+    "path-portability-audited"
+  ],
+  "claims_blocked": [
+    "telemetry-connected",
+    "production-monitored",
+    "production-ready",
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "integration-verified",
+    "release-gated",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "benchmark-backed"
+  ]
+}

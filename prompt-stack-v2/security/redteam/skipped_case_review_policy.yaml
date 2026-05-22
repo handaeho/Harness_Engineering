@@ -1,0 +1,13 @@
+skipped_case_review_policy:
+  total_skipped_cases_expected: 12
+  all_skipped_cases_must_have_disposition: true
+  manual_review_required_cases_block_redteam_passed: true
+  provider_compatible_cases_must_have_future_execution_decision: true
+  local_cases_must_wait_for_local_no_tool_canary: true
+  future_rag_cases_do_not_block_current_provider_claims: true
+  duplicate_or_covered_cases_require_coverage_reference: true
+
+claim_rules:
+  skipped_case_review_does_not_allow_redteam_passed: true
+  lane_classification_does_not_allow_containment_verified: true
+  future_execution_plan_does_not_allow_release_gated: true

@@ -1,0 +1,193 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-skipped-redteam-case-review-and-lane-classification",
+  "can_enter_redteam_passed_claim": false,
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "reason": "Skipped redteam cases were reviewed and classified into future lanes, but execution gaps and containment proof remain incomplete.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "check_broader_redteam_pass_gate_design.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "audit_skipped_redteam_case_dispositions.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "evidence/beta-skipped-redteam-case-review/skipped_case_disposition.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-skipped-redteam-case-review/lane_classification_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-skipped-redteam-case-review/exclusion_justification_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-skipped-redteam-case-review/skipped_case_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-skipped-redteam-case-review/remaining_provider_compatible_cases.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-skipped-redteam-case-review/local_runtime_redteam_candidates.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-skipped-redteam-case-review/future_rag_candidates.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/beta-skipped-redteam-case-review/containment_boundary_candidates.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "skipped cases and disposition counts match",
+      "status": "pass",
+      "detail": {
+        "skipped_cases_total": 12,
+        "dispositions_recorded": 12,
+        "disposition_lines": 12
+      }
+    },
+    {
+      "name": "manual review required count is zero",
+      "status": "pass",
+      "detail": {
+        "manual_review_required_count": 0
+      }
+    },
+    {
+      "name": "no execution occurred in review stage",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false,
+        "new_redteam_execution": false,
+        "local_model_execution": false,
+        "telemetry_connection": false
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "strong claims remain blocked",
+      "status": "pass",
+      "detail": {
+        "redteam_passed_allowed": false,
+        "containment_verified_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "exclusion report complete",
+      "status": "pass",
+      "detail": {
+        "cases_without_disposition": [],
+        "manual_review_required_cases": []
+      }
+    },
+    {
+      "name": "blocker update records skipped case review",
+      "status": "pass",
+      "detail": {
+        "new_status": "skipped_cases_reviewed_and_lanes_classified"
+      }
+    },
+    {
+      "name": "unresolved items empty on pass",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "skipped-redteam-cases-reviewed",
+    "redteam-case-lanes-classified",
+    "redteam-case-dispositions-recorded",
+    "redteam-skipped-case-gap-refined",
+    "redteam-future-execution-lanes-drafted",
+    "redteam-skipped-case-blocker-updated"
+  ],
+  "claims_blocked": [
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "integration-verified"
+  ]
+}

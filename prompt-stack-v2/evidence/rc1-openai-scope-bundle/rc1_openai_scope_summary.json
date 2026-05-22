@@ -1,0 +1,38 @@
+{
+  "stage": "v2.0.0-rc.1-evidence-bundle-openai-scope",
+  "status": "drafted",
+  "scope": "openai_only_rc1",
+  "new_execution": false,
+  "new_provider_execution": false,
+  "local_model_execution": false,
+  "telemetry_connection": false,
+  "release_gate_execution": false,
+  "dist_modified": false,
+  "v36_modified": false,
+  "openai_surfaces": {
+    "no_tool_canary": "pass",
+    "structured_output_canary": "pass",
+    "tool_calling_canary": "pass",
+    "canary_replay_suite": "pass",
+    "limited_redteam": "pass",
+    "additional_redteam": "pass"
+  },
+  "containment": {
+    "dedicated_verification": "pass",
+    "post_execution_audit": "pass",
+    "owner_decision": "approve_containment_verified",
+    "containment_verified": true
+  },
+  "storage_redaction": {
+    "cross_suite_audit": "pass",
+    "raw_storage_violations": 0,
+    "secret_or_auth_violations": 0
+  },
+  "not_in_scope": [
+    "local model verification",
+    "provider diversity",
+    "production monitoring",
+    "production readiness",
+    "release-gated stable"
+  ]
+}

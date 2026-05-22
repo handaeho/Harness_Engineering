@@ -1,0 +1,133 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-rc.1-agents-md-and-system-of-record-alignment",
+  "agents_md_exists": true,
+  "asset_class_manifest_exists": true,
+  "system_of_record_aligned": true,
+  "new_provider_execution": false,
+  "local_model_execution": false,
+  "telemetry_connection": false,
+  "release_gate_execution": false,
+  "dist_modified": false,
+  "v36_modified": false,
+  "can_enter_rc1_openai_scope_bundle": true,
+  "can_enter_stable_release": false,
+  "can_enter_release_gated_claim": false,
+  "reason": "Root AGENTS.md and System of Record alignment are complete. RC1 OpenAI-only evidence bundle can proceed, but stable and release-gated claims remain blocked.",
+  "checks": [
+    {
+      "name": "tools/validate_alpha.mjs",
+      "status": "pass",
+      "detail": {
+        "script": "tools/validate_alpha.mjs",
+        "status": "pass",
+        "exit_code": 0,
+        "stdout_tail": "  ],\n  \"claims_blocked\": [\n    \"adapter-checked\",\n    \"provider-verified\",\n    \"runtime-verified\",\n    \"tool-call-verified\",\n    \"schema-output-verified\",\n    \"telemetry-connected\",\n    \"production-ready\",\n    \"production-monitored\",\n    \"containment-verified\",\n    \"replay-verified\",\n    \"benchmark-backed\",\n    \"provider-diverse\",\n    \"integration-verified\",\n    \"stable\",\n    \"release-gated\"\n  ]\n}\n",
+        "stderr_tail": ""
+      }
+    },
+    {
+      "name": "tools/scan_prohibited_claims.mjs",
+      "status": "pass",
+      "detail": {
+        "script": "tools/scan_prohibited_claims.mjs",
+        "status": "pass",
+        "exit_code": 0,
+        "stdout_tail": "      \"reason\": \"allowed_context\"\n    },\n    {\n      \"file\": \"tools/validate_redteam_fixtures.mjs\",\n      \"claim\": \"containment-verified\",\n      \"line\": 47,\n      \"context\": \"const requiredBlockedClaims = new Set([\\\"redteam-passed\\\", \\\"containment-verified\\\", \\\"release-gated\\\"]);\",\n      \"reason\": \"allowed_context\"\n    },\n    {\n      \"file\": \"tools/validate_redteam_fixtures.mjs\",\n      \"claim\": \"release-gated\",\n      \"line\": 47,\n      \"context\": \"const requiredBlockedClaims = new Set([\\\"redteam-passed\\\", \\\"containment-verified\\\", \\\"release-gated\\\"]);\",\n      \"reason\": \"allowed_context\"\n    }\n  ],\n  \"matches\": []\n}\n",
+        "stderr_tail": ""
+      }
+    },
+    {
+      "name": "tools/compare_v36_baseline.mjs",
+      "status": "pass",
+      "detail": {
+        "script": "tools/compare_v36_baseline.mjs",
+        "status": "pass",
+        "exit_code": 0,
+        "stdout_tail": "      \"path\": \"v36/records/file_checksums.json\",\n      \"explanation\": \"listed in v36 records/file_checksums.json excluded_mutable\"\n    },\n    {\n      \"path\": \"v36/validation/current_validation_result.json\",\n      \"explanation\": \"listed in v36 records/file_checksums.json excluded_mutable\"\n    },\n    {\n      \"path\": \"v36/verification/current_validation_result.json\",\n      \"explanation\": \"listed in v36 records/file_checksums.json excluded_mutable\"\n    }\n  ],\n  \"existing_record_mismatches\": [],\n  \"unresolved_items_count\": 0,\n  \"runner_reexecution\": {\n    \"v36_runners_reexecuted\": false,\n    \"note\": \"Existing records/reports were inspected, but v36 runners were not re-executed in this step.\"\n  }\n}\n",
+        "stderr_tail": ""
+      }
+    },
+    {
+      "name": "tools/validate_agents_md_alignment.mjs",
+      "status": "pass",
+      "detail": {
+        "script": "tools/validate_agents_md_alignment.mjs",
+        "status": "pass",
+        "exit_code": 0,
+        "stdout_tail": "    \"agents-md-root-entrypoint-added\",\n    \"system-of-record-aligned\",\n    \"asset-classes-manifested\",\n    \"directory-roles-documented\",\n    \"naming-conventions-documented\",\n    \"agent-workflow-documented\"\n  ],\n  \"claims_blocked\": [\n    \"stable\",\n    \"release-gated\",\n    \"production-ready\",\n    \"production-monitored\",\n    \"provider-diverse\",\n    \"provider-verified\",\n    \"adapter-checked\",\n    \"local-model-verified\",\n    \"integration-verified\"\n  ]\n}\n",
+        "stderr_tail": ""
+      }
+    },
+    {
+      "name": "required alignment files exist",
+      "status": "pass",
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "name": "stack.yaml source_of_truth alignment",
+      "status": "pass",
+      "detail": {
+        "agent_entrypoint": {
+          "path": "AGENTS.md",
+          "role": "human_and_agent_facing_system_of_record_index"
+        },
+        "asset_class_manifest": {
+          "path": "MANIFEST.asset_classes.yaml"
+        },
+        "source_of_truth": {
+          "agent_index": [
+            "AGENTS.md"
+          ],
+          "machine_manifest": [
+            "stack.yaml",
+            "stack.schema.json"
+          ],
+          "core_contract": [
+            "core/spec/harness.spec.yaml"
+          ],
+          "release_contract": [
+            "release/claim_ladder.md",
+            "release/release_gate.yaml"
+          ],
+          "capability_contract": [
+            "adapters/provider_capability_matrix.yaml"
+          ],
+          "evidence_truth": [
+            "evidence/"
+          ]
+        }
+      }
+    },
+    {
+      "name": "validate_agents_md_alignment report pass",
+      "status": "pass",
+      "detail": {
+        "path": "evidence/rc1-agents-md-system-of-record-alignment/agents_md_alignment_report.json",
+        "status": "pass"
+      }
+    }
+  ],
+  "claims_allowed": [
+    "agents-md-root-entrypoint-added",
+    "system-of-record-aligned",
+    "asset-classes-manifested",
+    "directory-roles-documented",
+    "naming-conventions-documented",
+    "agent-workflow-documented"
+  ],
+  "claims_blocked": [
+    "stable",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "integration-verified"
+  ],
+  "errors": []
+}

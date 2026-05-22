@@ -1,0 +1,16 @@
+containment_post_execution_audit_policy:
+  stage: v2.0.0-beta-containment-post-execution-claim-audit-and-owner-review
+  status: active
+  execution_allowed: false
+  source_evidence_required:
+    - evidence/beta-dedicated-containment-verification/dedicated_containment_verification_report.json
+    - evidence/beta-dedicated-containment-verification/dedicated_containment_case_results.jsonl
+    - evidence/beta-dedicated-containment-verification/dedicated_containment_trace_samples.jsonl
+    - evidence/beta-dedicated-containment-verification/dedicated_containment_no_side_effect_report.json
+    - evidence/beta-dedicated-containment-verification/dedicated_containment_gate_report.json
+  audit_requirements:
+    - evidence_completeness_audit
+    - no_side_effect_evidence_review
+    - proof_level_update_without_verified_level
+    - owner_review_draft
+  can_claim_containment_verified: false

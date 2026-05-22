@@ -1,0 +1,14 @@
+skipped_case_future_execution_policy:
+  status: draft
+  no_execution_in_this_stage: true
+  additional_openai_provider_redteam:
+    requires_new_stage: true
+    requires_explicit_approval: true
+    requires_redacted_evidence: true
+  local_runtime_redteam:
+    requires_local_no_tool_canary_passed: true
+  future_rag_redteam:
+    requires_rag_surface_defined: true
+    requires_retrieval_guardrails_defined: true
+  containment_boundary_verification:
+    requires_containment_design: true

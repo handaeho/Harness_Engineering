@@ -1,0 +1,49 @@
+stage: v2.0.0-beta-containment-post-execution-claim-audit-and-owner-review
+
+approved_actions:
+  dedicated_containment_result_review: true
+  evidence_completeness_audit: true
+  claim_canonicalization: true
+  no_side_effect_evidence_review: true
+  proof_level_update: true
+  post_execution_claim_boundary_audit: true
+  owner_review_draft: true
+  blocker_update: true
+  release_gate_blocker_refresh: true
+
+forbidden_execution:
+  containment_fixture_rerun: true
+  openai_provider_call: true
+  redteam_case_rerun: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  shell_command_execution: true
+  real_file_writes: true
+  real_tool_side_effects: true
+  release_gate_execution: true
+  production_deployment: true
+  containment_verified_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  production_monitored_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - containment-post-execution-audit-completed
+  - containment-evidence-completeness-audited
+  - containment-claim-boundary-post-audited
+  - containment-owner-review-drafted
+  - containment-claim-decision-drafted
+  - containment-post-execution-blocker-updated
+
+claims_not_allowed:
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified

@@ -1,0 +1,47 @@
+stage: v2.0.0-beta-containment-verification-gate-refinement-and-release-blocker-refresh
+
+approved_actions:
+  containment_gate_refinement: true
+  containment_evidence_mapping: true
+  containment_proof_level_classification: true
+  remaining_criteria_definition: true
+  release_blocker_refresh: true
+  claim_boundary_audit: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_case_rerun: true
+  containment_fixture_rerun: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  external_network_calls: true
+  real_file_writes: true
+  shell_command_execution: true
+  real_tool_side_effects: true
+  release_gate_execution: true
+  production_deployment: true
+  containment_verified_claim: true
+  redteam_passed_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - containment-verification-gate-refined
+  - containment-evidence-mapped
+  - containment-proof-levels-classified
+  - containment-remaining-criteria-recorded
+  - containment-release-blocker-refreshed
+  - containment-claim-boundary-audited
+
+claims_not_allowed:
+  - containment-verified
+  - redteam-passed
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified

@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-production-telemetry-connection-preflight",
+  "sink": "otel_otlp",
+  "dry_payload_only": true,
+  "sink_write_performed": false,
+  "exporter_network_call_performed": false,
+  "raw_payload_stored": false,
+  "payload_shape_valid": true,
+  "checks": [
+    {
+      "name": "otel payload validates with Ajv",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "otel dry payload has no secret-looking values",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "otel payload redacted",
+      "status": "pass",
+      "detail": {
+        "payload_redacted": true
+      }
+    }
+  ]
+}
