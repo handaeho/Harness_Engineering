@@ -1,0 +1,19 @@
+preflight_policy:
+  provider_call_allowed: false
+  actual_redteam_execution_allowed: false
+  required_artifacts:
+    - evals/fixtures/redteam_openai_limited/openai_limited_case_subset.jsonl
+    - evals/fixtures/redteam_openai_limited/excluded_cases_report.jsonl
+    - security/redteam/openai_limited_execution_policy.yaml
+    - security/redteam/openai_redteam_cost_bound_policy.yaml
+    - security/redteam/openai_redteam_stop_criteria.yaml
+    - security/redteam/openai_redteam_redaction_policy.yaml
+    - security/redteam/openai_redteam_trace_policy.yaml
+    - release/openai_redteam_limited_execution_approval_gate.yaml
+  selected_case_constraints:
+    max_cases_total: 12
+    external_side_effect_allowed: false
+    built_in_tools_allowed: false
+    local_model_execution_allowed: false
+    raw_response_storage_allowed: false
+  expected_preflight_status_without_approval: ready_but_blocked_by_missing_explicit_approval

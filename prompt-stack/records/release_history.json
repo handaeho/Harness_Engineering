@@ -1,0 +1,89 @@
+{
+  "current_stable_version": "v36",
+  "current_stable_path": "v36",
+  "releases": [
+    {
+      "version": "v36",
+      "status": "current_stable",
+      "path": "v36",
+      "release_manifest": "v36/records/release_manifest.json",
+      "release_notes": "v36/reports/RELEASE_NOTES.md",
+      "current_state": "v36/docs/CURRENT_STATE.md",
+      "validation_summary": "v36/reports/VALIDATION_SUMMARY.md",
+      "rollback_and_monitoring": "v36/reports/ROLLBACK_AND_MONITORING_PLAN.md",
+      "release_decision": "Promote to v36",
+      "finalization_status": "finalized",
+      "traceability": "checksum_manifest",
+      "evidence_archive": "_archive/v36_release_evidence_2026-05-20",
+      "downgrades": [
+        "production_telemetry",
+        "containment_proof",
+        "provider_diversity",
+        "archive_only_source_items"
+      ],
+      "prohibited_positive_claims": [
+        "production_monitored",
+        "containment_verified",
+        "all_primary_source_items_fully_validated",
+        "public_benchmark_certified",
+        "live_production_rollout_certified"
+      ],
+      "current_candidate_evidence_source": "_candidates/v36_candidate",
+      "older_packages_cold_storage": "_legacy/_cold_storage/legacy_older_versions"
+    },
+    {
+      "version": "v35",
+      "status": "legacy_previous_stable",
+      "path": "_legacy/v35",
+      "release_manifest": "_legacy/v35/records/v35_release_manifest.json",
+      "release_notes": "_legacy/v35/reports/V35_RELEASE_NOTES.md",
+      "current_state": "_legacy/v35/docs/V35_CURRENT_STATE.md",
+      "validation_summary": "_legacy/v35/reports/V35_VALIDATION_SUMMARY.md",
+      "rollback_and_monitoring": "_legacy/v35/reports/V35_ROLLBACK_AND_MONITORING_PLAN.md",
+      "traceability": "checksum_manifest"
+    },
+    {
+      "version": "v36_candidate",
+      "status": "preserved_candidate_evidence_source",
+      "path": "_candidates/v36_candidate",
+      "release_decision": "Promote to v36",
+      "note": "Preserved after finalization under _candidates; not current stable."
+    }
+  ],
+  "legacy_references": [
+    {
+      "version": "v34",
+      "status": "legacy_rollback_reference",
+      "path": "_legacy/v34",
+      "note": "Existing legacy rollback reference preserved."
+    }
+  ],
+  "generated_at": "2026-05-20T08:13:14.129Z",
+  "cold_storage": {
+    "contents": [
+      "99_original",
+      "v14",
+      "v15",
+      "v16",
+      "v17",
+      "v18",
+      "v19",
+      "v20",
+      "v21",
+      "v22",
+      "v23",
+      "v24",
+      "v25",
+      "v26",
+      "v27",
+      "v28",
+      "v29",
+      "v30",
+      "v31",
+      "v32",
+      "v33"
+    ],
+    "note": "Older legacy packages moved out of active legacy root; _legacy/v34 and _legacy/v35 remain in _legacy/.",
+    "older_packages_path": "_legacy/_cold_storage/legacy_older_versions"
+  }
+}

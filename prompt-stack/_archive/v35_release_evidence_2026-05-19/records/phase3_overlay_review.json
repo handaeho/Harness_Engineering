@@ -1,0 +1,58 @@
+{
+  "tool_protocol": {
+    "status": "P1_update_candidate",
+    "finding": "Function Calling/ReAct/ART need non-automatic-execution boundary and required-parameter validation.",
+    "phase4_tests": [
+      "PG-TOOL-001",
+      "PG-TOOL-002"
+    ]
+  },
+  "guardrails_safety": {
+    "status": "P1_update_candidate",
+    "finding": "Adversarial prompting, prompt injection, leaking, jailbreak, factuality, and bias map cleanly to safety owner.",
+    "phase4_tests": [
+      "PG-SAFE-001",
+      "PG-SAFE-002"
+    ]
+  },
+  "retrieval_grounding": {
+    "status": "P1_update_candidate",
+    "finding": "RAG/factuality pages require primary-source validation and source-conflict handling.",
+    "phase4_tests": [
+      "PG-RAG-001",
+      "PG-RAG-002"
+    ]
+  },
+  "search_reasoning": {
+    "status": "P1_update_candidate",
+    "finding": "Reasoning-technique expansion must preserve bounded activation and hidden-reasoning boundary.",
+    "phase4_tests": [
+      "PG-REASON-001",
+      "PG-REASON-002"
+    ]
+  },
+  "memory_adaptation": {
+    "status": "P2_update_candidate",
+    "finding": "APE/optimization material should not auto-promote defaults without evaluation and rollback.",
+    "phase4_tests": [
+      "adaptation-promotion hold test"
+    ]
+  },
+  "multi_agent": {
+    "status": "P2_update_candidate",
+    "finding": "Agent/context-engineering pages support workflow-vs-agent and delegation admission checks.",
+    "phase4_tests": [
+      "PG-AGENT-001",
+      "PG-AGENT-002"
+    ]
+  },
+  "evaluation_monitoring": {
+    "status": "P1_update_candidate",
+    "finding": "Phase 2 draft eval set is useful but insufficient for final release-grade proof.",
+    "phase4_tests": [
+      "guide reflection benchmark",
+      "critical failure override",
+      "numeric threshold review"
+    ]
+  }
+}

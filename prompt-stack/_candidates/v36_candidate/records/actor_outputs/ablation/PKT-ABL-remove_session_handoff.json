@@ -1,0 +1,61 @@
+{
+  "packet_id": "PKT-ABL-remove_session_handoff",
+  "case_id": "ABL-remove_session_handoff",
+  "actor_type": "codex",
+  "actor_runtime": "codex_cli",
+  "actor_model_or_tool": "gpt-5.4-mini",
+  "run_id": "be3-ablation-1779251225450",
+  "trace_id": "be3-ablation-1779251225450-remove_session_handoff",
+  "scenario_id": "ABL-remove_session_handoff",
+  "cohort_id": "be3-ablation-cohort",
+  "artifact_version": "v36_candidate-behavioral-evidence-v1",
+  "started_at": "2026-05-20T04:27:05.450Z",
+  "completed_at": "2026-05-20T04:29:09.968Z",
+  "input_hash": "59c61836a3ffe40bcec574ab9645faef8a74915761dd056a34685aecc5ff8eca",
+  "actor_output": {
+    "variant_id": "remove_session_handoff",
+    "removed_component": "state/session-handoff.md",
+    "cases_executed": 5,
+    "pass": 3,
+    "partial": 2,
+    "fail": 0,
+    "not_evaluated": 0,
+    "state_failures": 2,
+    "verification_failures": 0,
+    "scope_creep_count": 0,
+    "lifecycle_failures": 0,
+    "claim_strength_violations": 0,
+    "qualitative_findings": [
+      "Two benchmark cases rely on the session handoff as the explicit restart packet, so removing it degrades resumability across the state/lifecycle boundary.",
+      "`state/feature_list.json` and `state/progress.md` remain, but they no longer provide the same restart semantics.",
+      "This is a stronger continuity hit than removing progress alone."
+    ],
+    "conclusion": "Higher impact on restart continuity; the missing handoff affects both session resumption and lifecycle-adjacent state reconstruction."
+  },
+  "actor_output_hash": "186844da377be47bf7a30c73c70374dc3124c636845f1b4f2046cd97c70c2261",
+  "selected_route": "ablation_variant_comparison",
+  "selected_assets": [
+    "state/session-handoff.md"
+  ],
+  "state_updates": [],
+  "verification_artifacts": [
+    "records/real_ablation_results.json"
+  ],
+  "tool_calls": [],
+  "retrieval_events": [],
+  "memory_events": [],
+  "multi_agent_events": [],
+  "safety_events": [
+    "candidate_not_released"
+  ],
+  "approval_events": [],
+  "lifecycle_events": [],
+  "claim_strength": "codex_cli_read_only_actor_ablation",
+  "execution_errors": [],
+  "raw_paths": {
+    "raw_output_path": "archive/raw_benchmark_runs/be3-ablation-actor-last-message.json",
+    "stdout_path": "archive/raw_benchmark_runs/be3-ablation-actor-stdout.log",
+    "stderr_path": "archive/raw_benchmark_runs/be3-ablation-actor-stderr.log"
+  },
+  "provider_session_id": null
+}

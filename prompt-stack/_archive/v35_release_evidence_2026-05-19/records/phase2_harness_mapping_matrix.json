@@ -1,0 +1,52 @@
+[
+  {
+    "target_asset": "PROMPT_harness_engineering",
+    "layer": "source_of_truth_harness",
+    "source_items": [
+      "Evaluation and Optimization",
+      "Agents",
+      "Risks & Misuses"
+    ],
+    "current_gap": "Need explicit mapping from PromptingGuide.ai techniques to guide/sensor/runner/simulator/sandbox/telemetry/gate surfaces.",
+    "proposed_change_summary": "Plan harness coverage matrix for technique families and risk surfaces.",
+    "harness_effect": "harness-designed only",
+    "retest_cases": [
+      "coverage matrix review",
+      "substrate readiness downgrade check"
+    ]
+  },
+  {
+    "target_asset": "PROMPT_harness_contracts",
+    "layer": "source_of_truth_harness",
+    "source_items": [
+      "Function Calling",
+      "ReAct",
+      "RAG",
+      "Adversarial Prompting"
+    ],
+    "current_gap": "Need mock tool and RAG/factuality contracts tied to source-derived risks.",
+    "proposed_change_summary": "Plan contracts for required parameters, provenance, prompt injection, partial tool state, and claim strength.",
+    "harness_effect": "contract draft only",
+    "retest_cases": [
+      "mock tool parameter test",
+      "RAG conflict test",
+      "prompt injection test"
+    ]
+  },
+  {
+    "target_asset": "PROMPT_harness_release_gate",
+    "layer": "source_of_truth_harness",
+    "source_items": [
+      "Risks & Misuses",
+      "Evaluation",
+      "Research Findings"
+    ],
+    "current_gap": "Need release gate language that treats coverage as insufficient without execution evidence.",
+    "proposed_change_summary": "Plan gates for safety, retrieval, tool, example boundary, Codex runtime independence, and release language.",
+    "harness_effect": "release-gate-ready only after Phase 4/5",
+    "retest_cases": [
+      "unsupported release claim test",
+      "critical failure override test"
+    ]
+  }
+]

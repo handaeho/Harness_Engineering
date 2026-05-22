@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-openai-tool-calling-replay-rerun",
+  "comparison_mode": "canary_rerun_not_replay_verified",
+  "attempts_compared": [
+    "001-tool-calling-canary",
+    "002-tool-calling-replay-rerun"
+  ],
+  "same_case_set": true,
+  "same_tool_schema_set": true,
+  "same_forbidden_surface": true,
+  "both_status_pass": true,
+  "provider_execution": true,
+  "tool_calling_used": true,
+  "function_tools_used": true,
+  "local_model_execution": false,
+  "external_side_effects": false,
+  "built_in_tools_used": false,
+  "remote_mcp_used": false,
+  "store_false_enforced": true,
+  "blocked_tools_executed": 0,
+  "raw_response_stored": false,
+  "redaction_passed": true,
+  "final_responses_received": 6,
+  "expected_final_responses": 6,
+  "claim_level": "canary_rerun_only",
+  "claims_allowed": [
+    "openai-tool-calling-canary-rerun-executed",
+    "tool-calling-canary-consistency-checked",
+    "tool-calling-rerun-trace-captured",
+    "replay-evidence-recorded"
+  ],
+  "claims_not_allowed": [
+    "replay-verified",
+    "tool-call-verified",
+    "provider-verified",
+    "adapter-checked",
+    "integration-verified",
+    "release-gated"
+  ],
+  "failures": []
+}

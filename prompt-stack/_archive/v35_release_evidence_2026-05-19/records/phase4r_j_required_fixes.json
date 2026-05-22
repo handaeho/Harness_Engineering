@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-05-19T08:08:06.500Z",
+  "P0": [],
+  "P1": [
+    {
+      "fix_id": "P4RJ-FIX-001",
+      "target_asset": "harness/run_phase4r_native_replay.mjs and Phase 4R replay records",
+      "problem": "73 native replay cases remain partial because no semantic actor answer body is available for pass-level judge closure.",
+      "proposed_fix": "Capture native actor output and executed semantic judge verdict for each case while preserving deterministic assertion precedence.",
+      "retest_case": "all 73 native replay cases",
+      "rollback_condition": "any missing trace, deterministic fail promoted to pass, or inflated release claim"
+    },
+    {
+      "fix_id": "P4RJ-FIX-002",
+      "target_asset": "codex/CODEX_RUNTIME_GUIDE.md and codex/skills/* actor/judge tests",
+      "problem": "25 Codex runtime tests remain partial because deterministic protocol checks do not certify live Codex runtime behavior.",
+      "proposed_fix": "Run approved Codex actor/judge protocol with captured runtime outputs and boundary-preservation checks.",
+      "retest_case": "all 25 Codex runtime tests",
+      "rollback_condition": "Codex runtime boundary weakening or source/runtime boundary collapse"
+    },
+    {
+      "fix_id": "P4RJ-FIX-003",
+      "target_asset": "records/phase4r_j_release_readiness_precheck.json",
+      "problem": "Phase 5 readiness is false while native and Codex verdicts are all partial.",
+      "proposed_fix": "Rerun release-readiness precheck after semantic judge retest separates pass/partial/fail.",
+      "retest_case": "release readiness precheck",
+      "rollback_condition": "any P0 or release-blocking P1"
+    }
+  ],
+  "P2": [
+    {
+      "fix_id": "P4RJ-FIX-004",
+      "target_asset": "records/phase4r_j_primary_source_closure.json",
+      "problem": "66 P1 primary-source items remain deferred with downgrade.",
+      "proposed_fix": "Validate official/primary sources for any item needed as release-grade doctrine or keep it explicitly downgraded/scoped out.",
+      "retest_case": "primary-source closure review",
+      "rollback_condition": "unvalidated item used as current fact or release-grade doctrine"
+    },
+    {
+      "fix_id": "P4RJ-FIX-005",
+      "target_asset": "sandbox / telemetry / containment substrate",
+      "problem": "Sandbox and telemetry are partial; containment remains not_evaluated.",
+      "proposed_fix": "Add evidence or retain downgrade language through Phase 5 gate.",
+      "retest_case": "destructive approval and containment cases",
+      "rollback_condition": "sandbox exists described as containment verified or local traces described as production monitored"
+    }
+  ],
+  "P3": [
+    {
+      "fix_id": "P4RJ-FIX-006",
+      "target_asset": "reports/PHASE4R_J_SEMANTIC_JUDGE_AND_EVIDENCE_CLOSURE_REPORT.md",
+      "problem": "Report should remain explicit that Phase 4R-J is not Phase 5.",
+      "proposed_fix": "Preserve release_decision_started=false and claim-strength downgrade language.",
+      "retest_case": "report consistency check",
+      "rollback_condition": "promotion language appears before Phase 5"
+    }
+  ]
+}

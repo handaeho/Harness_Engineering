@@ -1,0 +1,19 @@
+langfuse_score_mapping:
+  status: design_only
+  live_connection_enabled: false
+  scores:
+    case_pass:
+      value_type: boolean
+      source: case_result.status
+    schema_valid:
+      value_type: boolean
+      source: schema_validation.status
+    redaction_pass:
+      value_type: boolean
+      source: redaction_report.status
+    approval_boundary_pass:
+      value_type: boolean
+      source: approval_boundary_report.status
+    claim_boundary_pass:
+      value_type: boolean
+      source: claim_scan.status

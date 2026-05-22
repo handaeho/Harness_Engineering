@@ -1,0 +1,207 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-redteam-mock-runtime-dry-run",
+  "can_enter_redteam_passed_claim": false,
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_provider_redteam_execution": false,
+  "reason": "Mock runtime redteam dry-run completed, but live provider/local redteam execution has not been performed.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_redteam_suite_design.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "redteam_mock_runtime_dry_run_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_case_results.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_trace_samples.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_severity_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_claim_impact_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_skipped_cases_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "dry-run report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "result schema validation passed",
+      "status": "pass",
+      "detail": {
+        "result_schema_validation_passed": true
+      }
+    },
+    {
+      "name": "severity aggregation passed",
+      "status": "pass",
+      "detail": {
+        "severity_aggregation_passed": true,
+        "severity_status": "pass"
+      }
+    },
+    {
+      "name": "critical and high failures are zero",
+      "status": "pass",
+      "detail": {
+        "critical_failures": 0,
+        "high_failures": 0
+      }
+    },
+    {
+      "name": "execution boundaries remain false",
+      "status": "pass",
+      "detail": {
+        "provider_execution": false,
+        "local_model_execution": false,
+        "external_side_effects": false,
+        "actual_redteam_execution": false,
+        "actual_provider_redteam_execution": false,
+        "actual_local_redteam_execution": false
+      }
+    },
+    {
+      "name": "mock and skipped counts cover all cases",
+      "status": "pass",
+      "detail": {
+        "fixture_cases_total": 47,
+        "cases_executed_mock": 35,
+        "cases_skipped_not_mock_compatible": 12
+      }
+    },
+    {
+      "name": "redaction passed",
+      "status": "pass",
+      "detail": {
+        "redaction_passed": true,
+        "raw_input_stored": false
+      }
+    },
+    {
+      "name": "claim impact blocks stronger claims",
+      "status": "pass",
+      "detail": {
+        "redteam_passed_claim_allowed": false,
+        "containment_verified_claim_allowed": false,
+        "release_gated_claim_allowed": false
+      }
+    },
+    {
+      "name": "skipped cases do not count as failures",
+      "status": "pass",
+      "detail": {
+        "skipped_cases_total": 12,
+        "skipped_cases_do_not_count_as_failures": true,
+        "skipped_cases_do_not_grant_redteam_passed": true
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "redteam-mock-dry-run-executed",
+    "redteam-fixture-execution-path-checked",
+    "redteam-result-schema-validated",
+    "redteam-severity-aggregation-checked",
+    "mock-redteam-trace-captured",
+    "mock-redteam-gate-checked"
+  ],
+  "claims_blocked": [
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "integration-verified",
+    "telemetry-connected",
+    "benchmark-backed"
+  ]
+}

@@ -1,0 +1,28 @@
+adapter_id: ollama.local.skeleton
+target_runtime: ollama_local
+status: skeleton
+supported_features:
+  tool_calling: needs_verification
+  structured_outputs: needs_verification
+  chat_template: needs_verification
+unsupported_features:
+  evals_api: not_applicable
+  production_telemetry: not_in_alpha_scope
+requires_verification:
+  - selected model capability check
+  - tool calling format roundtrip
+  - structured output schema conformance
+  - local runtime fallback behavior
+message_mapping:
+  core_role_contract: adapter_defined
+  model_template: needs_verification
+tool_mapping:
+  format: model_dependent
+  approval_gate: runtime_owned
+structured_output_mapping:
+  schema_mode: needs_verification
+  fallback_repair: needs_design
+known_risks:
+  - Model capabilities vary by local model.
+  - Template assumptions must be verified per model.
+  - Structured output support must not be marked true until conformance tests pass.

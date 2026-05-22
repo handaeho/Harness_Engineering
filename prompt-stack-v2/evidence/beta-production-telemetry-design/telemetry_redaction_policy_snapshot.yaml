@@ -1,0 +1,19 @@
+telemetry_redaction_policy:
+  raw_prompt_stored: false
+  raw_response_stored: false
+  api_keys_logged: false
+  authorization_headers_logged: false
+  env_values_logged: false
+  tool_raw_payload_stored: false
+  allowed_previews:
+    output_preview_max_chars: 300
+    input_preview_max_chars: 300
+  hash_policy:
+    hash_raw_inputs: true
+    hash_raw_outputs: true
+    hash_tool_payloads: true
+  required_redaction_checks:
+    - api_key_pattern
+    - authorization_header_pattern
+    - env_value_pattern
+    - raw_response_dump_pattern

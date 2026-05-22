@@ -1,0 +1,339 @@
+{
+  "status": "pass",
+  "generated_at": "2026-05-21T08:58:10.931Z",
+  "stage": "v2.0.0-beta-preflight",
+  "parser_status": {
+    "yaml": {
+      "parser": "yaml",
+      "external_parser_available": true,
+      "fallback_used": false
+    },
+    "json_schema": {
+      "validator": "ajv",
+      "external_validator_available": true,
+      "fallback_used": false
+    }
+  },
+  "checks": [
+    {
+      "name": "required files exist",
+      "status": "pass",
+      "detail": {
+        "checked": 155
+      }
+    },
+    {
+      "name": "package lock exists",
+      "status": "pass",
+      "detail": {
+        "package_json": true,
+        "package_lock": true
+      }
+    },
+    {
+      "name": "YAML parser dependency is active",
+      "status": "pass",
+      "detail": {
+        "parser": "yaml",
+        "external_parser_available": true,
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "JSON Schema validator dependency is active",
+      "status": "pass",
+      "detail": {
+        "validator": "ajv",
+        "external_validator_available": true,
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "all JSON files parse",
+      "status": "pass",
+      "detail": {
+        "checked": 234
+      }
+    },
+    {
+      "name": "all YAML files parse with yaml package",
+      "status": "pass",
+      "detail": {
+        "checked": [
+          "adapters/api/openai/adapter.yaml",
+          "adapters/local/ollama/adapter.yaml",
+          "adapters/local/vllm/adapter.yaml",
+          "adapters/provider_capability_matrix.yaml",
+          "core/spec/harness.spec.yaml",
+          "evals/suites/adapter_conformance_design.yaml",
+          "evals/suites/alpha_hardening.yaml",
+          "evals/suites/beta_mock_execution.yaml",
+          "evals/suites/beta_openai_canary_replay_suite.yaml",
+          "evals/suites/beta_openai_redteam_limited_execution_plan.yaml",
+          "evals/suites/beta_openai_redteam_limited_execution_preflight.yaml",
+          "evals/suites/beta_openai_tool_calling_replay_rerun.yaml",
+          "evals/suites/beta_production_telemetry_design.yaml",
+          "evals/suites/beta_provider_canary_openai.yaml",
+          "evals/suites/beta_redteam_mock_runtime_dry_run.yaml",
+          "evals/suites/beta_redteam_suite_design.yaml",
+          "evals/suites/beta_release_evidence_bundle_draft.yaml",
+          "evals/suites/beta_release_gate_thresholds_and_dry_run.yaml",
+          "evals/suites/beta_structured_output_canary_openai.yaml",
+          "evals/suites/beta_tool_calling_canary_openai.yaml",
+          "evals/suites/openai_redteam_limited_execution_plan.yaml",
+          "evals/suites/redteam_suite_design.yaml",
+          "evals/suites/static_structure.yaml",
+          "evidence/beta-openai-redteam-limited-execution-plan/cost_bound_policy_snapshot.yaml",
+          "evidence/beta-openai-redteam-limited-execution-plan/redaction_policy_snapshot.yaml",
+          "evidence/beta-openai-redteam-limited-execution-plan/stop_criteria_snapshot.yaml",
+          "evidence/beta-openai-redteam-limited-execution-plan/trace_policy_snapshot.yaml",
+          "evidence/beta-openai-redteam-limited-execution-preflight/command_plan_snapshot.yaml",
+          "evidence/beta-production-telemetry-design/langfuse_integration_plan_snapshot.yaml",
+          "evidence/beta-production-telemetry-design/otel_genai_mapping_snapshot.yaml",
+          "evidence/beta-production-telemetry-design/telemetry_anomaly_thresholds_snapshot.yaml",
+          "evidence/beta-production-telemetry-design/telemetry_dashboard_spec_snapshot.yaml",
+          "evidence/beta-production-telemetry-design/telemetry_event_taxonomy_snapshot.yaml",
+          "evidence/beta-production-telemetry-design/telemetry_metric_catalog_snapshot.yaml",
+          "evidence/beta-production-telemetry-design/telemetry_redaction_policy_snapshot.yaml",
+          "evidence/beta-redteam-suite-design/redteam_severity_rubric_snapshot.yaml",
+          "evidence/beta-redteam-suite-design/redteam_taxonomy_snapshot.yaml",
+          "evidence/beta-release-evidence-bundle/capability_matrix_snapshot.yaml",
+          "evidence/beta-release-evidence-bundle/release_gate_snapshot.yaml",
+          "evidence/v36-baseline/migration_map.yaml",
+          "observability/langfuse/dashboard_plan.yaml",
+          "observability/langfuse/integration_plan.yaml",
+          "observability/langfuse/score_mapping.yaml",
+          "observability/langfuse/trace_mapping.yaml",
+          "observability/otel/exporter_policy.yaml",
+          "observability/otel/genai_semantic_mapping.yaml",
+          "observability/otel/metric_mapping.yaml",
+          "observability/otel/trace_attribute_mapping.yaml",
+          "observability/production_telemetry_policy.yaml",
+          "observability/telemetry_anomaly_thresholds.yaml",
+          "observability/telemetry_dashboard_spec.yaml",
+          "observability/telemetry_event_taxonomy.yaml",
+          "observability/telemetry_metric_catalog.yaml",
+          "observability/telemetry_redaction_policy.yaml",
+          "observability/telemetry_retention_policy.yaml",
+          "release/beta_canary_matrix_summary_scope.yaml",
+          "release/beta_mock_execution_scope.yaml",
+          "release/beta_openai_canary_replay_suite_scope.yaml",
+          "release/beta_openai_redteam_limited_execution_plan_scope.yaml",
+          "release/beta_openai_redteam_limited_execution_preflight_scope.yaml",
+          "release/beta_openai_tool_calling_replay_rerun_scope.yaml",
+          "release/beta_production_telemetry_design_scope.yaml",
+          "release/beta_provider_canary_openai_scope.yaml",
+          "release/beta_redteam_mock_runtime_dry_run_scope.yaml",
+          "release/beta_redteam_suite_design_scope.yaml",
+          "release/beta_release_blockers.yaml",
+          "release/beta_release_evidence_bundle_scope.yaml",
+          "release/beta_release_gate_thresholds_scope.yaml",
+          "release/beta_release_readiness_draft.yaml",
+          "release/beta_structured_output_canary_openai_scope.yaml",
+          "release/beta_tool_calling_canary_openai_scope.yaml",
+          "release/openai_redteam_limited_execution_approval_gate.yaml",
+          "release/openai_redteam_limited_execution_command_plan.yaml",
+          "release/openai_redteam_limited_execution_gate.yaml",
+          "release/owner_action_matrix.yaml",
+          "release/production_telemetry_gate.yaml",
+          "release/redteam_blocker_mock_dry_run_update.yaml",
+          "release/redteam_blocker_update.yaml",
+          "release/redteam_execution_gate.yaml",
+          "release/redteam_mock_dry_run_gate.yaml",
+          "release/redteam_provider_execution_blocker_update.yaml",
+          "release/release_blocker_priority.yaml",
+          "release/release_gate.yaml",
+          "release/release_gate_dry_run_policy.yaml",
+          "release/release_gate_thresholds.yaml",
+          "release/rollback_plan_draft.yaml",
+          "release/telemetry_blocker_update.yaml",
+          "security/redteam/mitre_atlas_mapping.yaml",
+          "security/redteam/mock_compatibility_policy.yaml",
+          "security/redteam/nist_genai_profile_mapping.yaml",
+          "security/redteam/openai_limited_execution_policy.yaml",
+          "security/redteam/openai_redteam_case_selection_policy.yaml",
+          "security/redteam/openai_redteam_cost_bound_policy.yaml",
+          "security/redteam/openai_redteam_credential_policy.yaml",
+          "security/redteam/openai_redteam_preflight_policy.yaml",
+          "security/redteam/openai_redteam_redaction_policy.yaml",
+          "security/redteam/openai_redteam_stop_criteria.yaml",
+          "security/redteam/openai_redteam_trace_policy.yaml",
+          "security/redteam/owasp_genai_mapping.yaml",
+          "security/redteam/redteam_mock_dry_run_policy.yaml",
+          "security/redteam/redteam_pass_fail_policy.yaml",
+          "security/redteam/redteam_severity_rubric.yaml",
+          "security/redteam/redteam_taxonomy.yaml",
+          "stack.yaml"
+        ],
+        "parser": "yaml"
+      }
+    },
+    {
+      "name": "all JSON Schema files compile with Ajv",
+      "status": "pass",
+      "detail": {
+        "checked": [
+          "schemas/adapter.schema.json",
+          "schemas/beta_entry_report.schema.json",
+          "schemas/capability_matrix.schema.json",
+          "schemas/conformance_case.schema.json",
+          "schemas/release_gate.schema.json",
+          "schemas/stack.schema.json",
+          "schemas/telemetry.schema.json",
+          "schemas/trace.schema.json",
+          "schemas/validation_report.schema.json",
+          "adapters/api/openai/tool_schemas/blocked_external_post.schema.json",
+          "adapters/api/openai/tool_schemas/canary_calculator.schema.json",
+          "adapters/api/openai/tool_schemas/canary_lookup.schema.json",
+          "core/spec/output_contract.schema.json",
+          "observability/telemetry.schema.json",
+          "observability/trace.schema.json",
+          "runtime/schemas/approval_event.schema.json",
+          "runtime/schemas/context_packet.schema.json",
+          "runtime/schemas/failure_event.schema.json",
+          "runtime/schemas/run_request.schema.json",
+          "runtime/schemas/run_result.schema.json",
+          "runtime/schemas/state_transition.schema.json",
+          "runtime/schemas/tool_event.schema.json",
+          "security/redteam/openai_redteam_execution_approval.schema.json",
+          "security/redteam/redteam_case.schema.json",
+          "security/redteam/redteam_result.schema.json",
+          "security/redteam/redteam_trace.schema.json",
+          "stack.schema.json"
+        ],
+        "validator": "ajv"
+      }
+    },
+    {
+      "name": "stack.yaml validates against schemas/stack.schema.json",
+      "status": "pass",
+      "detail": {
+        "schema": "schemas/stack.schema.json"
+      }
+    },
+    {
+      "name": "adapter.yaml files validate against schemas/adapter.schema.json",
+      "status": "pass",
+      "detail": {
+        "checked": [
+          "adapters/api/openai/adapter.yaml",
+          "adapters/local/vllm/adapter.yaml",
+          "adapters/local/ollama/adapter.yaml"
+        ]
+      }
+    },
+    {
+      "name": "provider_capability_matrix.yaml validates against schema",
+      "status": "pass",
+      "detail": {
+        "schema": "schemas/capability_matrix.schema.json"
+      }
+    },
+    {
+      "name": "release_gate.yaml validates and blocks forbidden claims",
+      "status": "pass",
+      "detail": {
+        "blocked_count": 20
+      }
+    },
+    {
+      "name": "observability schemas register with Ajv",
+      "status": "pass",
+      "detail": {
+        "registered": [
+          "observability/trace.schema.json",
+          "observability/telemetry.schema.json"
+        ]
+      }
+    },
+    {
+      "name": "schema copies register with Ajv",
+      "status": "pass",
+      "detail": {
+        "registered": [
+          "schemas/trace.schema.json",
+          "schemas/telemetry.schema.json"
+        ]
+      }
+    },
+    {
+      "name": "core/spec remains provider-neutral",
+      "status": "pass",
+      "detail": {
+        "checked_files": [
+          "core/spec/behavior_policy.md",
+          "core/spec/claim_strength_policy.md",
+          "core/spec/context_policy.md",
+          "core/spec/failure_modes.md",
+          "core/spec/harness.spec.yaml",
+          "core/spec/output_contract.schema.json",
+          "core/spec/tool_policy.md"
+        ],
+        "provider_tokens": [
+          "OpenAI",
+          "Anthropic",
+          "Claude",
+          "Gemini",
+          "vLLM",
+          "Ollama",
+          "tokenizer",
+          "Responses API"
+        ]
+      }
+    },
+    {
+      "name": "dist boundary",
+      "status": "pass",
+      "detail": {
+        "files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "provider capability matrix has no true or verified feature values",
+      "status": "pass",
+      "detail": {
+        "providers_checked": [
+          "openai",
+          "vllm",
+          "ollama"
+        ]
+      }
+    }
+  ],
+  "fallback_used": false,
+  "warnings": [],
+  "errors": [],
+  "runner_reexecution": {
+    "v36_runners_reexecuted": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "runtime_execution_loop_implemented": false,
+    "live_telemetry_connected": false
+  },
+  "claims_allowed_after_pass": [
+    "harness-designed",
+    "static-structure-created",
+    "baseline-snapshotted",
+    "adapter-skeleton-created",
+    "alpha-static-validated",
+    "dependency-static-validated"
+  ],
+  "claims_blocked": [
+    "adapter-checked",
+    "provider-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "telemetry-connected",
+    "production-ready",
+    "production-monitored",
+    "containment-verified",
+    "replay-verified",
+    "benchmark-backed",
+    "provider-diverse",
+    "integration-verified",
+    "release-gated"
+  ]
+}

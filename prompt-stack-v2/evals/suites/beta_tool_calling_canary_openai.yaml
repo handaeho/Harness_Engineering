@@ -1,0 +1,48 @@
+id: beta_tool_calling_canary_openai
+stage: v2.0.0-beta-tool-calling-canary-openai
+mode: openai_tool_calling_canary_mock_tools_only
+runner: tools/run_openai_tool_calling_canary.mjs
+gate: tools/check_openai_tool_calling_canary.mjs
+
+requires:
+  - OpenAI credentialed no-tool provider canary pass
+  - OpenAI structured output canary pass
+  - OPENAI_API_KEY and OPENAI_MODEL for provider execution
+
+assertions:
+  provider_execution: true
+  tool_calling_used: true
+  function_tools_used: true
+  built_in_tools_used: false
+  remote_mcp_used: false
+  local_model_execution: false
+  external_side_effects: false
+  store_false_enforced: true
+  tool_argument_ajv_validation_used: true
+  mock_tools_only: true
+  blocked_tools_executed: 0
+  raw_response_stored: false
+
+blocked_statuses:
+  - blocked_by_missing_credential
+  - blocked_by_missing_model
+
+claims_allowed_after_pass:
+  - openai-tool-calling-canary-executed
+  - provider-tool-call-path-checked
+  - tool-argument-schema-canary-validated
+  - mock-tool-output-reinjection-checked
+  - tool-approval-boundary-canary-checked
+  - tool-output-reclassification-checked
+  - tool-calling-trace-captured
+  - tool-calling-redaction-checked
+
+claims_not_allowed:
+  - tool-call-verified
+  - adapter-checked
+  - provider-verified
+  - integration-verified
+  - provider-diverse
+  - replay-verified
+  - production-monitored
+  - release-gated

@@ -1,0 +1,9 @@
+exporter_policy:
+  status: design_only
+  opentelemetry_exporter_network_call_allowed: false
+  live_export_enabled: false
+  required_before_export:
+    - explicit_connection_approval
+    - endpoint_configured
+    - redaction_policy_valid
+    - first_dry_run_payload_reviewed

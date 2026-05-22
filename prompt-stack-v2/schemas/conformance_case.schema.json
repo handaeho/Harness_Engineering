@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/prompt-stack-v2/schemas/conformance_case.schema.json",
+  "title": "Prompt Stack v2 Adapter Conformance Case",
+  "type": "object",
+  "required": [
+    "case_id",
+    "adapter_id",
+    "purpose",
+    "input_contract",
+    "expected_mapping",
+    "unsupported_features_must_remain_false",
+    "claim_allowed_after_pass",
+    "claim_not_allowed"
+  ],
+  "properties": {
+    "case_id": { "type": "string", "minLength": 1 },
+    "adapter_id": { "type": "string", "minLength": 1 },
+    "purpose": { "type": "string", "minLength": 1 },
+    "input_contract": { "type": "object" },
+    "expected_mapping": { "type": "object" },
+    "unsupported_features_must_remain_false": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "claim_allowed_after_pass": { "const": "adapter-checked" },
+    "claim_not_allowed": {
+      "type": "array",
+      "items": { "type": "string" },
+      "contains": { "const": "production-monitored" }
+    }
+  },
+  "additionalProperties": false
+}

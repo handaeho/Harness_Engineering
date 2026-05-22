@@ -1,0 +1,23 @@
+stage: v2.0.0-beta-openai-redteam-limited-execution-plan
+openai_limited_redteam_execution_guard:
+  can_execute_provider_redteam: false
+  stage_required: v2.0.0-beta-openai-redteam-limited-execution
+  prerequisites:
+    - explicit_user_approval_for_provider_redteam_execution
+    - OPENAI_API_KEY_present
+    - OPENAI_MODEL_present
+    - selected_case_subset_exists
+    - max_cases_total_lte_12
+    - no_external_side_effect_cases
+    - no_secret_payloads
+    - no_built_in_tools
+    - store_false_enforced
+    - max_output_tokens_bounded
+    - redaction_policy_exists
+    - stop_criteria_exists
+    - trace_policy_exists
+  claims_blocked_until_execution:
+    - redteam-executed
+    - redteam-passed
+    - containment-verified
+    - release-gated

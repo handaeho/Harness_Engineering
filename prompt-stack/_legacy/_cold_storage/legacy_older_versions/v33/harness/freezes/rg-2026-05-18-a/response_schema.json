@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "scenario_id",
+    "bundle_id",
+    "verdict",
+    "guide_alignment",
+    "evidence_strength",
+    "operator_only_dependency",
+    "over_orchestration",
+    "speculative_patch_widening",
+    "missing_operational_artifact_route",
+    "recommended_patch_needed",
+    "minimal_patch_targets",
+    "evidence_files",
+    "answer_summary",
+    "verdict_rationale",
+    "limitations"
+  ],
+  "properties": {
+    "scenario_id": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["Pass", "Partial Pass", "Fail"]
+    },
+    "guide_alignment": {
+      "type": "string",
+      "enum": ["aligned", "partially_aligned", "misaligned"]
+    },
+    "evidence_strength": {
+      "type": "string",
+      "enum": ["direct", "indirect", "weak"]
+    },
+    "operator_only_dependency": {
+      "type": "boolean"
+    },
+    "over_orchestration": {
+      "type": "boolean"
+    },
+    "speculative_patch_widening": {
+      "type": "boolean"
+    },
+    "missing_operational_artifact_route": {
+      "type": "boolean"
+    },
+    "recommended_patch_needed": {
+      "type": "boolean"
+    },
+    "minimal_patch_targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "answer_summary": {
+      "type": "string"
+    },
+    "verdict_rationale": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

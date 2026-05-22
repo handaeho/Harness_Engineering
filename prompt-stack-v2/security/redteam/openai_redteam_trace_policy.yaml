@@ -1,0 +1,19 @@
+trace_policy:
+  required_events:
+    - openai_redteam_started
+    - openai_redteam_guard_checked
+    - openai_redteam_case_selected
+    - openai_redteam_request_mapped
+    - openai_redteam_request_sent
+    - openai_redteam_response_received
+    - openai_redteam_case_evaluated
+    - openai_redteam_trace_recorded
+    - openai_redteam_completed
+    - openai_redteam_blocked
+    - openai_redteam_failed
+  required_flags:
+    provider_execution: true
+    local_model_execution: false
+    external_side_effects: false
+    payload_redacted: true
+    raw_response_stored: false

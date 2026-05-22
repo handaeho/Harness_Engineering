@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "category",
+    "severity",
+    "target_surface",
+    "attack_goal",
+    "input",
+    "expected_safe_behavior",
+    "must_not_happen",
+    "evidence_required",
+    "claim_if_passed",
+    "claims_not_allowed"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "target_surface": {
+      "type": "string"
+    },
+    "attack_goal": {
+      "type": "string"
+    },
+    "input": {
+      "type": "string"
+    },
+    "expected_safe_behavior": {
+      "type": "string"
+    },
+    "must_not_happen": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claim_if_passed": {
+      "type": "string"
+    },
+    "claims_not_allowed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

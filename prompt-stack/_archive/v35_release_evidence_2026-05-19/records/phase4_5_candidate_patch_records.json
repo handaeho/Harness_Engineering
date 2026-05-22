@@ -1,0 +1,626 @@
+[
+  {
+    "patch_id": "P45-SOT-001",
+    "priority": "P1",
+    "source": "phase3",
+    "target_asset": "02_overlays/PROMPT_tool_protocol_overlay.md",
+    "target_layer": "02_overlays",
+    "owner_surface": "tool / function calling / ReAct / ART",
+    "proposed_change": "v35-candidate Phase 4.5 Tool Technique Boundary",
+    "applied_change": "Appended v35-candidate Phase 4.5 Tool Technique Boundary section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Sharper non-automatic-execution and tool-result truthfulness behavior.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Could duplicate safety authority if applied outside tool-protocol scope.",
+    "affected_files": [
+      "02_overlays/PROMPT_tool_protocol_overlay.md"
+    ],
+    "checksum_before": "sha256:bb5c9e1f89bc485e3b58ffee59b10b2ae01afdb9affb2849f52228c44ada416a",
+    "checksum_after": "sha256:6ca8187e4db2aea8527f261c8b4b8d01f5bd76dd8f4e91e403b1af9a4223dd54",
+    "retest_cases": [
+      "P4-TOOL-001",
+      "P4-TOOL-002",
+      "P4-TOOL-004",
+      "P4-TOOL-005",
+      "P4-TOOL-007"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-SOT-002",
+    "priority": "P1",
+    "source": "phase3",
+    "target_asset": "02_overlays/PROMPT_guardrails_safety_overlay.md",
+    "target_layer": "02_overlays",
+    "owner_surface": "safety / adversarial prompting / secret / approval",
+    "proposed_change": "v35-candidate Phase 4.5 PromptingGuide Risk Mapping",
+    "applied_change": "Appended v35-candidate Phase 4.5 PromptingGuide Risk Mapping section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Risk classes become enforceable critical-failure checks rather than cautionary prose.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Overbroad refusal if risk classes are not scoped to actual unsafe pressure.",
+    "affected_files": [
+      "02_overlays/PROMPT_guardrails_safety_overlay.md"
+    ],
+    "checksum_before": "sha256:2c73fc90b6afdec0887d78e2622cb7d3ad4452959aec44d52663d9d3f4fff949",
+    "checksum_after": "sha256:cee3d8b77482bedfcd4d422b013356a9f8f9546476a183662bbca7e9698f9ab9",
+    "retest_cases": [
+      "P4-SAFE-001",
+      "P4-SAFE-002",
+      "P4-SAFE-003",
+      "P4-SAFE-004",
+      "P4-SAFE-005",
+      "P4-SAFE-006",
+      "P4-SAFE-007",
+      "P4-SAFE-008"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-SOT-003",
+    "priority": "P1",
+    "source": "phase3",
+    "target_asset": "02_overlays/PROMPT_retrieval_grounding_overlay.md",
+    "target_layer": "02_overlays",
+    "owner_surface": "retrieval / RAG / factuality / primary-source validation",
+    "proposed_change": "v35-candidate Phase 4.5 Primary-Source and RAG Faithfulness Gate",
+    "applied_change": "Appended v35-candidate Phase 4.5 Primary-Source and RAG Faithfulness Gate section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Current/latest claims are downgraded unless primary-source validated; RAG faithfulness is explicit.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "May over-retrieve if applied to stable local facts.",
+    "affected_files": [
+      "02_overlays/PROMPT_retrieval_grounding_overlay.md"
+    ],
+    "checksum_before": "sha256:5834eb0974879b0ea7f81f51da87d009101664d78564c22604f61ab723df7951",
+    "checksum_after": "sha256:37ea5276e6d847d02d4fb8d84d9553a6ac935098c243a2f65054d79bff73820e",
+    "retest_cases": [
+      "P4-RAG-001",
+      "P4-RAG-002",
+      "P4-RAG-003",
+      "P4-RAG-004",
+      "P4-RAG-005",
+      "P4-RAG-006",
+      "P4-RAG-007"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-SOT-004",
+    "priority": "P1",
+    "source": "phase3",
+    "target_asset": "03_examples/PROMPT_example_injection.md",
+    "target_layer": "03_examples",
+    "owner_surface": "example selection / injection controller",
+    "proposed_change": "v35-candidate Phase 4.5 Prompt Hub Structure-Only Rule",
+    "applied_change": "Appended v35-candidate Phase 4.5 Prompt Hub Structure-Only Rule section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Prompt Hub material remains structure-only and cannot become factual authority.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Too strict selection may reduce useful structure reuse.",
+    "affected_files": [
+      "03_examples/PROMPT_example_injection.md"
+    ],
+    "checksum_before": "sha256:6cbab80a4d5e67883641bfe6abcf9a77700b8b2d2df299497aee102b699ede1b",
+    "checksum_after": "sha256:0dc965b148b85171d7a60d496cc1bf2564021a7055c928239e296d092a09e825",
+    "retest_cases": [
+      "P4-EXAMPLE-001",
+      "P4-EXAMPLE-002",
+      "P4-EXAMPLE-003",
+      "P4-EXAMPLE-004",
+      "P4-EXAMPLE-005",
+      "P4-EXAMPLE-006"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-SOT-005",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "03_examples/PROMPT_example_catalog.md",
+    "target_layer": "03_examples",
+    "owner_surface": "immutable example data",
+    "proposed_change": "v35-candidate Phase 4.5 Structure-Only Example Admission",
+    "applied_change": "Appended v35-candidate Phase 4.5 Structure-Only Example Admission section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Catalog expansion becomes auditable without creating policy or factual drift.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Catalog growth may still increase review burden.",
+    "affected_files": [
+      "03_examples/PROMPT_example_catalog.md"
+    ],
+    "checksum_before": "sha256:fad46d10639da025d5f47f1e79a88e2ffe06760d3b8b4e915d1771ccb54303c4",
+    "checksum_after": "sha256:0fa136196792ddda7675516a84bb891db98731c6f72849a2795b498b01f5599a",
+    "retest_cases": [
+      "P4-EXAMPLE-003",
+      "P4-EXAMPLE-004",
+      "P4-EXAMPLE-006"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-SOT-006",
+    "priority": "P1",
+    "source": "phase3",
+    "target_asset": "02_overlays/PROMPT_search_reasoning_overlay.md",
+    "target_layer": "02_overlays",
+    "owner_surface": "reasoning activation / hidden reasoning boundary",
+    "proposed_change": "v35-candidate Phase 4.5 Reasoning Technique Activation Gate",
+    "applied_change": "Appended v35-candidate Phase 4.5 Reasoning Technique Activation Gate section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Less over-activation and stronger hidden-reasoning boundary.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Could under-activate reasoning if trigger language is too conservative.",
+    "affected_files": [
+      "02_overlays/PROMPT_search_reasoning_overlay.md"
+    ],
+    "checksum_before": "sha256:879aae92a30229162943234657759d241f6b6f40005e0c3f9c8876f86237cb06",
+    "checksum_after": "sha256:f7e585e292c3354d92984d6bef899dfdba464e4fed7d8e7d4f6977cc11f444b7",
+    "retest_cases": [
+      "P4-REASON-001",
+      "P4-REASON-002",
+      "P4-REASON-003",
+      "P4-REASON-004",
+      "P4-REASON-005",
+      "P4-REASON-006"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-SOT-007",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "02_overlays/PROMPT_memory_adaptation_overlay.md",
+    "target_layer": "02_overlays",
+    "owner_surface": "memory / adaptation",
+    "proposed_change": "v35-candidate Phase 4.5 Adaptation Promotion Guard",
+    "applied_change": "Appended v35-candidate Phase 4.5 Adaptation Promotion Guard section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Adaptation defaults require evidence and rollback path.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "May slow useful personalization unless lightweight signals are preserved.",
+    "affected_files": [
+      "02_overlays/PROMPT_memory_adaptation_overlay.md"
+    ],
+    "checksum_before": "sha256:f1117548e451bf14dbcd8452a09c8e5d3702df7c97557ae77348f01121ac8c29",
+    "checksum_after": "sha256:93c0b33c4623a477fea9f36aea6afb477aeaa139db655cb022a497d031468919",
+    "retest_cases": [
+      "P4-MEM-001",
+      "P4-MEM-002",
+      "P4-MEM-003",
+      "P4-MEM-004",
+      "P4-MEM-005",
+      "P4-MEM-006"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-SOT-008",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "02_overlays/PROMPT_multi_agent_overlay.md",
+    "target_layer": "02_overlays",
+    "owner_surface": "multi-agent / orchestration",
+    "proposed_change": "v35-candidate Phase 4.5 Agent and Workflow Boundary",
+    "applied_change": "Appended v35-candidate Phase 4.5 Agent and Workflow Boundary section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Reduced decorative delegation and clearer join-quality behavior.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Could avoid useful delegation if admission criteria are over-tight.",
+    "affected_files": [
+      "02_overlays/PROMPT_multi_agent_overlay.md"
+    ],
+    "checksum_before": "sha256:1b3190409e53ae244a4dc81b489a5d12aa23cbdcb3cd0afa1633f7eb9f619522",
+    "checksum_after": "sha256:b4c1e0e1dfb04530be93eb601e33a44b51e629ca7b91f0cf068957c42448bff1",
+    "retest_cases": [
+      "P4-ORCH-001",
+      "P4-ORCH-002",
+      "P4-ORCH-003",
+      "P4-ORCH-004",
+      "P4-ORCH-005",
+      "P4-ORCH-006",
+      "P4-ORCH-007"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-SOT-009",
+    "priority": "P1",
+    "source": "phase4_required_fix",
+    "target_asset": "02_overlays/PROMPT_evaluation_monitoring_overlay.md",
+    "target_layer": "02_overlays",
+    "owner_surface": "evaluation / monitoring / release evidence",
+    "proposed_change": "v35-candidate Phase 4.5 Evidence Class Discipline",
+    "applied_change": "Appended v35-candidate Phase 4.5 Evidence Class Discipline section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Stronger release-prep vs release-proof separation.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "May require more records before decision.",
+    "affected_files": [
+      "02_overlays/PROMPT_evaluation_monitoring_overlay.md"
+    ],
+    "checksum_before": "sha256:8fb06a45c5b7a12b123d06005ab62a7f0fc5c7355ae63e2b495eab615173dd50",
+    "checksum_after": "sha256:1056d214e3adce7fe5b2efe7e5527323753a3f94a651108389390a8952f12d83",
+    "retest_cases": [
+      "P4-HARNESS-001",
+      "P4-HARNESS-002",
+      "P4-HARNESS-003",
+      "P4-CODEX-004"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-HARNESS-001",
+    "priority": "P1",
+    "source": "phase4_required_fix",
+    "target_asset": "04_harness/PROMPT_harness_contracts.md",
+    "target_layer": "04_harness",
+    "owner_surface": "harness contracts / native replay",
+    "proposed_change": "v35-candidate Phase 4.5 Native Replay Contract",
+    "applied_change": "Appended v35-candidate Phase 4.5 Native Replay Contract section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Phase 4R can produce v35-candidate-native evidence rather than copied v34 evidence.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Runner naming could still be confused with release gate execution.",
+    "affected_files": [
+      "04_harness/PROMPT_harness_contracts.md"
+    ],
+    "checksum_before": "sha256:ec78e67c060349f0107393568742e6e3384410e5a26ca23bea09369856924165",
+    "checksum_after": "sha256:7377b5077af5c87b8bef0e8c0ca4eb255d695f6b877a87f88984daecfcaeb19e",
+    "retest_cases": [
+      "all Phase 4R native replay cases"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-HARNESS-002",
+    "priority": "P1",
+    "source": "phase4_required_fix",
+    "target_asset": "04_harness/PROMPT_harness_release_gate.md",
+    "target_layer": "04_harness",
+    "owner_surface": "release language / claim downgrade / Codex runtime independence",
+    "proposed_change": "v35-candidate Phase 4.5 Release Gate Downgrade and Codex Runtime Independence",
+    "applied_change": "Appended v35-candidate Phase 4.5 Release Gate Downgrade and Codex Runtime Independence section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Prevents premature Phase 5 promotion language and Codex runtime certification.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "May hold candidate even when source-of-truth stack is otherwise improved.",
+    "affected_files": [
+      "04_harness/PROMPT_harness_release_gate.md"
+    ],
+    "checksum_before": "sha256:64c7664460e93f2c32a3ab0e439c0939ea3560025a3605e337218b0ff57ba0b1",
+    "checksum_after": "sha256:df8f7446b13cadb023835891a6d3eed2b7b111654ecbd546f8ad01fd24a1a6bb",
+    "retest_cases": [
+      "P4-HARNESS-001",
+      "P4-HARNESS-002",
+      "P4-HARNESS-003",
+      "P4-HARNESS-004",
+      "P4-HARNESS-005",
+      "P4-CODEX-001"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-HARNESS-003",
+    "priority": "P2",
+    "source": "phase4_required_fix",
+    "target_asset": "04_harness/PROMPT_harness_engineering.md",
+    "target_layer": "04_harness",
+    "owner_surface": "harness engineering / substrate readiness",
+    "proposed_change": "v35-candidate Phase 4.5 Substrate Readiness Matrix",
+    "applied_change": "Appended v35-candidate Phase 4.5 Substrate Readiness Matrix section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Substrate gaps become explicit blockers or downgrade rules.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "More harness burden before release decision.",
+    "affected_files": [
+      "04_harness/PROMPT_harness_engineering.md"
+    ],
+    "checksum_before": "sha256:cbbef6343f0c202ccbf8e95805a368ed6f45648cc55bb85700ba30cf565116fd",
+    "checksum_after": "sha256:89cf0c75615b4a08c6b94869687cec48838e9cfa2fb4b8e17369f3559c6f3558",
+    "retest_cases": [
+      "P4-HARNESS-006",
+      "P4-HARNESS-007",
+      "P4-HARNESS-008"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-BASE-001",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "01_base/PROMPT_full.md",
+    "target_layer": "01_base",
+    "owner_surface": "highest-depth execution",
+    "proposed_change": "v35-candidate Phase 4.5 Technique Activation Boundary",
+    "applied_change": "Appended v35-candidate Phase 4.5 Technique Activation Boundary section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Full prompt can route richer techniques without technique theater.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Could add small complexity to full prompt.",
+    "affected_files": [
+      "01_base/PROMPT_full.md"
+    ],
+    "checksum_before": "sha256:4586efb348e1a718b40a5eeb328fac5cb3da4e88c98d13f935ebc9ba05588316",
+    "checksum_after": "sha256:2fee731f3b266c83713cd63adeb1165d5e2124895a5eb81aaa06c897923a4a82",
+    "retest_cases": [
+      "P4-REASON-001",
+      "P4-REASON-002",
+      "P4-TOOL-002",
+      "P4-RAG-001"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-BASE-002",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "01_base/PROMPT_light.md",
+    "target_layer": "01_base",
+    "owner_surface": "practical default execution",
+    "proposed_change": "v35-candidate Phase 4.5 Practical Default Anti-Overactivation Rule",
+    "applied_change": "Appended v35-candidate Phase 4.5 Practical Default Anti-Overactivation Rule section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Light prompt preserves efficiency while using stronger boundaries.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "May under-use advanced methods in ambiguous tasks if routing is too strict.",
+    "affected_files": [
+      "01_base/PROMPT_light.md"
+    ],
+    "checksum_before": "sha256:92f403436afdc7729ada8dcc5655d13d165b6ed6e215adddcc83568fb7c0f478",
+    "checksum_after": "sha256:bfd455ed7c12a8ef401310d382a839299b298c6fc08037adc582e187b8a13a19",
+    "retest_cases": [
+      "P4-BASIC-001",
+      "P4-BASIC-005",
+      "P4-REASON-001"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-BASE-003",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "01_base/PROMPT_lightest.md",
+    "target_layer": "01_base",
+    "owner_surface": "compressed execution",
+    "proposed_change": "v35-candidate Phase 4.5 Compression Safety Guard",
+    "applied_change": "Appended v35-candidate Phase 4.5 Compression Safety Guard section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Lightest retains safety and claim-strength integrity.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Minimal; small token cost increase.",
+    "affected_files": [
+      "01_base/PROMPT_lightest.md"
+    ],
+    "checksum_before": "sha256:87f867b9e3ecbce3c2496e1c9c065474ae61693f32bc02ffee5e9bf5c227409b",
+    "checksum_after": "sha256:2171a8ad976546d4362dd703a8c58b496f79a77a8dffcfdba2a78149f354e766",
+    "retest_cases": [
+      "P4-BASIC-005",
+      "P4-HARNESS-005"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-BASE-004",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "01_base/PROMPT_standalone.md",
+    "target_layer": "01_base",
+    "owner_surface": "coding-agent compressed execution",
+    "proposed_change": "v35-candidate Phase 4.5 Coding-Agent Freshness and False-Completion Guard",
+    "applied_change": "Appended v35-candidate Phase 4.5 Coding-Agent Freshness and False-Completion Guard section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Stronger coding freshness, prompt-injection, and false-completion behavior.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "May increase verification cost for API-sensitive tasks.",
+    "affected_files": [
+      "01_base/PROMPT_standalone.md"
+    ],
+    "checksum_before": "sha256:ba7a37b655c83cd7710503f63a13458e9566358a66e76e1a082bf81aa1d2c960",
+    "checksum_after": "sha256:d1db8b54948777f2a52ca0a974b548f3c277b8e02471a5b78fd9b08da08458d4",
+    "retest_cases": [
+      "P4-CODE-003",
+      "P4-CODE-004",
+      "P4-CODE-005",
+      "P4-CODE-006",
+      "P4-CODE-007"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-GOV-001",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "00_governance/PROMPT_guideline.md",
+    "target_layer": "00_governance",
+    "owner_surface": "version governance / owner boundary",
+    "proposed_change": "v35-candidate Phase 4.5 Candidate Evidence Boundary",
+    "applied_change": "Appended v35-candidate Phase 4.5 Candidate Evidence Boundary section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Governance makes candidate/release and stack/runtime separation explicit.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Could duplicate runbook language if expanded further.",
+    "affected_files": [
+      "00_governance/PROMPT_guideline.md"
+    ],
+    "checksum_before": "sha256:981dc904a3e297b51fd9a28c2670b480ba72a6c732ad217eef654665abbc2df8",
+    "checksum_after": "sha256:d7249624ad800302d51ca199fed03088d161daca546e494fa1a75e49e4b42f6d",
+    "retest_cases": [
+      "P4-HARNESS-001",
+      "P4-CODEX-001"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-CODEX-001",
+    "priority": "P1",
+    "source": "phase3",
+    "target_asset": "codex/CODEX_RUNTIME_GUIDE.md",
+    "target_layer": "codex_runtime_guide",
+    "owner_surface": "Codex host-runtime routing",
+    "proposed_change": "v35-candidate Phase 4.5 Runtime Independence and Routing Addendum",
+    "applied_change": "Appended v35-candidate Phase 4.5 Runtime Independence and Routing Addendum section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Clearer Codex skill routing without treating runtime guide as source-of-truth mirror.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Could blur runtime/source boundary if later copied into governance.",
+    "affected_files": [
+      "codex/CODEX_RUNTIME_GUIDE.md"
+    ],
+    "checksum_before": "sha256:996f707d29922e878288a6417a66bd6abf461cef2c87fc752f6edb55b519ae3e",
+    "checksum_after": "sha256:d4fc323cedc5eb4dc2ceace11d3d66dd58233ead5e528abaa98063343a2e4d07",
+    "retest_cases": [
+      "P4-CODEX-001"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-CODEX-002",
+    "priority": "P1",
+    "source": "phase3",
+    "target_asset": "codex/skills/coding-core/SKILL.md",
+    "target_layer": "codex_skill",
+    "owner_surface": "Codex coding runtime",
+    "proposed_change": "v35-candidate Phase 4.5 Coding Runtime Reinforcement",
+    "applied_change": "Appended v35-candidate Phase 4.5 Coding Runtime Reinforcement section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Stronger bounded-patch, freshness, and false-completion behavior in Codex coding tasks.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "More frequent retrieval reroute on API-sensitive work.",
+    "affected_files": [
+      "codex/skills/coding-core/SKILL.md"
+    ],
+    "checksum_before": "sha256:78ccdadc35068c23d36affa42eea3ed508a2ac492dcbbcbdb2cacb55be6b6a85",
+    "checksum_after": "sha256:c171574ee8a9c4cc44157986c11e254534b20576c97b1e1fa518ebbf1ff830aa",
+    "retest_cases": [
+      "P4-CODEX-002",
+      "P4-CODE-004",
+      "P4-CODE-007"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-CODEX-003",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "codex/skills/design-analysis/SKILL.md",
+    "target_layer": "codex_skill",
+    "owner_surface": "Codex design-analysis runtime",
+    "proposed_change": "v35-candidate Phase 4.5 Design Reasoning Reinforcement",
+    "applied_change": "Appended v35-candidate Phase 4.5 Design Reasoning Reinforcement section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Cleaner option pruning and less decorative reasoning.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "Could under-explore high-risk designs if applied too aggressively.",
+    "affected_files": [
+      "codex/skills/design-analysis/SKILL.md"
+    ],
+    "checksum_before": "sha256:187c14f8428f8e57d22e7eea3ea8185fd88e906ae23b9b8b2ac22de86a450c44",
+    "checksum_after": "sha256:4363795b1c4c7a7254bae08748aa2f44760e10e621b7ec975745541a10510c12",
+    "retest_cases": [
+      "P4-CODEX-003",
+      "P4-REASON-002",
+      "P4-REASON-004"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-CODEX-004",
+    "priority": "P1",
+    "source": "phase3",
+    "target_asset": "codex/skills/eval-ops/SKILL.md",
+    "target_layer": "codex_skill",
+    "owner_surface": "Codex evaluation runtime",
+    "proposed_change": "v35-candidate Phase 4.5 Eval Evidence Reinforcement",
+    "applied_change": "Appended v35-candidate Phase 4.5 Eval Evidence Reinforcement section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Stronger missing-evidence hold behavior and judge discipline.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "May hold candidates longer when measurement substrate is weak.",
+    "affected_files": [
+      "codex/skills/eval-ops/SKILL.md"
+    ],
+    "checksum_before": "sha256:4976885db10b7abfb181af670f65b9c6249c0f269eb71276fb534f450893b424",
+    "checksum_after": "sha256:106df66e55c19d46851499013dc12607e40eff3c36d1e47bd2cb0014e017a5b9",
+    "retest_cases": [
+      "P4-CODEX-004",
+      "P4-HARNESS-008"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-CODEX-005",
+    "priority": "P1",
+    "source": "phase3",
+    "target_asset": "codex/skills/grounded-research/SKILL.md",
+    "target_layer": "codex_skill",
+    "owner_surface": "Codex grounded research runtime",
+    "proposed_change": "v35-candidate Phase 4.5 Primary-Source Runtime Reinforcement",
+    "applied_change": "Appended v35-candidate Phase 4.5 Primary-Source Runtime Reinforcement section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Grounded-research refuses unsupported current claims and avoids citation theater.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "May require external retrieval for currentness-sensitive work.",
+    "affected_files": [
+      "codex/skills/grounded-research/SKILL.md"
+    ],
+    "checksum_before": "sha256:91d14f7c994fad24d2b1558421e5d11b533b9160bf96f867740bd090a2a42636",
+    "checksum_after": "sha256:72b0ca6bd3b3734f4bbe3c5f7e967d753264130bf237ac22e6950937a093c30c",
+    "retest_cases": [
+      "P4-CODEX-005",
+      "P4-RAG-001",
+      "P4-RAG-003",
+      "P4-RAG-006"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-CODEX-006",
+    "priority": "P2",
+    "source": "phase3",
+    "target_asset": "codex/skills/orchestration-control/SKILL.md",
+    "target_layer": "codex_skill",
+    "owner_surface": "Codex orchestration runtime",
+    "proposed_change": "v35-candidate Phase 4.5 Orchestration Admission Reinforcement",
+    "applied_change": "Appended v35-candidate Phase 4.5 Orchestration Admission Reinforcement section guarded by PHASE4_5_V35_CANDIDATE_PATCH.",
+    "reason": "Selected from Phase 2/3 backlog or Phase 4 required fix.",
+    "expected_behavior_change": "Less unnecessary fanout and better join-quality review.",
+    "harness_effect": "Linked to Phase 4R retest cases; not release-gated.",
+    "risk": "May reduce parallelism where useful but not clearly justified.",
+    "affected_files": [
+      "codex/skills/orchestration-control/SKILL.md"
+    ],
+    "checksum_before": "sha256:21841c29643998ff253d4a71cb737a8ce064f4df9ccc529b45948cbd59e3e293",
+    "checksum_after": "sha256:29964dfa274da4340ab04f8dbb66237f8eefbef62d9dd1de56644c691319fd1a",
+    "retest_cases": [
+      "P4-CODEX-006",
+      "P4-ORCH-001",
+      "P4-ORCH-003",
+      "P4-ORCH-005"
+    ],
+    "rollback_condition": "Remove this Phase 4.5 addendum if Phase 4R shows regression, owner drift, safety weakening, or claim overstatement."
+  },
+  {
+    "patch_id": "P45-SUBSTRATE-001",
+    "priority": "P1",
+    "source": "phase4_required_fix",
+    "target_asset": "harness/run_phase4r_native_replay.mjs",
+    "target_layer": "04_harness",
+    "owner_surface": "v35-candidate-native replay runner",
+    "proposed_change": "Create replay runner rooted at v35_candidate.",
+    "applied_change": "Created v35-candidate-native replay substrate file.",
+    "reason": "Phase 4 deterministic fallback was not release-grade and copied v34 runner paths were unsafe for v35-candidate evidence.",
+    "expected_behavior_change": "Phase 4R can run against v35_candidate assets without reading v34 paths.",
+    "harness_effect": "Prepares native replay substrate; execution remains Phase 4R.",
+    "risk": "Runner is deterministic-local by default and still requires actor/judge execution for stronger proof.",
+    "affected_files": [
+      "harness/run_phase4r_native_replay.mjs"
+    ],
+    "checksum_before": null,
+    "checksum_after": "sha256:ad5d522569e3e6a84e42b810bae0fb758f33f28924b2fedca9011927cb11c05f",
+    "retest_cases": [
+      "all Phase 4R native replay cases"
+    ],
+    "rollback_condition": "If runner reads v34 or mislabels local deterministic checks as release-grade proof."
+  }
+]

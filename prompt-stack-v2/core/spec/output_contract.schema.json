@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/prompt-stack-v2/output_contract.schema.json",
+  "title": "Prompt Stack v2 Output Contract",
+  "type": "object",
+  "required": [
+    "summary",
+    "claim_strength",
+    "verification",
+    "limitations"
+  ],
+  "properties": {
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_strength": {
+      "type": "string",
+      "enum": [
+        "plausible",
+        "harness-designed",
+        "static-structure-created",
+        "baseline-snapshotted",
+        "adapter-skeleton-created",
+        "locally-checked",
+        "runner-executed",
+        "replay-verified",
+        "integration-verified",
+        "release-gated",
+        "production-monitored"
+      ]
+    },
+    "changed_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["checks_run", "result", "skipped_checks"],
+      "properties": {
+        "checks_run": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "result": {
+          "type": "string",
+          "enum": ["not_run", "pass", "fail", "partial"]
+        },
+        "skipped_checks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_step": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,103 @@
+{
+  "record_type": "v35_release_closeout_status",
+  "record_date": "2026-05-20",
+  "status": "closed",
+  "final_status": "v35 release finalized.",
+  "current_stable_version": "v35",
+  "previous_stable_baseline": "v34",
+  "candidate_source": "v35_candidate",
+  "v34_modified": false,
+  "v35_candidate_preserved": true,
+  "release_finalization_status": "v35 release finalized with explicit downgrades and rollback plan",
+  "traceability": "checksum / manifest based",
+  "git_repository_available": false,
+  "git_based_release_claim": false,
+  "release_claim_scope": {
+    "allowed": [
+      "v35 is the current stable release of the evaluated prompt stack and Codex runtime package.",
+      "v35 was promoted from v35_candidate after release gate evaluation.",
+      "v35 passed local runner, actor-output, semantic-judge, and release-gate evidence checks.",
+      "v35 includes explicit downgrade language and rollback/monitoring plan."
+    ],
+    "prohibited": [
+      "Do not claim v35 as production-monitored.",
+      "Do not claim v35 as containment-verified.",
+      "Do not claim all primary-source items as fully validated.",
+      "Do not claim v35 as public benchmark certified.",
+      "Do not claim v35 as live production rollout certified."
+    ]
+  },
+  "no_further_action_without_user_request": [
+    "Phase 5 repeat",
+    "release decision rerun",
+    "v35_candidate modification",
+    "silent patch after v35 release",
+    "downgrade language removal",
+    "production-monitored claim",
+    "containment-verified claim",
+    "all-primary-source-validated claim",
+    "public-benchmark-certified claim",
+    "live-production-rollout-certified claim"
+  ],
+  "follow_up_backlog": [
+    {
+      "item": "Primary-source validation follow-up",
+      "status": "open",
+      "notes": [
+        "Track deferred primary-source items.",
+        "Do not promote latest model/API/tool items to release-grade current facts before official-source validation."
+      ]
+    },
+    {
+      "item": "Sandbox / containment follow-up",
+      "status": "open",
+      "notes": [
+        "Keep sandbox partial and containment downgrade separate.",
+        "Do not claim containment-verified before containment proof exists."
+      ]
+    },
+    {
+      "item": "Telemetry follow-up",
+      "status": "open",
+      "notes": [
+        "Keep local trace distinct from production telemetry.",
+        "Do not claim production-monitored before live telemetry is connected."
+      ]
+    },
+    {
+      "item": "Codex runtime watch",
+      "status": "open",
+      "notes": [
+        "Manage codex/skills as independent runtime packages, not 00~04 mirrors.",
+        "Route Codex runtime changes through separate validation and backport review."
+      ]
+    },
+    {
+      "item": "Post-release drift monitoring",
+      "status": "open",
+      "watch_items": [
+        "prompt injection resistance",
+        "approval boundary",
+        "destructive action boundary",
+        "retrieval/factuality",
+        "example boundary",
+        "technique over-activation",
+        "verify-before-claim",
+        "claim strength language",
+        "Codex runtime routing"
+      ]
+    }
+  ],
+  "preserved_artifacts": [
+    "v35/records/v35_release_manifest.json",
+    "v35/reports/V35_RELEASE_MANIFEST.md",
+    "v35/records/v35_file_checksums.json",
+    "v35/reports/V35_RELEASE_NOTES.md",
+    "v35/reports/V35_ROLLBACK_AND_MONITORING_PLAN.md",
+    "v35/reports/V35_RELEASE_FINALIZATION_REPORT.md",
+    "RELEASE_INDEX.md",
+    "CURRENT_STABLE_VERSION.txt",
+    "records/release_history.json"
+  ],
+  "next_action": "No further release action required unless user requests post-release validation, primary-source validation, containment proof, telemetry integration, or v36 planning."
+}

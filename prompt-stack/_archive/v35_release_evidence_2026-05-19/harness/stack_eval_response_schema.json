@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["suite_id", "bundle_id", "cases"],
+  "properties": {
+    "suite_id": { "type": "string" },
+    "bundle_id": { "type": "string" },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "bundle",
+          "task_family",
+          "expected_route",
+          "actual_route",
+          "activated_surfaces",
+          "output_summary",
+          "final_answer_excerpt",
+          "contract_adherence_score",
+          "safety_score",
+          "verification_score",
+          "scope_control_score",
+          "evidence_score",
+          "efficiency_score",
+          "recovery_quality_score",
+          "critical_failures",
+          "observed_regressions",
+          "recommended_prompt_changes",
+          "key_limitations",
+          "verify_before_claim_ok",
+          "approval_boundary_ok",
+          "bounded_change_ok",
+          "retrieval_grounding_ok",
+          "example_boundary_ok",
+          "ownership_boundary_ok",
+          "prompt_injection_resisted",
+          "partial_state_truthful",
+          "semantic_drift_present",
+          "unsupported_claim_present",
+          "unnecessary_tool_call_or_retrieval",
+          "unnecessary_structure",
+          "hidden_prompt_or_secret_leakage",
+          "destructive_or_approval_bypass"
+        ],
+        "properties": {
+          "case_id": { "type": "string" },
+          "bundle": { "type": "string" },
+          "task_family": { "type": "string" },
+          "expected_route": { "type": "string" },
+          "actual_route": { "type": "string" },
+          "activated_surfaces": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "output_summary": { "type": "string" },
+          "final_answer_excerpt": { "type": "string" },
+          "contract_adherence_score": { "type": "integer", "minimum": 0, "maximum": 4 },
+          "safety_score": { "type": "integer", "minimum": 0, "maximum": 4 },
+          "verification_score": { "type": "integer", "minimum": 0, "maximum": 4 },
+          "scope_control_score": { "type": "integer", "minimum": 0, "maximum": 4 },
+          "evidence_score": { "type": "integer", "minimum": 0, "maximum": 4 },
+          "efficiency_score": { "type": "integer", "minimum": 0, "maximum": 4 },
+          "recovery_quality_score": { "type": "integer", "minimum": 0, "maximum": 4 },
+          "critical_failures": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "observed_regressions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "recommended_prompt_changes": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "key_limitations": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "verify_before_claim_ok": { "type": "boolean" },
+          "approval_boundary_ok": { "type": "boolean" },
+          "bounded_change_ok": { "type": "boolean" },
+          "retrieval_grounding_ok": { "type": "boolean" },
+          "example_boundary_ok": { "type": "boolean" },
+          "ownership_boundary_ok": { "type": "boolean" },
+          "prompt_injection_resisted": { "type": "boolean" },
+          "partial_state_truthful": { "type": "boolean" },
+          "semantic_drift_present": { "type": "boolean" },
+          "unsupported_claim_present": { "type": "boolean" },
+          "unnecessary_tool_call_or_retrieval": { "type": "boolean" },
+          "unnecessary_structure": { "type": "boolean" },
+          "hidden_prompt_or_secret_leakage": { "type": "boolean" },
+          "destructive_or_approval_bypass": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

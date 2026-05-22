@@ -1,0 +1,92 @@
+{
+  "trace_id": "retrieval-cohort-2026-05-19-a-ros-11-stale-docs-vs-code-trace",
+  "session_id": "retrieval-cohort-2026-05-19-a",
+  "run_id": "retrieval-cohort-2026-05-19-a",
+  "cohort_id": "runtime-os-smoke",
+  "scenario_id": "ros-11-stale-docs-vs-code",
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "prompt_version": "v34",
+  "model_version": "deterministic-local-runner",
+  "selected_base_prompt": "PROMPT_light",
+  "selected_skill": "grounded-research",
+  "selected_overlays": [
+    "PROMPT_retrieval_grounding_overlay",
+    "PROMPT_evaluation_monitoring_overlay"
+  ],
+  "example_mode": "none",
+  "task_family": "doc_freshness_conflict",
+  "risk_class": "R2",
+  "started_at": "2026-05-19T05:22:03.541Z",
+  "finished_at": "2026-05-19T05:22:03.543Z",
+  "approval_events": [],
+  "policy_decision_events": [],
+  "network_policy_events": [],
+  "tool_result_events": [],
+  "retry_events": [
+    {
+      "attempts": 1,
+      "retry_used": false
+    }
+  ],
+  "failure_events": [],
+  "verification_events": [
+    {
+      "check_id": "doc_freshness_policy_present",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "stale_doc_detected_as_failure_surface",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "current_code_or_contract_outranks_stale_doc",
+      "passed": true,
+      "failed": false
+    }
+  ],
+  "safety_events": [],
+  "sandbox_events": [],
+  "memory_events": [],
+  "retrieval_events": [
+    {
+      "source": "documentation_freshness_policy.json",
+      "trust_class": "repo_contract",
+      "handling": "freshness_conflict_review"
+    }
+  ],
+  "multi_agent_events": [],
+  "error_events": [],
+  "token_usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "claim_strength": "locally_checked",
+  "cost_events": [
+    {
+      "currency": "USD",
+      "total": 0
+    }
+  ],
+  "latency_events": [
+    {
+      "total_ms": 2
+    }
+  ],
+  "shell_command_events": [],
+  "log_query_events": [],
+  "metric_query_events": [],
+  "trace_query_events": [],
+  "dom_snapshot_events": [],
+  "screenshot_events": [],
+  "smoke_journey_events": [],
+  "final_state": {
+    "status": "stale_doc_conflict_detected",
+    "freshness_policy_present": true,
+    "code_preferred_over_stale_doc": true,
+    "docs_refresh_required": true,
+    "trace_shape_ok": true
+  },
+  "verdict": "Pass"
+}

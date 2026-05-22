@@ -1,0 +1,29 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-c",
+  "harness_class": "code_defined_harness",
+  "config_harness_components": [
+    "model",
+    "prompt_stack",
+    "tool_surface",
+    "memory",
+    "identity",
+    "sandbox_policy",
+    "basic_observability"
+  ],
+  "code_defined_harness_components": [
+    "trace_to_eval_loop",
+    "replay_runner",
+    "release_gate_runner",
+    "custom_gate_logic"
+  ],
+  "managed_runtime_components": [],
+  "reasoning_runtime": "codex_workspace_agent",
+  "execution_runtime": "workspace_local_runner",
+  "generated_code_execution_separation": "not_applicable_for_prompt_stack_repo_baseline",
+  "artifact_store": "workspace_local_filesystem",
+  "persistent_storage": "workspace_versioned_files",
+  "session_suspend_resume": "not_defined",
+  "identity_surface": "workspace_operator_identity_only",
+  "filesystem_surface": "workspace_write_boundary",
+  "network_surface": "deny_by_default"
+}

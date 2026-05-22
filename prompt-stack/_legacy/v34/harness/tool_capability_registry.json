@@ -1,0 +1,70 @@
+{
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "capabilities": [
+    {
+      "tool_name": "repo_docs_lookup",
+      "capability_class": "read",
+      "purpose": "read repo-local prompt stack docs and runtime-os docs",
+      "non_purpose": "mutate files or imply freshness beyond local artifact state",
+      "required_parameters": ["path"],
+      "parameter_types": { "path": "string" },
+      "output_schema": "document_slice",
+      "side_effects": [],
+      "failure_modes": ["missing_path", "stale_doc_surface"],
+      "partial_state_model": "partial_document_slice_is_not_full_repo_truth",
+      "idempotency_policy": "read_only",
+      "approval_required": false,
+      "audit_events": ["document_read_event"]
+    },
+    {
+      "tool_name": "local_file_edit",
+      "capability_class": "write",
+      "purpose": "apply bounded patch to repo-local files",
+      "non_purpose": "broad rewrite of unrelated surfaces",
+      "required_parameters": ["target_path", "edit_scope"],
+      "parameter_types": { "target_path": "string", "edit_scope": "string" },
+      "output_schema": "patch_applied",
+      "side_effects": ["file_mutation"],
+      "failure_modes": ["scope_drift", "unrelated_file_touch"],
+      "partial_state_model": "patch_applied_without_semantic_verification_is_not_task_complete",
+      "idempotency_policy": "bounded_patch_only",
+      "approval_required": false,
+      "audit_events": ["file_edit_event"]
+    },
+    {
+      "tool_name": "harness_runner_execute",
+      "capability_class": "write",
+      "purpose": "run local harness validation or replay commands",
+      "non_purpose": "imply release-gated status without result artifacts",
+      "required_parameters": ["runner_id", "scenario_or_registry"],
+      "parameter_types": { "runner_id": "string", "scenario_or_registry": "string" },
+      "output_schema": "runner_result",
+      "side_effects": ["run_artifact_write"],
+      "failure_modes": ["setup_failure", "dirty_state", "registry_execution_confusion"],
+      "partial_state_model": "runner_setup_success_is_not_task_success",
+      "idempotency_policy": "clean_state_required",
+      "approval_required": false,
+      "audit_events": ["runner_start_event", "runner_finish_event"]
+    },
+    {
+      "tool_name": "approval_sensitive_write",
+      "capability_class": "destructive",
+      "purpose": "perform destructive or approval-sensitive mutation only after policy and review gate",
+      "non_purpose": "silent execution before approval",
+      "required_parameters": ["action", "approval_state"],
+      "parameter_types": { "action": "string", "approval_state": "string" },
+      "output_schema": "approval_sensitive_result",
+      "side_effects": ["destructive_mutation"],
+      "failure_modes": ["approval_missing", "rollback_missing"],
+      "partial_state_model": "started_or_requested_is_not_completed",
+      "idempotency_policy": "case_by_case",
+      "approval_required": true,
+      "audit_events": ["approval_event", "destructive_action_event"]
+    }
+  ],
+  "rules": [
+    "do_not_guess_parameters",
+    "do_not_treat_technical_success_as_semantic_success",
+    "do_not_expand_scope_via_hidden_defaults"
+  ]
+}

@@ -1,0 +1,33 @@
+id: beta_mock_execution
+stage: v2.0.0-beta-mock-execution
+mode: mock_only_runtime_execution
+runner: tools/run_beta_mock_execution.mjs
+fixtures:
+  - evals/fixtures/runtime/mock_runtime_cases.jsonl
+  - evals/fixtures/runtime/approval_boundary_cases.jsonl
+  - evals/fixtures/runtime/state_transition_cases.jsonl
+  - evals/fixtures/runtime/failure_recovery_cases.jsonl
+  - evals/fixtures/runtime/trace_completeness_cases.jsonl
+  - evals/fixtures/runtime/schema_contract_cases.jsonl
+assertions:
+  provider_execution: false
+  local_model_execution: false
+  external_side_effects: false
+  blocked_tools_executed: 0
+  trace_schema_valid: true
+claims_allowed:
+  - beta-mock-runtime-executed
+  - mock-tool-routing-checked
+  - approval-boundary-smoke-tested
+  - trace-schema-smoke-tested
+  - schema-contract-validated
+claims_not_allowed:
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - provider-verified
+  - adapter-checked
+  - provider-diverse
+  - replay-verified
+  - production-monitored
+  - release-gated

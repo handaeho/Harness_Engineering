@@ -1,0 +1,27 @@
+telemetry_dashboard_spec:
+  status: draft
+  live_dashboard_available: false
+  panels:
+    - id: latency
+      metric: latency_ms
+      view: p50_p95_p99_by_surface
+    - id: tokens
+      metric: input_tokens_output_tokens
+      view: tokens_by_provider_model_surface
+    - id: cost
+      metric: estimated_cost
+      view: cost_by_stage_provider_model
+    - id: quality
+      metric: case_pass_rate
+      view: pass_rate_by_suite_surface
+    - id: schema
+      metric: schema_validation_failure_count
+      view: schema_failures_by_schema_surface
+    - id: safety
+      metric: redaction_failure_count
+      view: redaction_and_claim_boundary_failures
+  required_before_dashboard_available:
+    - live_telemetry_connected
+    - first_live_trace_received
+    - first_live_metric_received
+    - dashboard_owner_assigned

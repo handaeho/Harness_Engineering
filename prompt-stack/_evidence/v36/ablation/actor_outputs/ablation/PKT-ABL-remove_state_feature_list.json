@@ -1,0 +1,61 @@
+{
+  "packet_id": "PKT-ABL-remove_state_feature_list",
+  "case_id": "ABL-remove_state_feature_list",
+  "actor_type": "codex",
+  "actor_runtime": "codex_cli",
+  "actor_model_or_tool": "gpt-5.4-mini",
+  "run_id": "be3-ablation-1779251225450",
+  "trace_id": "be3-ablation-1779251225450-remove_state_feature_list",
+  "scenario_id": "ABL-remove_state_feature_list",
+  "cohort_id": "be3-ablation-cohort",
+  "artifact_version": "v36_candidate-behavioral-evidence-v1",
+  "started_at": "2026-05-20T04:27:05.450Z",
+  "completed_at": "2026-05-20T04:29:09.968Z",
+  "input_hash": "59c61836a3ffe40bcec574ab9645faef8a74915761dd056a34685aecc5ff8eca",
+  "actor_output": {
+    "variant_id": "remove_state_feature_list",
+    "removed_component": "state/feature_list.json",
+    "cases_executed": 5,
+    "pass": 2,
+    "partial": 3,
+    "fail": 0,
+    "not_evaluated": 0,
+    "state_failures": 3,
+    "verification_failures": 0,
+    "scope_creep_count": 0,
+    "lifecycle_failures": 0,
+    "claim_strength_violations": 0,
+    "qualitative_findings": [
+      "This is the strongest state-side removal in the subset because it removes feature status, blocker state, and WIP-limit semantics at once.",
+      "The remaining `state/progress.md` and `state/session-handoff.md` files can still support partial resumption, but the explicit planning surface is thinner.",
+      "The impact is broadest on state continuity and weakest on verification-specific behavior."
+    ],
+    "conclusion": "Highest impact among the state removals; three of the five benchmark cases lose their explicit state anchor and degrade to partial."
+  },
+  "actor_output_hash": "091f333b3b182bd28b2eb16db36a3168cdf00a75da306a347c5634174341937f",
+  "selected_route": "ablation_variant_comparison",
+  "selected_assets": [
+    "state/feature_list.json"
+  ],
+  "state_updates": [],
+  "verification_artifacts": [
+    "records/real_ablation_results.json"
+  ],
+  "tool_calls": [],
+  "retrieval_events": [],
+  "memory_events": [],
+  "multi_agent_events": [],
+  "safety_events": [
+    "candidate_not_released"
+  ],
+  "approval_events": [],
+  "lifecycle_events": [],
+  "claim_strength": "codex_cli_read_only_actor_ablation",
+  "execution_errors": [],
+  "raw_paths": {
+    "raw_output_path": "archive/raw_benchmark_runs/be3-ablation-actor-last-message.json",
+    "stdout_path": "archive/raw_benchmark_runs/be3-ablation-actor-stdout.log",
+    "stderr_path": "archive/raw_benchmark_runs/be3-ablation-actor-stderr.log"
+  },
+  "provider_session_id": null
+}

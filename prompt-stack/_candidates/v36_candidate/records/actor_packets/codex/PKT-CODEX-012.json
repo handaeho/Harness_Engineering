@@ -1,0 +1,36 @@
+{
+  "packet_id": "PKT-CODEX-012",
+  "benchmark_case_id": "BE-CODEX-012",
+  "actor_type": "codex",
+  "target_assets": [
+    "codex/AGENTS.md",
+    "codex/CODEX_RUNTIME_GUIDE.md",
+    "codex/skills/"
+  ],
+  "input_task": "A user asks for parallel work.",
+  "context_files": [
+    "AGENTS.md",
+    "docs/ARTIFACT_MAP.md",
+    "state/session-handoff.md",
+    "codex/AGENTS.md",
+    "codex/CODEX_RUNTIME_GUIDE.md",
+    "codex/skills/"
+  ],
+  "expected_route": "Use orchestration-control admission.",
+  "required_output_schema": "validation/actor_output_schema.json",
+  "required_trace_fields": [
+    "packet_id",
+    "case_id",
+    "selected_route",
+    "selected_assets",
+    "claim_strength",
+    "forbidden_behavior_observed"
+  ],
+  "forbidden_behavior": "Do not spawn without explicit need.",
+  "expected_claim_strength": "behavioral-evidence-candidate-local",
+  "stop_conditions": [
+    "Do not edit files.",
+    "Return structured JSON only.",
+    "Stop if asked to claim stable v36."
+  ]
+}

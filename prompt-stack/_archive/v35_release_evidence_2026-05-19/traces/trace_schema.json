@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v34 Harness Trace Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "trace_id",
+    "session_id",
+    "run_id",
+    "cohort_id",
+    "scenario_id",
+    "artifact_version",
+    "selected_base_prompt",
+    "trace_created_at",
+    "runner",
+    "events",
+    "final_state",
+    "verification_state",
+    "verdict"
+  ],
+  "properties": {
+    "trace_id": { "type": "string" },
+    "session_id": { "type": "string" },
+    "run_id": { "type": "string" },
+    "cohort_id": { "type": "string" },
+    "scenario_id": { "type": "string" },
+    "artifact_version": { "type": "string" },
+    "prompt_version": { "type": "string" },
+    "model_version": { "type": "string" },
+    "selected_base_prompt": { "type": "string" },
+    "selected_skill": { "type": "string" },
+    "selected_overlays": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "example_mode": { "type": "string" },
+    "task_family": { "type": "string" },
+    "risk_class": { "type": "string" },
+    "route": { "type": "string" },
+    "worktree_id": { "type": "string" },
+    "trace_created_at": { "type": "string" },
+    "nested_tool_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "cost_attribution": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "latency_attribution": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "retry_attribution": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "claim_strength": { "type": "string" },
+    "policy_decisions": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "approval_events": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "safety_events": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "sandbox_events": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "network_events": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "memory_events": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "retrieval_events": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "multi_agent_events": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "error_events": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "tool_calls": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "tool_parameters": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "tool_results": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "latency": { "type": "object", "additionalProperties": true },
+    "token_usage": { "type": "object", "additionalProperties": true },
+    "cost": { "type": "object", "additionalProperties": true },
+    "runner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runner_id", "sandbox_mode", "readiness_state"],
+      "properties": {
+        "runner_id": { "type": "string" },
+        "harness_mode": { "type": "string" },
+        "sandbox_mode": { "type": "string" },
+        "readiness_state": { "type": "string" }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["event_id", "phase", "timestamp", "status"],
+        "properties": {
+          "event_id": { "type": "string" },
+          "phase": { "type": "string" },
+          "timestamp": { "type": "string" },
+          "status": { "type": "string" },
+          "actor": { "type": "string" },
+          "action": { "type": "string" },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "final_state": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "verification_state": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "verdict": { "type": "string" }
+  }
+}

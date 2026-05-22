@@ -1,0 +1,143 @@
+﻿{
+    "phase":  "Post-Phase 5 v35 Release Finalization",
+    "status":  "v35 release finalized with explicit downgrades and rollback plan",
+    "final_decision":  "Promote to v35",
+    "release_version":  "v35",
+    "previous_stable_version":  "v34",
+    "source_candidate":  "v35_candidate",
+    "target_release_path":  "v35/",
+    "finalization_completed":  true,
+    "v34_modified":  false,
+    "v35_candidate_preserved":  true,
+    "git_repository_available":  false,
+    "preconditions":  {
+                          "phase5_final_decision_found":  true,
+                          "promote_to_v35_confirmed":  true,
+                          "phase5_json_parse_valid":  true,
+                          "required_reports_present":  true,
+                          "required_records_present":  true,
+                          "v34_read_only_confirmed":  true,
+                          "v35_candidate_present":  true,
+                          "v35_existing":  false,
+                          "git_repository_available":  false,
+                          "release_finalization_allowed":  true,
+                          "blockers":  [
+
+                                       ]
+                      },
+    "release_directory":  {
+                              "source_candidate_path":  "v35_candidate/",
+                              "target_release_path":  "v35/",
+                              "copied":  true,
+                              "files_copied":  606,
+                              "directories_copied":  69,
+                              "skipped":  [
+
+                                          ],
+                              "conflicts":  [
+
+                                            ],
+                              "v34_modified":  false,
+                              "v35_candidate_preserved":  true,
+                              "destructive_operations":  [
+
+                                                         ]
+                          },
+    "release_manifest":  {
+                             "manifest_path":  "v35/records/v35_release_manifest.json",
+                             "checksum_record_path":  "v35/records/v35_file_checksums.json",
+                             "manifest_hash":  "sha256:556ef403a29489d4182adb232dfdbdaa08fe20c4a51c631e3026cf7b8dc60451",
+                             "release_scope":  [
+                                                   "source_of_truth_stack",
+                                                   "codex_runtime_assets",
+                                                   "harness_contracts",
+                                                   "evaluation_records",
+                                                   "release_evidence"
+                                               ],
+                             "evidence_summary":  {
+                                                      "native_semantic_judge":  "73/73 pass",
+                                                      "codex_runtime_semantic_judge":  "25/25 pass",
+                                                      "actor_output_authenticity":  "98/98 judgeable",
+                                                      "critical_failures":  0,
+                                                      "P0":  0,
+                                                      "release_blocking_P1":  0,
+                                                      "trace_missing":  0,
+                                                      "claim_strength_violations":  0
+                                                  }
+                         },
+    "claim_scope_and_downgrades":  {
+                                       "allowed_claims":  [
+                                                              "v35-candidate is promoted to v35 for source-of-truth stack and Codex runtime package readiness under evaluated local runner and semantic judge evidence.",
+                                                              "PromptingGuide.ai augmentation is incorporated as mapped technique coverage, example structure, evaluation cases, and harness contracts.",
+                                                              "Codex runtime assets passed behavioral alignment, safety preservation, runtime fitness, and boundary-preservation checks.",
+                                                              "Native replay semantic judge passed 73/73 evaluated cases.",
+                                                              "Codex runtime semantic judge passed 25/25 evaluated tests."
+                                                          ],
+                                       "downgraded_claims":  [
+                                                                 "primary_source",
+                                                                 "sandbox",
+                                                                 "telemetry",
+                                                                 "containment"
+                                                             ],
+                                       "prohibited_claims":  [
+                                                                 "production-monitored",
+                                                                 "containment-verified",
+                                                                 "all primary-source items fully validated",
+                                                                 "public benchmark certified",
+                                                                 "live production rollout certified",
+                                                                 "production autonomy certified",
+                                                                 "all current/latest model/API/tool facts validated"
+                                                             ],
+                                       "production_readiness_limitations":  [
+                                                                                "Release is for the evaluated prompt stack and Codex runtime package under local runner and semantic judge evidence, not for production autonomy.",
+                                                                                "No public benchmark certification is claimed.",
+                                                                                "No live production rollout certification is claimed."
+                                                                            ]
+                                   },
+    "codex_runtime_readiness":  {
+                                    "CODEX_RUNTIME_GUIDE":  "pass 4/4 under behavioral runtime judge",
+                                    "coding-core":  "pass 4/4 under behavioral runtime judge",
+                                    "design-analysis":  "pass 4/4 under behavioral runtime judge",
+                                    "eval-ops":  "pass 4/4 under behavioral runtime judge",
+                                    "grounded-research":  "pass 5/5 under behavioral runtime judge",
+                                    "orchestration-control":  "pass 4/4 under behavioral runtime judge",
+                                    "readiness_scope":  "behavioral alignment, safety preservation, runtime fitness, and boundary preservation under evaluated local evidence",
+                                    "non_mirror_boundary_preserved":  true
+                                },
+    "rollback_and_monitoring":  {
+                                    "rollback_plan":  "v35/reports/V35_ROLLBACK_AND_MONITORING_PLAN.md",
+                                    "monitoring_plan":  "v35/records/v35_rollback_and_monitoring_plan.json",
+                                    "rollback_triggers":  [
+                                                              "prompt injection regression",
+                                                              "approval boundary regression",
+                                                              "destructive action boundary regression",
+                                                              "secret leakage",
+                                                              "retrieval/factuality regression",
+                                                              "Codex runtime boundary regression",
+                                                              "example factual transfer regression",
+                                                              "unsupported release claim",
+                                                              "major runtime route regression"
+                                                          ],
+                                    "follow_up_items":  [
+                                                            "primary-source validation backlog",
+                                                            "sandbox containment proof",
+                                                            "telemetry integration",
+                                                            "production rollout criteria",
+                                                            "public benchmark decision if needed"
+                                                        ]
+                                },
+    "version_pointer_release_index":  {
+                                          "pointer_created":  [
+                                                                  "RELEASE_INDEX.md",
+                                                                  "CURRENT_STABLE_VERSION.txt",
+                                                                  "records/release_history.json"
+                                                              ],
+                                          "pointer_updated":  [
+
+                                                              ],
+                                          "conflicts":  [
+
+                                                        ],
+                                          "user_approval_needed":  false
+                                      }
+}

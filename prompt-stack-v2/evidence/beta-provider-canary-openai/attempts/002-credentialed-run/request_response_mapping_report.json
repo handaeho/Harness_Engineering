@@ -1,0 +1,243 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-provider-canary-openai-credentialed-run",
+  "request_mapping": {
+    "model_from_env": true,
+    "input_text_only": true,
+    "tools_present": false,
+    "structured_output_present": false,
+    "store_false": true,
+    "max_output_tokens_bounded": true
+  },
+  "response_mapping": {
+    "provider_response_id_present": true,
+    "output_text_extracted": true,
+    "usage_summary_present_if_available": true,
+    "raw_response_hash_present": true,
+    "raw_response_stored": false
+  },
+  "cases_total": 5,
+  "cases_mapped": 5,
+  "cases": [
+    {
+      "case_id": "simple_text_response",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Return exactly: CANARY_OK",
+        "input_hash": "04a8c2994735b02bc67cabf4b81021ba85904efd1508b317003d6d556f40723c",
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "0813289d6710cd71893e86d158dd9d3801d553640c87559cecd0a0d0bb7d9d3d",
+        "output_text_preview": "CANARY_OK",
+        "output_text_hash": "b0f59d403979fee931a778bd0a6ea20133c538f642e9dc508cf136b5a34a1027",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 12,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 7,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 19
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "d18cbddd9190f49c33da7aea9ab14ebc1faca3f3f39bb25b695024ccceda3382"
+      },
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "korean_instruction_following",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "다른 설명 없이 정확히 CANARY_KO_OK 라고만 답하세요.",
+        "input_hash": "8e9e2b93635d87eb0f39a5aeea8beda23bfd1e4bbec2a957e55db5e5e6abe22c",
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "84e20da56e6828f8bb2384a5e3a319915d6d49d641ee3d88a6d688519eda95a7",
+        "output_text_preview": "CANARY_KO_OK",
+        "output_text_hash": "cdb0d6b06e4dfde4c45245b7aed739f3504b6f8b293cfeec42e7e61abb95fb10",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 23,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 9,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 32
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "bbdce06ce17c5b7ecedebcb74de301e9ba3c85b032a84d95059823710d89f7e0"
+      },
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "refusal_boundary_neutral_safe_case",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Return exactly: CANARY_SAFE_OK",
+        "input_hash": "7d2d36a8e1f87d65df3c2513ca74f4d01de57713850a9baec4c035f906c97c07",
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "cded305f2287edc6e14425dde7625ceffb15c4ae9fe57192ee0fa4589dd3a121",
+        "output_text_preview": "CANARY_SAFE_OK",
+        "output_text_hash": "93e40ecc094aa3d6b4c34c85cb6adb0e3608fdd78b8172b3551abf7aa5666e29",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 13,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 8,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 21
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "36eb38cbc676d0b196c031fa13844b89e5017ca706bd9d69d8858d8d57287a8f"
+      },
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "request_id_trace_capture",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Return exactly: CANARY_TRACE_OK",
+        "input_hash": "c0c63c4c803dfade1d8613502c14c112587991e4bc626d4929cc2d21d129554d",
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "153407b1052905edb5a2c73dcc4f80be310f27309a2862f7c02a23b600d52835",
+        "output_text_preview": "CANARY_TRACE_OK",
+        "output_text_hash": "ea9327139d2231ebbd73dc2b4a118028c432780ab8c6c250a4e705bd0723de67",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 13,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 8,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 21
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "1850feec174e543df5dcca5c5ff3ed06ec8e51d3cfe8b1c349723468b12f1203"
+      },
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "no_tool_surface_assertion",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Return exactly: CANARY_NO_TOOL_OK",
+        "input_hash": "cc87ac40e98aa75c6bda09e4affa217fe70eb417915273522a733bf6127ae01c",
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "10d7664f0b6b4b5d5ddfb0a3e1d3de23d6813b6588137b784241219c6375f02c",
+        "output_text_preview": "CANARY_NO_TOOL_OK",
+        "output_text_hash": "86954b507af38a76655da27ce2218d9848f166bb4e9a0fe150dadbceedc45854",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 14,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 9,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 23
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "a0cbf320f3018ca783602e633c03fe408ee99d7edc62109a7943c9d96faf4a82"
+      },
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "pass"
+    }
+  ]
+}

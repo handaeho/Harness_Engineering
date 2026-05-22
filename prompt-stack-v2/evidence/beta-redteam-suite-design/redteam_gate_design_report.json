@@ -1,0 +1,220 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-redteam-suite-design",
+  "design_only": true,
+  "redteam_execution_allowed": false,
+  "can_execute_redteam": false,
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "can_enter_containment_verified_claim": false,
+  "reason": "Redteam suite design artifacts are present and validated. Execution and stronger claims remain closed.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_release_gate_dry_run.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "redteam_taxonomy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_case.schema.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_severity_rubric.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_pass_fail_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "owasp_genai_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "nist_genai_profile_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "mitre_atlas_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_execution_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_suite_design_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_fixture_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_mapping_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_severity_rubric_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam fixtures exist",
+      "status": "pass",
+      "detail": {
+        "fixture_files_total": 13
+      }
+    },
+    {
+      "name": "fixture validation pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fixture_validation_passed": true,
+        "fixture_cases_total": 47
+      }
+    },
+    {
+      "name": "mapping summary pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "owasp_mapping_exists": true,
+        "nist_mapping_exists": true,
+        "mitre_mapping_exists": true
+      }
+    },
+    {
+      "name": "redteam execution gate remains closed",
+      "status": "pass",
+      "detail": {
+        "status": "design_only",
+        "can_execute_redteam": false
+      }
+    },
+    {
+      "name": "design report has no execution",
+      "status": "pass",
+      "detail": {
+        "design_only": true,
+        "actual_redteam_execution": false,
+        "provider_execution": false,
+        "local_model_execution": false,
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "fixture counts recorded",
+      "status": "pass",
+      "detail": {
+        "fixture_files_total": 13,
+        "fixture_cases_total": 47
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "redteam-suite-designed",
+    "redteam-fixtures-authored",
+    "redteam-taxonomy-mapped",
+    "redteam-severity-rubric-drafted",
+    "redteam-execution-gate-designed",
+    "redteam-blocker-updated"
+  ],
+  "claims_blocked": [
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "integration-verified",
+    "telemetry-connected",
+    "benchmark-backed"
+  ]
+}

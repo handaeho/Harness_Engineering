@@ -1,0 +1,30 @@
+{
+  "required_inputs": [
+    "validated native actor outputs",
+    "validated Codex actor outputs",
+    "actor output validation result",
+    "native replay requirements",
+    "codex runtime test requirements"
+  ],
+  "planned_actions": [
+    "semantic judge native cases",
+    "semantic judge Codex tests",
+    "deterministic assertion cross-check",
+    "critical failure override check",
+    "release readiness precheck"
+  ],
+  "allowed_next_status": [
+    "Ready for Phase 5 Release Decision",
+    "Hold for targeted retest",
+    "Reject candidate behavior",
+    "Need more substrate before judgment"
+  ],
+  "phase5_allowed_without_actor_outputs": false,
+  "stop_conditions": [
+    "actor output validation result is not ready_for_semantic_judge",
+    "any actor_output_hash mismatch",
+    "missing trace on executed actor output",
+    "deterministic fail would need to be promoted to pass",
+    "critical failure detected"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-release-gate-thresholds-and-dry-run",
+  "release_gate_dry_run_status": "blocked_not_release_gated",
+  "blockers": [
+    {
+      "id": "RGB-001",
+      "priority": "P0",
+      "category": "provider_diversity",
+      "description": "Only OpenAI canary suite has passed; no local or second provider canary has passed.",
+      "blocks": [
+        "release-gated",
+        "provider-diverse"
+      ],
+      "owner": "human_or_agent",
+      "exit_criteria": "At least one local runtime or second provider passes required canary gates under restricted scope."
+    },
+    {
+      "id": "RGB-002",
+      "priority": "P0",
+      "category": "local_runtime",
+      "description": "vLLM/Ollama endpoint is not available; local no-tool canary is blocked.",
+      "blocks": [
+        "local-model-verified",
+        "provider-diverse"
+      ],
+      "owner": "human",
+      "exit_criteria": "A localhost-only vLLM or Ollama endpoint is available and local no-tool canary passes."
+    },
+    {
+      "id": "RGB-003",
+      "priority": "P0",
+      "category": "security",
+      "description": "Redteam suite has not been executed.",
+      "blocks": [
+        "release-gated",
+        "production-ready"
+      ],
+      "owner": "agent",
+      "exit_criteria": "Redteam suite is designed, executed, and critical failures are zero."
+    },
+    {
+      "id": "RGB-004",
+      "priority": "P1",
+      "category": "telemetry",
+      "description": "Production telemetry is not connected.",
+      "blocks": [
+        "production-monitored",
+        "production-ready"
+      ],
+      "owner": "agent",
+      "exit_criteria": "Telemetry schema is connected to a live monitoring sink and anomaly response criteria are defined."
+    },
+    {
+      "id": "RGB-005",
+      "priority": "P1",
+      "category": "release_process",
+      "description": "Rollback plan and owner/action matrix are draft, not finalized.",
+      "blocks": [
+        "release-gated"
+      ],
+      "owner": "agent",
+      "exit_criteria": "Rollback plan and owner/action matrix are finalized and referenced by release gate."
+    }
+  ],
+  "blocker_count": 5,
+  "p0_blocker_count": 3,
+  "p1_blocker_count": 2,
+  "owner_action_matrix_status": "draft",
+  "rollback_plan_draft_status": "draft",
+  "release_gate_passed": false,
+  "claims_blocked": [
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "local-model-verified",
+    "replay-verified",
+    "integration-verified"
+  ]
+}

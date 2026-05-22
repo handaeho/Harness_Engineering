@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-05-20T04:55:01.777Z",
+  "decision": "Promote to v36",
+  "current_stable_version": "v35",
+  "working_candidate": "v36_candidate",
+  "release_target": "v36",
+  "release_decision_started": true,
+  "release_decision_completed": true,
+  "promote_to_v36": true,
+  "phase10_finalization_required": true,
+  "phase10_performed": false,
+  "current_stable_pointer_changed": false,
+  "v36_directory_created": false,
+  "final_claim_strength": "release-decision-approved-for-phase10-finalization",
+  "rationale": [
+    "Source collection and source application gates passed.",
+    "Behavioral benchmark and Codex runtime benchmark passed.",
+    "Real read-only ablation executed across 9 variants.",
+    "Archive traceability passed.",
+    "P0 and release-blocking P1 counts are zero.",
+    "Known downgrades are explicit and non-blocking.",
+    "Stable pointer remains v35 until Phase 10."
+  ],
+  "blockers": [],
+  "required_phase10_finalization": [
+    "Copy v36_candidate to v36 only after user approval.",
+    "Update CURRENT_STABLE_VERSION.txt only in Phase 10.",
+    "Update RELEASE_INDEX.md and records/release_history.json only in Phase 10.",
+    "Generate final v36 checksums and release manifest.",
+    "Run final validation after finalization."
+  ],
+  "prohibited_actions_in_phase9": [
+    "Do not create prompt-stack/v36.",
+    "Do not update CURRENT_STABLE_VERSION.txt.",
+    "Do not update release_history as current stable v36."
+  ],
+  "downgrade_summary": [
+    {
+      "claim": "production telemetry",
+      "downgrade": "not available; not production-monitored"
+    },
+    {
+      "claim": "containment proof",
+      "downgrade": "not established; do not claim containment-verified"
+    },
+    {
+      "claim": "provider diversity",
+      "downgrade": "broader provider diversity remains a confidence improvement item, not a blocker"
+    },
+    {
+      "claim": "archive-only source items",
+      "downgrade": "five items remain archive-only P3 non-blockers"
+    },
+    {
+      "claim": "primary-source validation",
+      "downgrade": "source coverage and mapping are evidenced; do not claim all-primary-source-validated"
+    }
+  ]
+}

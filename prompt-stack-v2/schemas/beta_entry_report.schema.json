@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/prompt-stack-v2/schemas/beta_entry_report.schema.json",
+  "title": "Prompt Stack v2 Beta Entry Report",
+  "type": "object",
+  "required": [
+    "status",
+    "stage",
+    "can_enter_beta_execution",
+    "reason",
+    "checks",
+    "claims_allowed",
+    "claims_blocked"
+  ],
+  "properties": {
+    "status": { "enum": ["pass", "fail"] },
+    "stage": { "const": "v2.0.0-beta-preflight" },
+    "can_enter_beta_execution": { "const": false },
+    "reason": { "type": "string" },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "enum": ["pass", "fail"] },
+          "detail": {}
+        },
+        "additionalProperties": false
+      }
+    },
+    "claims_allowed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "claims_blocked": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

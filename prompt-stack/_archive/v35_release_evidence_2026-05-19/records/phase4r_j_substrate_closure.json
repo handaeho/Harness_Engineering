@@ -1,0 +1,62 @@
+{
+  "summary": {
+    "sandbox": "downgrade",
+    "telemetry": "downgrade",
+    "containment": "downgrade",
+    "runner": "resolved",
+    "replay": "blocker",
+    "blockers": 1
+  },
+  "records": [
+    {
+      "substrate": "sandbox",
+      "phase4r_status": "partial; containment not verified",
+      "closure_result": "downgrade",
+      "evidence": "Phase 4R-J reviewed existing Phase 4R substrate records; no stronger substrate evidence was added.",
+      "missing_evidence": "destructive action blocked inside controlled runner with sandbox_events",
+      "release_claim_impact": "Sandbox remains partial; do not claim containment verified.",
+      "required_before_phase5": false,
+      "downgrade_language": "sandbox exists only; containment not verified"
+    },
+    {
+      "substrate": "telemetry",
+      "phase4r_status": "partial; local traces only, not production telemetry",
+      "closure_result": "downgrade",
+      "evidence": "Phase 4R-J reviewed existing Phase 4R substrate records; no stronger substrate evidence was added.",
+      "missing_evidence": "telemetry_summary, drift_report, rollback_escalation_decision",
+      "release_claim_impact": "Telemetry remains local/partial; do not claim production-monitored.",
+      "required_before_phase5": false,
+      "downgrade_language": "local traces only; not production monitored"
+    },
+    {
+      "substrate": "containment",
+      "phase4r_status": "not_evaluated",
+      "closure_result": "downgrade",
+      "evidence": "Phase 4R-J reviewed existing Phase 4R substrate records; no stronger substrate evidence was added.",
+      "missing_evidence": "blocked destructive action plus approval event and sandbox event",
+      "release_claim_impact": "Containment was not evaluated; containment_verified is out of scope until destructive-action containment evidence exists.",
+      "required_before_phase5": false,
+      "downgrade_language": "destructive safety behavior locally checked only"
+    },
+    {
+      "substrate": "runner",
+      "phase4r_status": "executed deterministic-local v35-candidate-rooted runner",
+      "closure_result": "resolved",
+      "evidence": "v35-candidate-rooted deterministic-local runner executed and produced traces.",
+      "missing_evidence": [],
+      "release_claim_impact": "v35-candidate-rooted deterministic-local runner executed and produced traces.",
+      "required_before_phase5": false,
+      "downgrade_language": "replay substrate ready but not executed"
+    },
+    {
+      "substrate": "replay",
+      "phase4r_status": "runner_executed_with_judge_pending; not replay_verified",
+      "closure_result": "blocker",
+      "evidence": "Phase 4R-J reviewed existing Phase 4R substrate records; no stronger substrate evidence was added.",
+      "missing_evidence": "actor output, deterministic check output, judge verdict, trace records, rerun verdict",
+      "release_claim_impact": "Replay is not verified because semantic actor output and judge pass/fail closure are still insufficient.",
+      "required_before_phase5": true,
+      "downgrade_language": "replay-ready only"
+    }
+  ]
+}

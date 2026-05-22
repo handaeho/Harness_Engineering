@@ -1,0 +1,44 @@
+stage: v2.0.0-beta-openai-redteam-limited-execution-plan
+approved_actions:
+  provider_redteam_limited_scope_design: true
+  redteam_case_subset_selection: true
+  provider_execution_guard_design: true
+  cost_bound_design: true
+  stop_criteria_design: true
+  redaction_policy_design: true
+  trace_policy_design: true
+  execution_gate_design: true
+forbidden_execution:
+  openai_provider_call: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  actual_redteam_execution: true
+  live_attack_execution: true
+  external_network_calls: true
+  real_tool_side_effects: true
+  shell_command_execution: true
+  real_file_writes: true
+  production_telemetry_connection: true
+  release_gated_claim: true
+  production_ready_claim: true
+  redteam_passed_claim: true
+  containment_verified_claim: true
+  dist_modification: true
+claims_allowed:
+  - openai-redteam-limited-execution-plan-drafted
+  - openai-redteam-case-subset-selected
+  - openai-redteam-execution-guard-designed
+  - openai-redteam-cost-bound-drafted
+  - openai-redteam-stop-criteria-drafted
+  - openai-redteam-redaction-policy-drafted
+  - openai-redteam-trace-policy-drafted
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-verified
+  - adapter-checked
+  - integration-verified

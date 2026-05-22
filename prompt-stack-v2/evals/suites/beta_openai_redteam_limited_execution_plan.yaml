@@ -1,0 +1,26 @@
+stage: v2.0.0-beta-openai-redteam-limited-execution-plan
+suite: beta_openai_redteam_limited_execution_plan
+design_only: true
+actual_redteam_execution: false
+provider_execution: false
+local_model_execution: false
+required_artifacts:
+  - evals/fixtures/redteam_openai_limited/openai_limited_case_subset.jsonl
+  - evals/fixtures/redteam_openai_limited/excluded_cases_report.jsonl
+  - evals/fixtures/redteam_openai_limited/provider_execution_guard_cases.jsonl
+  - evidence/beta-openai-redteam-limited-execution-plan/openai_redteam_limited_execution_plan_report.json
+claims_allowed:
+  - openai-redteam-limited-execution-plan-drafted
+  - openai-redteam-case-subset-selected
+  - openai-redteam-execution-guard-designed
+  - openai-redteam-cost-bound-drafted
+  - openai-redteam-stop-criteria-drafted
+  - openai-redteam-redaction-policy-drafted
+  - openai-redteam-trace-policy-drafted
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - provider-verified

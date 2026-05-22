@@ -1,0 +1,42 @@
+{
+  "policy_id": "v34-release-gate-2026-05-19-c",
+  "repeat_count": 7,
+  "scenario_pass_rate_threshold": 1.0,
+  "allow_partial_pass": false,
+  "max_runner_failures": 0,
+  "max_flaky_scenarios": 0,
+  "required_harness_readiness_checks": [
+    "repository_map_exists",
+    "docs_linked_and_fresh",
+    "logs_metrics_traces_agent_readable_when_relevant",
+    "deterministic_invariants_exist",
+    "pr_risk_class_defined",
+    "rollback_path_exists_for_risky_work",
+    "stable_lineage_fields_preserved",
+    "runtime_os_charter_declared",
+    "runtime_component_map_declared",
+    "runtime_os_scenario_set_declared",
+    "prompt_runtime_verification_protocol_declared",
+    "prompt_behavior_release_gate_declared",
+    "runtime_substrate_declared",
+    "policy_observability_evaluation_triangle_declared",
+    "claim_strength_gate_declared"
+  ],
+  "hard_blocks": [
+    "docs_present_but_not_fresh",
+    "high_risk_path_without_observability",
+    "high_risk_path_without_invariant_checks",
+    "pr_opened_without_reproduction_and_verification_evidence",
+    "sandbox_exists_without_containment_review",
+    "trace_captured_without_eval_rule"
+  ],
+  "promote_if": [
+    "completed_runs == repeat_count",
+    "every scenario pass_rate == 1.0",
+    "every scenario stable_pass == true",
+    "runner_failures == 0",
+    "flaky_scenarios == 0",
+    "required_harness_readiness_checks all satisfied",
+    "hard_blocks count == 0"
+  ]
+}

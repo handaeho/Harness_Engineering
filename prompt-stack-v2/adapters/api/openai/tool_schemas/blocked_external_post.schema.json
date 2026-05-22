@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "blocked_external_post arguments",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["destination", "payload"],
+  "properties": {
+    "destination": {
+      "type": "string",
+      "enum": ["external_canary_sink"]
+    },
+    "payload": {
+      "type": "string",
+      "maxLength": 64
+    }
+  }
+}

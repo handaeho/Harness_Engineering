@@ -1,0 +1,27 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-b",
+  "repository_map_exists": true,
+  "agents_entrypoint": "prompt-stack/v34/AGENTS.md",
+  "agents_map_like": "required",
+  "repo_local_docs_roots": [
+    "AGENTS.md",
+    "docs/agent-runtime-os.md",
+    "docs/prompt-runtime-verification.md",
+    "docs/v34_Augmentation_Plan.md",
+    "docs/v34_Harness_Engineering_Plan.md"
+  ],
+  "build_test_lint_entrypoints": [
+    "prompt-stack/v34/PROMPT_USER_GUIDE.md",
+    "prompt-stack/v34/codex/CODEX_RUNTIME_GUIDE.md"
+  ],
+  "high_risk_action_boundary": [
+    "destructive_write",
+    "external_network",
+    "deployment_surface"
+  ],
+  "stale_doc_check_path": "prompt-stack/v34/harness/documentation_freshness_policy.json",
+  "current_gap": [
+    "repo-local docs system is compactly merged but not yet backed by freshness automation",
+    "AGENTS map-like discipline is documented but not lint-enforced"
+  ]
+}

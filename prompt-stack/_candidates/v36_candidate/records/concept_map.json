@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-05-20T03:18:26.751Z",
+  "source_basis": [
+    "Learn Harness Engineering web home",
+    "Learn Harness Engineering Git clone",
+    "v35 baseline audit"
+  ],
+  "subsystems": {
+    "Instructions": {
+      "core_question": "에이전트가 무엇을 읽고 어떤 순서로 시작하는가?",
+      "extracted_patterns": [
+        "short root router",
+        "progressive disclosure",
+        "purpose-specific docs",
+        "runtime package separation"
+      ],
+      "v36_assets": [
+        "AGENTS.md",
+        "MASTER_PROMPT_ROUTER.md",
+        "docs/OPERATING_GUIDE.md",
+        "codex/CODEX_RUNTIME_GUIDE.md",
+        "autonomous/00_governance"
+      ],
+      "failure_modes": [
+        "giant instruction dump",
+        "runtime/source mixing",
+        "stale startup path"
+      ]
+    },
+    "State": {
+      "core_question": "대화 기록 없이 다음 세션이 현재 상태를 복구할 수 있는가?",
+      "extracted_patterns": [
+        "feature list",
+        "progress log",
+        "decision log",
+        "session handoff",
+        "evidence log"
+      ],
+      "v36_assets": [
+        "state/feature_list.json",
+        "state/progress.md",
+        "state/decision_log.md",
+        "state/session-handoff.md",
+        "state/evidence_log.json"
+      ],
+      "failure_modes": [
+        "lost context",
+        "repeated work",
+        "hidden blockers"
+      ]
+    },
+    "Verification": {
+      "core_question": "완료 주장을 무엇으로 증명하는가?",
+      "extracted_patterns": [
+        "runnable validation",
+        "evaluator rubric",
+        "benchmark and ablation plan",
+        "claim strength gate"
+      ],
+      "v36_assets": [
+        "verification/current_validation_suite.json",
+        "verification/evaluator-rubric.md",
+        "harness/validate_current_v36.mjs",
+        "harness/run_benchmark.mjs"
+      ],
+      "failure_modes": [
+        "premature completion",
+        "trace captured treated as passed",
+        "runner existence treated as replay proof"
+      ]
+    },
+    "Scope": {
+      "core_question": "한 번에 어디까지 작업하고 overreach를 어떻게 감지하는가?",
+      "extracted_patterns": [
+        "WIP=1",
+        "definition of done",
+        "feature slice",
+        "approval boundary",
+        "no-overreach checks"
+      ],
+      "v36_assets": [
+        "autonomous/07_scope/SCOPE_POLICY.md",
+        "state/feature_list.json",
+        "verification/claim_strength_checklist.json"
+      ],
+      "failure_modes": [
+        "scope creep",
+        "half-finished parallel work",
+        "unapproved destructive action"
+      ]
+    },
+    "Lifecycle": {
+      "core_question": "세션 시작과 종료, handoff가 표준화되어 있는가?",
+      "extracted_patterns": [
+        "init script",
+        "clean-state checklist",
+        "closeout rules",
+        "handoff template"
+      ],
+      "v36_assets": [
+        "lifecycle/init.sh",
+        "lifecycle/clean-state-checklist.md",
+        "lifecycle/session-start.md",
+        "lifecycle/session-closeout.md",
+        "lifecycle/handoff-template.md"
+      ],
+      "failure_modes": [
+        "dirty closeout",
+        "manual-only restart",
+        "unrecorded verification state"
+      ]
+    }
+  }
+}

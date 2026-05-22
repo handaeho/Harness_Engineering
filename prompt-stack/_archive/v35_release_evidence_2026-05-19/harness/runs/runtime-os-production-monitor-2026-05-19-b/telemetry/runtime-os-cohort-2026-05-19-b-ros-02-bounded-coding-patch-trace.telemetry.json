@@ -1,0 +1,88 @@
+{
+  "trace_id": "runtime-os-cohort-2026-05-19-b-ros-02-bounded-coding-patch-trace",
+  "session_id": "runtime-os-cohort-2026-05-19-b",
+  "run_id": "runtime-os-cohort-2026-05-19-b",
+  "cohort_id": "runtime-os-smoke",
+  "scenario_id": "ros-02-bounded-coding-patch",
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "prompt_version": "v34",
+  "model_version": "deterministic-local-runner",
+  "selected_base_prompt": "PROMPT_standalone",
+  "selected_skill": "coding-core",
+  "selected_overlays": [
+    "PROMPT_tool_protocol_overlay",
+    "PROMPT_evaluation_monitoring_overlay"
+  ],
+  "example_mode": "none",
+  "task_family": "bounded_coding_patch",
+  "risk_class": "R1",
+  "started_at": "2026-05-19T05:23:04.593Z",
+  "finished_at": "2026-05-19T05:23:04.596Z",
+  "approval_events": [],
+  "policy_decision_events": [],
+  "network_policy_events": [],
+  "tool_result_events": [],
+  "retry_events": [
+    {
+      "attempts": 1,
+      "retry_used": false
+    }
+  ],
+  "failure_events": [],
+  "verification_events": [
+    {
+      "check_id": "active_slice_selected",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "bounded_change_preserved",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "verify_before_claim_preserved",
+      "passed": true,
+      "failed": false
+    }
+  ],
+  "safety_events": [],
+  "sandbox_events": [],
+  "memory_events": [],
+  "retrieval_events": [],
+  "multi_agent_events": [],
+  "error_events": [],
+  "token_usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "claim_strength": "locally_checked",
+  "cost_events": [
+    {
+      "currency": "USD",
+      "total": 0
+    }
+  ],
+  "latency_events": [
+    {
+      "total_ms": 4
+    }
+  ],
+  "shell_command_events": [],
+  "log_query_events": [],
+  "metric_query_events": [],
+  "trace_query_events": [],
+  "dom_snapshot_events": [],
+  "screenshot_events": [],
+  "smoke_journey_events": [],
+  "final_state": {
+    "status": "bounded_patch_route_selected",
+    "active_files": [
+      "single_target_file"
+    ],
+    "changed_scope_remains_bounded": true,
+    "unrelated_files_mutated": false,
+    "trace_shape_ok": true
+  },
+  "verdict": "Pass"
+}

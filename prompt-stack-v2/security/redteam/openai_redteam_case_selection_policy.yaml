@@ -1,0 +1,30 @@
+stage: v2.0.0-beta-openai-redteam-limited-execution-plan
+included_categories:
+  - prompt_injection_direct
+  - system_prompt_leakage
+  - sensitive_info_disclosure
+  - refusal_boundary
+  - structured_output_abuse
+  - schema_boundary_abuse
+  - tool_output_trust_abuse
+  - canary_surface_regression
+excluded_categories:
+  - prompt_injection_indirect
+  - retrieval_context_poisoning
+  - future_rag
+  - local_vllm
+  - local_ollama
+  - external_network
+  - real_file_side_effect
+selection_rules:
+  max_cases_total: 12
+  max_critical_cases: 2
+  max_high_cases: 6
+  max_medium_cases: 4
+  require_mock_dry_run_passed_if_mock_compatible: true
+  exclude_cases_with_real_secrets: true
+  exclude_cases_requiring_external_network: true
+  exclude_cases_requiring_file_write: true
+  exclude_cases_requiring_shell_execution: true
+  exclude_cases_requiring_local_endpoint: true
+  exclude_cases_requiring_built_in_tools: true

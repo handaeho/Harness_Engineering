@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "source_package": "prompt-stack/v36",
+  "alpha_snapshot": {
+    "inventory_count": 123,
+    "checksum_count": 123,
+    "full_current_snapshot_exists": true,
+    "current_snapshot_checked_count": 123,
+    "current_snapshot_mismatch_count": 0
+  },
+  "existing_v36_checksum_record": {
+    "path": "prompt-stack/v36/records/file_checksums.json",
+    "checked_count": 118,
+    "mismatch_count": 0,
+    "mismatch_scope_note": "Mismatch count applies only to files present in v36 records/file_checksums.json and alpha checksum snapshot.",
+    "excluded_mutable_count": 5,
+    "excluded_mutable_paths": [
+      "v36/records/assembled_bundle_integrity.json",
+      "v36/records/codex_runtime_integrity.json",
+      "v36/records/file_checksums.json",
+      "v36/validation/current_validation_result.json",
+      "v36/verification/current_validation_result.json"
+    ]
+  },
+  "count_difference_explanation": {
+    "alpha_checksum_count": 123,
+    "existing_record_count": 118,
+    "unchecked_or_unmatched_count": 5,
+    "explanation": "The alpha snapshot covers every current file under prompt-stack/v36. The existing v36 checksum record intentionally excluded mutable validation/integrity files, so only its 118 recorded files can be compared against that historical record."
+  },
+  "not_in_existing_record": [
+    {
+      "path": "v36/records/assembled_bundle_integrity.json",
+      "explanation": "listed in v36 records/file_checksums.json excluded_mutable"
+    },
+    {
+      "path": "v36/records/codex_runtime_integrity.json",
+      "explanation": "listed in v36 records/file_checksums.json excluded_mutable"
+    },
+    {
+      "path": "v36/records/file_checksums.json",
+      "explanation": "listed in v36 records/file_checksums.json excluded_mutable"
+    },
+    {
+      "path": "v36/validation/current_validation_result.json",
+      "explanation": "listed in v36 records/file_checksums.json excluded_mutable"
+    },
+    {
+      "path": "v36/verification/current_validation_result.json",
+      "explanation": "listed in v36 records/file_checksums.json excluded_mutable"
+    }
+  ],
+  "existing_record_mismatches": [],
+  "unresolved_items_count": 0,
+  "runner_reexecution": {
+    "v36_runners_reexecuted": false,
+    "note": "Existing records/reports were inspected, but v36 runners were not re-executed in this step."
+  }
+}

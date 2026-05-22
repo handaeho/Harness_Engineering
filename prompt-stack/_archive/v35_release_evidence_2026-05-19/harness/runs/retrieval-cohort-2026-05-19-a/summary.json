@@ -1,0 +1,70 @@
+{
+  "suite_mode": "runtime-os",
+  "suite_id": "v34-runtime-os-2026-05-19-a",
+  "run_id": "retrieval-cohort-2026-05-19-a",
+  "created_at": "2026-05-19T05:22:03.540Z",
+  "scenarios": [
+    {
+      "suite_mode": "runtime-os",
+      "scenario_id": "ros-11-stale-docs-vs-code",
+      "trace_id": "retrieval-cohort-2026-05-19-a-ros-11-stale-docs-vs-code-trace",
+      "trace_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\retrieval-cohort-2026-05-19-a\\ros-11-stale-docs-vs-code.trace.json",
+      "result_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\retrieval-cohort-2026-05-19-a\\ros-11-stale-docs-vs-code.result.json",
+      "verdict": "Pass",
+      "claim_strength": "locally_checked",
+      "exit_code": 0,
+      "final_state": {
+        "status": "stale_doc_conflict_detected",
+        "freshness_policy_present": true,
+        "code_preferred_over_stale_doc": true,
+        "docs_refresh_required": true,
+        "trace_shape_ok": true
+      },
+      "verification_state": {
+        "checks_executed": [
+          "doc_freshness_policy_present",
+          "stale_doc_detected_as_failure_surface",
+          "current_code_or_contract_outranks_stale_doc"
+        ],
+        "checks_passed": [
+          "doc_freshness_policy_present",
+          "stale_doc_detected_as_failure_surface",
+          "current_code_or_contract_outranks_stale_doc"
+        ],
+        "checks_failed": [],
+        "trace_shape_ok": true
+      }
+    },
+    {
+      "suite_mode": "runtime-os",
+      "scenario_id": "ros-12-latest-api-freshness",
+      "trace_id": "retrieval-cohort-2026-05-19-a-ros-12-latest-api-freshness-trace",
+      "trace_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\retrieval-cohort-2026-05-19-a\\ros-12-latest-api-freshness.trace.json",
+      "result_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\retrieval-cohort-2026-05-19-a\\ros-12-latest-api-freshness.result.json",
+      "verdict": "Pass",
+      "claim_strength": "locally_checked",
+      "exit_code": 0,
+      "final_state": {
+        "status": "freshness_route_preserved",
+        "official_source_priority": true,
+        "freshness_boundary_explicit": true,
+        "stale_memory_not_used_as_latest": true,
+        "trace_shape_ok": true
+      },
+      "verification_state": {
+        "checks_executed": [
+          "freshness_boundary_present",
+          "official_source_priority_present",
+          "memory_not_used_as_latest_authority"
+        ],
+        "checks_passed": [
+          "freshness_boundary_present",
+          "official_source_priority_present",
+          "memory_not_used_as_latest_authority"
+        ],
+        "checks_failed": [],
+        "trace_shape_ok": true
+      }
+    }
+  ]
+}

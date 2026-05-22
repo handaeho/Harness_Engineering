@@ -1,0 +1,355 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-c",
+  "rows": [
+    {
+      "quality_goal": "correctness",
+      "feedforward_guides": [
+        "AGENTS.md",
+        "01_base",
+        "04_harness/PROMPT_harness_engineering.md"
+      ],
+      "computational_sensors": [
+        "schema_validation",
+        "deterministic_runner_assertions"
+      ],
+      "inferential_sensors": [
+        "trajectory_review"
+      ],
+      "runtime_substrate": [
+        "run_external_harness.mjs",
+        "trace_schema.json"
+      ],
+      "evidence_artifacts": [
+        "trace",
+        "summary.json"
+      ],
+      "coverage_gap": [
+        "trace_to_eval_registry_not_populated"
+      ],
+      "improvement_action": [
+        "convert_first_v34_failure_into_trace_to_eval_record"
+      ]
+    },
+    {
+      "quality_goal": "tool_safety",
+      "feedforward_guides": [
+        "PROMPT_tool_protocol_overlay.md",
+        "04_harness/PROMPT_harness_contracts.md"
+      ],
+      "computational_sensors": [
+        "release_gate_preconditions"
+      ],
+      "inferential_sensors": [
+        "trajectory_review"
+      ],
+      "runtime_substrate": [
+        "sandbox_policy.json",
+        "mock_tool_contracts.json"
+      ],
+      "evidence_artifacts": [
+        "approval_event",
+        "tool_result_event"
+      ],
+      "coverage_gap": [
+        "mock_tool_cases_not_populated"
+      ],
+      "improvement_action": [
+        "add_mock_tool_cases_in_next_slice"
+      ]
+    },
+    {
+      "quality_goal": "release_readiness",
+      "feedforward_guides": [
+        "PROMPT_evaluation_monitoring_overlay.md",
+        "04_harness/PROMPT_harness_release_gate.md"
+      ],
+      "computational_sensors": [
+        "release_gate_preconditions"
+      ],
+      "inferential_sensors": [
+        "release_review"
+      ],
+      "runtime_substrate": [
+        "run_release_gate_repeats.mjs",
+        "telemetry_schema.json"
+      ],
+      "evidence_artifacts": [
+        "run_id",
+        "cohort_id",
+        "trace_id",
+        "artifact_version"
+      ],
+      "coverage_gap": [
+        "v34_repeated_runs_not_executed"
+      ],
+      "improvement_action": [
+        "patch_runner_and_execute_v34_gate"
+      ]
+    },
+    {
+      "quality_goal": "repository_legibility",
+      "feedforward_guides": [
+        "PROMPT_USER_GUIDE.md",
+        "04_harness/PROMPT_harness_engineering.md",
+        "docs/agent-runtime-os.md"
+      ],
+      "computational_sensors": [
+        "agents_reference_check",
+        "stale_doc_candidate_scan"
+      ],
+      "inferential_sensors": [
+        "doc_gardening_review"
+      ],
+      "runtime_substrate": [
+        "repository_legibility_harness.json",
+        "documentation_freshness_policy.json"
+      ],
+      "evidence_artifacts": [
+        "agents_entrypoint",
+        "stale_doc_candidates"
+      ],
+      "coverage_gap": [
+        "repo_local_docs_tree_is_contract_only",
+        "agents_map_like_check_not_linted"
+      ],
+      "improvement_action": [
+        "add_repo_local_docs_sample_and_doc_linter"
+      ]
+    },
+    {
+      "quality_goal": "observability",
+      "feedforward_guides": [
+        "04_harness/PROMPT_harness_engineering.md",
+        "docs/agent-runtime-os.md"
+      ],
+      "computational_sensors": [
+        "smoke_journey_runner",
+        "failure_reproduction_check",
+        "post_fix_verification_check"
+      ],
+      "inferential_sensors": [
+        "trajectory_review"
+      ],
+      "runtime_substrate": [
+        "observability_harness.json",
+        "telemetry_schema.json"
+      ],
+      "evidence_artifacts": [
+        "log_query_event",
+        "metric_query_event",
+        "trace_query_event",
+        "screenshot_event"
+      ],
+      "coverage_gap": [
+        "no_live_per_worktree_app_runner_example"
+      ],
+      "improvement_action": [
+        "add_sample_reproduction_and_post_fix_verification_surface"
+      ]
+    },
+    {
+      "quality_goal": "architecture_fitness",
+      "feedforward_guides": [
+        "04_harness/PROMPT_harness_engineering.md",
+        "04_harness/PROMPT_harness_contracts.md",
+        "docs/agent-runtime-os.md"
+      ],
+      "computational_sensors": [
+        "dependency_direction_test",
+        "forbidden_import_rule"
+      ],
+      "inferential_sensors": [
+        "release_review"
+      ],
+      "runtime_substrate": [
+        "architecture_invariant_harness.json"
+      ],
+      "evidence_artifacts": [
+        "invariant_failure",
+        "actionable_error_message"
+      ],
+      "coverage_gap": [
+        "prompt_stack_repo_has_defined_but_unexecuted_invariant_set"
+      ],
+      "improvement_action": [
+        "connect_one_executed_invariant_check_to_v34_runner"
+      ]
+    },
+    {
+      "quality_goal": "entropy_control",
+      "feedforward_guides": [
+        "04_harness/PROMPT_harness_engineering.md",
+        "docs/agent-runtime-os.md",
+        "docs/agent-runtime-os.md"
+      ],
+      "computational_sensors": [
+        "garbage_collection_cluster_scan",
+        "stale_doc_candidate_scan"
+      ],
+      "inferential_sensors": [
+        "taste_promotion_review"
+      ],
+      "runtime_substrate": [
+        "garbage_collection_policy.json",
+        "human_taste_encoding.json"
+      ],
+      "evidence_artifacts": [
+        "cleanup_candidate_cluster",
+        "promotion_target"
+      ],
+      "coverage_gap": [
+        "cleanup_cadence_not_executed"
+      ],
+      "improvement_action": [
+        "run_first_targeted_cleanup_slice_and_record_result"
+      ]
+    },
+    {
+      "quality_goal": "review_merge_safety",
+      "feedforward_guides": [
+        "04_harness/PROMPT_harness_release_gate.md",
+        "docs/agent-runtime-os.md",
+        "docs/prompt-runtime-verification.md"
+      ],
+      "computational_sensors": [
+        "risk_class_gate",
+        "release_gate_preconditions"
+      ],
+      "inferential_sensors": [
+        "merge_sampling_review"
+      ],
+      "runtime_substrate": [
+        "review_merge_policy.json",
+        "harness_readiness_checklist.json"
+      ],
+      "evidence_artifacts": [
+        "pr_risk_class",
+        "rollback_note",
+        "approval_state"
+      ],
+      "coverage_gap": [
+        "no_executed_pr_risk_routing_evidence"
+      ],
+      "improvement_action": [
+        "attach_risk_class_and_readiness_verdict_to_first_v34_pr_slice"
+      ]
+    },
+    {
+      "quality_goal": "runtime_substrate",
+      "feedforward_guides": [
+        "PROMPT_harness_engineering.md",
+        "PROMPT_harness_contracts.md",
+        "docs/agent-runtime-os.md"
+      ],
+      "computational_sensors": [
+        "release_gate_preconditions"
+      ],
+      "inferential_sensors": [
+        "tech_choice_review"
+      ],
+      "runtime_substrate": [
+        "runtime_substrate_contract.json",
+        "runner_contract.json"
+      ],
+      "evidence_artifacts": [
+        "harness_mode",
+        "artifact_store",
+        "generated_code_execution_separation"
+      ],
+      "coverage_gap": [
+        "runtime_substrate_documented_but_not_executed"
+      ],
+      "improvement_action": [
+        "attach_first_executed_substrate_lineage_example"
+      ]
+    },
+    {
+      "quality_goal": "policy_eval_observability_loop",
+      "feedforward_guides": [
+        "PROMPT_harness_engineering.md",
+        "PROMPT_evaluation_monitoring_overlay.md",
+        "PROMPT_guardrails_safety_overlay.md"
+      ],
+      "computational_sensors": [
+        "policy_decision_check",
+        "trace_grading_check"
+      ],
+      "inferential_sensors": [
+        "release_review"
+      ],
+      "runtime_substrate": [
+        "policy_eval_observability_triangle.json",
+        "telemetry_schema.json"
+      ],
+      "evidence_artifacts": [
+        "policy_decision_event",
+        "approval_event",
+        "trace_id"
+      ],
+      "coverage_gap": [
+        "triangle_defined_but_not_run_as_closed_loop"
+      ],
+      "improvement_action": [
+        "record_policy_observability_evaluation_linkage_in_first_v34_run"
+      ]
+    },
+    {
+      "quality_goal": "containment_readiness",
+      "feedforward_guides": [
+        "PROMPT_guardrails_safety_overlay.md",
+        "PROMPT_harness_engineering.md",
+        "docs/agent-runtime-os.md"
+      ],
+      "computational_sensors": [
+        "sandbox_misconfiguration_check"
+      ],
+      "inferential_sensors": [
+        "release_review"
+      ],
+      "runtime_substrate": [
+        "sandbox_policy.json",
+        "sandbox_escape_harness.json"
+      ],
+      "evidence_artifacts": [
+        "sandbox_mode",
+        "network_policy_event",
+        "audit_log_export"
+      ],
+      "coverage_gap": [
+        "sandbox_escape_readiness_not_tested"
+      ],
+      "improvement_action": [
+        "add_first_misconfiguration_review_case"
+      ]
+    },
+    {
+      "quality_goal": "claim_strength",
+      "feedforward_guides": [
+        "PROMPT_harness_release_gate.md",
+        "AGENTS.md",
+        "docs/prompt-runtime-verification.md"
+      ],
+      "computational_sensors": [
+        "claim_strength_gate_check"
+      ],
+      "inferential_sensors": [
+        "release_review"
+      ],
+      "runtime_substrate": [
+        "claim_strength_gate.json",
+        "release_gate_policy.json"
+      ],
+      "evidence_artifacts": [
+        "claim_strength",
+        "run_id",
+        "trace_id"
+      ],
+      "coverage_gap": [
+        "claim_strength_not_yet_emitted_by_v34_runs"
+      ],
+      "improvement_action": [
+        "emit_claim_strength_in_next_v34_execution_artifacts"
+      ]
+    }
+  ]
+}

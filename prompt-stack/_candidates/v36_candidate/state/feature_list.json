@@ -1,0 +1,95 @@
+{
+  "version": "v36_candidate",
+  "generated_at": "2026-05-20T03:18:26.751Z",
+  "wip_limit": 1,
+  "active_feature_id": null,
+  "features": [
+    {
+      "id": "V36-F01",
+      "name": "v35 baseline audit",
+      "status": "done",
+      "subsystem": "Verification",
+      "definition_of_done": [
+        "phase0 inventory written",
+        "integrity findings written"
+      ],
+      "verification": "records/phase0_v35_integrity_findings.json"
+    },
+    {
+      "id": "V36-F02",
+      "name": "Learn Harness Engineering source collection",
+      "status": "done",
+      "subsystem": "Instructions",
+      "definition_of_done": [
+        "git clone present",
+        "source inventory and hashes written"
+      ],
+      "verification": "records/source_inventory.json"
+    },
+    {
+      "id": "V36-F03",
+      "name": "five-subsystem concept map",
+      "status": "done",
+      "subsystem": "Instructions",
+      "definition_of_done": [
+        "concept map",
+        "failure map",
+        "coverage map"
+      ],
+      "verification": "records/concept_map.json"
+    },
+    {
+      "id": "V36-F04",
+      "name": "state and lifecycle primitives",
+      "status": "done",
+      "subsystem": "State",
+      "definition_of_done": [
+        "feature list",
+        "progress",
+        "decision log",
+        "handoff",
+        "init",
+        "clean-state checklist"
+      ],
+      "verification": "harness/validate_current_v36.mjs"
+    },
+    {
+      "id": "V36-F05",
+      "name": "Codex runtime separation",
+      "status": "done",
+      "subsystem": "Scope",
+      "definition_of_done": [
+        "codex guide",
+        "skills",
+        "runtime validation"
+      ],
+      "verification": "records/codex_runtime_integrity.json"
+    },
+    {
+      "id": "V36-F06",
+      "name": "benchmark and ablation proof",
+      "status": "partial",
+      "subsystem": "Verification",
+      "definition_of_done": [
+        "real agent benchmark",
+        "ablation comparison",
+        "raw runs archived"
+      ],
+      "verification": "records/benchmark_results.json",
+      "limitation": "Only deterministic static harness benchmark is generated in this run."
+    },
+    {
+      "id": "V36-F07",
+      "name": "release promotion",
+      "status": "blocked",
+      "subsystem": "Lifecycle",
+      "definition_of_done": [
+        "release gate pass",
+        "no P0/P1",
+        "behavior benchmark executed"
+      ],
+      "verification": "records/v36_release_decision.json",
+      "blocker": "behavioral benchmark/ablation not yet executed with real agent sessions"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "canary_calculator arguments",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["operation", "left", "right"],
+  "properties": {
+    "operation": {
+      "type": "string",
+      "enum": ["add", "multiply"]
+    },
+    "left": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "right": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    }
+  }
+}

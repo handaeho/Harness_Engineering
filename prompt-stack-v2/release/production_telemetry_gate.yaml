@@ -1,0 +1,24 @@
+production_telemetry_gate:
+  status: design_only
+  can_claim_telemetry_connected: false
+  can_claim_production_monitored: false
+  can_claim_production_ready: false
+  required_before_telemetry_connected:
+    - explicit_connection_approval
+    - telemetry_sink_credentials_present
+    - telemetry_schema_valid
+    - redaction_policy_valid
+    - first_live_trace_received
+    - first_live_metric_received
+  required_before_production_monitored:
+    - telemetry_connected
+    - anomaly_thresholds_active
+    - dashboard_available
+    - owner_action_matrix_finalized
+    - incident_response_path_defined
+    - rollback_trigger_defined
+  claims_blocked:
+    - telemetry-connected
+    - production-monitored
+    - production-ready
+    - release-gated

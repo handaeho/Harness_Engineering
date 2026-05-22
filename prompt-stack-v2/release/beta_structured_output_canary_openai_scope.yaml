@@ -1,0 +1,50 @@
+stage: v2.0.0-beta-structured-output-canary-openai
+
+approved_execution:
+  openai_provider_api_call: true
+  responses_api_structured_output: true
+  text_format_json_schema: true
+  strict_json_schema: true
+  ajv_schema_validation: true
+  no_tool_request: true
+  store_false: true
+  provider_trace_capture: true
+  request_response_redaction: true
+
+forbidden_execution:
+  function_calling: true
+  tool_calling: true
+  built_in_tools: true
+  remote_mcp: true
+  web_search_tool: true
+  file_search_tool: true
+  computer_use: true
+  local_model_execution: true
+  external_side_effect_tools: true
+  live_telemetry: true
+  redteam_execution: true
+  replay_verification: true
+  release_gate_claim: true
+
+claims_allowed:
+  - openai-structured-output-canary-executed
+  - provider-structured-output-path-checked
+  - json-schema-response-canary-validated
+  - structured-output-trace-captured
+  - structured-output-redaction-checked
+
+claims_not_allowed:
+  - adapter-checked
+  - provider-verified
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - telemetry-connected
+  - production-ready
+  - production-monitored
+  - containment-verified
+  - replay-verified
+  - benchmark-backed
+  - provider-diverse
+  - integration-verified
+  - release-gated

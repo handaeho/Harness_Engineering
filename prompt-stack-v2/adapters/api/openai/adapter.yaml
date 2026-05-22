@@ -1,0 +1,45 @@
+adapter_id: openai.api.skeleton
+target_runtime: openai_api
+status: skeleton
+supported_features:
+  message_mapping: dry_run_checked
+  no_tool_text_canary: canary_checked
+  structured_output_canary: canary_checked
+  tool_calling_canary: canary_checked
+  tool_calling: canary_only
+  structured_outputs: canary_only
+unsupported_features:
+  production_telemetry: not_in_alpha_scope
+  release_gate_execution: not_in_alpha_scope
+  tool_calling_for_canary: forbidden_in_provider_canary_scope
+  tool_calling_for_structured_output_canary: forbidden_in_structured_output_canary_scope
+requires_verification:
+  - message role mapping against the chosen API surface
+  - tool argument schema roundtrip
+  - structured output validation and retry behavior
+  - trace event emission
+  - no-tool text-only provider canary requires OPENAI_API_KEY and OPENAI_MODEL
+  - structured output canary requires OPENAI_API_KEY and OPENAI_MODEL
+  - tool-calling canary requires OPENAI_API_KEY and OPENAI_MODEL
+message_mapping:
+  core_role_contract: adapter_defined
+  system_or_developer_layer: not_used_in_canary
+  user_layer: canary_request_input
+  tool_result_layer: needs_verification
+tool_mapping:
+  core_tool_policy: adapter_defined
+  function_schema: canary_checked
+  approval_gate: runtime_owned
+  function_tools: canary_checked
+  mock_tool_output_reinjection: canary_checked
+  tool_argument_ajv_validation: canary_checked
+  tool_output_reclassification: canary_checked
+structured_output_mapping:
+  output_contract_schema: core/spec/output_contract.schema.json
+  responses_api_text_format_json_schema: canary_checked
+  strict_json_schema: canary_checked
+  ajv_revalidation: canary_checked
+known_risks:
+  - API surface freshness must be checked before implementation.
+  - Built-in tracing or eval support must not be claimed until executed.
+  - Provider-specific behavior must not leak into core/spec.

@@ -1,0 +1,278 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-mock-execution",
+  "mode": "mock_only_runtime_execution",
+  "provider_execution": false,
+  "local_model_execution": false,
+  "external_side_effects": false,
+  "cases_total": 11,
+  "cases_passed": 11,
+  "cases_failed": 0,
+  "blocked_tools_requested": 2,
+  "blocked_tools_executed": 0,
+  "mock_tools_executed": 5,
+  "trace_events_total": 105,
+  "trace_schema_valid": true,
+  "state_transitions_recorded": 24,
+  "claims_allowed": [
+    "beta-mock-runtime-executed",
+    "mock-tool-routing-checked",
+    "approval-boundary-smoke-tested",
+    "trace-schema-smoke-tested",
+    "schema-contract-validated"
+  ],
+  "claims_not_allowed": [
+    "adapter-checked",
+    "provider-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "telemetry-connected",
+    "production-ready",
+    "production-monitored",
+    "containment-verified",
+    "replay-verified",
+    "benchmark-backed",
+    "provider-diverse",
+    "integration-verified",
+    "release-gated"
+  ],
+  "case_results": [
+    {
+      "case_id": "approval.blocked_external_post",
+      "fixture_file": "evals/fixtures/runtime/approval_boundary_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "tool_requested",
+        "approval_checked",
+        "tool_blocked",
+        "run_completed"
+      ],
+      "blocked_tools": [
+        "blocked_external_post"
+      ],
+      "executed_mock_tools": [],
+      "state_transitions": [
+        "started",
+        "completed"
+      ]
+    },
+    {
+      "case_id": "approval.blocked_file_write",
+      "fixture_file": "evals/fixtures/runtime/approval_boundary_cases.jsonl",
+      "fixture_line": 2,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "tool_requested",
+        "approval_checked",
+        "tool_blocked",
+        "run_completed"
+      ],
+      "blocked_tools": [
+        "blocked_file_write"
+      ],
+      "executed_mock_tools": [],
+      "state_transitions": [
+        "started",
+        "completed"
+      ]
+    },
+    {
+      "case_id": "failure.recovery_path",
+      "fixture_file": "evals/fixtures/runtime/failure_recovery_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "mock_model_called",
+        "run_failed",
+        "recovery_applied",
+        "state_transition_recorded",
+        "run_completed"
+      ],
+      "blocked_tools": [],
+      "executed_mock_tools": [],
+      "state_transitions": [
+        "started",
+        "failed",
+        "recovered",
+        "completed"
+      ]
+    },
+    {
+      "case_id": "failure.missing_required_input",
+      "fixture_file": "evals/fixtures/runtime/failure_recovery_cases.jsonl",
+      "fixture_line": 2,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "run_started",
+        "context_built",
+        "state_transition_recorded",
+        "run_failed"
+      ],
+      "blocked_tools": [],
+      "executed_mock_tools": [],
+      "state_transitions": [
+        "started",
+        "failed"
+      ]
+    },
+    {
+      "case_id": "runtime.safe_no_tool_answer",
+      "fixture_file": "evals/fixtures/runtime/mock_runtime_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "run_started",
+        "context_built",
+        "route_selected",
+        "mock_model_called",
+        "state_transition_recorded",
+        "run_completed"
+      ],
+      "blocked_tools": [],
+      "executed_mock_tools": [],
+      "state_transitions": [
+        "started",
+        "completed"
+      ]
+    },
+    {
+      "case_id": "runtime.safe_echo_tool",
+      "fixture_file": "evals/fixtures/runtime/mock_runtime_cases.jsonl",
+      "fixture_line": 2,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "tool_requested",
+        "approval_checked",
+        "tool_executed_mock",
+        "tool_output_reclassified_untrusted",
+        "run_completed"
+      ],
+      "blocked_tools": [],
+      "executed_mock_tools": [
+        "safe_echo"
+      ],
+      "state_transitions": [
+        "started",
+        "completed"
+      ]
+    },
+    {
+      "case_id": "runtime.mock_retrieval_untrusted",
+      "fixture_file": "evals/fixtures/runtime/mock_runtime_cases.jsonl",
+      "fixture_line": 3,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "context_built",
+        "tool_requested",
+        "tool_executed_mock",
+        "tool_output_reclassified_untrusted",
+        "run_completed"
+      ],
+      "blocked_tools": [],
+      "executed_mock_tools": [
+        "mock_retrieval"
+      ],
+      "state_transitions": [
+        "started",
+        "completed"
+      ]
+    },
+    {
+      "case_id": "runtime.structured_output_contract",
+      "fixture_file": "evals/fixtures/runtime/mock_runtime_cases.jsonl",
+      "fixture_line": 4,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "tool_requested",
+        "tool_executed_mock",
+        "tool_output_reclassified_untrusted",
+        "run_completed"
+      ],
+      "blocked_tools": [],
+      "executed_mock_tools": [
+        "mock_schema_formatter"
+      ],
+      "state_transitions": [
+        "started",
+        "completed"
+      ]
+    },
+    {
+      "case_id": "schema.contract_path",
+      "fixture_file": "evals/fixtures/runtime/schema_contract_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "tool_requested",
+        "tool_executed_mock",
+        "tool_output_reclassified_untrusted",
+        "state_transition_recorded",
+        "run_completed"
+      ],
+      "blocked_tools": [],
+      "executed_mock_tools": [
+        "mock_schema_formatter"
+      ],
+      "state_transitions": [
+        "started",
+        "completed"
+      ]
+    },
+    {
+      "case_id": "state.transition_path",
+      "fixture_file": "evals/fixtures/runtime/state_transition_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "state_transition_recorded",
+        "run_completed"
+      ],
+      "blocked_tools": [],
+      "executed_mock_tools": [],
+      "state_transitions": [
+        "started",
+        "completed"
+      ]
+    },
+    {
+      "case_id": "trace.completeness_path",
+      "fixture_file": "evals/fixtures/runtime/trace_completeness_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "failures": [],
+      "expected_events": [
+        "run_started",
+        "context_built",
+        "route_selected",
+        "mock_model_called",
+        "tool_requested",
+        "approval_checked",
+        "tool_executed_mock",
+        "tool_output_reclassified_untrusted",
+        "state_transition_recorded",
+        "run_completed"
+      ],
+      "blocked_tools": [],
+      "executed_mock_tools": [
+        "safe_echo"
+      ],
+      "state_transitions": [
+        "started",
+        "completed"
+      ]
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,172 @@
+{
+  "suite_id": "v32-external-harness-2026-05-06-a",
+  "run_id": "2026-05-06-f",
+  "created_at": "2026-05-06T09:36:35.970Z",
+  "scenarios": [
+    {
+      "scenario_id": "EH-S01",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S01.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S01.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S01.stderr.log",
+      "response": {
+        "scenario_id": "v32-external-harness-2026-05-06-a",
+        "bundle_id": "eval_ops_reflection_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v32/AGENTS.md",
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v32/codex/skills/eval-ops/SKILL.md",
+          "prompt-stack/v32/03_examples/PROMPT_example_catalog.md"
+        ],
+        "answer_summary": "문서-레벨 벤치마크 경로가 기본으로 직접 노출된다. `CODEX_RUNTIME_GUIDE`의 가이드 반영 유지보수 라우팅은 기본 경로로 `Guide reflection benchmark memo`를 두고, 모호성/충돌/행동-중심 근거가 필요할 때만 `assembled replay`로 에스컬레이션하도록 규정한다. BR-00/BR-19 축은 모두 런타임/오버레이/스킬 표면에서 문서-파싱 가능한 기준(문서 ownership, 평가·모니터링 루프, 재현 경계)을 통해 판정할 수 있으므로, 첫 단계는 문서-레벨 벤치마크가 최소 정당화된 ladder이다.",
+        "verdict_rationale": "`AGENTS.md`는 문서 레벨 패리티와 behavior-level evidence를 분리해야 한다고 규정하며, 벤치마크형 판단 자체가 부족할 때만 `Benchmark cohort manifest`/`Replay runner verdict sheet` 같은 더 강한 운영 아티팩트로 상승한다고 정리한다. `CODEX_RUNTIME_GUIDE` 2.8절은 가이드/패턴 비교 유지보수에서 기본적으로 문서-레벨 벤치마크를 채택하고, 실제 재현 실행이 필요한 경우에만 replay 아티팩트를 요구한다. `eval-ops` 스킬의 guide-reflection loop도 런타임 owner/benchmark-loop 축에서 문서-레벨 판단이 충분하고, 동작 재현 상태로 질문이 이동할 때만 replay 아티팩트로 전환해야 함을 명시한다. 따라서 현재 축에서는 runtime-documented 경로가 직접 노출되며, 런타임 아웃사이드 의존은 없다.",
+        "limitations": [
+          "활성 번들에는 BR-00/BR-19의 식별자 정의가 직접 포함되지 않는다. 문제의 축명을 기준으로 문맥 매핑이 필요한 약한 간접 가정이 있다.",
+          "행동형 재현 증거(런너 실행 상태/완료도)가 검토 대상이 되면 현재 문서-레벨 결과만으로는 충분하지 않아 replay 아티팩트가 필요해질 수 있다."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S02",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S02.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S02.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S02.stderr.log",
+      "response": {
+        "scenario_id": "EH-S02",
+        "bundle_id": "grounded_research_appendix_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\01_base\\PROMPT_light.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\02_overlays\\PROMPT_search_reasoning_overlay.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\03_examples\\PROMPT_example_catalog.md"
+        ],
+        "answer_summary": "Prompt Chaining and Appendix A advanced prompting are directly reflected in the active bundle: the base prompt includes an explicit prompt chaining section, and the search_reasoning overlay explicitly owns Appendix A advanced prompting execution families while anchoring chaining in base prompts; the codex runtime guide maps these ownership routes accordingly, and the example catalog is explicitly marked shape-only.",
+        "verdict_rationale": "The active runtime stack provides direct ownership and execution-path statements in runtime-owned docs (base prompt + search reasoning overlay + runtime guide), so the answer path does not require out-of-scope operator-only docs. The example catalog is not needed for ownership and is correctly treated as exemplar-only.",
+        "limitations": [
+          "Exact BR identifiers (BR-01/14/17/22) are not textually defined in this bundle; alignment is evaluated against the described chain/Appendix ownership behavior rather than explicit per-ID benchmark text."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S03",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S03.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S03.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S03.stderr.log",
+      "response": {
+        "scenario_id": "EH-S03",
+        "bundle_id": "orchestration_sufficiency_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v32/AGENTS.md",
+          "prompt-stack/v32/01_base/PROMPT_full.md",
+          "prompt-stack/v32/02_overlays/PROMPT_multi_agent_overlay.md",
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v32/codex/skills/orchestration-control/SKILL.md"
+        ],
+        "answer_summary": "The active runtime bundle directly supports a single-agent-first answer: this is a local guide-reflection maintenance decision, and multi-agent/A2A is explicitly optional only when a coherent single path is insufficient. So the correct behavior is to choose single-agent sufficiency and avoid decorative orchestration.",
+        "verdict_rationale": "Multiple files in the active bundle define the same gate: use one coherent agent path by default, run coordination only when complexity, decomposition, parallelizable specialization, or lifecycle/interop risk management materially improves correctness or controllability. The orchestration skill and multi-agent overlay both explicitly instruct to avoid coordination when one coherent path is enough. Therefore the bundle can answer the task directly without rerouting, without external operator docs, and without requiring assembled replay artifacts.",
+        "limitations": [
+          "BR-03/07/13/15 are not explicitly named in the active files; mapping is inferred from the generic route-orchestration controls.",
+          "No assembled replay or operational execution artifact is present, though not required for this doc-level sufficiency decision."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S04",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S04.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S04.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S04.stderr.log",
+      "response": {
+        "scenario_id": "EH-S04",
+        "bundle_id": "coding_core_patch_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v32/AGENTS.md",
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v32/codex/skills/coding-core/SKILL.md"
+        ],
+        "answer_summary": "Bundle provides a direct runtime-owned path for a local codex-layer doc-repair hypothesis: use the coding-core primary skill, treat the stale-sentence report as a bounded local defect, confirm the local owner file first, and keep edits to the smallest possible owner slice with minimal validation surface.",
+        "verdict_rationale": "The active files themselves own the required control flow: standalone/base + guide layers establish task assembly and one-primary-skill routing; tool/guardrail overlays are supplementary and do not force escalation; coding-core explicitly prescribes localized handling for stale or wording defects with smallest-possible ownership-first edits and containment of scope. This matches the requested smallest safe fix route and avoids any dependency on out-of-scope operator-only artifacts.",
+        "limitations": [
+          "No concrete stale sentence or target file was provided in this scenario, so only route-level correctness is assessable, not the exact patch location.",
+          "No runtime validation was executed here per user constraints; this is an evidence-based routing judgment only."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S05",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S05.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S05.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-f\\EH-S05.stderr.log",
+      "response": {
+        "scenario_id": "EH-S05",
+        "bundle_id": "design_analysis_route_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\codex\\skills\\design-analysis\\SKILL.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\01_base\\PROMPT_full.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\02_overlays\\PROMPT_search_reasoning_overlay.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\02_overlays\\PROMPT_retrieval_grounding_overlay.md"
+        ],
+        "answer_summary": "문서 기반 유지보수 평가에서는 기본 경로로 문서 수준 벤치마크를 선택하고, 모호성/충돌/행동 증거가 필요한 경우로 판단되면 assembled replay로 에스컬레이션하며, 마지막으로 실행 상태 기반 판단이 필요하면 eval-ops로 라우트하는 것이 합리적이다.",
+        "verdict_rationale": "활성 번들에는 유지보수용 경로 규칙이 명시적으로 내재되어 있다. 기본 경로는 문서 레벨 벤치마크이며, 모호하거나 충돌이 있거나 행동-중요성 요구가 클 때 assembled replay로 이관하도록 되어 있어 비용·위험·근거 강도 조건을 충족한 1차/예비 경로가 모두 제공된다. 따라서 필요한 판단은 런타임 번들 내부에서 즉시 닫을 수 있으며 외부(운영자 전용) 문서 의존은 없다.",
+        "limitations": [
+          "BR-02/BR-16/BR-20/BR-21 각각에 대한 개별 운영 규칙은 활성 파일에 개별적으로 기재되지 않아 판단은 공통 경로 규칙을 축약 적용한 결과이다.",
+          "행동 실행형 근거(실제 replay 결과)는 현재 제공되지 않아, 현재 근거는 경로 규칙 기반의 문서 판정이며 행동 증명은 재검토 시 조건부 에스컬레이션 대상이다."
+        ]
+      }
+    }
+  ]
+}

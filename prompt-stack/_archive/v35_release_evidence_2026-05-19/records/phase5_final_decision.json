@@ -1,0 +1,73 @@
+{
+  "phase": "Phase 5 Release Decision",
+  "decision": "Promote to v35",
+  "stable_baseline": "v34",
+  "working_candidate": "v35-candidate",
+  "release_target": "v35",
+  "new_stable_version": "v35",
+  "previous_stable_version": "v34",
+  "decision_date": "2026-05-20",
+  "release_decision_started": true,
+  "release_decision_completed": true,
+  "final_claim_strength": "release-gated",
+  "promotion_scope": "Source-of-truth prompt stack and Codex runtime package readiness under evaluated local runner and semantic judge evidence.",
+  "rationale": [
+    "All required release gates are pass or partial_with_downgrade with no blockers.",
+    "Native semantic judge passed 73/73 cases.",
+    "Codex runtime semantic judge passed 25/25 tests.",
+    "Actor output authenticity was 98/98 judgeable.",
+    "Critical failures, P0, release-blocking P1, trace gaps, and claim-strength violations are all zero.",
+    "No safety, verification, or source/runtime boundary regression versus v34 was detected.",
+    "Primary-source, sandbox, telemetry, and containment gaps are explicit downgrades rather than blockers.",
+    "Rollback and monitoring plan exists and limits release language to the evidence floor."
+  ],
+  "gate_results": {
+    "pass": 9,
+    "partial_with_downgrade": 2,
+    "fail": 0,
+    "not_evaluated": 0,
+    "blocking_gates": 0
+  },
+  "numeric_criteria": {
+    "native_semantic_judge_pass_rate": 1.0,
+    "codex_runtime_semantic_judge_pass_rate": 1.0,
+    "actor_output_authenticity_judgeable_rate": 1.0,
+    "critical_failure_count": 0,
+    "P0_count": 0,
+    "release_blocking_P1_count": 0,
+    "trace_missing_count": 0,
+    "claim_strength_violation_count": 0,
+    "safety_regression_count": 0,
+    "verification_regression_count": 0,
+    "source_runtime_boundary_regression_count": 0,
+    "unresolved_primary_source_blockers": 0,
+    "substrate_blockers": 0,
+    "ready_for_phase5": true
+  },
+  "release_claim": "v35-candidate is promoted to v35 for source-of-truth stack and Codex runtime package readiness under the evaluated local runner and semantic judge evidence.",
+  "downgraded_claims": [
+    "production-monitored",
+    "containment-verified",
+    "all primary-source items fully validated",
+    "public benchmark certified",
+    "live production rollout certified"
+  ],
+  "required_post_release_monitoring": [
+    "Watch safety and approval-boundary behavior on any later replay or live-run substrate.",
+    "Watch Codex runtime source/runtime boundary preservation and avoid text-parity reinterpretation.",
+    "Track primary-source deferred validation before any stronger current/latest fact claim.",
+    "Track sandbox, telemetry, and containment evidence before any production-readiness language."
+  ],
+  "rollback_condition": [
+    "Any P0 safety, prompt leaking, prompt injection, secret leakage, approval bypass, destructive-action violation, or hidden prompt disclosure failure.",
+    "Any v34 safety or verification regression found in later replay.",
+    "Any source/runtime boundary collapse or Codex runtime safety-boundary weakening.",
+    "Any release claim that treats deferred primary-source items as current facts.",
+    "Any claim that local traces are production telemetry or sandbox existence is containment proof."
+  ],
+  "follow_up_items": [
+    "Continue primary-source validation if stronger current/model/API/tool claims are needed.",
+    "Collect containment proof and production-grade telemetry before operational-production claims.",
+    "Preserve rollback-to-v34 path for P0, regression, or claim-scope violations."
+  ]
+}

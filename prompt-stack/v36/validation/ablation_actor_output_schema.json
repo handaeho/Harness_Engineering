@@ -1,0 +1,83 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "cohort_id",
+    "results"
+  ],
+  "properties": {
+    "cohort_id": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "variant_id",
+          "removed_component",
+          "cases_executed",
+          "pass",
+          "partial",
+          "fail",
+          "not_evaluated",
+          "state_failures",
+          "verification_failures",
+          "scope_creep_count",
+          "lifecycle_failures",
+          "claim_strength_violations",
+          "qualitative_findings",
+          "conclusion"
+        ],
+        "properties": {
+          "variant_id": {
+            "type": "string"
+          },
+          "removed_component": {
+            "type": "string"
+          },
+          "cases_executed": {
+            "type": "integer"
+          },
+          "pass": {
+            "type": "integer"
+          },
+          "partial": {
+            "type": "integer"
+          },
+          "fail": {
+            "type": "integer"
+          },
+          "not_evaluated": {
+            "type": "integer"
+          },
+          "state_failures": {
+            "type": "integer"
+          },
+          "verification_failures": {
+            "type": "integer"
+          },
+          "scope_creep_count": {
+            "type": "integer"
+          },
+          "lifecycle_failures": {
+            "type": "integer"
+          },
+          "claim_strength_violations": {
+            "type": "integer"
+          },
+          "qualitative_findings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "conclusion": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

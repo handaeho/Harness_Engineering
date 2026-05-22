@@ -1,0 +1,132 @@
+{
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "operating_state_machine": "Intake -> Route -> Context Build -> Plan(optional) -> Execute -> Observe -> Verify -> Critique(optional) -> Recover/Replan(optional) -> Finalize",
+  "components": [
+    {
+      "layer": "instruction_layer",
+      "current_status": "partial",
+      "owner": "stack_owner",
+      "required_artifacts": ["AGENTS.md", "01_base", "02_overlays", "04_harness"],
+      "activation_condition": "prompt assembly determines runtime behavior",
+      "failure_modes": ["wrong_base_prompt", "overlay_spill", "example_overfit"],
+      "done_when": "exactly one base prompt and justified overlays are selected"
+    },
+    {
+      "layer": "repository_legibility_layer",
+      "current_status": "seeded",
+      "owner": "docs_owner",
+      "required_artifacts": ["AGENTS.md", "docs/agent-runtime-os.md", "docs/prompt-runtime-verification.md"],
+      "activation_condition": "repo navigation and repo-local truth govern success",
+      "failure_modes": ["stale_docs", "missing_entrypoint", "hidden_knowledge"],
+      "done_when": "agent can route itself to the right docs without raw full-context replay"
+    },
+    {
+      "layer": "context_substrate",
+      "current_status": "seeded",
+      "owner": "execution_owner",
+      "required_artifacts": ["context_pack_schema.json"],
+      "activation_condition": "active slice quality affects correctness",
+      "failure_modes": ["oversized_context", "underspecified_slice", "stale_memory_override"],
+      "done_when": "active slice, blockers, checkpoint, and approval boundary are preserved"
+    },
+    {
+      "layer": "tool_mcp_capability_layer",
+      "current_status": "seeded",
+      "owner": "tool_owner",
+      "required_artifacts": ["tool_capability_registry.json", "mcp_capability_registry.json", "docs/agent-runtime-os.md"],
+      "activation_condition": "tool or MCP access is needed",
+      "failure_modes": ["parameter_guessing", "broad_default_scope", "discoverability_confused_with_fit"],
+      "done_when": "capability registry captures approval, side effects, and validation expectations"
+    },
+    {
+      "layer": "policy_control_plane",
+      "current_status": "seeded",
+      "owner": "safety_owner",
+      "required_artifacts": ["policy_rule_set.json", "docs/agent-runtime-os.md"],
+      "activation_condition": "write, destructive, or approval-sensitive action exists",
+      "failure_modes": ["allow_by_default", "hidden_review_path", "no_policy_audit"],
+      "done_when": "default deny and decision logging are explicit"
+    },
+    {
+      "layer": "sandbox_containment_layer",
+      "current_status": "partial",
+      "owner": "runtime_owner",
+      "required_artifacts": ["sandbox_policy.json", "sandbox_escape_harness.json", "docs/agent-runtime-os.md"],
+      "activation_condition": "shell, browser, filesystem, network, or code execution is used",
+      "failure_modes": ["egress_leak", "secret_exposure", "misconfiguration", "runtime_execution_not_separated"],
+      "done_when": "containment boundaries and misconfiguration checks are defined"
+    },
+    {
+      "layer": "execution_runner",
+      "current_status": "partial",
+      "owner": "harness_owner",
+      "required_artifacts": ["runner_contract.json", "run_external_harness.mjs", "run_prompt_stack_eval.mjs"],
+      "activation_condition": "repeatable execution or replay is required",
+      "failure_modes": ["dirty_state", "cache_leak", "setup_failure_confused_with_agent_failure"],
+      "done_when": "runner emits clean-state and readiness lineage"
+    },
+    {
+      "layer": "observability_telemetry_layer",
+      "current_status": "partial",
+      "owner": "observability_owner",
+      "required_artifacts": ["telemetry_schema.json", "trace_schema.json", "docs/agent-runtime-os.md"],
+      "activation_condition": "proof depends on runtime observation",
+      "failure_modes": ["trace_without_verdict", "missing_event_family", "no_claim_strength"],
+      "done_when": "trace emits policy, approval, tool, sandbox, latency, and claim fields"
+    },
+    {
+      "layer": "evaluation_replay_harness",
+      "current_status": "partial",
+      "owner": "eval_owner",
+      "required_artifacts": ["runtime_os_scenarios.json", "trace_to_eval_registry.json", "docs/prompt-runtime-verification.md"],
+      "activation_condition": "regression or release confidence depends on repeatable evaluation",
+      "failure_modes": ["output_only_grading", "no_critical_override", "replay_ready_inflation"],
+      "done_when": "scenario, verdict, and rerun linkage are explicit"
+    },
+    {
+      "layer": "memory_adaptation_layer",
+      "current_status": "contract_only",
+      "owner": "adaptation_owner",
+      "required_artifacts": ["PROMPT_memory_adaptation_overlay.md"],
+      "activation_condition": "continuity or adaptation is used",
+      "failure_modes": ["stale_memory", "silent_drift", "unsafe_promotion"],
+      "done_when": "memory scope, pruning, promotion, quarantine, and rollback are documented"
+    },
+    {
+      "layer": "multi_agent_orchestration_layer",
+      "current_status": "contract_only",
+      "owner": "orchestration_owner",
+      "required_artifacts": ["PROMPT_multi_agent_overlay.md"],
+      "activation_condition": "single-agent path is insufficient",
+      "failure_modes": ["unnecessary_fanout", "weak_handoff", "join_failure"],
+      "done_when": "topology choice and join owner are explicit"
+    },
+    {
+      "layer": "human_review_approval_layer",
+      "current_status": "partial",
+      "owner": "review_owner",
+      "required_artifacts": ["review_merge_policy.json", "docs/agent-runtime-os.md"],
+      "activation_condition": "risk class or approval boundary requires human gate",
+      "failure_modes": ["fake_approval", "hidden_rejection", "preapproval_action"],
+      "done_when": "risk class and approval events are logged"
+    },
+    {
+      "layer": "release_rollback_layer",
+      "current_status": "partial",
+      "owner": "release_owner",
+      "required_artifacts": ["release_gate_policy.json", "harness_readiness_checklist.json", "docs/agent-runtime-os.md"],
+      "activation_condition": "approve/hold/reject/quarantine decision is needed",
+      "failure_modes": ["no_owner", "no_threshold", "no_rollback"],
+      "done_when": "gate owner, threshold, fail action, and rollback condition are explicit"
+    },
+    {
+      "layer": "agentic_garbage_collection_layer",
+      "current_status": "seeded",
+      "owner": "quality_owner",
+      "required_artifacts": ["garbage_collection_policy.json", "human_taste_encoding.json", "docs/agent-runtime-os.md"],
+      "activation_condition": "drift, stale docs, slop, or repeated review noise accumulates",
+      "failure_modes": ["entropy_growth", "stale_docs", "duplicated_pattern"],
+      "done_when": "cleanup cadence and promotion rule are defined"
+    }
+  ]
+}

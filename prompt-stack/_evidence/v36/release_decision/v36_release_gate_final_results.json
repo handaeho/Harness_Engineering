@@ -1,0 +1,168 @@
+{
+  "generated_at": "2026-05-20T04:55:01.777Z",
+  "gate_set": "phase9_v36_release_decision_final_gates",
+  "decision": "Promote to v36",
+  "current_stable_before_phase10": "v35",
+  "working_candidate": "v36_candidate",
+  "release_target": "v36",
+  "release_decision_started": true,
+  "release_decision_completed": true,
+  "final_claim_strength": "release-decision-approved-for-phase10-finalization",
+  "pass": 11,
+  "partial_with_downgrade": 0,
+  "fail": 0,
+  "not_evaluated": 0,
+  "gates": [
+    {
+      "name": "Source Collection Gate",
+      "result": "pass",
+      "evidence": [
+        "records/source_inventory.json",
+        "records/source_hash_manifest.json",
+        "records/source_language_matrix.json",
+        "records/source_completeness_recheck.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": "No all-primary-source-validated claim; coverage proof is source inventory and mapping evidence.",
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Source Application Gate",
+      "result": "pass",
+      "evidence": [
+        "records/source_completeness_recheck.json",
+        "records/lecture_to_asset_application_matrix.json",
+        "records/git_asset_application_matrix.json",
+        "records/missing_application_gap_register.json",
+        "records/source_application_validation_result.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": "Five archive-only source items remain P3 non-blockers.",
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "v35 Baseline Gate",
+      "result": "pass",
+      "evidence": [
+        "prompt-stack/CURRENT_STABLE_VERSION.txt",
+        "v35/records/v35_file_checksums.json",
+        "records/phase0_v35_integrity_findings.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Harness Subsystem Gate",
+      "result": "pass",
+      "evidence": [
+        "records/harness_scorecard.json",
+        "records/harness_subsystem_coverage.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Autonomous Agent Asset Gate",
+      "result": "pass",
+      "evidence": [
+        "records/assembled_bundle_integrity.json",
+        "autonomous/99_total/",
+        "records/behavioral_judge_results.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Codex Runtime Gate",
+      "result": "pass",
+      "evidence": [
+        "records/codex_runtime_integrity.json",
+        "codex/CODEX_RUNTIME_GUIDE.md",
+        "records/behavioral_judge_results.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": "Codex runtime readiness is behavioral alignment/runtime fitness evidence, not text mirror parity.",
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "State and Lifecycle Gate",
+      "result": "pass",
+      "evidence": [
+        "state/feature_list.json",
+        "state/progress.md",
+        "state/session-handoff.md",
+        "lifecycle/init.sh",
+        "lifecycle/clean-state-checklist.md",
+        "records/behavioral_judge_results.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Verification Gate",
+      "result": "pass",
+      "evidence": [
+        "validation/current_validation_result.json",
+        "records/assembled_bundle_integrity.json",
+        "records/codex_runtime_integrity.json",
+        "records/actor_output_validation_result.json",
+        "records/behavioral_judge_results.json",
+        "records/real_ablation_results.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Safety and Scope Gate",
+      "result": "pass",
+      "evidence": [
+        "records/behavioral_judge_results.json",
+        "docs/SECURITY.md",
+        "autonomous/07_scope/SCOPE_POLICY.md"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Archive and Traceability Gate",
+      "result": "pass",
+      "evidence": [
+        "records/archive_traceability_closure.json",
+        "archive/raw_benchmark_runs/",
+        "archive/behavioral_evidence/"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Release Language Gate",
+      "result": "pass",
+      "evidence": [
+        "verification/claim_strength_checklist.json",
+        "records/v36_claim_scope_and_downgrades.json",
+        "reports/V36_RELEASE_DECISION.md"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": "Production telemetry, containment proof, all-primary-source validation, public benchmark certification, and live production rollout certification are explicitly not claimed.",
+      "blocker": null,
+      "required_follow_up": []
+    }
+  ]
+}

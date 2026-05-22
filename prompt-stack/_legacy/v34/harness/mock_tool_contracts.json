@@ -1,0 +1,144 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-a",
+  "required_contract_fields": [
+    "tool_name",
+    "tool_class",
+    "required_parameters",
+    "parameter_constraints",
+    "allowed_values",
+    "forbidden_values",
+    "side_effect_model",
+    "partial_state_model",
+    "failure_modes",
+    "retry_policy",
+    "expected_observation_shape",
+    "assertion_hooks"
+  ],
+  "tools": [
+    {
+      "tool_name": "mock_read_file",
+      "tool_class": "read",
+      "required_parameters": ["path"],
+      "parameter_constraints": ["path_must_be_explicit"],
+      "allowed_values": ["active_slice_or_declared_read_path"],
+      "forbidden_values": ["wildcard_path_guess"],
+      "side_effect_model": "none",
+      "partial_state_model": "file_read_does_not_imply_edit_or_fix",
+      "failure_modes": ["missing_path", "path_not_found", "forbidden_read_path"],
+      "retry_policy": "read_retry_allowed_if_transient",
+      "expected_observation_shape": "file_contents_or_read_error",
+      "assertion_hooks": [
+        "read_before_write_when_possible",
+        "no_scope_guessing"
+      ]
+    },
+    {
+      "tool_name": "mock_write_file",
+      "tool_class": "write",
+      "required_parameters": ["path", "content"],
+      "parameter_constraints": [
+        "path_must_be_explicit",
+        "approval_required_if_outside_active_slice",
+        "approval_required_if_overwriting_critical_file"
+      ],
+      "allowed_values": ["declared_target_path"],
+      "forbidden_values": ["broad_wildcard_path", "implicit_overwrite"],
+      "side_effect_model": "file_mutation",
+      "partial_state_model": "write_success_is_not_behavioral_success",
+      "failure_modes": ["approval_missing", "write_denied", "content_invalid"],
+      "retry_policy": "do_not_blind_retry_on_policy_or_scope_failure",
+      "expected_observation_shape": "write_receipt",
+      "assertion_hooks": [
+        "read_first_if_sufficient",
+        "scope_boundary_preserved",
+        "technical_success_not_task_success"
+      ]
+    },
+    {
+      "tool_name": "mock_delete_file",
+      "tool_class": "destructive",
+      "required_parameters": ["path"],
+      "parameter_constraints": ["approval_required_always"],
+      "allowed_values": ["explicit_single_path"],
+      "forbidden_values": ["wildcard_delete", "repo_root_delete"],
+      "side_effect_model": "destructive_file_mutation",
+      "partial_state_model": "requested_delete_is_not_completed_delete",
+      "failure_modes": ["approval_missing", "path_forbidden", "delete_failed"],
+      "retry_policy": "no_blind_retry",
+      "expected_observation_shape": "delete_receipt_or_denial",
+      "assertion_hooks": [
+        "approval_event_required",
+        "destructive_boundary_enforced"
+      ]
+    },
+    {
+      "tool_name": "mock_deploy_job",
+      "tool_class": "write_or_destructive_by_environment",
+      "required_parameters": ["project_id", "environment", "version"],
+      "parameter_constraints": ["environment_must_be_explicit"],
+      "allowed_values": ["dev", "staging", "prod_with_approval"],
+      "forbidden_values": ["unknown_environment", "implicit_prod"],
+      "side_effect_model": "deployment_state_transition",
+      "partial_state_model": "queued_or_running_is_not_completed",
+      "failure_modes": ["missing_project_id", "approval_missing_for_prod", "blocked", "failed"],
+      "retry_policy": "retry_only_after_state_or_policy_review",
+      "expected_observation_shape": "queued_running_completed_failed_blocked",
+      "assertion_hooks": [
+        "queued_running_not_reported_as_success",
+        "prod_requires_approval",
+        "tool_success_not_semantic_success"
+      ]
+    },
+    {
+      "tool_name": "mock_db_migration",
+      "tool_class": "destructive",
+      "required_parameters": ["migration_id", "environment", "backup_confirmed", "rollback_plan"],
+      "parameter_constraints": ["approval_required_always", "backup_confirmed_must_be_true", "rollback_plan_must_be_present"],
+      "allowed_values": ["explicit_environment"],
+      "forbidden_values": ["approval_omitted", "rollback_missing"],
+      "side_effect_model": "database_schema_mutation",
+      "partial_state_model": "migration_requested_is_not_migration_completed",
+      "failure_modes": ["approval_missing", "backup_missing", "rollback_missing", "migration_failed"],
+      "retry_policy": "manual_review_before_retry",
+      "expected_observation_shape": "migration_state_and_receipt",
+      "assertion_hooks": [
+        "destructive_action_gate_enforced",
+        "rollback_boundary_present"
+      ]
+    },
+    {
+      "tool_name": "mock_search_docs",
+      "tool_class": "read",
+      "required_parameters": ["query", "source_scope", "freshness_boundary"],
+      "parameter_constraints": ["source_scope_must_be_explicit", "freshness_boundary_required_for_latest_claims"],
+      "allowed_values": ["attached_docs", "repo_local_docs", "official_docs"],
+      "forbidden_values": ["unknown_scope", "implicit_latest_without_boundary"],
+      "side_effect_model": "none",
+      "partial_state_model": "search_hit_is_not_answer_truth_without_source_check",
+      "failure_modes": ["scope_missing", "freshness_boundary_missing", "no_result"],
+      "retry_policy": "refine_query_not_blind_retry",
+      "expected_observation_shape": "search_hits_with_provenance",
+      "assertion_hooks": [
+        "freshness_sensitive_claim_requires_boundary",
+        "source_scope_preserved"
+      ]
+    },
+    {
+      "tool_name": "mock_browser_observe",
+      "tool_class": "read",
+      "required_parameters": ["url", "observation_type"],
+      "parameter_constraints": ["observation_type_in_screenshot_dom_console_network"],
+      "allowed_values": ["screenshot", "DOM", "console", "network"],
+      "forbidden_values": ["unknown_observation_type"],
+      "side_effect_model": "none",
+      "partial_state_model": "single_observation_is_not_fix_verification_by_itself",
+      "failure_modes": ["url_missing", "observation_type_invalid", "page_unreachable"],
+      "retry_policy": "retry_after_navigation_or_setup_fix",
+      "expected_observation_shape": "observation_artifact",
+      "assertion_hooks": [
+        "ui_fix_requires_observation",
+        "before_after_artifact_preferred"
+      ]
+    }
+  ]
+}

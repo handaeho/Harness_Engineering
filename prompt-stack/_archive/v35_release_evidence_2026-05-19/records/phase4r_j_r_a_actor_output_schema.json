@@ -1,0 +1,72 @@
+{
+  "schema_name": "phase4r_j_r_a_actor_output_schema",
+  "schema_version": "1.0.0",
+  "claim_strength_limit": "actor_output_capture_packet_ready",
+  "required_fields": [
+    "packet_id",
+    "case_id_or_test_id",
+    "actor_type",
+    "actor_runtime",
+    "actor_model_or_tool",
+    "run_id",
+    "trace_id",
+    "scenario_id",
+    "cohort_id",
+    "artifact_version",
+    "started_at",
+    "completed_at",
+    "input_hash",
+    "actor_output",
+    "actor_output_hash",
+    "selected_route",
+    "selected_base_prompt",
+    "selected_skill",
+    "selected_overlays",
+    "example_mode",
+    "tool_calls",
+    "retrieval_events",
+    "memory_events",
+    "multi_agent_events",
+    "safety_events",
+    "approval_events",
+    "claim_strength",
+    "actor_notes",
+    "execution_errors"
+  ],
+  "conditional_required_fields": {
+    "codex": [
+      "codex_asset",
+      "expected_skill_route",
+      "actual_skill_route"
+    ],
+    "native": [
+      "expected_runtime_assembly"
+    ]
+  },
+  "actor_output_hash": {
+    "algorithm": "sha256",
+    "source": "actor_output body only; validation script recomputes",
+    "required_prefix": "sha256:",
+    "example": "sha256:<64 lowercase hex chars>"
+  },
+  "invalid_output_conditions": [
+    "actor_output is empty",
+    "actor_output_hash does not equal sha256(actor_output)",
+    "actor_output contains placeholder or synthetic-output markers",
+    "packet_id does not match requirement",
+    "case_id_or_test_id does not match requirement",
+    "trace_id or run_id is missing",
+    "Codex output omits codex_asset",
+    "prior deterministic record is reused as actor_output",
+    "claim_strength exceeds captured actor-output evidence"
+  ],
+  "accepted_actor_types": [
+    "native",
+    "codex"
+  ],
+  "notes": [
+    "This schema records actual actor output only.",
+    "Prompt packets and deterministic replay records are not actor outputs.",
+    "Validation passing only means ready_for_semantic_judge=true; it is not a semantic pass verdict."
+  ]
+}

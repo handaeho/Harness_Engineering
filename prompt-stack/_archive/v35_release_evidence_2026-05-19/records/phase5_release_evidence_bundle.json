@@ -1,0 +1,134 @@
+{
+  "phase": "Phase 5 Release Decision",
+  "decision": "Promote to v35",
+  "stable_baseline": "v34",
+  "working_candidate": "v35-candidate",
+  "release_target": "v35",
+  "decision_date": "2026-05-20",
+  "evidence_precedence": {
+    "current_decisive_evidence": [
+      "records/phase4r_j_r_b_release_readiness_precheck.json",
+      "records/phase4r_j_r_b_native_semantic_judge_results.json",
+      "records/phase4r_j_r_b_codex_semantic_judge_results.json",
+      "records/phase4r_j_r_b_actor_output_authenticity.json",
+      "records/phase4r_j_r_b_required_fixes.json",
+      "records/phase4r_j_r_b_primary_source_status_for_release.json",
+      "records/phase4r_j_r_b_substrate_status_for_release.json",
+      "records/phase4r_j_r_b_regression_improvement_review.json",
+      "reports/PHASE4R_J_R_B_SEMANTIC_JUDGE_REPORT.md"
+    ],
+    "historical_or_superseded_evidence": [
+      "reports/PHASE4R_J_SEMANTIC_JUDGE_AND_EVIDENCE_CLOSURE_REPORT.md",
+      "reports/PHASE4R_J_R_TARGETED_SEMANTIC_RETEST_REPORT.md",
+      "reports/PHASE4R_J_R_A_ACTOR_OUTPUT_ACQUISITION_PACKET_REPORT.md",
+      "reports/PHASE4R_J_R_A2_ACTOR_OUTPUT_GENERATION_AND_VALIDATION_REPORT.md"
+    ],
+    "precedence_rule": "Use the latest Phase 4R-J-R-B evidence for current release status. Earlier actor-output-missing or judge-pending reports explain prior state only."
+  },
+  "evidence_reviewed": {
+    "phase2": {
+      "path": "reports/PHASE2_PROMPTINGGUIDE_AUGMENTATION_PLAN.md",
+      "status": "reviewed",
+      "use": "Source extraction, source grouping, partial pages, language path separation, external references, primary-source validation marking."
+    },
+    "phase3": {
+      "path": "reports/PHASE3_ASSET_AUDIT_AND_IMPROVEMENT_REPORT.md",
+      "status": "reviewed",
+      "use": "Owner mapping, asset audit, Codex runtime boundary, missing evidence ledger."
+    },
+    "phase4": {
+      "path": "reports/PHASE4_HARNESS_BASED_BEHAVIOR_VERIFICATION_REPORT.md",
+      "status": "reviewed",
+      "use": "Harness design, deterministic fallback limitations, initial substrate downgrades."
+    },
+    "phase4_5": {
+      "path": "reports/PHASE4_5_CANDIDATE_PATCH_AND_SUBSTRATE_REMEDIATION_REPORT.md",
+      "status": "reviewed",
+      "use": "Candidate patch set, owner boundary preservation, runtime independence updates, substrate preparation."
+    },
+    "phase4R": {
+      "path": "reports/PHASE4R_NATIVE_REPLAY_AND_CODEX_RUNTIME_VERIFICATION_REPORT.md",
+      "status": "reviewed",
+      "use": "Native replay and Codex runtime test progression with judge-pending limitation."
+    },
+    "phase4R_J": {
+      "path": "reports/PHASE4R_J_SEMANTIC_JUDGE_AND_EVIDENCE_CLOSURE_REPORT.md",
+      "status": "reviewed_historical",
+      "use": "Historical semantic judge inconclusive state superseded by Phase 4R-J-R-B."
+    },
+    "phase4R_J_R": {
+      "path": "reports/PHASE4R_J_R_TARGETED_SEMANTIC_RETEST_REPORT.md",
+      "status": "reviewed_historical",
+      "use": "Historical actor-output-missing state superseded by Phase 4R-J-R-B."
+    },
+    "phase4R_J_R_A": {
+      "path": "reports/PHASE4R_J_R_A_ACTOR_OUTPUT_ACQUISITION_PACKET_REPORT.md",
+      "status": "reviewed",
+      "use": "Actor output packet requirements and validation criteria."
+    },
+    "phase4R_J_R_A2": {
+      "path": "reports/PHASE4R_J_R_A2_ACTOR_OUTPUT_GENERATION_AND_VALIDATION_REPORT.md",
+      "status": "reviewed_historical",
+      "use": "Historical provider-unavailable state superseded by provided actor outputs and Phase 4R-J-R-B validation."
+    },
+    "phase4R_J_R_B": {
+      "path": "reports/PHASE4R_J_R_B_SEMANTIC_JUDGE_REPORT.md",
+      "status": "reviewed_current_decisive",
+      "use": "Actor authenticity, native semantic judge, Codex runtime semantic judge, critical failure review, readiness precheck."
+    }
+  },
+  "gate_mapping": {
+    "Source Extraction Gate": [
+      "phase2"
+    ],
+    "Owner Mapping Gate": [
+      "phase3",
+      "phase4_5"
+    ],
+    "Codex Runtime Independence Gate": [
+      "phase4_5",
+      "phase4R_J_R_B"
+    ],
+    "Example Boundary Gate": [
+      "phase2",
+      "phase4R_J_R_B"
+    ],
+    "Safety Gate": [
+      "phase4R_J_R_B"
+    ],
+    "Technique Activation Gate": [
+      "phase4R_J_R_B"
+    ],
+    "Retrieval / RAG / Factuality Gate": [
+      "phase2",
+      "phase4R_J_R_B",
+      "records/phase4r_j_r_b_primary_source_status_for_release.json"
+    ],
+    "Tool / Function Calling Gate": [
+      "phase4R_J_R_B"
+    ],
+    "Harness Gate": [
+      "phase4",
+      "phase4_5",
+      "phase4R_J_R_B",
+      "records/phase4r_j_r_b_substrate_status_for_release.json"
+    ],
+    "Variant Regression Gate": [
+      "records/phase4r_j_r_b_regression_improvement_review.json"
+    ],
+    "Release Language Gate": [
+      "records/phase4r_j_r_b_release_readiness_precheck.json",
+      "records/phase4r_j_r_b_required_fixes.json",
+      "records/phase5_claim_scope_and_downgrades.json",
+      "records/phase5_rollback_and_monitoring_plan.json"
+    ]
+  },
+  "missing_evidence": [],
+  "downgraded_evidence": [
+    "Primary-source deferred items remain downgraded.",
+    "Sandbox remains downgrade.",
+    "Telemetry remains downgrade.",
+    "Containment remains downgrade.",
+    "Replay is partial for broader operational substrate even though semantic judge evidence is complete for required actor outputs."
+  ]
+}

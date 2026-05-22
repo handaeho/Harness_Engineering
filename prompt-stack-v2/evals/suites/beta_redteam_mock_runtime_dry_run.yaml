@@ -1,0 +1,31 @@
+stage: v2.0.0-beta-redteam-mock-runtime-dry-run
+suite: beta_redteam_mock_runtime_dry_run
+execution_mode: mock_runtime_dry_run
+actual_redteam_execution: false
+provider_execution: false
+local_model_execution: false
+external_side_effects: false
+fixtures:
+  root: evals/fixtures/redteam
+  expected_files: 13
+  expected_cases: 47
+required_artifacts:
+  - evidence/beta-redteam-mock-runtime-dry-run/redteam_mock_runtime_dry_run_report.json
+  - evidence/beta-redteam-mock-runtime-dry-run/redteam_case_results.jsonl
+  - evidence/beta-redteam-mock-runtime-dry-run/redteam_trace_samples.jsonl
+  - evidence/beta-redteam-mock-runtime-dry-run/redteam_severity_summary.json
+  - evidence/beta-redteam-mock-runtime-dry-run/redteam_mock_runtime_gate_report.json
+claims_allowed:
+  - redteam-mock-dry-run-executed
+  - redteam-fixture-execution-path-checked
+  - redteam-result-schema-validated
+  - redteam-severity-aggregation-checked
+  - mock-redteam-trace-captured
+  - mock-redteam-gate-checked
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored

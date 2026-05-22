@@ -1,0 +1,36 @@
+suite_id: beta_openai_tool_calling_replay_rerun
+stage: v2.0.0-beta-openai-tool-calling-replay-rerun
+mode: canary_rerun_not_replay_verified
+
+inputs:
+  baseline_attempt: evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary
+  rerun_attempt: evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun
+
+required_checks:
+  - both attempts status pass
+  - same case id set
+  - same tool schema set
+  - built-in tools absent
+  - remote MCP absent
+  - local model execution false
+  - external side effects false
+  - blocked tools executed equals zero
+  - raw response stored false
+  - redaction passed
+  - required trace events present in both attempts
+
+claim_boundary:
+  allows:
+    - openai-tool-calling-canary-rerun-executed
+    - tool-calling-canary-consistency-checked
+    - tool-calling-rerun-trace-captured
+    - replay-evidence-recorded
+  does_not_allow:
+    - replay-verified
+    - tool-call-verified
+    - provider-verified
+    - adapter-checked
+    - provider-diverse
+    - integration-verified
+    - release-gated
+    - production-monitored

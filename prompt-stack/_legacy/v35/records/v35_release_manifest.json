@@ -1,0 +1,90 @@
+{
+  "release_version": "v35",
+  "status": "current_stable",
+  "previous_stable_version": "v34",
+  "release_scope": [
+    "source_of_truth_stack",
+    "codex_runtime_assets",
+    "harness_contracts",
+    "current_validation_records",
+    "release_evidence_archive"
+  ],
+  "active_artifacts": {
+    "docs": [
+      "README.md",
+      "PROMPT_USER_GUIDE.md",
+      "docs/V35_CURRENT_STATE.md",
+      "docs/V35_OPERATING_GUIDE.md",
+      "docs/V35_LIMITATIONS_AND_FOLLOWUPS.md",
+      "docs/V35_ARTIFACT_MAP.md"
+    ],
+    "harness": [
+      "harness/README.md",
+      "harness/validate_current_v35.mjs"
+    ],
+    "records": [
+      "records/v35_current_state.json",
+      "records/v35_release_manifest.json",
+      "records/v35_file_checksums.json",
+      "records/v35_limitations_register.json",
+      "records/v35_followup_backlog.json",
+      "records/v35_active_validation_summary.json",
+      "records/v35_release_integrity_closure.json",
+      "records/v35_final_verification_and_cleanup_dry_run.json"
+    ],
+    "reports": [
+      "reports/V35_CURRENT_STATE_SUMMARY.md",
+      "reports/V35_VALIDATION_SUMMARY.md",
+      "reports/V35_RELEASE_NOTES.md",
+      "reports/V35_ROLLBACK_AND_MONITORING_PLAN.md",
+      "reports/V35_CLEANUP_FINAL_REPORT.md",
+      "reports/V35_RELEASE_INTEGRITY_CLOSURE_REPORT.md",
+      "reports/V35_FINAL_VERIFICATION_AND_CLEANUP_DRY_RUN.md"
+    ],
+    "validation": [
+      "validation/current_validation_suite.json",
+      "validation/current_validation_result.json",
+      "validation/validation_readme.md",
+      "validation/runs/*.json"
+    ]
+  },
+  "evidence_summary": {
+    "native_semantic_judge": "73/73 pass",
+    "codex_runtime_semantic_judge": "25/25 pass",
+    "actor_output_authenticity": "98/98 judgeable",
+    "release_gates": "9 pass, 2 partial_with_downgrade, 0 fail",
+    "critical_failures": 0,
+    "P0": 0,
+    "release_blocking_P1": 0,
+    "trace_missing": 0,
+    "claim_strength_violations": 0
+  },
+  "downgraded_claims": [
+    "primary_source",
+    "sandbox",
+    "telemetry",
+    "containment"
+  ],
+  "prohibited_claims": [
+    "production-monitored",
+    "containment-verified",
+    "all primary-source items fully validated",
+    "public benchmark certified",
+    "live production rollout certified"
+  ],
+  "archive_path": "_archive/v35_release_evidence_2026-05-19",
+  "generated_at": "2026-05-20T02:50:00.223Z",
+  "manifest_hash": "f33c81a479cbb68bdb4f2ff448c001dd169fda2f2292107285c110651fcd07ed",
+  "assembly_state": {
+    "total_role": "actual-use-bundle",
+    "source_to_99_total_required_parity": "17/17",
+    "codex_to_99_total_codex_required_parity": "7/7",
+    "codex_runtime_authority": "v35/codex"
+  },
+  "immutable_checksum_excludes": [
+    "v35/records/v35_file_checksums.json",
+    "v35/validation/current_validation_result.json",
+    "v35/validation/runs/*.json"
+  ],
+  "manifest_hash_scope": "sha256 of JSON manifest with manifest_hash field omitted"
+}

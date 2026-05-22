@@ -1,0 +1,16 @@
+{
+  "policy_id": "v34-trial-isolation-2026-05-19-a",
+  "clean_state_required": true,
+  "workspace_reset_required": true,
+  "temp_cleanup_required": true,
+  "cache_policy": "fresh_or_explicitly_reset",
+  "shared_state_policy": "forbidden_without_declared_fixture_reset",
+  "network_reset_required": true,
+  "secret_reset_required": true,
+  "trial_independence_checks": [
+    "no_prior_generated_files_used",
+    "no_prior_logs_used_as_hidden_context",
+    "no_hidden_cache_carryover",
+    "fixture_or_testdata_reset"
+  ]
+}

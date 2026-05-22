@@ -1,0 +1,105 @@
+[
+  {
+    "priority": "P1",
+    "target_asset": "PROMPT_tool_protocol_overlay",
+    "proposed_change": "Clarify Function Calling/ReAct/ART as controlled action-observation patterns, not automatic tool authorization.",
+    "expected_behavior_change": "Fewer approval/parameter/tool-success overclaims.",
+    "harness_effect": "Mock tool required-parameter and partial-state tests.",
+    "retest_cases": [
+      "missing required parameter",
+      "queued tool result",
+      "destructive action approval"
+    ],
+    "rollback_condition": "If wording weakens least-privilege or approval boundaries."
+  },
+  {
+    "priority": "P1",
+    "target_asset": "PROMPT_guardrails_safety_overlay",
+    "proposed_change": "Map adversarial prompting, injection, leaking, jailbreak, factuality, and bias pages into explicit risk classes.",
+    "expected_behavior_change": "Stronger unsafe instruction rejection and untrusted material separation.",
+    "harness_effect": "Safety red-team cases and critical-failure override.",
+    "retest_cases": [
+      "prompt injection",
+      "prompt leaking",
+      "jailbreak",
+      "secret exfiltration"
+    ],
+    "rollback_condition": "If warnings replace enforceable behavior."
+  },
+  {
+    "priority": "P1",
+    "target_asset": "PROMPT_retrieval_grounding_overlay",
+    "proposed_change": "Plan RAG/factuality/freshness/provenance conflict handling from RAG and research pages.",
+    "expected_behavior_change": "Better currentness qualification and source-conflict reporting.",
+    "harness_effect": "RAG faithfulness and stale-source eval cases.",
+    "retest_cases": [
+      "conflicting sources",
+      "latest API claim",
+      "citation padding"
+    ],
+    "rollback_condition": "If retrieval becomes decorative or source stuffing."
+  },
+  {
+    "priority": "P1",
+    "target_asset": "CODEX_RUNTIME_GUIDE",
+    "proposed_change": "Plan routing notes for PromptingGuide-derived families without treating runtime guide as 00~04 summary.",
+    "expected_behavior_change": "More precise skill activation and no unnecessary skill activation.",
+    "harness_effect": "Codex runtime routing replay cases.",
+    "retest_cases": [
+      "single-agent sufficient",
+      "latest info request",
+      "coding patch with tool pressure"
+    ],
+    "rollback_condition": "If runtime guide claims source-of-truth authority."
+  },
+  {
+    "priority": "P1",
+    "target_asset": "codex/skills/grounded-research",
+    "proposed_change": "Plan RAG/freshness/primary-source validation enhancements.",
+    "expected_behavior_change": "Improved evidence target and freshness behavior.",
+    "harness_effect": "Retrieval/factuality benchmark cases.",
+    "retest_cases": [
+      "PromptingGuide-only latest model claim",
+      "source conflict",
+      "weak provenance"
+    ],
+    "rollback_condition": "If skill over-cites or over-retrieves."
+  },
+  {
+    "priority": "P2",
+    "target_asset": "PROMPT_example_catalog",
+    "proposed_change": "Add Prompt Hub task-family shapes as structure-only candidates.",
+    "expected_behavior_change": "Broader example shape coverage without factual transfer.",
+    "harness_effect": "Example boundary tests.",
+    "retest_cases": [
+      "Prompt Hub hallucination example",
+      "weak example suppression"
+    ],
+    "rollback_condition": "If examples become runtime policy or factual authority."
+  },
+  {
+    "priority": "P2",
+    "target_asset": "PROMPT_harness_contracts",
+    "proposed_change": "Draft contracts for guide/sensor/runner/simulator/sandbox/telemetry/gate mapping by technique family.",
+    "expected_behavior_change": "Clearer harness-designed vs executed distinction.",
+    "harness_effect": "Harness coverage matrix and mock contracts.",
+    "retest_cases": [
+      "trace captured not eval passed",
+      "sandbox exists not containment verified"
+    ],
+    "rollback_condition": "If contract names imply executed proof."
+  },
+  {
+    "priority": "P2",
+    "target_asset": "codex/skills/orchestration-control",
+    "proposed_change": "Plan agent/workflow/context-engineering impacts for deep agents and workflow-vs-agent guidance.",
+    "expected_behavior_change": "Cleaner delegation admission and join-quality behavior.",
+    "harness_effect": "Multi-agent lifecycle cases.",
+    "retest_cases": [
+      "single-agent enough",
+      "partial specialist output",
+      "join rejection"
+    ],
+    "rollback_condition": "If delegation is encouraged by default."
+  }
+]

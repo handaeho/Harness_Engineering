@@ -1,0 +1,230 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-release-gate-thresholds-and-dry-run",
+  "release_gate_dry_run_status": "blocked_not_release_gated",
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "can_enter_provider_diversity_claim": false,
+  "can_enter_replay_verified_claim": false,
+  "reason": "Release gate dry-run completed, but required release blockers remain open.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_beta_release_evidence_bundle.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "release_gate_thresholds.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release_gate_dry_run_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release_blocker_audit.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release_threshold_coverage.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "owner_action_matrix.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "rollback_plan_draft.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release_decision_record_draft.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "thresholds report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "dry-run status is blocked_not_release_gated",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_not_release_gated",
+        "release_gate_dry_run_status": "blocked_not_release_gated"
+      }
+    },
+    {
+      "name": "no new provider execution",
+      "status": "pass",
+      "detail": {
+        "new_provider_execution": false
+      }
+    },
+    {
+      "name": "local_model_execution is false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "local_endpoint_probe is false",
+      "status": "pass",
+      "detail": {
+        "local_endpoint_probe": false
+      }
+    },
+    {
+      "name": "dist_modified is false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "release_gate_passed is false",
+      "status": "pass",
+      "detail": {
+        "release_gate_passed": false
+      }
+    },
+    {
+      "name": "production_ready is false",
+      "status": "pass",
+      "detail": {
+        "production_ready": false
+      }
+    },
+    {
+      "name": "provider_diversity_established is false",
+      "status": "pass",
+      "detail": {
+        "provider_diversity_established": false
+      }
+    },
+    {
+      "name": "local_model_execution_verified is false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution_verified": false
+      }
+    },
+    {
+      "name": "expected gate statuses",
+      "status": "pass",
+      "detail": {
+        "beta_evidence_integrity": "pass",
+        "openai_canary_suite": "pass",
+        "release_gate_eligibility": "blocked",
+        "production_readiness": "blocked",
+        "local_runtime_readiness": "blocked"
+      }
+    },
+    {
+      "name": "blockers prioritized",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "blocker_count": 5,
+        "p0_blocker_count": 3,
+        "p1_blocker_count": 2
+      }
+    },
+    {
+      "name": "threshold coverage partial",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "overall_release_gate": "blocked_not_release_gated"
+      }
+    },
+    {
+      "name": "owner action and rollback draft",
+      "status": "pass",
+      "detail": {
+        "owner_action_matrix_status": "draft",
+        "rollback_plan_draft_status": "draft"
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "release-gate-thresholds-drafted",
+    "release-gate-dry-run-executed",
+    "release-blockers-prioritized",
+    "owner-action-matrix-drafted",
+    "rollback-plan-drafted",
+    "release-decision-record-drafted"
+  ],
+  "claims_blocked": [
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "integration-verified",
+    "containment-verified",
+    "telemetry-connected",
+    "benchmark-backed"
+  ]
+}

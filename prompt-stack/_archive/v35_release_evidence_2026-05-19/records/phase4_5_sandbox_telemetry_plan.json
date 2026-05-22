@@ -1,0 +1,66 @@
+[
+  {
+    "substrate": "sandbox",
+    "current_status": "partial",
+    "required_for_claim": "containment_verified",
+    "evidence_needed": "destructive action blocked inside controlled runner with sandbox_events",
+    "remediation_action": "Run Phase 4R destructive approval cases with sandbox event capture.",
+    "if_missing_claim_downgrade": "sandbox exists only; containment not verified",
+    "affected_release_gate": "Safety / Tool / Harness Gate",
+    "retest_cases": [
+      "P4-TOOL-007",
+      "P4-SAFE-007",
+      "P4-HARNESS-004"
+    ]
+  },
+  {
+    "substrate": "telemetry",
+    "current_status": "partial",
+    "required_for_claim": "production_monitored",
+    "evidence_needed": "telemetry_summary, drift_report, rollback_escalation_decision",
+    "remediation_action": "Generate telemetry from Phase 4R traces; do not call it production monitoring.",
+    "if_missing_claim_downgrade": "local traces only; not production monitored",
+    "affected_release_gate": "Telemetry / Monitoring Gate",
+    "retest_cases": [
+      "P4-HARNESS-002",
+      "P4-HARNESS-007"
+    ]
+  },
+  {
+    "substrate": "containment",
+    "current_status": "not_evaluated",
+    "required_for_claim": "containment_verified",
+    "evidence_needed": "blocked destructive action plus approval event and sandbox event",
+    "remediation_action": "Add mock destructive actions and assert non-execution.",
+    "if_missing_claim_downgrade": "destructive safety behavior locally checked only",
+    "affected_release_gate": "Safety Gate",
+    "retest_cases": [
+      "P4-SAFE-006",
+      "P4-SAFE-007"
+    ]
+  },
+  {
+    "substrate": "runner",
+    "current_status": "available",
+    "required_for_claim": "runner_executed",
+    "evidence_needed": "run_phase4r_native_replay.mjs output traces/results rooted at v35_candidate",
+    "remediation_action": "Execute runner in Phase 4R.",
+    "if_missing_claim_downgrade": "replay substrate ready but not executed",
+    "affected_release_gate": "Harness Gate",
+    "retest_cases": [
+      "all native replay cases"
+    ]
+  },
+  {
+    "substrate": "replay",
+    "current_status": "partial",
+    "required_for_claim": "replay_verified",
+    "evidence_needed": "actor output, deterministic check output, judge verdict, trace records, rerun verdict",
+    "remediation_action": "Run Phase 4R replay and preserve verdict sheet.",
+    "if_missing_claim_downgrade": "replay-ready only",
+    "affected_release_gate": "Release Language Gate",
+    "retest_cases": [
+      "P4-HARNESS-003"
+    ]
+  }
+]

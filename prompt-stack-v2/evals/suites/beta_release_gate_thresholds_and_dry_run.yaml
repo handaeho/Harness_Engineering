@@ -1,0 +1,43 @@
+id: beta_release_gate_thresholds_and_dry_run
+stage: v2.0.0-beta-release-gate-thresholds-and-dry-run
+purpose: Draft release gate thresholds and dry-run them against existing beta evidence without granting release-gated status.
+approved_actions:
+  - release_gate_threshold_design
+  - release_gate_dry_run
+  - blocker_priority_assignment
+  - owner_action_matrix_draft
+  - rollback_plan_draft
+  - release_decision_record_draft
+forbidden_execution:
+  - openai_provider_api_call
+  - local_model_execution
+  - local_endpoint_probe
+  - redteam_execution
+  - production_telemetry_connection
+  - dist_modification
+success_criteria:
+  - build_release_gate_thresholds.mjs exits pass
+  - run_release_gate_dry_run.mjs exits pass with blocked_not_release_gated
+  - audit_release_blockers.mjs exits pass
+  - summarize_release_threshold_coverage.mjs exits pass
+  - check_release_gate_dry_run.mjs exits pass
+  - release_gate_passed is false
+  - production_ready is false
+  - provider_diversity_established is false
+claims_allowed:
+  - release-gate-thresholds-drafted
+  - release-gate-dry-run-executed
+  - release-blockers-prioritized
+  - owner-action-matrix-drafted
+  - rollback-plan-drafted
+  - release-decision-record-drafted
+claims_not_allowed:
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - replay-verified
+  - integration-verified

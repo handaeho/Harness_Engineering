@@ -1,0 +1,171 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-canary-matrix-summary-and-local-readiness",
+  "can_enter_local_no_tool_canary": false,
+  "can_enter_provider_diversity_claim": false,
+  "can_enter_replay_verification": false,
+  "reason": "Local endpoint is not available; local canary remains blocked until explicitly configured.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_openai_credentialed_canary.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_openai_structured_output_canary.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_openai_tool_calling_canary.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "canary_matrix_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_readiness_blockers.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_readiness_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "claim_status_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "provider_execution_performed_in_this_stage is false",
+      "status": "pass",
+      "detail": {
+        "provider_execution_performed_in_this_stage": false
+      }
+    },
+    {
+      "name": "local_model_execution_performed_in_this_stage is false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution_performed_in_this_stage": false
+      }
+    },
+    {
+      "name": "local endpoint probe not performed",
+      "status": "pass",
+      "detail": {
+        "endpoint_probe_performed_in_this_stage": false
+      }
+    },
+    {
+      "name": "OpenAI canary matrix is canary_only",
+      "status": "pass",
+      "detail": {
+        "no_tool_text_path": "canary_checked",
+        "structured_output_path": "canary_checked",
+        "tool_calling_path": "canary_checked",
+        "trace": "canary_checked",
+        "redaction": "canary_checked",
+        "raw_response_stored": false,
+        "claim_level": "canary_only"
+      }
+    },
+    {
+      "name": "vLLM local canary blocked by missing endpoint",
+      "status": "pass",
+      "detail": {
+        "local_no_tool_path": "blocked_by_missing_endpoint",
+        "claim_level": "not_executed"
+      }
+    },
+    {
+      "name": "Ollama local canary blocked by missing endpoint",
+      "status": "pass",
+      "detail": {
+        "local_no_tool_path": "blocked_by_missing_endpoint",
+        "claim_level": "not_executed"
+      }
+    },
+    {
+      "name": "local blockers recorded",
+      "status": "pass",
+      "detail": {
+        "blockers": 2
+      }
+    },
+    {
+      "name": "local execution claims absent",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "provider-diverse claim absent",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "canary-matrix-summarized",
+    "local-readiness-documented",
+    "local-endpoint-blocker-recorded"
+  ],
+  "claims_blocked": [
+    "local-no-tool-canary-executed",
+    "vllm-no-tool-canary-executed",
+    "ollama-no-tool-canary-executed",
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "integration-verified",
+    "release-gated",
+    "production-monitored"
+  ]
+}

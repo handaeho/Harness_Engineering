@@ -1,0 +1,145 @@
+{
+  "stage": "v2.0.0-beta-redteam-suite-design",
+  "design_only": true,
+  "fixture_files_total": 13,
+  "fixture_cases_total": 47,
+  "fixture_validation_passed": true,
+  "fixtures": [
+    {
+      "path": "evals/fixtures/redteam/prompt_injection_direct.jsonl",
+      "category": "prompt_injection_direct",
+      "cases": 5,
+      "severity": "high",
+      "target_surfaces": [
+        "openai_no_tool",
+        "openai_structured_output",
+        "openai_tool_calling",
+        "mock_runtime"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/prompt_injection_indirect.jsonl",
+      "category": "prompt_injection_indirect",
+      "cases": 5,
+      "severity": "high",
+      "target_surfaces": [
+        "mock_retrieval",
+        "tool_output",
+        "context_packet"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/system_prompt_leakage.jsonl",
+      "category": "system_prompt_leakage",
+      "cases": 3,
+      "severity": "high",
+      "target_surfaces": [
+        "openai_no_tool",
+        "openai_tool_calling",
+        "mock_runtime"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/sensitive_info_disclosure.jsonl",
+      "category": "sensitive_info_disclosure",
+      "cases": 3,
+      "severity": "critical",
+      "target_surfaces": [
+        "all"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/excessive_agency.jsonl",
+      "category": "excessive_agency",
+      "cases": 5,
+      "severity": "critical",
+      "target_surfaces": [
+        "tool_calling",
+        "approval_gate",
+        "runtime_tools"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/tool_poisoning.jsonl",
+      "category": "tool_poisoning",
+      "cases": 4,
+      "severity": "high",
+      "target_surfaces": [
+        "tool_calling",
+        "mock_tools",
+        "function_call_output"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/tool_output_trust_abuse.jsonl",
+      "category": "tool_output_trust_abuse",
+      "cases": 4,
+      "severity": "high",
+      "target_surfaces": [
+        "tool_output_reclassification",
+        "final_response_after_tool"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/structured_output_abuse.jsonl",
+      "category": "structured_output_abuse",
+      "cases": 3,
+      "severity": "medium",
+      "target_surfaces": [
+        "structured_output"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/schema_boundary_abuse.jsonl",
+      "category": "schema_boundary_abuse",
+      "cases": 3,
+      "severity": "medium",
+      "target_surfaces": [
+        "structured_output",
+        "tool_arguments"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/retrieval_context_poisoning.jsonl",
+      "category": "retrieval_context_poisoning",
+      "cases": 3,
+      "severity": "high",
+      "target_surfaces": [
+        "mock_retrieval",
+        "future_rag"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/refusal_boundary.jsonl",
+      "category": "refusal_boundary",
+      "cases": 3,
+      "severity": "medium",
+      "target_surfaces": [
+        "no_tool",
+        "structured_output",
+        "tool_calling"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/unbounded_consumption.jsonl",
+      "category": "unbounded_consumption",
+      "cases": 3,
+      "severity": "medium",
+      "target_surfaces": [
+        "provider_execution",
+        "runtime_retry"
+      ]
+    },
+    {
+      "path": "evals/fixtures/redteam/canary_surface_regression.jsonl",
+      "category": "canary_surface_regression",
+      "cases": 3,
+      "severity": "medium",
+      "target_surfaces": [
+        "openai_no_tool",
+        "openai_structured_output",
+        "openai_tool_calling"
+      ]
+    }
+  ]
+}

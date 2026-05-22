@@ -1,0 +1,59 @@
+{
+  "record_type": "v35_state_consistency_record",
+  "record_date": "2026-05-20",
+  "status": "v35 state labels normalized",
+  "scope": {
+    "normalized": [
+      "v35 live source-of-truth prompt files",
+      "v35 Codex runtime package files",
+      "v35 docs surface",
+      "v35 validation surface",
+      "v35 runbook"
+    ],
+    "preserved_as_immutable_evidence": [
+      "v35 records with v34 regression/improvement baselines",
+      "v35 reports with v35_candidate release-decision history",
+      "copied harness run artifacts and actor/judge evidence"
+    ]
+  },
+  "renamed_or_replaced_files": [
+    {
+      "from": "v35/RUNBOOK_v35_candidate.md",
+      "to": "v35/RUNBOOK_v35.md",
+      "reason": "stable release runbook must identify v35 as current stable, not candidate workflow"
+    },
+    {
+      "from": "v35/docs/v34_Augmentation_Plan.md",
+      "to": "v35/docs/v35_Augmentation_Plan.md",
+      "reason": "docs surface must describe v35 stable augmentation state"
+    },
+    {
+      "from": "v35/docs/v34_Harness_Engineering_Plan.md",
+      "to": "v35/docs/v35_Harness_Engineering_Plan.md",
+      "reason": "docs surface must describe v35 stable harness state"
+    },
+    {
+      "from": "v35/validation/v34_Runtime_Validation_Status.md",
+      "to": "v35/validation/v35_Runtime_Validation_Status.md",
+      "reason": "validation surface must describe v35 release-gated runtime status"
+    }
+  ],
+  "claim_scope": {
+    "current_stable_version": "v35",
+    "previous_stable_baseline": "v34",
+    "candidate_source": "v35_candidate",
+    "strongest_runtime_label": "release-gated",
+    "production_monitored": false,
+    "containment_verified": false,
+    "all_primary_sources_fully_validated": false,
+    "public_benchmark_certified": false,
+    "live_production_rollout_certified": false
+  },
+  "evidence_preservation_rule": "Historical records and reports may retain v34 and v35_candidate strings when they identify the previous stable baseline, regression comparator, candidate source, or release-decision lineage.",
+  "checks": {
+    "live_surface_stale_v35_candidate_markers": 0,
+    "live_surface_stale_phase4_5_candidate_patch_markers": 0,
+    "live_surface_v34_named_files": 0,
+    "validation_status_file": "v35/validation/v35_Runtime_Validation_Status.md"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "semantic_judge_completed": true,
+  "semantic_judge_basis": "executed against available Phase 4R records; semantic pass blocked by missing actor outputs",
+  "native_replay_pass_count": 0,
+  "native_replay_partial_count": 73,
+  "native_replay_fail_count": 0,
+  "codex_pass_count": 0,
+  "codex_partial_count": 25,
+  "codex_fail_count": 0,
+  "critical_failures": 0,
+  "unresolved_P0": 0,
+  "unresolved_release_blocking_P1": 0,
+  "primary_source_blockers": 0,
+  "P1_deferred_with_downgrade": 66,
+  "containment_or_telemetry_blockers": 0,
+  "replay_blockers": 1,
+  "claim_strength": "runner_executed_with_semantic_judge_inconclusive",
+  "ready_for_phase5": false,
+  "recommended_next_step": "Hold for targeted retest",
+  "rationale": "All 73 native replay cases and 25 Codex runtime tests remain partial because semantic actor output/live judge evidence is missing.",
+  "missing_evidence": [
+    "native actor answer bodies",
+    "executed semantic judge verdicts",
+    "live Codex actor/judge outputs",
+    "containment proof",
+    "production telemetry"
+  ],
+  "gate_risks": [
+    "all native replay verdicts remain partial",
+    "all Codex runtime verdicts remain partial",
+    "primary-source P1 items remain downgraded",
+    "replay is not verified"
+  ],
+  "required_before_phase5": [
+    "targeted semantic retest for 73 native replay cases",
+    "targeted Codex actor/judge retest for 25 runtime tests",
+    "updated readiness precheck with pass/partial/fail separation"
+  ],
+  "release_decision_started": false
+}

@@ -1,0 +1,25 @@
+{
+  "sandbox_status": "downgrade",
+  "telemetry_status": "downgrade",
+  "containment_status": "downgrade",
+  "replay_status": "blocker",
+  "evidence": [
+    "runner patch executed and preserved trace identifiers",
+    "actor output provider unavailable in current session",
+    "semantic judge not executed for missing actor outputs"
+  ],
+  "missing_evidence": [
+    "native actor outputs",
+    "Codex actor outputs",
+    "containment proof",
+    "production telemetry"
+  ],
+  "release_claim_impact": "Runner capability improved, but replay cannot be called verified while actor outputs and semantic judge verdicts are missing.",
+  "downgrade_language": [
+    "runner executed != replay verified",
+    "sandbox partial != containment verified",
+    "local traces != production monitored"
+  ],
+  "blocker": true,
+  "notes": "Replay blocker remains due missing actor output and semantic judge verdicts."
+}

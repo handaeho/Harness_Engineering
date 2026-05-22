@@ -1,0 +1,50 @@
+{
+  "status": "draft",
+  "stage": "v2.0.0-beta-release-gate-thresholds-and-dry-run",
+  "rollback_targets": [
+    {
+      "trigger": "Canary replay suite fails after previously passing.",
+      "affected_artifact": "provider_capability_matrix.openai.canary_replay_suite",
+      "rollback_target": "previous passing attempt evidence",
+      "owner": "agent",
+      "required_evidence": [
+        "failing suite replay summary",
+        "prior passing suite replay summary",
+        "claim boundary audit update"
+      ],
+      "user_impact_note": "OpenAI canary suite claims must be downgraded until rerun evidence is restored.",
+      "claim_downgrade": [
+        "remove openai-canary-replay-suite-executed",
+        "remove canary-suite-replay-evidence-recorded"
+      ]
+    },
+    {
+      "trigger": "Claim scanner detects a prohibited positive claim.",
+      "affected_artifact": "release claim boundary",
+      "rollback_target": "last scan_prohibited_claims pass",
+      "owner": "agent",
+      "required_evidence": [
+        "prohibited claim scan failure report",
+        "corrected claim boundary audit"
+      ],
+      "user_impact_note": "Release dry-run claims are withheld until claim boundary scan passes.",
+      "claim_downgrade": [
+        "remove claim-boundary-audited"
+      ]
+    },
+    {
+      "trigger": "Local or provider canary evidence is missing from bundle index.",
+      "affected_artifact": "evidence/beta-release-evidence-bundle/evidence_index.json",
+      "rollback_target": "previous bundle manifest with complete required evidence",
+      "owner": "agent",
+      "required_evidence": [
+        "evidence index diff",
+        "bundle manifest regeneration result"
+      ],
+      "user_impact_note": "Bundle draft is incomplete until required evidence is restored.",
+      "claim_downgrade": [
+        "remove beta-release-evidence-bundle-drafted"
+      ]
+    }
+  ]
+}

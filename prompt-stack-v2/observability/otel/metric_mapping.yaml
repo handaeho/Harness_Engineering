@@ -1,0 +1,19 @@
+metric_mapping:
+  status: design_only
+  live_emission_enabled: false
+  metrics:
+    latency_ms:
+      otel_name: gen_ai.client.operation.duration
+      unit: ms
+    input_tokens:
+      otel_name: gen_ai.client.token.usage
+      attribute: input
+    output_tokens:
+      otel_name: gen_ai.client.token.usage
+      attribute: output
+    estimated_cost:
+      otel_name: prompt_stack.estimated_cost
+      unit: USD
+    case_pass_rate:
+      otel_name: prompt_stack.case_pass_rate
+      unit: "1"

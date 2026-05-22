@@ -1,0 +1,178 @@
+{
+  "suite_id": "v33-external-harness-2026-05-18-a",
+  "run_id": "release-gate-r07",
+  "created_at": "2026-05-18T03:18:11.007Z",
+  "scenarios": [
+    {
+      "scenario_id": "EH-S01",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S01.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S01.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S01.stderr.log",
+      "response": {
+        "scenario_id": "EH-S01",
+        "bundle_id": "eval_ops_reflection_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "snapshot/prompt-stack/v33/AGENTS.md",
+          "snapshot/prompt-stack/v33/01_base/PROMPT_full.md",
+          "snapshot/prompt-stack/v33/02_overlays/PROMPT_evaluation_monitoring_overlay.md",
+          "snapshot/prompt-stack/v33/02_overlays/PROMPT_search_reasoning_overlay.md",
+          "snapshot/prompt-stack/v33/02_overlays/PROMPT_retrieval_grounding_overlay.md",
+          "snapshot/prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+          "snapshot/prompt-stack/v33/codex/skills/eval-ops/SKILL.md",
+          "snapshot/prompt-stack/v33/03_examples/PROMPT_example_catalog.md"
+        ],
+        "answer_summary": "문서 기반 판별 경로가 런타임 번들 내부에 직접 존재한다. BR-00/BR-19 축을 문서/런타임/벤치마크-루프 적합성 계열로 다루면, 최소한 `Guide reflection benchmark memo` 계열의 문서 수준 증빙이 우선 경로이며, assembled replay는 행위/실행 결과 재현이 필요한 경우(행동 임계치·충돌·애매성 존재)로만 상향한다.",
+        "verdict_rationale": "`CODEX_RUNTIME_GUIDE`의 2.8 절은 유지보수형 가이드 반영 평가에서 문서/패밀리 정합성 중심 질문의 기본 루트를 문서 레벨로 두고, 모호·충돌·행동 임계치일 때만 replay로 전환한다고 규정한다. `eval-ops` SKILL의 10.3에서도 runtime/owner 파트(직접 실행 상태가 아닌 문서 정합성 검증)에서는 문서 기반 benchmark가 1차 충족 경로이며, replay 필요 조건은 문서/패밀리 정합성 질문을 넘는 실행-의존 판단일 때로 한정한다. 따라서 BR-00/BR-19 축의 경로 선택 자체는 active runtime이 직접 노출한다. `AGENTS`와 `PROMPT_full`은 경량 라우팅/검증 체계를 따르며, 보조 오버레이는 과도한 확장을 요구하지 않는다.",
+        "limitations": [
+          "현재 활성 번들 내에는 BR-00/BR-19의 구체 정의가 없어, 해당 축을 런타임 owner/integrity 계열로 매핑한 것은 규칙적 판정이다.",
+          "실제 assembled replay 실행 로그(예: replay runner verdict sheet 등)는 번들 밖 자료이므로, 여기서는 'assembled replay 미필요'를 경로 적정성으로만 판단한다."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S02",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S02.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S02.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S02.stderr.log",
+      "response": {
+        "scenario_id": "EH-S02",
+        "bundle_id": "grounded_research_appendix_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "snapshot/prompt-stack/v33/01_base/PROMPT_light.md",
+          "snapshot/prompt-stack/v33/02_overlays/PROMPT_search_reasoning_overlay.md",
+          "snapshot/prompt-stack/v33/02_overlays/PROMPT_retrieval_grounding_overlay.md",
+          "snapshot/prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+          "snapshot/prompt-stack/v33/codex/skills/grounded-research/SKILL.md"
+        ],
+        "answer_summary": "Prompt Chaining, Appendix A advanced prompting, and freshness-sensitive programming research are all directly reflected in the active bundle. The base prompt includes chaining, the search reasoning overlay defines Appendix A advanced prompting execution control, and the retrieval/grounded-research runtime path explicitly requires freshness handling and official-source prioritization for SDK/API guidance.",
+        "verdict_rationale": "Runtime-owned path is present without requiring out-of-scope operator-only docs: chaining is anchored in PROMPT_light and codex mapping, Appendix A families are owned by PROMPT_search_reasoning_overlay with ownership boundaries, and freshness-sensitive programming research is governed by the grounded-research skill plus retrieval-grounding rules and official-source preference. This is sufficient for direct answerability under BR-01/14/17/22.",
+        "limitations": []
+      }
+    },
+    {
+      "scenario_id": "EH-S03",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S03.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S03.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S03.stderr.log",
+      "response": {
+        "scenario_id": "EH-S03",
+        "bundle_id": "orchestration_sufficiency_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "snapshot/prompt-stack/v33/AGENTS.md",
+          "snapshot/prompt-stack/v33/01_base/PROMPT_full.md",
+          "snapshot/prompt-stack/v33/02_overlays/PROMPT_multi_agent_overlay.md",
+          "snapshot/prompt-stack/v33/02_overlays/PROMPT_tool_protocol_overlay.md",
+          "snapshot/prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+          "snapshot/prompt-stack/v33/codex/skills/orchestration-control/SKILL.md"
+        ],
+        "answer_summary": "Single-agent sufficiency wins for this guide-reflection/programming-prompt maintenance decision; the active bundle already provides a direct check to avoid decorative orchestration.",
+        "verdict_rationale": "The active runtime texts directly encode the routing rule: do not use multi-agent/A2A when one coherent agent path is sufficient, and use orchestration only on justified coordination gain. This is reinforced by both the multi-agent overlay and the orchestration-control skill, while the runtime guide emphasizes task-based skill routing and reroute when control problem shifts. Because the task is maintenance/guide-reflection-oriented, the bundle has enough in-scope rules to decide no orchestration and avoid unnecessary structure.",
+        "limitations": [
+          "BR-03/BR-07/BR-13/BR-15 mappings are not explicitly present in this active slice, so the verdict is axis-based rather than benchmark-ID-specific.",
+          "No assembled replay or stronger operational packet artifacts are required for this route-selection judgment, but this does not validate live replay behavior."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S04",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S04.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S04.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S04.stderr.log",
+      "response": {
+        "scenario_id": "EH-S04",
+        "bundle_id": "coding_core_patch_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": true,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v33/AGENTS.md",
+          "prompt-stack/v33/01_base/PROMPT_standalone.md",
+          "prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v33/codex/skills/coding-core/SKILL.md",
+          "prompt-stack/v33/02_overlays/PROMPT_tool_protocol_overlay.md",
+          "prompt-stack/v33/02_overlays/PROMPT_guardrails_safety_overlay.md"
+        ],
+        "answer_summary": "The active bundle provides a direct, runtime-owned path for this local doc-repair case: identify the owning coding-doc slice, keep scope minimal, route through coding-core semantics, apply a draft-level proposal, and verify before claiming completion.",
+        "verdict_rationale": "`coding-core` explicitly covers stale/incorrect sentence defects as a localized hypothesis and requires confirming the local owner file before widening scope, which matches the scenario’s doc-repair intent. It enforces minimal-diff behavior, bounded patching, and separation of changed vs untouched scope. Base and runtime-guide docs also prescribe lightweight, single-primary-skill assembly and avoid unnecessary orchestration, and completion language/verification rules prevent premature ‘fixed’ claims, supporting draft-grade handling. No dependency on out-of-scope operator-only documents is required to choose the route or the verification posture.",
+        "limitations": [
+          "BR-05/06/12/16 are not explicitly spelled out in the active slice, so family-to-family mapping is inferred from general control behavior rather than directly named checks."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S05",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S05.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S05.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v33\\harness\\freezes\\rg-2026-05-18-a\\runs\\release-gate-r07\\EH-S05.stderr.log",
+      "response": {
+        "scenario_id": "EH-S05",
+        "bundle_id": "design_analysis_route_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v33/AGENTS.md",
+          "prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v33/codex/skills/design-analysis/SKILL.md",
+          "prompt-stack/v33/01_base/PROMPT_full.md",
+          "prompt-stack/v33/02_overlays/PROMPT_search_reasoning_overlay.md",
+          "prompt-stack/v33/02_overlays/PROMPT_retrieval_grounding_overlay.md"
+        ],
+        "answer_summary": "Primary route: stay at document-level benchmark review. Fallback: escalate to assembled replay only when ambiguity/conflict or behavior-critical evidence gaps require stronger proof; if the question shifts to replay execution state, gating, or release continuation, reroute to eval-ops.",
+        "verdict_rationale": "The active bundle directly defines this maintenance route policy in the codex runtime guide and design-analysis skill, and aligns with the base/overlay ownership model for route comparison and escalation. It explicitly supports one-best-route + fallback and includes reroute conditions, so a direct runtime-owned answer path exists without requiring out-of-scope operator docs.",
+        "limitations": [
+          "BR-02/BR-16/BR-20/BR-21-specific detailed scoring criteria are not present in the active bundle; the decision is routing-policy-based rather than family-specific numeric scoring."
+        ]
+      }
+    }
+  ]
+}

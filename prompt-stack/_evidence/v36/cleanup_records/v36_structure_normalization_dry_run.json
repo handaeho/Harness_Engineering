@@ -1,0 +1,220 @@
+{
+  "generated_at": "2026-05-20T08:01:50.366Z",
+  "mode": "dry_run_only",
+  "current_structure": {
+    "root_entries": [
+      "directory:_archive",
+      "directory:_evidence",
+      "file:CURRENT_STABLE_VERSION.txt",
+      "directory:legacy",
+      "directory:records",
+      "file:RELEASE_INDEX.md",
+      "directory:v36",
+      "directory:v36_candidate"
+    ],
+    "v36_active_files": 124,
+    "evidence_files": 2463,
+    "candidate_files": 2517,
+    "legacy_files": 1967,
+    "archive_files": 771
+  },
+  "v36_active_cleanup_candidates": {
+    "records_to_move": [
+      {
+        "path": "v36/records/hard_cleanup_empty_dirs.json",
+        "classification": "move_to_evidence",
+        "reason": "cleanup/process record; not required for active runtime use",
+        "target_path": "_evidence/v36/cleanup_records/hard_cleanup_empty_dirs.json",
+        "affects_runtime": false,
+        "affects_validation": true
+      },
+      {
+        "path": "v36/records/hard_cleanup_final_report.json",
+        "classification": "move_to_evidence",
+        "reason": "cleanup/process record; not required for active runtime use",
+        "target_path": "_evidence/v36/cleanup_records/hard_cleanup_final_report.json",
+        "affects_runtime": false,
+        "affects_validation": true
+      },
+      {
+        "path": "v36/records/hard_cleanup_inventory.json",
+        "classification": "move_to_evidence",
+        "reason": "cleanup/process record; not required for active runtime use",
+        "target_path": "_evidence/v36/cleanup_records/hard_cleanup_inventory.json",
+        "affects_runtime": false,
+        "affects_validation": true
+      },
+      {
+        "path": "v36/records/hard_cleanup_record_moves.json",
+        "classification": "move_to_evidence",
+        "reason": "cleanup/process record; not required for active runtime use",
+        "target_path": "_evidence/v36/cleanup_records/hard_cleanup_record_moves.json",
+        "affects_runtime": false,
+        "affects_validation": true
+      },
+      {
+        "path": "v36/records/hard_cleanup_report_moves.json",
+        "classification": "move_to_evidence",
+        "reason": "cleanup/process record; not required for active runtime use",
+        "target_path": "_evidence/v36/cleanup_records/hard_cleanup_report_moves.json",
+        "affects_runtime": false,
+        "affects_validation": true
+      }
+    ],
+    "reports_to_move": [
+      {
+        "path": "v36/reports/HARD_CLEANUP_FINAL_REPORT.md",
+        "classification": "move_to_evidence",
+        "reason": "cleanup/process report; keep active reports focused on current operation",
+        "target_path": "_evidence/v36/cleanup_reports/HARD_CLEANUP_FINAL_REPORT.md",
+        "affects_runtime": false,
+        "affects_validation": true
+      },
+      {
+        "path": "v36/reports/HARD_CLEANUP_INVENTORY.md",
+        "classification": "move_to_evidence",
+        "reason": "cleanup/process report; keep active reports focused on current operation",
+        "target_path": "_evidence/v36/cleanup_reports/HARD_CLEANUP_INVENTORY.md",
+        "affects_runtime": false,
+        "affects_validation": true
+      }
+    ],
+    "keep_active": [
+      "v36/records/assembled_bundle_integrity.json",
+      "v36/records/codex_runtime_integrity.json",
+      "v36/records/active_validation_summary.json",
+      "v36/records/artifact_map.json",
+      "v36/records/claim_scope_and_downgrades.json",
+      "v36/records/current_state.json",
+      "v36/records/file_checksums.json",
+      "v36/records/final_validation_record.json",
+      "v36/records/followup_backlog.json",
+      "v36/records/limitations_register.json",
+      "v36/records/release_manifest.json",
+      "v36/records/rollback_and_monitoring_plan.json",
+      "v36/reports/CURRENT_STATE_SUMMARY.md",
+      "v36/reports/FINAL_STATUS.md",
+      "v36/reports/RELEASE_NOTES.md",
+      "v36/reports/ROLLBACK_AND_MONITORING_PLAN.md",
+      "v36/reports/VALIDATION_SUMMARY.md"
+    ],
+    "review_needed": []
+  },
+  "candidate_relocation_plan": {
+    "current": "v36_candidate/",
+    "proposed": "_candidates/v36_candidate/",
+    "move_required": false,
+    "active_dependency": false,
+    "references_to_update": [
+      "RELEASE_INDEX.md",
+      "records/release_history.json"
+    ],
+    "validation_needed": [
+      "root pointer check",
+      "release history parse",
+      "current package validation"
+    ],
+    "user_approval_required": true
+  },
+  "legacy_structure_plan": {
+    "keep": [
+      "legacy/v34/",
+      "legacy/v35/"
+    ],
+    "move_to_cold_storage": [
+      "legacy/99_original/",
+      "legacy/v14/",
+      "legacy/v15/",
+      "legacy/v16/",
+      "legacy/v17/",
+      "legacy/v18/",
+      "legacy/v19/",
+      "legacy/v20/",
+      "legacy/v21/",
+      "legacy/v22/",
+      "legacy/v23/",
+      "legacy/v24/",
+      "legacy/v25/",
+      "legacy/v26/",
+      "legacy/v27/",
+      "legacy/v28/",
+      "legacy/v29/",
+      "legacy/v30/",
+      "legacy/v31/",
+      "legacy/v32/",
+      "legacy/v33/"
+    ],
+    "proposed_target": "_cold_storage/legacy_older_versions/",
+    "references_to_update": [],
+    "risk": "medium: many preserved historical packages would move; verify no registry pointer depends on them",
+    "user_approval_required": true
+  },
+  "evidence_archive_consolidation_plan": {
+    "keep_or_consolidate": "Option A keep is lowest risk; Option B consolidate is available after approval",
+    "current_archive_paths": [
+      "_archive/v35_release_evidence_2026-05-19/",
+      "_archive/v36_release_evidence_2026-05-20/"
+    ],
+    "proposed_moves": [
+      {
+        "current_path": "_archive/v35_release_evidence_2026-05-19/",
+        "proposed_path": "_evidence/v35/release_evidence_2026-05-19/"
+      },
+      {
+        "current_path": "_archive/v36_release_evidence_2026-05-20/",
+        "proposed_path": "_evidence/v36/release_evidence_2026-05-20/"
+      }
+    ],
+    "references_to_update": [
+      "records/release_history.json"
+    ],
+    "checksum_regeneration_required": true,
+    "user_approval_required": true,
+    "risk": "medium: evidence paths in release registry and checksums must be updated"
+  },
+  "target_root_structure": [
+    "CURRENT_STABLE_VERSION.txt",
+    "RELEASE_INDEX.md",
+    "records/release_history.json",
+    "v36/",
+    "_evidence/v36/",
+    "_evidence/v35/ optional",
+    "_candidates/v36_candidate/ optional after approval",
+    "legacy/v35/",
+    "legacy/v34/",
+    "_cold_storage/legacy_older_versions/ optional after approval"
+  ],
+  "performance_preservation_checks": {
+    "autonomous_risk": "low if autonomous/ is untouched and assembled bundle validation passes",
+    "codex_risk": "low if codex/ is untouched and Codex runtime validation passes",
+    "validation_risk": "low for Option 1; medium for root relocation options requiring pointer updates",
+    "evidence_risk": "low for moving cleanup artifacts; medium for archive consolidation"
+  },
+  "recommended_execution_plan": {
+    "option_1_minimal_cleanup_only": [
+      "move active hard cleanup records/reports to _evidence/v36/cleanup_records and cleanup_reports",
+      "update artifact map and active checksum manifest",
+      "run validate_current, validate_assembled_bundle, validate_codex_runtime"
+    ],
+    "option_2_practical_root_cleanup": [
+      "perform Option 1",
+      "move v36_candidate to _candidates/v36_candidate",
+      "move old legacy versions to _cold_storage/legacy_older_versions while keeping legacy/v34 and legacy/v35",
+      "update RELEASE_INDEX and release_history references",
+      "run full validation and checksum regeneration"
+    ],
+    "option_3_full_normalization": [
+      "perform Option 2",
+      "consolidate _archive release evidence into _evidence",
+      "update release registry evidence_archive paths",
+      "regenerate evidence checksums and validate links"
+    ],
+    "required_user_approvals": [
+      "choose Option 1, 2, or 3 before any move"
+    ]
+  },
+  "recommendation": "Ready for structure normalization execution after user selects an option",
+  "actual_cleanup_executed": false,
+  "files_moved": 0,
+  "files_deleted": 0
+}

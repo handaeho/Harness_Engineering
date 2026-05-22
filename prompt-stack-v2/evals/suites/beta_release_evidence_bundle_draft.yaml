@@ -1,0 +1,44 @@
+id: beta_release_evidence_bundle_draft
+stage: v2.0.0-beta-release-evidence-bundle-draft
+purpose: Index existing alpha, beta, OpenAI canary, replay suite, and local readiness evidence without opening a new execution surface.
+approved_actions:
+  - evidence_indexing
+  - claim_boundary_audit
+  - evidence_lineage_summary
+  - capability_matrix_snapshot
+  - release_readiness_draft_assessment
+  - blockers_and_gaps_register
+  - bundle_manifest_and_checksums
+forbidden_execution:
+  - openai_provider_api_call
+  - local_model_execution
+  - local_endpoint_probe
+  - new_provider_feature_surface
+  - new_tool_schema_expansion
+  - redteam_execution
+  - production_telemetry_connection
+success_criteria:
+  - build_beta_release_evidence_bundle.mjs exits pass
+  - audit_claim_boundaries.mjs exits pass
+  - summarize_evidence_lineage.mjs exits pass
+  - check_beta_release_evidence_bundle.mjs exits pass
+  - release_gate_passed is false
+  - production_ready is false
+  - provider_diversity_established is false
+  - local_model_execution_verified is false
+claims_allowed:
+  - beta-release-evidence-bundle-drafted
+  - evidence-lineage-indexed
+  - claim-boundary-audited
+  - release-readiness-draft-assessed
+  - blocker-register-updated
+claims_not_allowed:
+  - release-gated
+  - production-ready
+  - production-monitored
+  - replay-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - integration-verified

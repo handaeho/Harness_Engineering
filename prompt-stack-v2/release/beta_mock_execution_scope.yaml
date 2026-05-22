@@ -1,0 +1,41 @@
+stage: v2.0.0-beta-mock-execution
+approved_execution:
+  mock_runtime_orchestration: true
+  deterministic_mock_model: true
+  deterministic_mock_tools: true
+  approval_gate_smoke_test: true
+  trace_schema_validation: true
+
+forbidden_execution:
+  provider_api_execution: true
+  local_model_execution: true
+  external_network_calls: true
+  real_tool_side_effects: true
+  live_telemetry: true
+  redteam_execution: true
+  replay_verification: true
+  release_gate_claim: true
+
+claims_allowed:
+  - beta-mock-runtime-executed
+  - mock-tool-routing-checked
+  - approval-boundary-smoke-tested
+  - trace-schema-smoke-tested
+  - schema-contract-validated
+
+claims_not_allowed:
+  - adapter-checked
+  - provider-verified
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - telemetry-connected
+  - production-ready
+  - production-monitored
+  - containment-verified
+  - replay-verified
+  - benchmark-backed
+  - provider-diverse
+  - integration-verified
+  - release-gated
+

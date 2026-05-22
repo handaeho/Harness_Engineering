@@ -1,0 +1,31 @@
+{
+  "validation_name": "current_v35_validation",
+  "validation_scope": "active v35 current-state structure, source-to-99_total parity, codex-to-99_total/codex parity, root pointer path existence, archive checksum validity, validation checksum drift, downgrade language, and prohibited positive claim scan",
+  "entrypoint": "harness/validate_current_v35.mjs",
+  "generated_at": "2026-05-20T02:44:10.400Z",
+  "prohibited_positive_claims": [
+    "production-monitored",
+    "containment-verified",
+    "all primary-source items fully validated",
+    "public benchmark certified",
+    "live production rollout certified"
+  ],
+  "required_downgrade_language": [
+    "primary-source deferred item은 downgrade 상태",
+    "sandbox와 telemetry gap은 production-readiness claim을 제한",
+    "containment proof가 생기기 전까지 containment는 downgrade 상태",
+    "production telemetry 기반 검증이 아닙니다",
+    "textual mirror로 취급하지 않습니다",
+    "live production rollout certification이 아닙니다"
+  ],
+  "required_integrity_checks": [
+    "source_to_99_total_parity",
+    "codex_to_99_total_codex_parity_or_documented_non_mirror",
+    "root_pointer_path_existence",
+    "archive_checksum_validity",
+    "active_checksum_validity_with_mutable_validation_outputs_excluded",
+    "validation_checksum_drift",
+    "prohibited_positive_claim_scan",
+    "downgrade_language_preservation"
+  ]
+}

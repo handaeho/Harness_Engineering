@@ -1,0 +1,76 @@
+{
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "runtime_os_name": "v34 Agent Runtime OS",
+  "operating_goal": "elevate the prompt stack into an agent-readable runtime operating system with explicit substrate, policy, observability, evaluation, approval, rollback, and entropy-control layers",
+  "target_agent_types": [
+    "chat_only_assistant",
+    "read_only_repo_agent",
+    "bounded_write_agent",
+    "tool_using_workflow_agent",
+    "long_running_coding_agent",
+    "production_facing_agent",
+    "multi_agent_runtime"
+  ],
+  "supported_task_families": [
+    "direct_answer",
+    "document_grounded_research",
+    "bounded_coding_patch",
+    "ambiguous_debugging",
+    "evaluation_replay",
+    "release_readiness_review",
+    "long_running_coding",
+    "multi_agent_join_review"
+  ],
+  "supported_runtime_environments": [
+    "chat_only",
+    "local_filesystem_cli",
+    "harness_runner",
+    "browser_observation",
+    "tool_or_mcp_workflow"
+  ],
+  "risk_classes": ["R0", "R1", "R2", "R3", "R4"],
+  "autonomy_levels": [
+    { "level": "L0", "name": "chat_only_assistant", "write_allowed": false, "external_tools": false },
+    { "level": "L1", "name": "read_only_agent", "write_allowed": false, "external_tools": true },
+    { "level": "L2", "name": "bounded_write_agent", "write_allowed": true, "external_tools": true },
+    { "level": "L3", "name": "tool_using_workflow_agent", "write_allowed": true, "external_tools": true },
+    { "level": "L4", "name": "long_running_coding_agent", "write_allowed": true, "external_tools": true },
+    { "level": "L5", "name": "production_facing_agent", "write_allowed": true, "external_tools": true },
+    { "level": "L6", "name": "multi_agent_operating_system", "write_allowed": true, "external_tools": true }
+  ],
+  "human_review_modes": [
+    "validator_reviewer",
+    "human_in_the_loop_correction",
+    "human_on_the_loop_monitoring",
+    "collaborative_partner",
+    "propose_only_escalation"
+  ],
+  "release_claim_language": [
+    "prompt-reviewed",
+    "harness-designed",
+    "config-harness-ready",
+    "code-defined-harness-ready",
+    "harness-executed",
+    "replay-verified",
+    "release-gated",
+    "production-monitored"
+  ],
+  "non_goals": [
+    "treating prompt length as a substitute for runtime substrate",
+    "using tool success as task success",
+    "using trace capture as replay or eval proof",
+    "using sandbox existence as containment verification"
+  ],
+  "current_maturity": "harness-designed",
+  "target_next_maturity": "config-harness-ready",
+  "final_judgment": {
+    "decision": "Ready for P0 implementation",
+    "reason": "doctrine, contracts, docs scaffold, and scenario set are defined",
+    "blockers": [
+      "no executed v34 run",
+      "no replay verdict yet",
+      "policy and claim-strength fields not yet emitted by actual run artifacts"
+    ],
+    "next_action": "wire P0 registries into runner output and execute first runtime-os scenarios"
+  }
+}

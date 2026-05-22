@@ -1,0 +1,36 @@
+{
+  "required_fixes": [
+    {
+      "priority": "P1",
+      "target_asset": "harness/runner or Phase 4 verification substrate",
+      "problem": "Existing stack eval runner is copied from v34 and is not safely parameterized as v35-candidate execution evidence.",
+      "proposed_fix": "Create or parameterize a v35-candidate replay runner that reads v35_candidate assets and emits trace/judge records.",
+      "retest_case": "all Phase 4 cases with native actor/judge replay",
+      "rollback_condition": "If runner path ambiguity causes v34 evidence to be mislabeled as v35-candidate evidence."
+    },
+    {
+      "priority": "P1",
+      "target_asset": "PROMPT_retrieval_grounding_overlay / grounded-research",
+      "problem": "124 PromptingGuide pages require primary-source validation for current/model/API/tool claims.",
+      "proposed_fix": "Keep current/latest claims downgraded until official primary-source checks are executed.",
+      "retest_case": "P4-RAG-001, P4-CODE-007",
+      "rollback_condition": "If PromptingGuide-only facts are promoted into operational policy."
+    },
+    {
+      "priority": "P1",
+      "target_asset": "Codex runtime validation suite",
+      "problem": "Codex runtime skills are document-level aligned but not live-behavior verified.",
+      "proposed_fix": "Run skill-specific actor/judge cases for CODEX_RUNTIME_GUIDE and five skills.",
+      "retest_case": "P4-CODEX-001..006",
+      "rollback_condition": "If runtime skill claims are described as certified without execution."
+    },
+    {
+      "priority": "P2",
+      "target_asset": "PROMPT_harness_contracts",
+      "problem": "Deterministic local fallback lacks sandbox/telemetry/native replay substrate.",
+      "proposed_fix": "Add executable mock tool, sandbox event, and telemetry trace contracts for Phase 4.",
+      "retest_case": "P4-HARNESS-001..008",
+      "rollback_condition": "If harness-designed language is inflated to harness-executed."
+    }
+  ]
+}

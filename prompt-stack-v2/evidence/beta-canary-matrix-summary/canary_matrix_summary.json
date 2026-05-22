@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-canary-matrix-summary-and-local-readiness",
+  "provider_execution_performed_in_this_stage": false,
+  "local_model_execution_performed_in_this_stage": false,
+  "endpoint_probe_performed_in_this_stage": false,
+  "evidence_inputs": {
+    "openai_no_tool_status": "pass",
+    "openai_structured_output_status": "pass",
+    "openai_tool_calling_status": "pass"
+  },
+  "matrix": {
+    "openai": {
+      "no_tool_text_path": "canary_checked",
+      "structured_output_path": "canary_checked",
+      "tool_calling_path": "canary_checked",
+      "trace": "canary_checked",
+      "redaction": "canary_checked",
+      "raw_response_stored": false,
+      "claim_level": "canary_only"
+    },
+    "vllm": {
+      "local_no_tool_path": "blocked_by_missing_endpoint",
+      "claim_level": "not_executed"
+    },
+    "ollama": {
+      "local_no_tool_path": "blocked_by_missing_endpoint",
+      "claim_level": "not_executed"
+    }
+  },
+  "claims_allowed": [
+    "canary-matrix-summarized",
+    "local-readiness-documented",
+    "local-endpoint-blocker-recorded"
+  ],
+  "claims_not_allowed": [
+    "provider-diverse",
+    "local-model-verified",
+    "provider-verified",
+    "adapter-checked",
+    "integration-verified",
+    "release-gated"
+  ]
+}

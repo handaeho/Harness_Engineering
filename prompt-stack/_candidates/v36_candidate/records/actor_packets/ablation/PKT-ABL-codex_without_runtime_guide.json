@@ -1,0 +1,34 @@
+{
+  "packet_id": "PKT-ABL-codex_without_runtime_guide",
+  "benchmark_case_id": "ABL-codex_without_runtime_guide",
+  "actor_type": "codex",
+  "variant_id": "codex_without_runtime_guide",
+  "removed_component": "codex/CODEX_RUNTIME_GUIDE.md",
+  "target_assets": [
+    "codex/CODEX_RUNTIME_GUIDE.md"
+  ],
+  "input_task": "Evaluate behavior impact when codex/CODEX_RUNTIME_GUIDE.md is unavailable. Use equivalent benchmark subset BE-SHARED-001, BE-SHARED-006, BE-SHARED-011, BE-SHARED-016, BE-CODEX-001.",
+  "context_files": [
+    "AGENTS.md",
+    "docs/ARTIFACT_MAP.md",
+    "verification/ablation_plan.md"
+  ],
+  "expected_route": "Compare variant against full_harness without claiming production evidence.",
+  "required_output_schema": "validation/ablation_actor_output_schema.json",
+  "required_trace_fields": [
+    "variant_id",
+    "removed_component",
+    "cases_executed",
+    "pass",
+    "partial",
+    "fail",
+    "not_evaluated",
+    "qualitative_findings"
+  ],
+  "forbidden_behavior": "Do not call simulated ablation real; do not claim stable v36.",
+  "expected_claim_strength": "codex_cli_read_only_actor_ablation",
+  "stop_conditions": [
+    "Do not edit files.",
+    "Return structured JSON only."
+  ]
+}

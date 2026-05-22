@@ -1,0 +1,1421 @@
+2026-05-06T10:06:33.203114Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:06:33.203142Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:06:33.203144Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:06:33.203146Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:06:33.211183Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+OpenAI Codex v0.118.0-alpha.2 (research preview)
+--------
+workdir: C:\WORK\0.개인\PROMPT
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019dfcc0-e4f9-7653-baaa-c9bc58329eed
+--------
+user
+You are an external non-interactive replay runner for v32 assembled prompt evaluation.
+
+Rules:
+- Read only the listed active files as the runtime bundle under review.
+- Treat operator-only docs outside that active bundle as out-of-scope runtime owners.
+- Do not use web search.
+- Do not patch files.
+- If evidence is weak or indirect, keep the limitation explicit instead of guessing.
+- Return the provided scenario_id and bundle_id exactly.
+- Treat focus IDs as review axes, not as required literal strings that must appear in the active files.
+- Do not downgrade solely because a BR family ID is not explicitly named if the active bundle directly owns the underlying concept or route.
+- For route-selection scenarios, an explicit runtime-owned reroute to another primary skill counts as a direct answer path.
+- For local doc-repair scenarios, a user-reported stale or incorrect sentence is a valid localized defect hypothesis; judge whether the bundle chooses the smallest safe fix route rather than whether the exact stale text is quoted in the slice.
+- Set operator_only_dependency=true only when a required answer path truly depends on out-of-scope docs, not merely because those docs also discuss the benchmark family.
+- Return JSON only matching the provided schema.
+
+Suite: v32-external-harness-2026-05-06-a
+Scenario: EH-S01
+Bundle: eval_ops_reflection_bundle
+
+Active bundle files:
+- snapshot/prompt-stack/v32/AGENTS.md
+- snapshot/prompt-stack/v32/01_base/PROMPT_full.md
+- snapshot/prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md
+- snapshot/prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md
+- snapshot/prompt-stack/v32/02_overlays/PROMPT_retrieval_grounding_overlay.md
+- snapshot/prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md
+- snapshot/prompt-stack/v32/codex/skills/eval-ops/SKILL.md
+- snapshot/prompt-stack/v32/03_examples/PROMPT_example_catalog.md
+
+Out-of-scope as runtime owners:
+- prompt-stack/v32/PROMPT_USER_GUIDE.md
+- prompt-stack/v32/v32_Guide_Reflection_Benchmark_*.md
+- prompt-stack/v32/v32_Assembled_Replay_*.md
+- prompt-stack/v32/v32_Scenario_*.md
+
+Task:
+You are maintaining v32 against the attached guide. Decide whether document-level benchmark is sufficient or whether assembled replay artifacts must activate. Choose the smallest justified artifact ladder and state whether the runtime docs directly expose that route.
+
+Benchmark families in focus:
+- BR-00
+- BR-19
+
+Evaluation contract:
+- verdict=Pass only if the active bundle gives a direct and runtime-owned answer path for the task.
+- verdict=Partial Pass if the behavior is mostly right but one important boundary remains indirect or weak.
+- verdict=Fail if the task depends on operator-only ownership, missing direct runtime carryover, or unjustified orchestration / patch widening.
+- operator_only_dependency=true if a required answer path would depend on out-of-scope docs.
+- over_orchestration=true if the bundle would likely recommend multi-agent/A2A or unnecessary structure for this task.
+- speculative_patch_widening=true if the bundle would likely widen edits beyond the evidence.
+- missing_operational_artifact_route=true if assembled replay or stronger operational artifacts are needed but not directly exposed.
+- minimal_patch_targets should be empty unless a concrete runtime-doc gap is exposed by the active bundle itself.
+
+Use actual file paths in evidence_files.
+2026-05-06T10:06:33.231580Z  WARN codex_core::plugins::manager: failed to warm featured plugin ids cache error=remote plugin sync request to https://chatgpt.com/backend-api/plugins/featured failed with status 403 Forbidden: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style global>body{font-family:Arial,Helvetica,sans-serif}.container{align-items:center;display:flex;flex-direction:column;gap:2rem;height:100%;justify-content:center;width:100%}@keyframes enlarge-appear{0%{opacity:0;transform:scale(75%) rotate(-90deg)}to{opacity:1;transform:scale(100%) rotate(0deg)}}.logo{color:#8e8ea0}.scale-appear{animation:enlarge-appear .4s ease-out}@media (min-width:768px){.scale-appear{height:48px;width:48px}}.data:empty{display:none}.data{border-radius:5px;color:#8e8ea0;text-align:center}@media (prefers-color-scheme:dark){body{background-color:#343541}.logo{color:#acacbe}}</style>
+  <meta http-equiv="refresh" content="360"></head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <svg
+          width="41"
+          height="41"
+          viewBox="0 0 41 41"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          strokeWidth="2"
+          class="scale-appear"
+        >
+          <path
+            d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div class="data"><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: '5TpIwzDH4F.J1rOX4ET.3Xv8Yc6Wyu2z8y4EJoXytSw-1778061993-1.2.1.1-bgjDAFrPNxrZo8wfzSHa3.rQXWtCr.2XA7suD7j0i6SPoypAdHeomRdpXPDF3Br9',cITimeS: '1778061993',cRay: '9f772c43f9cbd1e2',cTplB: '0',cTplC:1,cTplO:0,cTplV:5,cType: 'managed',cUPMDTk:"/backend-api/plugins/featured?platform=codex&__cf_chl_tk=2N7gu5K_EsIkVzqvQ7cqO5RhFHmrdhIsgCKQ3X.UfTU-1778061993-1.0.1.1-jbymc5miBkeR_FgQxpxeYEPPIPvksiJKewCSraKGxOI",cvId: '3',cZone: 'chatgpt.com',fa:"/backend-api/plugins/featured?platform=codex&__cf_chl_f_tk=2N7gu5K_EsIkVzqvQ7cqO5RhFHmrdhIsgCKQ3X.UfTU-1778061993-1.0.1.1-jbymc5miBkeR_FgQxpxeYEPPIPvksiJKewCSraKGxOI",md: 'FN7jUkyCoQK_i3idjXghzDbXGDUdyb21dR6FtDea6RA-1778061993-1.2.1.1-N8ETRsv_l6WzDGC.Q7cfRdID2q21FvhFe.eNNpftxn2e.NqVDdoPdEMZEkZAkPLFbs6cYDOVIMpggek_n_GLESKUwldzyWOMWNWc22LCoQl363B7hk68edvGwfliN_XonDbA3KzQGelUp9_K1Uhny.7f_iKStYqLRAK7DmI26BKT_UJPH6yCnzXadHag0fQR45uBFLBXi13Bb0dHXG9U.sHUmJiX5FwLFt_QNUu6GPOmBkAEey64DR2nPGyVgeztpgYvF.TPWPK7Ae6yJS0pXEgTkxOVfJZHn6MB52E7DNc9.2hcn5zAloO0OK2CG5moCakl89o2rNEz3ihz05SZfgQC2KB0NDxbubC4AaHDag6a7tLIjmu_7GMCA1_f7xU.14hDkJneGzkwhP8P73qkTus97bQ4JaprAt16COEm5yeKfKTrVDyMq1mWRsHi0hhH8KYeaHSHUKViw76vhk8boWdocR91UOruTiSg2E3LPcluleUTKvKrjme01JRo9mtzzqG3SkEt85_VmcJ492hUySulFXl39z81AdMZwHNUx7QfmsoxSm7b_tfFszBMC2VCSbakK3fVoPoJWbxKyWfbewaCtBSLriKUVF8kMFNI1wIqGa5lvPHLzSafSt5Pnf5OwHGm.DHUNZrulVeO4ZxXXiygcopZTnhZpiMML9aCub7kb5TevNrcokbwxT70gAg2Ka2z0fXAEkL2Q9d0Si.kj2CdImF8.Ts3nQo4O6qp7qe4ih84.sRGPJ25vjzSRkJVGGLZ4wWFuYcLEqkaV_3TJtGc6Wl7b0pbGU2DwMZjQ3XU.vBbroYPX_4XAhZmenFgerslTk_EATFeUOgQMuT3ZQv9_MZbLz7PKaMfab5KOZKkW6MYz2UuoPnd7aDPoGWPj3qW_No21zW1dfFI4y3_q1oAVQojn.p.IYz1ECovQVscjhI.5hfOqIFyNd_3h0q_c3fBHd8EmjmYaLziqE.AhGx2eP.xFQfxfUPU8wog4DSfk4drPLLLiML03WeLSQLIeul_rhh112TtksuoW7ktfg',mdrd: 'Fma3e0hxvB6D6tyACOcnPSpFw3ZTx0mlVzSINSFz7cw-1778061993-1.2.1.1-6vmUmjbZ.B1h4P371Ltpn5qaZBuSR0.YFISPl9ufjflFm_6o0t61JI8vreWKMz_fW_Z7KWPFATIf3P8VdfwakVqb30rgA1ObmYQbN9iL8w2x7WhMBjHI1Tox8SAHmi.a9y7ROb0q3vylsFucPjGtMOyv3v9cPnM8LHeXbme7hmOyK85FunGR2X8sHzaEx6md_VHvGNJKU0F.YKF1kAX4a_G9UbqGqkysHpHxE1jWE6Cj.08FUl5xn6hZhcZSAuyRFNMSY7AEZpcp6OEq4sVnXMvSBZeB.7E5OTwUaDFkOLJs6p5vFIU88vPg9vHMUWaXFzaI_FbzRvWO6nwee7qTNT6YaDL0Q5Opjs5oZ1AnpIEzV6mrIjAbXHfkRnGeu_OS.B_Yaz3Zmx6Msi1Z.FtoNR5JsF1kFQH7eVVyInnU4l.Pk9VjcEJ8yh7z0dNNpsIIbwb4gfX6.HiV0soikb4.PiaBE_VGb9XwSnwwAmiER76cMvmlUgbi88nq4kXOx5bqVA2Hp2AfrLbiysMdA3CQ1bGjNSt0Bog7NI.Wr7FlEhQvrjZv_n0Ft585iSzcKT.AjBdFgzqgX8Ey7vJArwG19l9rAdPy18_kTZUq4kZ6HxaKBophF9yRjS63q0A6l7PQmErFQWKRlnAEzN1FObmi2WPDrFVCw7RsCELiARblTZfl.xSjpXqy71b.0Dgv9k0J4CtVEoVJxjYyMS9IrhCouwpjts85clOO9AvnQY4O3cWVvSmJiGN3phJStK6RDP3KbZLD9H2DHBSWK9cq0EY8cuoJN.q_RU2b93YVjPSNewrdBWdL0HHLHy4xmyEGzdRZN7Iq9Sr9sbn7t2Sf_dnXgnncBE_CLtpgOCxaAUH6fPKWqBb05.9Y4RwS3TyNhBlfH7IlsncsIWP9DlRDQFtPJNHvISjIqlEz.3slmbtfeNordJVg3JKCc5ZZzf_pdLqjW0SPpFvrimKVuzJK4ohcgbXMAllABWHpI6GctQ1Yqdcpxfwrcz31loPbERd4.6fQP0hS6Xz9qKZzkB1VAqsqL8PEkfNlpPJevO6KMYDTd3Q.YwoyrWLLj9Q5jNyaQs5O471.pRbDQ6IcbyuOj4.8NWIFctx2GHwgvm6rZ9Cews7wOPSKxlA8uosMIq57WvO9GFE1gfGgcyehrgyoiqOYpjzh2TPThvepJHk9NQjXpw3EGuD7G36JxIScxtC9kM_60v6Apa4GHakLW02vXEJAZzIWrq5u2mxAKYhO_dOcg53a4TU8aXwaYAmkxiZOOc1DyL18hGC5DoenOyE898nkcKwzuUG0iVKo0SkAmtQHt5_KbwonHjj4pqnsKcuQCxAajEYKYnXQcm.HivTfGLfy3ms4mPat9Eid8T4WVgoiuEMAJN3pktFNbQdHUlMkcJ90IItHDP0eH7WlRfoJM_i4BjWVs_kKnZSG5Ek49_x8YNnXeGZtStQOZ9zf.D_Mtx6kCi1hl92wRRPtyWhOrH7Mjhf7LeKJXIbEQY8aPrfwa7mBAMRefnPMcjQbQuPmnHqiZYoX5ECooFkNdD2gbrzEIh0_6fn_KXuQxaq0hjgOANwRDf4gIfKi59sXVMtgd7QE.niPNKX899ULQeuBIzUpXltxkuKxWfawbLQNYirU81OdMHsd3FZQ9sr9JRkqa5g4bbIliuTpcQIqEbjLkZD9xENErjADJPlpuen61VYX0lB1tFg3yO3Ed1bazSnoZg.u3mhCX2sMM5x9p0Q8GGHeUNdGPk1Q5wmEJAPvqaAAuXIPhtec_vaMsrfiRGhYSJ89vYdcBVmLSWSFWuAjGUel0j.S5NkHh.M7XMZpZEENX1WzAtGULO_A785d4SKoCqYFLfR6UM4ny1OuHQmSNgJ3faKTb7uyvDVzbBmKI_PCyl1ySuhKoyez_vXYHQADZlJUqbF5UTC3XpseMHR1W0vJ.E63SHTJJsrKVz_iwvY_DDog7vjBsxJHVZI1uXTFc5z6t9CKgG4GupNEg6oqSc06HWjGvuZTCdnxIMQ5VOZcpSzL4K9aBUJqAN9TPVBabhzj8JLLGC4d6WbShoa_xE9jSOdJJPt_AbGiyE6oHDX6uAAOUU4fQ1zElvpGNoHtfFrCuNvxuLgiviJ8wh7gsSygTywfRjLAoMcjqlzaLjpQbGrkOPneOfO6pT72NnZaPtpmaDtXsuS92qcckZuigHnbVvciZ1nun7jwCGpCP3m.NCWXnyarCL_ClN5TI.FeLSywoul10HWOHRvZ7_n7QjjmhjbKMsUCJ_N2glKyK70l9k3XPz7HFwr8_hRGI10qn3Z7D9VjU8DTGJUix55qJEeyGg',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=9f772c43f9cbd1e2';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"/backend-api/plugins/featured?platform=codex&__cf_chl_rt_tk=2N7gu5K_EsIkVzqvQ7cqO5RhFHmrdhIsgCKQ3X.UfTU-1778061993-1.0.1.1-jbymc5miBkeR_FgQxpxeYEPPIPvksiJKewCSraKGxOI"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></div>
+    </div>
+  </body>
+</html>
+
+2026-05-06T10:06:33.239210Z  WARN codex_core::plugins::startup_sync: startup remote plugin sync failed; will retry on next app-server start error=remote plugin sync request to https://chatgpt.com/backend-api/plugins/list failed with status 403 Forbidden: <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style global>body{font-family:Arial,Helvetica,sans-serif}.container{align-items:center;display:flex;flex-direction:column;gap:2rem;height:100%;justify-content:center;width:100%}@keyframes enlarge-appear{0%{opacity:0;transform:scale(75%) rotate(-90deg)}to{opacity:1;transform:scale(100%) rotate(0deg)}}.logo{color:#8e8ea0}.scale-appear{animation:enlarge-appear .4s ease-out}@media (min-width:768px){.scale-appear{height:48px;width:48px}}.data:empty{display:none}.data{border-radius:5px;color:#8e8ea0;text-align:center}@media (prefers-color-scheme:dark){body{background-color:#343541}.logo{color:#acacbe}}</style>
+  <meta http-equiv="refresh" content="360"></head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <svg
+          width="41"
+          height="41"
+          viewBox="0 0 41 41"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          strokeWidth="2"
+          class="scale-appear"
+        >
+          <path
+            d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div class="data"><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'EjwgUkelieW5aiDBX8.6GPXyvXPnU_qLxIpTZC0v794-1778061993-1.2.1.1-HN9X7AxBM5YNQ.kzNv3z.p0A.yrP78ZyUJgujDxZu5j2NFj785M4Ts4EuW18FA3V',cITimeS: '1778061993',cRay: '9f772c43f93930d9',cTplB: '0',cTplC:1,cTplO:0,cTplV:5,cType: 'managed',cUPMDTk:"/backend-api/plugins/list?__cf_chl_tk=R7zRbWnvWQ29pbkh7fsw3bz5s8wpwdbrnHLBYj1kZ4I-1778061993-1.0.1.1-9UlNxuGVHM.surJfTncp_hNkiuRmmng9kkLh7Mb.7oM",cvId: '3',cZone: 'chatgpt.com',fa:"/backend-api/plugins/list?__cf_chl_f_tk=R7zRbWnvWQ29pbkh7fsw3bz5s8wpwdbrnHLBYj1kZ4I-1778061993-1.0.1.1-9UlNxuGVHM.surJfTncp_hNkiuRmmng9kkLh7Mb.7oM",md: 'QZdObMDWj29c6v.pmZe_qRtOG0GQL_LaZ9.k8i1KApc-1778061993-1.2.1.1-YX_5F6QrKboXmpeCtKJu8mfKB6pMCn1qlBS8P6JzTwkhSUrbOej6fNhQJAN5_t00Ahs7Z7_DoFCbqdc1nwNIFf_wf6Fix_33DSV.xXMJuOzjsSkAHdZQM.0_7Pt5ldOrrdlzTO7oYexBKtw2MfuNBK7ZNiCgttYU8ADZwfeYTXUnMQwRMCBJ8b6u7zuPKnObfLNriJ2CDQEVk36DtdqowPJWlDW2MEGg_sIVXbcKEtnLIADNY4STtGyKawkyyLHKbh46TNW_FkaQMKDDVxjmcDuhGzZSp1YRL5MfEa7xT75E8IF.CgcPNdK7zSs6qJQP8.L6acygLjieHcCzjC2lxCUSz8oKvILXJ9ccp9DvYyJ13fQxGd3_5XUHLkwkEHFXydls1ryTyflSTjwGUaAS8ilaH_EOnzLdtLpBEYgAxcKUdqOFAw5mf.zF4cagd5WaLd1W0VCI5bqK8eM3oh6G.cq1mxxc4e4ytbYv8MSF9Ji9fFo_cLgHAPEIiasfb_o3zK7iODub8qPVI_kgcc9HENiMIppH3HBQp.e_cEbIsrxyqqh3Uh_PvOblPc8WyawA5SiOkesz3_ToVMpzPZaKZ4hyAH3Msb6qhU.sMpxJGfoVvNwyNp_pZrkgZny1U_r4.QSPfMjgp1OQ08.EAx2sQ5ZdB6893EvRK1zGz2jzSA8dsucQEQIN5hRQFde3rsHR_BaPDDC_bC3E5YYcFhgZ39PDG8RddrAvmM6ueDoSc4qhpYtjUOkkMcnBZC8aJtoiM8inkEIYcarYGDJazPvvJzxxSMSmzJwQCN4W90zV3NuOiecfjyf2_iKriZMqUmqdz6UjTa5RtnjtmISY51hNXEtNmUe7bWWqpVw6WQb2ga3AMNldG0q9Ced8Liv4EIsmXQ74P0t7hGAqAc4KPinsd1l3hMdezPtsGev5FQddckqeNVKgboe_o3YppnczL99BaGTyWFb32UjyS4IEQnDqukFKony_1GxgzNwJ3CxBnvBsYDsi.cTJKAiu1UyDKgmG2mG8KurTaRv6MgOo3DNrdbuEIsnhiW4hEOXH6hCaGmQ',mdrd: 'Igc0ULoLJ02XAoLHfOGxN_VzXMXzF1T86nTCXk4Xmuk-1778061993-1.2.1.1-8RSv1E3BoGrMqNn05oXhBEudBkt9P5KpDNh4nwE2b3lvSC4lrmfHm9KPCoIJ4qeTw7p3TW8ohh6Ta9k49fGmhCENbz66T9n9RfuWgOpTM0DoqWdA_3hXaCHEAreKrdqZ8RQLDuPmrKh0fUZppjp4KU1sT4X_sKZhBCMbvB9lb24xMWafzBVvR2bxSUTnWv51tOQ9rpJVmGbGMXOlQ6QtbBfKHV9flngm_CHyn67v9qOjK.Xm7E31FIBQT7HSsRnVRBe5UtkH3I60QINphUOCwOfyzySMyLSsIbhQAd0XjJowtOiww7ArPHZfIp_ZGOPNHFPhak_UK3EFQcxz3GTm268dpi7FL.dMLWjVh4_HvFmA4DT8SdoTXrkxwqpwCsnJJC.dze6OyIFFbGFoew7emDy8VDdyMiuzhvDAcWxLN3hhDm_aIxZk2nqOO_151pf6J9kP_aiKP1cS0FZxaRwNh0V7KDoGiyQogNNWtJdt0fiLk9N79URvme_Y7cfQiyxJ9nsYlMHW9t35NjFVF4Dx5wSj0lSoJvT2PM_Zao.zMsz0pXWIvkcrslgHBPq0W.sKNN4uavc9tWJdww2nMGgOo40uqa9YKmffMYB0w4AFponq37wOvfD10RAQHuuQ4gdd75UcJNjtExKAF07NtCqrwM2SXnsNDdfzqNOVtzuB.gnB1JsltEdHcz_RECmGnNCX92ywY5tt_6FJBmeQOKsmXxxkk5l6_S27lo6ugzKsFzr0koEfNGIamAZPg5VSv0kMNLO4j8AcsQBF8LOGEq_qYYklkSDnK1LzoKsIYC61rGV7Lsx.nNh9nLCQjMNIRIPRsH4NZSM00cnwpZI71zhzGEeh25D48Q_uf8Vn1MdOHoY9NxoWPodM_UdnqZ3btn8oaEdHtuF7LkZGHQor55f1op1u3bFUjzGbcYHibRN5qlOH3zxTrXp26S7DGUVIVrtt09tXMPsIpJXwwA_phP7cnX8n5q47j5cZ9E2nIiX2iR3gq63b.ud1q4KKeVK7Px85fNhVUBh3RbdAEisplebRe4FCypDHsXphIN7mrwfzr2U_ySrXKZWR2m4RKzW_Ex9w1vdNMrUTxd5eKmNzpDbcTW70g0beEu2vjod_lngkeTxqljT.2uiXXKJHBUttQMNVUVvW1BZZNGZmZImgDkM0bbAOhl8DeCQJdO8nb7SZ7CURAuc.Oidf1fPLD_Itm3cZOr2j2p5qClbw5pZbYYB_S8oPZs_CGZ.FLOmsC_YXZRO8og.yTPFpk13Px3jEBFKZHY.ZeFNDaergGiIXLvlzwk2kig3kYrAyTTVlFzWjsgK3gRCcntZN1wL.LJaNABu_Ju68w.17q_14sA3wo.0sVytdtgMrCuM6uu17fu_BMB1PwoBWIykNJrhx.cA9oGma3rhy5m0HkZ2ZPotjha00Y303DoffM1FvsPbKQ3ktatibPYiNCK4JwwYJvmPFCySE5hdzSdmjKvdL6pnmFrI9nnksiQa2f4XvbPiYVj4.cbJj._nJxKAu2I4_qjdgy1yeJl756PpKXo8bMAnosCgmuIsNCi5y.CtD54p5PgSlGwzwSokl8QiM6t_1uyJq8OFPxmaWNR7dOnhoRYV1ui3UZAZAGljrzsRzncdupDoJQlQJ5K.qOlUYTrJz.IrCrv9BQ2_m.WNWFF_CRnfyFXFF8mPkU6JoC1k7NmhEpHGA5uUZxKAmX.lxrdkn8tcrnRq_Yjh7f16ObYJgqNuvesGN5Dt37sI4wX63KvgPnZOC3oUNY9WeW1b4jRfS50jQGFf1CZB03FWWvfDKli1sM.e57s5U9zoPFGzb5QTZ18JAFKARHyunjrMrRa3oAC_GAKXCtbCdHQ1CONWUqkxGYGhPbENQfXddw9312Qzaj3mIl8jmCg1Cuxamdn03ONP3QrAvyPBQMFwOrIGqsfOvQCTFToe78ZMCY6Uo16hqV9jeltdmIKj0KP6F68g237ANEYixfW5GXQEBgPdZXqVlg5SGsh5wHMs2sIil9Kdag_aakqM6tBddK5pmNHNr.DZrz942nDB3DSTU2xpV8Z.GL6OfBfLs9mTu6HJq4VKIUdqsSmo9sdWz1C4PWMMg4iKIaRU5xwaxg9BwuSBB31S2nx6eXmxbjJgFPUWbb1HpFKkuridUAK8bUZqHkMg0tu0BICGRfFL7788g0W2aj37gpBrF05Xof14Q6EtcNllC9r6H8YYmunQJA4_Yx8o9v4EbIipd7Oye42cALGsuE8cjrP_MNObF.Bv2qBks4H4..Wcqq.xlrZSkjydhO5Q9n94nVI6TSf65lMzbR_j3Z3EqFnjbfXE2ViOsLV2AK1OEZgnHinc',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=9f772c43f93930d9';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"/backend-api/plugins/list?__cf_chl_rt_tk=R7zRbWnvWQ29pbkh7fsw3bz5s8wpwdbrnHLBYj1kZ4I-1778061993-1.0.1.1-9UlNxuGVHM.surJfTncp_hNkiuRmmng9kkLh7Mb.7oM"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></div>
+    </div>
+  </body>
+</html>
+
+2026-05-06T10:06:33.730854Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:33.731633Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.202754Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:06:37.202775Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:06:37.202778Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:06:37.202779Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:06:37.204502Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.205224Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.211099Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.211664Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.217684Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.218196Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.227412Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.227916Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.233948Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.234609Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.243432Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.244089Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.252581Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.253078Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.260723Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.261232Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.270114Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.270606Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.867782Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:06:37.867803Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:06:37.867806Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:06:37.867808Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:06:37.869480Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.870477Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.878211Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.878722Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.884508Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.885081Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.892338Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.892851Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.898501Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.898955Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.905680Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.906384Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.914492Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.915258Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.923965Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.924868Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:37.934263Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:06:37.935488Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:06:49.299585Z  WARN codex_core::codex: stream disconnected - retrying sampling request (1/5 in 207ms)...
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Path 'C:\\Users\\ARCHIVSOFT\\.codex\\skills\\eval-ops\\SKILL.md' -TotalCount 220" in C:\WORK\0.개인\PROMPT
+ succeeded in 323ms:
+---
+name: eval-ops
+description: Use for evaluation design, scorecards, regression review, drift or anomaly analysis, release-readiness checks, benchmark comparison, and prompt or workflow quality-control tasks.
+---
+
+# Evaluation and Operations Skill
+
+This skill is the primary execution pack for evaluation, monitoring, regression control, and release-quality reasoning.
+
+It extends the base constitution with:
+- formal evaluation activation rules
+- metric taxonomy
+- scorecard and rubric design
+- regression / drift / anomaly handling
+- release-gating logic
+- semantic drift and coverage regression checks
+- prompt-stack / candidate / workflow comparison discipline
+- safety-surface and guardrail-fidelity evaluation
+- stagnation-threshold and long-run monitoring control
+- measurement-substrate readiness checks before hard release conclusions
+
+It is derived primarily from:
+- `PROMPT_full`
+- `PROMPT_evaluation_monitoring_overlay`
+- `PROMPT_search_reasoning_overlay`
+- selected `PROMPT_guardrails_safety_overlay` principles for safety-surface evaluation
+- release / scorecard / rubric-oriented example families where useful
+
+## 1. When to Use
+
+Use this skill when one or more apply:
+- agent behavior must be compared across releases, candidates, prompts, tools, or workflows
+- the task is to design or interpret an eval
+- regression detection matters
+- release or rollout decisions depend on measurable criteria
+- drift, anomaly, or canary monitoring is relevant
+- a scorecard, rubric, or benchmark memo is needed
+- semantic drift, coverage regression, or variant consistency must be checked
+- the user asks whether a candidate is release-ready
+
+Do not use this skill when:
+- the task is a trivial one-shot answer
+- a simple local verification step is enough
+- no monitoring or comparison decision depends on the output
+- the work is exploratory and not evaluation-driven
+
+## 2. Primary Mission
+
+Produce trustworthy evaluation and monitoring signals that improve deployment and versioning decisions.
+
+This includes:
+- choosing the right evaluation surface
+- selecting metrics that map to decisions
+- comparing against stable baselines
+- detecting meaningful regression
+- surfacing drift and anomaly honestly
+- preserving semantic behavior over wording polish
+
+## 3. Evaluation Surfaces
+
+Select the surface that actually matters.
+
+Typical surfaces:
+- output quality
+- process / trajectory quality
+- system performance
+- safety / compliance
+- collaboration quality
+- prompt-stack integrity
+
+Safety-surface examples include:
+- unsupported-claim rate
+- approval-boundary violations
+- containment or rollback trigger rate
+- guardrail-escalation fidelity
+
+Rules:
+- do not measure before defining what quality means for this system
+- do not over-expand to every surface if only one or two matter
+- do not let a single metric dominate a multi-dimensional task
+
+## 4. Contract-First Evaluation
+
+Whenever possible, define:
+- expected deliverable
+- required sections or schema
+- allowed scope
+- forbidden scope
+- evidence or risk behavior
+- acceptance criteria
+- stop conditions
+- pass/fail threshold if applicable
+
+Rules:
+- evaluate against what was actually promised
+- do not punish the system for not doing what was outside the contract
+- if the contract is weak, fix the contract before multiplying metrics
+
+Decision-quality rule:
+- define the actual decision, gate owner, solved condition, and escalation threshold before expanding metrics
+- do not let repeated reruns substitute for a clearer contract or better instrumentation
+
+Measurement-substrate readiness:
+- cohort tags, identifiers, and metadata should be stable enough for the intended comparison
+- logs, timestamps, retries, and failure states should be observable enough to support the claimed conclusion
+- trajectory artifacts should exist if process quality is being evaluated
+- rollback, quarantine, or hold actions should exist if the gate fails
+
+Readiness rule:
+- do not compensate for weak measurement substrate with more scoring sophistication
+- if the substrate is weak, narrow claims, collect missing instrumentation, or treat the result as diagnostic rather than release-gating
+
+## 5. Metric Taxonomy
+
+Use grouped metrics rather than one vague score.
+
+Potential groups:
+- effectiveness
+- efficiency
+- reliability
+- safety / compliance
+- robustness
+- user value
+- collaboration quality
+- adaptation quality
+- lifecycle fidelity
+- prompt-stack integrity
+
+Examples:
+- task success
+- contract adherence
+- latency
+- token cost
+- route quality
+- priority quality
+- budget adherence
+- lifecycle fidelity
+- adaptation safety drift
+- quality-gate precision
+- failure rate
+- retry rate
+- fallback quality
+- exploration efficiency
+- unsupported claim rate
+- rubric score
+- human-review rejection
+- semantic drift count
+- variant consistency failures
+- coverage regression count
+- rollback success rate
+- guardrail-trigger correctness
+
+Rule:
+- if no decision depends on a metric, question its inclusion
+
+## 6. Scorecards and Rubrics
+
+A good scorecard or rubric should include:
+- criteria
+- scoring anchors
+- pass/fail threshold where needed
+- critical-failure override
+- weighting if not equal
+- recommendation logic
+
+Rules:
+- criteria must be legible and repeatable
+- critical failures may override average quality
+- judge language must reduce ambiguity
+- simplify the rubric if it cannot be applied consistently
+
+## 7. Regression Review Discipline
+
+When comparing baseline vs candidate:
+- preserve comparable conditions
+- compare on the same evaluation surface
+- identify whether decline is meaningful or noisy
+- isolate critical-cohort failures
+- treat safety regressions more strictly than cosmetic regressions
+
+Check at least:
+- task success change
+- contract adherence change
+- latency/cost change
+- safety/compliance change
+- trajectory or process quality change where relevant
+- human-review acceptance change if applicable
+
+Mock-tool and harness rule:
+- when evaluating agentic tool behavior, prefer mock tools or a dedicated safe test environment over live irreversible systems
+- assert tool-call parameters, partial-state handling, and final answer elements separately when possible
+
+### 7.1 Preferred evaluation packets
+
+When evaluation work must be reused or reviewed, prefer compact artifacts such as:
+- mock-tool evaluation report
+- safe trajectory artifact report
+- benchmark comparison memo
+- prompt-stack release review
+- source consultation ledger when research-transparency review is part of the gate
+- packet compliance report when required-vs-optional artifact coverage is itself under review
+- release evidence bundle memo when a pass/hold/reject decision depends on attached evidence rather than summary prose
+- operational substrate readiness memo
+- lifecycle event / audit trail memo
+- goal-monitoring status memo
+- recovery / escalation checkpoint memo
+- quality iteration checkpoint memo
+- learning-signal review memo
+- adaptation decision memo
+- HITL approval packet
+- benchmark registry memo when scenario identity, cohort scope, or replay support must be defined before comparison
+- context sufficiency review memo when context quality may explain performance changes
+- critique quality review memo when iteration quality or no-gain-loop behavior is itself under evaluation
+- adaptation promotion review memo when judged signals may change future defaults
+- route-quality scorecard when branch quality, prioritization quality, or exploration quality is the live surface
+- coding benchmark scenario memo when coding-agent proof depends on repo scope and verification-running expectations
+- benchmark execution report when compared candidates have actually been run
+- replay suite verdict memo when replay execution state and verdict reproducibility matter
+- context failure taxonomy memo when substrate diagnosis is itself the evaluation output
+- critique utility scorecard when refinement value, not mere critique presence, is the question
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+2026-05-06T10:07:02.958655Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:07:02.958682Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:07:02.958687Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:07:02.958690Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:07:02.960755Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:02.961624Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:02.967363Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:02.967968Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:02.975692Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:02.976457Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:02.983789Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:02.984274Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:02.990519Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:02.991085Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:02.999477Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:02.999986Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:03.007908Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:03.008550Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:03.015882Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:03.016398Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:03.024083Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:03.024661Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n --no-heading -e \"reflection|critique|no-gain|route-quality|context sufficiency|replay surface|replay execution state|release-grade|benchmark-grade|operational-evidence|v25 operational proof\" -- 'snapshot/prompt-stack/v32/AGENTS.md' 'snapshot/prompt-stack/v32/01_base/PROMPT_full.md' 'snapshot/prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md' 'snapshot/prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md' 'snapshot/prompt-stack/v32/02_overlays/PROMPT_retrieval_grounding_overlay.md' 'snapshot/prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md' 'snapshot/prompt-stack/v32/codex/skills/eval-ops/SKILL.md' 'snapshot/prompt-stack/v32/03_examples/PROMPT_example_catalog.md'" in C:\WORK\0.개인\PROMPT
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n --no-heading -e \"assembled replay|replay|benchmark registry|benchmark execution|release evidence bundle|operational artifact|document completeness|measured behavior|artifact floor|artifact\" -- 'snapshot/prompt-stack/v32/AGENTS.md' 'snapshot/prompt-stack/v32/01_base/PROMPT_full.md' 'snapshot/prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md' 'snapshot/prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md' 'snapshot/prompt-stack/v32/02_overlays/PROMPT_retrieval_grounding_overlay.md' 'snapshot/prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md' 'snapshot/prompt-stack/v32/codex/skills/eval-ops/SKILL.md' 'snapshot/prompt-stack/v32/03_examples/PROMPT_example_catalog.md'" in C:\WORK\0.개인\PROMPT
+2026-05-06T10:07:15.720151Z ERROR codex_core::tools::router: error=Exit code: 1
+Wall time: 0.5 seconds
+Output:
+¼Ó¼ºÀ» ¼³Á¤ÇÒ ¼ö ¾ø½À´Ï´Ù. ¼Ó¼º ¼³Á¤Àº ÀÌ ¾ð¾î ¸ðµåÀÇ ÇÙ½É À¯Çü¿¡ ´ëÇØ¼­¸¸ Áö¿øµË´Ï´Ù.
+À§Ä¡ ÁÙ:1 ¹®ÀÚ:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+rg: snapshot/prompt-stack/v32/AGENTS.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/01_base/PROMPT_full.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_retrieval_grounding_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/codex/skills/eval-ops/SKILL.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/03_examples/PROMPT_example_catalog.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+
+ exited 1 in 458ms:
+¼Ó¼ºÀ» ¼³Á¤ÇÒ ¼ö ¾ø½À´Ï´Ù. ¼Ó¼º ¼³Á¤Àº ÀÌ ¾ð¾î ¸ðµåÀÇ ÇÙ½É À¯Çü¿¡ ´ëÇØ¼­¸¸ Áö¿øµË´Ï´Ù.
+À§Ä¡ ÁÙ:1 ¹®ÀÚ:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+rg: snapshot/prompt-stack/v32/AGENTS.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/01_base/PROMPT_full.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_retrieval_grounding_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/codex/skills/eval-ops/SKILL.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/03_examples/PROMPT_example_catalog.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+
+ exited 1 in 505ms:
+¼Ó¼ºÀ» ¼³Á¤ÇÒ ¼ö ¾ø½À´Ï´Ù. ¼Ó¼º ¼³Á¤Àº ÀÌ ¾ð¾î ¸ðµåÀÇ ÇÙ½É À¯Çü¿¡ ´ëÇØ¼­¸¸ Áö¿øµË´Ï´Ù.
+À§Ä¡ ÁÙ:1 ¹®ÀÚ:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+rg: snapshot/prompt-stack/v32/AGENTS.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/01_base/PROMPT_full.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_retrieval_grounding_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/codex/skills/eval-ops/SKILL.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/03_examples/PROMPT_example_catalog.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+
+2026-05-06T10:07:15.764216Z ERROR codex_core::tools::router: error=Exit code: 1
+Wall time: 0.5 seconds
+Output:
+¼Ó¼ºÀ» ¼³Á¤ÇÒ ¼ö ¾ø½À´Ï´Ù. ¼Ó¼º ¼³Á¤Àº ÀÌ ¾ð¾î ¸ðµåÀÇ ÇÙ½É À¯Çü¿¡ ´ëÇØ¼­¸¸ Áö¿øµË´Ï´Ù.
+À§Ä¡ ÁÙ:1 ¹®ÀÚ:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+rg: snapshot/prompt-stack/v32/AGENTS.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/01_base/PROMPT_full.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/02_overlays/PROMPT_retrieval_grounding_overlay.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/codex/skills/eval-ops/SKILL.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+rg: snapshot/prompt-stack/v32/03_examples/PROMPT_example_catalog.md: ì§€ì •ëœ ê²½ë¡œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (os error 3)
+
+2026-05-06T10:07:15.765059Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:07:15.765071Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:07:15.765073Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:07:15.765075Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:07:15.766972Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:15.767480Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:15.773225Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:15.773716Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:15.779445Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:15.779924Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:15.787787Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:15.788285Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:15.794498Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:15.795002Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:15.802415Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:15.802907Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:15.810841Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:15.811330Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:15.817964Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:15.818491Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:15.825599Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:15.826365Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'Get-ChildItem -Path . -Recurse -Filter AGENTS.md | Select-Object -ExpandProperty FullName' in C:\WORK\0.개인\PROMPT
+ succeeded in 386ms:
+C:\WORK\0.개인\PROMPT\prompt-stack\v14\codex\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v15\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v16\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v17\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v18\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v19\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v20\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v21\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v22\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v23\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v24\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v25\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v26\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v27\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v28\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v29\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v30\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v31\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\AGENTS.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+2026-05-06T10:07:19.927679Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:07:19.927694Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:07:19.927697Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:07:19.927699Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:07:19.929736Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:19.930287Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:19.935946Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:19.936675Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:19.943338Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:19.943898Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:19.951269Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:19.951818Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:19.958655Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:19.959737Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:19.967284Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:19.967804Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:19.976502Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:19.977024Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:19.983759Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:19.984298Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:19.991636Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:19.992149Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-ChildItem -Path 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32' -Recurse | Select-Object FullName" in C:\WORK\0.개인\PROMPT
+ succeeded in 456ms:
+
+FullName                                                                                                               
+--------                                                                                                               
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base               
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays           
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples           
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex                 
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md             
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_ligh...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_ligh...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_stan...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills          
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\coding...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\design...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops 
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\ground...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\orches...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\coding...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\design...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-o...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\ground...
+C:\WORK\0.개인\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\orches...
+
+
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+2026-05-06T10:07:25.306887Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:07:25.306901Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:07:25.306903Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:07:25.306905Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:07:25.308441Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:25.308964Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:25.313726Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:25.314225Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:25.319577Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:25.320022Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:25.326260Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:25.326739Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:25.332662Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:25.333125Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:25.339767Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:25.340211Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:25.347654Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:25.348136Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:25.354315Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:25.354794Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:25.361540Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:25.362036Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n --no-heading -e \"document completeness|measured behavior quality|benchmark registry|replay runner verdict|adaptation controller audit|Coding benchmark execution ledger|Release promotion decision record|assembled replay|replay execution state|benchmark execution state|operational evidence|artifact floor|release-grade|benchmark-grade\" 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\AGENTS.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\01_base\\PROMPT_full.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_evaluation_monitoring_overlay.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_search_reasoning_overlay.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_retrieval_grounding_overlay.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\skills\\eval-ops\\SKILL.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\03_examples\\PROMPT_example_catalog.md'" in C:\WORK\0.개인\PROMPT
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n --no-heading -e \"reflection|critique quality|context sufficiency|route-quality|no-gain|stagnation|replay suite verdict memo|benchmark execution report|release evidence bundle memo|operational substrate readiness memo|packet compliance report|benchmark comparison memo\" 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\AGENTS.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\01_base\\PROMPT_full.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_evaluation_monitoring_overlay.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_search_reasoning_overlay.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_retrieval_grounding_overlay.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\skills\\eval-ops\\SKILL.md' 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\03_examples\\PROMPT_example_catalog.md'" in C:\WORK\0.개인\PROMPT
+ succeeded in 325ms:
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:213:- benchmark registry memo when scenario identity, cohort scope, or replay support must be defined before comparison
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:220:- replay suite verdict memo when replay execution state and verdict reproducibility matter
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:467:Prefer linked operational artifacts such as `Benchmark cohort manifest`, `Replay runner verdict sheet`, `Release promotion decision record`, and `Telemetry drift investigation memo` when the gate depends on repeated execution evidence.
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:239:- fallback route: escalate to assembled replay when ambiguity, conflict, or behavior-critical claims need stronger evidence than document-grounded review can provide
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:240:- final ownership reroutes to `eval-ops` once the decision depends on replay execution state, benchmark gating, or release-sensitive continuation rather than route comparison alone
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:248:- scenario lineage, run linkage, or replay execution state must stay inspectable across reruns
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:313:- adaptation controller audit packet -> `Adaptation controller audit packet`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:315:- coding execution-ledger packet -> `Coding benchmark execution ledger`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:316:- promotion-grade release record -> `Release promotion decision record`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:359:- treat `Benchmark cohort manifest`, `Replay runner verdict sheet`, `Adaptation controller audit packet`, `Coding benchmark execution ledger`, `Release promotion decision record`, `Telemetry drift investigation memo`, `Route-switch benchmark verdict`, and `Context substrate scorecard` as the direct packet floor before benchmark-grade, replay-grade, controller-grade, coding-proof-grade, release-grade, drift-grade, route-quality-grade, or retrieval-substrate-grade language
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_search_reasoning_overlay.md:874:- replay execution state may matter when route quality is being compared through repeated scenario runs
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_search_reasoning_overlay.md:948:- if route-switch evidence is thin, keep the recommendation advisory rather than benchmark-grade
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6524:Defining the benchmark registry for `{registry_scope}`.
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6622:  - lighter sibling: `Benchmark registry memo`; stronger siblings: `Benchmark cohort manifest`, `Replay runner verdict sheet`, and `Replay suite verdict memo` when the task has moved from document parity into assembled replay
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:7111:  - benchmark registry presented as executed evidence
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:7145:- purpose: Provide a structure for reporting replay execution state, reproducibility notes, and replay verdict
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:7185:  - use when replay execution state must stay auditable
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:7206:- Check that replay execution state is explicit.
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:7734:  - if benchmark-grade, replay-grade, controller-grade, coding-proof-grade, release-grade, drift-grade, route-quality-grade, or retrieval-substrate-grade language appears, the exemplar should show the minimum packet floor that justifies it
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:7838:- purpose: Provide a structure for recording runner-level replay execution state, verdict, and linkage fields
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8304:- title: Coding benchmark execution ledger
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8305:- purpose: Provide a structure for logging repo-scale coding benchmark execution state, validation path, and proof linkage
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8351:  - `Coding benchmark execution ledger`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8397:- title: Release promotion decision record
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8444:  - `Release promotion decision record`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8456:  - `avoid fully integrated release-grade confidence`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8462:  - if evidence lineage is incomplete, `partial completion` remains, or joins stay unresolved, downgrade release-grade language or keep split promote/hold verdicts
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:539:- distinguish document completeness from measured behavior quality
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:546:When the task depends on benchmarked or release-grade agentic proof:
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:547:- distinguish `benchmark registry` from `benchmark execution state`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:548:- distinguish `replay surface` from `replay execution state`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:561:- treat `Benchmark cohort manifest`, `Replay runner verdict sheet`, `Adaptation controller audit packet`, `Coding benchmark execution ledger`, `Release promotion decision record`, `Telemetry drift investigation memo`, `Route-switch benchmark verdict`, and `Context substrate scorecard` as the minimum operational floor before benchmark-grade, replay-grade, controller-grade, coding-proof-grade, release-grade, drift-grade, route-quality-grade, or retrieval-substrate-grade language
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:567:- if operational evidence is absent, downgrade the claim before escalating to release, adaptation promotion, or telemetry-trend language
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:594:- treating a benchmark registry as if it were an executed benchmark result
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:647:- when benchmark registry, context sufficiency, critique quality, adaptation promotion, route quality, or coding benchmark scope dominates, the matching packet family may preserve the real control boundary better than broad status prose
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:1266:- distinguish packet existence from operational evidence
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:1271:- if stronger operational evidence is missing, downgrade the claim before using release-grade, drift-grade, or promotion-grade language
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:46:- improve prompt-stack evolution through release-grade comparison and boundary-integrity checks
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:542:- a benchmark registry should define what is being compared before scores are discussed
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:548:- benchmark execution state
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:549:- replay execution state
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:555:- a benchmark registry is not a benchmark execution result
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:1213:- distinguish packet presence from linked operational evidence
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:1215:- prefer `Benchmark cohort manifest`, `Replay runner verdict sheet`, `Critique delta ledger`, `Release promotion decision record`, and `Telemetry drift investigation memo` when the live control problem requires linked execution evidence rather than a summary verdict
+樓撩擊 撲薑ブ 熱 橈蝗棲棻. 樓撩 撲薑擎 檜 樹橫 賅萄曖 ポ褕 嶸И縑 渠ボ憮虜 雖錳腌棲棻.
+嬪纂 還:1 僥濠:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+ succeeded in 376ms:
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:19:- stagnation-threshold and long-run monitoring control
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:38:- an attached guide, canon, or pattern document is being used to benchmark prompt-stack reflection or chapter-family carryover
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:199:- benchmark comparison memo
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:201:- guide reflection benchmark memo when chapter-family question / answer / verdict loops are the live review surface
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:203:- packet compliance report when required-vs-optional artifact coverage is itself under review
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:204:- release evidence bundle memo when a pass/hold/reject decision depends on attached evidence rather than summary prose
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:205:- operational substrate readiness memo
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:214:- context sufficiency review memo when context quality may explain performance changes
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:215:- critique quality review memo when iteration quality or no-gain-loop behavior is itself under evaluation
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:217:- route-quality scorecard when branch quality, prioritization quality, or exploration quality is the live surface
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:219:- benchmark execution report when compared candidates have actually been run
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:220:- replay suite verdict memo when replay execution state and verdict reproducibility matter
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:256:- no-gain rerun loops
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:316:- route-quality gate
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:333:- when monitoring is iterative or continuous, define stagnation thresholds and intervention actions, not only quality thresholds
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:362:### 10.3 Guide-reflection benchmark loop
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:390:- `Guide reflection benchmark memo` for question / answer / comparison / rerun tracking
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\skills\eval-ops\SKILL.md:395:- if the live question has shifted from document reflection to assembled prompt behavior, escalate from `Guide reflection benchmark memo` to `Benchmark cohort manifest`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:179:- `PROMPT_evaluation_monitoring_overlay` when mid-execution quality gates, route-quality checks, or lifecycle fidelity scoring matters
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:204:### 2.8 Prompt-stack guide reflection / benchmark maintenance
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:226:- `Guide reflection benchmark memo` for question -> answer -> verification -> patch-target loops
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:229:- `Context sufficiency review memo` or `Critique quality review memo` when weak context or no-gain iteration may explain benchmark instability
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:289:- guide-chapter reflection or doc-to-runtime parity benchmark -> `Guide reflection benchmark memo`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:296:- critique-loop quality or no-gain-loop review -> `Critique quality review memo`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:312:- critique delta and no-gain logging packet -> `Critique delta ledger`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:324:When Codex is maintaining reflection against a governing guide, use these anchor routes:
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:334:- Reasoning Techniques / Reflection -> `PROMPT_search_reasoning_overlay`; prefer `Critique quality review memo` when critique utility or no-gain loops are under review
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:335:- Appendix A / advanced prompting execution families -> `PROMPT_search_reasoning_overlay` for decomposition, step-back, self-consistency, ReAct-like loops, tree-style search, and bounded reflection; keep prompt chaining in base prompts and treat example-catalog references as structure-only
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:337:- Evaluation / Monitoring -> `PROMPT_evaluation_monitoring_overlay` + `eval-ops`; prefer `Benchmark registry memo`, `Guide reflection benchmark memo`, or `Prompt-stack release review`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:340:- if a chapter family can only be answered by operator-facing prose and not by the active runtime / skill surface, treat that as a reflection gap and patch the actual prompt docs before claiming parity
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:352:- keep coding-briefing, research-transparency, resource-concurrency, packet-compliance, replay-review, release-evidence, benchmark-registry, context-sufficiency, critique-quality, adaptation-promotion, and route-quality packets equally visible when those are the live control boundaries
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\codex\CODEX_RUNTIME_GUIDE.md:359:- treat `Benchmark cohort manifest`, `Replay runner verdict sheet`, `Adaptation controller audit packet`, `Coding benchmark execution ledger`, `Release promotion decision record`, `Telemetry drift investigation memo`, `Route-switch benchmark verdict`, and `Context substrate scorecard` as the direct packet floor before benchmark-grade, replay-grade, controller-grade, coding-proof-grade, release-grade, drift-grade, route-quality-grade, or retrieval-substrate-grade language
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_search_reasoning_overlay.md:578:- bounded reflection
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_search_reasoning_overlay.md:608:- bounded reflection
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_search_reasoning_overlay.md:852:- route-quality score
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_search_reasoning_overlay.md:856:- no-gain-loop trigger
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_search_reasoning_overlay.md:949:- keep `route-switch failure`, `late clarification`, and `failed fallback timing` independently visible when route-quality failure diagnosis is the real issue
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:190:- `guide_reflection_benchmark`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:191:- `chapter_reflection_review`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6551:- title: Guide reflection benchmark memo
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6554:  - `guide_reflection_benchmark`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6555:  - `chapter_reflection_review`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6578:    - keyword-hit counts presented as semantic reflection
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6620:  - use when the real maintenance problem is guide reflection across runtime docs rather than only packet presence or release recommendation
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6627:Benchmarking `{chapter_family}` reflection for `{guide_scope}`.
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6645:- Main reflection risk: `{main_reflection_risk}`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6716:Reviewing context sufficiency for `{task_scope}`.
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6744:- purpose: Provide a structure for judging critique usefulness, no-gain-loop risk, and reroute-after-critique quality
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6751:- typical_use_shape: reflection review, no-gain-loop gate, reroute quality memo
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6785:  - `reflection_heavy`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6788:  - no-gain loop with no stop note
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:6797:Reviewing critique quality for `{review_scope}`.
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:7315:  - `reflection_heavy`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:7734:  - if benchmark-grade, replay-grade, controller-grade, coding-proof-grade, release-grade, drift-grade, route-quality-grade, or retrieval-substrate-grade language appears, the exemplar should show the minimum packet floor that justifies it
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:7931:- purpose: Provide a structure for scoring context sufficiency, omission, overload, provenance defects, and freshness defects
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8024:- purpose: Provide a structure for logging critique-caused changes, ignored critiques, and no-gain iterations
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8030:- typical_use_shape: critique delta log, no-gain-loop review, refinement-change ledger
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8048:    - critique quality statement with no resulting change surface
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8064:  - `reflection_heavy`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8085:  - use when reflection quality must be tied to actual repair, reroute, or no-gain outcome
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8108:- Check that each critique claim maps to a visible delta, reroute, or no-gain stop.
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8254:  - route-quality claim with no switch or fallback timing evidence
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8270:  - `avoid wider route-quality generalization`
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\03_examples\PROMPT_example_catalog.md:8276:  - if `route-switch failure`, `late clarification`, or `failed fallback timing` remains unresolved, keep route-quality language advisory
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_retrieval_grounding_overlay.md:558:- distinguish evidence sufficiency from context sufficiency when stale context, missing user state, or missing task framing could change the answer
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:398:- packet compliance reporting quality
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:408:- context sufficiency
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:411:- no-gain-loop incidence
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:689:- stagnation pressure or repeated low-value loops
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:753:- stagnation or no-gain iteration rate
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:754:- route-quality drift
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\02_overlays\PROMPT_evaluation_monitoring_overlay.md:916:- when iterative autonomy exists, define stagnation or escalation thresholds before trusting longer runs
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:96:- `Level 2`: planning, context engineering, bounded reflection, and adaptive control
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:123:- Critique(optional): apply bounded reflection only when it materially improves quality
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:380:- planning + tool use + retrieval + reflection
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:541:- treat context sufficiency, critique quality, adaptation promotion, route quality, and verification-running discipline as separately reviewable control surfaces
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:561:- treat `Benchmark cohort manifest`, `Replay runner verdict sheet`, `Adaptation controller audit packet`, `Coding benchmark execution ledger`, `Release promotion decision record`, `Telemetry drift investigation memo`, `Route-switch benchmark verdict`, and `Context substrate scorecard` as the minimum operational floor before benchmark-grade, replay-grade, controller-grade, coding-proof-grade, release-grade, drift-grade, route-quality-grade, or retrieval-substrate-grade language
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:568:- keep failure classes such as `stale context`, `ignored critique`, `no-gain loop`, `rollback`, `false-promotion`, `false-hold`, `drift-triggered review`, `rollback aftermath`, `route-switch failure`, `late clarification`, and `failed fallback timing` independently diagnosable
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\AGENTS.md:593:- treating context overload, stale context, or critique-loop stagnation as invisible implementation detail
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:52:- keep benchmark, context-quality, critique-quality, adaptation, and route-quality state visible when those are the live control boundaries
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:159:- bounded reflection
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:233:- failure or stagnation signals that invalidate the current path
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:247:- stagnation or repeated low-information loops
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:588:- bounded reflection
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:622:When bounded reflection or comparative critics are active:
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:647:- when benchmark registry, context sufficiency, critique quality, adaptation promotion, route quality, or coding benchmark scope dominates, the matching packet family may preserve the real control boundary better than broad status prose
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:987:- stagnation or repeated low-value loop
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:1005:- stagnation stop or escalation after repeated low-gain cycles
+C:\WORK\0.穈𨰰𥘵\PROMPT\prompt-stack\v32\harness\freezes\rg-2026-05-06-a\snapshot\prompt-stack\v32\01_base\PROMPT_full.md:1080:- if route quality, context quality, or critique quality is being compared across versions, do not imply measured superiority without a benchmark or replay surface
+樓撩擊 撲薑ブ 熱 橈蝗棲棻. 樓撩 撲薑擎 檜 樹橫 賅萄曖 ポ褕 嶸И縑 渠ボ憮虜 雖錳腌棲棻.
+嬪纂 還:1 僥濠:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+2026-05-06T10:07:48.474895Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:07:48.474921Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:07:48.474925Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:07:48.474928Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:07:48.476994Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:48.477583Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:48.482925Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:48.483413Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:48.488912Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:48.489419Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:48.496022Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:48.496526Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:48.502330Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:48.502794Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:48.509867Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:48.510354Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:48.518329Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:48.518827Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:48.525143Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:48.525641Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:07:48.533280Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:07:48.533770Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:11.064479Z ERROR codex_core::tools::router: error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$p='"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md';"'$c=Get-Content -Path $p; $c[203..241]'` rejected: blocked by policy
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$p='"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md';"'$c=Get-Content -Path $p; $c[203..241]' in C:\WORK\0.개인\PROMPT
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$p='"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\skills\\eval-ops\\SKILL.md';"'$c=Get-Content -Path $p; $c[362..399]' in C:\WORK\0.개인\PROMPT
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$p='"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\AGENTS.md';"'$c=Get-Content -Path $p; $c[538..568]' in C:\WORK\0.개인\PROMPT
+ declined in 0ms:
+`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$p='"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md';"'$c=Get-Content -Path $p; $c[203..241]'` rejected: blocked by policy
+ declined in 0ms:
+`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$p='"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\AGENTS.md';"'$c=Get-Content -Path $p; $c[538..568]'` rejected: blocked by policy
+ declined in 0ms:
+`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$p='"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\skills\\eval-ops\\SKILL.md';"'$c=Get-Content -Path $p; $c[362..399]'` rejected: blocked by policy
+2026-05-06T10:08:11.107102Z ERROR codex_core::tools::router: error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$p='"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\skills\\eval-ops\\SKILL.md';"'$c=Get-Content -Path $p; $c[362..399]'` rejected: blocked by policy
+2026-05-06T10:08:11.107102Z ERROR codex_core::tools::router: error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$p='"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\AGENTS.md';"'$c=Get-Content -Path $p; $c[538..568]'` rejected: blocked by policy
+2026-05-06T10:08:11.109056Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:08:11.109076Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:08:11.109081Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:08:11.109084Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:08:11.112350Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:11.113486Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:11.123723Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:11.124709Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:11.134338Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:11.134909Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:11.141707Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:11.142165Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:11.149331Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:11.150410Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:11.161388Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:11.162093Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:11.170700Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:11.171556Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:11.180368Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:11.180892Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:11.189474Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:11.189954Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:15.638341Z ERROR codex_core::tools::router: error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md' | Select-Object -Index (203..241)"` rejected: blocked by policy
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md' | Select-Object -Index (203..241)" in C:\WORK\0.개인\PROMPT
+ declined in 0ms:
+`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md' | Select-Object -Index (203..241)"` rejected: blocked by policy
+2026-05-06T10:08:15.639257Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:08:15.639268Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:08:15.639270Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:08:15.639272Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:08:15.640871Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:15.641352Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:15.646173Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:15.646657Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:15.652184Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:15.652679Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:15.659372Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:15.659850Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:15.665592Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:15.666077Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:15.673739Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:15.674288Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:15.682059Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:15.682888Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:15.690059Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:15.690556Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:15.697857Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:15.698823Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n -C 5 \"Guide-reflection benchmark loop|Guide reflection benchmark memo|Benchmark cohort manifest|document reflection to assembled prompt behavior|reviewer should still determine\" 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\skills\\eval-ops\\SKILL.md'" in C:\WORK\0.개인\PROMPT
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'rg -n -C 5 "Prompt-stack guide reflection / benchmark maintenance|Guide reflection benchmark memo|fallback route: escalate to assembled replay|final ownership reroutes to `eval-ops`|chapter family can only be answered" '"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md'" in C:\WORK\0.개인\PROMPT
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n -C 4 \"document completeness from measured behavior quality|benchmark registry|replay surface|minimum operational floor|if operational evidence is absent\" 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\AGENTS.md'" in C:\WORK\0.개인\PROMPT
+ succeeded in 333ms:
+357-- preserve the baseline or prior accepted state
+358-- preserve the next route and fallback route
+359-- preserve the stop trigger
+360-- do not promote repeated improvement into a persistent default without an explicit adaptation decision
+361-
+362:### 10.3 Guide-reflection benchmark loop
+363-
+364-When an attached guide or pattern canon governs a prompt-stack review:
+365-- define the in-scope chapter or pattern families before scoring
+366-- generate benchmark questions that test decision-quality answerability, not mere keyword presence
+367-- answer each question from the actual runtime, overlay, example, or skill surfaces under review
+--
+385-- for `benchmark-loop adequacy`, document-level benchmark is sufficient when the reviewed runtime surfaces directly expose the question -> answer -> verification -> rerun loop and explicit stop rule
+386-- escalate those families to replay only when the claim is no longer about document/runtime parity and now depends on assembled behavior or actual runner execution state
+387-
+388-Packet preference:
+389-- `Benchmark registry memo` for chapter-family inventory and expected verdict surface
+390:- `Guide reflection benchmark memo` for question / answer / comparison / rerun tracking
+391-- `Prompt-stack release review` when the loop is deciding rewrite acceptance, release readiness, or parity preservation
+392-- `Packet compliance report` when packet-floor doctrine is part of the failure surface
+393-
+394-Operational escalation rule:
+395:- if the live question has shifted from document reflection to assembled prompt behavior, escalate from `Guide reflection benchmark memo` to `Benchmark cohort manifest`
+396-- if replay has actually been attempted, preserve `Replay runner verdict sheet` rather than prose-only replay status
+397-- if multiple replayed scenarios must be summarized into one decision, preserve `Replay suite verdict memo` and keep partial coverage explicit
+398-
+399-## 11. LLM-as-a-Judge Discipline
+400-
+--
+462-Compare against stable baselines.
+463-Detect regression, drift, anomaly, and semantic loss explicitly.
+464-Judge versions by behavior, not wording polish.
+465-Preserve release integrity over cosmetic improvement.
+466-Keep adaptation safety and lifecycle fidelity visible when they affect the gate.
+467:Prefer linked operational artifacts such as `Benchmark cohort manifest`, `Replay runner verdict sheet`, `Release promotion decision record`, and `Telemetry drift investigation memo` when the gate depends on repeated execution evidence.
+468-Keep `scenario_id`, `run_id`, `cohort_id`, `trace_id`, and `artifact_version` stable across benchmark, replay, release, and telemetry gates.
+469-If the required packet floor is missing or joined artifacts fail precedence, compatibility, freshness, or completeness checks, downgrade the gate and keep `false-promotion`, `false-hold`, and `drift-triggered review` separate.
+470-Keep `runner readiness failure`, `partial completion`, `quarantine entry`, `freshness defect`, and `unresolved join failure` explicit when they are the actual reason one gate must stay weaker, split, or blocked.
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+ succeeded in 360ms:
+199-Reroute rule:
+200-- one primary skill at a time
+201-- reroute when the center of gravity changes
+202-- do not keep old structure alive once the new dominant problem is clear
+203-
+204:### 2.8 Prompt-stack guide reflection / benchmark maintenance
+205-
+206-Use when:
+207-- an attached guide, canon, or pattern document is the comparison target
+208-- the task is to check whether actual prompt docs still reflect that governing source
+209-- benchmark question generation, self Q/A, answer verification, and patch / rerun loops are the real work
+--
+221-- `PROMPT_tool_protocol_overlay` when OCR, MCP, or tool-mediated capability inspection materially changes evidence quality
+222-- `PROMPT_guardrails_safety_overlay` when disclosure, mutation, or approval risk changes the benchmark path
+223-
+224-Typical packets:
+225-- `Benchmark registry memo` for chapter-family inventory, cohort scope, or expected packet floor
+226:- `Guide reflection benchmark memo` for question -> answer -> verification -> patch-target loops
+227-- `Prompt-stack release review` when the benchmark is deciding release, rewrite acceptance, or parity preservation
+228-- `Packet compliance report` when packet-floor doctrine or omission findings are the live surface
+229-- `Context sufficiency review memo` or `Critique quality review memo` when weak context or no-gain iteration may explain benchmark instability
+230-
+231-Keep these maintenance control families direct in the runtime surface:
+--
+234-- document-benchmark to assembled-replay escalation
+235-- route choice between staying document-grounded vs escalating to behavior proof
+236-
+237-Default route policy for this maintenance class:
+238-- primary route: stay at document-level benchmark while the live question is doc/runtime parity, chapter-family answerability, or benchmark coverage
+239:- fallback route: escalate to assembled replay when ambiguity, conflict, or behavior-critical claims need stronger evidence than document-grounded review can provide
+240-- final ownership reroutes to `eval-ops` once the decision depends on replay execution state, benchmark gating, or release-sensitive continuation rather than route comparison alone
+241-
+242-Direct family note:
+243-- for `runtime owner integrity` and `benchmark-loop adequacy`, document-level benchmark is the primary sufficient surface when runtime-owned docs directly expose the owner boundary or benchmark loop
+244-- replay escalation is not required for those families unless the claim extends from document/runtime parity into assembled behavior proof or runner execution state
+--
+284-- A2A lifecycle-aware collaboration -> `A2A task-handoff memo`
+285-- process-quality or replay-safe inspection -> `Safe trajectory artifact report`
+286-- tool regression or deterministic harness evaluation -> `Mock-tool evaluation report`
+287-- bounded multi-view challenge -> `Debate / consensus comparison memo`
+288-- prompt-stack rewrite or release audit -> `Prompt-stack release review`
+289:- guide-chapter reflection or doc-to-runtime parity benchmark -> `Guide reflection benchmark memo`
+290-- assembled prompt replay setup -> `Benchmark cohort manifest`
+291-- assembled prompt replay runner-state verdict -> `Replay runner verdict sheet`
+292-- assembled prompt replay suite summary -> `Replay suite verdict memo`
+293-- governance-owned packet-floor audit or omission-sensitive review -> `Packet compliance report`
+294-- versioned replay suite or benchmark cohort definition -> `Benchmark registry memo`
+--
+332-- Retrieval / RAG -> `PROMPT_retrieval_grounding_overlay` + `grounded-research`; prefer `Evidence target / retrieval-mode memo` or `Source consultation ledger`
+333-- Resource-Aware Optimization -> base prompts plus `PROMPT_search_reasoning_overlay`; prefer `Resource budget and route-choice memo`
+334-- Reasoning Techniques / Reflection -> `PROMPT_search_reasoning_overlay`; prefer `Critique quality review memo` when critique utility or no-gain loops are under review
+335-- Appendix A / advanced prompting execution families -> `PROMPT_search_reasoning_overlay` for decomposition, step-back, self-consistency, ReAct-like loops, tree-style search, and bounded reflection; keep prompt chaining in base prompts and treat example-catalog references as structure-only
+336-- Guardrails / Safety -> `PROMPT_guardrails_safety_overlay`
+337:- Evaluation / Monitoring -> `PROMPT_evaluation_monitoring_overlay` + `eval-ops`; prefer `Benchmark registry memo`, `Guide reflection benchmark memo`, or `Prompt-stack release review`
+338-
+339-Lookup rule:
+340:- if a chapter family can only be answered by operator-facing prose and not by the active runtime / skill surface, treat that as a reflection gap and patch the actual prompt docs before claiming parity
+341-
+342-Packet rule:
+343-- one packet should solve one control problem
+344-- if packet overhead exceeds its decision value, simplify or drop it
+345-- if a task family has a required packet floor, do not silently downgrade it to an optional convenience note
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+ succeeded in 338ms:
+535-
+536-### 16.1 v25 operational proof rule
+537-
+538-When version comparison, release-readiness, or repeated workflow quality is the live problem:
+539:- distinguish document completeness from measured behavior quality
+540-- prefer benchmark-backed statements over comparative prose with no replay or eval support
+541-- treat context sufficiency, critique quality, adaptation promotion, route quality, and verification-running discipline as separately reviewable control surfaces
+542-- keep packet usage, omission findings, replay coverage, reviewer burden, and rollback signals explicit when they materially affect a release or promotion decision
+543-
+544-### 16.2 Executable-proof rule
+545-
+546-When the task depends on benchmarked or release-grade agentic proof:
+547:- distinguish `benchmark registry` from `benchmark execution state`
+548:- distinguish `replay surface` from `replay execution state`
+549-- distinguish threshold language from a real `adaptation lifecycle state`
+550-- distinguish coding plausibility from a `Coding proof bundle memo`
+551-- keep `executed-vs-unexecuted` status explicit when command, test, or harness execution changes claim strength
+552-- keep `release recommendation confidence class` explicit when promotion evidence remains partial
+--
+557-- distinguish a named packet from a linked run artifact with `scenario_id`, `run_id`, `cohort_id`, `trace_id`, or `artifact_version`
+558-- distinguish a review memo from an execution ledger, verdict sheet, controller audit packet, or promotion decision record
+559-- if the required packet floor for a replay, release, adaptation, or telemetry claim is missing, downgrade the claim before using stronger operational language
+560-- if the required packet exists but the recommended companion is absent, keep the weaker companion-missing language explicit rather than silently using the stronger claim
+561:- treat `Benchmark cohort manifest`, `Replay runner verdict sheet`, `Adaptation controller audit packet`, `Coding benchmark execution ledger`, `Release promotion decision record`, `Telemetry drift investigation memo`, `Route-switch benchmark verdict`, and `Context substrate scorecard` as the minimum operational floor before benchmark-grade, replay-grade, controller-grade, coding-proof-grade, release-grade, drift-grade, route-quality-grade, or retrieval-substrate-grade language
+562-- when a stronger operational artifact exists for the same control problem, follow it and keep the lighter memo as background lookup or mark it superseded
+563-- prefer one active artifact per control problem and make superseded lower-strength packets explicit rather than silently emitting both
+564-- let a newer compatible artifact supersede a stale predecessor explicitly rather than keeping both active by inertia
+565-- if multiple artifacts must be synthesized, keep one explicit join rule for precedence, compatibility, freshness, completeness, and downgrade behavior
+566-- reject incompatible merges that would weaken a stronger artifact; preserve split verdicts, upstream source IDs, and `artifact_version` instead
+567:- if operational evidence is absent, downgrade the claim before escalating to release, adaptation promotion, or telemetry-trend language
+568-- keep failure classes such as `stale context`, `ignored critique`, `no-gain loop`, `rollback`, `false-promotion`, `false-hold`, `drift-triggered review`, `rollback aftermath`, `route-switch failure`, `late clarification`, and `failed fallback timing` independently diagnosable
+569-- keep `runner readiness failure`, `partial completion`, `quarantine entry`, `freshness defect`, and `unresolved join failure` independently diagnosable as operator triggers for escalation, downgrade, split verdicts, or join rejection
+570-- when benchmark, replay, adaptation, release, and telemetry surfaces interact, keep their linkage reconstructible rather than collapsing them into one confidence statement
+571-
+--
+590-- claiming a code fix without stating what was actually verified
+591-- claiming prompt-stack improvement with no benchmark, replay, or explicit scope note
+592-- promoting adaptation defaults from one-off success with no threshold or rollback rule
+593-- treating context overload, stale context, or critique-loop stagnation as invisible implementation detail
+594:- treating a benchmark registry as if it were an executed benchmark result
+595-- treating telemetry vocabulary as if it were cohort-aware telemetry
+596-
+597-## 18. Final Rule
+598-
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+2026-05-06T10:08:25.755608Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:08:25.755782Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:08:25.755789Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:08:25.755792Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:08:25.757649Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:25.758163Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:25.763444Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:25.763939Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:25.769339Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:25.769821Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:25.776351Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:25.776909Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:25.782796Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:25.783257Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:25.789956Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:25.790429Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:25.800242Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:25.800725Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:25.807729Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:25.808574Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:25.815792Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:25.816489Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'rg -n -C 4 "distinguish packet presence from linked operational evidence|prefer `Benchmark cohort manifest`|linked execution evidence rather than a summary verdict" '"'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_evaluation_monitoring_overlay.md'" in C:\WORK\0.개인\PROMPT
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n -C 4 \"benchmark registry should define|benchmark execution state|replay execution state|benchmark registry is not a benchmark execution result\" 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_evaluation_monitoring_overlay.md'" in C:\WORK\0.개인\PROMPT
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n -C 4 \"if route-switch evidence is thin|replay execution state may matter|advisory rather than benchmark-grade\" 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_search_reasoning_overlay.md'" in C:\WORK\0.개인\PROMPT
+ succeeded in 323ms:
+1209-
+1210-### 25.7 Operational artifact governance
+1211-
+1212-When evaluation is being used to support repeated execution, promotion, or drift review:
+1213:- distinguish packet presence from linked operational evidence
+1214-- preserve stable identifiers such as `scenario_id`, `run_id`, `cohort_id`, `trace_id`, and `artifact_version` across benchmark, replay, adaptation, release, and telemetry artifacts
+1215:- prefer `Benchmark cohort manifest`, `Replay runner verdict sheet`, `Critique delta ledger`, `Release promotion decision record`, and `Telemetry drift investigation memo` when the live control problem requires linked execution evidence rather than a summary verdict
+1216-- do not let `Benchmark execution report`, `Replay suite verdict memo`, `Release evidence bundle v2`, or `Telemetry trend memo` imply a stronger controller or runner substrate than the evidence actually supports
+1217-- if operational artifacts are absent, if only partial completion is visible, or if unresolved join failure blocks one gate, downgrade gate confidence before release, promotion, or drift escalation
+1218-- keep `false-promotion`, `false-hold`, `drift-triggered review`, `partial completion`, and `unresolved join failure` as separately reviewable failure outcomes when promotion or monitoring decisions are being judged
+1219-- let a newer compatible artifact supersede its stale predecessor explicitly rather than keeping both live by habit
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+ succeeded in 372ms:
+538-- expected failure class
+539-- replay support status
+540-
+541-Registry rule:
+542:- a benchmark registry should define what is being compared before scores are discussed
+543-- replay coverage should remain visible when benchmark conclusions depend on process quality rather than only output quality
+544-
+545-### 8.7 Executable benchmark and replay state
+546-
+547-When benchmark or replay claims become release-relevant, preserve:
+548:- benchmark execution state
+549:- replay execution state
+550-- executed cohort boundary
+551-- verdict reproducibility note
+552-- unexecuted or partially executed slices
+553-
+554-Execution-state rule:
+555:- a benchmark registry is not a benchmark execution result
+556-- a replay-ready scenario list is not a replay verdict
+557-
+558----
+559-
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+ succeeded in 329ms:
+870-- route re-prioritization audit memo when the review must remain reusable
+871-
+872-Audit rule:
+873-- re-prioritization should be judged as a control move, not as retrospective narration only
+874:- replay execution state may matter when route quality is being compared through repeated scenario runs
+875-
+876----
+877-
+878-## [20] FAILURE HANDLING
+--
+944-When route quality must be reviewed as a measured control move:
+945-- prefer a `Route-switch benchmark verdict` when clarification-vs-exploration timing, frontier shrink/expand, or fallback timing is the real review surface
+946-- keep route-switch trigger, fallback outcome, and re-prioritization verdict linked to stable `scenario_id`, `run_id`, `cohort_id`, `trace_id`, and `artifact_version` when repeated route behavior is being compared
+947-- do not let `Route re-prioritization audit memo` imply benchmarked route quality unless the stronger verdict surface exists
+948:- if route-switch evidence is thin, keep the recommendation advisory rather than benchmark-grade
+949-- keep `route-switch failure`, `late clarification`, and `failed fallback timing` independently visible when route-quality failure diagnosis is the real issue
+950-- let a newer compatible route artifact supersede a stale predecessor explicitly rather than keeping both active
+951-- before joining route artifacts, check precedence, compatibility, freshness, and completeness; reject incompatible merges that would weaken the stronger timing verdict
+952-- preserve upstream source IDs and `artifact_version` in any joined route artifact that survives benchmark review
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+2026-05-06T10:08:35.099900Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:08:35.099922Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:08:35.099925Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:08:35.099926Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:08:35.101910Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:35.103229Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:35.109491Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:35.110010Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:35.116000Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:35.116526Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:35.125160Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:35.125669Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:35.133693Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:35.134492Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:35.146145Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:35.146994Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:35.161647Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:35.162581Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:35.171784Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:35.172805Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:35.186547Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:35.187178Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n -C 4 \"guide reflection benchmark memo|lighter sibling|stronger siblings|assembled replay|packet floor\" 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\03_examples\\PROMPT_example_catalog.md'" in C:\WORK\0.개인\PROMPT
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n -C 4 \"do not imply measured superiority without a benchmark or replay surface|packet existence from operational evidence|downgrade the claim before using release-grade\" 'C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\01_base\\PROMPT_full.md'" in C:\WORK\0.개인\PROMPT
+ succeeded in 315ms:
+5761-  - excluded:
+5762-    - hidden controller-only packet policy
+5763-    - decorative completeness claims
+5764-- doctrine_owner:
+5765:  - `PROMPT_guideline` direct packet floor matrix
+5766-- audit_role:
+5767-  - `observed_vs_required_review`
+5768-  - `omission_finding`
+5769-  - `packet_coverage_audit`
+--
+5796-- anti_patterns:
+5797-  - required packet missing but final claim not downgraded
+5798-  - recommended packet absence hidden inside prose
+5799-  - packet checklist used with no relation to the actual task family
+5800:  - packet floor learned here before consulting the governance-owned matrix
+5801-- generalization_boundary:
+5802-  - hidden internal policy dump
+5803-  - decorative packet scoreboards
+5804-- artifact_notes:
+5805-  - useful when omission itself is the real finding rather than the content inside a packet
+5806:  - use after the governance-owned matrix has already decided the required / recommended / optional packet floor
+5807-- example_body:
+5808-~~~markdown
+5809-## Acknowledgment
+5810-
+--
+6525-
+6526-## Analysis
+6527-
+6528-- Cohort boundary: `{cohort_boundary}`
+6529:- Expected packet floor: `{expected_packet_floor}`
+6530-
+6531-## Execution
+6532-
+6533-- Scenario inventory: `{scenario_inventory}`
+--
+6618-  - does not by itself prove live model replay or benchmark execution
+6619-- artifact_notes:
+6620-  - use when the real maintenance problem is guide reflection across runtime docs rather than only packet presence or release recommendation
+6621-  - useful before stronger release or promotion language when a benchmark loop is still document-grounded
+6622:  - lighter sibling: `Benchmark registry memo`; stronger siblings: `Benchmark cohort manifest`, `Replay runner verdict sheet`, and `Replay suite verdict memo` when the task has moved from document parity into assembled replay
+6623-- example_body:
+6624-~~~markdown
+6625-## Acknowledgment
+6626-
+--
+7721-  - `downgrade_language`
+7722-  - `weaker_language_if_recommended_missing`
+7723-  - `join_caution`
+7724-- doctrine_owner_note:
+7725:  - `PROMPT_guideline` direct packet floor matrix is the primary operator source for packet-floor doctrine
+7726-- secondary_audit_artifact:
+7727-  - `Packet compliance report`
+7728-- artifact_notes:
+7729-  - EX-051U through EX-051AC inherit this identity and join discipline even when a lighter packet also exists
+7730-  - EX-051U through EX-051AC should expose the inherited packet-floor fields directly rather than leaving them inside prose notes
+7731-  - keep the example ladder legible: `light review memo` supports lookup, `stronger packet` supports scored or lifecycle review, and `operational artifact` owns linked execution or controller-grade verdicts
+7732-  - each operational exemplar should expose its lighter review sibling, stronger packet sibling, and active operational artifact relation directly rather than requiring cross-file inference
+7733-  - if a lighter memo and stronger artifact address the same control problem, the exemplar should show the lighter memo as superseded or background-only rather than co-equal
+7734:  - if benchmark-grade, replay-grade, controller-grade, coding-proof-grade, release-grade, drift-grade, route-quality-grade, or retrieval-substrate-grade language appears, the exemplar should show the minimum packet floor that justifies it
+7735-  - keep failure diagnoses such as `false-promotion`, `false-hold`, `drift-triggered review`, `rollback aftermath`, `route-switch failure`, `late clarification`, and `failed fallback timing` explicit when the exemplar covers them
+7736-  - keep `runner readiness failure`, `partial completion`, `quarantine entry`, `freshness defect`, and `unresolved join failure` explicit when they drive downgrade, split verdict, or join rejection inside an exemplar
+7737-  - use split verdicts or downgrade language rather than forcing an incompatible merge that weakens a stronger artifact
+7738-
+--
+7804-- join_caution:
+7805-  - do not mix cohorts or hide `artifact_version` deltas
+7806-- artifact_notes:
+7807-  - use when benchmark identity itself must stay inspectable across runs
+7808:  - lighter sibling: `Benchmark registry memo`; stronger sibling: `Benchmark execution report`; use this artifact when cohort lineage itself is the active verdict surface
+7809-  - if executed comparability is missing or cross-cohort joins stay unresolved, downgrade to registry-only language or keep split cohort verdicts
+7810-- example_body:
+7811-~~~markdown
+7812-## Acknowledgment
+--
+7897-- join_caution:
+7898-  - keep ready and not-ready runs split
+7899-- artifact_notes:
+7900-  - use when runner state itself is the decision surface
+7901:  - lighter sibling: `Safe trajectory artifact report`; stronger sibling: `Replay suite verdict memo`; escalate here when actual runner state decides replay confidence
+7902-  - if `runner readiness failure` or `partial completion` remains open, downgrade replay-grade language and do not merge incomplete runs into a completed verdict
+7903-- example_body:
+7904-~~~markdown
+7905-## Acknowledgment
+--
+7990-- join_caution:
+7991-  - keep fresh and stale evidence split and preserve `artifact_version`
+7992-- artifact_notes:
+7993-  - use when context quality itself is being reviewed across runs or cohorts
+7994:  - lighter sibling: `Context sufficiency review memo`; stronger sibling: `Context failure taxonomy memo`; escalate here when freshness or provenance defects must be scored
+7995-  - if `freshness defect` remains unresolved, downgrade retrieval-substrate language and preserve split verdicts across fresh and stale evidence
+7996-- example_body:
+7997-~~~markdown
+7998-## Acknowledgment
+--
+8082-- join_caution:
+8083-  - keep one lineage per critique cycle and split repaired vs ignored iterations
+8084-- artifact_notes:
+8085-  - use when reflection quality must be tied to actual repair, reroute, or no-gain outcome
+8086:  - lighter sibling: `Critique quality review memo`; stronger sibling: `Critique utility scorecard`; escalate here when critique benefit must be proven by visible deltas
+8087-  - if delta lineage breaks or one iteration cannot be joined cleanly, stay scorecard-only or keep split iteration verdicts
+8088-- example_body:
+8089-~~~markdown
+8090-## Acknowledgment
+--
+8176-- join_caution:
+8177-  - do not merge promoted and quarantined states without one verified transition lineage
+8178-- artifact_notes:
+8179-  - use when candidate-to-promoted or rollback transitions must be reviewable as real events
+8180:  - lighter sibling: `Adaptation promotion review memo`; stronger sibling: `Adaptation lifecycle state memo`; escalate here when controller transitions or `quarantine entry` decide the verdict
+8181-  - if `quarantine entry` or rollback evidence is weak, downgrade controller-grade language and do not merge promoted and quarantined states
+8182-- example_body:
+8183-~~~markdown
+8184-## Acknowledgment
+--
+8271-- join_caution:
+8272-  - keep alternative route branches and fallback timing split
+8273-- artifact_notes:
+8274-  - use when route choice is being judged as a benchmarked control move
+8275:  - lighter sibling: `Route-quality scorecard`; stronger sibling: `Route re-prioritization audit memo`; escalate here when timed switch behavior owns the route verdict
+8276-  - if `route-switch failure`, `late clarification`, or `failed fallback timing` remains unresolved, keep route-quality language advisory
+8277-- example_body:
+8278-~~~markdown
+8279-## Acknowledgment
+--
+8364-- join_caution:
+8365-  - keep executed and intended checks split
+8366-- artifact_notes:
+8367-  - use when executed validation linkage is the real coding proof surface
+8368:  - lighter sibling: `Coding benchmark scenario memo`; stronger sibling: `Coding proof bundle memo`; escalate here when executed validation linkage decides the proof
+8369-  - if `runner readiness failure` or `partial completion` remains open, downgrade coding-proof-grade language and preserve split verdicts across executed vs intended checks
+8370-- example_body:
+8371-~~~markdown
+8372-## Acknowledgment
+--
+8457-- join_caution:
+8458-  - keep promote and hold verdicts split if joined evidence sets disagree
+8459-- artifact_notes:
+8460-  - use when the decision record itself must remain reviewable after the release meeting
+8461:  - lighter sibling: `Release evidence bundle memo`; stronger sibling: `Release evidence bundle v2`; escalate here when promote/hold itself is the active verdict surface
+8462-  - if evidence lineage is incomplete, `partial completion` remains, or joins stay unresolved, downgrade release-grade language or keep split promote/hold verdicts
+8463-- example_body:
+8464-~~~markdown
+8465-## Acknowledgment
+--
+8550-- join_caution:
+8551-  - do not blur unrelated cohorts or stale anomaly lineage
+8552-- artifact_notes:
+8553-  - use when telemetry should trigger a specific investigation path, not only a trend comment
+8554:  - lighter sibling: `Benchmark execution report`; stronger sibling: `Telemetry trend memo`; escalate here when drift suspicion must become a traced investigation path
+8555-  - if drift lineage is stale, `freshness defect` remains, or joins stay unresolved, stay trend-only and do not use drift-grade language
+8556-- example_body:
+8557-~~~markdown
+8558-## Acknowledgment
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+ succeeded in 341ms:
+1076-- if bounded parallel work is active, reduce branch count or task allocation when join cost starts dominating decision value
+1077-- reduce branch width when expected information gain collapses
+1078-- compress context before weakening correctness claims
+1079-- if repeated quality judgment changes the next route, preserve a compact checkpoint instead of replaying the full route history
+1080:- if route quality, context quality, or critique quality is being compared across versions, do not imply measured superiority without a benchmark or replay surface
+1081-- if coding reliability depends on test or command execution, keep verification-running expectations explicit rather than leaving execution proof implicit
+1082-- if execution did not occur, keep `executed-vs-unexecuted` explicit
+1083-- if release evidence is partial, use a weaker `release recommendation confidence class`
+1084-
+--
+1262-
+1263-### 27A. Operational evidence note
+1264-
+1265-When execution proof rather than wording quality is the real issue:
+1266:- distinguish packet existence from operational evidence
+1267-- escalate from review memo to execution ledger, verdict sheet, controller audit packet, or promotion decision record only when that stronger artifact changes the decision quality
+1268-- if a weaker or stale compatible packet remains beside a stronger artifact, mark it superseded; if the required packet floor is missing, downgrade the claim before using higher-strength language
+1269-- keep `scenario_id`, `run_id`, `cohort_id`, `trace_id`, and `artifact_version` stable when benchmark, replay, adaptation, release, or telemetry packets must link across rounds
+1270-- if joined artifacts fail precedence, compatibility, freshness, or completeness checks, reject the merge or downgrade the claim instead of narrating a stronger result
+1271:- if stronger operational evidence is missing, downgrade the claim before using release-grade, drift-grade, or promotion-grade language
+1272-- keep `false-promotion`, `false-hold`, `drift-triggered review`, `rollback aftermath`, `route-switch failure`, `late clarification`, and `failed fallback timing` explicit when those failure surfaces explain why stronger proof is missing or downgraded
+1273-
+1274----
+속성을 설정할 수 없습니다. 속성 설정은 이 언어 모드의 핵심 유형에 대해서만 지원됩니다.
+위치 줄:1 문자:1
++ [Console]::OutputEncoding=[System.Text.Encoding]::UTF8;
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : PropertySetterNotSupportedInConstrainedLanguage
+ 
+
+2026-05-06T10:08:43.010494Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="browser-use@openai-bundled" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-bundled\browser-use
+2026-05-06T10:08:43.010517Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="documents@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\documents
+2026-05-06T10:08:43.010521Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="presentations@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\presentations
+2026-05-06T10:08:43.010523Z  WARN codex_core::plugins::manager: failed to load plugin: plugin is not installed plugin="spreadsheets@openai-primary-runtime" path=C:\Users\ARCHIVSOFT\.codex\plugins/cache\openai-primary-runtime\spreadsheets
+2026-05-06T10:08:43.012450Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:43.013001Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:43.018760Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:43.019268Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:43.029195Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:43.030117Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:43.041254Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:43.042330Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:43.052872Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:43.053369Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:43.061615Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:43.062134Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:43.070467Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:43.071007Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:43.083558Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:43.084539Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+2026-05-06T10:08:43.097207Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\build-ios-apps\.codex-plugin/plugin.json
+2026-05-06T10:08:43.098157Z  WARN codex_core::plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=C:\Users\ARCHIVSOFT\.codex\.tmp\plugins\plugins\plugin-eval\.codex-plugin/plugin.json
+codex
+{"scenario_id":"EH-S01","bundle_id":"eval_ops_reflection_bundle","verdict":"Pass","guide_alignment":"aligned","evidence_strength":"direct","operator_only_dependency":false,"over_orchestration":false,"speculative_patch_widening":false,"missing_operational_artifact_route":false,"recommended_patch_needed":false,"minimal_patch_targets":[],"evidence_files":["C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md","C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\codex\\skills\\eval-ops\\SKILL.md","C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\AGENTS.md","C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\02_overlays\\PROMPT_evaluation_monitoring_overlay.md","C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\01_base\\PROMPT_full.md","C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\freezes\\rg-2026-05-06-a\\snapshot\\prompt-stack\\v32\\03_examples\\PROMPT_example_catalog.md"],"answer_summary":"활성 번들은 이 작업에 대한 직접적이고 runtime-owned한 경로를 이미 노출한다. 최소 정당 ladder는 문서 반사 유지보수에서는 `Guide reflection benchmark memo`를 주 경로로 두고, 범위/packet floor를 먼저 고정해야 할 때만 `Benchmark registry memo`를 보강하는 수준이다. claim이 문서 parity를 넘어 assembled behavior나 replay execution state에 걸릴 때만 `Benchmark cohort manifest` -> `Replay runner verdict sheet` -> `Replay suite verdict memo`로 승격하면 된다.","verdict_rationale":"`CODEX_RUNTIME_GUIDE.md` 2.8은 이 maintenance class의 기본 경로를 명시적으로 정의한다: doc/runtime parity, chapter-family answerability, benchmark coverage 단계에서는 document-level benchmark에 머무르고, ambiguity·conflict·behavior-critical claim이 생길 때만 assembled replay로 escalate하며, replay execution state나 benchmark gating이 필요해지면 최종 ownership을 `eval-ops`로 reroute한다. `codex/skills/eval-ops/SKILL.md` 10.3도 동일하게 `benchmark-loop adequacy`에서는 document-level benchmark가 sufficient하다고 말하고, live question이 assembled prompt behavior로 이동할 때만 `Benchmark cohort manifest`와 replay artifacts를 요구한다. `AGENTS.md`, `PROMPT_evaluation_monitoring_overlay.md`, `PROMPT_full.md`는 benchmark registry와 execution state를 구분하고 stronger operational language 전에 operational floor를 요구하므로, replay artifact가 필요해지는 경계도 runtime bundle 내부에서 직접 설명된다. 따라서 required answer path는 out-of-scope operator docs에 의존하지 않고, 불필요한 multi-agent/A2A나 patch widening도 유도하지 않는다.","limitations":["판정은 지정된 active bundle 문서만 근거로 했으며, out-of-scope guide나 replay 문서의 추가 설명은 소유 근거로 사용하지 않았다.","실제 replay 실행 여부나 artifact 존재 여부는 검증하지 않았고, runtime 문서가 그 승격 경로를 직접 노출하는지만 판단했다."]}
+2026-05-06T10:09:58.119622Z  WARN codex_state::runtime: failed to open state db at C:\Users\ARCHIVSOFT\.codex\state_5.sqlite: migration 23 was previously applied but is missing in the resolved migrations
+2026-05-06T10:09:58.121124Z  WARN codex_state::runtime: failed to open state db at C:\Users\ARCHIVSOFT\.codex\state_5.sqlite: migration 23 was previously applied but is missing in the resolved migrations
+2026-05-06T10:09:58.162833Z  WARN codex_exec: thread/read failed while backfilling turn items for turn completion: thread/read: thread/read failed: ephemeral threads do not support includeTurns
+tokens used
+63,429

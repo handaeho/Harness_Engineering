@@ -1,0 +1,109 @@
+{
+  "suite_id": "v32-external-harness-2026-05-06-a",
+  "created_at": "2026-05-06T08:58:25.594Z",
+  "scenarios": [
+    {
+      "scenario_id": "EH-S01",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-a\\EH-S01.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-a\\EH-S01.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-a\\EH-S01.stderr.log",
+      "response": {
+        "scenario_id": "EH-S01",
+        "bundle_id": "eval_ops_reflection_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v32/codex/skills/eval-ops/SKILL.md",
+          "prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md",
+          "prompt-stack/v32/01_base/PROMPT_full.md",
+          "prompt-stack/v32/03_examples/PROMPT_example_catalog.md",
+          "prompt-stack/v32/AGENTS.md"
+        ],
+        "answer_summary": "The active bundle gives a direct runtime-owned route: stay at document-level benchmark with `Guide reflection benchmark memo` while the live question is guide/runtime parity, and escalate only if the task shifts to assembled prompt behavior or replay execution. The smallest justified artifact ladder is `Guide reflection benchmark memo` -> `Benchmark cohort manifest` only when replay setup/lineage is needed -> `Replay runner verdict sheet` only when runner execution state matters -> `Replay suite verdict memo` only when multiple replay outcomes must be summarized.",
+        "verdict_rationale": "`CODEX_RUNTIME_GUIDE.md` directly exposes the maintenance route for prompt-stack guide reflection, explicitly keeps `document-benchmark to assembled-replay escalation` in the runtime surface, and names the exact escalation artifacts and triggers. `eval-ops/SKILL.md` mirrors that route and states that document reflection should escalate to `Benchmark cohort manifest`, then `Replay runner verdict sheet`, then `Replay suite verdict memo` only when the live question has moved from document parity into assembled replay or replay state. `PROMPT_evaluation_monitoring_overlay.md` and `PROMPT_full.md` reinforce that a registry or memo is not execution proof and that stronger operational artifacts activate only when benchmark/replay claims become operational or release-relevant. `PROMPT_example_catalog.md` also makes the ladder explicit by showing `Guide reflection benchmark memo` as the document-grounded artifact with those replay artifacts as stronger siblings. `AGENTS.md` and the runtime guide both prefer the lightest sufficient path, so the bundle does not force unnecessary orchestration for this task.",
+        "limitations": [
+          "The active bundle does not explicitly define benchmark family IDs `BR-00` or `BR-19`; their mapping is inferred from the generic guide-reflection, benchmark-execution, and behavior-replay control surfaces.",
+          "No executed replay artifact is present in the active bundle, so this verdict confirms route exposure and artifact selection logic, not actual replay completion or replay-quality outcomes."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S02",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-a\\EH-S02.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-a\\EH-S02.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-a\\EH-S02.stderr.log",
+      "response": {
+        "scenario_id": "EH-S02",
+        "bundle_id": "grounded_research_appendix_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\01_base\\PROMPT_light.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\02_overlays\\PROMPT_search_reasoning_overlay.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\03_examples\\PROMPT_example_catalog.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\AGENTS.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\codex\\skills\\grounded-research\\SKILL.md"
+        ],
+        "answer_summary": "The active bundle directly reflects both Prompt Chaining and Appendix A advanced prompting through runtime-owned files: chaining is owned by the base prompt, advanced prompting execution families are owned by the search-reasoning overlay, and the example catalog is explicitly non-owning shape support only.",
+        "verdict_rationale": "Pass. The runtime-owned answer path is explicit inside the active bundle. `CODEX_RUNTIME_GUIDE.md` maps `Prompt Chaining / Planning` to the base prompts and maps `Appendix A / advanced prompting execution families` to `PROMPT_search_reasoning_overlay`, while also stating that example-catalog references are structure-only and that operator-facing-only coverage would count as a reflection gap. `PROMPT_light.md` directly carries chaining behavior with explicit rules such as chaining only when staged dependency is real and only when it improves reliability. `PROMPT_search_reasoning_overlay.md` directly claims runtime ownership for advanced prompting execution families, including decomposition, step-back abstraction, self-consistency-style comparison, ReAct-like loops, tree-style search, and bounded reflection, and it explicitly says prompt chaining remains anchored in base prompts. `PROMPT_example_catalog.md` reinforces the boundary by saying advanced prompting and chaining examples are shape exemplars only and not policy owners. `grounded-research/SKILL.md` further carries decomposition, step-back, self-consistency-style comparison, and iterative/agentic retrieval into the active research skill surface. The bundle also avoids over-orchestration because `AGENTS.md` requires the lowest maturity surface that solves the task and bounds multi-agent use to cases where coordination materially improves the result.",
+        "limitations": [
+          "The active bundle does not explicitly tag BR-01, BR-14, BR-17, or BR-22 by benchmark ID; this verdict relies on explicit runtime-ownership language and technique coverage rather than a benchmark-labeled crosswalk."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S05",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-a\\EH-S05.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-a\\EH-S05.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-a\\EH-S05.stderr.log",
+      "response": {
+        "scenario_id": "EH-S05",
+        "bundle_id": "design_analysis_route_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v32/codex/skills/design-analysis/SKILL.md",
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md",
+          "prompt-stack/v32/03_examples/PROMPT_example_catalog.md",
+          "prompt-stack/v32/01_base/PROMPT_full.md"
+        ],
+        "answer_summary": "주 경로는 document-level benchmark 유지이고 fallback은 assembled replay escalation이다. 활성 번들은 이 비교를 직접 허용하며, escalation trigger와 stronger operational artifact(`Benchmark cohort manifest`, `Replay runner verdict sheet`)도 runtime surface에 노출한다.",
+        "verdict_rationale": "`design-analysis`는 문서-level benchmark 유지 vs assembled replay escalation을 직접 비교 가능한 route question으로 규정하고, `CODEX_RUNTIME_GUIDE`는 prompt-stack benchmark maintenance에서 document-grounded 경로와 behavior-proof 경로의 전환 조건을 직접 정의한다. `PROMPT_search_reasoning_overlay`는 비용/리스크 상황에서 one cheaper fallback route와 one stronger-route trigger를 명시하라고 하고, example catalog는 `Guide reflection benchmark memo`를 lighter document-grounded artifact로, `Benchmark cohort manifest`와 `Replay runner verdict sheet`를 stronger replay artifacts로 직접 연결한다. `PROMPT_full`도 measured superiority나 stronger operational language를 benchmark/replay surface 없이 주장하지 말라고 해 primary route를 document-level benchmark로 두고, replay execution/state가 실제 verdict surface가 될 때만 fallback으로 escalate하는 선택이 번들 내부 근거와 일치한다.",
+        "limitations": [
+          "BR-02, BR-16, BR-20, BR-21의 개별 의미와 family-specific escalation 기준은 활성 번들에 직접 정의되어 있지 않다. 따라서 권고는 family-specific가 아니라 trigger-based이다.",
+          "활성 번들에는 `eval-ops`와 `PROMPT_evaluation_monitoring_overlay`가 포함되지 않으므로, 이 번들은 route 선택에는 충분하지만 replay-grade execution verdict나 release-gating 판단까지 직접 소유하지는 않는다."
+        ]
+      }
+    }
+  ]
+}

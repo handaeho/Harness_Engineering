@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-05-20T03:18:26.751Z",
+  "gate_set": "v36_candidate_release_gate",
+  "status": "hold",
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Source Collection Gate",
+      "status": "pass",
+      "evidence": [
+        "records/source_inventory.json",
+        "records/source_hash_manifest.json",
+        "records/source_language_matrix.json"
+      ]
+    },
+    {
+      "id": "G2",
+      "name": "v35 Baseline Gate",
+      "status": "pass",
+      "evidence": [
+        "records/phase0_v35_integrity_findings.json"
+      ]
+    },
+    {
+      "id": "G3",
+      "name": "Harness Subsystem Gate",
+      "status": "pass_static",
+      "evidence": [
+        "records/harness_scorecard.json"
+      ],
+      "limitation": "static score only"
+    },
+    {
+      "id": "G4",
+      "name": "Autonomous Agent Asset Gate",
+      "status": "pass_static",
+      "evidence": [
+        "autonomous/",
+        "records/assembled_bundle_integrity.json"
+      ]
+    },
+    {
+      "id": "G5",
+      "name": "Codex Runtime Gate",
+      "status": "pass_static_local_run",
+      "evidence": [
+        "codex/",
+        "records/codex_runtime_integrity.json"
+      ],
+      "note": "harness/validate_codex_runtime.mjs executed locally and passed."
+    },
+    {
+      "id": "G6",
+      "name": "State and Lifecycle Gate",
+      "status": "pass_static",
+      "evidence": [
+        "state/",
+        "lifecycle/"
+      ]
+    },
+    {
+      "id": "G7",
+      "name": "Verification Gate",
+      "status": "partial_behavioral",
+      "evidence": [
+        "harness/validate_current_v36.mjs",
+        "verification/evaluator-rubric.md",
+        "records/benchmark_results.json",
+        "records/ablation_results.json"
+      ],
+      "blocker": "real multi-session actor/judge benchmark and ablation evidence pending"
+    },
+    {
+      "id": "G8",
+      "name": "Safety and Scope Gate",
+      "status": "pass_static",
+      "evidence": [
+        "docs/SECURITY.md",
+        "autonomous/07_scope/SCOPE_POLICY.md"
+      ]
+    },
+    {
+      "id": "G9",
+      "name": "Release Language Gate",
+      "status": "pass_static",
+      "evidence": [
+        "verification/claim_strength_checklist.json"
+      ]
+    },
+    {
+      "id": "G10",
+      "name": "Archive and Traceability Gate",
+      "status": "partial",
+      "evidence": [
+        "records/source_hash_manifest.json",
+        "archive/source_inventory/source_inventory.json",
+        "archive/raw_benchmark_runs/"
+      ],
+      "blocker": "raw real agent benchmark runs pending; only deterministic local run artifacts are archived after benchmark scripts execute"
+    }
+  ]
+}

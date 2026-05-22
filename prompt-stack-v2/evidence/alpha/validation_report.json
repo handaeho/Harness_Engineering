@@ -1,0 +1,187 @@
+{
+  "status": "pass",
+  "generated_at": "2026-05-21T01:59:42.141Z",
+  "package": "prompt-stack-v2",
+  "phase": "v2.0.0-alpha-hardening",
+  "parser_status": {
+    "yaml": {
+      "parser": "internal-alpha-yaml-parser",
+      "external_parser_available": false,
+      "note": "External YAML parser was not available; internal alpha YAML parser was used."
+    },
+    "json": {
+      "parser": "JSON.parse"
+    },
+    "json_schema": {
+      "validator": "minimal-json-schema-document-check plus minimal stack schema subset",
+      "external_validator_available": false
+    }
+  },
+  "checks": [
+    {
+      "name": "required files exist",
+      "status": "pass",
+      "detail": {
+        "checked": 46
+      }
+    },
+    {
+      "name": "JSON files parse",
+      "status": "pass",
+      "detail": {
+        "checked": 14
+      }
+    },
+    {
+      "name": "JSON Schema documents minimally valid",
+      "status": "pass",
+      "detail": {
+        "checked": [
+          "core/spec/output_contract.schema.json",
+          "observability/telemetry.schema.json",
+          "observability/trace.schema.json",
+          "stack.schema.json"
+        ],
+        "validator": "minimal-json-schema-document-check"
+      }
+    },
+    {
+      "name": "YAML files parse",
+      "status": "pass",
+      "detail": {
+        "checked": [
+          "adapters/api/openai/adapter.yaml",
+          "adapters/local/ollama/adapter.yaml",
+          "adapters/local/vllm/adapter.yaml",
+          "adapters/provider_capability_matrix.yaml",
+          "core/spec/harness.spec.yaml",
+          "evals/suites/adapter_conformance_design.yaml",
+          "evals/suites/alpha_hardening.yaml",
+          "evals/suites/static_structure.yaml",
+          "evidence/v36-baseline/migration_map.yaml",
+          "release/release_gate.yaml",
+          "stack.yaml"
+        ],
+        "parser": "internal-alpha-yaml-parser",
+        "external_parser": false
+      }
+    },
+    {
+      "name": "stack.yaml conforms to stack.schema.json required fields",
+      "status": "pass",
+      "detail": {
+        "validator": "minimal-json-schema-subset",
+        "checked_schema": "stack.schema.json"
+      }
+    },
+    {
+      "name": "core/spec is provider-neutral",
+      "status": "pass",
+      "detail": {
+        "checked_tokens": [
+          "OpenAI",
+          "Anthropic",
+          "Claude",
+          "Gemini",
+          "vLLM",
+          "Ollama",
+          "tokenizer",
+          "Responses API"
+        ]
+      }
+    },
+    {
+      "name": "adapter skeleton fields and status",
+      "status": "pass",
+      "detail": {
+        "checked": [
+          "adapters/api/openai/adapter.yaml",
+          "adapters/local/vllm/adapter.yaml",
+          "adapters/local/ollama/adapter.yaml"
+        ]
+      }
+    },
+    {
+      "name": "provider capability matrix has no unverified true values",
+      "status": "pass",
+      "detail": {
+        "allowed_statuses": [
+          "needs_verification",
+          "false",
+          "not_applicable",
+          "roadmap",
+          "skeleton"
+        ]
+      }
+    },
+    {
+      "name": "dist boundary",
+      "status": "pass",
+      "detail": {
+        "files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "prohibited claim scan report pass",
+      "status": "pass",
+      "detail": {
+        "scanned_files": 47,
+        "matches": 0
+      }
+    },
+    {
+      "name": "baseline comparison report pass",
+      "status": "pass",
+      "detail": {
+        "inventory_count": 123,
+        "checksum_count": 123,
+        "existing_record_checked_count": 118,
+        "unchecked_or_unmatched_count": 5
+      }
+    },
+    {
+      "name": "adapter conformance fixture design exists",
+      "status": "pass",
+      "detail": {
+        "checked": [
+          "evals/fixtures/adapters/openai_message_mapping_cases.jsonl",
+          "evals/fixtures/adapters/vllm_message_mapping_cases.jsonl",
+          "evals/fixtures/adapters/ollama_message_mapping_cases.jsonl",
+          "evals/fixtures/adapters/structured_output_cases.jsonl",
+          "evals/fixtures/adapters/tool_call_cases.jsonl",
+          "evals/fixtures/adapters/unsupported_feature_cases.jsonl"
+        ]
+      }
+    }
+  ],
+  "warnings": [
+    "External YAML parser was not available; used internal alpha YAML parser."
+  ],
+  "errors": [],
+  "runner_reexecution": {
+    "v36_runners_reexecuted": false,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "runtime_execution_loop_implemented": false,
+    "live_telemetry_connected": false
+  },
+  "allowed_claims_after_pass": [
+    "harness-designed",
+    "static-structure-created",
+    "baseline-snapshotted",
+    "adapter-skeleton-created",
+    "alpha-static-validated"
+  ],
+  "prohibited_claims_still_blocked": [
+    "production-ready",
+    "production-monitored",
+    "containment-verified",
+    "replay-verified",
+    "benchmark-backed",
+    "provider-diverse",
+    "integration-verified",
+    "release-gated"
+  ]
+}

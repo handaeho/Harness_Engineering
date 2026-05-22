@@ -1,0 +1,52 @@
+{
+  "policy_id": "v34-sandbox-policy-2026-05-19-c",
+  "stack_version": "v34",
+  "sandbox_type": "workspace_local_filesystem_sandbox",
+  "process_isolation": "host_agent_with_workspace_boundary",
+  "sandbox_mode": "read_only_default",
+  "writable_roots": [
+    "prompt-stack/v34",
+    "prompt-stack/v34/harness/runs",
+    "prompt-stack/v34/harness/freezes",
+    "prompt-stack/v34/harness/stack_eval_runs"
+  ],
+  "read_only_paths": [
+    "prompt-stack/v34/00_governance",
+    "prompt-stack/v34/01_base",
+    "prompt-stack/v34/02_overlays",
+    "prompt-stack/v34/03_examples",
+    "prompt-stack/v34/99_total",
+    "prompt-stack/v34/codex"
+  ],
+  "network_policy": "deny_by_default",
+  "allowed_domains": [],
+  "denied_domains": ["*"],
+  "approval_required_actions": [
+    "destructive_write",
+    "external_network",
+    "secret_access",
+    "browser_surface",
+    "deployment_surface"
+  ],
+  "shell_command_approval_policy": "required_for_destructive_or_external_commands",
+  "auto_approval_policy": "none",
+  "code_execution_timeout": "runner_defined",
+  "resource_limits": "sandbox_default",
+  "cleanup_policy": "temporary_run_artifacts_should_be_scoped_and_cleaned",
+  "artifact_export_policy": "explicit_release_or_run_artifact_only",
+  "credential_storage_policy": "no_runtime_secret_persistence",
+  "secret_exposure_policy": "deny_and_redact",
+  "audit_log_export": "required_for_release_grade",
+  "rollback_boundary": "workspace_local_only",
+  "runtime_compute_separation": "recommended_when_generated_code_executes_in_higher_risk_surface",
+  "artifact_store": "workspace_local_or_external_store_with_session_prefix",
+  "private_network_required": "required_for_enterprise_high_risk_runtime",
+  "network_architecture": "deny_by_default_with_explicit_egress_control",
+  "privileged_container_ban": true,
+  "docker_socket_exposure": "forbidden",
+  "host_filesystem_mount_policy": "forbidden_for_untrusted_generated_code",
+  "sandbox_escape_readiness": "defined_not_tested",
+  "misconfiguration_tests_required": true,
+  "vm_isolation_for_high_risk_eval": "recommended",
+  "immutable_audit_log_policy": "recommended_for_production_grade"
+}

@@ -1,0 +1,67 @@
+{
+  "release_version": "v35",
+  "generated_at": "2026-05-20T02:48:32.787Z",
+  "closure_name": "V35 Release Integrity Closure Patch",
+  "total_role_decision": "actual-use-bundle",
+  "source_to_99_total_parity": {
+    "result": "pass",
+    "passed": 17,
+    "total": 17
+  },
+  "codex_to_99_total_codex_parity": {
+    "result": "pass",
+    "passed": 7,
+    "total": 7,
+    "mode": "mirror_from_v35_codex"
+  },
+  "root_pointer_repair": {
+    "result": "pass",
+    "active_paths": [
+      "v35/records/v35_release_manifest.json",
+      "v35/reports/V35_RELEASE_NOTES.md",
+      "v35/docs/V35_CURRENT_STATE.md",
+      "v35/reports/V35_VALIDATION_SUMMARY.md",
+      "v35/reports/V35_ROLLBACK_AND_MONITORING_PLAN.md"
+    ],
+    "broken_phase5_path_removed": true
+  },
+  "archive_checksum": {
+    "result": "pass",
+    "passed": 588,
+    "total": 588,
+    "mismatches": 0,
+    "note": "actual archive contains 588 checksummed files after archived cleanup evidence; mismatch count is 0"
+  },
+  "validation_checksum_drift": {
+    "result": "pass",
+    "policy": "validation/current_validation_result.json and validation/runs/*.json are excluded from immutable checksum manifest"
+  },
+  "validation_runner_updated_checks": [
+    "source_to_99_total_parity",
+    "codex_to_99_total_codex_parity_or_documented_non_mirror",
+    "root_pointer_path_existence",
+    "archive_checksum_validity",
+    "validation_checksum_drift",
+    "prohibited_positive_claim_scan",
+    "downgrade_language_preservation"
+  ],
+  "dry_run_rerun": {
+    "overall_v35_verdict": "pass",
+    "recommendation": "Final package verified",
+    "deletion_safe": "not_applicable_candidate_already_removed",
+    "migration_safe": "not_applicable_v34_already_legacy"
+  },
+  "remaining_limitations": [
+    "primary-source deferred items remain downgraded",
+    "sandbox gap remains downgraded",
+    "telemetry gap remains downgraded",
+    "containment proof remains downgraded"
+  ],
+  "final_package_verdict": "Final package verified",
+  "validation_runner_result": {
+    "status": "pass",
+    "total_checks": 137,
+    "passed_checks": 137,
+    "failed_checks": 0
+  }
+}

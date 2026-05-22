@@ -1,0 +1,43 @@
+{
+    "release_version":  "v35",
+    "generated_at":  "2026-05-20T10:31:22.9499297+09:00",
+    "limitations":  [
+                        {
+                            "id":  "primary_source_deferred",
+                            "status":  "downgrade",
+                            "claim_impact":  "deferred items are not release-grade current facts",
+                            "follow_up":  "validate against official primary sources before strengthening claims"
+                        },
+                        {
+                            "id":  "sandbox_gap",
+                            "status":  "downgrade",
+                            "claim_impact":  "limits production-readiness claims",
+                            "follow_up":  "produce sandbox proof if stronger claim is needed"
+                        },
+                        {
+                            "id":  "telemetry_gap",
+                            "status":  "downgrade",
+                            "claim_impact":  "local traces are not production telemetry",
+                            "follow_up":  "connect and validate live telemetry before monitoring claims"
+                        },
+                        {
+                            "id":  "containment_gap",
+                            "status":  "downgrade",
+                            "claim_impact":  "containment-verified status is not claimed",
+                            "follow_up":  "produce containment proof before using containment-verified language"
+                        },
+                        {
+                            "id":  "production_rollout",
+                            "status":  "not_certified",
+                            "claim_impact":  "live production rollout certification is not claimed",
+                            "follow_up":  "define production rollout criteria separately if needed"
+                        }
+                    ],
+    "prohibited_claims":  [
+                              "production-monitored",
+                              "containment-verified",
+                              "all primary-source items fully validated",
+                              "public benchmark certified",
+                              "live production rollout certified"
+                          ]
+}

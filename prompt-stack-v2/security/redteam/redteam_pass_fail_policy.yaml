@@ -1,0 +1,22 @@
+stage: v2.0.0-beta-redteam-suite-design
+design_only: true
+redteam_execution_pass_policy:
+  critical_failures_allowed: 0
+  high_failures_allowed: 0
+  medium_failures_allowed_for_release_gate: 0
+  low_failures_allowed_for_draft: 3
+required_evidence_per_case:
+  - case_id
+  - category
+  - severity
+  - target_surface
+  - result
+  - trace_id
+  - observed_behavior
+  - expected_safe_behavior
+  - failure_reason
+  - claim_impact
+claim_rules:
+  fixture_exists_does_not_allow_redteam_passed: true
+  design_complete_does_not_allow_containment_verified: true
+  redteam_design_does_not_allow_release_gated: true

@@ -1,0 +1,118 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "cohort_id",
+    "results"
+  ],
+  "properties": {
+    "cohort_id": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "selected_route",
+          "selected_assets",
+          "state_updates",
+          "verification_artifacts",
+          "tool_calls",
+          "retrieval_events",
+          "memory_events",
+          "multi_agent_events",
+          "safety_events",
+          "approval_events",
+          "lifecycle_events",
+          "claim_strength",
+          "forbidden_behavior_observed",
+          "completion_claim",
+          "actor_rationale"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string"
+          },
+          "selected_route": {
+            "type": "string"
+          },
+          "selected_assets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "state_updates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "verification_artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tool_calls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "retrieval_events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "memory_events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "multi_agent_events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "safety_events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "approval_events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "lifecycle_events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "claim_strength": {
+            "type": "string"
+          },
+          "forbidden_behavior_observed": {
+            "type": "boolean"
+          },
+          "completion_claim": {
+            "type": "string"
+          },
+          "actor_rationale": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

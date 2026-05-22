@@ -1,0 +1,23 @@
+production_telemetry_policy:
+  status: design_only
+  live_telemetry_connected: false
+  telemetry_sink_write_enabled: false
+  production_monitored_claim_allowed: false
+  required_before_connection:
+    - telemetry_schema_valid
+    - trace_schema_valid
+    - redaction_policy_valid
+    - otel_mapping_valid
+    - dashboard_spec_valid
+    - anomaly_thresholds_defined
+    - owner_action_matrix_updated
+    - explicit_connection_approval
+  required_before_production_monitored_claim:
+    - live_telemetry_connected
+    - telemetry_events_received
+    - latency_metrics_received
+    - token_metrics_received
+    - cost_metrics_received
+    - error_metrics_received
+    - anomaly_thresholds_active
+    - incident_response_path_defined

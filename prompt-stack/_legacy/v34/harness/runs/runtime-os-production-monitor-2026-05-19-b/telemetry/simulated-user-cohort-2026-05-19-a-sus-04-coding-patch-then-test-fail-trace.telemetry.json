@@ -1,0 +1,86 @@
+{
+  "trace_id": "simulated-user-cohort-2026-05-19-a-sus-04-coding-patch-then-test-fail-trace",
+  "session_id": "simulated-user-cohort-2026-05-19-a",
+  "run_id": "simulated-user-cohort-2026-05-19-a",
+  "cohort_id": "simulated-user-smoke",
+  "scenario_id": "sus-04-coding-patch-then-test-fail",
+  "artifact_version": "v34-harness-2026-05-19-b",
+  "prompt_version": "v34",
+  "model_version": "deterministic-local-runner",
+  "selected_base_prompt": "PROMPT_standalone",
+  "selected_skill": "coding-core",
+  "selected_overlays": [
+    "PROMPT_memory_adaptation_overlay",
+    "PROMPT_evaluation_monitoring_overlay"
+  ],
+  "example_mode": "none",
+  "task_family": "simulated_user",
+  "risk_class": "R1",
+  "started_at": "2026-05-19T04:59:51.236Z",
+  "finished_at": "2026-05-19T04:59:51.236Z",
+  "approval_events": [],
+  "policy_decision_events": [],
+  "network_policy_events": [],
+  "tool_result_events": [],
+  "retry_events": [
+    {
+      "attempts": 1,
+      "retry_used": false
+    }
+  ],
+  "failure_events": [],
+  "verification_events": [
+    {
+      "check_id": "multi_turn_state_preserved",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "failed_test_changes_route",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "verify_before_claim_preserved",
+      "passed": true,
+      "failed": false
+    }
+  ],
+  "safety_events": [],
+  "sandbox_events": [],
+  "memory_events": [],
+  "retrieval_events": [],
+  "multi_agent_events": [],
+  "error_events": [],
+  "token_usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "claim_strength": "locally_checked",
+  "cost_events": [
+    {
+      "currency": "USD",
+      "total": 0
+    }
+  ],
+  "latency_events": [
+    {
+      "total_ms": 1
+    }
+  ],
+  "shell_command_events": [],
+  "log_query_events": [],
+  "metric_query_events": [],
+  "trace_query_events": [],
+  "dom_snapshot_events": [],
+  "screenshot_events": [],
+  "smoke_journey_events": [],
+  "final_state": {
+    "status": "multi_turn_replan_after_failed_test",
+    "simulated_turn_count": 4,
+    "target_final_state_reached": true,
+    "claim_downgraded_after_new_evidence": true,
+    "trace_shape_ok": true
+  },
+  "verdict": "Pass"
+}

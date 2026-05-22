@@ -1,0 +1,89 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-mock-execution",
+  "cases": [
+    {
+      "case_id": "failure.recovery_path",
+      "state_transitions": [
+        {
+          "from_state": "initialized",
+          "to_state": "started",
+          "reason": "run request accepted",
+          "details": {}
+        },
+        {
+          "from_state": "started",
+          "to_state": "failed",
+          "reason": "mock model failure",
+          "details": {
+            "error": "recoverable mock model failure"
+          }
+        },
+        {
+          "from_state": "failed",
+          "to_state": "recovered",
+          "reason": "mock recovery applied",
+          "details": {
+            "recovery_applied": true,
+            "recovery_id": "mock-recovery-static-response",
+            "reason": "recoverable mock model failure"
+          }
+        },
+        {
+          "from_state": "recovered",
+          "to_state": "completed",
+          "reason": "mock run completed",
+          "details": {
+            "blocked_tools": [],
+            "executed_mock_tools": []
+          }
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "case_id": "failure.missing_required_input",
+      "state_transitions": [
+        {
+          "from_state": "initialized",
+          "to_state": "started",
+          "reason": "run request accepted",
+          "details": {}
+        },
+        {
+          "from_state": "started",
+          "to_state": "failed",
+          "reason": "missing required input",
+          "details": {
+            "missing_required_inputs": [
+              "input.prompt"
+            ]
+          }
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "case_id": "state.transition_path",
+      "state_transitions": [
+        {
+          "from_state": "initialized",
+          "to_state": "started",
+          "reason": "run request accepted",
+          "details": {}
+        },
+        {
+          "from_state": "started",
+          "to_state": "completed",
+          "reason": "mock run completed",
+          "details": {
+            "blocked_tools": [],
+            "executed_mock_tools": []
+          }
+        }
+      ],
+      "status": "pass"
+    }
+  ],
+  "state_transitions_recorded": 24
+}

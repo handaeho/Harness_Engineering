@@ -1,0 +1,19 @@
+langfuse_trace_mapping:
+  status: design_only
+  live_connection_enabled: false
+  trace:
+    id: run_id
+    name: stage
+    metadata:
+      - adapter_id
+      - provider
+      - model
+      - surface
+      - case_id
+      - suite_id
+      - claim_level
+    observations:
+      - provider_call
+      - tool_call
+      - schema_validation
+      - redteam_case

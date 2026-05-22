@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "cohort_id",
+    "results"
+  ],
+  "properties": {
+    "cohort_id": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "semantic_judge_result",
+          "score",
+          "critical_failure",
+          "critical_failure_type",
+          "judge_rationale"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string"
+          },
+          "semantic_judge_result": {
+            "type": "string"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "critical_failure": {
+            "type": "boolean"
+          },
+          "critical_failure_type": {
+            "type": "string"
+          },
+          "judge_rationale": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

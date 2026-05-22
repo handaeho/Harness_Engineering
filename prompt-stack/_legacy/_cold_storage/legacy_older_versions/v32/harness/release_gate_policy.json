@@ -1,0 +1,15 @@
+{
+  "policy_id": "v32-release-gate-2026-05-06-a",
+  "repeat_count": 7,
+  "scenario_pass_rate_threshold": 1.0,
+  "allow_partial_pass": false,
+  "max_runner_failures": 0,
+  "max_flaky_scenarios": 0,
+  "promote_if": [
+    "completed_runs == repeat_count",
+    "every scenario pass_rate == 1.0",
+    "every scenario stable_pass == true",
+    "runner_failures == 0",
+    "flaky_scenarios == 0"
+  ]
+}

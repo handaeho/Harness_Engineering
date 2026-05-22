@@ -1,0 +1,20 @@
+{
+  "runner_path": "..\\..\\..\\..\\0.%EA%B0%9C%EC%9D%B8\\PROMPT\\prompt-stack\\v35_candidate\\harness\\run_phase4r_native_replay.mjs",
+  "can_capture_actor_output": false,
+  "can_capture_codex_actor_output": false,
+  "can_run_semantic_judge": false,
+  "can_store_judge_rationale": true,
+  "can_preserve_trace_ids": true,
+  "can_separate_deterministic_and_semantic_verdicts": true,
+  "gaps": [
+    "native actor output provider/file not available",
+    "Codex actor output provider/file not available",
+    "local codex.exe access denied in current session"
+  ],
+  "required_runner_patch": "applied: --phase4r-j-r mode stores actor-output records, semantic-judge records, and fail-closed not_evaluated verdicts when actor output is unavailable",
+  "patch_allowed": true,
+  "target_patch_files": [
+    "harness/run_phase4r_native_replay.mjs"
+  ],
+  "risk": "Without a live actor provider or captured output file, semantic judge cannot produce pass verdicts; all affected cases remain not_evaluated."
+}

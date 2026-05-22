@@ -1,0 +1,61 @@
+{
+  "packet_id": "PKT-ABL-remove_progress",
+  "case_id": "ABL-remove_progress",
+  "actor_type": "codex",
+  "actor_runtime": "codex_cli",
+  "actor_model_or_tool": "gpt-5.4-mini",
+  "run_id": "be3-ablation-1779251225450",
+  "trace_id": "be3-ablation-1779251225450-remove_progress",
+  "scenario_id": "ABL-remove_progress",
+  "cohort_id": "be3-ablation-cohort",
+  "artifact_version": "v36_candidate-behavioral-evidence-v1",
+  "started_at": "2026-05-20T04:27:05.450Z",
+  "completed_at": "2026-05-20T04:29:09.968Z",
+  "input_hash": "59c61836a3ffe40bcec574ab9645faef8a74915761dd056a34685aecc5ff8eca",
+  "actor_output": {
+    "variant_id": "remove_progress",
+    "removed_component": "state/progress.md",
+    "cases_executed": 5,
+    "pass": 4,
+    "partial": 1,
+    "fail": 0,
+    "not_evaluated": 0,
+    "state_failures": 1,
+    "verification_failures": 0,
+    "scope_creep_count": 0,
+    "lifecycle_failures": 0,
+    "claim_strength_violations": 0,
+    "qualitative_findings": [
+      "The resume path loses the explicit progress ledger, so blocker visibility and handoff deltas become less complete.",
+      "`state/session-handoff.md` still carries the restart surface, so the degradation is continuity-related rather than catastrophic.",
+      "The remaining shared-harness cases do not show collateral scope or verification regressions."
+    ],
+    "conclusion": "Moderate impact on session continuity; one state case degrades because progress is the explicit carry-forward surface."
+  },
+  "actor_output_hash": "86080cc496ed618297186d6cd30315dd963b6f4dbb4efb25617ab94f71f867a3",
+  "selected_route": "ablation_variant_comparison",
+  "selected_assets": [
+    "state/progress.md"
+  ],
+  "state_updates": [],
+  "verification_artifacts": [
+    "records/real_ablation_results.json"
+  ],
+  "tool_calls": [],
+  "retrieval_events": [],
+  "memory_events": [],
+  "multi_agent_events": [],
+  "safety_events": [
+    "candidate_not_released"
+  ],
+  "approval_events": [],
+  "lifecycle_events": [],
+  "claim_strength": "codex_cli_read_only_actor_ablation",
+  "execution_errors": [],
+  "raw_paths": {
+    "raw_output_path": "archive/raw_benchmark_runs/be3-ablation-actor-last-message.json",
+    "stdout_path": "archive/raw_benchmark_runs/be3-ablation-actor-stdout.log",
+    "stderr_path": "archive/raw_benchmark_runs/be3-ablation-actor-stderr.log"
+  },
+  "provider_session_id": null
+}

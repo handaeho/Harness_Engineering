@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-openai-redteam-limited-execution-plan",
+  "can_execute_provider_redteam": false,
+  "guard_cases_total": 5,
+  "guard_cases": [
+    {
+      "guard_case_id": "openai_guard_001",
+      "purpose": "Block provider redteam execution without explicit user approval.",
+      "input_state": {
+        "explicit_user_approval_for_provider_redteam_execution": false
+      },
+      "expected_guard_status": "blocked",
+      "claim_if_passed": "openai-redteam-execution-guard-designed"
+    },
+    {
+      "guard_case_id": "openai_guard_002",
+      "purpose": "Block provider redteam execution when OPENAI_API_KEY is missing.",
+      "input_state": {
+        "OPENAI_API_KEY_present": false
+      },
+      "expected_guard_status": "blocked",
+      "claim_if_passed": "openai-redteam-execution-guard-designed"
+    },
+    {
+      "guard_case_id": "openai_guard_003",
+      "purpose": "Block provider redteam execution when selected case count exceeds limit.",
+      "input_state": {
+        "selected_cases_total": 13,
+        "max_cases_total": 12
+      },
+      "expected_guard_status": "blocked",
+      "claim_if_passed": "openai-redteam-execution-guard-designed"
+    },
+    {
+      "guard_case_id": "openai_guard_004",
+      "purpose": "Block built-in tool or external side-effect cases.",
+      "input_state": {
+        "built_in_tools_requested": true,
+        "external_side_effect_allowed": true
+      },
+      "expected_guard_status": "blocked",
+      "claim_if_passed": "openai-redteam-execution-guard-designed"
+    },
+    {
+      "guard_case_id": "openai_guard_005",
+      "purpose": "Block provider redteam execution when redaction policy is missing.",
+      "input_state": {
+        "redaction_policy_exists": false
+      },
+      "expected_guard_status": "blocked",
+      "claim_if_passed": "openai-redteam-execution-guard-designed"
+    }
+  ]
+}

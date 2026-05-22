@@ -1,0 +1,43 @@
+{
+  "suite_id": "v32-external-harness-2026-05-06-a",
+  "run_id": "2026-05-06-e",
+  "created_at": "2026-05-06T09:33:33.802Z",
+  "scenarios": [
+    {
+      "scenario_id": "EH-S01",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-e\\EH-S01.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-e\\EH-S01.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-e\\EH-S01.stderr.log",
+      "response": {
+        "scenario_id": "EH-S01",
+        "bundle_id": "eval_ops_reflection_bundle",
+        "verdict": "Pass",
+        "guide_alignment": "aligned",
+        "evidence_strength": "direct",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v32/codex/skills/eval-ops/SKILL.md",
+          "prompt-stack/v32/03_examples/PROMPT_example_catalog.md",
+          "prompt-stack/v32/AGENTS.md",
+          "prompt-stack/v32/01_base/PROMPT_full.md",
+          "prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md",
+          "prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md"
+        ],
+        "answer_summary": "Active runtime docs provide a direct, runtime-owned ladder for this scenario: perform guide/benchmark reflection at document level, verify answerability/stability, and only escalate to assembled replay when behavior proof, ambiguity/conflict, or runner execution state is required. For route-selection and local doc-repair axes, the bundle already defines a reroute condition and a local patch-target loop.",
+        "verdict_rationale": "PASS: The document assembly and eval-ops skill explicitly defines primary maintenance flow for guide reflection (document/runtime parity checks, benchmark question->answer->verification, patch-target rerun loop), plus a documented escalation rule: document-level is primary and replay is fallback when claims require runner execution/state linkage. The example catalog confirms `Guide reflection benchmark memo` is the correct document-level control family and explicitly states it does not by itself prove live replay, while stronger siblings (`Benchmark cohort manifest`, `Replay runner verdict sheet`, `Replay suite verdict memo`) are for assembled-replay phases. Therefore no required route is blocked by operator-only docs and document-level sufficiency can be decided directly for the stated focus axes.",
+        "limitations": [
+          "BR-00 and BR-19 are not named in the active files; mapping is by behavior (guide-reflection / reroute / doc repair) rather than literal IDs.",
+          "No replay artifacts are present in this slice; if the decision moves to execution-proof claims, assembled-replay artifacts would become mandatory before replay-grade language."
+        ]
+      }
+    }
+  ]
+}

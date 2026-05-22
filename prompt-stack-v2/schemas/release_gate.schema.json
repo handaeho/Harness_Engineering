@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/prompt-stack-v2/schemas/release_gate.schema.json",
+  "title": "Prompt Stack v2 Release Gate",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "status",
+    "alpha_required_checks",
+    "allowed_alpha_claims",
+    "prohibited_positive_claims",
+    "claim_upgrade_rule",
+    "runner_status"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "status": { "type": "string" },
+    "alpha_required_checks": { "type": "array", "items": { "type": "string" } },
+    "allowed_alpha_claims": { "type": "array", "items": { "type": "string" } },
+    "prohibited_positive_claims": { "type": "array", "items": { "type": "string" } },
+    "claim_upgrade_rule": { "type": "object" },
+    "runner_status": {
+      "type": "object",
+      "required": ["v36_runners_reexecuted_for_alpha", "provider_execution", "local_model_execution", "runtime_execution_loop_implemented", "live_telemetry_connected"],
+      "properties": {
+        "v36_runners_reexecuted_for_alpha": { "const": false },
+        "provider_execution": { "const": false },
+        "local_model_execution": { "const": false },
+        "runtime_execution_loop_implemented": { "const": false },
+        "live_telemetry_connected": { "const": false },
+        "telemetry_sink_write_enabled": { "const": false },
+        "production_monitored": { "const": false },
+        "mock_runtime_execution_loop_implemented": { "const": true },
+        "mock_provider_execution": { "const": false },
+        "mock_local_model_execution": { "const": false },
+        "mock_external_side_effects": { "const": false },
+        "openai_provider_canary_allowed": { "const": true },
+        "openai_provider_execution_status": {
+          "enum": ["blocked_by_missing_credential", "blocked_by_missing_model", "canary_only"]
+        },
+        "openai_tool_calling_execution": {
+          "enum": [false, "blocked_by_missing_credential", "blocked_by_missing_model", "canary_only"]
+        },
+        "openai_tool_calling_rerun": {
+          "enum": [false, "blocked_by_missing_credential", "blocked_by_missing_model", "canary_rerun_only"]
+        },
+        "openai_canary_replay_suite": {
+          "enum": [false, "blocked_by_missing_credential", "blocked_by_missing_model", "canary_suite_only"]
+        },
+        "beta_release_evidence_bundle": {
+          "enum": [false, "draft_only"]
+        },
+        "release_gate_dry_run": {
+          "enum": [false, "blocked_not_release_gated"]
+        },
+        "redteam_suite_design": {
+          "enum": [false, "design_only"]
+        },
+        "redteam_mock_runtime_dry_run": {
+          "enum": [false, "mock_dry_run_only"]
+        },
+        "openai_redteam_limited_execution_plan": {
+          "enum": [false, "draft_only"]
+        },
+        "openai_redteam_limited_execution_preflight": {
+          "enum": [false, "ready_but_blocked_by_missing_explicit_approval", "blocked_by_missing_credential", "blocked_by_missing_model"]
+        },
+        "production_telemetry_design": {
+          "enum": [false, "design_only"]
+        },
+        "actual_redteam_execution": { "const": false },
+        "actual_provider_redteam_execution": { "const": false },
+        "actual_local_redteam_execution": { "const": false },
+        "can_execute_provider_redteam": { "const": false },
+        "redteam_execution_allowed": { "const": false },
+        "replay_verified_claim": { "const": false },
+        "openai_structured_output_execution": {
+          "enum": [false, "blocked_by_missing_credential", "blocked_by_missing_model", "canary_only"]
+        },
+        "canary_matrix_summary_generated": { "const": true },
+        "local_endpoint_probe": { "const": false },
+        "local_readiness_documented": { "const": true },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

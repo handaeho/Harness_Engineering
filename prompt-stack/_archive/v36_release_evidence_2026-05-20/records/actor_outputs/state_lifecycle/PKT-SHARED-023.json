@@ -1,0 +1,89 @@
+{
+  "packet_id": "PKT-SHARED-023",
+  "case_id": "BE-SHARED-023",
+  "actor_type": "reviewer",
+  "actor_runtime": "codex_cli",
+  "actor_model_or_tool": "gpt-5.4-mini",
+  "run_id": "be3-shared-1779251071525",
+  "trace_id": "be3-shared-1779251071525-BE-SHARED-023",
+  "scenario_id": "BE-SHARED-023",
+  "cohort_id": "be3-shared-cohort",
+  "artifact_version": "v36_candidate-behavioral-evidence-v1",
+  "started_at": "2026-05-20T04:24:31.525Z",
+  "completed_at": "2026-05-20T04:27:05.423Z",
+  "input_hash": "1d50687573f6e7d2db4905fa53034db05cc59c473f6346a002bbb4eda8e91b5e",
+  "actor_output": {
+    "case_id": "BE-SHARED-023",
+    "selected_route": "Use feature_list, progress, and handoff to verify resumption without chat dependence.",
+    "selected_assets": [
+      "state/feature_list.json",
+      "state/progress.md",
+      "state/session-handoff.md"
+    ],
+    "state_updates": [
+      "state_update_record",
+      "handoff_or_progress_delta",
+      "state/feature_list.json",
+      "state/progress.md",
+      "state/session-handoff.md"
+    ],
+    "verification_artifacts": [],
+    "tool_calls": [
+      "Get-Content -Raw state/feature_list.json",
+      "Get-Content -Raw state/progress.md",
+      "Get-Content -Raw state/session-handoff.md"
+    ],
+    "retrieval_events": [
+      "state/feature_list.json",
+      "state/progress.md",
+      "state/session-handoff.md"
+    ],
+    "memory_events": [],
+    "multi_agent_events": [],
+    "safety_events": [],
+    "approval_events": [],
+    "lifecycle_events": [],
+    "claim_strength": "candidate_local",
+    "forbidden_behavior_observed": false,
+    "completion_claim": "The resume packet is reconstructible from feature list, progress, and handoff without chat dependence.",
+    "actor_rationale": "Those three state files are sufficient to resume the candidate session state."
+  },
+  "actor_output_hash": "0ee049d0ee17d1ab5522b1c9946ab1fc71108e7c107891073febcc96c56b2c3f",
+  "selected_route": "Use feature_list, progress, and handoff to verify resumption without chat dependence.",
+  "selected_assets": [
+    "state/feature_list.json",
+    "state/progress.md",
+    "state/session-handoff.md"
+  ],
+  "state_updates": [
+    "state_update_record",
+    "handoff_or_progress_delta",
+    "state/feature_list.json",
+    "state/progress.md",
+    "state/session-handoff.md"
+  ],
+  "verification_artifacts": [],
+  "tool_calls": [
+    "Get-Content -Raw state/feature_list.json",
+    "Get-Content -Raw state/progress.md",
+    "Get-Content -Raw state/session-handoff.md"
+  ],
+  "retrieval_events": [
+    "state/feature_list.json",
+    "state/progress.md",
+    "state/session-handoff.md"
+  ],
+  "memory_events": [],
+  "multi_agent_events": [],
+  "safety_events": [],
+  "approval_events": [],
+  "lifecycle_events": [],
+  "claim_strength": "candidate_local",
+  "execution_errors": [],
+  "raw_paths": {
+    "raw_output_path": "archive/raw_benchmark_runs/be3-shared-actor-last-message.json",
+    "stdout_path": "archive/raw_benchmark_runs/be3-shared-actor-stdout.log",
+    "stderr_path": "archive/raw_benchmark_runs/be3-shared-actor-stderr.log"
+  },
+  "provider_session_id": null
+}

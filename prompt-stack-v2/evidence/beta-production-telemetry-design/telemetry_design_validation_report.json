@@ -1,0 +1,279 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-production-telemetry-design",
+  "design_only": true,
+  "live_telemetry_connected": false,
+  "telemetry_sink_write_enabled": false,
+  "live_connection_enabled": false,
+  "telemetry_sink_write_disabled": true,
+  "checks": [
+    {
+      "name": "trace.schema.json parse and compile",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry.schema.json parse and compile",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production_telemetry_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_event_taxonomy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_metric_catalog.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_redaction_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_retention_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_anomaly_thresholds.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_dashboard_spec.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "genai_semantic_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "trace_attribute_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "metric_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "exporter_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "integration_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "trace_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "score_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "dashboard_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production_telemetry_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production telemetry policy closed",
+      "status": "pass",
+      "detail": {
+        "status": "design_only",
+        "live_telemetry_connected": false,
+        "telemetry_sink_write_enabled": false,
+        "production_monitored_claim_allowed": false,
+        "required_before_connection": [
+          "telemetry_schema_valid",
+          "trace_schema_valid",
+          "redaction_policy_valid",
+          "otel_mapping_valid",
+          "dashboard_spec_valid",
+          "anomaly_thresholds_defined",
+          "owner_action_matrix_updated",
+          "explicit_connection_approval"
+        ],
+        "required_before_production_monitored_claim": [
+          "live_telemetry_connected",
+          "telemetry_events_received",
+          "latency_metrics_received",
+          "token_metrics_received",
+          "cost_metrics_received",
+          "error_metrics_received",
+          "anomaly_thresholds_active",
+          "incident_response_path_defined"
+        ]
+      }
+    },
+    {
+      "name": "event taxonomy has required families",
+      "status": "pass",
+      "detail": {
+        "families": [
+          "run_lifecycle",
+          "provider_execution",
+          "structured_output",
+          "tool_calling",
+          "redteam",
+          "release_gate",
+          "safety"
+        ]
+      }
+    },
+    {
+      "name": "metric catalog has required metrics",
+      "status": "pass",
+      "detail": {
+        "metrics": [
+          "latency_ms",
+          "input_tokens",
+          "output_tokens",
+          "estimated_cost",
+          "case_pass_rate",
+          "schema_validation_failure_count",
+          "blocked_tool_execution_count",
+          "redaction_failure_count",
+          "prohibited_claim_count"
+        ]
+      }
+    },
+    {
+      "name": "OTel mapping closed",
+      "status": "pass",
+      "detail": {
+        "status": "design_only",
+        "live_emission_enabled": false,
+        "semconv_status_note": "GenAI conventions are treated as mapping input only until exporter connection is approved."
+      }
+    },
+    {
+      "name": "Langfuse integration closed",
+      "status": "pass",
+      "detail": {
+        "status": "design_only",
+        "live_connection_enabled": false,
+        "api_call_allowed": false
+      }
+    },
+    {
+      "name": "redaction policy valid",
+      "status": "pass",
+      "detail": {
+        "raw_prompt_stored": false,
+        "raw_response_stored": false,
+        "api_keys_logged": false,
+        "authorization_headers_logged": false,
+        "env_values_logged": false,
+        "tool_raw_payload_stored": false,
+        "allowed_previews": {
+          "output_preview_max_chars": 300,
+          "input_preview_max_chars": 300
+        },
+        "hash_policy": {
+          "hash_raw_inputs": true,
+          "hash_raw_outputs": true,
+          "hash_tool_payloads": true
+        },
+        "required_redaction_checks": [
+          "api_key_pattern",
+          "authorization_header_pattern",
+          "env_value_pattern",
+          "raw_response_dump_pattern"
+        ]
+      }
+    },
+    {
+      "name": "anomaly thresholds draft inactive",
+      "status": "pass",
+      "detail": {
+        "status": "draft",
+        "active_in_production": false,
+        "latency": {
+          "p95_ms_warning": 10000,
+          "p95_ms_critical": 30000
+        },
+        "cost": {
+          "per_run_cost_warning_usd": 1,
+          "per_run_cost_critical_usd": 5
+        },
+        "quality": {
+          "case_pass_rate_warning_below": 0.95,
+          "case_pass_rate_critical_below": 0.9
+        },
+        "safety": {
+          "redaction_failure_count_critical": 1,
+          "blocked_tool_execution_count_critical": 1,
+          "prohibited_claim_count_critical": 1
+        },
+        "redteam": {
+          "critical_failure_count_critical": 1,
+          "high_failure_count_critical": 1
+        }
+      }
+    },
+    {
+      "name": "dashboard spec draft only",
+      "status": "pass",
+      "detail": {
+        "status": "draft",
+        "live_dashboard_available": false,
+        "panels": 6
+      }
+    },
+    {
+      "name": "production telemetry gate blocks claims",
+      "status": "pass",
+      "detail": {
+        "status": "design_only",
+        "can_claim_telemetry_connected": false,
+        "can_claim_production_monitored": false,
+        "can_claim_production_ready": false,
+        "required_before_telemetry_connected": [
+          "explicit_connection_approval",
+          "telemetry_sink_credentials_present",
+          "telemetry_schema_valid",
+          "redaction_policy_valid",
+          "first_live_trace_received",
+          "first_live_metric_received"
+        ],
+        "required_before_production_monitored": [
+          "telemetry_connected",
+          "anomaly_thresholds_active",
+          "dashboard_available",
+          "owner_action_matrix_finalized",
+          "incident_response_path_defined",
+          "rollback_trigger_defined"
+        ],
+        "claims_blocked": [
+          "telemetry-connected",
+          "production-monitored",
+          "production-ready",
+          "release-gated"
+        ]
+      }
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,77 @@
+{
+  "phase": "Phase 5 Release Decision",
+  "decision": "Promote to v35",
+  "rollback_to": "v34",
+  "monitoring_scope": "post-release review and follow-up validation scope; not production-monitored certification",
+  "rollback_triggers": [
+    {
+      "trigger": "P0 safety failure",
+      "examples": [
+        "prompt injection instruction followed",
+        "prompt leaking or hidden prompt disclosure",
+        "secret leakage",
+        "approval bypass",
+        "destructive action boundary violation"
+      ],
+      "action": "Rollback to v34 and open targeted retest."
+    },
+    {
+      "trigger": "v34 regression",
+      "examples": [
+        "safety regression",
+        "verification regression",
+        "source/runtime boundary regression"
+      ],
+      "action": "Rollback to v34 or hold the affected runtime package until retest passes."
+    },
+    {
+      "trigger": "claim-scope violation",
+      "examples": [
+        "deferred primary-source items treated as release-grade current facts",
+        "local traces described as production telemetry",
+        "sandbox existence described as containment proof",
+        "Codex runtime pass described as 00~04 text parity"
+      ],
+      "action": "Correct release language immediately; rollback if the claim has become load-bearing for release acceptance."
+    },
+    {
+      "trigger": "Codex runtime boundary collapse",
+      "examples": [
+        "Codex skill weakens safety boundary",
+        "Codex skill weakens approval-sensitive action boundary",
+        "Codex runtime guide acts as a simple 00~04 summary instead of host-runtime entrypoint"
+      ],
+      "action": "Rollback Codex runtime package to previous stable behavior and retest CAG-001..CAG-025."
+    }
+  ],
+  "monitoring_items": [
+    "Native replay semantic verdict distribution for any later retest.",
+    "Codex runtime behavioral alignment, runtime fitness, and boundary-preservation scores.",
+    "Critical failure count, P0 count, release-blocking P1 count, trace missing count, and claim-strength violation count.",
+    "Primary-source deferred validation status and any attempted current/latest claim.",
+    "Sandbox, telemetry, and containment evidence status."
+  ],
+  "drift_watch": [
+    "Example structure becoming factual authority.",
+    "Advanced technique activation becoming default ceremony on direct tasks.",
+    "Tool call success being phrased as task success.",
+    "Partial state being phrased as completed state.",
+    "Memory outranking fresh evidence."
+  ],
+  "codex_runtime_watch": [
+    "CODEX_RUNTIME_GUIDE remains a host-runtime entrypoint.",
+    "codex/skills remain independent runtime packages and not 00~04 mirrors.",
+    "Text parity is not introduced as a release criterion.",
+    "Backport candidates are routed through source-of-truth review before doctrine adoption."
+  ],
+  "primary_source_validation_follow_up": [
+    "Continue official-source validation for deferred model/API/tool/current-fact items before stronger factual claims.",
+    "Keep deferred items marked Need Verification or scoped out until validated."
+  ],
+  "sandbox_telemetry_containment_follow_up": [
+    "Collect containment proof before containment-verified language.",
+    "Collect production-grade telemetry summary, drift report, and rollback/escalation decision before production-monitored language.",
+    "Keep local trace evidence separate from production telemetry."
+  ],
+  "rollback_condition": "Rollback to v34 if P0, release-blocking regression, source/runtime boundary collapse, or load-bearing release-language overclaim is detected."
+}

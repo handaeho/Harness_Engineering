@@ -1,0 +1,50 @@
+metrics:
+  latency_ms:
+    type: histogram
+    dimensions:
+      - stage
+      - adapter_id
+      - surface
+      - case_id
+  input_tokens:
+    type: counter
+    dimensions:
+      - provider
+      - model
+      - surface
+  output_tokens:
+    type: counter
+    dimensions:
+      - provider
+      - model
+      - surface
+  estimated_cost:
+    type: gauge
+    dimensions:
+      - provider
+      - model
+      - stage
+  case_pass_rate:
+    type: gauge
+    dimensions:
+      - suite
+      - surface
+  schema_validation_failure_count:
+    type: counter
+    dimensions:
+      - schema_id
+      - surface
+  blocked_tool_execution_count:
+    type: counter
+    dimensions:
+      - tool_name
+      - surface
+  redaction_failure_count:
+    type: counter
+    dimensions:
+      - artifact_type
+  prohibited_claim_count:
+    type: counter
+    dimensions:
+      - claim
+      - file_type

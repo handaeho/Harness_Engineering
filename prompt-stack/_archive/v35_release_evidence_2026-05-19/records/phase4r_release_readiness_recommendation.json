@@ -1,0 +1,25 @@
+{
+  "Recommendation": "Hold for retest",
+  "Rationale": "P0 was not observed and v34 path contamination was not detected, but native replay results remain judge-pending partials, Codex actor/judge checks are deterministic-local rather than live certification, primary-source validation is deferred, and containment/production telemetry remain missing.",
+  "Missing evidence": [
+    "semantic judge verdicts for 73 replay cases",
+    "official primary-source validation for P1 items",
+    "containment proof",
+    "production telemetry",
+    "release gate scorecard"
+  ],
+  "Release claim downgrades": [
+    "runner_executed_with_judge_pending, not replay_verified",
+    "Codex runtime locally checked, not certified",
+    "sandbox partial, not containment verified",
+    "local traces, not production monitored"
+  ],
+  "Required before Phase 5": [
+    "Resolve or scope P1 deferred primary-source validation",
+    "Execute semantic judge or approved actor/judge protocol",
+    "Address containment/telemetry downgrades or make them explicit gate partials",
+    "Run release gate scorecard only after above evidence is available"
+  ],
+  "Retest plan": "Rerun Phase 4R after judge execution and primary-source validation pass/scoping.",
+  "Next action": "Do not start Phase 5 until user approves the next remediation or scoped release-gate path."
+}

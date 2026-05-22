@@ -1,0 +1,24 @@
+stage: v2.0.0-beta-redteam-mock-runtime-dry-run
+redteam_mock_dry_run_gate:
+  status: design_and_mock_dry_run_only
+  can_execute_provider_redteam: false
+  can_execute_local_redteam: false
+  can_enter_redteam_passed_claim: false
+  can_enter_containment_verified_claim: false
+  can_enter_release_gated_claim: false
+  prerequisites_checked:
+    - redteam_suite_design_gate_pass
+    - redteam_case_schema_valid
+    - redteam_result_schema_valid
+    - redteam_trace_schema_valid
+    - mock_compatibility_policy_loaded
+    - mock_runtime_only
+    - no_provider_execution
+    - no_local_model_execution
+    - no_external_side_effects
+  claims_blocked:
+    - redteam-executed
+    - redteam-passed
+    - containment-verified
+    - release-gated
+    - production-ready

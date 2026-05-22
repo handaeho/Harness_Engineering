@@ -1,0 +1,51 @@
+stage: v2.0.0-beta-openai-canary-replay-suite
+
+approved_execution:
+  openai_no_tool_canary_rerun: true
+  openai_structured_output_canary_rerun: true
+  existing_tool_calling_rerun_evidence_inclusion: true
+  same_restricted_scopes_only: true
+  previous_attempt_comparison: true
+  suite_level_summary: true
+  store_false: true
+  redacted_trace_capture: true
+
+forbidden_execution:
+  new_provider_feature_surface: true
+  new_tool_schema_expansion: true
+  built_in_tools: true
+  web_search_tool: true
+  file_search_tool: true
+  code_interpreter: true
+  computer_use: true
+  remote_mcp: true
+  external_network_calls_from_tools: true
+  real_file_writes: true
+  shell_command_execution: true
+  local_model_execution: true
+  vllm_execution: true
+  ollama_execution: true
+  anthropic_or_gemini_execution: true
+  live_telemetry: true
+  redteam_execution: true
+  replay_verified_claim: true
+  release_gate_claim: true
+
+claims_allowed:
+  - openai-canary-replay-suite-executed
+  - openai-no-tool-canary-rerun-executed
+  - openai-structured-output-canary-rerun-executed
+  - openai-canary-suite-consistency-checked
+  - canary-suite-replay-evidence-recorded
+  - canary-suite-trace-comparison-recorded
+
+claims_not_allowed:
+  - replay-verified
+  - tool-call-verified
+  - schema-output-verified
+  - provider-verified
+  - adapter-checked
+  - provider-diverse
+  - integration-verified
+  - release-gated
+  - production-monitored

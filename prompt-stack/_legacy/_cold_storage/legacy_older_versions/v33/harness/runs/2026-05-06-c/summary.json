@@ -1,0 +1,184 @@
+{
+  "suite_id": "v32-external-harness-2026-05-06-a",
+  "run_id": "2026-05-06-c",
+  "created_at": "2026-05-06T09:26:07.068Z",
+  "scenarios": [
+    {
+      "scenario_id": "EH-S01",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S01.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S01.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S01.stderr.log",
+      "response": {
+        "scenario_id": "EH-S01",
+        "bundle_id": "eval_ops_reflection_bundle",
+        "verdict": "Partial Pass",
+        "guide_alignment": "partially_aligned",
+        "evidence_strength": "indirect",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v32/codex/skills/eval-ops/SKILL.md",
+          "prompt-stack/v32/02_overlays/PROMPT_evaluation_monitoring_overlay.md",
+          "prompt-stack/v32/AGENTS.md",
+          "prompt-stack/v32/01_base/PROMPT_full.md",
+          "prompt-stack/v32/03_examples/PROMPT_example_catalog.md"
+        ],
+        "answer_summary": "Document-level route is directly exposed as the primary path for guide reflection (`Guide reflection benchmark memo`), with explicit escalation to assembled-replay artifacts only when ambiguity/conflict or behavior-critical evidence needs stronger proof. The smallest ladder is: `Guide reflection benchmark memo` -> escalate to `Benchmark cohort manifest` -> `Replay runner verdict sheet`/`Replay suite verdict memo` only on trigger. For BR-00/BR-19, the active bundle does not force immediate replay activation by itself.",
+        "verdict_rationale": "The active runtime bundle clearly owns a document-first reflection workflow and defines escalation conditions and packet sequence for replay support. This gives a direct answer path for \"is document-level benchmark sufficient now?\" (yes, by default), but BR-00/BR-19-specific trigger determination is not resolved in-file; it depends on whether those family questions reveal ambiguity, conflict, or behavior-critical claims. The bundle therefore supports a partial, not fully final, family-specific decision.",
+        "limitations": [
+          "`BR-00` and `BR-19` definitions are outside the active bundle, so behavior-criticality cannot be decided from these files alone.",
+          "The result is routed by policy, not by in-scope family semantics.",
+          "No replay execution/runner state artifacts are present in this bundle, so any replay-grade claim would require those when triggered.",
+          "Evidence is policy-level (route ownership/exposure) rather than family-specific coverage scoring."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S02",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S02.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S02.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S02.stderr.log",
+      "response": {
+        "scenario_id": "EH-S02",
+        "bundle_id": "grounded_research_appendix_bundle",
+        "verdict": "Partial Pass",
+        "guide_alignment": "partially_aligned",
+        "evidence_strength": "indirect",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": true,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v32/AGENTS.md",
+          "prompt-stack/v32/01_base/PROMPT_light.md",
+          "prompt-stack/v32/02_overlays/PROMPT_search_reasoning_overlay.md",
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v32/03_examples/PROMPT_example_catalog.md"
+        ],
+        "answer_summary": "Prompt Chaining is directly reflected as a controlled execution pattern in the active runtime (PROMPT_light’s chaining/routing policy), and Appendix A advanced prompting families are explicitly owned by `PROMPT_search_reasoning_overlay` with prompt chaining anchored in base prompts; `CODEX_RUNTIME_GUIDE` reinforces this ownership split. Direct family-to-BR semantics for BR-01/BR-14/BR-17/BR-22 are not explicit in-band, so verdict confidence is bounded.",
+        "verdict_rationale": "The active runtime bundle provides a direct runtime-owned path for chaining and Appendix A mechanics: PROMPT_light controls when staged chaining/routing is used, while PROMPT_search_reasoning_overlay section 10.9 defines advanced prompting execution families and treats examples as structure-only, and the guide points base prompts to chaining ownership and search overlay to advanced prompting families. However, BR-specific mapping and required family-level thresholds are not directly present in the active files, so the family-coverage answer is only partially direct and partly inferential.",
+        "limitations": [
+          "`BR-01/BR-14/BR-17/BR-22` are not named in the active bundle, so benchmark-family-level scoring can only be inferred, not directly verified from listed files.",
+          "No assembled replay or runner-level verdict artifacts are exposed in this bundle; stronger operational proof would require additional artifacts for replay-grade confidence.",
+          "Evidence is policy/ownership direct for the concepts, but not family-specific execution-level outcome proof."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S03",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S03.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S03.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S03.stderr.log",
+      "response": {
+        "scenario_id": "v32-external-harness-2026-05-06-a",
+        "bundle_id": "orchestration_sufficiency_bundle",
+        "verdict": "Partial Pass",
+        "guide_alignment": "partially_aligned",
+        "evidence_strength": "indirect",
+        "operator_only_dependency": true,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "prompt-stack/v32/01_base/PROMPT_full.md",
+          "prompt-stack/v32/02_overlays/PROMPT_multi_agent_overlay.md",
+          "prompt-stack/v32/AGENTS.md",
+          "prompt-stack/v32/codex/skills/orchestration-control/SKILL.md",
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md"
+        ],
+        "answer_summary": "단일 경로가 기본이며, 현재 활동 문맥에서 다중 에이전트/ A2A는 필수 조건(실질적 분해·전문가 분업·성능 이득)이 충족되지 않아 권장되지 않는다. 따라서 이번 BR-03/07/13/15 대상 점검은 우선 단일 에이전트 유지가 합당하고, 장식적 오케스트레이션은 피해야 한다.",
+        "verdict_rationale": "`PROMPT_full`는 다중 에이전트는 ‘물질적 개선이 있을 때만’ 활성화하고 기본은 단일 경로라고 명시한다. `PROMPT_multi_agent_overlay`는 단일 에이전트 충분성에서 시작해 불필요한 delegation/분업을 제한한다. `orchestration-control` 스킬은 시작 질문 자체를 단일 경로 충분성 확인으로 두고, 충분할 경우 단순 경로로 되돌리라고 규정한다. `CODEX_RUNTIME_GUIDE`는 가이드 반영 점검을 1차로 문서 레벨 점검에서 수행하고, 모호성/행동 증명이 필요할 때만 replay 계열로 올리라고 한다. 다만 BR-03/07/13/15의 장르별 기준(오버헤드 허용성, 판정 트리거) 자체는 활성 번들 밖 문서에 존재할 수 있어, 패밀리별 최종 판정은 간접 근거 수준이다.",
+        "limitations": [
+          "BR-03/BR-07/BR-13/BR-15별 세부 기준은 활성 번들에 직접 포함되지 않아, 패밀리별 오버헤드 판단의 문서 근거가 제한적이다.",
+          "재현/행동 판정에 대한 운영 증거(assembled replay 링크·러닝 상태 등)는 이 번들 내에 직접 제공되지 않아, 현재 판단은 문서 지침 기반의 정책적 판단이다."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S04",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S04.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S04.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S04.stderr.log",
+      "response": {
+        "scenario_id": "v32-external-harness-2026-05-06-a",
+        "bundle_id": "coding_core_patch_bundle",
+        "verdict": "Partial Pass",
+        "guide_alignment": "partially_aligned",
+        "evidence_strength": "indirect",
+        "operator_only_dependency": false,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": false,
+        "recommended_patch_needed": true,
+        "minimal_patch_targets": [
+          "prompt-stack/v32/codex/skills/coding-core/SKILL.md"
+        ],
+        "evidence_files": [
+          "prompt-stack/v32/codex/skills/coding-core/SKILL.md",
+          "prompt-stack/v32/codex/CODEX_RUNTIME_GUIDE.md",
+          "prompt-stack/v32/01_base/PROMPT_standalone.md",
+          "prompt-stack/v32/02_overlays/PROMPT_tool_protocol_overlay.md",
+          "prompt-stack/v32/02_overlays/PROMPT_guardrails_safety_overlay.md"
+        ],
+        "answer_summary": "Route is direct and local: use coding-core skill ownership rules to patch only the stale sentence in the owning codex-layer file, then perform a scoped consistency check in the same codex/doc set; no operator-only owner files are required.",
+        "verdict_rationale": "The active runtime layer contains explicit ownership and minimal-change repair guidance (single primary skill, local patch discipline, codex-layer scope), so fix path is available without widening. However, the exact stale owner sentence context is not explicitly localized in the sampled active content, reducing confidence in a precise one-line target.",
+        "limitations": [
+          "Direct stale sentence text was not observed in the read slice, so exact replacement wording is inferential.",
+          "No runtime-level execution artifacts were present/required for this doc-level correction, so validation remains documentation-structure-level rather than operationally replayed."
+        ]
+      }
+    },
+    {
+      "scenario_id": "EH-S05",
+      "exit_code": 0,
+      "signal": null,
+      "output_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S05.json",
+      "stdout_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S05.stdout.log",
+      "stderr_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\harness\\runs\\2026-05-06-c\\EH-S05.stderr.log",
+      "response": {
+        "scenario_id": "EH-S05",
+        "bundle_id": "design_analysis_route_bundle",
+        "verdict": "Partial Pass",
+        "guide_alignment": "partially_aligned",
+        "evidence_strength": "indirect",
+        "operator_only_dependency": true,
+        "over_orchestration": false,
+        "speculative_patch_widening": false,
+        "missing_operational_artifact_route": true,
+        "recommended_patch_needed": false,
+        "minimal_patch_targets": [],
+        "evidence_files": [
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\codex\\CODEX_RUNTIME_GUIDE.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\codex\\skills\\design-analysis\\SKILL.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\01_base\\PROMPT_full.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\02_overlays\\PROMPT_search_reasoning_overlay.md",
+          "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v32\\AGENTS.md"
+        ],
+        "answer_summary": "기본 경로는 문서 수준 벤치마크(Stay)로, 보조 경로는 assembled replay로 설정해야 한다. 단, BR-02/BR-16/BR-20/BR-21의 패밀리별 근거가 번들 내에 없어, 재생산 가능한 판단은 `모호성/충돌/행동 중요성 발생 시 escalate`라는 조건부 기준으로 제한된다.",
+        "verdict_rationale": "활성 번들(특히 AGENTS, PROMPT_full, CODEX_RUNTIME_GUIDE, design-analysis)에 문서 기반 기준 vs replay 전환 정책과 1차 경로+폴백 1개 제시 규칙이 직접 포함되어 기본 비교/선택은 가능하다. 그러나 요청의 핵심인 BR-02/16/20/21 대상별 위험·증거 강도 기준은 번들 밖 운영 문서에서만 확보 가능한 내용으로 보이며, 번들 자체는 일반 규칙만 제공한다. 따라서 경로 자체의 방향성은 맞지만 패밀리 특화 판단 근거는 약하다.",
+        "limitations": [
+          "BR-02/16/20/21의 패밀리별 성격, 경직도, 행위/실행 의존성에 대한 데이터가 active bundle에 없음",
+          "행동-크리티컬 주장이나 반례 탐지를 뒷받침할 assembled replay 실행 결과(리플레이 실행 아티팩트)가 active bundle에 직접 노출되지 않음",
+          "따라서 BR 패밀리별로 '왜 문서 유지가 충분'한지 정량적 근거 없이 정책 기본값(디폴트) 기반 판단이 됨"
+        ]
+      }
+    }
+  ]
+}

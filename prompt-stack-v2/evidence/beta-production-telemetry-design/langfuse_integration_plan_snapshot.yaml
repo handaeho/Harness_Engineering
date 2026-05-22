@@ -1,0 +1,31 @@
+langfuse_integration_plan:
+  source_reference: https://langfuse.com/docs/observability/overview
+  status: design_only
+  live_connection_enabled: false
+  api_call_allowed: false
+  planned_trace_fields:
+    - run_id
+    - stage
+    - adapter_id
+    - provider
+    - model
+    - latency_ms
+    - input_tokens
+    - output_tokens
+    - cost_estimate
+    - redaction_status
+    - case_id
+    - suite_id
+    - claim_level
+  planned_scores:
+    - case_pass
+    - schema_valid
+    - redaction_pass
+    - approval_boundary_pass
+    - claim_boundary_pass
+  required_before_connection:
+    - explicit_connection_approval
+    - LANGFUSE_PUBLIC_KEY_present
+    - LANGFUSE_SECRET_KEY_present
+    - LANGFUSE_HOST_present
+    - redaction_policy_valid

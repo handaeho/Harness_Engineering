@@ -1,0 +1,33 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-c",
+  "task_loop_steps": [
+    "inspect_current_state",
+    "reproduce_bug_or_confirm_feature_gap",
+    "capture_failure_evidence",
+    "implement_fix_or_feature_slice",
+    "run_app_or_tests",
+    "capture_success_evidence",
+    "open_pr_or_merge_ready_packet",
+    "request_agent_or_human_review",
+    "apply_feedback",
+    "repair_build_or_test_failures",
+    "escalate_when_judgment_boundary_is_hit",
+    "report_merge_or_merge_ready_state_truthfully"
+  ],
+  "required_lineage_fields": [
+    "run_id",
+    "scenario_id",
+    "trace_id",
+    "worktree_id"
+  ],
+  "required_evidence_fields": [
+    "evidence_artifact",
+    "verification_result",
+    "unresolved_blocker",
+    "approval_state",
+    "rollback_note"
+  ],
+  "partial_state_truthfulness_rule": "pr_opened_is_not_task_complete",
+  "merge_authority_rule": "do_not_claim_merged_without_merge_authority_and_observed_state",
+  "claim_strength_rule": "use plausible_local_runner_integration_release_language_consistent_with_evidence"
+}

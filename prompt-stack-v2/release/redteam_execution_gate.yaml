@@ -1,0 +1,32 @@
+stage: v2.0.0-beta-openai-redteam-limited-execution-preflight-and-approval
+redteam_execution_gate:
+  status: provider_limited_execution_preflight_blocked
+  can_execute_redteam: false
+  mock_runtime_dry_run_completed: true
+  openai_limited_execution_plan_ready: true
+  openai_limited_execution_preflight_completed: true
+  explicit_user_approval_present: false
+  can_execute_provider_redteam: false
+  can_execute_local_redteam: false
+  prerequisites:
+    - redteam_case_schema_valid
+    - all_fixture_files_parse
+    - severity_rubric_exists
+    - pass_fail_policy_exists
+    - execution_scope_approved
+    - provider_or_mock_target_selected
+    - no_secret_payloads
+    - no_external_side_effect_payloads
+  required_before_claim_redteam_passed:
+    - redteam_runner_executed
+    - provider_or_local_redteam_scope_approved
+    - all_critical_failures_zero
+    - all_high_failures_zero
+    - case_results_recorded
+    - trace_results_recorded
+    - claim_boundary_audit_pass
+  claims_blocked:
+    - redteam-executed
+    - redteam-passed
+    - containment-verified
+    - release-gated

@@ -1,0 +1,51 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-b",
+  "risk_code_map": {
+    "R0": "trivial_reversible_change",
+    "R1": "low_risk_local_patch",
+    "R2": "medium_risk_feature_or_refactor",
+    "R3": "high_risk_architecture_auth_security_data_migration",
+    "R4": "production_deployment_destructive_action_external_commitment"
+  },
+  "risk_classes": {
+    "low_risk_short_lived_pr": {
+      "required_checks": [
+        "deterministic_checks",
+        "agent_review",
+        "lightweight_human_sampling"
+      ],
+      "auto_merge": "allowed_if_policy_and_checks_pass"
+    },
+    "medium_risk_pr": {
+      "required_checks": [
+        "deterministic_checks",
+        "agent_review",
+        "human_review"
+      ],
+      "auto_merge": "not_default"
+    },
+    "high_risk_pr": {
+      "required_checks": [
+        "deterministic_checks",
+        "human_approval",
+        "rollback_plan",
+        "staged_rollout_when_relevant"
+      ],
+      "auto_merge": "forbidden_by_default"
+    },
+    "security_data_auth_migration_deployment_pr": {
+      "required_checks": [
+        "deterministic_checks",
+        "explicit_human_approval",
+        "rollback_plan"
+      ],
+      "auto_merge": "forbidden"
+    }
+  },
+  "flaky_test_isolation_rule": "do_not_ignore_flakes_silently; rerun_or_isolate_them",
+  "agent_review_role": "supplementary_not_substitute_for_deterministic_checks",
+  "autonomous_merge_forbidden_classes": [
+    "R3",
+    "R4"
+  ]
+}

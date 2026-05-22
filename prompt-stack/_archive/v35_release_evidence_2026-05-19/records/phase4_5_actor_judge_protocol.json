@@ -1,0 +1,26 @@
+{
+  "actor": "Executes the task using the v35-candidate prompt bundle or Codex skill under test.",
+  "deterministic_checker": [
+    "Checks source file root is v35_candidate",
+    "Checks forbidden behavior and critical failure overrides",
+    "Checks trace required fields",
+    "Checks claim-strength downgrade",
+    "Checks tool-state and approval rules"
+  ],
+  "judge": "Scores semantic behavior only after deterministic checks; rubric score cannot override critical deterministic failure.",
+  "release_rule": "LLM judge is never a substitute for deterministic checks, release gate thresholds, or missing substrate evidence.",
+  "trace_required_fields": [
+    "trace_id",
+    "run_id",
+    "scenario_id",
+    "cohort_id",
+    "artifact_version",
+    "prompt_version",
+    "model_version",
+    "selected_base_prompt",
+    "route",
+    "final_state",
+    "claim_strength",
+    "verdict"
+  ]
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "id": "PGBR-001",
+    "question": "Which owner handles Function Calling/ReAct/ART authorization boundaries?",
+    "expected_owner_assets": [
+      "PROMPT_tool_protocol_overlay",
+      "PROMPT_harness_contracts"
+    ],
+    "expected_harness_contracts": [
+      "mock_tool_contracts",
+      "required_parameter_check"
+    ],
+    "pass_signal": "Tool use requires parameter discipline, approval boundary, and result validation."
+  },
+  {
+    "id": "PGBR-002",
+    "question": "How is Prompt Hub material allowed to influence runtime behavior?",
+    "expected_owner_assets": [
+      "PROMPT_example_catalog",
+      "PROMPT_example_injection"
+    ],
+    "expected_harness_contracts": [
+      "example_boundary_gate"
+    ],
+    "pass_signal": "Structure-only, no factual authority, no runtime policy in catalog."
+  },
+  {
+    "id": "PGBR-003",
+    "question": "When does RAG require primary-source validation?",
+    "expected_owner_assets": [
+      "PROMPT_retrieval_grounding_overlay",
+      "grounded-research"
+    ],
+    "expected_harness_contracts": [
+      "freshness_boundary",
+      "source_conflict_check"
+    ],
+    "pass_signal": "Latest/current/model/API/tool claims are Need Verification unless primary source checked."
+  },
+  {
+    "id": "PGBR-004",
+    "question": "How are CoT-family techniques represented without raw hidden reasoning disclosure?",
+    "expected_owner_assets": [
+      "PROMPT_search_reasoning_overlay"
+    ],
+    "expected_harness_contracts": [
+      "claim_strength_gate"
+    ],
+    "pass_signal": "Use bounded reasoning and concise rationale, not hidden reasoning transcript."
+  },
+  {
+    "id": "PGBR-005",
+    "question": "How is Codex runtime readiness separated from stack release readiness?",
+    "expected_owner_assets": [
+      "CODEX_RUNTIME_GUIDE",
+      "codex/skills/*",
+      "PROMPT_harness_release_gate"
+    ],
+    "expected_harness_contracts": [
+      "Codex Runtime Independence Gate"
+    ],
+    "pass_signal": "Runtime assets are independently validated and not treated as 00~04 mirrors."
+  },
+  {
+    "id": "PGBR-006",
+    "question": "What evidence is required before release-gated language?",
+    "expected_owner_assets": [
+      "PROMPT_harness_release_gate",
+      "PROMPT_evaluation_monitoring_overlay"
+    ],
+    "expected_harness_contracts": [
+      "release_gate_policy",
+      "trace_schema",
+      "replay_verdict"
+    ],
+    "pass_signal": "Owner, threshold, action, rollback, and executed evidence are present."
+  }
+]

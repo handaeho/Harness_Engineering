@@ -1,0 +1,47 @@
+{
+  "artifact_version": "v34-prompt-runtime-verification-2026-05-19-a",
+  "decision_id": "runtime-os-release-scorecard-2026-05-19-a-decision",
+  "generated_at": "2026-05-19T05:04:22.496Z",
+  "scorecard_path": "prompt-stack/v34/harness/runs/runtime-os-release-scorecard-2026-05-19-a/scorecard.json",
+  "decision": "Hold",
+  "rationale": [
+    "tool_mcp_average_below_threshold_or_missing",
+    "retrieval_average_below_threshold_or_missing",
+    "variant_consistency_average_below_threshold_or_missing",
+    "docs_present_but_not_fresh",
+    "high_risk_path_without_observability",
+    "high_risk_path_without_invariant_checks",
+    "sandbox_exists_without_containment_review",
+    "retrieval_surface_not_executed",
+    "variant_consistency_surface_not_executed",
+    "readiness_unsatisfied:docs_linked_and_fresh",
+    "readiness_unsatisfied:logs_metrics_traces_agent_readable_when_relevant",
+    "readiness_unsatisfied:deterministic_invariants_exist"
+  ],
+  "required_before_release": [
+    "tool_mcp_average",
+    "retrieval_average",
+    "variant_consistency_average",
+    "docs_present_but_not_fresh",
+    "high_risk_path_without_observability",
+    "high_risk_path_without_invariant_checks",
+    "sandbox_exists_without_containment_review",
+    "retrieval_surface_not_executed",
+    "variant_consistency_surface_not_executed",
+    "docs_linked_and_fresh",
+    "logs_metrics_traces_agent_readable_when_relevant",
+    "deterministic_invariants_exist"
+  ],
+  "optional_improvements": [
+    "expand_retrieval_surface_execution",
+    "expand_variant_consistency_execution",
+    "deepen_user_simulation_coverage"
+  ],
+  "linked_runs": [
+    "runtime-os-smoke-2026-05-19-a",
+    "runtime-os-replay-2026-05-19-a",
+    "runtime-os-cohort-2026-05-19-a",
+    "simulated-user-cohort-2026-05-19-a"
+  ],
+  "replay_verified_count": 3
+}

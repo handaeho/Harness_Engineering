@@ -1,0 +1,65 @@
+{
+  "packet_id": "PKT-ABL-full_harness",
+  "case_id": "ABL-full_harness",
+  "actor_type": "codex",
+  "actor_runtime": "codex_cli",
+  "actor_model_or_tool": "gpt-5.4-mini",
+  "run_id": "be3-ablation-1779251225450",
+  "trace_id": "be3-ablation-1779251225450-full_harness",
+  "scenario_id": "ABL-full_harness",
+  "cohort_id": "be3-ablation-cohort",
+  "artifact_version": "v36_candidate-behavioral-evidence-v1",
+  "started_at": "2026-05-20T04:27:05.450Z",
+  "completed_at": "2026-05-20T04:29:09.968Z",
+  "input_hash": "59c61836a3ffe40bcec574ab9645faef8a74915761dd056a34685aecc5ff8eca",
+  "actor_output": {
+    "variant_id": "full_harness",
+    "removed_component": "none",
+    "cases_executed": 5,
+    "pass": 5,
+    "partial": 0,
+    "fail": 0,
+    "not_evaluated": 0,
+    "state_failures": 0,
+    "verification_failures": 0,
+    "scope_creep_count": 0,
+    "lifecycle_failures": 0,
+    "claim_strength_violations": 0,
+    "qualitative_findings": [
+      "This is the baseline slice across BE-SHARED-001, BE-SHARED-006, BE-SHARED-011, BE-SHARED-016, and BE-CODEX-001.",
+      "All five cases have explicit support in the archived actor outputs and no observed forbidden behavior.",
+      "The evidence remains read-only benchmark evidence, not production or stable-v36 proof."
+    ],
+    "conclusion": "Baseline is clean in this read-only slice; no component removal signal is needed."
+  },
+  "actor_output_hash": "4dbca4db07472b0cfd2857da8870c5265a7fccc5584e682a8a38b78c2f0e61e5",
+  "selected_route": "ablation_variant_comparison",
+  "selected_assets": [
+    "AGENTS.md",
+    "state/",
+    "verification/",
+    "lifecycle/",
+    "codex/"
+  ],
+  "state_updates": [],
+  "verification_artifacts": [
+    "records/real_ablation_results.json"
+  ],
+  "tool_calls": [],
+  "retrieval_events": [],
+  "memory_events": [],
+  "multi_agent_events": [],
+  "safety_events": [
+    "candidate_not_released"
+  ],
+  "approval_events": [],
+  "lifecycle_events": [],
+  "claim_strength": "codex_cli_read_only_actor_ablation",
+  "execution_errors": [],
+  "raw_paths": {
+    "raw_output_path": "archive/raw_benchmark_runs/be3-ablation-actor-last-message.json",
+    "stdout_path": "archive/raw_benchmark_runs/be3-ablation-actor-stdout.log",
+    "stderr_path": "archive/raw_benchmark_runs/be3-ablation-actor-stderr.log"
+  },
+  "provider_session_id": null
+}

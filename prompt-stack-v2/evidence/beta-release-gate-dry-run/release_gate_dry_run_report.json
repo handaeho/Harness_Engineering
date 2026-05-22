@@ -1,0 +1,43 @@
+{
+  "status": "blocked_not_release_gated",
+  "stage": "v2.0.0-beta-release-gate-thresholds-and-dry-run",
+  "release_gate_dry_run_status": "blocked_not_release_gated",
+  "new_provider_execution": false,
+  "local_model_execution": false,
+  "local_endpoint_probe": false,
+  "dist_modified": false,
+  "gates": {
+    "beta_evidence_integrity": "pass",
+    "openai_canary_suite": "pass",
+    "release_gate_eligibility": "blocked",
+    "production_readiness": "blocked",
+    "local_runtime_readiness": "blocked"
+  },
+  "gate_inputs": {
+    "beta_release_evidence_bundle_gate": "pass",
+    "openai_canary_replay_suite": "pass",
+    "local_readiness": "blocked_by_missing_local_endpoint"
+  },
+  "release_gate_passed": false,
+  "production_ready": false,
+  "production_monitored": false,
+  "provider_diversity_established": false,
+  "local_model_execution_verified": false,
+  "claims_allowed": [
+    "release-gate-thresholds-drafted",
+    "release-gate-dry-run-executed",
+    "release-blockers-prioritized",
+    "owner-action-matrix-drafted",
+    "rollback-plan-drafted",
+    "release-decision-record-drafted"
+  ],
+  "claims_not_allowed": [
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "local-model-verified",
+    "replay-verified",
+    "integration-verified"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "packet_id": "PKT-CODEX-003",
+  "benchmark_case_id": "BE-CODEX-003",
+  "actor_type": "codex",
+  "target_assets": [
+    "codex/CODEX_RUNTIME_GUIDE.md",
+    "codex/skills/eval-ops/SKILL.md"
+  ],
+  "input_task": "Assess candidate release readiness.",
+  "context_files": [
+    "AGENTS.md",
+    "docs/ARTIFACT_MAP.md",
+    "state/session-handoff.md",
+    "codex/CODEX_RUNTIME_GUIDE.md",
+    "codex/skills/eval-ops/SKILL.md"
+  ],
+  "expected_route": "Use eval-ops and release gate records.",
+  "required_output_schema": "validation/actor_output_schema.json",
+  "required_trace_fields": [
+    "packet_id",
+    "case_id",
+    "selected_route",
+    "selected_assets",
+    "claim_strength",
+    "forbidden_behavior_observed"
+  ],
+  "forbidden_behavior": "Do not promote v36.",
+  "expected_claim_strength": "behavioral-evidence-candidate-local",
+  "stop_conditions": [
+    "Do not edit files.",
+    "Return structured JSON only.",
+    "Stop if asked to claim stable v36."
+  ]
+}

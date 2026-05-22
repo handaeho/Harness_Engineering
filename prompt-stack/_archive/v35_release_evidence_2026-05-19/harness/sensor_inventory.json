@@ -1,0 +1,152 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-c",
+  "computational_sensors": [
+    {
+      "sensor_id": "schema_validation",
+      "owner": "harness",
+      "purpose": "Validate output and trace packet structure"
+    },
+    {
+      "sensor_id": "deterministic_runner_assertions",
+      "owner": "harness",
+      "purpose": "Check runner readiness and required fields"
+    },
+    {
+      "sensor_id": "release_gate_preconditions",
+      "owner": "harness",
+      "purpose": "Verify claim-language prerequisites"
+    },
+    {
+      "sensor_id": "doc_link_lint",
+      "owner": "documentation",
+      "purpose": "Check cross-link validity and referenced file existence"
+    },
+    {
+      "sensor_id": "agents_reference_check",
+      "owner": "documentation",
+      "purpose": "Verify AGENTS entrypoints and referenced guide locations remain valid"
+    },
+    {
+      "sensor_id": "stale_doc_candidate_scan",
+      "owner": "documentation",
+      "purpose": "Detect likely stale docs, plan drift, and deprecated runtime rules"
+    },
+    {
+      "sensor_id": "dependency_direction_test",
+      "owner": "architecture",
+      "purpose": "Enforce dependency direction and structural architecture invariants"
+    },
+    {
+      "sensor_id": "forbidden_import_rule",
+      "owner": "architecture",
+      "purpose": "Block repeated boundary violations with actionable lint feedback"
+    },
+    {
+      "sensor_id": "smoke_journey_runner",
+      "owner": "observability",
+      "purpose": "Exercise a minimal runtime path to confirm observable behavior"
+    },
+    {
+      "sensor_id": "failure_reproduction_check",
+      "owner": "observability",
+      "purpose": "Verify that a known failure can be reproduced under isolated conditions"
+    },
+    {
+      "sensor_id": "post_fix_verification_check",
+      "owner": "observability",
+      "purpose": "Verify that the target path succeeds after the fix"
+    },
+    {
+      "sensor_id": "risk_class_gate",
+      "owner": "release",
+      "purpose": "Enforce PR risk class and merge policy requirements"
+    },
+    {
+      "sensor_id": "garbage_collection_cluster_scan",
+      "owner": "maintenance",
+      "purpose": "Detect lint, review, flake, duplication, and stale-doc clusters for cleanup"
+    },
+    {
+      "sensor_id": "policy_decision_check",
+      "owner": "policy",
+      "purpose": "Verify deterministic allow or deny decisions were applied before sensitive actions"
+    },
+    {
+      "sensor_id": "trace_grading_check",
+      "owner": "evaluation",
+      "purpose": "Validate trace spans, trajectory mode, and attribution fields for eval use"
+    },
+    {
+      "sensor_id": "sandbox_misconfiguration_check",
+      "owner": "safety",
+      "purpose": "Check containment risks such as docker socket exposure, privileged mode, or broad egress"
+    },
+    {
+      "sensor_id": "claim_strength_gate_check",
+      "owner": "release",
+      "purpose": "Downgrade wording when evidence surface is weaker than the stated claim"
+    },
+    {
+      "sensor_id": "variant_consistency_check",
+      "owner": "evaluation",
+      "purpose": "Compare full, light, lightest, and standalone bundles for semantic and safety carryover"
+    },
+    {
+      "sensor_id": "mock_tool_parameter_assertion",
+      "owner": "tooling",
+      "purpose": "Check required parameters, tool order, and partial-state handling across mock tools"
+    },
+    {
+      "sensor_id": "critical_failure_override_check",
+      "owner": "release",
+      "purpose": "Block release when critical safety or verification failures exist regardless of average score"
+    }
+  ],
+  "inferential_sensors": [
+    {
+      "sensor_id": "trajectory_review",
+      "owner": "evaluation",
+      "purpose": "Review whether path quality was acceptable"
+    },
+    {
+      "sensor_id": "release_review",
+      "owner": "evaluation",
+      "purpose": "Judge hold versus promote decision quality"
+    },
+    {
+      "sensor_id": "source_quality_review",
+      "owner": "retrieval",
+      "purpose": "Review evidence quality when grounding matters"
+    },
+    {
+      "sensor_id": "doc_gardening_review",
+      "owner": "documentation",
+      "purpose": "Review stale-doc candidates against code, tests, schema, and CI evidence"
+    },
+    {
+      "sensor_id": "tech_choice_review",
+      "owner": "design",
+      "purpose": "Compare technology choices on agent legibility and verification surfaces"
+    },
+    {
+      "sensor_id": "merge_sampling_review",
+      "owner": "release",
+      "purpose": "Sample lower-risk PR flow to confirm merge philosophy is not weakening safety"
+    },
+    {
+      "sensor_id": "taste_promotion_review",
+      "owner": "quality",
+      "purpose": "Promote repeated human feedback into docs, tooling, or gate rules"
+    },
+    {
+      "sensor_id": "sandbox_escape_review",
+      "owner": "safety",
+      "purpose": "Review whether containment architecture and misconfiguration posture are strong enough for the claimed autonomy"
+    },
+    {
+      "sensor_id": "assembly_route_review",
+      "owner": "evaluation",
+      "purpose": "Review whether base prompt, overlay, skill, and example activation matched the task family and risk class"
+    }
+  ]
+}

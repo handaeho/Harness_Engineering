@@ -1,0 +1,45 @@
+stage: v2.0.0-beta-release-evidence-bundle-draft
+blockers:
+  - id: BRB-001
+    severity: medium
+    category: local_runtime
+    description: vLLM/Ollama local endpoint is not available.
+    blocks:
+      - local-model-verified
+      - provider-diverse
+    owner: human
+    recommended_next_action: Prepare localhost-only vLLM or Ollama endpoint and run local no-tool canary.
+  - id: BRB-002
+    severity: medium
+    category: provider_diversity
+    description: Only OpenAI provider canary suite has passed.
+    blocks:
+      - provider-diverse
+    owner: agent
+    recommended_next_action: Run additional provider or local adapter canary after environment is available.
+  - id: BRB-003
+    severity: medium
+    category: telemetry
+    description: Production telemetry is not connected.
+    blocks:
+      - production-monitored
+      - production-ready
+    owner: agent
+    recommended_next_action: Define OpenTelemetry/Langfuse integration and live telemetry gate in a later stage.
+  - id: BRB-004
+    severity: medium
+    category: release_gate
+    description: Release gate has not been executed and release thresholds are not finalized.
+    blocks:
+      - release-gated
+    owner: agent
+    recommended_next_action: Define release gate thresholds, rollback plan, and owner/action matrix.
+  - id: BRB-005
+    severity: medium
+    category: security
+    description: Redteam execution has not been performed.
+    blocks:
+      - production-ready
+      - release-gated
+    owner: agent
+    recommended_next_action: Design and run redteam suite after beta evidence bundle draft.

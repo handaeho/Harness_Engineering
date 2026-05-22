@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenAI Redteam Limited Execution Approval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "stage",
+    "explicit_user_approval_required",
+    "explicit_user_approval_present",
+    "approval_phrase_required",
+    "approval_source"
+  ],
+  "properties": {
+    "stage": {
+      "const": "v2.0.0-beta-openai-redteam-limited-execution-preflight-and-approval"
+    },
+    "explicit_user_approval_required": {
+      "const": true
+    },
+    "explicit_user_approval_present": {
+      "type": "boolean"
+    },
+    "approval_phrase_required": {
+      "const": "I explicitly approve v2.0.0-beta-openai-redteam-limited-execution"
+    },
+    "approval_source": {
+      "enum": [
+        "user_message"
+      ]
+    }
+  }
+}

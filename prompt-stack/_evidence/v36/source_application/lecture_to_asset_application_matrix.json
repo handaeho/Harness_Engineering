@@ -1,0 +1,745 @@
+{
+  "generated_at": "2026-05-20T04:44:21.720Z",
+  "records": [
+    {
+      "lecture_title": "유능한 에이전트가 여전히 실패하는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-01-why-capable-agents-still-fail/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-01-why-capable-agents-still-fail/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-01-why-capable-agents-still-fail/code/failure-pattern-demo.ts",
+        "docs/ko/lectures/lecture-01-why-capable-agents-still-fail/code/failure-signals-checklist.md",
+        "docs/ko/lectures/lecture-01-why-capable-agents-still-fail/code/index.md",
+        "docs/ko/lectures/lecture-01-why-capable-agents-still-fail/code/underspecified-task.md"
+      ],
+      "core_claims": [
+        "model capability does not imply reliable task completion",
+        "failures need observable failure taxonomy"
+      ],
+      "harness_subsystems": [
+        "Verification",
+        "Scope"
+      ],
+      "failure_mode_addressed": "premature completion, hidden failure, no reliable feedback loop",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [],
+        "verification": [
+          "verification/evaluator-rubric.md",
+          "verification/behavioral_benchmark_suite.json"
+        ],
+        "scope": [],
+        "lifecycle": [],
+        "docs": [],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-SHARED-006",
+          "BE-SHARED-007",
+          "BE-SHARED-010",
+          "BE-SHARED-028"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "records/failure_to_artifact_map.json",
+        "records/harness_scorecard.json",
+        "verification/evaluator-rubric.md",
+        "verification/behavioral_benchmark_suite.json"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-SHARED-006",
+        "BE-SHARED-007",
+        "BE-SHARED-010",
+        "BE-SHARED-028"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-01-why-capable-agents-still-fail/code/failure-pattern-demo.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "하네스란 무엇인가",
+      "source_git_path": "docs/ko/lectures/lecture-02-what-a-harness-actually-is/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-02-what-a-harness-actually-is/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-02-what-a-harness-actually-is/code/harness-components.md",
+        "docs/ko/lectures/lecture-02-what-a-harness-actually-is/code/harness-vs-no-harness.ts",
+        "docs/ko/lectures/lecture-02-what-a-harness-actually-is/code/index.md",
+        "docs/ko/lectures/lecture-02-what-a-harness-actually-is/code/minimal-harness-loop.ts"
+      ],
+      "core_claims": [
+        "harness is the operating environment around the model",
+        "five subsystems define reliable execution"
+      ],
+      "harness_subsystems": [
+        "Instructions",
+        "State",
+        "Verification",
+        "Scope",
+        "Lifecycle"
+      ],
+      "failure_mode_addressed": "prompt-only system has no operational controls",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [],
+        "verification": [],
+        "scope": [],
+        "lifecycle": [],
+        "docs": [
+          "docs/ARCHITECTURE.md",
+          "docs/OPERATING_GUIDE.md"
+        ],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-AUTO-001",
+          "BE-AUTO-006",
+          "BE-SHARED-028"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "docs/ARCHITECTURE.md",
+        "docs/OPERATING_GUIDE.md",
+        "records/concept_map.json",
+        "records/harness_subsystem_coverage.json"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-AUTO-001",
+        "BE-AUTO-006",
+        "BE-SHARED-028"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-02-what-a-harness-actually-is/code/harness-vs-no-harness.ts",
+        "docs/ko/lectures/lecture-02-what-a-harness-actually-is/code/minimal-harness-loop.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "저장소가 시스템 오브 레코드(SoR)가 되어야 하는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-03-why-the-repository-must-become-the-system-of-record/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-03-why-the-repository-must-become-the-system-of-record/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-03-why-the-repository-must-become-the-system-of-record/code/index.md",
+        "docs/ko/lectures/lecture-03-why-the-repository-must-become-the-system-of-record/code/repo-knowledge-layout.txt",
+        "docs/ko/lectures/lecture-03-why-the-repository-must-become-the-system-of-record/code/repo-reader.ts",
+        "docs/ko/lectures/lecture-03-why-the-repository-must-become-the-system-of-record/code/system-of-record-checklist.md"
+      ],
+      "core_claims": [
+        "repository files should hold current state and decisions",
+        "chat history is insufficient as durable state"
+      ],
+      "harness_subsystems": [
+        "State",
+        "Instructions"
+      ],
+      "failure_mode_addressed": "unrecoverable state after session boundary",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [
+          "state/decision_log.md",
+          "state/evidence_log.json",
+          "state/index.json"
+        ],
+        "verification": [],
+        "scope": [],
+        "lifecycle": [],
+        "docs": [
+          "docs/ARTIFACT_MAP.md"
+        ],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-SHARED-001",
+          "BE-SHARED-005",
+          "BE-SHARED-023"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "docs/ARTIFACT_MAP.md",
+        "state/decision_log.md",
+        "state/evidence_log.json",
+        "state/index.json"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-SHARED-001",
+        "BE-SHARED-005",
+        "BE-SHARED-023"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-03-why-the-repository-must-become-the-system-of-record/code/repo-reader.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "거대한 단일 지시 파일이 실패하는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-04-why-one-giant-instruction-file-fails/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-04-why-one-giant-instruction-file-fails/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-04-why-one-giant-instruction-file-fails/code/AGENTS-short.md",
+        "docs/ko/lectures/lecture-04-why-one-giant-instruction-file-fails/code/anti-patterns.md",
+        "docs/ko/lectures/lecture-04-why-one-giant-instruction-file-fails/code/index.md",
+        "docs/ko/lectures/lecture-04-why-one-giant-instruction-file-fails/code/split-vs-monolithic.ts"
+      ],
+      "core_claims": [
+        "short router beats monolithic instruction dump",
+        "detailed knowledge should be split by purpose"
+      ],
+      "harness_subsystems": [
+        "Instructions"
+      ],
+      "failure_mode_addressed": "instruction overload and stale routes",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [
+          "codex/CODEX_RUNTIME_GUIDE.md"
+        ],
+        "state": [],
+        "verification": [],
+        "scope": [],
+        "lifecycle": [],
+        "docs": [
+          "AGENTS.md",
+          "MASTER_PROMPT_ROUTER.md",
+          "docs/ARTIFACT_MAP.md"
+        ],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-AUTO-011",
+          "BE-CODEX-008"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "AGENTS.md",
+        "MASTER_PROMPT_ROUTER.md",
+        "docs/ARTIFACT_MAP.md",
+        "codex/CODEX_RUNTIME_GUIDE.md"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-AUTO-011",
+        "BE-CODEX-008"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-04-why-one-giant-instruction-file-fails/code/split-vs-monolithic.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "장기 작업이 연속성을 잃는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-05-why-long-running-tasks-lose-continuity/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-05-why-long-running-tasks-lose-continuity/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-05-why-long-running-tasks-lose-continuity/code/continuity-checklist.md",
+        "docs/ko/lectures/lecture-05-why-long-running-tasks-lose-continuity/code/index.md",
+        "docs/ko/lectures/lecture-05-why-long-running-tasks-lose-continuity/code/session-handoff.md",
+        "docs/ko/lectures/lecture-05-why-long-running-tasks-lose-continuity/code/session-simulator.ts"
+      ],
+      "core_claims": [
+        "long-running work needs explicit state handoff",
+        "next session must resume without prior chat"
+      ],
+      "harness_subsystems": [
+        "State",
+        "Lifecycle"
+      ],
+      "failure_mode_addressed": "lost context, repeated work, manual restart",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [
+          "state/progress.md",
+          "state/session-handoff.md",
+          "state/feature_list.json"
+        ],
+        "verification": [],
+        "scope": [],
+        "lifecycle": [],
+        "docs": [],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-AUTO-016",
+          "BE-SHARED-001",
+          "BE-SHARED-023"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "state/progress.md",
+        "state/session-handoff.md",
+        "state/feature_list.json",
+        "next_session_start.md"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-AUTO-016",
+        "BE-SHARED-001",
+        "BE-SHARED-023"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-05-why-long-running-tasks-lose-continuity/code/session-simulator.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "초기화가 별도 단계여야 하는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-06-why-initialization-needs-its-own-phase/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-06-why-initialization-needs-its-own-phase/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-06-why-initialization-needs-its-own-phase/code/index.md",
+        "docs/ko/lectures/lecture-06-why-initialization-needs-its-own-phase/code/init-check.ts",
+        "docs/ko/lectures/lecture-06-why-initialization-needs-its-own-phase/code/init.sh",
+        "docs/ko/lectures/lecture-06-why-initialization-needs-its-own-phase/code/initializer-output-checklist.md"
+      ],
+      "core_claims": [
+        "startup needs its own phase",
+        "init should check readiness before work"
+      ],
+      "harness_subsystems": [
+        "Lifecycle",
+        "Verification"
+      ],
+      "failure_mode_addressed": "agent starts without context or validation",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [],
+        "verification": [],
+        "scope": [],
+        "lifecycle": [
+          "lifecycle/init.sh",
+          "lifecycle/session-start.md",
+          "lifecycle/clean-state-checklist.md"
+        ],
+        "docs": [],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-AUTO-010",
+          "BE-SHARED-016"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "lifecycle/init.sh",
+        "lifecycle/session-start.md",
+        "lifecycle/clean-state-checklist.md"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-AUTO-010",
+        "BE-SHARED-016"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-06-why-initialization-needs-its-own-phase/code/init-check.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "에이전트가 과도하게 손대고 끝맺지 못하는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-07-why-agents-overreach-and-under-finish/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-07-why-agents-overreach-and-under-finish/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-07-why-agents-overreach-and-under-finish/code/index.md",
+        "docs/ko/lectures/lecture-07-why-agents-overreach-and-under-finish/code/next-task-template.md",
+        "docs/ko/lectures/lecture-07-why-agents-overreach-and-under-finish/code/scope-surface-example.md",
+        "docs/ko/lectures/lecture-07-why-agents-overreach-and-under-finish/code/scope-tracker.ts"
+      ],
+      "core_claims": [
+        "scope control prevents broad unfinished work",
+        "one feature at a time keeps progress auditable"
+      ],
+      "harness_subsystems": [
+        "Scope"
+      ],
+      "failure_mode_addressed": "scope creep, broad rewrite, under-finished work",
+      "v36_asset_mapping": {
+        "autonomous": [
+          "autonomous/07_scope/SCOPE_POLICY.md"
+        ],
+        "codex": [],
+        "state": [
+          "state/feature_list.json"
+        ],
+        "verification": [
+          "verification/behavioral_benchmark_suite.json"
+        ],
+        "scope": [
+          "autonomous/07_scope/SCOPE_POLICY.md"
+        ],
+        "lifecycle": [],
+        "docs": [],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-AUTO-009",
+          "BE-SHARED-011",
+          "BE-SHARED-012"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "autonomous/07_scope/SCOPE_POLICY.md",
+        "state/feature_list.json",
+        "verification/behavioral_benchmark_suite.json"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-AUTO-009",
+        "BE-SHARED-011",
+        "BE-SHARED-012"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-07-why-agents-overreach-and-under-finish/code/scope-tracker.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "기능 목록이 하네스의 기본 단위인 이유",
+      "source_git_path": "docs/ko/lectures/lecture-08-why-feature-lists-are-harness-primitives/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-08-why-feature-lists-are-harness-primitives/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-08-why-feature-lists-are-harness-primitives/code/feature_list.json",
+        "docs/ko/lectures/lecture-08-why-feature-lists-are-harness-primitives/code/feature-list-validator.ts",
+        "docs/ko/lectures/lecture-08-why-feature-lists-are-harness-primitives/code/index.md",
+        "docs/ko/lectures/lecture-08-why-feature-lists-are-harness-primitives/code/pass-gate-policy.md"
+      ],
+      "core_claims": [
+        "feature list is a primitive for scope and state",
+        "feature status must be explicit"
+      ],
+      "harness_subsystems": [
+        "State",
+        "Scope"
+      ],
+      "failure_mode_addressed": "unclear active work and hidden partial completion",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [
+          "state/feature_list.json"
+        ],
+        "verification": [
+          "verification/behavioral_benchmark_suite.json"
+        ],
+        "scope": [],
+        "lifecycle": [],
+        "docs": [],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-SHARED-002",
+          "BE-SHARED-012"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "state/feature_list.json",
+        "records/v36_asset_metadata_index.json",
+        "verification/behavioral_benchmark_suite.json"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-SHARED-002",
+        "BE-SHARED-012"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-08-why-feature-lists-are-harness-primitives/code/feature-list-validator.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "에이전트가 너무 일찍 완료를 선언하는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-09-why-agents-declare-victory-too-early/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-09-why-agents-declare-victory-too-early/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-09-why-agents-declare-victory-too-early/code/clean-state-checklist.md",
+        "docs/ko/lectures/lecture-09-why-agents-declare-victory-too-early/code/index.md",
+        "docs/ko/lectures/lecture-09-why-agents-declare-victory-too-early/code/victory-detector.ts"
+      ],
+      "core_claims": [
+        "completion must require evidence",
+        "claim strength must match validation state"
+      ],
+      "harness_subsystems": [
+        "Verification"
+      ],
+      "failure_mode_addressed": "premature completion and unsupported claim strength",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [],
+        "verification": [
+          "verification/evaluator-rubric.md",
+          "verification/claim_strength_checklist.json"
+        ],
+        "scope": [],
+        "lifecycle": [],
+        "docs": [],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-SHARED-006",
+          "BE-SHARED-007",
+          "BE-SHARED-020"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "verification/evaluator-rubric.md",
+        "verification/claim_strength_checklist.json",
+        "records/behavioral_judge_results.json"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-SHARED-006",
+        "BE-SHARED-007",
+        "BE-SHARED-020"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-09-why-agents-declare-victory-too-early/code/victory-detector.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "엔드투엔드 테스트가 결과를 바꾸는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-10-why-end-to-end-testing-changes-results/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-10-why-end-to-end-testing-changes-results/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-10-why-end-to-end-testing-changes-results/code/architecture-rules.md",
+        "docs/ko/lectures/lecture-10-why-end-to-end-testing-changes-results/code/e2e-runner.ts",
+        "docs/ko/lectures/lecture-10-why-end-to-end-testing-changes-results/code/index.md",
+        "docs/ko/lectures/lecture-10-why-end-to-end-testing-changes-results/code/review-feedback-to-rule.md"
+      ],
+      "core_claims": [
+        "end-to-end checks reveal failures hidden by local plausibility",
+        "smoke contracts should connect to release gates"
+      ],
+      "harness_subsystems": [
+        "Verification"
+      ],
+      "failure_mode_addressed": "local plausibility treated as integration proof",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [],
+        "verification": [
+          "verification/benchmark_suite.json",
+          "verification/behavioral_benchmark_suite.json"
+        ],
+        "scope": [],
+        "lifecycle": [],
+        "docs": [],
+        "harness": [
+          "harness/validate_current_v36.mjs"
+        ],
+        "validation": [],
+        "benchmark": [
+          "BE-SHARED-009",
+          "BE-SHARED-024"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "verification/benchmark_suite.json",
+        "verification/behavioral_benchmark_suite.json",
+        "harness/validate_current_v36.mjs"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-SHARED-009",
+        "BE-SHARED-024"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-10-why-end-to-end-testing-changes-results/code/e2e-runner.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "관측 가능성이 하네스 안에 있어야 하는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-11-why-observability-belongs-inside-the-harness/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-11-why-observability-belongs-inside-the-harness/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-11-why-observability-belongs-inside-the-harness/code/evaluator-rubric.md",
+        "docs/ko/lectures/lecture-11-why-observability-belongs-inside-the-harness/code/index.md",
+        "docs/ko/lectures/lecture-11-why-observability-belongs-inside-the-harness/code/runtime-logger.ts",
+        "docs/ko/lectures/lecture-11-why-observability-belongs-inside-the-harness/code/sprint-contract.md"
+      ],
+      "core_claims": [
+        "runtime behavior must leave observable traces",
+        "evidence logs make claims auditable"
+      ],
+      "harness_subsystems": [
+        "Verification",
+        "State"
+      ],
+      "failure_mode_addressed": "opaque execution and unauditable claims",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [
+          "state/evidence_log.json"
+        ],
+        "verification": [],
+        "scope": [],
+        "lifecycle": [],
+        "docs": [],
+        "harness": [],
+        "validation": [
+          "validation/current_validation_result.json"
+        ],
+        "benchmark": [
+          "BE-SHARED-005",
+          "BE-SHARED-027"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "state/evidence_log.json",
+        "records/actor_output_validation_result.json",
+        "records/behavioral_judge_results.json",
+        "validation/current_validation_result.json"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-SHARED-005",
+        "BE-SHARED-027"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-11-why-observability-belongs-inside-the-harness/code/runtime-logger.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    },
+    {
+      "lecture_title": "모든 세션이 클린 상태로 끝나야 하는 이유",
+      "source_git_path": "docs/ko/lectures/lecture-12-why-every-session-must-leave-a-clean-state/index.md",
+      "source_web_url": "https://walkinglabs.github.io/learn-harness-engineering/ko/lectures/lecture-12-why-every-session-must-leave-a-clean-state/",
+      "collected": true,
+      "code_assets_seen": [
+        "docs/ko/lectures/lecture-12-why-every-session-must-leave-a-clean-state/code/benchmark-comparison-template.md",
+        "docs/ko/lectures/lecture-12-why-every-session-must-leave-a-clean-state/code/benchmark-runner.ts",
+        "docs/ko/lectures/lecture-12-why-every-session-must-leave-a-clean-state/code/cleanup-loop.md",
+        "docs/ko/lectures/lecture-12-why-every-session-must-leave-a-clean-state/code/cleanup-scanner.ts",
+        "docs/ko/lectures/lecture-12-why-every-session-must-leave-a-clean-state/code/index.md"
+      ],
+      "core_claims": [
+        "session closeout must leave a clean restart path",
+        "handoff and checklist are lifecycle artifacts"
+      ],
+      "harness_subsystems": [
+        "Lifecycle",
+        "State"
+      ],
+      "failure_mode_addressed": "dirty closeout and missing handoff",
+      "v36_asset_mapping": {
+        "autonomous": [],
+        "codex": [],
+        "state": [
+          "state/session-handoff.md"
+        ],
+        "verification": [],
+        "scope": [],
+        "lifecycle": [
+          "lifecycle/clean-state-checklist.md",
+          "lifecycle/session-closeout.md",
+          "lifecycle/handoff-template.md"
+        ],
+        "docs": [],
+        "harness": [],
+        "validation": [],
+        "benchmark": [
+          "BE-SHARED-017",
+          "BE-SHARED-018",
+          "BE-SHARED-025"
+        ],
+        "archive": [
+          "records/source_inventory.json",
+          "archive/source_inventory/source_inventory.json"
+        ]
+      },
+      "applied_artifacts": [
+        "lifecycle/clean-state-checklist.md",
+        "lifecycle/session-closeout.md",
+        "lifecycle/handoff-template.md",
+        "state/session-handoff.md"
+      ],
+      "eval_or_benchmark_cases": [
+        "BE-SHARED-017",
+        "BE-SHARED-018",
+        "BE-SHARED-025"
+      ],
+      "not_applied_items": [
+        "docs/ko/lectures/lecture-12-why-every-session-must-leave-a-clean-state/code/benchmark-runner.ts",
+        "docs/ko/lectures/lecture-12-why-every-session-must-leave-a-clean-state/code/cleanup-scanner.ts"
+      ],
+      "reason": "Executable lecture demo files were converted into benchmark concepts and archive references, not copied into runtime assets.",
+      "required_patch": "",
+      "priority": "P3"
+    }
+  ]
+}

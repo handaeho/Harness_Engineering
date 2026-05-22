@@ -1,0 +1,77 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-structured-output-canary-openai",
+  "mode": "openai_structured_output_canary_no_tools",
+  "provider": "openai",
+  "provider_execution": true,
+  "structured_output_used": true,
+  "tools_used": false,
+  "local_model_execution": false,
+  "external_side_effects": false,
+  "store_false_enforced": true,
+  "strict_json_schema_used": true,
+  "ajv_validation_used": true,
+  "cases_total": 5,
+  "cases_passed": 5,
+  "cases_failed": 0,
+  "schema_validations_total": 5,
+  "schema_validations_passed": 5,
+  "schema_validations_failed": 0,
+  "trace_events_total": 34,
+  "redaction_passed": true,
+  "raw_response_stored": false,
+  "claims_allowed": [
+    "openai-structured-output-canary-executed",
+    "provider-structured-output-path-checked",
+    "json-schema-response-canary-validated",
+    "structured-output-trace-captured",
+    "structured-output-redaction-checked"
+  ],
+  "claims_not_allowed": [
+    "schema-output-verified",
+    "tool-call-verified",
+    "provider-verified",
+    "adapter-checked",
+    "integration-verified",
+    "release-gated",
+    "production-monitored"
+  ],
+  "case_results": [
+    {
+      "case_id": "simple_status_object",
+      "fixture_file": "adapters/api/openai/structured_output_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "korean_summary_object",
+      "fixture_file": "adapters/api/openai/structured_output_cases.jsonl",
+      "fixture_line": 2,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "enum_boundary_object",
+      "fixture_file": "adapters/api/openai/structured_output_cases.jsonl",
+      "fixture_line": 3,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "required_fields_object",
+      "fixture_file": "adapters/api/openai/structured_output_cases.jsonl",
+      "fixture_line": 4,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "additional_properties_blocked_object",
+      "fixture_file": "adapters/api/openai/structured_output_cases.jsonl",
+      "fixture_line": 5,
+      "status": "pass",
+      "failures": []
+    }
+  ],
+  "failures": []
+}

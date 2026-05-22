@@ -1,0 +1,41 @@
+# 02 ASSET GAP AUDIT
+
+Generated: 2026-05-20T03:18:26.751Z
+
+- v35 strongest areas: Instructions and Verification.
+- v35 bottlenecks: State and Lifecycle.
+- v36_candidate adds persistent state, lifecycle, and scope assets.
+
+## Scorecard
+{
+  "generated_at": "2026-05-20T03:18:26.751Z",
+  "v35_scores": {
+    "Instructions": 4,
+    "State": 2,
+    "Verification": 4,
+    "Scope": 3,
+    "Lifecycle": 2
+  },
+  "v36_candidate_target_scores": {
+    "Instructions": 4,
+    "State": 4,
+    "Verification": 4,
+    "Scope": 4,
+    "Lifecycle": 4
+  },
+  "v36_candidate_static_scores": {
+    "Instructions": 4,
+    "State": 4,
+    "Verification": 4,
+    "Scope": 4,
+    "Lifecycle": 4
+  },
+  "scoring_note": "v36 scores are static harness-asset readiness scores, not production behavior proof.",
+  "bottleneck_before_upgrade": [
+    "State",
+    "Lifecycle"
+  ],
+  "bottleneck_after_upgrade": [
+    "behavioral benchmark execution remains partial/deterministic"
+  ]
+}

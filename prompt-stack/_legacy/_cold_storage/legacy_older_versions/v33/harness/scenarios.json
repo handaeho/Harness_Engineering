@@ -1,0 +1,105 @@
+{
+  "suite_id": "v33-external-harness-2026-05-18-a",
+  "scenarios": [
+    {
+      "scenario_id": "EH-S01",
+      "bundle_id": "eval_ops_reflection_bundle",
+      "active_files": [
+        "prompt-stack/v33/AGENTS.md",
+        "prompt-stack/v33/01_base/PROMPT_full.md",
+        "prompt-stack/v33/02_overlays/PROMPT_evaluation_monitoring_overlay.md",
+        "prompt-stack/v33/02_overlays/PROMPT_search_reasoning_overlay.md",
+        "prompt-stack/v33/02_overlays/PROMPT_retrieval_grounding_overlay.md",
+        "prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+        "prompt-stack/v33/codex/skills/eval-ops/SKILL.md",
+        "prompt-stack/v33/03_examples/PROMPT_example_catalog.md"
+      ],
+      "task": "You are maintaining v33 against the attached guide and recent programming-oriented augmentations. Decide whether document-level benchmark is sufficient or whether assembled replay artifacts must activate. Choose the smallest justified artifact ladder and state whether the runtime docs directly expose that route without overstating execution proof.",
+      "focus": [
+        "BR-00",
+        "BR-19"
+      ]
+    },
+    {
+      "scenario_id": "EH-S02",
+      "bundle_id": "grounded_research_appendix_bundle",
+      "active_files": [
+        "prompt-stack/v33/AGENTS.md",
+        "prompt-stack/v33/01_base/PROMPT_light.md",
+        "prompt-stack/v33/02_overlays/PROMPT_retrieval_grounding_overlay.md",
+        "prompt-stack/v33/02_overlays/PROMPT_search_reasoning_overlay.md",
+        "prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+        "prompt-stack/v33/codex/skills/grounded-research/SKILL.md",
+        "prompt-stack/v33/03_examples/PROMPT_example_catalog.md"
+      ],
+      "task": "Without overstating the guide, answer whether Prompt Chaining, Appendix A advanced prompting, and freshness-sensitive programming research are directly reflected by the active bundle. Keep evidence-first discipline, prefer official-source priority for fresh API guidance, and mark any weak or indirect answer path as a limitation.",
+      "focus": [
+        "BR-01",
+        "BR-14",
+        "BR-17",
+        "BR-22"
+      ]
+    },
+    {
+      "scenario_id": "EH-S03",
+      "bundle_id": "orchestration_sufficiency_bundle",
+      "active_files": [
+        "prompt-stack/v33/AGENTS.md",
+        "prompt-stack/v33/01_base/PROMPT_full.md",
+        "prompt-stack/v33/02_overlays/PROMPT_multi_agent_overlay.md",
+        "prompt-stack/v33/02_overlays/PROMPT_tool_protocol_overlay.md",
+        "prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+        "prompt-stack/v33/codex/skills/orchestration-control/SKILL.md",
+        "prompt-stack/v33/03_examples/PROMPT_example_catalog.md"
+      ],
+      "task": "A guide-reflection and programming-prompt maintenance task is pending. Decide whether multi-agent or A2A is actually justified. If single-agent sufficiency wins, say so explicitly and avoid decorative orchestration.",
+      "focus": [
+        "BR-03",
+        "BR-07",
+        "BR-13",
+        "BR-15"
+      ]
+    },
+    {
+      "scenario_id": "EH-S04",
+      "bundle_id": "coding_core_patch_bundle",
+      "active_files": [
+        "prompt-stack/v33/AGENTS.md",
+        "prompt-stack/v33/01_base/PROMPT_standalone.md",
+        "prompt-stack/v33/02_overlays/PROMPT_tool_protocol_overlay.md",
+        "prompt-stack/v33/02_overlays/PROMPT_guardrails_safety_overlay.md",
+        "prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+        "prompt-stack/v33/codex/skills/coding-core/SKILL.md",
+        "prompt-stack/v33/03_examples/PROMPT_example_injection.md",
+        "prompt-stack/v33/03_examples/PROMPT_example_catalog.md"
+      ],
+      "task": "You found a stale runtime owner sentence in a codex-layer file while maintaining a programming-oriented prompt package. Choose the smallest safe fix path and verification route, keep the change draft-grade until reviewed, and do not widen the patch beyond what the evidence requires.",
+      "focus": [
+        "BR-05",
+        "BR-06",
+        "BR-12",
+        "BR-16"
+      ]
+    },
+    {
+      "scenario_id": "EH-S05",
+      "bundle_id": "design_analysis_route_bundle",
+      "active_files": [
+        "prompt-stack/v33/AGENTS.md",
+        "prompt-stack/v33/01_base/PROMPT_full.md",
+        "prompt-stack/v33/02_overlays/PROMPT_search_reasoning_overlay.md",
+        "prompt-stack/v33/02_overlays/PROMPT_retrieval_grounding_overlay.md",
+        "prompt-stack/v33/codex/CODEX_RUNTIME_GUIDE.md",
+        "prompt-stack/v33/codex/skills/design-analysis/SKILL.md",
+        "prompt-stack/v33/03_examples/PROMPT_example_catalog.md"
+      ],
+      "task": "Compare two routes for v33 maintenance: stay at document-level benchmark only, or escalate to assembled replay. Choose one route plus one fallback under cost, risk, evidence-strength, and execution-proof constraints.",
+      "focus": [
+        "BR-02",
+        "BR-16",
+        "BR-20",
+        "BR-21"
+      ]
+    }
+  ]
+}

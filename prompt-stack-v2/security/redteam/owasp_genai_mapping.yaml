@@ -1,0 +1,40 @@
+source:
+  name: OWASP GenAI Security Project Top 10 for LLM Applications
+  url: https://genai.owasp.org/llm-top-10/
+owasp_mapping:
+  prompt_injection:
+    internal_categories:
+      - prompt_injection_direct
+      - prompt_injection_indirect
+  sensitive_information_disclosure:
+    internal_categories:
+      - sensitive_info_disclosure
+      - system_prompt_leakage
+  supply_chain:
+    internal_categories:
+      - tool_poisoning
+      - retrieval_context_poisoning
+  data_and_model_poisoning:
+    internal_categories:
+      - retrieval_context_poisoning
+      - tool_poisoning
+  improper_output_handling:
+    internal_categories:
+      - tool_output_trust_abuse
+      - structured_output_abuse
+  excessive_agency:
+    internal_categories:
+      - excessive_agency
+      - approval_boundary_bypass
+  system_prompt_leakage:
+    internal_categories:
+      - system_prompt_leakage
+  vector_and_embedding_weaknesses:
+    internal_categories:
+      - retrieval_context_poisoning
+  misinformation:
+    internal_categories:
+      - refusal_boundary
+  unbounded_consumption:
+    internal_categories:
+      - unbounded_consumption

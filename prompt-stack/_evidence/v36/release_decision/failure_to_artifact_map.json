@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-05-20T03:18:26.751Z",
+  "mappings": [
+    {
+      "failure_mode": "agent starts from stale or oversized instruction context",
+      "subsystem": "Instructions",
+      "artifacts": [
+        "AGENTS.md",
+        "MASTER_PROMPT_ROUTER.md",
+        "docs/ARTIFACT_MAP.md"
+      ],
+      "prevention": "short router plus purpose-specific documents"
+    },
+    {
+      "failure_mode": "next session cannot resume",
+      "subsystem": "State",
+      "artifacts": [
+        "state/progress.md",
+        "state/session-handoff.md",
+        "state/feature_list.json"
+      ],
+      "prevention": "explicit current state, next action, blocker, evidence fields"
+    },
+    {
+      "failure_mode": "done is claimed without runnable proof",
+      "subsystem": "Verification",
+      "artifacts": [
+        "verification/evaluator-rubric.md",
+        "harness/validate_current_v36.mjs",
+        "verification/claim_strength_checklist.json"
+      ],
+      "prevention": "claim strength checklist and validation runner"
+    },
+    {
+      "failure_mode": "scope creep or overreach",
+      "subsystem": "Scope",
+      "artifacts": [
+        "autonomous/07_scope/SCOPE_POLICY.md",
+        "state/feature_list.json"
+      ],
+      "prevention": "WIP=1 and feature-slice owner"
+    },
+    {
+      "failure_mode": "session ends dirty",
+      "subsystem": "Lifecycle",
+      "artifacts": [
+        "lifecycle/clean-state-checklist.md",
+        "lifecycle/session-closeout.md"
+      ],
+      "prevention": "closeout checklist and handoff update"
+    },
+    {
+      "failure_mode": "Codex source/runtime ownership confusion",
+      "subsystem": "Instructions",
+      "artifacts": [
+        "codex/CODEX_RUNTIME_GUIDE.md",
+        "docs/ARTIFACT_MAP.md",
+        "records/codex_runtime_integrity.json"
+      ],
+      "prevention": "Codex package is validated by behavior boundary, not source text parity"
+    }
+  ]
+}

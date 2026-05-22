@@ -1,0 +1,144 @@
+﻿{
+    "generated_at":  "2026-05-20T06:18:52.3781780Z",
+    "mode":  "dry_run_only",
+    "approved_for_execution":  false,
+    "files_moved":  0,
+    "files_deleted":  0,
+    "docs_rewritten":  0,
+    "evidence_target_path":  "_evidence/v36/",
+    "files_to_keep_active":  87,
+    "files_to_move_to_evidence":  2434,
+    "files_to_rewrite_korean":  18,
+    "files_to_archive_only":  1,
+    "files_to_review":  6,
+    "delete_candidates":  0,
+    "expected_active_file_count_after":  111,
+    "expected_evidence_file_count_after":  2435,
+    "high_volume_move_candidates":  [
+                                        {
+                                            "path":  "v36/sources/",
+                                            "files":  2027,
+                                            "target":  "_evidence/v36/source_clone/",
+                                            "reason":  "source clone raw material"
+                                        },
+                                        {
+                                            "path":  "v36/archive/behavioral_evidence/",
+                                            "files":  74,
+                                            "target":  "_evidence/v36/actor_outputs/",
+                                            "reason":  "raw actor outputs"
+                                        },
+                                        {
+                                            "path":  "v36/archive/raw_benchmark_runs/",
+                                            "files":  17,
+                                            "target":  "_evidence/v36/behavioral_benchmark/raw_runs/",
+                                            "reason":  "raw benchmark/stdout logs"
+                                        },
+                                        {
+                                            "path":  "v36/validation/runs/",
+                                            "files":  17,
+                                            "target":  "_evidence/v36/validation_runs/",
+                                            "reason":  "historical validation runs"
+                                        }
+                                    ],
+    "korean_doc_rewrite_targets":  [
+                                       {
+                                           "path":  "README.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  1350,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "PROMPT_USER_GUIDE.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  1118,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "docs/CURRENT_STATE.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  1147,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "docs/OPERATING_GUIDE.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  1207,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "docs/LIMITATIONS_AND_FOLLOWUPS.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  865,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "docs/ARTIFACT_MAP.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  1122,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "reports/V36_CURRENT_STATE_SUMMARY.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  1155,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "reports/V36_VALIDATION_SUMMARY.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  282,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "reports/V36_RELEASE_NOTES.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  3333,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "reports/V36_ROLLBACK_AND_MONITORING_PLAN.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  1197,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "reports/V36_FINAL_STATUS.md",
+                                           "exists":  false,
+                                           "korean_chars":  0,
+                                           "length":  0,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "harness/README.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  368,
+                                           "korean_rewrite_needed":  true
+                                       },
+                                       {
+                                           "path":  "validation/validation_readme.md",
+                                           "exists":  true,
+                                           "korean_chars":  0,
+                                           "length":  457,
+                                           "korean_rewrite_needed":  true
+                                       }
+                                   ],
+    "risk":  [
+                 "Validator may need path updates after evidence movement because current validate_current_v36.mjs still expects source clone and source inventory in active v36.",
+                 "Checksum manifest must be regenerated after approved move/rewrite.",
+                 "Active docs should link only to summarized evidence locations, not raw evidence deep paths.",
+                 "Release/finalization evidence reports should remain accessible through _evidence/v36, not active docs."
+             ],
+    "user_approval_required":  true,
+    "no_actual_cleanup_performed":  true
+}

@@ -1,0 +1,292 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-production-telemetry-design",
+  "can_enter_telemetry_connected_claim": false,
+  "can_enter_production_monitored_claim": false,
+  "can_enter_production_ready_claim": false,
+  "can_enter_release_gated_claim": false,
+  "reason": "Production telemetry design is drafted, but live telemetry connection and production monitoring claims remain blocked.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_release_gate_dry_run.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_beta_release_evidence_bundle.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "production_telemetry_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_event_taxonomy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_metric_catalog.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_redaction_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_retention_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_anomaly_thresholds.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_dashboard_spec.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "genai_semantic_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "trace_attribute_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "metric_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "exporter_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "integration_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "trace_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "score_mapping.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "dashboard_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production_telemetry_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production_telemetry_design_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_schema_snapshot.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "trace_schema_snapshot.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "otel_genai_mapping_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "langfuse_integration_plan_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_dashboard_spec_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_anomaly_thresholds_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production_telemetry_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry design report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "telemetry validation report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "no live telemetry connection",
+      "status": "pass",
+      "detail": {
+        "policy": false,
+        "report": false
+      }
+    },
+    {
+      "name": "telemetry sink write disabled",
+      "status": "pass",
+      "detail": {
+        "policy": false,
+        "report": false
+      }
+    },
+    {
+      "name": "no provider or local execution",
+      "status": "pass",
+      "detail": {
+        "provider_execution": false,
+        "local_model_execution": false,
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "production claims remain blocked",
+      "status": "pass",
+      "detail": {
+        "can_claim_telemetry_connected": false,
+        "can_claim_production_monitored": false,
+        "can_claim_production_ready": false
+      }
+    },
+    {
+      "name": "design artifacts exist in report",
+      "status": "pass",
+      "detail": {
+        "otel_mapping_exists": true,
+        "langfuse_integration_plan_exists": true,
+        "dashboard_spec_exists": true,
+        "anomaly_thresholds_exist": true,
+        "redaction_policy_exists": true,
+        "production_telemetry_gate_exists": true
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "production-telemetry-design-drafted",
+    "otel-genai-mapping-drafted",
+    "langfuse-integration-plan-drafted",
+    "telemetry-dashboard-spec-drafted",
+    "telemetry-anomaly-thresholds-drafted",
+    "telemetry-claim-gate-designed",
+    "telemetry-blocker-updated"
+  ],
+  "claims_blocked": [
+    "telemetry-connected",
+    "production-monitored",
+    "production-ready",
+    "release-gated",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "redteam-passed",
+    "containment-verified",
+    "replay-verified",
+    "integration-verified",
+    "benchmark-backed"
+  ]
+}

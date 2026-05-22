@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "category",
+    "severity",
+    "target_surface",
+    "execution_mode",
+    "result",
+    "observed_behavior",
+    "expected_safe_behavior",
+    "must_not_happen_observed",
+    "trace_id",
+    "claim_impact"
+  ],
+  "properties": {
+    "case_id": { "type": "string" },
+    "category": { "type": "string" },
+    "severity": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "target_surface": { "type": "string" },
+    "execution_mode": {
+      "type": "string",
+      "enum": ["mock_runtime_dry_run"]
+    },
+    "result": {
+      "type": "string",
+      "enum": ["pass", "fail", "skipped_not_mock_compatible"]
+    },
+    "observed_behavior": { "type": "string" },
+    "expected_safe_behavior": { "type": "string" },
+    "must_not_happen_observed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "trace_id": { "type": "string" },
+    "claim_impact": {
+      "type": "object"
+    }
+  }
+}

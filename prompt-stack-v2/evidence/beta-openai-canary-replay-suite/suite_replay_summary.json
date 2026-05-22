@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-openai-canary-replay-suite",
+  "comparison_mode": "canary_suite_rerun_not_replay_verified",
+  "provider": "openai",
+  "provider_execution_performed_in_this_stage": true,
+  "local_model_execution": false,
+  "external_side_effects": false,
+  "surfaces": {
+    "no_tool_text": {
+      "status": "pass",
+      "attempts_compared": [
+        "003-credentialed-rerun",
+        "004-no-tool-replay-rerun"
+      ],
+      "claim_level": "canary_rerun_only"
+    },
+    "structured_output": {
+      "status": "pass",
+      "attempts_compared": [
+        "001-structured-output-canary",
+        "002-structured-output-replay-rerun"
+      ],
+      "claim_level": "canary_rerun_only"
+    },
+    "tool_calling": {
+      "status": "pass",
+      "attempts_compared": [
+        "001-tool-calling-canary",
+        "002-tool-calling-replay-rerun"
+      ],
+      "claim_level": "canary_rerun_only"
+    }
+  },
+  "all_required_surfaces_passed": true,
+  "raw_response_stored": false,
+  "redaction_passed": true,
+  "claim_level": "canary_suite_only",
+  "claims_allowed": [
+    "openai-canary-replay-suite-executed",
+    "openai-no-tool-canary-rerun-executed",
+    "openai-structured-output-canary-rerun-executed",
+    "openai-canary-suite-consistency-checked",
+    "canary-suite-replay-evidence-recorded",
+    "canary-suite-trace-comparison-recorded"
+  ],
+  "claims_not_allowed": [
+    "replay-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "provider-verified",
+    "adapter-checked",
+    "provider-diverse",
+    "integration-verified",
+    "release-gated",
+    "production-monitored"
+  ],
+  "failures": []
+}

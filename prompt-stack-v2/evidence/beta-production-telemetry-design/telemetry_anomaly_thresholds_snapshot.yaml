@@ -1,0 +1,19 @@
+anomaly_thresholds:
+  status: draft
+  active_in_production: false
+  latency:
+    p95_ms_warning: 10000
+    p95_ms_critical: 30000
+  cost:
+    per_run_cost_warning_usd: 1
+    per_run_cost_critical_usd: 5
+  quality:
+    case_pass_rate_warning_below: 0.95
+    case_pass_rate_critical_below: 0.9
+  safety:
+    redaction_failure_count_critical: 1
+    blocked_tool_execution_count_critical: 1
+    prohibited_claim_count_critical: 1
+  redteam:
+    critical_failure_count_critical: 1
+    high_failure_count_critical: 1

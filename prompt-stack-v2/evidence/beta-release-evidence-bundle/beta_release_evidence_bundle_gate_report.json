@@ -1,0 +1,217 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-release-evidence-bundle-draft",
+  "can_enter_release_gated_claim": false,
+  "can_enter_production_ready_claim": false,
+  "can_enter_provider_diversity_claim": false,
+  "can_enter_local_model_verified_claim": false,
+  "reason": "Evidence bundle draft is complete, but release gate, provider diversity, local execution, production telemetry, and redteam execution remain incomplete.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_openai_canary_replay_suite.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_canary_matrix_summary.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "evidence_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "claim_status_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "claim_boundary_audit.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence_lineage.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release_readiness_assessment.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "blockers_and_gaps.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "bundle_manifest.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "bundle_checksums.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "no new provider execution in this stage",
+      "status": "pass",
+      "detail": {
+        "evidence_index": false,
+        "validation_summary": false,
+        "manifest": false
+      }
+    },
+    {
+      "name": "no local model execution in this stage",
+      "status": "pass",
+      "detail": {
+        "evidence_index": false,
+        "validation_summary": false,
+        "manifest": false
+      }
+    },
+    {
+      "name": "no local endpoint probe in this stage",
+      "status": "pass",
+      "detail": {
+        "evidence_index": false,
+        "validation_summary": false,
+        "manifest": false,
+        "non_localhost_endpoint_used": false
+      }
+    },
+    {
+      "name": "release_gate_passed is false",
+      "status": "pass",
+      "detail": {
+        "release_gate_passed": false
+      }
+    },
+    {
+      "name": "production_ready is false",
+      "status": "pass",
+      "detail": {
+        "production_ready": false
+      }
+    },
+    {
+      "name": "provider_diversity_established is false",
+      "status": "pass",
+      "detail": {
+        "provider_diversity_established": false
+      }
+    },
+    {
+      "name": "local_model_execution_verified is false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution_verified": false
+      }
+    },
+    {
+      "name": "blocked claims are not positive claims",
+      "status": "pass",
+      "detail": {
+        "claim_boundary_audit_status": "pass",
+        "blocked_claims_found_as_positive": 0
+      }
+    },
+    {
+      "name": "claim status has allowed and blocked groups",
+      "status": "pass",
+      "detail": {
+        "allowed_claims": 48,
+        "blocked_claims": 15
+      }
+    },
+    {
+      "name": "evidence lineage pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "bundle manifest and checksums pass",
+      "status": "pass",
+      "detail": {
+        "manifest_files": 19,
+        "checksum_files": 18,
+        "self_excluded": true
+      }
+    },
+    {
+      "name": "blockers and gaps recorded",
+      "status": "pass",
+      "detail": {
+        "blockers_count": 5
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "beta-release-evidence-bundle-drafted",
+    "evidence-lineage-indexed",
+    "claim-boundary-audited",
+    "release-readiness-draft-assessed",
+    "blocker-register-updated"
+  ],
+  "claims_blocked": [
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "replay-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "integration-verified",
+    "containment-verified",
+    "telemetry-connected",
+    "benchmark-backed"
+  ]
+}

@@ -1,0 +1,41 @@
+stage: v2.0.0-beta-release-evidence-bundle-draft
+
+approved_actions:
+  evidence_indexing: true
+  claim_boundary_audit: true
+  evidence_lineage_summary: true
+  capability_matrix_snapshot: true
+  release_readiness_draft_assessment: true
+  blockers_and_gaps_register: true
+  bundle_manifest_and_checksums: true
+
+forbidden_execution:
+  openai_provider_api_call: true
+  new_provider_feature_surface: true
+  local_vllm_execution: true
+  local_ollama_execution: true
+  local_endpoint_probe: true
+  anthropic_or_gemini_execution: true
+  new_tool_schema_expansion: true
+  redteam_execution: true
+  production_telemetry_connection: true
+  release_gate_claim: true
+  stable_release_claim: true
+
+claims_allowed:
+  - beta-release-evidence-bundle-drafted
+  - evidence-lineage-indexed
+  - claim-boundary-audited
+  - release-readiness-draft-assessed
+  - blocker-register-updated
+
+claims_not_allowed:
+  - release-gated
+  - production-ready
+  - production-monitored
+  - replay-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - integration-verified

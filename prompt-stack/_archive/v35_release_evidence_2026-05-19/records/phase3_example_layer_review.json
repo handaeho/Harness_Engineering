@@ -1,0 +1,23 @@
+{
+  "verdict": "structure_only_plan_required",
+  "prompt_hub_structure_only_candidates": 38,
+  "factual_transfer_risks": [
+    "Prompt Hub examples can leak domain facts into unrelated tasks if copied literally.",
+    "Adversarial prompt examples must be test stimuli, not behavior templates."
+  ],
+  "weak_example_risks": [
+    "Poorly matched examples may overfit response shape or create false factual assumptions.",
+    "Expansion pressure may weaken no-example-over-weak-example rule."
+  ],
+  "injection_controller_updates_needed": [
+    "Explicit structure-only selection rule.",
+    "No-example preferred over weak example.",
+    "Prompt Hub examples cannot define runtime policy.",
+    "Adversarial examples must stay in eval/safety test surfaces."
+  ],
+  "catalog_boundary_risks": [
+    "Catalog must not own selection logic.",
+    "Catalog must not own factual authority.",
+    "Catalog must not override source-of-truth safety/tool/retrieval rules."
+  ]
+}

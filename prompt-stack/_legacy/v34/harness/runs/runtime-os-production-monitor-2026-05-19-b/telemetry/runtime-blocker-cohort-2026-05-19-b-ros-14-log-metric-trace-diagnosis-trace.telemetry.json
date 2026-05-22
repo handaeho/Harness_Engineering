@@ -1,0 +1,144 @@
+{
+  "trace_id": "runtime-blocker-cohort-2026-05-19-b-ros-14-log-metric-trace-diagnosis-trace",
+  "session_id": "runtime-blocker-cohort-2026-05-19-b",
+  "run_id": "runtime-blocker-cohort-2026-05-19-b",
+  "cohort_id": "runtime-os-smoke",
+  "scenario_id": "ros-14-log-metric-trace-diagnosis",
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "prompt_version": "v34",
+  "model_version": "deterministic-local-runner",
+  "selected_base_prompt": "PROMPT_full",
+  "selected_skill": "eval-ops",
+  "selected_overlays": [
+    "PROMPT_tool_protocol_overlay",
+    "PROMPT_evaluation_monitoring_overlay"
+  ],
+  "example_mode": "none",
+  "task_family": "observability_driven_diagnosis",
+  "risk_class": "R2",
+  "started_at": "2026-05-19T05:22:42.458Z",
+  "finished_at": "2026-05-19T05:22:42.460Z",
+  "approval_events": [],
+  "policy_decision_events": [],
+  "network_policy_events": [],
+  "tool_result_events": [],
+  "retry_events": [
+    {
+      "attempts": 1,
+      "retry_used": false
+    }
+  ],
+  "failure_events": [],
+  "verification_events": [
+    {
+      "check_id": "log_query_events_emitted",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "metric_query_events_emitted",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "trace_query_events_emitted",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "observation_before_fix_preserved",
+      "passed": true,
+      "failed": false
+    }
+  ],
+  "safety_events": [],
+  "sandbox_events": [],
+  "memory_events": [],
+  "retrieval_events": [],
+  "multi_agent_events": [],
+  "error_events": [],
+  "token_usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "claim_strength": "replay_verified",
+  "cost_events": [
+    {
+      "currency": "USD",
+      "total": 0
+    }
+  ],
+  "latency_events": [
+    {
+      "total_ms": 2
+    }
+  ],
+  "shell_command_events": [],
+  "log_query_events": [
+    {
+      "event_id": "ros-14-log-metric-trace-diagnosis-obs-01",
+      "phase": "observe",
+      "timestamp": "2026-05-19T05:22:42.458Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "query_logs",
+      "metadata": {
+        "interface": "deterministic_local_query",
+        "target": "run_artifacts"
+      }
+    }
+  ],
+  "metric_query_events": [
+    {
+      "event_id": "ros-14-log-metric-trace-diagnosis-obs-02",
+      "phase": "observe",
+      "timestamp": "2026-05-19T05:22:42.458Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "query_metrics",
+      "metadata": {
+        "interface": "deterministic_local_query",
+        "target": "summary_metrics"
+      }
+    }
+  ],
+  "trace_query_events": [
+    {
+      "event_id": "ros-14-log-metric-trace-diagnosis-obs-03",
+      "phase": "observe",
+      "timestamp": "2026-05-19T05:22:42.458Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "query_traces",
+      "metadata": {
+        "interface": "deterministic_local_query",
+        "target": "trace_artifacts"
+      }
+    }
+  ],
+  "dom_snapshot_events": [],
+  "screenshot_events": [],
+  "smoke_journey_events": [],
+  "final_state": {
+    "status": "agent_readable_observability_exercised",
+    "emitted_query_events": [
+      "log_query",
+      "metric_query",
+      "trace_query"
+    ],
+    "diagnosis_is_evidence_backed": true,
+    "stronger_claim_enabled_by_observation": true,
+    "replay_linkage": {
+      "replay_verified": true,
+      "matched_prior_runs": [
+        {
+          "run_id": "runtime-blocker-cohort-2026-05-19-a",
+          "trace_id": "runtime-blocker-cohort-2026-05-19-a-ros-14-log-metric-trace-diagnosis-trace",
+          "verdict": "Pass"
+        }
+      ]
+    },
+    "trace_shape_ok": true
+  },
+  "verdict": "Pass"
+}

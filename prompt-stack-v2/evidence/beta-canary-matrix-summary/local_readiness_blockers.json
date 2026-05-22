@@ -1,0 +1,24 @@
+[
+  {
+    "id": "LRC-001",
+    "severity": "medium",
+    "target": "vllm",
+    "description": "vLLM local no-tool canary was not executed because no local vLLM endpoint is available.",
+    "blocks_local_no_tool_canary": true,
+    "blocks_local_structured_output_canary": true,
+    "blocks_provider_diversity_claim": true,
+    "owner": "human",
+    "recommended_next_action": "Start a localhost-only vLLM OpenAI-compatible endpoint and provide VLLM_BASE_URL and VLLM_MODEL before running local canary."
+  },
+  {
+    "id": "LRC-002",
+    "severity": "medium",
+    "target": "ollama",
+    "description": "Ollama local no-tool canary was not executed because no local Ollama endpoint is available.",
+    "blocks_local_no_tool_canary": true,
+    "blocks_local_structured_output_canary": true,
+    "blocks_provider_diversity_claim": true,
+    "owner": "human",
+    "recommended_next_action": "Start a localhost-only Ollama endpoint and provide OLLAMA_BASE_URL and OLLAMA_MODEL before running local canary."
+  }
+]

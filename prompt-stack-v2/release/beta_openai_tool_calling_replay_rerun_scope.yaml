@@ -1,0 +1,46 @@
+stage: v2.0.0-beta-openai-tool-calling-replay-rerun
+
+approved_execution:
+  openai_tool_calling_canary_rerun: true
+  existing_tool_schemas_only: true
+  deterministic_mock_tools_only: true
+  tool_argument_ajv_validation: true
+  approval_gate_check: true
+  function_call_output_reinjection: true
+  final_response_capture: true
+  previous_attempt_comparison: true
+  store_false: true
+  redacted_trace_capture: true
+
+forbidden_execution:
+  new_tool_schema_expansion: true
+  built_in_tools: true
+  web_search_tool: true
+  file_search_tool: true
+  code_interpreter: true
+  computer_use: true
+  remote_mcp: true
+  external_network_calls_from_tools: true
+  real_file_writes: true
+  shell_command_execution: true
+  local_model_execution: true
+  live_telemetry: true
+  redteam_execution: true
+  replay_verified_claim: true
+  release_gate_claim: true
+
+claims_allowed:
+  - openai-tool-calling-canary-rerun-executed
+  - tool-calling-canary-consistency-checked
+  - tool-calling-rerun-trace-captured
+  - replay-evidence-recorded
+
+claims_not_allowed:
+  - replay-verified
+  - tool-call-verified
+  - provider-verified
+  - adapter-checked
+  - provider-diverse
+  - integration-verified
+  - release-gated
+  - production-monitored

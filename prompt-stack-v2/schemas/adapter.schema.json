@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/prompt-stack-v2/schemas/adapter.schema.json",
+  "title": "Prompt Stack v2 Adapter Skeleton",
+  "type": "object",
+  "required": [
+    "adapter_id",
+    "target_runtime",
+    "status",
+    "supported_features",
+    "unsupported_features",
+    "requires_verification",
+    "message_mapping",
+    "tool_mapping",
+    "structured_output_mapping",
+    "known_risks"
+  ],
+  "properties": {
+    "adapter_id": { "type": "string", "minLength": 1 },
+    "target_runtime": { "type": "string", "minLength": 1 },
+    "status": {
+      "type": "string",
+      "enum": ["skeleton", "dry_run_checked"]
+    },
+    "supported_features": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "enum": ["needs_verification", "dry_run_checked", "canary_checked", "canary_only", "not_applicable", "not_in_alpha_scope", "needs_design", "model_dependent", "runtime_owned", "adapter_defined"]
+      }
+    },
+    "unsupported_features": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "requires_verification": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "message_mapping": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "tool_mapping": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "structured_output_mapping": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "known_risks": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

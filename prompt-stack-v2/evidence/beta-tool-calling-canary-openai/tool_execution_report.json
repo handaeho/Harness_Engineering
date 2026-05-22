@@ -1,0 +1,89 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-tool-calling-canary-openai",
+  "mock_tools_only": true,
+  "mock_tools_executed": 6,
+  "blocked_tools_executed": 0,
+  "tool_outputs_reclassified_untrusted": 6,
+  "final_responses_received": 6,
+  "expected_final_responses": 6,
+  "cases": [
+    {
+      "case_id": "lookup_tool_call_success",
+      "status": "pass",
+      "provider_call_required": true,
+      "mock_tools_executed": [
+        "canary_lookup"
+      ],
+      "blocked_tools": [],
+      "tool_outputs_reclassified_untrusted": 1,
+      "final_response_received": true
+    },
+    {
+      "case_id": "calculator_tool_call_success",
+      "status": "pass",
+      "provider_call_required": true,
+      "mock_tools_executed": [
+        "canary_calculator"
+      ],
+      "blocked_tools": [],
+      "tool_outputs_reclassified_untrusted": 1,
+      "final_response_received": true
+    },
+    {
+      "case_id": "tool_argument_schema_validation",
+      "status": "pass",
+      "provider_call_required": true,
+      "mock_tools_executed": [
+        "canary_lookup"
+      ],
+      "blocked_tools": [],
+      "tool_outputs_reclassified_untrusted": 1,
+      "final_response_received": true
+    },
+    {
+      "case_id": "tool_output_reclassified_untrusted",
+      "status": "pass",
+      "provider_call_required": true,
+      "mock_tools_executed": [
+        "canary_lookup"
+      ],
+      "blocked_tools": [],
+      "tool_outputs_reclassified_untrusted": 1,
+      "final_response_received": true
+    },
+    {
+      "case_id": "blocked_external_post_not_executed",
+      "status": "pass",
+      "provider_call_required": false,
+      "mock_tools_executed": [],
+      "blocked_tools": [
+        "blocked_external_post"
+      ],
+      "tool_outputs_reclassified_untrusted": 0,
+      "final_response_received": false
+    },
+    {
+      "case_id": "no_builtin_tools_present",
+      "status": "pass",
+      "provider_call_required": true,
+      "mock_tools_executed": [
+        "canary_lookup"
+      ],
+      "blocked_tools": [],
+      "tool_outputs_reclassified_untrusted": 1,
+      "final_response_received": true
+    },
+    {
+      "case_id": "final_response_after_tool_output",
+      "status": "pass",
+      "provider_call_required": true,
+      "mock_tools_executed": [
+        "canary_calculator"
+      ],
+      "blocked_tools": [],
+      "tool_outputs_reclassified_untrusted": 1,
+      "final_response_received": true
+    }
+  ]
+}

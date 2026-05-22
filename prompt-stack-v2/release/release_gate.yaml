@@ -1,0 +1,393 @@
+id: prompt-stack-v2.release_gate
+version: 2.0.0-beta-production-telemetry-design
+status: beta-production-telemetry-design
+
+alpha_required_checks:
+  - required files exist
+  - stack.yaml conforms to stack.schema.json
+  - harness.spec.yaml parses successfully
+  - adapter.yaml files parse successfully
+  - output_contract.schema.json is valid JSON Schema
+  - trace.schema.json is valid JSON Schema
+  - telemetry.schema.json is valid JSON Schema
+  - dist contains only README.md
+  - prohibited positive claims are absent outside policy checklists
+  - baseline comparison has no unexplained items
+  - adapter conformance fixtures exist
+  - dependency-backed validation passes without fallback
+  - adapter conformance dry-run passes without provider or local execution
+  - beta entry gate report exists
+  - beta mock execution scope exists
+  - mock runtime execution runner passes without provider or local execution
+  - approval gate blocks blocked mock tools before execution
+  - trace samples validate against trace schema
+  - beta mock gate report exists
+  - OpenAI provider canary scope exists
+  - OpenAI provider canary runner records pass or explicit blocked status
+  - OpenAI provider canary uses no tools and no structured output
+  - OpenAI provider canary enforces store false
+  - OpenAI provider canary redaction report exists
+  - prior blocked OpenAI provider canary attempt is archived
+  - credentialed OpenAI provider canary attempt is archived separately
+  - credentialed OpenAI provider canary rerun attempt is archived separately
+  - OpenAI structured output canary scope exists
+  - OpenAI structured output canary runner records pass or explicit blocked status
+  - OpenAI structured output canary uses no tools
+  - OpenAI structured output canary enforces store false
+  - OpenAI structured output canary uses strict text.format json_schema
+  - OpenAI structured output canary validates returned JSON with Ajv
+  - OpenAI structured output canary redaction report exists
+  - OpenAI tool-calling canary scope exists
+  - OpenAI tool-calling canary runner records pass or explicit blocked status
+  - OpenAI tool-calling canary uses function tools only
+  - OpenAI tool-calling canary forbids built-in tools and remote MCP
+  - OpenAI tool-calling canary validates tool arguments with Ajv
+  - OpenAI tool-calling canary executes deterministic mock tools only
+  - OpenAI tool-calling canary reclassifies tool output as untrusted
+  - OpenAI tool-calling canary redaction report exists
+  - Canary matrix summary exists
+  - Local readiness blockers are recorded
+  - Local readiness report records no local model execution
+  - Claim status report blocks local and provider diversity claims
+  - OpenAI tool-calling replay rerun scope exists
+  - OpenAI tool-calling rerun attempt is archived separately when executed
+  - OpenAI tool-calling replay comparison report exists
+  - OpenAI tool-calling replay trace comparison report exists
+  - OpenAI tool-calling replay redaction report exists
+  - OpenAI canary replay suite scope exists
+  - OpenAI no-tool replay rerun attempt is archived separately when executed
+  - OpenAI structured output replay rerun attempt is archived separately when executed
+  - OpenAI canary replay suite comparison reports exist
+  - OpenAI canary replay suite summary exists
+  - OpenAI canary replay suite trace comparison exists
+  - OpenAI canary replay suite redaction report exists
+  - Beta release evidence bundle scope exists
+  - Beta release evidence index exists
+  - Beta release claim status report exists
+  - Beta release claim boundary audit exists
+  - Beta release evidence lineage exists
+  - Beta release readiness assessment exists
+  - Beta release blockers and gaps register exists
+  - Beta release bundle manifest and checksums exist
+  - Beta release evidence bundle gate report exists
+  - Release gate thresholds scope exists
+  - Release gate thresholds are drafted
+  - Release gate dry-run report exists
+  - Release blocker audit exists
+  - Release threshold coverage report exists
+  - Owner/action matrix draft exists
+  - Rollback plan draft exists
+  - Release decision record draft exists
+  - Release gate dry-run gate report exists
+  - Redteam suite design scope exists
+  - Redteam taxonomy exists
+  - Redteam case schema exists
+  - Redteam fixture files exist
+  - Redteam fixture validation passes
+  - Redteam OWASP/NIST/MITRE mappings exist
+  - Redteam severity rubric exists
+  - Redteam pass/fail policy exists
+  - Redteam execution gate exists and remains closed
+  - Redteam blocker update exists
+  - Redteam suite design gate report exists
+  - Redteam mock runtime dry-run scope exists
+  - Redteam mock compatibility policy exists
+  - Redteam result schema exists
+  - Redteam trace schema exists
+  - Redteam mock runtime runner exists
+  - Redteam mock runtime dry-run report exists
+  - Redteam case results JSONL exists
+  - Redteam trace samples JSONL exists
+  - Redteam severity summary exists
+  - Redteam claim impact report exists
+  - Redteam skipped cases report exists
+  - Redteam mock runtime gate report exists
+  - OpenAI redteam limited execution plan scope exists
+  - OpenAI redteam limited case subset exists
+  - OpenAI redteam excluded cases report exists
+  - OpenAI redteam provider execution guard cases exist
+  - OpenAI redteam limited execution guard exists and remains closed
+  - OpenAI redteam cost bound policy exists
+  - OpenAI redteam stop criteria exists
+  - OpenAI redteam redaction policy exists
+  - OpenAI redteam trace policy exists
+  - OpenAI redteam limited execution plan report exists
+  - OpenAI redteam limited execution plan gate report exists
+  - OpenAI redteam limited execution preflight scope exists
+  - OpenAI redteam limited execution approval gate exists and remains closed
+  - OpenAI redteam limited execution approval request exists
+  - OpenAI redteam limited execution command plan exists
+  - OpenAI redteam credential policy exists
+  - OpenAI redteam preflight policy exists
+  - OpenAI redteam selected case subset snapshot exists
+  - OpenAI redteam guard readiness report exists
+  - OpenAI redteam cost bound readiness report exists
+  - OpenAI redteam stop criteria readiness report exists
+  - OpenAI redteam redaction and trace readiness report exists
+  - OpenAI redteam limited execution preflight gate report exists
+  - Production telemetry design scope exists
+  - Production telemetry policy exists and remains design_only
+  - Telemetry event taxonomy exists
+  - Telemetry metric catalog exists
+  - OpenTelemetry GenAI mapping exists
+  - Langfuse integration plan exists
+  - Telemetry dashboard spec exists
+  - Telemetry anomaly thresholds exist and remain inactive
+  - Production telemetry gate exists and blocks production claims
+  - Telemetry blocker update exists
+  - Production telemetry design gate report exists
+
+allowed_alpha_claims:
+  - harness-designed
+  - static-structure-created
+  - baseline-snapshotted
+  - adapter-skeleton-created
+  - alpha-static-validated
+  - dependency-static-validated
+  - adapter-dry-run-checked
+  - beta-preflight-prepared
+  - beta-mock-runtime-executed
+  - mock-tool-routing-checked
+  - approval-boundary-smoke-tested
+  - trace-schema-smoke-tested
+  - schema-contract-validated
+  - openai-provider-canary-executed
+  - provider-no-tool-path-checked
+  - provider-trace-captured
+  - provider-redaction-checked
+  - openai-structured-output-canary-executed
+  - provider-structured-output-path-checked
+  - json-schema-response-canary-validated
+  - structured-output-trace-captured
+  - structured-output-redaction-checked
+  - openai-tool-calling-canary-executed
+  - provider-tool-call-path-checked
+  - tool-argument-schema-canary-validated
+  - mock-tool-output-reinjection-checked
+  - tool-approval-boundary-canary-checked
+  - tool-output-reclassification-checked
+  - tool-calling-trace-captured
+  - tool-calling-redaction-checked
+  - canary-matrix-summarized
+  - local-readiness-documented
+  - local-endpoint-blocker-recorded
+  - openai-tool-calling-canary-rerun-executed
+  - tool-calling-canary-consistency-checked
+  - tool-calling-rerun-trace-captured
+  - replay-evidence-recorded
+  - openai-canary-replay-suite-executed
+  - openai-no-tool-canary-rerun-executed
+  - openai-structured-output-canary-rerun-executed
+  - openai-canary-suite-consistency-checked
+  - canary-suite-replay-evidence-recorded
+  - canary-suite-trace-comparison-recorded
+  - beta-release-evidence-bundle-drafted
+  - evidence-lineage-indexed
+  - claim-boundary-audited
+  - release-readiness-draft-assessed
+  - blocker-register-updated
+  - release-gate-thresholds-drafted
+  - release-gate-dry-run-executed
+  - release-blockers-prioritized
+  - owner-action-matrix-drafted
+  - rollback-plan-drafted
+  - release-decision-record-drafted
+  - redteam-suite-designed
+  - redteam-fixtures-authored
+  - redteam-taxonomy-mapped
+  - redteam-severity-rubric-drafted
+  - redteam-execution-gate-designed
+  - redteam-blocker-updated
+  - redteam-mock-dry-run-executed
+  - redteam-fixture-execution-path-checked
+  - redteam-result-schema-validated
+  - redteam-severity-aggregation-checked
+  - mock-redteam-trace-captured
+  - mock-redteam-gate-checked
+  - openai-redteam-limited-execution-plan-drafted
+  - openai-redteam-case-subset-selected
+  - openai-redteam-execution-guard-designed
+  - openai-redteam-cost-bound-drafted
+  - openai-redteam-stop-criteria-drafted
+  - openai-redteam-redaction-policy-drafted
+  - openai-redteam-trace-policy-drafted
+  - openai-redteam-limited-execution-preflight-completed
+  - openai-redteam-approval-packet-generated
+  - openai-redteam-credential-readiness-checked
+  - openai-redteam-command-plan-drafted
+  - openai-redteam-execution-preconditions-validated
+  - production-telemetry-design-drafted
+  - otel-genai-mapping-drafted
+  - langfuse-integration-plan-drafted
+  - telemetry-dashboard-spec-drafted
+  - telemetry-anomaly-thresholds-drafted
+  - telemetry-claim-gate-designed
+  - telemetry-blocker-updated
+
+prohibited_positive_claims:
+  - local-no-tool-canary-executed
+  - vllm-no-tool-canary-executed
+  - ollama-no-tool-canary-executed
+  - local-model-verified
+  - adapter-checked
+  - provider-verified
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - telemetry-connected
+  - production-ready
+  - production-monitored
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - replay-verified
+  - benchmark-backed
+  - provider-diverse
+  - integration-verified
+  - release-gated
+
+claim_upgrade_rule:
+  evidence_required: true
+  runner_presence_is_not_runner_execution: true
+  trace_schema_is_not_live_telemetry: true
+  adapter_skeleton_is_not_adapter_conformance: true
+  fixture_exists_is_not_test_passed: true
+  parser_sanity_passed_is_not_runtime_verified: true
+  checksum_snapshot_is_not_containment_proof: true
+  one_provider_design_is_not_provider_diversity: true
+  local_validation_record_is_not_release_gate: true
+  production_monitored_requires_live_telemetry_evidence: true
+  dry_run_mapping_pass_is_not_provider_execution_pass: true
+  dependency_static_validation_is_not_runtime_execution: true
+  ajv_schema_validation_is_not_model_output_schema_reliability: true
+  yaml_parser_pass_is_not_semantic_correctness: true
+  beta_entry_preflight_pass_is_not_beta_execution_approval: true
+  mock_runtime_execution_is_not_real_provider_execution: true
+  mock_tool_routing_is_not_real_tool_calling_verified: true
+  schema_contract_validation_is_not_model_schema_output_verified: true
+  trace_schema_smoke_test_is_not_live_telemetry_connected: true
+  approval_boundary_smoke_test_is_not_containment_proof: true
+  beta_mock_gate_pass_is_not_provider_execution_approval: true
+  provider_canary_pass_is_not_adapter_checked: true
+  no_tool_text_path_pass_is_not_tool_calling_verified: true
+  provider_trace_captured_is_not_telemetry_connected: true
+  one_provider_canary_is_not_provider_diversity: true
+  one_canary_run_is_not_replay_verified: true
+  openai_canary_pass_is_not_local_model_compatibility: true
+  store_false_canary_is_not_production_privacy_review: true
+  credentialed_openai_canary_pass_is_not_adapter_checked: true
+  one_openai_no_tool_path_pass_is_not_provider_verified: true
+  no_structured_output_used_is_not_schema_output_verified: true
+  one_credentialed_run_is_not_replay_verified: true
+  structured_output_canary_pass_is_not_schema_output_verified: true
+  ajv_validation_on_canary_cases_is_not_broad_schema_reliability: true
+  no_tool_structured_output_pass_is_not_tool_calling_verified: true
+  one_provider_structured_output_canary_is_not_provider_diversity: true
+  one_credentialed_structured_output_run_is_not_replay_verified: true
+  openai_structured_output_canary_pass_is_not_local_model_compatibility: true
+  redacted_trace_captured_is_not_telemetry_connected: true
+  tool_calling_canary_pass_is_not_tool_call_verified: true
+  deterministic_mock_tool_pass_is_not_external_tool_reliability: true
+  approval_boundary_canary_is_not_containment_proof: true
+  function_call_output_reinjection_pass_is_not_integration_verified: true
+  one_provider_tool_path_pass_is_not_provider_diversity: true
+  one_credentialed_tool_canary_run_is_not_replay_verified: true
+  openai_tool_canary_pass_is_not_local_model_compatibility: true
+  openai_no_tool_structured_and_tool_canary_pass_is_not_provider_verified: true
+  openai_canary_coverage_is_not_provider_diversity: true
+  local_readiness_documented_is_not_local_model_executed: true
+  missing_local_endpoint_must_be_recorded_as_blocker_not_failure: true
+  local_blocked_state_cannot_grant_local_no_tool_canary_executed: true
+  canary_matrix_summary_is_not_replay_verification: true
+  canary_rerun_pass_is_not_replay_verified: true
+  same_restricted_case_set_pass_is_not_broad_replay_coverage: true
+  openai_tool_calling_rerun_is_not_provider_diversity: true
+  deterministic_mock_tool_rerun_is_not_external_tool_reliability: true
+  rerun_redacted_trace_captured_is_not_telemetry_connected: true
+  rerun_evidence_recorded_is_not_release_gated: true
+  canary_replay_suite_pass_is_not_replay_verified: true
+  canary_replay_evidence_is_not_broad_regression_coverage: true
+  openai_only_replay_suite_is_not_provider_diversity: true
+  restricted_canary_pass_is_not_adapter_checked: true
+  structured_output_rerun_is_not_schema_output_verified: true
+  tool_calling_rerun_is_not_tool_call_verified: true
+  suite_summary_is_not_release_gated: true
+  evidence_bundle_draft_is_not_release_gated: true
+  canary_replay_suite_is_not_replay_verified: true
+  openai_only_evidence_is_not_provider_diversity: true
+  local_blocker_documented_is_not_local_model_executed: true
+  claim_boundary_audit_pass_is_not_production_readiness: true
+  release_readiness_draft_is_not_release_gate_pass: true
+  checksum_bundle_is_not_containment_proof: true
+  redacted_trace_evidence_is_not_production_telemetry: true
+  release_gate_dry_run_is_not_release_gated: true
+  threshold_coverage_summary_is_not_threshold_pass: true
+  blocker_priority_assigned_is_not_blocker_resolved: true
+  rollback_plan_draft_is_not_rollback_plan_finalized: true
+  owner_action_matrix_draft_is_not_operational_readiness: true
+  beta_evidence_bundle_pass_is_not_production_readiness: true
+  redteam_fixtures_authored_is_not_redteam_executed: true
+  redteam_suite_designed_is_not_redteam_passed: true
+  severity_rubric_drafted_is_not_containment_verified: true
+  owasp_nist_mitre_mapping_is_not_security_certification: true
+  redteam_execution_gate_designed_is_not_release_gate_passed: true
+  redteam_blocker_updated_is_not_blocker_resolved: true
+  mock_redteam_dry_run_is_not_live_redteam_execution: true
+  mock_runtime_safety_pass_is_not_containment_verified: true
+  fixture_execution_path_checked_is_not_redteam_passed: true
+  severity_aggregation_pass_is_not_release_gated: true
+  provider_local_redteam_remains_pending: true
+  provider_redteam_plan_is_not_provider_redteam_execution: true
+  case_subset_selected_is_not_redteam_passed: true
+  execution_guard_designed_is_not_containment_verified: true
+  cost_bound_drafted_is_not_production_readiness: true
+  redaction_policy_drafted_is_not_production_telemetry: true
+  execution_readiness_is_not_release_gated: true
+  execution_preflight_is_not_redteam_execution: true
+  approval_packet_generated_is_not_approval_granted: true
+  credential_readiness_checked_is_not_provider_execution: true
+  command_plan_drafted_is_not_command_executed: true
+  selected_case_subset_ready_is_not_redteam_passed: true
+  preflight_pass_is_not_containment_verified: true
+  telemetry_design_is_not_telemetry_connected: true
+  otel_mapping_drafted_is_not_live_export: true
+  langfuse_integration_plan_is_not_langfuse_api_connected: true
+  dashboard_spec_drafted_is_not_dashboard_available: true
+  anomaly_thresholds_drafted_is_not_thresholds_active: true
+  telemetry_blocker_updated_is_not_blocker_resolved: true
+
+runner_status:
+  v36_runners_reexecuted_for_alpha: false
+  provider_execution: false
+  local_model_execution: false
+  runtime_execution_loop_implemented: false
+  mock_runtime_execution_loop_implemented: true
+  mock_provider_execution: false
+  mock_local_model_execution: false
+  mock_external_side_effects: false
+  openai_provider_canary_allowed: true
+  openai_provider_execution_status: canary_only
+  openai_tool_calling_execution: canary_only
+  openai_tool_calling_rerun: canary_rerun_only
+  openai_canary_replay_suite: canary_suite_only
+  beta_release_evidence_bundle: draft_only
+  release_gate_dry_run: blocked_not_release_gated
+  redteam_suite_design: design_only
+  redteam_mock_runtime_dry_run: mock_dry_run_only
+  openai_redteam_limited_execution_plan: draft_only
+  openai_redteam_limited_execution_preflight: blocked_by_missing_credential
+  production_telemetry_design: design_only
+  actual_redteam_execution: false
+  actual_provider_redteam_execution: false
+  actual_local_redteam_execution: false
+  can_execute_provider_redteam: false
+  redteam_execution_allowed: false
+  openai_structured_output_execution: canary_only
+  replay_verified_claim: false
+  canary_matrix_summary_generated: true
+  local_endpoint_probe: false
+  local_readiness_documented: true
+  telemetry_sink_write_enabled: false
+  production_monitored: false
+  live_telemetry_connected: false
+  note: Existing records/reports were inspected, but v36 runners were not re-executed in this step.

@@ -1,0 +1,131 @@
+{
+  "suite_mode": "runtime-os",
+  "suite_id": "v34-runtime-os-2026-05-19-a",
+  "run_id": "runtime-os-smoke-2026-05-19-a",
+  "created_at": "2026-05-19T04:53:39.222Z",
+  "scenarios": [
+    {
+      "suite_mode": "runtime-os",
+      "scenario_id": "ros-15-runner-setup-failure",
+      "trace_id": "runtime-os-smoke-2026-05-19-a-ros-15-runner-setup-failure-trace",
+      "trace_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\runtime-os-smoke-2026-05-19-a\\ros-15-runner-setup-failure.trace.json",
+      "result_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\runtime-os-smoke-2026-05-19-a\\ros-15-runner-setup-failure.result.json",
+      "verdict": "Pass",
+      "claim_strength": "runner_executed",
+      "exit_code": 0,
+      "final_state": {
+        "status": "runner_failure_classified",
+        "source_run_id": "audit-smoke",
+        "source_scenario_id": "EH-S01",
+        "classified_as": "runner_failure",
+        "agent_failure": false,
+        "trace_shape_ok": true
+      },
+      "verification_state": {
+        "checks_executed": [
+          "legacy_summary_present",
+          "legacy_failure_detected",
+          "failure_classified_as_runner_failure"
+        ],
+        "checks_passed": [
+          "legacy_failure_detected",
+          "failure_classified_as_runner_failure"
+        ],
+        "checks_failed": [],
+        "trace_shape_ok": true
+      }
+    },
+    {
+      "suite_mode": "runtime-os",
+      "scenario_id": "ros-16-replay-ready-not-executed",
+      "trace_id": "runtime-os-smoke-2026-05-19-a-ros-16-replay-ready-not-executed-trace",
+      "trace_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\runtime-os-smoke-2026-05-19-a\\ros-16-replay-ready-not-executed.trace.json",
+      "result_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\runtime-os-smoke-2026-05-19-a\\ros-16-replay-ready-not-executed.result.json",
+      "verdict": "Pass",
+      "claim_strength": "runner_executed",
+      "exit_code": 0,
+      "final_state": {
+        "replay_support_status": "ready_not_executed",
+        "replay_verified": false,
+        "trace_shape_ok": true
+      },
+      "verification_state": {
+        "checks_executed": [
+          "replay_support_status_recorded",
+          "claim_strength_not_inflated"
+        ],
+        "checks_passed": [
+          "replay_support_status_recorded",
+          "claim_strength_not_inflated"
+        ],
+        "checks_failed": [],
+        "trace_shape_ok": true
+      }
+    },
+    {
+      "suite_mode": "runtime-os",
+      "scenario_id": "ros-24-policy-allow-deny-failure",
+      "trace_id": "runtime-os-smoke-2026-05-19-a-ros-24-policy-allow-deny-failure-trace",
+      "trace_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\runtime-os-smoke-2026-05-19-a\\ros-24-policy-allow-deny-failure.trace.json",
+      "result_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\runtime-os-smoke-2026-05-19-a\\ros-24-policy-allow-deny-failure.result.json",
+      "verdict": "Pass",
+      "claim_strength": "runner_executed",
+      "exit_code": 0,
+      "final_state": {
+        "status": "high_risk_action_blocked",
+        "high_risk_action_blocked": true,
+        "decision": "deny",
+        "trace_shape_ok": true
+      },
+      "verification_state": {
+        "checks_executed": [
+          "default_deny_present",
+          "high_risk_rule_present",
+          "high_risk_action_not_auto_allowed"
+        ],
+        "checks_passed": [
+          "default_deny_present",
+          "high_risk_rule_present",
+          "high_risk_action_not_auto_allowed"
+        ],
+        "checks_failed": [],
+        "trace_shape_ok": true
+      }
+    },
+    {
+      "suite_mode": "runtime-os",
+      "scenario_id": "ros-25-observability-gap",
+      "trace_id": "runtime-os-smoke-2026-05-19-a-ros-25-observability-gap-trace",
+      "trace_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\runtime-os-smoke-2026-05-19-a\\ros-25-observability-gap.trace.json",
+      "result_file": "C:\\WORK\\0.개인\\PROMPT\\prompt-stack\\v34\\harness\\runs\\runtime-os-smoke-2026-05-19-a\\ros-25-observability-gap.result.json",
+      "verdict": "Pass",
+      "claim_strength": "plausible",
+      "exit_code": 0,
+      "final_state": {
+        "status": "claim_downgraded_due_to_observability_gap",
+        "observability_gap_present": true,
+        "missing_signals": [
+          "log_query_interface",
+          "metric_query_interface",
+          "trace_query_interface",
+          "dom_snapshot_capture",
+          "screenshot_capture"
+        ],
+        "stronger_claim_blocked": true,
+        "trace_shape_ok": true
+      },
+      "verification_state": {
+        "checks_executed": [
+          "observability_gap_detected",
+          "claim_strength_downgraded"
+        ],
+        "checks_passed": [
+          "observability_gap_detected",
+          "claim_strength_downgraded"
+        ],
+        "checks_failed": [],
+        "trace_shape_ok": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "native_actor_provider_available": false,
+  "native_actor_provider_type": "unavailable",
+  "codex_actor_provider_available": false,
+  "codex_actor_provider_type": "unavailable",
+  "can_execute_all_73_native_packets": false,
+  "can_execute_all_25_codex_packets": false,
+  "observed_provider_checks": [
+    {
+      "provider": "codex_cli",
+      "command": "codex --help",
+      "result": "Access is denied",
+      "usable": false
+    },
+    {
+      "provider": "approved_api",
+      "environment_keys_present": [],
+      "result": "No approved API/model provider credentials detected in environment key scan.",
+      "usable": false
+    },
+    {
+      "provider": "local_model",
+      "result": "No local model runtime command detected beyond node/python shims; no actual model actor available.",
+      "usable": false
+    }
+  ],
+  "blockers": [
+    "native actor provider unavailable",
+    "Codex actor provider unavailable",
+    "codex.exe access denied",
+    "no approved hosted/API provider configured",
+    "actor output fabrication prohibited"
+  ],
+  "required_user_action": [
+    "Provide actual actor output files under records/actor_outputs/native and records/actor_outputs/codex.",
+    "Or enable an approved live actor provider/Codex runtime provider and rerun A2."
+  ]
+}

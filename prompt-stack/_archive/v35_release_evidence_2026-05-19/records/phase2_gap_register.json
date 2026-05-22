@@ -1,0 +1,58 @@
+[
+  {
+    "priority": "P0",
+    "gap": "None identified in Phase 2 planning evidence.",
+    "target_owner": "n/a",
+    "rationale": "No safety blocker requiring immediate source edit was found during collection. This is not behavior verification.",
+    "required_action": "Continue to Phase 3 audit."
+  },
+  {
+    "priority": "P1",
+    "gap": "Current/latest model, API, and tool pages require primary-source validation.",
+    "target_owner": "PROMPT_retrieval_grounding_overlay / grounded-research",
+    "rationale": "PromptingGuide.ai is useful but not authoritative for latest product/API status.",
+    "required_action": "Mark Need Verification and validate against primary sources before release claims."
+  },
+  {
+    "priority": "P1",
+    "gap": "Prompt Hub examples need structure-only transformation before entering example catalog.",
+    "target_owner": "PROMPT_example_catalog / PROMPT_example_injection",
+    "rationale": "Example body must not become factual authority or runtime policy.",
+    "required_action": "Add only task-family shape entries and selection constraints."
+  },
+  {
+    "priority": "P1",
+    "gap": "Tool/function calling, ReAct, and ART require explicit non-automatic-execution boundaries.",
+    "target_owner": "PROMPT_tool_protocol_overlay / PROMPT_harness_contracts",
+    "rationale": "Source technique descriptions can be misread as permission to call tools automatically.",
+    "required_action": "Plan parameter, approval, observation, and semantic-success checks."
+  },
+  {
+    "priority": "P1",
+    "gap": "Codex runtime impact must be reviewed independently from 00~04 source-of-truth changes.",
+    "target_owner": "CODEX_RUNTIME_GUIDE / codex skills",
+    "rationale": "Runtime assets are optimized packages, not mirrors.",
+    "required_action": "Add Codex Runtime Impact Review and behavior validation cases."
+  },
+  {
+    "priority": "P2",
+    "gap": "Reasoning technique coverage should preserve hidden-reasoning boundary.",
+    "target_owner": "PROMPT_search_reasoning_overlay",
+    "rationale": "CoT-family material must not become raw hidden reasoning disclosure demand.",
+    "required_action": "Use concise rationale/output contract framing."
+  },
+  {
+    "priority": "P2",
+    "gap": "RAG pages need stronger faithfulness/conflict/freshness test cases.",
+    "target_owner": "PROMPT_retrieval_grounding_overlay / PROMPT_harness_contracts",
+    "rationale": "RAG should not collapse into search-result paste.",
+    "required_action": "Draft source conflict, stale evidence, and citation-padding cases."
+  },
+  {
+    "priority": "P3",
+    "gap": "Application pages can enrich example catalog breadth.",
+    "target_owner": "PROMPT_example_catalog",
+    "rationale": "Useful for task-family coverage but lower priority than safety/tool/retrieval gates.",
+    "required_action": "Add only after boundary and injection rules are stable."
+  }
+]

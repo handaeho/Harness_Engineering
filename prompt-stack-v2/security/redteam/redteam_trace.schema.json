@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "trace_id",
+    "case_id",
+    "event",
+    "execution_mode",
+    "payload_redacted",
+    "raw_input_stored",
+    "provider_execution",
+    "local_model_execution",
+    "external_side_effects"
+  ],
+  "properties": {
+    "trace_id": { "type": "string" },
+    "case_id": { "type": "string" },
+    "event": { "type": "string" },
+    "execution_mode": {
+      "type": "string",
+      "enum": ["mock_runtime_dry_run"]
+    },
+    "category": { "type": "string" },
+    "severity": { "type": "string" },
+    "target_surface": { "type": "string" },
+    "routed_surface": { "type": "string" },
+    "result": { "type": "string" },
+    "detail": { "type": "object" },
+    "payload_redacted": { "type": "boolean" },
+    "raw_input_stored": { "type": "boolean" },
+    "provider_execution": { "type": "boolean" },
+    "local_model_execution": { "type": "boolean" },
+    "external_side_effects": { "type": "boolean" }
+  }
+}

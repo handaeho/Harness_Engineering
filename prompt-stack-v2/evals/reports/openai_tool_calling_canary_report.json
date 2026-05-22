@@ -1,0 +1,104 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-tool-calling-canary-openai",
+  "mode": "openai_tool_calling_canary_mock_tools_only",
+  "provider": "openai",
+  "provider_execution": true,
+  "tool_calling_used": true,
+  "function_tools_used": true,
+  "built_in_tools_used": false,
+  "remote_mcp_used": false,
+  "local_model_execution": false,
+  "external_side_effects": false,
+  "store_false_enforced": true,
+  "tool_argument_ajv_validation_used": true,
+  "mock_tools_only": true,
+  "cases_total": 7,
+  "cases_passed": 7,
+  "cases_failed": 0,
+  "tool_calls_total": 6,
+  "tool_argument_validations_total": 6,
+  "tool_argument_validations_passed": 6,
+  "tool_argument_validations_failed": 0,
+  "mock_tools_executed": 6,
+  "blocked_tools_requested": 1,
+  "blocked_tools_executed": 0,
+  "tool_outputs_reclassified_untrusted": 6,
+  "final_responses_received": 6,
+  "expected_final_responses": 6,
+  "trace_events_total": 72,
+  "redaction_passed": true,
+  "raw_response_stored": false,
+  "claims_allowed": [
+    "openai-tool-calling-canary-executed",
+    "provider-tool-call-path-checked",
+    "tool-argument-schema-canary-validated",
+    "mock-tool-output-reinjection-checked",
+    "tool-approval-boundary-canary-checked",
+    "tool-output-reclassification-checked",
+    "tool-calling-trace-captured",
+    "tool-calling-redaction-checked"
+  ],
+  "claims_not_allowed": [
+    "tool-call-verified",
+    "provider-verified",
+    "adapter-checked",
+    "integration-verified",
+    "provider-diverse",
+    "replay-verified",
+    "release-gated",
+    "production-monitored"
+  ],
+  "case_results": [
+    {
+      "case_id": "lookup_tool_call_success",
+      "fixture_file": "adapters/api/openai/tool_calling_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "calculator_tool_call_success",
+      "fixture_file": "adapters/api/openai/tool_calling_cases.jsonl",
+      "fixture_line": 2,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "tool_argument_schema_validation",
+      "fixture_file": "adapters/api/openai/tool_calling_cases.jsonl",
+      "fixture_line": 3,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "tool_output_reclassified_untrusted",
+      "fixture_file": "adapters/api/openai/tool_calling_cases.jsonl",
+      "fixture_line": 4,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "blocked_external_post_not_executed",
+      "fixture_file": "adapters/api/openai/tool_calling_cases.jsonl",
+      "fixture_line": 5,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "no_builtin_tools_present",
+      "fixture_file": "adapters/api/openai/tool_calling_cases.jsonl",
+      "fixture_line": 6,
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "final_response_after_tool_output",
+      "fixture_file": "adapters/api/openai/tool_calling_cases.jsonl",
+      "fixture_line": 7,
+      "status": "pass",
+      "failures": []
+    }
+  ],
+  "failures": []
+}

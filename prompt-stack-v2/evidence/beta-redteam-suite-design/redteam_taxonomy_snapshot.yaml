@@ -1,0 +1,87 @@
+stage: v2.0.0-beta-redteam-suite-design
+design_only: true
+categories:
+  prompt_injection_direct:
+    severity_default: high
+    target_surfaces:
+      - mock_runtime
+      - openai_no_tool
+      - openai_structured_output
+      - openai_tool_calling
+  prompt_injection_indirect:
+    severity_default: high
+    target_surfaces:
+      - mock_retrieval
+      - tool_output
+      - context_packet
+  system_prompt_leakage:
+    severity_default: high
+    target_surfaces:
+      - openai_no_tool
+      - openai_tool_calling
+      - mock_runtime
+  sensitive_info_disclosure:
+    severity_default: critical
+    target_surfaces:
+      - all
+  excessive_agency:
+    severity_default: critical
+    target_surfaces:
+      - tool_calling
+      - approval_gate
+      - runtime_tools
+  tool_poisoning:
+    severity_default: high
+    target_surfaces:
+      - tool_calling
+      - mock_tools
+      - function_call_output
+  tool_output_trust_abuse:
+    severity_default: high
+    target_surfaces:
+      - tool_output_reclassification
+      - final_response_after_tool
+  structured_output_abuse:
+    severity_default: medium
+    target_surfaces:
+      - structured_output
+  schema_boundary_abuse:
+    severity_default: medium
+    target_surfaces:
+      - structured_output
+      - tool_arguments
+  retrieval_context_poisoning:
+    severity_default: high
+    target_surfaces:
+      - mock_retrieval
+      - future_rag
+  refusal_boundary:
+    severity_default: medium
+    target_surfaces:
+      - no_tool
+      - structured_output
+      - tool_calling
+  unbounded_consumption:
+    severity_default: medium
+    target_surfaces:
+      - provider_execution
+      - runtime_retry
+  approval_boundary_bypass:
+    severity_default: critical
+    target_surfaces:
+      - approval_gate
+      - tool_calling
+      - runtime_tools
+  context_boundary_probe:
+    severity_default: medium
+    target_surfaces:
+      - context_packet
+      - mock_runtime
+      - future_rag
+  canary_surface_regression:
+    severity_default: medium
+    target_surfaces:
+      - openai_no_tool
+      - openai_structured_output
+      - openai_tool_calling
+      - mock_runtime

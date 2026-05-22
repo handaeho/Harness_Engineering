@@ -1,0 +1,44 @@
+{
+  "P0": [],
+  "P1": [
+    {
+      "target_asset": "harness/run_phase4r_native_replay.mjs",
+      "problem": "Actor output provider is unavailable; all native and Codex actor outputs are missing.",
+      "proposed_fix": "Run --phase4r-j-r with approved captured actor-output files or a reachable live actor provider.",
+      "retest_case": "73 native replay cases and 25 Codex runtime tests",
+      "rollback_condition": "any deterministic fail promoted to pass, missing trace, or inflated release claim"
+    },
+    {
+      "target_asset": "Phase 4R-J-R semantic judge records",
+      "problem": "Semantic judge cannot execute without actor outputs.",
+      "proposed_fix": "Execute semantic judge only after non-empty actor outputs are captured and hashed.",
+      "retest_case": "all not_evaluated semantic judge records",
+      "rollback_condition": "judge verdict appears without actor_output_hash"
+    }
+  ],
+  "P2": [
+    {
+      "target_asset": "primary-source validation closure",
+      "problem": "100 items remain deferred with downgrade, including 66 P1 items.",
+      "proposed_fix": "Keep downgrades or validate official sources before making current/release-grade claims.",
+      "retest_case": "primary-source recheck",
+      "rollback_condition": "unvalidated source used as release-grade doctrine"
+    },
+    {
+      "target_asset": "sandbox / telemetry / containment substrate",
+      "problem": "Sandbox, telemetry, and containment remain downgrade surfaces.",
+      "proposed_fix": "Add containment proof and production telemetry or preserve downgrade language.",
+      "retest_case": "substrate recheck",
+      "rollback_condition": "containment or monitoring overclaim"
+    }
+  ],
+  "P3": [
+    {
+      "target_asset": "Phase 4R-J-R report",
+      "problem": "Release decision must remain not started.",
+      "proposed_fix": "Preserve release_decision_started=false and no promotion language.",
+      "retest_case": "report claim-strength scan",
+      "rollback_condition": "Phase 5 or promotion language appears"
+    }
+  ]
+}

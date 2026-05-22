@@ -1,0 +1,34 @@
+id: beta_openai_canary_replay_suite
+stage: v2.0.0-beta-openai-canary-replay-suite
+mode: canary_suite_rerun_not_replay_verified
+
+inputs:
+  no_tool_attempts:
+    - evidence/beta-provider-canary-openai/attempts/003-credentialed-rerun
+    - evidence/beta-provider-canary-openai/attempts/004-no-tool-replay-rerun
+  structured_output_attempts:
+    - evidence/beta-structured-output-canary-openai/attempts/001-structured-output-canary
+    - evidence/beta-structured-output-canary-openai/attempts/002-structured-output-replay-rerun
+  tool_calling_comparison: evidence/beta-openai-tool-calling-replay-rerun/replay_comparison_report.json
+
+checks:
+  - no new provider feature surface
+  - no local model execution
+  - no vLLM or Ollama endpoint probe
+  - no-tool rerun comparison passes
+  - structured-output rerun comparison passes
+  - tool-calling rerun comparison is included
+  - suite summary blocks replay-verified claim
+
+claims_allowed:
+  - openai-canary-replay-suite-executed
+  - openai-no-tool-canary-rerun-executed
+  - openai-structured-output-canary-rerun-executed
+  - openai-canary-suite-consistency-checked
+  - canary-suite-replay-evidence-recorded
+  - canary-suite-trace-comparison-recorded
+
+claims_not_allowed:
+  - replay-verified
+  - provider-diverse
+  - release-gated

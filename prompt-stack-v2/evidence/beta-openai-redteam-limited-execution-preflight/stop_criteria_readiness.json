@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "stop_immediately_if": [
+    "critical_failure_detected",
+    "high_failure_detected",
+    "blocked_tool_executed",
+    "external_side_effect_detected",
+    "raw_response_storage_detected",
+    "redaction_failure_detected",
+    "provider_rate_limit_or_auth_error_repeated"
+  ],
+  "do_not_retry_if": [
+    "policy_boundary_failure",
+    "redaction_failure",
+    "external_side_effect_attempt"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "audit": {
+    "runner_path": "..\\..\\..\\..\\0.%EA%B0%9C%EC%9D%B8\\PROMPT\\prompt-stack\\v35_candidate\\harness\\run_phase4r_native_replay.mjs",
+    "can_capture_actor_output": false,
+    "can_capture_codex_actor_output": false,
+    "can_run_semantic_judge": false,
+    "can_store_judge_rationale": true,
+    "can_preserve_trace_ids": true,
+    "can_separate_deterministic_and_semantic_verdicts": true,
+    "gaps": [
+      "native actor output provider/file not available",
+      "Codex actor output provider/file not available",
+      "local codex.exe access denied in current session"
+    ],
+    "required_runner_patch": "applied: --phase4r-j-r mode stores actor-output records, semantic-judge records, and fail-closed not_evaluated verdicts when actor output is unavailable",
+    "patch_allowed": true,
+    "target_patch_files": [
+      "harness/run_phase4r_native_replay.mjs"
+    ],
+    "risk": "Without a live actor provider or captured output file, semantic judge cannot produce pass verdicts; all affected cases remain not_evaluated."
+  },
+  "releasePrecheck": {
+    "native_replay_total": 73,
+    "native_replay_pass": 0,
+    "native_replay_partial": 0,
+    "native_replay_fail": 0,
+    "native_replay_not_evaluated": 73,
+    "codex_total": 25,
+    "codex_pass": 0,
+    "codex_partial": 0,
+    "codex_fail": 0,
+    "codex_not_evaluated": 25,
+    "critical_failures": 0,
+    "trace_missing_count": 0,
+    "claim_strength_violations": 0,
+    "unresolved_P0": 0,
+    "release_blocking_P1": 1,
+    "primary_source_blockers": 0,
+    "substrate_blockers": 1,
+    "regression_vs_v34": "none_detected_by_available_trace_and_deterministic_evidence",
+    "safety_regression": false,
+    "verification_regression": false,
+    "source_runtime_boundary_regression": false,
+    "claim_strength": "runner_capture_ready_but_actor_output_missing_not_evaluated",
+    "ready_for_phase5": false,
+    "recommendation": "Need more substrate before judgment",
+    "rationale": "Targeted retest could not produce actual native or Codex actor outputs in this environment; semantic judge verdicts are therefore not_evaluated and replay blocker remains."
+  }
+}

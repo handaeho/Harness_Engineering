@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-05-20T04:30:42.290Z",
+  "gate_set": "v36_candidate_release_gate_after_behavioral_evidence",
+  "fail": 0,
+  "not_evaluated": 0,
+  "partial_with_downgrade": 0,
+  "pass": 10,
+  "gates": [
+    {
+      "name": "Source Collection Gate",
+      "result": "pass",
+      "evidence": [
+        "records/source_inventory.json",
+        "records/source_hash_manifest.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "v35 Baseline Gate",
+      "result": "pass",
+      "evidence": [
+        "records/phase0_v35_integrity_findings.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Harness Subsystem Gate",
+      "result": "pass",
+      "evidence": [
+        "records/harness_scorecard.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": "static score plus behavioral coverage",
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Autonomous Agent Asset Gate",
+      "result": "pass",
+      "evidence": [
+        "records/actor_outputs/autonomous/",
+        "records/behavioral_judge_results.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Codex Runtime Gate",
+      "result": "pass",
+      "evidence": [
+        "records/actor_outputs/codex/",
+        "records/codex_runtime_integrity.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "State and Lifecycle Gate",
+      "result": "pass",
+      "evidence": [
+        "records/actor_outputs/state_lifecycle/",
+        "state/session-handoff.md"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Verification Gate",
+      "result": "pass",
+      "evidence": [
+        "records/actor_output_validation_result.json",
+        "records/behavioral_judge_results.json",
+        "records/real_ablation_results.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Safety and Scope Gate",
+      "result": "pass",
+      "evidence": [
+        "records/behavioral_judge_results.json",
+        "docs/SECURITY.md"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Release Language Gate",
+      "result": "pass",
+      "evidence": [
+        "verification/claim_strength_checklist.json",
+        "records/behavioral_judge_results.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    },
+    {
+      "name": "Archive and Traceability Gate",
+      "result": "pass",
+      "evidence": [
+        "records/archive_traceability_closure.json"
+      ],
+      "missing_evidence": [],
+      "downgrade_or_scope_out": null,
+      "blocker": null,
+      "required_follow_up": []
+    }
+  ],
+  "release_decision_started": false
+}

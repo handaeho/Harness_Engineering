@@ -1,0 +1,86 @@
+{
+  "trace_id": "runtime-os-smoke-2026-05-19-a-ros-25-observability-gap-trace",
+  "session_id": "runtime-os-smoke-2026-05-19-a",
+  "run_id": "runtime-os-smoke-2026-05-19-a",
+  "cohort_id": "runtime-os-smoke",
+  "scenario_id": "ros-25-observability-gap",
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "prompt_version": "v34",
+  "model_version": "deterministic-local-runner",
+  "selected_base_prompt": "PROMPT_light",
+  "selected_skill": "eval-ops",
+  "selected_overlays": [
+    "PROMPT_evaluation_monitoring_overlay"
+  ],
+  "example_mode": "none",
+  "task_family": "proof_gap",
+  "risk_class": "R2",
+  "started_at": "2026-05-19T04:53:39.227Z",
+  "finished_at": "2026-05-19T04:53:39.227Z",
+  "approval_events": [],
+  "policy_decision_events": [],
+  "network_policy_events": [],
+  "tool_result_events": [],
+  "retry_events": [
+    {
+      "attempts": 1,
+      "retry_used": false
+    }
+  ],
+  "failure_events": [],
+  "verification_events": [
+    {
+      "check_id": "observability_gap_detected",
+      "passed": true,
+      "failed": false
+    },
+    {
+      "check_id": "claim_strength_downgraded",
+      "passed": true,
+      "failed": false
+    }
+  ],
+  "safety_events": [],
+  "sandbox_events": [],
+  "memory_events": [],
+  "retrieval_events": [],
+  "multi_agent_events": [],
+  "error_events": [],
+  "token_usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "claim_strength": "plausible",
+  "cost_events": [
+    {
+      "currency": "USD",
+      "total": 0
+    }
+  ],
+  "latency_events": [
+    {
+      "total_ms": 0
+    }
+  ],
+  "shell_command_events": [],
+  "log_query_events": [],
+  "metric_query_events": [],
+  "trace_query_events": [],
+  "dom_snapshot_events": [],
+  "screenshot_events": [],
+  "smoke_journey_events": [],
+  "final_state": {
+    "status": "claim_downgraded_due_to_observability_gap",
+    "observability_gap_present": true,
+    "missing_signals": [
+      "log_query_interface",
+      "metric_query_interface",
+      "trace_query_interface",
+      "dom_snapshot_capture",
+      "screenshot_capture"
+    ],
+    "stronger_claim_blocked": true,
+    "trace_shape_ok": true
+  },
+  "verdict": "Pass"
+}

@@ -1,0 +1,201 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-openai-tool-calling-replay-rerun",
+  "can_enter_replay_verified_claim": false,
+  "can_enter_provider_diversity_claim": false,
+  "can_enter_release_gate": false,
+  "reason": "OpenAI tool-calling canary rerun passed under the same restricted mock-tool scope. Replay-verified and stronger claims remain closed.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_openai_credentialed_canary.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_openai_structured_output_canary.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_openai_tool_calling_canary.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "attempt 001 exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "attempt 002 exists or comparison is blocked",
+      "status": "pass",
+      "detail": {
+        "comparison_status": "pass"
+      }
+    },
+    {
+      "name": "replay comparison report exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "replay trace comparison exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "replay redaction report exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "both attempts pass",
+      "status": "pass",
+      "detail": {
+        "both_status_pass": true
+      }
+    },
+    {
+      "name": "same case set",
+      "status": "pass",
+      "detail": {
+        "same_case_set": true
+      }
+    },
+    {
+      "name": "same tool schema set",
+      "status": "pass",
+      "detail": {
+        "same_tool_schema_set": true
+      }
+    },
+    {
+      "name": "blocked_tools_executed is 0",
+      "status": "pass",
+      "detail": {
+        "blocked_tools_executed": 0
+      }
+    },
+    {
+      "name": "built_in_tools_used is false",
+      "status": "pass",
+      "detail": {
+        "built_in_tools_used": false
+      }
+    },
+    {
+      "name": "remote_mcp_used is false",
+      "status": "pass",
+      "detail": {
+        "remote_mcp_used": false
+      }
+    },
+    {
+      "name": "local_model_execution is false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "external_side_effects is false",
+      "status": "pass",
+      "detail": {
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "raw_response_stored is false",
+      "status": "pass",
+      "detail": {
+        "raw_response_stored": false
+      }
+    },
+    {
+      "name": "redaction passed",
+      "status": "pass",
+      "detail": {
+        "redaction_passed": true
+      }
+    },
+    {
+      "name": "required trace events present",
+      "status": "pass",
+      "detail": {
+        "required_events_present_in_attempt_001": true,
+        "required_events_present_in_attempt_002": true
+      }
+    },
+    {
+      "name": "no replay or stronger claims allowed",
+      "status": "pass",
+      "detail": {
+        "blocked_claims": [
+          "replay-verified",
+          "tool-call-verified",
+          "provider-verified",
+          "adapter-checked",
+          "provider-diverse",
+          "integration-verified",
+          "release-gated",
+          "production-monitored"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "openai-tool-calling-canary-rerun-executed",
+    "tool-calling-canary-consistency-checked",
+    "tool-calling-rerun-trace-captured",
+    "replay-evidence-recorded"
+  ],
+  "claims_blocked": [
+    "replay-verified",
+    "tool-call-verified",
+    "provider-verified",
+    "adapter-checked",
+    "provider-diverse",
+    "integration-verified",
+    "release-gated",
+    "production-monitored"
+  ]
+}

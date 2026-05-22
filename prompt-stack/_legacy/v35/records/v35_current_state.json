@@ -1,0 +1,55 @@
+{
+  "release_version": "v35",
+  "status": "current_stable",
+  "release_scope": [
+    "source_of_truth_stack",
+    "codex_runtime_package",
+    "harness_contracts",
+    "current_validation_records"
+  ],
+  "validation_scope": "local runner, actor-output, semantic-judge, and release-gate evidence",
+  "source_of_truth_assets": [
+    "00_governance",
+    "01_base",
+    "02_overlays",
+    "03_examples",
+    "04_harness"
+  ],
+  "codex_runtime_assets": [
+    "codex/AGENTS.md",
+    "codex/CODEX_RUNTIME_GUIDE.md",
+    "codex/skills/coding-core",
+    "codex/skills/design-analysis",
+    "codex/skills/eval-ops",
+    "codex/skills/grounded-research",
+    "codex/skills/orchestration-control"
+  ],
+  "evidence_summary": {
+    "native_semantic_judge": "73/73 pass",
+    "codex_runtime_semantic_judge": "25/25 pass",
+    "actor_output_authenticity": "98/98 judgeable",
+    "release_gates": "9 pass, 2 partial_with_downgrade, 0 fail",
+    "critical_failures": 0,
+    "P0": 0,
+    "release_blocking_P1": 0,
+    "trace_missing": 0,
+    "claim_strength_violations": 0
+  },
+  "downgrade_state": {
+    "primary_source": "downgrade",
+    "sandbox": "downgrade",
+    "telemetry": "downgrade",
+    "containment": "downgrade"
+  },
+  "archive_path": "_archive/v35_release_evidence_2026-05-19",
+  "generated_at": "2026-05-20T02:44:10.400Z",
+  "assembled_assets": [
+    "99_total"
+  ],
+  "integrity_closure": {
+    "total_role": "actual-use-bundle",
+    "source_to_99_total": "regenerated_from_source_of_truth",
+    "codex_to_99_total_codex": "mirrored_from_authoritative_codex_runtime_package",
+    "validation_checksum_policy": "validation/current_validation_result.json and validation/runs/*.json are mutable validation outputs excluded from immutable checksum manifest"
+  }
+}

@@ -1,0 +1,60 @@
+# V36 ARCHITECTURE DECISION
+
+Generated: 2026-05-20T03:18:26.751Z
+
+- Architecture selected: separate autonomous, Codex runtime, and operating assets.
+- 99_total selected option: autonomous actual-use bundle.
+- Release selected option: Hold v36_candidate.
+
+## Decision JSON
+{
+  "generated_at": "2026-05-20T03:18:26.751Z",
+  "candidate_name": "v36_candidate",
+  "current_stable_version": "v35",
+  "decision_summary": "Restructure as a five-subsystem harness operating system with separate autonomous source stack and Codex runtime package.",
+  "status": "candidate_only_not_stable",
+  "owner_layers": {
+    "autonomous_agent_assets": "autonomous/00_governance through autonomous/99_total",
+    "codex_runtime_assets": "codex/",
+    "harness_operating_assets": [
+      "state/",
+      "verification/",
+      "lifecycle/",
+      "docs/",
+      "harness/",
+      "validation/",
+      "records/",
+      "reports/",
+      "archive/"
+    ]
+  },
+  "decisions": [
+    {
+      "id": "ADR-v36-001",
+      "topic": "root router",
+      "decision": "Use short AGENTS.md and MASTER_PROMPT_ROUTER.md; move detail to docs/state/verification/lifecycle.",
+      "consequence": "Reduces instruction-load risk and creates stable startup path."
+    },
+    {
+      "id": "ADR-v36-002",
+      "topic": "99_total",
+      "decision": "Keep autonomous/99_total as actual-use bundle regenerated only from autonomous source-of-truth files.",
+      "consequence": "Codex runtime is no longer copied into 99_total."
+    },
+    {
+      "id": "ADR-v36-003",
+      "topic": "Codex runtime",
+      "decision": "Keep codex/ as independent runtime package validated by runtime fitness and boundary preservation.",
+      "consequence": "No textual mirror requirement against autonomous source files."
+    },
+    {
+      "id": "ADR-v36-004",
+      "topic": "release",
+      "decision": "Hold v36_candidate until real behavioral benchmark/ablation evidence exists.",
+      "consequence": "Do not copy to v36 or update stable pointers in this run."
+    }
+  ],
+  "selected_99_total_option": "A-autonomous-actual-use-bundle",
+  "codex_runtime_policy": "separate, not autonomous source-of-truth mirror",
+  "release_policy": "v36_candidate cannot be called v36 until all release gates pass with behavior evidence."
+}

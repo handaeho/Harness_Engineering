@@ -1,0 +1,644 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-tool-calling-canary-openai",
+  "request_mapping": {
+    "model_from_env": true,
+    "input_text_only": true,
+    "tools_present": true,
+    "function_tools_present": true,
+    "built_in_tools_present": false,
+    "structured_output_present": false,
+    "store_false": true,
+    "max_output_tokens_bounded": true
+  },
+  "response_mapping": {
+    "provider_response_id_present": true,
+    "tool_calls_extracted": true,
+    "final_response_text_extracted": true,
+    "raw_response_hash_present": true,
+    "raw_response_stored": false
+  },
+  "cases_total": 7,
+  "cases_mapped": 7,
+  "cases": [
+    {
+      "case_id": "lookup_tool_call_success",
+      "status": "pass",
+      "provider_call_required": true,
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Use the canary_lookup tool with key alpha. After the tool output is returned, answer with the returned value exactly.\nUse only the provided function tools. Do not use built-in tool...",
+        "input_hash": "7af9cd14412c4c823f6df6d85999ac4c4a454f645d8fee0ceb2edd9c33f14f64",
+        "input_is_array": false,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_lookup"
+        ],
+        "tool_schema_hashes": {
+          "canary_lookup": "359dac2f1641f306e344316190d3b274cc46bb9ade685aab4945a2c729d11f5c"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "initial_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "597fd1515332fd3882d57aa9e236f8f2bdac284d8838f00b26d46fe24a6f4f13",
+        "output_text_preview": "",
+        "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 120,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 19,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 139
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "b11f7fe86598b3a45bf7bc9555faf8311343f6aa0bfddc5aeb343f2d0b1dce6f",
+        "tool_calls": [
+          {
+            "item_id_present": true,
+            "call_id_present": true,
+            "call_id_hash": "4245b5fe9ea5813d26b55a56298ecec496aed23807840278883677e35cfb31fe",
+            "name": "canary_lookup",
+            "arguments": {
+              "key": "alpha"
+            },
+            "arguments_parse_error": null,
+            "status": "completed"
+          }
+        ],
+        "built_in_tool_items": []
+      },
+      "final_request_redacted": {
+        "model_present": true,
+        "input_preview": "[response_items_plus_tool_outputs]",
+        "input_hash": "8d8af5a0865b4b3b1b0933fb31e3f2ff5a3265d344117cfb3f8b91141dab30a9",
+        "input_is_array": true,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_lookup"
+        ],
+        "tool_schema_hashes": {
+          "canary_lookup": "359dac2f1641f306e344316190d3b274cc46bb9ade685aab4945a2c729d11f5c"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "final_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "7194d77bcc1b65ead25cc33c8cebe0132d998c8962eb8b0a44c834eb4991ebfa",
+        "output_text_preview": "CANARY_LOOKUP_ALPHA",
+        "output_text_hash": "741bf2f5d4436a75856f1c11567fb431fa840a21d11f8fb86975c19525d1d361",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 163,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 9,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 172
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "cc5cc8477322e226ffc074dc3a585f46b522887b2d543d3925ffd60540cdcb2e",
+        "tool_calls": [],
+        "built_in_tool_items": []
+      }
+    },
+    {
+      "case_id": "calculator_tool_call_success",
+      "status": "pass",
+      "provider_call_required": true,
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Use the canary_calculator tool to add 20 and 22. After the tool output is returned, answer with CANARY_CALC_42.\nUse only the provided function tools. Do not use built-in tools. Do ...",
+        "input_hash": "b2bbdd6d2e55f69e94b9f118fe57c424bcc53a45c81daf70bd4fe7dac8d81fb4",
+        "input_is_array": false,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_calculator"
+        ],
+        "tool_schema_hashes": {
+          "canary_calculator": "5c31c5e627377ef656049b1b25d2a2ac12cbd66fea9f8615a64c00c8b1c1b10b"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "initial_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "2faf466e52c2295624eb429f1bb776e550c23c27830f10669e31e36f3c7d6c13",
+        "output_text_preview": "",
+        "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 151,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 28,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 179
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "405d9309047f5ea647b87c5fe259efb88b65131c20b379408a32fbdd36cca0a5",
+        "tool_calls": [
+          {
+            "item_id_present": true,
+            "call_id_present": true,
+            "call_id_hash": "9a2cb2e3687de6e53e6206c7ef6150aa10020f3a87c1db252a53af97d6ee8fd7",
+            "name": "canary_calculator",
+            "arguments": {
+              "operation": "add",
+              "left": 20,
+              "right": 22
+            },
+            "arguments_parse_error": null,
+            "status": "completed"
+          }
+        ],
+        "built_in_tool_items": []
+      },
+      "final_request_redacted": {
+        "model_present": true,
+        "input_preview": "[response_items_plus_tool_outputs]",
+        "input_hash": "4959953e87aa0ff51acc563d5abe03323aed454e139abde7bca1b0bc1f6253a3",
+        "input_is_array": true,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_calculator"
+        ],
+        "tool_schema_hashes": {
+          "canary_calculator": "5c31c5e627377ef656049b1b25d2a2ac12cbd66fea9f8615a64c00c8b1c1b10b"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "final_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "afade0c73776ca4cc7b96dd6170bf4d8151d4afc6453a5747b89696da3fa1f6c",
+        "output_text_preview": "CANARY_CALC_42",
+        "output_text_hash": "4c10983dfa1cb57715d5efcf030bf05b19fc345b5dd06e52c08644082b86cefd",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 205,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 10,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 215
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "22f020284b0d7a82ab26160e9afb2e0d062b621cf4d3f53b3d134ec976f82127",
+        "tool_calls": [],
+        "built_in_tool_items": []
+      }
+    },
+    {
+      "case_id": "tool_argument_schema_validation",
+      "status": "pass",
+      "provider_call_required": true,
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Use the canary_lookup tool with key beta. After the tool output is returned, answer with the returned value exactly.\nUse only the provided function tools. Do not use built-in tools...",
+        "input_hash": "4628ec827fdf5ee3e44dcad1c3b1fa9fe56679f2bb1f8cea2a208466104a2b6e",
+        "input_is_array": false,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_lookup"
+        ],
+        "tool_schema_hashes": {
+          "canary_lookup": "359dac2f1641f306e344316190d3b274cc46bb9ade685aab4945a2c729d11f5c"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "initial_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "18b1142d5c2b4f2c5c0401bf080df4e538d26223ad5afdad1df52c4fada81a40",
+        "output_text_preview": "",
+        "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 120,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 19,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 139
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "26cc3c83f18384c8c1100cb1985f6eef30939217e200d8922e9e055ac824b8c2",
+        "tool_calls": [
+          {
+            "item_id_present": true,
+            "call_id_present": true,
+            "call_id_hash": "309ced7e418ebeff155a921028847903e353f0f293dbd13b272d2cc0113651f7",
+            "name": "canary_lookup",
+            "arguments": {
+              "key": "beta"
+            },
+            "arguments_parse_error": null,
+            "status": "completed"
+          }
+        ],
+        "built_in_tool_items": []
+      },
+      "final_request_redacted": {
+        "model_present": true,
+        "input_preview": "[response_items_plus_tool_outputs]",
+        "input_hash": "c124c6c3bb8458c7f388d753125fbecf34654447806fad6e3b12555f417ed3e2",
+        "input_is_array": true,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_lookup"
+        ],
+        "tool_schema_hashes": {
+          "canary_lookup": "359dac2f1641f306e344316190d3b274cc46bb9ade685aab4945a2c729d11f5c"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "final_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "2f9c88af44caa4b976eb33eb3d85189675a0655b4c5eaf62ab4ba1c37a5e205c",
+        "output_text_preview": "CANARY_LOOKUP_BETA",
+        "output_text_hash": "ebecdb5acdeebcbdb5956240f24b2a137d4c75cbf335ad16c55162bf191fb3d5",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 165,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 10,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 175
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "aa646a072970e1128262f01f55d2f59d6d77d5cc0c5c78b8d5072fc71752e88b",
+        "tool_calls": [],
+        "built_in_tool_items": []
+      }
+    },
+    {
+      "case_id": "tool_output_reclassified_untrusted",
+      "status": "pass",
+      "provider_call_required": true,
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Use the canary_lookup tool with key ko. After the tool output is returned, answer with the returned value exactly.\nUse only the provided function tools. Do not use built-in tools. ...",
+        "input_hash": "5af627b1e354d53e664c6afed4aae46546b3b5a4049bcdde86649c8f6ca3040a",
+        "input_is_array": false,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_lookup"
+        ],
+        "tool_schema_hashes": {
+          "canary_lookup": "359dac2f1641f306e344316190d3b274cc46bb9ade685aab4945a2c729d11f5c"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "initial_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "10d893ba284981596a77d7ff710535fbe7fb034bdfc186c7ee49c0dc195cb553",
+        "output_text_preview": "",
+        "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 120,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 19,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 139
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "301409ebc10e1d1f6119391a690c9fd0cac6a82b5ca470de5121593a69c82263",
+        "tool_calls": [
+          {
+            "item_id_present": true,
+            "call_id_present": true,
+            "call_id_hash": "01332b96ccd33a3be2fd20a75650264d48359ff6bc62c87cd760837752337f8e",
+            "name": "canary_lookup",
+            "arguments": {
+              "key": "ko"
+            },
+            "arguments_parse_error": null,
+            "status": "completed"
+          }
+        ],
+        "built_in_tool_items": []
+      },
+      "final_request_redacted": {
+        "model_present": true,
+        "input_preview": "[response_items_plus_tool_outputs]",
+        "input_hash": "90492e2e83af1e7a8020747e222b2de7db7d1ae116097bff0c1dcf567176432f",
+        "input_is_array": true,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_lookup"
+        ],
+        "tool_schema_hashes": {
+          "canary_lookup": "359dac2f1641f306e344316190d3b274cc46bb9ade685aab4945a2c729d11f5c"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "final_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "189260756317b85340124921ce01bac25f781567527551a894a785c4fa1e9089",
+        "output_text_preview": "CANARY_LOOKUP_KO",
+        "output_text_hash": "801b860937822f19c28624857b14a6baec2a31b82d4d4ec5d60d2df45034e48b",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 165,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 10,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 175
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "de09884f8786394e4cceb5ce6e2d6ac0bcc1fca79a2bbd9b22147705ed6b28c0",
+        "tool_calls": [],
+        "built_in_tool_items": []
+      }
+    },
+    {
+      "case_id": "blocked_external_post_not_executed",
+      "status": "pass",
+      "provider_call_required": false,
+      "request_redacted": null,
+      "initial_response_redacted": null,
+      "final_request_redacted": null,
+      "final_response_redacted": null
+    },
+    {
+      "case_id": "no_builtin_tools_present",
+      "status": "pass",
+      "provider_call_required": true,
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Use the canary_lookup tool with key alpha. After the tool output is returned, answer with the returned value exactly.\nUse only the provided function tools. Do not use built-in tool...",
+        "input_hash": "7af9cd14412c4c823f6df6d85999ac4c4a454f645d8fee0ceb2edd9c33f14f64",
+        "input_is_array": false,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_lookup"
+        ],
+        "tool_schema_hashes": {
+          "canary_lookup": "359dac2f1641f306e344316190d3b274cc46bb9ade685aab4945a2c729d11f5c"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "initial_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "64d43b48f9724280d50629e8baeeaccbfd6b8becaa2245449398955f4750cf33",
+        "output_text_preview": "",
+        "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 120,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 19,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 139
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "b23743e90dfd07bb311349f07c5a77dbee31555c46af9f27fd5725c6f4596d67",
+        "tool_calls": [
+          {
+            "item_id_present": true,
+            "call_id_present": true,
+            "call_id_hash": "bb53bfc198df9a9d051aa31bc84be40e08e0584c214fc27c277a13348563bfc5",
+            "name": "canary_lookup",
+            "arguments": {
+              "key": "alpha"
+            },
+            "arguments_parse_error": null,
+            "status": "completed"
+          }
+        ],
+        "built_in_tool_items": []
+      },
+      "final_request_redacted": {
+        "model_present": true,
+        "input_preview": "[response_items_plus_tool_outputs]",
+        "input_hash": "ac66b09e224a6ce0158a9f08fedbc58fabdcded273acc22171182f76b787b1d6",
+        "input_is_array": true,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_lookup"
+        ],
+        "tool_schema_hashes": {
+          "canary_lookup": "359dac2f1641f306e344316190d3b274cc46bb9ade685aab4945a2c729d11f5c"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "final_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "7ea57f4ae6b4cb97b4281e237bedc7fd11821ee6ef9179c1ea36918593ef3b96",
+        "output_text_preview": "CANARY_LOOKUP_ALPHA",
+        "output_text_hash": "741bf2f5d4436a75856f1c11567fb431fa840a21d11f8fb86975c19525d1d361",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 163,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 9,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 172
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "b82ef2846da2b936f57038f707a889fa224d695e24a0e5377ae966853bc2b251",
+        "tool_calls": [],
+        "built_in_tool_items": []
+      }
+    },
+    {
+      "case_id": "final_response_after_tool_output",
+      "status": "pass",
+      "provider_call_required": true,
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Use the canary_calculator tool to multiply 6 and 7. After the tool output is returned, answer with CANARY_CALC_42.\nUse only the provided function tools. Do not use built-in tools. ...",
+        "input_hash": "c95fac7e072f67758030a5223884e1c8138a17fd47998bc88f4826fc24eff84c",
+        "input_is_array": false,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_calculator"
+        ],
+        "tool_schema_hashes": {
+          "canary_calculator": "5c31c5e627377ef656049b1b25d2a2ac12cbd66fea9f8615a64c00c8b1c1b10b"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "initial_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "70717c1d462624c78ad16e48045f07f007ed18220a86714034c5a7f1748e5130",
+        "output_text_preview": "",
+        "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 151,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 28,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 179
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "6701b3572736f4298b432e3ed45d3b112c27a09f3a81a586e0a6492e1d28006d",
+        "tool_calls": [
+          {
+            "item_id_present": true,
+            "call_id_present": true,
+            "call_id_hash": "b4671d9587e22fefc7ec95e9755210cb597984b0ff8dc2f5e1d749c46782874b",
+            "name": "canary_calculator",
+            "arguments": {
+              "operation": "multiply",
+              "left": 6,
+              "right": 7
+            },
+            "arguments_parse_error": null,
+            "status": "completed"
+          }
+        ],
+        "built_in_tool_items": []
+      },
+      "final_request_redacted": {
+        "model_present": true,
+        "input_preview": "[response_items_plus_tool_outputs]",
+        "input_hash": "761d1bc6cb189419c03fa9c1a0fb5de590f5e89acd0bffa8209a00a22e07161f",
+        "input_is_array": true,
+        "store": false,
+        "max_output_tokens": 64,
+        "tools_present": true,
+        "function_tools_used": true,
+        "built_in_tools_present": false,
+        "tool_names": [
+          "canary_calculator"
+        ],
+        "tool_schema_hashes": {
+          "canary_calculator": "5c31c5e627377ef656049b1b25d2a2ac12cbd66fea9f8615a64c00c8b1c1b10b"
+        },
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "final_response_redacted": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "1acd1936e3945b768ae0e6b5a505159e3cd1936703a91f0e705982ed6652d52f",
+        "output_text_preview": "CANARY_CALC_42",
+        "output_text_hash": "4c10983dfa1cb57715d5efcf030bf05b19fc345b5dd06e52c08644082b86cefd",
+        "status": "completed",
+        "finish_reason": null,
+        "usage": {
+          "input_tokens": 205,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 10,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 215
+        },
+        "refusal_signal": null,
+        "raw_response_hash": "15523ec2dc2eb4261a0a3dcd301dcd1e30e84898c94ba766960414a39d0d37ec",
+        "tool_calls": [],
+        "built_in_tool_items": []
+      }
+    }
+  ]
+}

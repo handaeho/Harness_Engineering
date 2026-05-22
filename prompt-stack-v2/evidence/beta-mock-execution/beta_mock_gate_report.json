@@ -1,0 +1,148 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-mock-execution",
+  "can_enter_provider_execution": false,
+  "can_enter_local_model_execution": false,
+  "reason": "Mock execution gate passed, but provider and local model execution still require explicit operator approval.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0,
+        "allowed_mentions": 574
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "run_adapter_conformance_dry_run.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "cases_total": 12,
+        "cases_passed": 12,
+        "cases_failed": 0
+      }
+    },
+    {
+      "name": "run_beta_mock_execution.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "cases_total": 11,
+        "cases_passed": 11,
+        "cases_failed": 0
+      }
+    },
+    {
+      "name": "beta_mock_execution_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "node_modules is install output and not source or evidence artifact",
+      "status": "pass",
+      "detail": {
+        "gitignore_contains_node_modules": true,
+        "required_files_contains_node_modules": false,
+        "classification": "install output, not tracked artifact"
+      }
+    },
+    {
+      "name": "trace_samples.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "blocked_tools_executed is zero",
+      "status": "pass",
+      "detail": {
+        "blocked_tools_executed": 0
+      }
+    },
+    {
+      "name": "provider execution is false",
+      "status": "pass",
+      "detail": {
+        "provider_execution": false
+      }
+    },
+    {
+      "name": "local model execution is false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "external side effects are false",
+      "status": "pass",
+      "detail": {
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "unresolved_items.json is empty",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "harness-designed",
+    "static-structure-created",
+    "baseline-snapshotted",
+    "adapter-skeleton-created",
+    "alpha-static-validated",
+    "dependency-static-validated",
+    "adapter-dry-run-checked",
+    "beta-preflight-prepared",
+    "beta-mock-runtime-executed",
+    "mock-tool-routing-checked",
+    "approval-boundary-smoke-tested",
+    "trace-schema-smoke-tested",
+    "schema-contract-validated"
+  ],
+  "claims_blocked": [
+    "adapter-checked",
+    "provider-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "telemetry-connected",
+    "production-ready",
+    "production-monitored",
+    "containment-verified",
+    "replay-verified",
+    "benchmark-backed",
+    "provider-diverse",
+    "integration-verified",
+    "release-gated"
+  ]
+}

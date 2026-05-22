@@ -1,0 +1,128 @@
+{
+  "trace_id": "runtime-os-replay-2026-05-19-a-ros-25-observability-gap-trace",
+  "session_id": "runtime-os-replay-2026-05-19-a",
+  "run_id": "runtime-os-replay-2026-05-19-a",
+  "cohort_id": "runtime-os-smoke",
+  "scenario_id": "ros-25-observability-gap",
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "prompt_version": "v34",
+  "model_version": "deterministic-local-runner",
+  "selected_base_prompt": "PROMPT_light",
+  "selected_skill": "eval-ops",
+  "selected_overlays": [
+    "PROMPT_evaluation_monitoring_overlay"
+  ],
+  "example_mode": "none",
+  "task_family": "proof_gap",
+  "risk_class": "R2",
+  "route": "downgrade_claim_strength",
+  "trace_created_at": "2026-05-19T04:59:51.355Z",
+  "nested_tool_spans": [],
+  "cost_attribution": {
+    "mode": "local_deterministic_runner",
+    "total_usd": 0
+  },
+  "latency_attribution": {
+    "total_ms": 1
+  },
+  "retry_attribution": {
+    "attempts": 1,
+    "retry_used": false
+  },
+  "claim_strength": "plausible",
+  "policy_decisions": [],
+  "approval_events": [],
+  "safety_events": [],
+  "sandbox_events": [],
+  "network_events": [],
+  "memory_events": [],
+  "retrieval_events": [],
+  "multi_agent_events": [],
+  "error_events": [],
+  "tool_calls": [],
+  "tool_parameters": [],
+  "tool_results": [],
+  "latency": {
+    "total_ms": 1
+  },
+  "token_usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "cost": {
+    "currency": "USD",
+    "total": 0
+  },
+  "runner": {
+    "runner_id": "v34-codex-exec-read-only",
+    "harness_mode": "runtime_os_deterministic_runner",
+    "sandbox_mode": "read_only_default",
+    "readiness_state": "ready"
+  },
+  "events": [
+    {
+      "event_id": "ros-25-observability-gap-01",
+      "phase": "intake",
+      "timestamp": "2026-05-19T04:59:51.355Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "load_scenario_contract",
+      "metadata": {
+        "task_family": "proof_gap",
+        "layer": "observability_telemetry_layer"
+      }
+    },
+    {
+      "event_id": "ros-25-observability-gap-02",
+      "phase": "readiness",
+      "timestamp": "2026-05-19T04:59:51.355Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "load_runtime_assets",
+      "metadata": {
+        "trace_schema_present": true,
+        "runtime_os_scenarios_present": true,
+        "trace_to_eval_status": "seeded_with_first_executed_retest",
+        "simulated_user_scenarios_status": "seeded_ready_for_execution"
+      }
+    },
+    {
+      "event_id": "ros-25-observability-gap-03",
+      "phase": "verify",
+      "timestamp": "2026-05-19T04:59:51.356Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "finalize_runtime_os_trace",
+      "metadata": {
+        "verdict": "Pass",
+        "claim_strength": "plausible"
+      }
+    }
+  ],
+  "final_state": {
+    "status": "claim_downgraded_due_to_observability_gap",
+    "observability_gap_present": true,
+    "missing_signals": [
+      "log_query_interface",
+      "metric_query_interface",
+      "trace_query_interface",
+      "dom_snapshot_capture",
+      "screenshot_capture"
+    ],
+    "stronger_claim_blocked": true,
+    "trace_shape_ok": true
+  },
+  "verification_state": {
+    "checks_executed": [
+      "observability_gap_detected",
+      "claim_strength_downgraded"
+    ],
+    "checks_passed": [
+      "observability_gap_detected",
+      "claim_strength_downgraded"
+    ],
+    "checks_failed": [],
+    "trace_shape_ok": true
+  },
+  "verdict": "Pass"
+}

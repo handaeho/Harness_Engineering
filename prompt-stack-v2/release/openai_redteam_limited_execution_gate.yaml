@@ -1,0 +1,22 @@
+stage: v2.0.0-beta-openai-redteam-limited-execution-preflight-and-approval
+openai_redteam_limited_execution_gate:
+  status: preflight_complete_execution_pending
+  can_execute_provider_redteam: false
+  actual_provider_redteam_execution: false
+  explicit_user_approval_present: false
+  preflight_status: blocked_by_missing_credential
+  prerequisites:
+    - explicit_user_approval_for_provider_redteam_execution
+    - OPENAI_API_KEY_present
+    - OPENAI_MODEL_present
+    - selected_case_subset_exists
+    - redaction_policy_exists
+    - trace_policy_exists
+    - cost_bound_policy_exists
+    - stop_criteria_exists
+  claims_blocked:
+    - redteam-executed
+    - redteam-passed
+    - containment-verified
+    - release-gated
+    - production-ready

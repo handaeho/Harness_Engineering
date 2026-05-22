@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-05-20T03:18:26.751Z",
+  "evidence": [
+    {
+      "id": "E-v35-baseline",
+      "type": "static_read",
+      "path": "records/phase0_v35_integrity_findings.json",
+      "claim_supported": "v35 usable as current stable baseline",
+      "strength": "local-static"
+    },
+    {
+      "id": "E-lhe-clone",
+      "type": "git_clone",
+      "path": "sources/learn_harness_engineering_clone",
+      "claim_supported": "Learn Harness Engineering source collected",
+      "strength": "repo-clone"
+    },
+    {
+      "id": "E-source-inventory",
+      "type": "hash_manifest",
+      "path": "records/source_hash_manifest.json",
+      "claim_supported": "source files inventoried and hashed",
+      "strength": "local-static"
+    },
+    {
+      "id": "E-v36-static-validation",
+      "type": "runner",
+      "path": "harness/validate_current_v36.mjs",
+      "claim_supported": "candidate static asset integrity",
+      "strength": "local-runner-after-execution"
+    }
+  ],
+  "explicit_non_evidence": [
+    "Clone existence is not behavior verification.",
+    "Trace capture is not evaluation pass.",
+    "Local static benchmark is not production monitoring."
+  ]
+}

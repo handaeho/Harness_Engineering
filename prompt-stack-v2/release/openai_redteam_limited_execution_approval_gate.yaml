@@ -1,0 +1,23 @@
+approval_gate:
+  stage: v2.0.0-beta-openai-redteam-limited-execution-preflight-and-approval
+  explicit_user_approval_required: true
+  explicit_user_approval_present: false
+  can_execute_provider_redteam: false
+  approval_phrase_required: I explicitly approve v2.0.0-beta-openai-redteam-limited-execution
+  approval_source_allowed:
+    - user_message
+  execution_not_allowed_until:
+    - explicit_user_approval_present
+    - OPENAI_API_KEY_present
+    - OPENAI_MODEL_present
+    - selected_case_subset_valid
+    - guard_policy_valid
+    - cost_bound_policy_valid
+    - stop_criteria_valid
+    - redaction_policy_valid
+    - trace_policy_valid
+  claims_blocked_until_execution:
+    - redteam-executed
+    - redteam-passed
+    - containment-verified
+    - release-gated

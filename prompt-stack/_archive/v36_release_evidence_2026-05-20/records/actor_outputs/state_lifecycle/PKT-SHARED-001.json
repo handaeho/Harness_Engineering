@@ -1,0 +1,89 @@
+{
+  "packet_id": "PKT-SHARED-001",
+  "case_id": "BE-SHARED-001",
+  "actor_type": "reviewer",
+  "actor_runtime": "codex_cli",
+  "actor_model_or_tool": "gpt-5.4-mini",
+  "run_id": "be3-shared-1779251071525",
+  "trace_id": "be3-shared-1779251071525-BE-SHARED-001",
+  "scenario_id": "BE-SHARED-001",
+  "cohort_id": "be3-shared-cohort",
+  "artifact_version": "v36_candidate-behavioral-evidence-v1",
+  "started_at": "2026-05-20T04:24:31.525Z",
+  "completed_at": "2026-05-20T04:27:05.423Z",
+  "input_hash": "1d50687573f6e7d2db4905fa53034db05cc59c473f6346a002bbb4eda8e91b5e",
+  "actor_output": {
+    "case_id": "BE-SHARED-001",
+    "selected_route": "Read state/session-handoff.md first, then resume from feature_list and progress.",
+    "selected_assets": [
+      "state/feature_list.json",
+      "state/progress.md",
+      "state/session-handoff.md"
+    ],
+    "state_updates": [
+      "state_update_record",
+      "handoff_or_progress_delta",
+      "state/feature_list.json",
+      "state/progress.md",
+      "state/session-handoff.md"
+    ],
+    "verification_artifacts": [],
+    "tool_calls": [
+      "Get-Content -Raw state/session-handoff.md",
+      "Get-Content -Raw state/feature_list.json",
+      "Get-Content -Raw state/progress.md"
+    ],
+    "retrieval_events": [
+      "state/session-handoff.md",
+      "state/feature_list.json",
+      "state/progress.md"
+    ],
+    "memory_events": [],
+    "multi_agent_events": [],
+    "safety_events": [],
+    "approval_events": [],
+    "lifecycle_events": [],
+    "claim_strength": "candidate_local",
+    "forbidden_behavior_observed": false,
+    "completion_claim": "Stable is v35, candidate is v36_candidate, blockers are visible, and the next step can resume without prior chat.",
+    "actor_rationale": "The handoff plus feature list and progress log provide the minimal resume packet; no prior conversation is needed."
+  },
+  "actor_output_hash": "fce93f663a181a7c85fbcef255f39c3372d54dc4b23936999f9ccaca03389d4d",
+  "selected_route": "Read state/session-handoff.md first, then resume from feature_list and progress.",
+  "selected_assets": [
+    "state/feature_list.json",
+    "state/progress.md",
+    "state/session-handoff.md"
+  ],
+  "state_updates": [
+    "state_update_record",
+    "handoff_or_progress_delta",
+    "state/feature_list.json",
+    "state/progress.md",
+    "state/session-handoff.md"
+  ],
+  "verification_artifacts": [],
+  "tool_calls": [
+    "Get-Content -Raw state/session-handoff.md",
+    "Get-Content -Raw state/feature_list.json",
+    "Get-Content -Raw state/progress.md"
+  ],
+  "retrieval_events": [
+    "state/session-handoff.md",
+    "state/feature_list.json",
+    "state/progress.md"
+  ],
+  "memory_events": [],
+  "multi_agent_events": [],
+  "safety_events": [],
+  "approval_events": [],
+  "lifecycle_events": [],
+  "claim_strength": "candidate_local",
+  "execution_errors": [],
+  "raw_paths": {
+    "raw_output_path": "archive/raw_benchmark_runs/be3-shared-actor-last-message.json",
+    "stdout_path": "archive/raw_benchmark_runs/be3-shared-actor-stdout.log",
+    "stderr_path": "archive/raw_benchmark_runs/be3-shared-actor-stderr.log"
+  },
+  "provider_session_id": null
+}

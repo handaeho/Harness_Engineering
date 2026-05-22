@@ -1,0 +1,131 @@
+{
+  "trace_id": "retrieval-cohort-2026-05-19-a-ros-11-stale-docs-vs-code-trace",
+  "session_id": "retrieval-cohort-2026-05-19-a",
+  "run_id": "retrieval-cohort-2026-05-19-a",
+  "cohort_id": "runtime-os-smoke",
+  "scenario_id": "ros-11-stale-docs-vs-code",
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "prompt_version": "v34",
+  "model_version": "deterministic-local-runner",
+  "selected_base_prompt": "PROMPT_light",
+  "selected_skill": "grounded-research",
+  "selected_overlays": [
+    "PROMPT_retrieval_grounding_overlay",
+    "PROMPT_evaluation_monitoring_overlay"
+  ],
+  "example_mode": "none",
+  "task_family": "doc_freshness_conflict",
+  "risk_class": "R2",
+  "route": "current_code_and_verification_outrank_stale_doc",
+  "trace_created_at": "2026-05-19T05:22:03.541Z",
+  "nested_tool_spans": [],
+  "cost_attribution": {
+    "mode": "local_deterministic_runner",
+    "total_usd": 0
+  },
+  "latency_attribution": {
+    "total_ms": 2
+  },
+  "retry_attribution": {
+    "attempts": 1,
+    "retry_used": false
+  },
+  "claim_strength": "locally_checked",
+  "policy_decisions": [],
+  "approval_events": [],
+  "safety_events": [],
+  "sandbox_events": [],
+  "network_events": [],
+  "memory_events": [],
+  "retrieval_events": [
+    {
+      "source": "documentation_freshness_policy.json",
+      "trust_class": "repo_contract",
+      "handling": "freshness_conflict_review"
+    }
+  ],
+  "multi_agent_events": [],
+  "error_events": [],
+  "tool_calls": [],
+  "tool_parameters": [],
+  "tool_results": [],
+  "latency": {
+    "total_ms": 2
+  },
+  "token_usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "cost": {
+    "currency": "USD",
+    "total": 0
+  },
+  "runner": {
+    "runner_id": "v34-codex-exec-read-only",
+    "harness_mode": "runtime_os_deterministic_runner",
+    "sandbox_mode": "read_only_default",
+    "readiness_state": "ready"
+  },
+  "events": [
+    {
+      "event_id": "ros-11-stale-docs-vs-code-01",
+      "phase": "intake",
+      "timestamp": "2026-05-19T05:22:03.541Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "load_scenario_contract",
+      "metadata": {
+        "task_family": "doc_freshness_conflict",
+        "layer": "repository_legibility_layer"
+      }
+    },
+    {
+      "event_id": "ros-11-stale-docs-vs-code-02",
+      "phase": "readiness",
+      "timestamp": "2026-05-19T05:22:03.541Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "load_runtime_assets",
+      "metadata": {
+        "trace_schema_present": true,
+        "runtime_os_scenarios_present": true,
+        "trace_to_eval_status": "seeded_with_first_executed_retest",
+        "simulated_user_scenarios_status": "seeded_ready_for_execution"
+      }
+    },
+    {
+      "event_id": "ros-11-stale-docs-vs-code-03",
+      "phase": "verify",
+      "timestamp": "2026-05-19T05:22:03.543Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "finalize_runtime_os_trace",
+      "metadata": {
+        "verdict": "Pass",
+        "claim_strength": "locally_checked"
+      }
+    }
+  ],
+  "final_state": {
+    "status": "stale_doc_conflict_detected",
+    "freshness_policy_present": true,
+    "code_preferred_over_stale_doc": true,
+    "docs_refresh_required": true,
+    "trace_shape_ok": true
+  },
+  "verification_state": {
+    "checks_executed": [
+      "doc_freshness_policy_present",
+      "stale_doc_detected_as_failure_surface",
+      "current_code_or_contract_outranks_stale_doc"
+    ],
+    "checks_passed": [
+      "doc_freshness_policy_present",
+      "stale_doc_detected_as_failure_surface",
+      "current_code_or_contract_outranks_stale_doc"
+    ],
+    "checks_failed": [],
+    "trace_shape_ok": true
+  },
+  "verdict": "Pass"
+}

@@ -1,0 +1,27 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-b",
+  "cadence": "weekly_target",
+  "quality_inputs": [
+    "quality_score",
+    "architecture_drift_signal",
+    "lint_failure_cluster",
+    "repeated_review_comments",
+    "flaky_test_cluster",
+    "duplicated_helper_pattern",
+    "inconsistent_logging_or_schema_pattern",
+    "stale_docs",
+    "known_tech_debt_tracker"
+  ],
+  "cleanup_outputs": [
+    "targeted_refactor_pr",
+    "stale_doc_update_pr",
+    "invariant_linter_proposal",
+    "shared_utility_extraction_proposal",
+    "deprecated_pattern_removal_proposal",
+    "quality_score_update"
+  ],
+  "small_pr_rule": "prefer_targeted_cleanup_over_large_sweep",
+  "feature_pr_separation_rule": "cleanup_prs_must_not_be_mixed_with_feature_prs",
+  "invariant_promotion_rule": "repeated_problem_should_be_promoted_to_tooling_when_possible",
+  "rollback_boundary": "cleanup_changes_should_keep_review_and_rollback_boundary"
+}

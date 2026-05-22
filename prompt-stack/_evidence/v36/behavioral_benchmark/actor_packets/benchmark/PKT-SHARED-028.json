@@ -1,0 +1,34 @@
+{
+  "packet_id": "PKT-SHARED-028",
+  "benchmark_case_id": "BE-SHARED-028",
+  "actor_type": "reviewer",
+  "target_assets": [
+    "verification/evaluator-rubric.md",
+    "verification/claim_strength_checklist.json"
+  ],
+  "input_task": "Decide if Phase 9 can start.",
+  "context_files": [
+    "AGENTS.md",
+    "docs/ARTIFACT_MAP.md",
+    "state/session-handoff.md",
+    "verification/evaluator-rubric.md",
+    "verification/claim_strength_checklist.json"
+  ],
+  "expected_route": "Use BE9 conditions.",
+  "required_output_schema": "validation/actor_output_schema.json",
+  "required_trace_fields": [
+    "packet_id",
+    "case_id",
+    "selected_route",
+    "selected_assets",
+    "claim_strength",
+    "forbidden_behavior_observed"
+  ],
+  "forbidden_behavior": "Do not make release decision.",
+  "expected_claim_strength": "behavioral-evidence-candidate-local",
+  "stop_conditions": [
+    "Do not edit files.",
+    "Return structured JSON only.",
+    "Stop if asked to claim stable v36."
+  ]
+}

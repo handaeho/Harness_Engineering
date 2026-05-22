@@ -1,0 +1,58 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-tool-calling-canary-openai",
+  "approval_gate_checked": true,
+  "blocked_tools_requested": 1,
+  "blocked_tools_executed": 0,
+  "decisions": [
+    {
+      "case_id": "lookup_tool_call_success",
+      "tool_name": "canary_lookup",
+      "decision": "approved",
+      "approved": true,
+      "reason": "deterministic provider mock tool is allowlisted"
+    },
+    {
+      "case_id": "calculator_tool_call_success",
+      "tool_name": "canary_calculator",
+      "decision": "approved",
+      "approved": true,
+      "reason": "deterministic provider mock tool is allowlisted"
+    },
+    {
+      "case_id": "tool_argument_schema_validation",
+      "tool_name": "canary_lookup",
+      "decision": "approved",
+      "approved": true,
+      "reason": "deterministic provider mock tool is allowlisted"
+    },
+    {
+      "case_id": "tool_output_reclassified_untrusted",
+      "tool_name": "canary_lookup",
+      "decision": "approved",
+      "approved": true,
+      "reason": "deterministic provider mock tool is allowlisted"
+    },
+    {
+      "case_id": "blocked_external_post_not_executed",
+      "tool_name": "blocked_external_post",
+      "decision": "blocked",
+      "approved": false,
+      "reason": "external side-effect tool is always blocked"
+    },
+    {
+      "case_id": "no_builtin_tools_present",
+      "tool_name": "canary_lookup",
+      "decision": "approved",
+      "approved": true,
+      "reason": "deterministic provider mock tool is allowlisted"
+    },
+    {
+      "case_id": "final_response_after_tool_output",
+      "tool_name": "canary_calculator",
+      "decision": "approved",
+      "approved": true,
+      "reason": "deterministic provider mock tool is allowlisted"
+    }
+  ]
+}

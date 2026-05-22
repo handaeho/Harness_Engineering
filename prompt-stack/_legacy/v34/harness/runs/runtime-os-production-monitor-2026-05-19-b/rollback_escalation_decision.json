@@ -1,0 +1,36 @@
+{
+  "artifact_version": "v34-production-monitoring-2026-05-19-a",
+  "decision_id": "runtime-os-production-monitor-2026-05-19-b-rollback-escalation",
+  "generated_at": "2026-05-19T05:39:20.891Z",
+  "monitor_owner": "eval_ops_runtime_owner",
+  "decision": "continue_monitoring",
+  "reason": "release_gated_surface_stable",
+  "linked_actions": [
+    "emit_telemetry_summary",
+    "refresh_drift_verdict",
+    "keep_release_state"
+  ],
+  "linked_artifacts": {
+    "scorecard_path": "prompt-stack/v34/harness/runs/runtime-os-release-scorecard-2026-05-19-c/scorecard.json",
+    "release_decision_path": "prompt-stack/v34/harness/runs/runtime-os-release-scorecard-2026-05-19-c/release_decision.json",
+    "stack_eval_summary_path": "prompt-stack/v34/harness/stack_eval_runs/stack-eval-2026-05-19-b/summary.json",
+    "drift_report_path": "prompt-stack/v34/harness/runs/runtime-os-production-monitor-2026-05-19-b/drift_report.json",
+    "telemetry_summary_path": "prompt-stack/v34/harness/runs/runtime-os-production-monitor-2026-05-19-b/telemetry_summary.json"
+  },
+  "thresholds_used": {
+    "min_trace_coverage_rate": 1,
+    "min_pass_rate": 1,
+    "max_failure_event_count": 0,
+    "max_observability_gap_count": 0,
+    "max_stack_eval_runner_failures": 0,
+    "max_stack_eval_critical_failures": 0,
+    "max_average_latency_ms": 50,
+    "max_latency_regression_ratio": 1.5,
+    "max_pass_rate_drop": 0.05
+  },
+  "next_actions": [
+    "emit_telemetry_summary",
+    "refresh_drift_verdict",
+    "keep_release_state"
+  ]
+}

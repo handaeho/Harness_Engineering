@@ -1,0 +1,43 @@
+id: beta_structured_output_canary_openai
+stage: v2.0.0-beta-structured-output-canary-openai
+mode: openai_structured_output_canary_no_tools
+runner: tools/run_openai_structured_output_canary.mjs
+gate: tools/check_openai_structured_output_canary.mjs
+scope: release/beta_structured_output_canary_openai_scope.yaml
+fixtures:
+  - adapters/api/openai/structured_output_cases.jsonl
+assertions:
+  provider_execution: true
+  structured_output_used: true
+  tools_used: false
+  local_model_execution: false
+  external_side_effects: false
+  store_false_enforced: true
+  strict_json_schema_used: true
+  ajv_validation_used: true
+  schema_validations_failed: 0
+  redaction_passed: true
+blocked_statuses:
+  - blocked_by_missing_credential
+  - blocked_by_missing_model
+claims_allowed_after_pass:
+  - openai-structured-output-canary-executed
+  - provider-structured-output-path-checked
+  - json-schema-response-canary-validated
+  - structured-output-trace-captured
+  - structured-output-redaction-checked
+claims_not_allowed:
+  - adapter-checked
+  - provider-verified
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - telemetry-connected
+  - production-ready
+  - production-monitored
+  - containment-verified
+  - replay-verified
+  - benchmark-backed
+  - provider-diverse
+  - integration-verified
+  - release-gated

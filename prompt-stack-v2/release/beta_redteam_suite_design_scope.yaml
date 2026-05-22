@@ -1,0 +1,42 @@
+stage: v2.0.0-beta-redteam-suite-design
+approved_actions:
+  redteam_taxonomy_design: true
+  redteam_fixture_creation: true
+  severity_rubric_design: true
+  owasp_genai_mapping: true
+  nist_genai_profile_mapping: true
+  mitre_atlas_mapping: true
+  redteam_gate_design: true
+  execution_plan_draft: true
+forbidden_execution:
+  provider_api_call: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  actual_redteam_execution: true
+  live_attack_execution: true
+  external_network_calls: true
+  real_tool_side_effects: true
+  production_telemetry_connection: true
+  release_gated_claim: true
+  production_ready_claim: true
+  redteam_passed_claim: true
+  containment_verified_claim: true
+  dist_modification: true
+claims_allowed:
+  - redteam-suite-designed
+  - redteam-fixtures-authored
+  - redteam-taxonomy-mapped
+  - redteam-severity-rubric-drafted
+  - redteam-execution-gate-designed
+  - redteam-blocker-updated
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified

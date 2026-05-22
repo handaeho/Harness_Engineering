@@ -1,0 +1,25 @@
+stage: v2.0.0-beta-production-telemetry-design
+suite: beta_production_telemetry_design
+design_only: true
+live_telemetry_connected: false
+telemetry_sink_write_enabled: false
+required_artifacts:
+  - observability/production_telemetry_policy.yaml
+  - observability/telemetry_event_taxonomy.yaml
+  - observability/telemetry_metric_catalog.yaml
+  - observability/otel/genai_semantic_mapping.yaml
+  - observability/langfuse/integration_plan.yaml
+  - release/production_telemetry_gate.yaml
+claims_allowed:
+  - production-telemetry-design-drafted
+  - otel-genai-mapping-drafted
+  - langfuse-integration-plan-drafted
+  - telemetry-dashboard-spec-drafted
+  - telemetry-anomaly-thresholds-drafted
+  - telemetry-claim-gate-designed
+  - telemetry-blocker-updated
+claims_not_allowed:
+  - telemetry-connected
+  - production-monitored
+  - production-ready
+  - release-gated

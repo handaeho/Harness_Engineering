@@ -1,0 +1,37 @@
+id: beta_provider_canary_openai
+stage: v2.0.0-beta-provider-canary-openai-credentialed-rerun
+mode: openai_provider_canary_no_tools_no_structured_output
+runner: tools/run_openai_provider_canary.mjs
+scope: release/beta_provider_canary_openai_scope.yaml
+fixtures:
+  - adapters/api/openai/canary_cases.jsonl
+assertions:
+  tools_used: false
+  structured_output_used: false
+  local_model_execution: false
+  external_side_effects: false
+  store_false_enforced: true
+  redaction_passed: true
+blocked_statuses:
+  - blocked_by_missing_credential
+  - blocked_by_missing_model
+claims_allowed_after_pass:
+  - openai-provider-canary-executed
+  - provider-no-tool-path-checked
+  - provider-trace-captured
+  - provider-redaction-checked
+claims_not_allowed:
+  - adapter-checked
+  - provider-verified
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - telemetry-connected
+  - production-ready
+  - production-monitored
+  - containment-verified
+  - replay-verified
+  - benchmark-backed
+  - provider-diverse
+  - integration-verified
+  - release-gated

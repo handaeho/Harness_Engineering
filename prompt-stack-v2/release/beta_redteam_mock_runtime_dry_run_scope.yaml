@@ -1,0 +1,47 @@
+stage: v2.0.0-beta-redteam-mock-runtime-dry-run
+
+approved_execution:
+  mock_runtime_redteam_dry_run: true
+  deterministic_mock_runtime: true
+  mock_tool_boundary_check: true
+  approval_gate_dry_run: true
+  tool_output_reclassification_check: true
+  structured_output_boundary_dry_run: true
+  severity_aggregation: true
+  redacted_trace_capture: true
+
+forbidden_execution:
+  provider_api_call: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  live_model_redteam_execution: true
+  external_network_calls: true
+  real_tool_side_effects: true
+  shell_command_execution: true
+  real_file_writes: true
+  production_telemetry_connection: true
+  release_gated_claim: true
+  production_ready_claim: true
+  redteam_passed_claim: true
+  containment_verified_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - redteam-mock-dry-run-executed
+  - redteam-fixture-execution-path-checked
+  - redteam-result-schema-validated
+  - redteam-severity-aggregation-checked
+  - mock-redteam-trace-captured
+  - mock-redteam-gate-checked
+
+claims_not_allowed:
+  - redteam-executed
+  - redteam-passed
+  - containment-verified
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - integration-verified

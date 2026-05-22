@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/prompt-stack-v2/schemas/trace.schema.json",
+  "title": "Prompt Stack v2 Trace Event Copy",
+  "type": "object",
+  "required": [
+    "run_id",
+    "event_id",
+    "event_type",
+    "stage",
+    "stack_version",
+    "timestamp",
+    "adapter_id",
+    "provider_execution",
+    "local_model_execution",
+    "external_side_effect",
+    "payload"
+  ],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "event_id": { "type": "string", "minLength": 1 },
+    "event_type": {
+      "enum": [
+        "run_started",
+        "context_built",
+        "route_selected",
+        "mock_model_called",
+        "tool_requested",
+        "approval_checked",
+        "tool_blocked",
+        "tool_executed_mock",
+        "tool_output_reclassified_untrusted",
+        "state_transition_recorded",
+        "run_completed",
+        "run_failed",
+        "recovery_applied"
+      ]
+    },
+    "stage": { "const": "v2.0.0-beta-mock-execution" },
+    "stack_version": { "const": "2.0.0-alpha" },
+    "timestamp": { "type": "string" },
+    "adapter_id": { "const": "mock" },
+    "provider_execution": { "const": false },
+    "local_model_execution": { "const": false },
+    "external_side_effect": { "const": false },
+    "payload": { "type": "object" }
+  },
+  "additionalProperties": false
+}

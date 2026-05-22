@@ -1,0 +1,26 @@
+{
+  "P0": [],
+  "P1": [
+    {
+      "target_asset": "Phase 4R actor/judge substrate",
+      "proposed_fix": "Execute live or approved semantic judge for the 73 native replay cases.",
+      "retest_case": "all native replay cases with judge_status executed",
+      "rollback_condition": "If judge or runner reads v34 path or inflates claim strength."
+    },
+    {
+      "target_asset": "primary-source validation records",
+      "proposed_fix": "Validate or explicitly scope out 66 P1 deferred primary-source items before release-grade claims.",
+      "retest_case": "P4-RAG-001, P4-CODE-007, CAG-018",
+      "rollback_condition": "If unvalidated latest/current claims enter doctrine."
+    }
+  ],
+  "P2": [
+    {
+      "target_asset": "sandbox/telemetry/containment substrate",
+      "proposed_fix": "Run containment and telemetry checks or keep release gate downgraded.",
+      "retest_case": "P4-HARNESS-004, P4-HARNESS-007",
+      "rollback_condition": "If sandbox/telemetry existence is overstated as verified."
+    }
+  ],
+  "P3": []
+}

@@ -1,0 +1,203 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-provider-canary-openai-credentialed-run",
+  "can_enter_tool_calling_execution": false,
+  "can_enter_structured_output_execution": false,
+  "can_enter_local_model_execution": false,
+  "reason": "Credentialed OpenAI no-tool provider canary passed. Tool calling, structured output, and local model execution remain closed.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "run_adapter_conformance_dry_run.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "cases_total": 12,
+        "cases_failed": 0
+      }
+    },
+    {
+      "name": "run_beta_mock_execution.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "cases_total": 11,
+        "cases_failed": 0
+      }
+    },
+    {
+      "name": "run_openai_provider_canary.mjs pass or explicit blocked status",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "provider_execution": true,
+        "cases_total": 5,
+        "cases_passed": 5,
+        "cases_failed": 0
+      }
+    },
+    {
+      "name": "provider trace samples exist",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "request response mapping report exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redaction report exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools_used is false",
+      "status": "pass",
+      "detail": {
+        "tools_used": false
+      }
+    },
+    {
+      "name": "structured_output_used is false",
+      "status": "pass",
+      "detail": {
+        "structured_output_used": false
+      }
+    },
+    {
+      "name": "local_model_execution is false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "external_side_effects is false",
+      "status": "pass",
+      "detail": {
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "store_false_enforced is true",
+      "status": "pass",
+      "detail": {
+        "store_false_enforced": true
+      }
+    },
+    {
+      "name": "redaction passed and raw response not stored",
+      "status": "pass",
+      "detail": {
+        "redaction_passed": true,
+        "raw_response_recorded": false,
+        "raw_response_stored": false
+      }
+    },
+    {
+      "name": "provider_execution is true for credentialed pass",
+      "status": "pass",
+      "detail": {
+        "provider_execution": true
+      }
+    },
+    {
+      "name": "all canary cases passed",
+      "status": "pass",
+      "detail": {
+        "cases_total": 5,
+        "cases_passed": 5,
+        "cases_failed": 0
+      }
+    },
+    {
+      "name": "request response mapping report pass",
+      "status": "pass",
+      "detail": {
+        "request_mapping": {
+          "model_from_env": true,
+          "input_text_only": true,
+          "tools_present": false,
+          "structured_output_present": false,
+          "store_false": true,
+          "max_output_tokens_bounded": true
+        },
+        "response_mapping": {
+          "provider_response_id_present": true,
+          "output_text_extracted": true,
+          "usage_summary_present_if_available": true,
+          "raw_response_hash_present": true,
+          "raw_response_stored": false
+        }
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "harness-designed",
+    "static-structure-created",
+    "baseline-snapshotted",
+    "adapter-skeleton-created",
+    "alpha-static-validated",
+    "dependency-static-validated",
+    "adapter-dry-run-checked",
+    "beta-preflight-prepared",
+    "beta-mock-runtime-executed",
+    "mock-tool-routing-checked",
+    "approval-boundary-smoke-tested",
+    "trace-schema-smoke-tested",
+    "schema-contract-validated",
+    "openai-provider-canary-executed",
+    "provider-no-tool-path-checked",
+    "provider-trace-captured",
+    "provider-redaction-checked"
+  ],
+  "claims_blocked": [
+    "adapter-checked",
+    "provider-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "telemetry-connected",
+    "production-ready",
+    "production-monitored",
+    "containment-verified",
+    "replay-verified",
+    "benchmark-backed",
+    "provider-diverse",
+    "integration-verified",
+    "release-gated"
+  ]
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "priority": "P1",
+    "target_asset": "PROMPT_tool_protocol_overlay",
+    "owner_surface": "Tool / function calling / ReAct / ART",
+    "problem": "Technique descriptions can be misread as automatic tool execution authority.",
+    "evidence": "Phase 2 mapped Function Calling, ReAct, and ART to tool protocol and mock tool tests.",
+    "proposed_change": "Add bounded action-observation framing, required-parameter checks, approval-sensitive action rules, and tool-result validation language.",
+    "why_this_asset_owns_the_fix": "Tool protocol owns external interaction discipline and parameter/result semantics.",
+    "expected_behavior_after_fix": "Agent refuses to guess required parameters and separates tool success from task success.",
+    "risk_of_change": "Could duplicate safety approval authority if not cross-referenced correctly.",
+    "affected_assets": [
+      "PROMPT_harness_contracts",
+      "coding-core"
+    ],
+    "retest_cases": [
+      "PG-TOOL-001",
+      "PG-TOOL-002",
+      "destructive action approval"
+    ],
+    "rollback_condition": "If least-privilege or safety approval boundaries weaken."
+  },
+  {
+    "priority": "P1",
+    "target_asset": "PROMPT_guardrails_safety_overlay",
+    "owner_surface": "Safety / guardrails / prompt injection",
+    "problem": "PromptingGuide safety pages need enforceable risk classes, not warning-only prose.",
+    "evidence": "Phase 2 gap register flags injection/leaking/jailbreak/factuality/bias mapping.",
+    "proposed_change": "Map adversarial prompting, prompt leaking, jailbreak, factuality, and bias into explicit refusal/downgrade/test rules.",
+    "why_this_asset_owns_the_fix": "Safety overlay owns input/action/output guardrails.",
+    "expected_behavior_after_fix": "Stronger untrusted-material separation and critical-failure handling.",
+    "risk_of_change": "Overbroad refusal if risk classes are not scoped.",
+    "affected_assets": [
+      "PROMPT_harness_release_gate",
+      "PROMPT_example_injection"
+    ],
+    "retest_cases": [
+      "PG-SAFE-001",
+      "PG-SAFE-002",
+      "jailbreak case",
+      "secret leakage case"
+    ],
+    "rollback_condition": "If safety behavior becomes warning-only or blocks valid safe work unnecessarily."
+  },
+  {
+    "priority": "P1",
+    "target_asset": "PROMPT_retrieval_grounding_overlay",
+    "owner_surface": "Retrieval / RAG / grounding",
+    "problem": "124 pages require primary-source validation for current/model/API/tool claims.",
+    "evidence": "Phase 2 source inventory primary_source_validation_needed=124.",
+    "proposed_change": "Require primary-source validation or explicit Need Verification downgrade for latest/current/model/API/tool claims.",
+    "why_this_asset_owns_the_fix": "Retrieval overlay owns evidence authority, freshness, provenance, and source conflict.",
+    "expected_behavior_after_fix": "No unsupported current/latest claim from PromptingGuide.ai alone.",
+    "risk_of_change": "Could over-retrieve for stable non-current tasks.",
+    "affected_assets": [
+      "grounded-research",
+      "PROMPT_harness_contracts"
+    ],
+    "retest_cases": [
+      "PG-RAG-001",
+      "PG-RAG-002",
+      "citation padding"
+    ],
+    "rollback_condition": "If retrieval becomes search-result stuffing or unnecessary browsing."
+  },
+  {
+    "priority": "P1",
+    "target_asset": "PROMPT_example_catalog",
+    "owner_surface": "Immutable example data",
+    "problem": "Prompt Hub expansion risks factual authority drift.",
+    "evidence": "Phase 2 found 38 Prompt Hub pages and marked them structure-only candidates.",
+    "proposed_change": "Add only task-family shapes, excluding source facts and runtime policy.",
+    "why_this_asset_owns_the_fix": "Catalog owns example data while injection owns selection behavior.",
+    "expected_behavior_after_fix": "Broader example shape coverage without factual transfer.",
+    "risk_of_change": "Catalog could accidentally include selection logic.",
+    "affected_assets": [
+      "PROMPT_example_injection",
+      "PROMPT_guardrails_safety_overlay"
+    ],
+    "retest_cases": [
+      "PG-HUB-001",
+      "weak example suppression"
+    ],
+    "rollback_condition": "If example body is used as current-task truth."
+  },
+  {
+    "priority": "P1",
+    "target_asset": "CODEX_RUNTIME_GUIDE",
+    "owner_surface": "Codex host-runtime entrypoint",
+    "problem": "Phase 2 impacts skill routing but runtime guide must not become 00~04 summary.",
+    "evidence": "Codex runtime validation required=true; CODEX_RUNTIME_GUIDE shows host-runtime and primary-skill routing structure.",
+    "proposed_change": "Plan routing deltas for technique families and Phase 4 runtime tests without asserting source-of-truth authority.",
+    "why_this_asset_owns_the_fix": "Runtime guide owns Codex assembly and skill selection.",
+    "expected_behavior_after_fix": "More accurate skill activation and no unnecessary skill stacking.",
+    "risk_of_change": "Could blur runtime package and source-of-truth doctrine.",
+    "affected_assets": [
+      "codex/skills/*",
+      "PROMPT_harness_release_gate"
+    ],
+    "retest_cases": [
+      "skill routing",
+      "single-agent sufficient",
+      "latest info request"
+    ],
+    "rollback_condition": "If guide acts as mirror or summary of 00~04."
+  },
+  {
+    "priority": "P2",
+    "target_asset": "PROMPT_harness_contracts",
+    "owner_surface": "Harness contracts",
+    "problem": "Phase 2 eval draft has only 12 cases and no executed substrate.",
+    "evidence": "New eval set draft count=12; v34 harness runs are copied baseline evidence only.",
+    "proposed_change": "Expand contract cases for safety, RAG, tool, reasoning activation, example boundary, and Codex runtime skills.",
+    "why_this_asset_owns_the_fix": "Harness contracts own testable behavior contracts and trace requirements.",
+    "expected_behavior_after_fix": "Phase 4 can produce runner-executed evidence instead of plan-only claims.",
+    "risk_of_change": "Contract names could be mistaken for executed proof.",
+    "affected_assets": [
+      "PROMPT_harness_release_gate",
+      "eval-ops"
+    ],
+    "retest_cases": [
+      "trace captured not eval passed",
+      "sandbox exists not containment verified"
+    ],
+    "rollback_condition": "If contract presence is phrased as execution success."
+  }
+]

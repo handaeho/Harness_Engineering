@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/prompt-stack-v2/schemas/telemetry.schema.json",
+  "title": "Prompt Stack v2 Telemetry Schema Document",
+  "type": "object",
+  "required": ["run_id", "stack_version", "latency_ms", "input_tokens", "output_tokens", "eval_results"],
+  "properties": {
+    "run_id": { "type": "string" },
+    "stack_version": { "type": "string" },
+    "latency_ms": { "type": "integer", "minimum": 0 },
+    "input_tokens": { "type": "integer", "minimum": 0 },
+    "output_tokens": { "type": "integer", "minimum": 0 },
+    "eval_results": { "type": "array" }
+  },
+  "additionalProperties": true
+}

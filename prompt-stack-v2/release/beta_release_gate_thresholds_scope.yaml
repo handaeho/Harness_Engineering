@@ -1,0 +1,42 @@
+stage: v2.0.0-beta-release-gate-thresholds-and-dry-run
+
+approved_actions:
+  release_gate_threshold_design: true
+  release_gate_dry_run: true
+  blocker_priority_assignment: true
+  owner_action_matrix_draft: true
+  rollback_plan_draft: true
+  release_decision_record_draft: true
+
+forbidden_execution:
+  openai_provider_api_call: true
+  local_vllm_execution: true
+  local_ollama_execution: true
+  local_endpoint_probe: true
+  anthropic_or_gemini_execution: true
+  new_tool_schema_expansion: true
+  redteam_execution: true
+  production_telemetry_connection: true
+  release_gated_claim: true
+  production_ready_claim: true
+  stable_release_claim: true
+  dist_modification: true
+
+claims_allowed:
+  - release-gate-thresholds-drafted
+  - release-gate-dry-run-executed
+  - release-blockers-prioritized
+  - owner-action-matrix-drafted
+  - rollback-plan-drafted
+  - release-decision-record-drafted
+
+claims_not_allowed:
+  - release-gated
+  - production-ready
+  - production-monitored
+  - replay-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - integration-verified

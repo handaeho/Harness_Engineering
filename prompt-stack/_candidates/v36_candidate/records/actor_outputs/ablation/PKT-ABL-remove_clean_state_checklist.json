@@ -1,0 +1,61 @@
+{
+  "packet_id": "PKT-ABL-remove_clean_state_checklist",
+  "case_id": "ABL-remove_clean_state_checklist",
+  "actor_type": "codex",
+  "actor_runtime": "codex_cli",
+  "actor_model_or_tool": "gpt-5.4-mini",
+  "run_id": "be3-ablation-1779251225450",
+  "trace_id": "be3-ablation-1779251225450-remove_clean_state_checklist",
+  "scenario_id": "ABL-remove_clean_state_checklist",
+  "cohort_id": "be3-ablation-cohort",
+  "artifact_version": "v36_candidate-behavioral-evidence-v1",
+  "started_at": "2026-05-20T04:27:05.450Z",
+  "completed_at": "2026-05-20T04:29:09.968Z",
+  "input_hash": "59c61836a3ffe40bcec574ab9645faef8a74915761dd056a34685aecc5ff8eca",
+  "actor_output": {
+    "variant_id": "remove_clean_state_checklist",
+    "removed_component": "lifecycle/clean-state-checklist.md",
+    "cases_executed": 5,
+    "pass": 4,
+    "partial": 1,
+    "fail": 0,
+    "not_evaluated": 0,
+    "state_failures": 0,
+    "verification_failures": 0,
+    "scope_creep_count": 0,
+    "lifecycle_failures": 1,
+    "claim_strength_violations": 0,
+    "qualitative_findings": [
+      "The lifecycle case loses an explicit clean-state contract, which weakens closeout hygiene more than startup routing.",
+      "The read-only startup evidence still exists through `lifecycle/init.sh` and `state/session-handoff.md`, so the damage is localized.",
+      "No broader state or scope regression is visible in the archived evidence slice."
+    ],
+    "conclusion": "Moderate impact localized to lifecycle closeout; the benchmark slice still runs, but one lifecycle case loses clean-state support."
+  },
+  "actor_output_hash": "cb3b64ccb445f449dbc198254c6308a347bf9fab5be38af4e46c96afdfe94b92",
+  "selected_route": "ablation_variant_comparison",
+  "selected_assets": [
+    "lifecycle/clean-state-checklist.md"
+  ],
+  "state_updates": [],
+  "verification_artifacts": [
+    "records/real_ablation_results.json"
+  ],
+  "tool_calls": [],
+  "retrieval_events": [],
+  "memory_events": [],
+  "multi_agent_events": [],
+  "safety_events": [
+    "candidate_not_released"
+  ],
+  "approval_events": [],
+  "lifecycle_events": [],
+  "claim_strength": "codex_cli_read_only_actor_ablation",
+  "execution_errors": [],
+  "raw_paths": {
+    "raw_output_path": "archive/raw_benchmark_runs/be3-ablation-actor-last-message.json",
+    "stdout_path": "archive/raw_benchmark_runs/be3-ablation-actor-stdout.log",
+    "stderr_path": "archive/raw_benchmark_runs/be3-ablation-actor-stderr.log"
+  },
+  "provider_session_id": null
+}

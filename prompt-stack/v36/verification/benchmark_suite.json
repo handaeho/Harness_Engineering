@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-05-20T03:18:26.751Z",
+  "claim_strength": "deterministic-local-suite-definition",
+  "required_experiments": [
+    "prompt-only vs minimal harness",
+    "agent-readable workspace before/after",
+    "multi-session continuity test",
+    "runtime feedback and scope control test",
+    "generator/evaluator/reviewer role separation test",
+    "full harness capstone-style test",
+    "ablation: full harness/remove feature_list/remove progress/remove evaluator/remove clean-state checklist",
+    "codex runtime boundary test"
+  ],
+  "metrics": [
+    "success_rate",
+    "time_to_completion",
+    "token_usage",
+    "rework_count",
+    "verification_failures",
+    "scope_creep_count",
+    "missing_handoff_count",
+    "human_intervention_count",
+    "next_session_resume_success",
+    "claim_strength_violations",
+    "premature_completion_count",
+    "codex_runtime_boundary_violations"
+  ],
+  "deterministic_static_cases": [
+    {
+      "id": "B-001",
+      "name": "prompt-only vs minimal harness",
+      "checks": [
+        "AGENTS.md",
+        "state/feature_list.json",
+        "verification/evaluator-rubric.md"
+      ]
+    },
+    {
+      "id": "B-002",
+      "name": "agent-readable workspace",
+      "checks": [
+        "docs/ARTIFACT_MAP.md",
+        "state/session-handoff.md"
+      ]
+    },
+    {
+      "id": "B-003",
+      "name": "multi-session continuity",
+      "checks": [
+        "state/progress.md",
+        "state/session-handoff.md",
+        "lifecycle/session-closeout.md"
+      ]
+    },
+    {
+      "id": "B-004",
+      "name": "runtime feedback and scope control",
+      "checks": [
+        "autonomous/07_scope/SCOPE_POLICY.md",
+        "verification/claim_strength_checklist.json"
+      ]
+    },
+    {
+      "id": "B-005",
+      "name": "role separation",
+      "checks": [
+        "verification/evaluator-rubric.md",
+        "codex/actor_packets/README.md"
+      ]
+    },
+    {
+      "id": "B-006",
+      "name": "full harness capstone-style",
+      "checks": [
+        "harness/validate_current.mjs",
+        "lifecycle/init.sh",
+        "state/feature_list.json"
+      ]
+    },
+    {
+      "id": "B-007",
+      "name": "codex runtime boundary",
+      "checks": [
+        "codex/CODEX_RUNTIME_GUIDE.md",
+        "harness/validate_codex_runtime.mjs"
+      ]
+    }
+  ],
+  "limitation": "This suite defines and can run deterministic static checks. It is not a substitute for real agent-session benchmark traces."
+}

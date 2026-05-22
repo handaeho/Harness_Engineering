@@ -1,0 +1,57 @@
+{
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "default_decision": "deny",
+  "approval_required_actions": [
+    "broad_repo_write",
+    "destructive_action",
+    "external_commitment",
+    "merge_or_release",
+    "database_migration",
+    "secret_access",
+    "network_egress_expansion"
+  ],
+  "sample_rules": [
+    {
+      "who": "L0_or_L1_agent",
+      "action": "write_repo_file",
+      "resource": "workspace",
+      "environment": "local",
+      "risk_class": "R1",
+      "condition": "none",
+      "approval_state": "not_required",
+      "decision": "deny"
+    },
+    {
+      "who": "L2_or_higher_agent",
+      "action": "bounded_write",
+      "resource": "declared_target_files",
+      "environment": "workspace_write",
+      "risk_class": "R1",
+      "condition": "active_slice_and_scope_are_explicit",
+      "approval_state": "not_required",
+      "decision": "allow"
+    },
+    {
+      "who": "L3_or_higher_agent",
+      "action": "approval_sensitive_write",
+      "resource": "destructive_surface",
+      "environment": "local_or_remote",
+      "risk_class": "R3",
+      "condition": "rollback_plan_exists",
+      "approval_state": "required",
+      "decision": "require_review"
+    },
+    {
+      "who": "any_agent",
+      "action": "external_commitment_or_deploy",
+      "resource": "production_or_public_surface",
+      "environment": "external",
+      "risk_class": "R4",
+      "condition": "none",
+      "approval_state": "required",
+      "decision": "deny"
+    }
+  ],
+  "emergency_stop_rule": "operator_can_force_propose_only_or_deny_all_write_actions",
+  "policy_to_eval_feedback_loop": "suspicious_pattern_or_repeated_near_boundary_behavior_routes_to_evaluation_and_policy_review"
+}

@@ -1,0 +1,35 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-c",
+  "policy_engine": {
+    "status": "defined_not_executed",
+    "default": "deny_by_default_for_sensitive_actions",
+    "decision_point": "before_sensitive_tool_or_external_action"
+  },
+  "observability_pipeline": {
+    "status": "defined_not_executed",
+    "event_families": [
+      "trace",
+      "span",
+      "tool_call",
+      "retry",
+      "latency",
+      "cost",
+      "memory_operation",
+      "shell_command",
+      "network_event",
+      "approval_event"
+    ]
+  },
+  "evaluation_pipeline": {
+    "status": "defined_not_executed",
+    "surfaces": [
+      "output_quality",
+      "task_adherence",
+      "trajectory_quality",
+      "policy_deviation",
+      "tool_use_quality"
+    ]
+  },
+  "feedback_to_policy_route": "planned",
+  "enterprise_operation_ready": false
+}

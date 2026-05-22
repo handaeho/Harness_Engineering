@@ -1,0 +1,155 @@
+{
+  "verdict": "owner_boundary_preserved_for_plan_stage",
+  "confirmed_owner_mappings": [
+    {
+      "asset": "PROMPT_guideline",
+      "owner_surface": "Stack governance, ownership, release doctrine, version boundary."
+    },
+    {
+      "asset": "PROMPT_full",
+      "owner_surface": "Highest-depth execution and full technique routing."
+    },
+    {
+      "asset": "PROMPT_light",
+      "owner_surface": "Practical default execution and compressed routing."
+    },
+    {
+      "asset": "PROMPT_lightest",
+      "owner_surface": "Constrained compressed execution with safety/verification preserved."
+    },
+    {
+      "asset": "PROMPT_standalone",
+      "owner_surface": "Coding-agent compressed execution."
+    },
+    {
+      "asset": "PROMPT_example_catalog",
+      "owner_surface": "Immutable structure-only example data."
+    },
+    {
+      "asset": "PROMPT_example_injection",
+      "owner_surface": "Example selection and runtime example control."
+    },
+    {
+      "asset": "PROMPT_tool_protocol_overlay",
+      "owner_surface": "Tool, MCP, function calling, ReAct/ART action boundaries."
+    },
+    {
+      "asset": "PROMPT_guardrails_safety_overlay",
+      "owner_surface": "Safety, prompt injection, prompt leaking, jailbreak, secret/destructive boundaries."
+    },
+    {
+      "asset": "PROMPT_retrieval_grounding_overlay",
+      "owner_surface": "Retrieval, RAG, evidence, provenance, freshness, source conflict."
+    },
+    {
+      "asset": "PROMPT_search_reasoning_overlay",
+      "owner_surface": "Search, reasoning techniques, branching, prioritization."
+    },
+    {
+      "asset": "PROMPT_memory_adaptation_overlay",
+      "owner_surface": "Memory, adaptation, promotion, pruning."
+    },
+    {
+      "asset": "PROMPT_multi_agent_overlay",
+      "owner_surface": "Multi-agent, handoff, A2A, workflow vs agent."
+    },
+    {
+      "asset": "PROMPT_evaluation_monitoring_overlay",
+      "owner_surface": "Evaluation, monitoring, regression, release-readiness."
+    },
+    {
+      "asset": "PROMPT_harness_engineering",
+      "owner_surface": "Harness doctrine and substrate separation."
+    },
+    {
+      "asset": "PROMPT_harness_contracts",
+      "owner_surface": "Executable-ish contracts, trace/mock/tool/eval schemas."
+    },
+    {
+      "asset": "PROMPT_harness_release_gate",
+      "owner_surface": "Release language, downgrade rules, gate criteria."
+    },
+    {
+      "asset": "CODEX_RUNTIME_GUIDE",
+      "owner_surface": "Codex host-runtime entrypoint and skill routing."
+    },
+    {
+      "asset": "coding-core",
+      "owner_surface": "Codex runtime skill package for coding execution."
+    },
+    {
+      "asset": "design-analysis",
+      "owner_surface": "Codex runtime skill package for design and architecture reasoning."
+    },
+    {
+      "asset": "eval-ops",
+      "owner_surface": "Codex runtime skill package for evaluation and release review."
+    },
+    {
+      "asset": "grounded-research",
+      "owner_surface": "Codex runtime skill package for evidence-grounded research."
+    },
+    {
+      "asset": "orchestration-control",
+      "owner_surface": "Codex runtime skill package for orchestration and lifecycle control."
+    }
+  ],
+  "owner_drift_findings": [
+    {
+      "finding": "No applied file change, so no actual owner drift introduced in Phase 2 or Phase 3.",
+      "severity": "none",
+      "evidence": "Core/source/runtime checksum changed count is 0."
+    }
+  ],
+  "non_owner_duplication_risks": [
+    {
+      "risk": "Guideline could become a technique dump if Phase 2 technique families are copied into governance.",
+      "target_owner": "PROMPT_guideline",
+      "required_control": "Keep guideline at canon/boundary level; move execution detail to owners.",
+      "priority": "P2"
+    },
+    {
+      "risk": "Prompt Hub examples could become factual authority or selection logic.",
+      "target_owner": "PROMPT_example_catalog / PROMPT_example_injection",
+      "required_control": "Catalog remains structure-only data; injection owns runtime selection.",
+      "priority": "P1"
+    },
+    {
+      "risk": "Tool overlay could absorb safety approval authority.",
+      "target_owner": "PROMPT_tool_protocol_overlay / PROMPT_guardrails_safety_overlay",
+      "required_control": "Tool overlay owns parameter/result discipline; safety overlay owns approval/safety denial boundaries.",
+      "priority": "P1"
+    },
+    {
+      "risk": "Codex runtime skills could be treated as 00~04 mirrors.",
+      "target_owner": "CODEX_RUNTIME_GUIDE / codex/skills/*",
+      "required_control": "Evaluate text parity as non-required; validate behavioral alignment and runtime fitness separately.",
+      "priority": "P1"
+    }
+  ],
+  "source_of_truth_vs_codex_runtime_boundary": {
+    "source_of_truth_stack_assets": [
+      "00_governance",
+      "01_base",
+      "02_overlays",
+      "03_examples",
+      "04_harness"
+    ],
+    "codex_runtime_assets": [
+      "codex/CODEX_RUNTIME_GUIDE.md",
+      "codex/skills/coding-core/SKILL.md",
+      "codex/skills/design-analysis/SKILL.md",
+      "codex/skills/eval-ops/SKILL.md",
+      "codex/skills/grounded-research/SKILL.md",
+      "codex/skills/orchestration-control/SKILL.md"
+    ],
+    "text_parity_required": false,
+    "behavioral_alignment_required": true,
+    "runtime_validation_required": true
+  },
+  "required_moves": [
+    "Move Prompt Hub-derived material only into structure-only example plan records until Phase 3 audit approves precise edits.",
+    "Route Function Calling/ReAct/ART rules to tool protocol and harness contracts, not safety-only prose.",
+    "Keep Codex skill improvements as runtime candidates or backport candidates, never automatic source-of-truth doctrine."
+  ]
+}

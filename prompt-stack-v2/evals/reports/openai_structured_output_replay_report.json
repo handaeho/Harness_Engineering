@@ -1,0 +1,43 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-openai-canary-replay-suite",
+  "comparison_mode": "canary_suite_rerun_not_replay_verified",
+  "surface": "structured_output",
+  "attempts_compared": [
+    "001-structured-output-canary",
+    "002-structured-output-replay-rerun"
+  ],
+  "same_case_set": true,
+  "both_status_pass": true,
+  "provider_execution": true,
+  "structured_output_used": true,
+  "tools_used": false,
+  "local_model_execution": false,
+  "external_side_effects": false,
+  "store_false_enforced": true,
+  "strict_json_schema_used": true,
+  "ajv_validation_used": true,
+  "schema_validations_failed": 0,
+  "raw_response_stored": false,
+  "redaction_passed": true,
+  "required_trace_events_present": true,
+  "claim_level": "canary_rerun_only",
+  "claims_allowed": [
+    "openai-structured-output-canary-rerun-executed",
+    "openai-canary-suite-consistency-checked",
+    "canary-suite-replay-evidence-recorded",
+    "canary-suite-trace-comparison-recorded"
+  ],
+  "claims_not_allowed": [
+    "replay-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "provider-verified",
+    "adapter-checked",
+    "provider-diverse",
+    "integration-verified",
+    "release-gated",
+    "production-monitored"
+  ],
+  "failures": []
+}

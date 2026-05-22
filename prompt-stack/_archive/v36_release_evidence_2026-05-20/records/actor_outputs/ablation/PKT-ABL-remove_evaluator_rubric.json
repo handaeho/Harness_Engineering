@@ -1,0 +1,61 @@
+{
+  "packet_id": "PKT-ABL-remove_evaluator_rubric",
+  "case_id": "ABL-remove_evaluator_rubric",
+  "actor_type": "codex",
+  "actor_runtime": "codex_cli",
+  "actor_model_or_tool": "gpt-5.4-mini",
+  "run_id": "be3-ablation-1779251225450",
+  "trace_id": "be3-ablation-1779251225450-remove_evaluator_rubric",
+  "scenario_id": "ABL-remove_evaluator_rubric",
+  "cohort_id": "be3-ablation-cohort",
+  "artifact_version": "v36_candidate-behavioral-evidence-v1",
+  "started_at": "2026-05-20T04:27:05.450Z",
+  "completed_at": "2026-05-20T04:29:09.968Z",
+  "input_hash": "59c61836a3ffe40bcec574ab9645faef8a74915761dd056a34685aecc5ff8eca",
+  "actor_output": {
+    "variant_id": "remove_evaluator_rubric",
+    "removed_component": "verification/evaluator-rubric.md",
+    "cases_executed": 5,
+    "pass": 4,
+    "partial": 1,
+    "fail": 0,
+    "not_evaluated": 0,
+    "state_failures": 0,
+    "verification_failures": 1,
+    "scope_creep_count": 0,
+    "lifecycle_failures": 0,
+    "claim_strength_violations": 0,
+    "qualitative_findings": [
+      "The verification-before-completion case is the most sensitive to this removal because the rubric is the explicit completion gate.",
+      "The actor output can still point at `verification/claim_strength_checklist.json`, but the authoritative verification contract is missing.",
+      "This weakens completion gating without implying any production-grade evidence."
+    ],
+    "conclusion": "Moderate impact concentrated in verification gating; the affected case still has a fallback signal, but the rubric removal is material."
+  },
+  "actor_output_hash": "457ca1c972828f843ac11c0870abb0eae78d6d6988578aee23baf0f9a9597151",
+  "selected_route": "ablation_variant_comparison",
+  "selected_assets": [
+    "verification/evaluator-rubric.md"
+  ],
+  "state_updates": [],
+  "verification_artifacts": [
+    "records/real_ablation_results.json"
+  ],
+  "tool_calls": [],
+  "retrieval_events": [],
+  "memory_events": [],
+  "multi_agent_events": [],
+  "safety_events": [
+    "candidate_not_released"
+  ],
+  "approval_events": [],
+  "lifecycle_events": [],
+  "claim_strength": "codex_cli_read_only_actor_ablation",
+  "execution_errors": [],
+  "raw_paths": {
+    "raw_output_path": "archive/raw_benchmark_runs/be3-ablation-actor-last-message.json",
+    "stdout_path": "archive/raw_benchmark_runs/be3-ablation-actor-stdout.log",
+    "stderr_path": "archive/raw_benchmark_runs/be3-ablation-actor-stderr.log"
+  },
+  "provider_session_id": null
+}

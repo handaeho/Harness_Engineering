@@ -1,0 +1,896 @@
+{
+  "stage": "v2.0.0-beta-release-evidence-bundle-draft",
+  "generated_at": "2026-05-21T06:56:10.920Z",
+  "generated_from_existing_evidence_only": true,
+  "new_provider_execution": false,
+  "new_local_model_execution": false,
+  "local_endpoint_probe": false,
+  "sections": [
+    {
+      "section_id": "v36_baseline",
+      "status": "pass",
+      "claim_level": "baseline_snapshot",
+      "artifacts": [
+        {
+          "path": "evidence/v36-baseline/checksums.json",
+          "required": true,
+          "exists": true
+        },
+        {
+          "path": "evidence/v36-baseline/file_inventory.json",
+          "required": true,
+          "exists": true
+        },
+        {
+          "path": "evidence/v36-baseline/limitation_register.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/v36-baseline/migration_map.yaml",
+          "required": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "section_id": "alpha",
+      "status": "pass",
+      "claim_level": "alpha_static",
+      "artifacts": [
+        {
+          "path": "evidence/alpha/validation_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/alpha/prohibited_claim_scan.json",
+          "required": true,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/alpha/baseline_comparison.json",
+          "required": true,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/alpha/unresolved_items.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/alpha/validation_report.md",
+          "required": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "section_id": "beta_preflight",
+      "status": "pass",
+      "claim_level": "preflight",
+      "artifacts": [
+        {
+          "path": "evidence/beta-preflight/dependency_validation_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-preflight"
+        },
+        {
+          "path": "evidence/beta-preflight/adapter_dry_run_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/beta-preflight/beta_entry_gate_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-preflight"
+        },
+        {
+          "path": "evidence/beta-preflight/dependency_validation_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-preflight/unresolved_items.json",
+          "required": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "section_id": "mock_runtime",
+      "status": "pass",
+      "claim_level": "mock_runtime_only",
+      "artifacts": [
+        {
+          "path": "evidence/beta-mock-execution/execution_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-mock-execution"
+        },
+        {
+          "path": "evidence/beta-mock-execution/beta_mock_gate_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-mock-execution"
+        },
+        {
+          "path": "evidence/beta-mock-execution/approval_boundary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-mock-execution"
+        },
+        {
+          "path": "evidence/beta-mock-execution/execution_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-mock-execution/schema_contract_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-mock-execution"
+        },
+        {
+          "path": "evidence/beta-mock-execution/state_transition_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-mock-execution"
+        },
+        {
+          "path": "evidence/beta-mock-execution/trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-mock-execution/unresolved_items.json",
+          "required": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "section_id": "openai_provider_canary",
+      "status": "pass",
+      "claim_level": "canary_only",
+      "artifacts": [
+        {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_gate_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/001-blocked-missing-credential/provider_canary_gate_report.json",
+          "required": false,
+          "exists": true,
+          "status": "blocked",
+          "stage": "v2.0.0-beta-provider-canary-openai"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/001-blocked-missing-credential/provider_canary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "blocked_by_missing_credential",
+          "stage": "v2.0.0-beta-provider-canary-openai"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/001-blocked-missing-credential/provider_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/001-blocked-missing-credential/provider_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/001-blocked-missing-credential/unresolved_items.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/002-credentialed-run/provider_canary_gate_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-run"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/002-credentialed-run/provider_canary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-run"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/002-credentialed-run/provider_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/002-credentialed-run/provider_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/002-credentialed-run/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-run"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/002-credentialed-run/request_response_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-run"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/002-credentialed-run/unresolved_items.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/003-credentialed-rerun/provider_canary_gate_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/003-credentialed-rerun/provider_canary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/003-credentialed-rerun/provider_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/003-credentialed-rerun/provider_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/003-credentialed-rerun/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/003-credentialed-rerun/request_response_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/003-credentialed-rerun/unresolved_items.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/004-no-tool-replay-rerun/provider_canary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/004-no-tool-replay-rerun/provider_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/004-no-tool-replay-rerun/provider_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/004-no-tool-replay-rerun/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/004-no-tool-replay-rerun/request_response_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/attempts/004-no-tool-replay-rerun/unresolved_items.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/provider_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/request_response_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        {
+          "path": "evidence/beta-provider-canary-openai/unresolved_items.json",
+          "required": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "section_id": "openai_structured_output_canary",
+      "status": "pass",
+      "claim_level": "canary_only",
+      "artifacts": [
+        {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_gate_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/001-structured-output-canary/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/001-structured-output-canary/schema_validation_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/001-structured-output-canary/structured_output_canary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/001-structured-output-canary/structured_output_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/001-structured-output-canary/structured_output_gate_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/001-structured-output-canary/structured_output_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/001-structured-output-canary/structured_output_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/001-structured-output-canary/unresolved_items.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/002-structured-output-replay-rerun/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/002-structured-output-replay-rerun/schema_validation_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/002-structured-output-replay-rerun/structured_output_canary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/002-structured-output-replay-rerun/structured_output_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/002-structured-output-replay-rerun/structured_output_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/002-structured-output-replay-rerun/structured_output_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/attempts/002-structured-output-replay-rerun/unresolved_items.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/schema_validation_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-structured-output-canary-openai/unresolved_items.json",
+          "required": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "section_id": "openai_tool_calling_canary",
+      "status": "pass",
+      "claim_level": "canary_only",
+      "artifacts": [
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_gate_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/approval_boundary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/approval_boundary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/tool_argument_validation_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/tool_call_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/tool_calling_canary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/tool_calling_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/tool_calling_gate_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/tool_calling_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/tool_execution_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/001-tool-calling-canary/unresolved_items.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun/approval_boundary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun/tool_argument_validation_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun/tool_call_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun/tool_calling_canary_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun/tool_calling_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun/tool_calling_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun/tool_execution_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/attempts/002-tool-calling-replay-rerun/unresolved_items.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_argument_validation_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_call_mapping_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_trace_samples.jsonl",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_execution_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        {
+          "path": "evidence/beta-tool-calling-canary-openai/unresolved_items.json",
+          "required": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "section_id": "canary_matrix_summary",
+      "status": "pass",
+      "claim_level": "canary_summary_only",
+      "artifacts": [
+        {
+          "path": "evidence/beta-canary-matrix-summary/canary_matrix_summary.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-canary-matrix-summary-and-local-readiness"
+        },
+        {
+          "path": "evidence/beta-canary-matrix-summary/local_readiness_report.json",
+          "required": true,
+          "exists": true,
+          "status": "blocked_by_missing_local_endpoint"
+        },
+        {
+          "path": "evidence/beta-canary-matrix-summary/canary_matrix_summary.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-canary-matrix-summary/canary_matrix_summary_gate_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-canary-matrix-summary-and-local-readiness"
+        },
+        {
+          "path": "evidence/beta-canary-matrix-summary/claim_status_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-canary-matrix-summary-and-local-readiness"
+        },
+        {
+          "path": "evidence/beta-canary-matrix-summary/local_readiness_blockers.json",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-canary-matrix-summary/unresolved_items.json",
+          "required": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "section_id": "openai_tool_calling_replay_rerun",
+      "status": "pass",
+      "claim_level": "canary_rerun_only",
+      "artifacts": [
+        {
+          "path": "evidence/beta-openai-tool-calling-replay-rerun/replay_comparison_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-tool-calling-replay-rerun"
+        },
+        {
+          "path": "evidence/beta-openai-tool-calling-replay-rerun/replay_gate_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-tool-calling-replay-rerun"
+        },
+        {
+          "path": "evidence/beta-openai-tool-calling-replay-rerun/replay_redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/beta-openai-tool-calling-replay-rerun/replay_rerun_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-tool-calling-replay-rerun"
+        },
+        {
+          "path": "evidence/beta-openai-tool-calling-replay-rerun/replay_rerun_report.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-openai-tool-calling-replay-rerun/replay_trace_comparison.json",
+          "required": false,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/beta-openai-tool-calling-replay-rerun/unresolved_items.json",
+          "required": false,
+          "exists": true
+        }
+      ]
+    },
+    {
+      "section_id": "openai_canary_replay_suite",
+      "status": "pass",
+      "claim_level": "canary_suite_only",
+      "artifacts": [
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_gate_report.json",
+          "required": true,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/no_tool_redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/no_tool_replay_comparison_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/no_tool_trace_comparison.json",
+          "required": false,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/structured_output_redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/structured_output_replay_comparison_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/structured_output_trace_comparison.json",
+          "required": false,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_redaction_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.md",
+          "required": false,
+          "exists": true
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_trace_comparison.json",
+          "required": false,
+          "exists": true,
+          "status": "pass"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/tool_calling_replay_comparison_report.json",
+          "required": false,
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-tool-calling-replay-rerun"
+        },
+        {
+          "path": "evidence/beta-openai-canary-replay-suite/unresolved_items.json",
+          "required": false,
+          "exists": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "verdict": "baseline_copy_integrity_preserved",
+  "full_to_light": {
+    "status": "preserved_at_baseline_copy",
+    "shared_boundary_signals": {
+      "safety": true,
+      "verification": true,
+      "tool_retrieval_memory_multi_agent_non_default": true
+    },
+    "risk": "Phase 3 proposed edits must not make light a policy-dump clone of full."
+  },
+  "light_to_lightest": {
+    "status": "preserved_at_baseline_copy",
+    "shared_boundary_signals": {
+      "bounded_execution": true,
+      "verification": true,
+      "avoid_unneeded_tools": true
+    },
+    "risk": "Technique coverage expansion could overload lightest unless expressed as fallback/downgrade behavior."
+  },
+  "full_to_standalone": {
+    "status": "preserved_at_baseline_copy",
+    "shared_boundary_signals": {
+      "safety": true,
+      "approval": true,
+      "verify_before_claim": true
+    },
+    "risk": "PromptingGuide code-generation examples must not widen standalone into broad rewrite behavior."
+  },
+  "standalone_to_coding_core": {
+    "status": "behaviorally_aligned_by_declared_derivation_and_runtime_focus",
+    "shared_boundary_signals": {
+      "bounded_patch": true,
+      "verify_before_claim": true,
+      "safety_tool_boundary": true
+    },
+    "risk": "coding-core is runtime package, not a text mirror; Phase 4 must replay behavior."
+  },
+  "overlay_to_skill": {
+    "status": "requires_behavior_validation",
+    "note": "Skills declare derivation from overlays and optimize for Codex runtime. Text parity is not required."
+  },
+  "harness_contracts_to_release_gate": {
+    "status": "boundary_requires_phase4_execution",
+    "risk": "Contract/schema presence must not be described as harness-executed or release-gated."
+  },
+  "drift_findings": [],
+  "compression_failures": [],
+  "safety_or_verification_weakening_risks": [
+    "Technique expansion may create over-activation in light/lightest.",
+    "Prompt Hub expansion may create example authority drift.",
+    "Codex runtime edits may weaken approval/tool/retrieval boundaries unless separately validated."
+  ]
+}

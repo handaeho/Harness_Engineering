@@ -1,0 +1,39 @@
+stage: v2.0.0-beta-canary-matrix-summary-and-local-readiness
+
+approved_actions:
+  evidence_summary: true
+  provider_canary_matrix_summary: true
+  local_readiness_blocker_record: true
+  local_setup_documentation: true
+  claim_status_report: true
+
+forbidden_execution:
+  openai_provider_api_call: true
+  local_vllm_execution: true
+  local_ollama_execution: true
+  local_endpoint_probe: true
+  model_download: true
+  model_pull: true
+  shell_server_start: true
+  external_network_calls: true
+  redteam_execution: true
+  replay_verification: true
+  production_telemetry: true
+  release_gate_claim: true
+
+claims_allowed:
+  - canary-matrix-summarized
+  - local-readiness-documented
+  - local-endpoint-blocker-recorded
+
+claims_not_allowed:
+  - provider-verified
+  - adapter-checked
+  - tool-call-verified
+  - schema-output-verified
+  - local-model-verified
+  - provider-diverse
+  - replay-verified
+  - integration-verified
+  - release-gated
+  - production-monitored

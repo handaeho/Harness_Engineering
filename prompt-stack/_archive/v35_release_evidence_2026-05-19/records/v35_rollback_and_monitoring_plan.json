@@ -1,0 +1,54 @@
+﻿{
+    "release_version":  "v35",
+    "rollback_plan":  {
+                          "rollback_target":  "v34",
+                          "rollback_triggers":  [
+                                                    "prompt injection regression",
+                                                    "approval boundary regression",
+                                                    "destructive action boundary regression",
+                                                    "secret leakage",
+                                                    "retrieval/factuality regression",
+                                                    "Codex runtime boundary regression",
+                                                    "example factual transfer regression",
+                                                    "unsupported release claim",
+                                                    "major runtime route regression"
+                                                ],
+                          "rollback_method":  [
+                                                  "mark v35 as held or reverted",
+                                                  "restore v34 as stable baseline",
+                                                  "preserve v35 evidence for postmortem"
+                                              ],
+                          "rollback_owner":  "release owner / prompt-stack maintainer",
+                          "rollback_evidence_required":  [
+                                                             "failing case or trace",
+                                                             "affected asset path",
+                                                             "regression class",
+                                                             "required downgrade or revert action"
+                                                         ]
+                      },
+    "monitoring_plan":  {
+                            "post_release_watch_items":  [
+                                                             "prompt injection resistance",
+                                                             "tool parameter discipline",
+                                                             "verify-before-claim",
+                                                             "retrieval freshness",
+                                                             "Codex runtime behavior",
+                                                             "example boundary",
+                                                             "technique over-activation",
+                                                             "claim strength language",
+                                                             "sandbox / telemetry / containment follow-up",
+                                                             "primary-source validation follow-up"
+                                                         ],
+                            "monitoring_claim_scope":  [
+                                                           "local monitoring plan only",
+                                                           "not production-monitored unless live telemetry is connected"
+                                                       ],
+                            "follow_up_items":  [
+                                                    "primary-source validation backlog",
+                                                    "sandbox containment proof",
+                                                    "telemetry integration",
+                                                    "production rollout criteria",
+                                                    "public benchmark decision if needed"
+                                                ]
+                        }
+}

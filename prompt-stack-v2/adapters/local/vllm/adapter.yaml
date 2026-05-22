@@ -1,0 +1,29 @@
+adapter_id: vllm.local.skeleton
+target_runtime: vllm_local
+status: skeleton
+supported_features:
+  openai_compatible_server: needs_verification
+  tool_calling: needs_verification
+  structured_outputs: needs_verification
+unsupported_features:
+  evals_api: not_applicable
+  production_telemetry: not_in_alpha_scope
+requires_verification:
+  - selected model chat template compatibility
+  - tool parser compatibility
+  - structured output decoding behavior
+  - local server request and response roundtrip
+message_mapping:
+  core_role_contract: adapter_defined
+  chat_template: needs_verification
+  stop_tokens: needs_verification
+tool_mapping:
+  parser: model_dependent
+  approval_gate: runtime_owned
+structured_output_mapping:
+  schema_mode: needs_verification
+  fallback_repair: needs_design
+known_risks:
+  - Capability varies by served model and parser configuration.
+  - Tokenizer-specific settings must stay out of core/spec.
+  - Local server behavior is not provider diversity proof by itself.

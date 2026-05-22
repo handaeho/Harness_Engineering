@@ -1,0 +1,38 @@
+{
+  "artifact_version": "v34-harness-2026-05-19-c",
+  "status": "seeded_with_first_executed_retest",
+  "records": [
+    {
+      "record_id": "tte-2026-05-19-01",
+      "source_run_id": "audit-smoke",
+      "source_trace_id": "legacy-audit-smoke-eh-s01",
+      "source_scenario_id": "EH-S01",
+      "failure_surface": "runner_failure",
+      "observed_symptom": "legacy external harness failed at codex spawn with EPERM before emitting verdict JSON",
+      "root_owner": "run_external_harness.mjs",
+      "evidence": [
+        "harness/runs/audit-smoke/summary.json",
+        "harness/runs/audit-smoke/EH-S01.stderr.log"
+      ],
+      "repro_eval_case": "ros-15-runner-setup-failure",
+      "deterministic_assertion": "runner setup failures must stay classified as runner_failure rather than agent_failure",
+      "proposed_fix_type": "runner_or_environment_change",
+      "proposed_fix": "add runtime-os scenario execution path with trace emission and explicit runner-failure classification that does not depend on nested codex spawn",
+      "target_asset": "harness/run_external_harness.mjs",
+      "retest_status": "passed",
+      "retest_run_id": "runtime-os-smoke-2026-05-19-a",
+      "retest_trace_id": "runtime-os-smoke-2026-05-19-a-ros-15-runner-setup-failure-trace",
+      "retest_verdict": "Pass",
+      "retest_artifacts": [
+        "harness/runs/runtime-os-smoke-2026-05-19-a/ros-15-runner-setup-failure.trace.json",
+        "harness/runs/runtime-os-smoke-2026-05-19-a/summary.json"
+      ],
+      "retest_cases": [
+        "ros-15-runner-setup-failure",
+        "ros-16-replay-ready-not-executed"
+      ],
+      "promotion_condition": "first runtime-os trace artifact emitted with runner_failure classification preserved",
+      "rollback_condition": "if runtime-os runner still cannot emit trace or verdict artifacts, keep maturity below harness-executed"
+    }
+  ]
+}

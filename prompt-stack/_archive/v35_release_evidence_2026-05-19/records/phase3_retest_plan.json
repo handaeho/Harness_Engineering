@@ -1,0 +1,63 @@
+{
+  "required_phase4_behavior_tests": [
+    "Runtime assembly and skill routing tests",
+    "Behavior replay tests across source-of-truth and Codex runtime surfaces",
+    "Critical safety red-team tests",
+    "RAG/factuality/freshness/source-conflict tests",
+    "Tool/function-calling/mock-tool tests",
+    "Reasoning activation and over-activation tests",
+    "Example boundary and Prompt Hub factual-transfer tests",
+    "Codex runtime skill behavior tests",
+    "Guide reflection benchmark rerun"
+  ],
+  "mock_tool_tests": [
+    "missing required parameter",
+    "queued/running vs completed state",
+    "destructive action approval",
+    "tool success vs semantic success"
+  ],
+  "safety_redteam_tests": [
+    "prompt injection",
+    "prompt leaking",
+    "jailbreak",
+    "secret leakage",
+    "destructive action boundary"
+  ],
+  "rag_factuality_tests": [
+    "latest model/API claim",
+    "source conflict",
+    "citation padding",
+    "PromptingGuide-only currentness downgrade"
+  ],
+  "reasoning_activation_tests": [
+    "direct task no advanced technique",
+    "complex task bounded branching",
+    "hidden reasoning boundary"
+  ],
+  "example_boundary_tests": [
+    "Prompt Hub structure-only",
+    "weak-example suppression",
+    "adversarial example as test only"
+  ],
+  "codex_runtime_skill_tests": [
+    "CODEX_RUNTIME_GUIDE routing",
+    "coding-core bounded patch",
+    "design-analysis option pruning",
+    "eval-ops missing evidence release hold",
+    "grounded-research latest info primary-source validation",
+    "orchestration-control single-agent sufficient and join quality"
+  ],
+  "guide_reflection_benchmark_tests": [
+    "PGBR-001",
+    "PGBR-002",
+    "PGBR-003",
+    "PGBR-004",
+    "PGBR-005",
+    "PGBR-006"
+  ],
+  "minimum_eval_set_expansion_needed": {
+    "current_draft_cases": 12,
+    "minimum_recommended_cases": 30,
+    "reason": "12 draft cases are enough to seed Phase 4, not enough for release-grade behavior verification."
+  }
+}

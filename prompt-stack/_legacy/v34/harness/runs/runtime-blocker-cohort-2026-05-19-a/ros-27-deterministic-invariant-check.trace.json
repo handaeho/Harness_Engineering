@@ -1,0 +1,126 @@
+{
+  "trace_id": "runtime-blocker-cohort-2026-05-19-a-ros-27-deterministic-invariant-check-trace",
+  "session_id": "runtime-blocker-cohort-2026-05-19-a",
+  "run_id": "runtime-blocker-cohort-2026-05-19-a",
+  "cohort_id": "runtime-os-smoke",
+  "scenario_id": "ros-27-deterministic-invariant-check",
+  "artifact_version": "v34-runtime-os-2026-05-19-a",
+  "prompt_version": "v34",
+  "model_version": "deterministic-local-runner",
+  "selected_base_prompt": "PROMPT_full",
+  "selected_skill": "eval-ops",
+  "selected_overlays": [
+    "PROMPT_evaluation_monitoring_overlay"
+  ],
+  "example_mode": "none",
+  "task_family": "architecture_invariant",
+  "risk_class": "R2",
+  "route": "deterministic_invariant_check_before_promotion",
+  "trace_created_at": "2026-05-19T05:22:03.772Z",
+  "nested_tool_spans": [],
+  "cost_attribution": {
+    "mode": "local_deterministic_runner",
+    "total_usd": 0
+  },
+  "latency_attribution": {
+    "total_ms": 1
+  },
+  "retry_attribution": {
+    "attempts": 1,
+    "retry_used": false
+  },
+  "claim_strength": "locally_checked",
+  "policy_decisions": [],
+  "approval_events": [],
+  "safety_events": [],
+  "sandbox_events": [],
+  "network_events": [],
+  "memory_events": [],
+  "retrieval_events": [],
+  "multi_agent_events": [],
+  "error_events": [],
+  "tool_calls": [],
+  "tool_parameters": [],
+  "tool_results": [],
+  "latency": {
+    "total_ms": 1
+  },
+  "token_usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "cost": {
+    "currency": "USD",
+    "total": 0
+  },
+  "runner": {
+    "runner_id": "v34-codex-exec-read-only",
+    "harness_mode": "runtime_os_deterministic_runner",
+    "sandbox_mode": "read_only_default",
+    "readiness_state": "ready"
+  },
+  "events": [
+    {
+      "event_id": "ros-27-deterministic-invariant-check-01",
+      "phase": "intake",
+      "timestamp": "2026-05-19T05:22:03.772Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "load_scenario_contract",
+      "metadata": {
+        "task_family": "architecture_invariant",
+        "layer": "execution_runner"
+      }
+    },
+    {
+      "event_id": "ros-27-deterministic-invariant-check-02",
+      "phase": "readiness",
+      "timestamp": "2026-05-19T05:22:03.772Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "load_runtime_assets",
+      "metadata": {
+        "trace_schema_present": true,
+        "runtime_os_scenarios_present": true,
+        "trace_to_eval_status": "seeded_with_first_executed_retest",
+        "simulated_user_scenarios_status": "seeded_ready_for_execution"
+      }
+    },
+    {
+      "event_id": "ros-27-deterministic-invariant-check-03",
+      "phase": "verify",
+      "timestamp": "2026-05-19T05:22:03.773Z",
+      "status": "completed",
+      "actor": "runtime-os-runner",
+      "action": "finalize_runtime_os_trace",
+      "metadata": {
+        "verdict": "Pass",
+        "claim_strength": "locally_checked"
+      }
+    }
+  ],
+  "final_state": {
+    "status": "deterministic_invariant_passed",
+    "deterministic_invariant_check_executed": true,
+    "checked_paths": 10,
+    "missing_paths": [],
+    "trace_shape_ok": true
+  },
+  "verification_state": {
+    "checks_executed": [
+      "governance_surface_present",
+      "base_prompt_set_present",
+      "overlay_and_example_surface_present",
+      "docs_runtime_surface_present"
+    ],
+    "checks_passed": [
+      "governance_surface_present",
+      "base_prompt_set_present",
+      "overlay_and_example_surface_present",
+      "docs_runtime_surface_present"
+    ],
+    "checks_failed": [],
+    "trace_shape_ok": true
+  },
+  "verdict": "Pass"
+}

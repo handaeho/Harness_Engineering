@@ -1,0 +1,235 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-beta-openai-redteam-limited-execution-plan",
+  "can_enter_provider_redteam_execution": false,
+  "can_enter_redteam_passed_claim": false,
+  "can_enter_containment_verified_claim": false,
+  "can_enter_release_gated_claim": false,
+  "reason": "OpenAI limited redteam execution plan is drafted, but provider redteam execution remains pending.",
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "fallback_used": false
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "check_redteam_mock_runtime_dry_run.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "openai_limited_case_subset.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "excluded_cases_report.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "provider_execution_guard_cases.jsonl exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "openai_limited_execution_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "openai_redteam_case_selection_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "openai_redteam_cost_bound_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "openai_redteam_stop_criteria.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "openai_redteam_redaction_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "openai_redteam_trace_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "openai_redteam_limited_execution_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "openai_redteam_limited_execution_plan_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "openai_limited_case_selection.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "excluded_cases_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "provider_execution_guard_design.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "cost_bound_policy_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stop_criteria_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redaction_policy_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "trace_policy_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redteam_provider_execution_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "plan report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "validation report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "selected case limits",
+      "status": "pass",
+      "detail": {
+        "selected_cases_total": 12,
+        "selected_severity_counts": {
+          "high": 6,
+          "critical": 2,
+          "medium": 4
+        }
+      }
+    },
+    {
+      "name": "execution guard remains closed",
+      "status": "pass",
+      "detail": {
+        "can_execute_provider_redteam": false
+      }
+    },
+    {
+      "name": "no execution performed",
+      "status": "pass",
+      "detail": {
+        "design_only": true,
+        "actual_redteam_execution": false,
+        "provider_execution": false,
+        "local_model_execution": false,
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "forbidden positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "dist modified false",
+      "status": "pass",
+      "detail": {
+        "dist_modified": false,
+        "dist_files": [
+          "README.md"
+        ]
+      }
+    },
+    {
+      "name": "v36 modified false by checksum comparison",
+      "status": "pass",
+      "detail": {
+        "method": "alpha snapshot plus v36 existing checksum record comparison",
+        "v36_modified": false
+      }
+    }
+  ],
+  "claims_allowed": [
+    "openai-redteam-limited-execution-plan-drafted",
+    "openai-redteam-case-subset-selected",
+    "openai-redteam-execution-guard-designed",
+    "openai-redteam-cost-bound-drafted",
+    "openai-redteam-stop-criteria-drafted",
+    "openai-redteam-redaction-policy-drafted",
+    "openai-redteam-trace-policy-drafted"
+  ],
+  "claims_blocked": [
+    "redteam-executed",
+    "redteam-passed",
+    "containment-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "runtime-verified",
+    "tool-call-verified",
+    "schema-output-verified",
+    "replay-verified",
+    "integration-verified",
+    "telemetry-connected",
+    "benchmark-backed"
+  ]
+}
