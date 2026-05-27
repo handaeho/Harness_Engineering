@@ -22,6 +22,10 @@ Stage: v2.0.0-beta-mock-execution
 - pass: provider execution is false
 - pass: local model execution is false
 - pass: external side effects are false
+- pass: Langfuse trace export was not attempted
+- pass: Langfuse sink write was not performed
+- pass: Langfuse trace export attempt count is zero
+- pass: Langfuse sink write count is zero
 - pass: unresolved_items.json is empty
 - pass: v36 modified false by checksum comparison
 

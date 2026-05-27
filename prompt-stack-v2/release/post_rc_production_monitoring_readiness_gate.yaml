@@ -1,0 +1,25 @@
+stage: v2.0.0-post-rc-production-monitoring-readiness
+source_stage: v2.0.0-post-rc-telemetry-connection-result-review
+status: blocked_not_production_monitored
+production_monitored_allowed: false
+requires_before_production_monitored:
+  - dashboard specification
+  - alerting policy
+  - anomaly thresholds
+  - minimum monitoring window
+  - incident response owner
+  - rollback monitoring linkage
+  - retention policy
+  - production monitoring gate
+does_not_require_now:
+  - local endpoint
+  - provider diversity
+forbidden_claims:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - release-gated

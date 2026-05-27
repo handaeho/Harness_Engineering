@@ -1,0 +1,206 @@
+{
+  "status": "pass",
+  "stage": "langfuse-runtime-tracing-integration-check",
+  "langfuse_sdk_packages_declared": true,
+  "default_tracing_enabled": false,
+  "actual_telemetry_connection_performed": false,
+  "telemetry_sink_write_performed": false,
+  "openai_model_api_call_performed": false,
+  "local_endpoint_probe_performed": false,
+  "local_model_execution_performed": false,
+  "secrets_logged": false,
+  "raw_payload_stored": false,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "checks": [
+    {
+      "name": "Langfuse tracing dependency declared",
+      "status": "pass",
+      "details": {
+        "dependency_present": true
+      }
+    },
+    {
+      "name": "Langfuse OTel dependency declared",
+      "status": "pass",
+      "details": {
+        "dependency_present": true
+      }
+    },
+    {
+      "name": "OpenTelemetry Node SDK dependency declared",
+      "status": "pass",
+      "details": {
+        "dependency_present": true
+      }
+    },
+    {
+      "name": "Default config does not start Langfuse tracing",
+      "status": "pass",
+      "details": {
+        "status": "disabled",
+        "configured_sink": "none",
+        "tracing_enabled_env": false,
+        "approval_present": false,
+        "approval_source": null,
+        "langfuse_public_key_present": false,
+        "langfuse_secret_key_present": false,
+        "langfuse_base_url_present": false,
+        "langfuse_base_url_source": null,
+        "can_start": false,
+        "missing": [
+          "LANGFUSE_TRACING_ENABLED=true",
+          "telemetry_connection_approval",
+          "LANGFUSE_PUBLIC_KEY",
+          "LANGFUSE_SECRET_KEY",
+          "LANGFUSE_BASE_URL_or_LANGFUSE_HOST"
+        ],
+        "secrets_logged": false,
+        "raw_payload_stored": false,
+        "raw_request_stored": false,
+        "raw_response_stored": false
+      }
+    },
+    {
+      "name": "Default config records presence booleans only",
+      "status": "pass",
+      "details": {
+        "langfuse_secret_key_value_present": false
+      }
+    },
+    {
+      "name": "Redactor removes secret-looking values",
+      "status": "pass",
+      "details": {
+        "redacted": {
+          "credential": "[redacted]",
+          "LANGFUSE_SECRET_KEY": "[redacted]",
+          "nested": {
+            "token": "[redacted]",
+            "safe": "ok"
+          }
+        }
+      }
+    },
+    {
+      "name": "Run request summary omits raw prompt",
+      "status": "pass",
+      "details": {
+        "request_summary": {
+          "run_id": "langfuse-check-mock-run",
+          "case_id": "langfuse.tracing.disabled_check",
+          "input_keys": [
+            "mock_response_id"
+          ],
+          "mock_response_id": "no_tool_success",
+          "context_source_count": 0,
+          "raw_prompt_included": false,
+          "raw_messages_included": false
+        }
+      }
+    },
+    {
+      "name": "Disabled wrapper executes mock runtime without sink write",
+      "status": "pass",
+      "details": {
+        "langfuse": {
+          "status": "disabled_missing_requirements",
+          "config": {
+            "status": "disabled",
+            "configured_sink": "none",
+            "tracing_enabled_env": false,
+            "approval_present": false,
+            "approval_source": null,
+            "langfuse_public_key_present": false,
+            "langfuse_secret_key_present": false,
+            "langfuse_base_url_present": false,
+            "langfuse_base_url_source": null,
+            "can_start": false,
+            "missing": [
+              "LANGFUSE_TRACING_ENABLED=true",
+              "telemetry_connection_approval",
+              "LANGFUSE_PUBLIC_KEY",
+              "LANGFUSE_SECRET_KEY",
+              "LANGFUSE_BASE_URL_or_LANGFUSE_HOST"
+            ],
+            "secrets_logged": false,
+            "raw_payload_stored": false,
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          "trace_export_attempted": false,
+          "sink_write_performed": false,
+          "event_observations_emitted": 0
+        },
+        "result_summary": {
+          "run_id": "langfuse-check-mock-run",
+          "status": "completed",
+          "stage": "v2.0.0-beta-mock-execution",
+          "trace_events_total": 7,
+          "blocked_tools": [],
+          "executed_mock_tools": [],
+          "tool_outputs_total": 0,
+          "provider_execution": false,
+          "local_model_execution": false,
+          "external_side_effects": false,
+          "final_output_kind": "text",
+          "raw_response_included": false
+        }
+      }
+    },
+    {
+      "name": "Trace event summary uses redacted payload summary",
+      "status": "pass",
+      "details": {
+        "event_summary": {
+          "run_id": "langfuse-check-mock-run",
+          "event_id": "langfuse-check-mock-run-0001",
+          "event_type": "run_started",
+          "stage": "v2.0.0-beta-mock-execution",
+          "adapter_id": "mock",
+          "provider": null,
+          "provider_execution": false,
+          "local_model_execution": false,
+          "external_side_effect": false,
+          "payload_redacted": true,
+          "payload_summary": {
+            "kind": "object",
+            "keys": [
+              "case_id"
+            ],
+            "blocked": false
+          }
+        }
+      }
+    },
+    {
+      "name": "observability/langfuse/instrumentation.mjs exists",
+      "status": "pass",
+      "details": {
+        "file": "observability/langfuse/instrumentation.mjs"
+      }
+    },
+    {
+      "name": "observability/langfuse/mock_runtime_tracer.mjs exists",
+      "status": "pass",
+      "details": {
+        "file": "observability/langfuse/mock_runtime_tracer.mjs"
+      }
+    },
+    {
+      "name": "observability/langfuse/runtime_tracing_policy.yaml exists",
+      "status": "pass",
+      "details": {
+        "file": "observability/langfuse/runtime_tracing_policy.yaml"
+      }
+    },
+    {
+      "name": "docs/langfuse_runtime_tracing.ko.md exists",
+      "status": "pass",
+      "details": {
+        "file": "docs/langfuse_runtime_tracing.ko.md"
+      }
+    }
+  ],
+  "failures": []
+}

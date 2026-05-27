@@ -1,0 +1,254 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-production-monitoring-readiness",
+  "readiness_status": "blocked_not_production_monitored",
+  "can_claim_telemetry_connected": true,
+  "can_claim_production_monitored": false,
+  "can_claim_production_ready": false,
+  "can_enter_stable_release": false,
+  "production_monitoring_ready": false,
+  "production_monitored_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "local_endpoint_deferred": true,
+  "next_required_gate": "production monitoring controls design and gate",
+  "reason": "Production monitoring readiness assessed as blocked_not_production_monitored. Required controls and monitoring window remain missing.",
+  "required_controls_missing": [
+    "dashboard specification",
+    "alerting policy",
+    "anomaly thresholds",
+    "minimum monitoring window",
+    "incident response owner",
+    "rollback monitoring linkage",
+    "retention policy",
+    "production monitoring gate"
+  ],
+  "checks": [
+    {
+      "name": "check_post_rc_telemetry_connection_result_review.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "assess_post_rc_production_monitoring_readiness.mjs blocked_not_production_monitored",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "blocked_not_production_monitored"
+      }
+    },
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "release/post_rc_production_monitoring_readiness_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_monitoring_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_production_monitoring_readiness.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_readiness_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_readiness_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-readiness/production_monitoring_readiness_assessment.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-readiness/production_monitoring_required_controls.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-readiness/production_monitoring_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-readiness/production_monitoring_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-readiness/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_readiness.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_remaining_controls.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_production_monitoring_gate_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_local_canary_after_endpoint_ready.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_stable_scope_decision_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production monitoring readiness is blocked_not_production_monitored",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_not_production_monitored",
+        "telemetry_connected": true,
+        "production_monitoring_ready": false
+      }
+    },
+    {
+      "name": "required production monitoring controls are missing",
+      "status": "pass",
+      "detail": {
+        "required_controls": {
+          "dashboard_defined": false,
+          "alerting_policy_defined": false,
+          "anomaly_thresholds_defined": false,
+          "monitoring_window_completed": false,
+          "incident_response_owner_defined": false,
+          "rollback_monitoring_linked": false,
+          "retention_policy_defined": false
+        },
+        "required_before_production_monitored": [
+          "dashboard specification",
+          "alerting policy",
+          "anomaly thresholds",
+          "minimum monitoring window",
+          "incident response owner",
+          "rollback monitoring linkage",
+          "retention policy",
+          "production monitoring gate"
+        ]
+      }
+    },
+    {
+      "name": "local endpoint and provider diversity are not required now",
+      "status": "pass",
+      "detail": {
+        "does_not_require_now": [
+          "local endpoint",
+          "provider diversity"
+        ],
+        "local_endpoint_status": "deferred_future_lane"
+      }
+    },
+    {
+      "name": "claim boundary blocks production monitoring and stronger claims",
+      "status": "pass",
+      "detail": {
+        "production_monitored_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false
+      }
+    },
+    {
+      "name": "forbidden execution flags false",
+      "status": "pass",
+      "detail": {
+        "openai_model_api_call": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "telemetry_sink_additional_write": false
+      }
+    },
+    {
+      "name": "secret and raw payload flags false",
+      "status": "pass",
+      "detail": {
+        "secrets_logged": false,
+        "raw_payload_stored": false
+      }
+    },
+    {
+      "name": "production readiness unresolved items recorded",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_not_production_monitored",
+        "unresolved_items_count": 8
+      }
+    },
+    {
+      "name": "stable / production / provider-diverse positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "guardrail paths remain clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "failures": [],
+  "claims_allowed_by_this_gate": [
+    "telemetry-connected",
+    "post-rc-production-monitoring-readiness-assessed",
+    "post-rc-production-monitoring-blocker-recorded"
+  ],
+  "claims_still_blocked": [
+    "production-monitored",
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified"
+  ]
+}

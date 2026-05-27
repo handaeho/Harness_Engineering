@@ -1,0 +1,16 @@
+stage: v2.0.0-post-rc-telemetry-connection-result-review
+claim: telemetry-connected
+allowed_if:
+  telemetry_connection_result_review_status: pass
+  source_telemetry_connection_gate_status: pass
+  langfuse_receipt_evidence_index_status: pass
+  telemetry_secret_redaction_review_status: pass
+does_not_allow:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+bare_release_gated_allowed: false

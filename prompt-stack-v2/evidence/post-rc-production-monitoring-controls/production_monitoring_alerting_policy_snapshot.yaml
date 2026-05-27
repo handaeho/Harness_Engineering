@@ -1,0 +1,16 @@
+alerting_policy:
+  status: drafted
+  alerts:
+    - name: redaction_failure_detected
+      severity: critical
+      condition: redaction_failure_count > 0
+    - name: missing_trace_spike
+      severity: high
+      condition: missing_trace_rate exceeds threshold
+    - name: error_rate_spike
+      severity: high
+      condition: error_rate exceeds threshold
+    - name: latency_regression
+      severity: medium
+      condition: p95 latency exceeds threshold
+  live_alerts_enabled: false

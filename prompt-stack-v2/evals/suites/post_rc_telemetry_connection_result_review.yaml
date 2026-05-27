@@ -1,0 +1,16 @@
+suite_id: post_rc_telemetry_connection_result_review
+stage: v2.0.0-post-rc-telemetry-connection-result-review
+description: Reviews the passed post-RC Langfuse telemetry connection and indexes receipt/redaction evidence without additional sink writes.
+source_stage: v2.0.0-post-rc-telemetry-connection
+forbidden_execution:
+  openai_model_api_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  telemetry_sink_additional_write: true
+gate:
+  script: tools/check_post_rc_telemetry_connection_result_review.mjs
+required_artifacts:
+  - evidence/post-rc-telemetry-connection-result-review/telemetry_connection_result_review.json
+  - evidence/post-rc-telemetry-connection-result-review/telemetry_connected_claim_boundary.json
+  - evidence/post-rc-telemetry-connection-result-review/langfuse_receipt_evidence_index.json
+  - evidence/post-rc-telemetry-connection-result-review/telemetry_secret_redaction_review.json

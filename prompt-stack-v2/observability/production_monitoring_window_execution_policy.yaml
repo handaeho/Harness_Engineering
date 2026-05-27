@@ -1,0 +1,15 @@
+monitoring_window_execution_policy:
+  status: preflight_only
+  execution_allowed_in_this_stage: false
+  operator_values_complete_required: true
+  operator_approval_required: true
+  telemetry_connected_required: true
+  production_monitoring_controls_drafted_required: true
+  local_endpoint_required: false
+  local_endpoint_deferred: true
+  evidence_required_after_execution:
+    - continuous_trace_receipts
+    - zero_redaction_failures
+    - zero_secret_logging_findings
+    - alert_policy_review
+    - incident_owner_acknowledgement

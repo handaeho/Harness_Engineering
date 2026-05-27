@@ -1,0 +1,30 @@
+stage: v2.0.0-post-rc-telemetry-connection-preflight-refresh
+preflight_only: true
+approved_actions:
+  telemetry_sink_presence_check_without_secret_values: true
+  approval_requirements_recording: true
+  command_plan_recording: true
+  local_endpoint_deferral_confirmation: true
+forbidden_execution:
+  openai_provider_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  telemetry_connection: true
+  telemetry_sink_write: true
+  stable_decision: true
+  production_deployment: true
+claims_allowed_after_gate:
+  - post-rc-telemetry-preflight-refreshed
+  - post-rc-telemetry-approval-requirements-recorded
+  - post-rc-telemetry-command-plan-drafted
+  - post-rc-telemetry-local-endpoint-deferral-confirmed
+claims_not_allowed_now:
+  - stable
+  - release-gated
+  - production-ready
+  - production-monitored
+  - telemetry-connected
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified

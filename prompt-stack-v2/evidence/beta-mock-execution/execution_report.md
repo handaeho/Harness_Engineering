@@ -17,6 +17,8 @@ Stage: v2.0.0-beta-mock-execution
 - Trace events total: 105
 - Trace schema valid: true
 - State transitions recorded: 24
+- Langfuse trace export attempted: false
+- Langfuse sink write performed: false
 
 ## Claim Boundary
 

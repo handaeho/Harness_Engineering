@@ -1,0 +1,16 @@
+stage: v2.0.0-post-rc-production-monitoring-window-continuation-checkpoint
+status: updated
+previous_status: monitoring_window_executed_completion_or_final_gate_pending
+new_status: monitoring_window_in_progress_duration_and_sample_count_pending
+still_blocks:
+  - production-monitored
+  - production-ready
+  - stable
+does_not_block:
+  - telemetry-connected
+next_required_actions:
+  - continue accumulating real Langfuse trace receipts
+  - reach required monitoring duration
+  - reach required sample count
+  - rerun monitoring window checkpoint
+  - then run monitoring window result review

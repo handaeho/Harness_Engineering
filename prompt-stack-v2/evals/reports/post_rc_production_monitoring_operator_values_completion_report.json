@@ -1,0 +1,60 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-production-monitoring-operator-values-completion",
+  "generated_at": "2026-05-27T06:40:24.506Z",
+  "source_stage": "v2.0.0-post-rc-production-monitoring-values-owner-and-window-preflight",
+  "telemetry_connected": true,
+  "operator_values_complete": true,
+  "owner_assignments_complete": true,
+  "threshold_values_recorded": true,
+  "retention_values_recorded": true,
+  "monitoring_window_can_execute_after_approval": true,
+  "monitoring_window_executed": false,
+  "telemetry_sink_write": false,
+  "openai_model_api_call": false,
+  "openai_provider_call": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "production_monitored_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "provider_diverse_allowed": false,
+  "local_model_verified_allowed": false,
+  "actual_vs_recommended_differences": [
+    {
+      "field": "missing_trace_rate_threshold",
+      "recommended_default": "operator_review_recommended",
+      "operator_value": "5%"
+    },
+    {
+      "field": "error_rate_threshold",
+      "recommended_default": "operator_review_recommended",
+      "operator_value": "5%"
+    },
+    {
+      "field": "p95_latency_threshold_ms",
+      "recommended_default": "operator_review_recommended",
+      "operator_value": 10000
+    },
+    {
+      "field": "required_sample_count",
+      "recommended_default": "operator_review_recommended",
+      "operator_value": 50
+    },
+    {
+      "field": "allowed_environment",
+      "recommended_default": "post-rc non-production or controlled production-like environment",
+      "operator_value": "post-rc controlled monitoring window"
+    },
+    {
+      "field": "trace_retention_period",
+      "recommended_default": "operator_review_recommended",
+      "operator_value": "30d"
+    },
+    {
+      "field": "pii_retention_policy",
+      "recommended_default": "operator_review_recommended",
+      "operator_value": "no_raw_payload_or_secret_storage"
+    }
+  ]
+}

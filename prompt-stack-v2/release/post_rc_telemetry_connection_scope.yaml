@@ -1,0 +1,39 @@
+stage: v2.0.0-post-rc-telemetry-connection
+
+approved_execution:
+  telemetry_connection: true
+  telemetry_sink_write: true
+  langfuse_sink: true
+  live_trace_receipt_check: true
+  live_metric_or_event_receipt_check: true
+  claim_boundary_audit: true
+
+forbidden_execution:
+  openai_provider_call: true
+  openai_model_api_call: true
+  redteam_rerun: true
+  containment_rerun: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  production_deployment: true
+  stable_release_claim: true
+  production_ready_claim: true
+  production_monitored_claim: true
+  provider_diverse_claim: true
+  provider_verified_claim: true
+  adapter_checked_claim: true
+  local_model_verified_claim: true
+  dist_modification: true
+  v36_modification: true
+
+claims_conditionally_allowed:
+  - telemetry-connected
+
+claims_not_allowed:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified

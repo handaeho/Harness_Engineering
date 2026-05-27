@@ -1,0 +1,36 @@
+operator_values:
+  status: pending_operator_input
+
+  dashboard:
+    langfuse_project_name: operator_required
+    dashboard_url: operator_required_or_not_available
+    dashboard_owner: operator_required
+
+  alerting:
+    alert_channel: operator_required
+    alert_review_owner: operator_required
+    escalation_policy: operator_required
+
+  anomaly_thresholds:
+    missing_trace_rate_threshold: operator_required
+    error_rate_threshold: operator_required
+    p95_latency_threshold_ms: operator_required
+    redaction_failure_threshold: 0
+    raw_payload_storage_violation_threshold: 0
+    secret_logging_threshold: 0
+
+  monitoring_window:
+    minimum_duration: operator_required
+    required_sample_count: operator_required
+    allowed_environment: operator_required
+
+  retention:
+    trace_retention_period: operator_required
+    pii_retention_policy: operator_required
+    raw_payload_storage_allowed: false
+    secret_storage_allowed: false
+
+  incident_response:
+    incident_owner: operator_required
+    escalation_owner: operator_required
+    rollback_owner: operator_required

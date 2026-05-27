@@ -1,0 +1,20 @@
+stage: v2.0.0-post-rc-telemetry-connection
+conditional_claim:
+  telemetry-connected:
+    allowed_only_if_gate_passes: true
+    requires:
+      - exact approval phrase
+      - Langfuse credential presence
+      - post-RC telemetry preflight refresh pass
+      - live Langfuse trace receipt
+      - secret and raw payload redaction check
+does_not_allow:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+bare_release_gated_allowed: false
+rc1_openai_scope_release_gated_remains_allowed: true

@@ -1,0 +1,10 @@
+stage: v2.0.0-post-rc-production-monitoring-window-execution
+status: blocked_by_monitoring_window_requirements_unmet
+approval_phrase_verified: true
+monitoring_window_completed: false
+production_monitored_allowed: false
+requires_before_production_monitored:
+  - minimum_monitoring_window_duration_met
+  - required_sample_count_met
+  - threshold_evaluation_passed
+  - final_production_monitoring_gate_pass

@@ -1,0 +1,13 @@
+stage: v2.0.0-post-rc-production-monitoring-values-owner-and-window-preflight
+status: blocked_by_missing_operator_values
+operator_values_required: true
+operator_values_complete: false
+monitoring_window_can_execute: false
+production_monitored_allowed: false
+production_ready_allowed: false
+stable_allowed: false
+requires_before_monitoring_window:
+  - operator_values_complete
+  - operator_approval_for_monitoring_window
+  - telemetry_connected
+  - production_monitoring_controls_drafted

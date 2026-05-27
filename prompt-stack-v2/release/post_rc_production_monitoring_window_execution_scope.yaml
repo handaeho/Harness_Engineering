@@ -1,0 +1,39 @@
+stage: v2.0.0-post-rc-production-monitoring-window-execution
+
+approved_execution:
+  monitoring_window_execution: true
+  langfuse_trace_continuity_review: true
+  threshold_evaluation: true
+  redaction_secret_evaluation: true
+  incident_rollback_readiness_review: true
+  claim_boundary_audit: true
+
+forbidden_execution:
+  openai_model_api_call: true
+  openai_provider_call: true
+  redteam_rerun: true
+  containment_rerun: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  production_deployment: true
+  release_gate_rerun: true
+  v36_modification: true
+  dist_modification: true
+  evidence_v36_baseline_modification: true
+
+claims_allowed:
+  - post-rc-production-monitoring-window-executed
+  - post-rc-monitoring-window-trace-continuity-reviewed
+  - post-rc-monitoring-window-thresholds-evaluated
+  - post-rc-monitoring-window-redaction-reviewed
+  - post-rc-monitoring-window-incident-rollback-reviewed
+
+claims_not_allowed:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - release-gated

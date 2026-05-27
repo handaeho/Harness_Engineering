@@ -1,0 +1,308 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-telemetry-connection-preflight-refresh",
+  "can_enter_post_rc_telemetry_connection": false,
+  "can_enter_telemetry_connected_claim": false,
+  "can_enter_production_monitored_claim": false,
+  "can_enter_production_ready_claim": false,
+  "local_endpoint_deferred": true,
+  "reason": "Telemetry connection preflight refresh is recorded. Actual connection requires explicit approval phrase and sink credentials.",
+  "openai_model_api_call_performed": false,
+  "actual_telemetry_connection_performed": false,
+  "telemetry_sink_write_performed": false,
+  "local_endpoint_probe_performed": false,
+  "local_model_execution_performed": false,
+  "evidence_v36_baseline_modified": false,
+  "configured_sink": "none",
+  "credential_presence_checked": true,
+  "explicit_user_approval_present": false,
+  "can_execute_telemetry_connection": false,
+  "secrets_logged": false,
+  "raw_payload_stored": false,
+  "claims_allowed": [
+    "post-rc-telemetry-preflight-refreshed",
+    "post-rc-telemetry-approval-requirements-recorded",
+    "post-rc-telemetry-command-plan-drafted",
+    "post-rc-telemetry-local-endpoint-deferral-confirmed"
+  ],
+  "claims_blocked": [
+    "telemetry-connected",
+    "production-monitored",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified"
+  ],
+  "dependency_results": {
+    "validate_alpha": "pass",
+    "scan_prohibited_claims": "pass",
+    "compare_v36_baseline": "pass",
+    "check_rc1_final_handoff": "pass",
+    "check_post_rc_operator_sequence_record": "pass",
+    "check_post_rc_local_endpoint_future_integration": "pass"
+  },
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exit_code": 0,
+        "errors": []
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "matches": 0,
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "check_rc1_final_handoff.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "read_only_compatibility_checker": true,
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "check_post_rc_operator_sequence_record.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "check_post_rc_local_endpoint_future_integration.mjs pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "POST_RC_WORK_SEQUENCE_TEMP.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_endpoint_future_integration.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_endpoint_future_unit_integration_verification.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_endpoint_operator_handoff_template.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_telemetry_connection_preflight_refresh_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_telemetry_connection_approval_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_telemetry_connection_approval_request.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_telemetry_connection_command_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_telemetry_local_endpoint_deferred_confirmation.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/post_rc_telemetry_connection_preflight_refresh.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/post_rc_telemetry_connection_approval_request.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/post_rc_telemetry_connection_command_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection-preflight-refresh/post_rc_telemetry_connection_preflight_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection-preflight-refresh/telemetry_sink_readiness.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection-preflight-refresh/telemetry_approval_readiness.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection-preflight-refresh/telemetry_local_endpoint_deferred_confirmation.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection-preflight-refresh/telemetry_connection_command_plan_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection-preflight-refresh/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_telemetry_connection_preflight_refresh.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "actual telemetry runner boundary remains controlled",
+      "status": "pass",
+      "detail": {
+        "runner_exists": true,
+        "actualTelemetryStageImplemented": true
+      }
+    },
+    {
+      "name": "actual telemetry checker boundary remains controlled",
+      "status": "pass",
+      "detail": {
+        "checker_exists": true,
+        "actualTelemetryStageImplemented": true
+      }
+    },
+    {
+      "name": "preflight status acceptable",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_missing_telemetry_credentials"
+      }
+    },
+    {
+      "name": "credential presence checked without values",
+      "status": "pass",
+      "detail": {
+        "configured_sink": "none",
+        "otel_endpoint_present": false,
+        "langfuse_credentials_present": false
+      }
+    },
+    {
+      "name": "approval remains absent and connection disallowed",
+      "status": "pass",
+      "detail": {
+        "explicit_user_approval_present": false,
+        "can_execute_telemetry_connection": false
+      }
+    },
+    {
+      "name": "no telemetry connection or sink write",
+      "status": "pass",
+      "detail": {
+        "telemetry_connection": false,
+        "telemetry_sink_write": false
+      }
+    },
+    {
+      "name": "no provider/local execution",
+      "status": "pass",
+      "detail": {
+        "openai_provider_call": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "secret/raw payload flags false",
+      "status": "pass",
+      "detail": {
+        "secrets_logged": false,
+        "raw_payload_stored": false,
+        "raw_response_stored": false,
+        "raw_request_stored": false
+      }
+    },
+    {
+      "name": "local endpoint remains deferred and non-blocking for preflight",
+      "status": "pass",
+      "detail": {
+        "local_status": "confirmed_deferred",
+        "local_endpoint_not_ready_is_not_current_goal_blocker": true
+      }
+    },
+    {
+      "name": "future command plan recorded only",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stable/production stronger claims remain disallowed",
+      "status": "pass",
+      "detail": {
+        "stable_allowed": false,
+        "production_ready_allowed": false,
+        "production_monitored_allowed": false
+      }
+    },
+    {
+      "name": "git status clean for v36/dist/evidence-v36-baseline",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "unresolved items recorded",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 2
+      }
+    },
+    {
+      "name": "stable / production / provider / telemetry positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    }
+  ]
+}

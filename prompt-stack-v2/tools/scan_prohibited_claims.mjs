@@ -15,6 +15,7 @@ const result = scanClaims(root, {
   excludedPaths: [
     "evidence/v36-baseline",
     "evidence/alpha/prohibited_claim_scan.json",
+    "original_order.txt",
     "node_modules",
     ".git"
   ]

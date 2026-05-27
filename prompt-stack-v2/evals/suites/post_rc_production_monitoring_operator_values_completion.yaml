@@ -1,0 +1,16 @@
+suite_id: post_rc_production_monitoring_operator_values_completion
+stage: v2.0.0-post-rc-production-monitoring-operator-values-completion
+description: Records completed operator values and confirms monitoring window execution can proceed only after explicit approval.
+forbidden_execution:
+  monitoring_window_execution: true
+  telemetry_sink_write: true
+  openai_model_api_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+gate:
+  script: tools/check_post_rc_production_monitoring_operator_values_completion.mjs
+required_artifacts:
+  - evidence/post-rc-production-monitoring-operator-values-completion/production_monitoring_operator_values_completion_report.json
+  - evidence/post-rc-production-monitoring-operator-values-completion/production_monitoring_window_preconditions_after_values.json
+  - evidence/post-rc-production-monitoring-operator-values-completion/production_monitoring_operator_values_claim_boundary.json
+  - evidence/post-rc-production-monitoring-operator-values-completion/production_monitoring_operator_values_gate_report.json

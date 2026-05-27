@@ -1,0 +1,264 @@
+{
+  "status": "blocked_by_monitoring_window_requirements_unmet",
+  "stage": "v2.0.0-post-rc-production-monitoring-window-execution",
+  "approval_phrase_verified": true,
+  "monitoring_window_completed": false,
+  "monitoring_window_can_support_production_monitored": false,
+  "can_claim_telemetry_connected": true,
+  "can_claim_production_monitored": false,
+  "can_claim_production_ready": false,
+  "can_enter_stable_release": false,
+  "reason": "Monitoring window approval was recorded, but duration and sample count evidence are insufficient for production-monitored.",
+  "telemetry_sink_write": false,
+  "openai_model_api_call": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "production_monitored_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "provider_diverse_allowed": false,
+  "checks": [
+    {
+      "name": "complete_post_rc_production_monitoring_operator_values.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "run_post_rc_production_monitoring_window.mjs completed",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "blocked_by_monitoring_window_requirements_unmet"
+      }
+    },
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "release/post_rc_production_monitoring_window_execution_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_monitoring_window_execution_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_production_monitoring_window.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_window_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_window_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-execution/production_monitoring_window_execution_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-execution/production_monitoring_window_execution_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-execution/monitoring_window_trace_receipt_continuity_review.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-execution/monitoring_window_threshold_evaluation.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-execution/monitoring_window_redaction_secret_review.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-execution/monitoring_window_incident_rollback_review.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-execution/production_monitoring_window_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-execution/production_monitoring_window_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-execution/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_window_execution.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_production_monitoring_final_gate_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "operator values completion evidence passed",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "operator_values_complete": true,
+        "monitoring_window_can_execute_after_approval": true
+      }
+    },
+    {
+      "name": "window report has expected blocked state",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_monitoring_window_requirements_unmet",
+        "monitoring_window_completed": false,
+        "observed_duration_hours": 0.02,
+        "observed_sample_count": 7
+      }
+    },
+    {
+      "name": "duration or sample count remains insufficient",
+      "status": "pass",
+      "detail": {
+        "required_duration_met": false,
+        "required_sample_count_met": false
+      }
+    },
+    {
+      "name": "trace continuity and redaction reviews are present",
+      "status": "pass",
+      "detail": {
+        "continuity_status": "pass",
+        "redaction_status": "pass"
+      }
+    },
+    {
+      "name": "threshold evaluation is blocked by insufficient window evidence",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_insufficient_monitoring_window_evidence",
+        "threshold_evaluation_passed": false
+      }
+    },
+    {
+      "name": "incident and rollback readiness reviewed without claiming live rollback monitoring",
+      "status": "pass",
+      "detail": {
+        "status": "ready_for_window_review",
+        "rollback_monitoring_confirmed_by_completed_window": false
+      }
+    },
+    {
+      "name": "forbidden execution flags remain false",
+      "status": "pass",
+      "detail": {
+        "telemetry_sink_write": false,
+        "openai_model_api_call": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "secret and raw payload flags remain false",
+      "status": "pass",
+      "detail": {
+        "secrets_logged": false,
+        "raw_payload_stored": false
+      }
+    },
+    {
+      "name": "production and stable claims remain blocked",
+      "status": "pass",
+      "detail": {
+        "production_monitored_allowed": false,
+        "stable_allowed": false
+      }
+    },
+    {
+      "name": "blocker records insufficient monitoring window evidence",
+      "status": "pass",
+      "detail": {
+        "new_status": "monitoring_window_evidence_insufficient_duration_or_sample_count"
+      }
+    },
+    {
+      "name": "unresolved items record next collection actions",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_monitoring_window_requirements_unmet",
+        "unresolved_items_count": 4
+      }
+    },
+    {
+      "name": "production-monitored / production-ready / stable / provider-diverse positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "guardrail paths remain clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "failures": [],
+  "claims_allowed_by_this_gate": [
+    "telemetry-connected"
+  ],
+  "claims_still_blocked": [
+    "production-monitored",
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "release-gated"
+  ]
+}

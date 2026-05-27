@@ -1,0 +1,12 @@
+suite_id: post_rc_production_monitoring_window
+stage: v2.0.0-post-rc-production-monitoring-window-execution
+description: Reviews monitoring window evidence after explicit approval without telemetry writes, provider calls, local endpoint probes, or production deployment.
+forbidden_execution:
+  telemetry_sink_write: true
+  openai_model_api_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  production_deployment: true
+gate:
+  script: tools/check_post_rc_production_monitoring_window.mjs
+expected_status: blocked_by_monitoring_window_requirements_unmet

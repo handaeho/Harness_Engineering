@@ -1,0 +1,32 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-rc.1-final-handoff",
+  "recommended_next_action": "v2.0.0-post-rc-telemetry-connection-preflight-refresh",
+  "decision_matrix": [
+    {
+      "candidate": "telemetry_preflight_refresh",
+      "decision": "next",
+      "reason": "Telemetry-first post-RC path is allowed without actual telemetry sink write."
+    },
+    {
+      "candidate": "actual_telemetry_connection",
+      "decision": "blocked",
+      "reason": "Requires separate approval phrase and OTEL or Langfuse credentials."
+    },
+    {
+      "candidate": "local_endpoint_probe",
+      "decision": "deferred",
+      "reason": "Requires operator readiness signal and endpoint details."
+    },
+    {
+      "candidate": "stable_scope_decision",
+      "decision": "later",
+      "reason": "Requires telemetry result and local lane resolved or explicitly out-of-scope."
+    }
+  ],
+  "openai_provider_call": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "telemetry_connection": false,
+  "telemetry_sink_write": false
+}

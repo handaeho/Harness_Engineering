@@ -1,0 +1,33 @@
+{
+  "status": "recorded",
+  "stage": "post-rc-local-endpoint-future-integration-record",
+  "current_goal_runs_local_endpoint": false,
+  "local_endpoint_not_ready_is_not_current_goal_blocker": true,
+  "local_endpoint_deferred": true,
+  "local_endpoint_probe_allowed_now": false,
+  "local_model_execution_allowed_now": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "future_operator_signal_required": true,
+  "future_required_operator_fields": [
+    "provider_type",
+    "endpoint_url",
+    "model_name",
+    "auth_required",
+    "api_shape",
+    "allowed_next_stage"
+  ],
+  "future_stages": [
+    "v2.0.0-post-rc-local-endpoint-readiness-preflight",
+    "v2.0.0-post-rc-local-no-tool-canary",
+    "v2.0.0-post-rc-local-no-tool-canary-result-review"
+  ],
+  "claims_still_blocked": [
+    "provider-diverse",
+    "local-model-verified",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable"
+  ]
+}

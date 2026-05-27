@@ -1,0 +1,15 @@
+suite_id: post_rc_production_monitoring_controls
+stage: v2.0.0-post-rc-production-monitoring-controls-design-and-gate
+description: Designs production monitoring controls and claim gate without enabling production-monitored.
+forbidden_execution:
+  openai_model_api_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  telemetry_sink_write: true
+gate:
+  script: tools/check_post_rc_production_monitoring_controls.mjs
+required_artifacts:
+  - evidence/post-rc-production-monitoring-controls/production_monitoring_controls_report.json
+  - evidence/post-rc-production-monitoring-controls/production_monitoring_claim_boundary.json
+  - evidence/post-rc-production-monitoring-controls/production_monitoring_blocker_update.json
+  - evidence/post-rc-production-monitoring-controls/production_monitoring_gate_report.json

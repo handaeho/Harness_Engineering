@@ -116,6 +116,18 @@ addCheck("local model execution is false", mockExecution.local_model_execution =
 addCheck("external side effects are false", mockExecution.external_side_effects === false, {
   external_side_effects: mockExecution.external_side_effects
 });
+addCheck("Langfuse trace export was not attempted", mockExecution.langfuse_trace_export_attempted === false, {
+  langfuse_trace_export_attempted: mockExecution.langfuse_trace_export_attempted
+});
+addCheck("Langfuse sink write was not performed", mockExecution.langfuse_sink_write_performed === false, {
+  langfuse_sink_write_performed: mockExecution.langfuse_sink_write_performed
+});
+addCheck("Langfuse trace export attempt count is zero", mockExecution.langfuse_trace_export_attempt_count === 0, {
+  langfuse_trace_export_attempt_count: mockExecution.langfuse_trace_export_attempt_count
+});
+addCheck("Langfuse sink write count is zero", mockExecution.langfuse_sink_write_count === 0, {
+  langfuse_sink_write_count: mockExecution.langfuse_sink_write_count
+});
 
 const unresolved = readReport("evidence/beta-mock-execution/unresolved_items.json");
 addCheck("unresolved_items.json is empty", Array.isArray(unresolved) && unresolved.length === 0, {

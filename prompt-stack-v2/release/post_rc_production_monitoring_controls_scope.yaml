@@ -1,0 +1,43 @@
+stage: v2.0.0-post-rc-production-monitoring-controls-design-and-gate
+
+approved_actions:
+  production_monitoring_controls_design: true
+  dashboard_spec_drafting: true
+  alerting_policy_drafting: true
+  anomaly_threshold_drafting: true
+  monitoring_window_policy_drafting: true
+  incident_response_policy_drafting: true
+  rollback_monitoring_linkage_drafting: true
+  retention_policy_drafting: true
+  claim_boundary_audit: true
+  blocker_update: true
+
+forbidden_execution:
+  openai_model_api_call: true
+  openai_provider_call: true
+  redteam_rerun: true
+  containment_rerun: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  telemetry_sink_write: true
+  production_deployment: true
+  release_gate_rerun: true
+  v36_modification: true
+  dist_modification: true
+  evidence_v36_baseline_modification: true
+
+claims_allowed:
+  - post-rc-production-monitoring-controls-drafted
+  - post-rc-production-monitoring-gate-designed
+  - post-rc-production-monitoring-claim-boundary-audited
+  - post-rc-production-monitoring-blocker-updated
+
+claims_not_allowed:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - release-gated

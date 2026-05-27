@@ -1,0 +1,15 @@
+stage: v2.0.0-post-rc-production-monitoring-window-execution
+status: updated
+previous_status: operator_values_required_before_monitoring_window
+new_status: monitoring_window_executed_completion_or_final_gate_pending
+still_blocks:
+  - production-monitored
+  - production-ready
+  - stable
+does_not_block:
+  - telemetry-connected
+next_required_actions:
+  - complete required monitoring duration
+  - meet required sample count
+  - run monitoring window result review
+  - run production monitoring final gate

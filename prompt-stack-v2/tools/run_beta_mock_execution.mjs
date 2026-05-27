@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { createAjv, loadSchema, validateWithSchema } from "./lib/json_schema_validator.mjs";
 import { readText, writeJson, writeText } from "./lib/file_walk.mjs";
-import { executeMockRun } from "../runtime/orchestrator/execution_loop.mjs";
+import { executeMockRunWithLangfuse } from "../observability/langfuse/mock_runtime_tracer.mjs";
 
 const repoRoot = process.cwd();
 const root = process.argv[2]
@@ -96,6 +96,8 @@ let blockedToolsExecuted = 0;
 let mockToolsExecuted = 0;
 let stateTransitionsRecorded = 0;
 let traceSchemaValid = true;
+let langfuseTraceExportAttemptCount = 0;
+let langfuseSinkWriteCount = 0;
 const approvalCases = [];
 const stateCases = [];
 const schemaCases = [];
@@ -107,7 +109,10 @@ for (const record of cases) {
 
   try {
     validateWithSchema(ajv, runRequestSchema, testCase.run_request, `${testCase.case_id} run_request`);
-    result = executeMockRun(testCase.run_request);
+    const execution = await executeMockRunWithLangfuse(testCase.run_request, { env: process.env });
+    result = execution.result;
+    if (execution.langfuse.trace_export_attempted) langfuseTraceExportAttemptCount += 1;
+    if (execution.langfuse.sink_write_performed) langfuseSinkWriteCount += 1;
     validateWithSchema(ajv, runResultSchema, result, `${testCase.case_id} run_result`);
   } catch (error) {
     failures.push(error.message);
@@ -214,6 +219,10 @@ const report = {
   trace_events_total: traceLines.length,
   trace_schema_valid: traceSchemaValid,
   state_transitions_recorded: stateTransitionsRecorded,
+  langfuse_trace_export_attempted: langfuseTraceExportAttemptCount > 0,
+  langfuse_sink_write_performed: langfuseSinkWriteCount > 0,
+  langfuse_trace_export_attempt_count: langfuseTraceExportAttemptCount,
+  langfuse_sink_write_count: langfuseSinkWriteCount,
   claims_allowed: claimsAllowed,
   claims_not_allowed: claimsNotAllowed,
   case_results: caseResults,
@@ -239,6 +248,8 @@ Stage: ${report.stage}
 - Trace events total: ${report.trace_events_total}
 - Trace schema valid: ${report.trace_schema_valid}
 - State transitions recorded: ${report.state_transitions_recorded}
+- Langfuse trace export attempted: ${report.langfuse_trace_export_attempted}
+- Langfuse sink write performed: ${report.langfuse_sink_write_performed}
 
 ## Claim Boundary
 

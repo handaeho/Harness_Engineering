@@ -1,0 +1,33 @@
+langfuse_runtime_tracing_policy:
+  status: opt_in_code_path
+  sdk_packages:
+    - "@langfuse/tracing"
+    - "@langfuse/otel"
+    - "@opentelemetry/sdk-node"
+  implementation_files:
+    - observability/langfuse/instrumentation.mjs
+    - observability/langfuse/mock_runtime_tracer.mjs
+  default_behavior:
+    tracing_enabled: false
+    sink_write_performed: false
+    openai_provider_call_performed: false
+    local_model_execution_performed: false
+  live_sink_write_requirements:
+    - LANGFUSE_TRACING_ENABLED=true
+    - LANGFUSE_PUBLIC_KEY present
+    - LANGFUSE_SECRET_KEY present
+    - LANGFUSE_BASE_URL or LANGFUSE_HOST present
+    - telemetry connection approval env present
+  secret_handling:
+    credential_values_logged: false
+    authorization_headers_logged: false
+    raw_request_stored: false
+    raw_response_stored: false
+    raw_payload_stored: false
+  payload_policy:
+    root_observation_input: redacted_run_request_summary
+    root_observation_output: redacted_run_result_summary
+    event_observations: redacted_trace_event_summaries
+    raw_prompt_included: false
+    raw_messages_included: false
+    raw_response_included: false

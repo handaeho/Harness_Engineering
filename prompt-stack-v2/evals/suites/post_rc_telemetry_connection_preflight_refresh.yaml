@@ -1,0 +1,10 @@
+suite: post_rc_telemetry_connection_preflight_refresh
+stage: v2.0.0-post-rc-telemetry-connection-preflight-refresh
+checks:
+  - baseline_tools_pass
+  - rc1_final_handoff_checker_pass
+  - sequence_record_exists
+  - local_endpoint_future_docs_exist
+  - telemetry_preflight_artifacts_exist
+  - no_actual_connection
+  - no_secret_values_recorded

@@ -1,0 +1,151 @@
+{
+  "status": "pass",
+  "stage": "post-rc-local-endpoint-future-integration-record",
+  "current_goal_runs_local_endpoint": false,
+  "local_endpoint_not_ready_is_not_current_goal_blocker": true,
+  "local_endpoint_probe_allowed_now": false,
+  "local_model_execution_allowed_now": false,
+  "future_operator_signal_required": true,
+  "future_stages_documented": true,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "claims_allowed": [
+    "post-rc-local-endpoint-future-integration-recorded",
+    "post-rc-local-endpoint-operator-handoff-documented",
+    "post-rc-local-endpoint-verification-plan-documented"
+  ],
+  "claims_blocked": [
+    "provider-diverse",
+    "local-model-verified",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable"
+  ],
+  "checks": [
+    {
+      "name": "docs/local_endpoint_future_integration.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_endpoint_future_integration.ko.md has Korean title/body",
+      "status": "pass",
+      "detail": {
+        "hangul_count": 197
+      }
+    },
+    {
+      "name": "docs/local_endpoint_future_unit_integration_verification.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_endpoint_future_unit_integration_verification.ko.md has Korean title/body",
+      "status": "pass",
+      "detail": {
+        "hangul_count": 163
+      }
+    },
+    {
+      "name": "docs/local_endpoint_operator_handoff_template.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_endpoint_operator_handoff_template.ko.md has Korean title/body",
+      "status": "pass",
+      "detail": {
+        "hangul_count": 85
+      }
+    },
+    {
+      "name": "local endpoint deferred policy is Korean-documented",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry first to local future lane to stable later preserved in root Korean doc",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local endpoint future integration record exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "current_goal_runs_local_endpoint == false",
+      "status": "pass",
+      "detail": {
+        "current_goal_runs_local_endpoint": false
+      }
+    },
+    {
+      "name": "local_endpoint_not_ready_is_not_current_goal_blocker == true",
+      "status": "pass",
+      "detail": {
+        "local_endpoint_not_ready_is_not_current_goal_blocker": true
+      }
+    },
+    {
+      "name": "local_endpoint_probe_allowed_now == false",
+      "status": "pass",
+      "detail": {
+        "local_endpoint_probe_allowed_now": false
+      }
+    },
+    {
+      "name": "local_model_execution_allowed_now == false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution_allowed_now": false
+      }
+    },
+    {
+      "name": "future_operator_signal_required == true",
+      "status": "pass",
+      "detail": {
+        "future_operator_signal_required": true
+      }
+    },
+    {
+      "name": "future stages are documented",
+      "status": "pass",
+      "detail": {
+        "future_stages": [
+          "v2.0.0-post-rc-local-endpoint-readiness-preflight",
+          "v2.0.0-post-rc-local-no-tool-canary",
+          "v2.0.0-post-rc-local-no-tool-canary-result-review"
+        ]
+      }
+    },
+    {
+      "name": "operator handoff template evidence exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "unit/integration verification plan exists",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "post-rc-local-endpoint-future-integration-record",
+        "unit_verification_document": "docs/local_endpoint_future_unit_integration_verification.ko.md",
+        "current_goal_runs_local_endpoint": false,
+        "local_endpoint_probe_allowed_now": false,
+        "local_model_execution_allowed_now": false,
+        "future_operator_signal_required": true,
+        "raw_response_stored": false,
+        "secrets_logged": false
+      }
+    },
+    {
+      "name": "provider-diverse/local-model-verified positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    }
+  ]
+}

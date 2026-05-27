@@ -1,0 +1,21 @@
+stage: v2.0.0-post-rc-production-monitoring-controls-design-and-gate
+status: designed
+production_monitoring_controls_drafted: true
+production_monitoring_ready: false
+production_monitored_allowed: false
+requires_before_production_monitored:
+  - operator_defined_dashboard_values
+  - operator_defined_threshold_values
+  - incident_owner_and_escalation_path
+  - retention_policy_values
+  - executed_monitoring_window
+  - final_production_monitoring_gate_pass
+forbidden_claims:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - release-gated

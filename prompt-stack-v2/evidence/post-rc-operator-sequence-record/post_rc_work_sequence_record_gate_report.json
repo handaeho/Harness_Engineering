@@ -1,0 +1,130 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-operator-sequence-record",
+  "document_created": true,
+  "document_language": "ko",
+  "telemetry_first": true,
+  "local_endpoint_future_lane_documented": true,
+  "local_endpoint_deferred": true,
+  "stable_decision_after_telemetry_and_local_or_out_of_scope": true,
+  "new_execution": false,
+  "can_enter_telemetry_connection_preflight_refresh": true,
+  "can_enter_local_no_tool_canary": false,
+  "can_enter_stable_scope_decision": false,
+  "reason": "Operator sequence recorded in Korean root temporary document. Telemetry path can proceed first; local endpoint remains deferred as future integration lane.",
+  "claims_allowed": [
+    "post-rc-operator-sequence-recorded"
+  ],
+  "claims_blocked": [
+    "stable",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified"
+  ],
+  "checks": [
+    {
+      "name": "POST_RC_WORK_SEQUENCE_TEMP.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "document_language == ko",
+      "status": "pass",
+      "detail": {
+        "document_language": "ko"
+      }
+    },
+    {
+      "name": "document has Korean title and body",
+      "status": "pass",
+      "detail": {
+        "hangul_count": 231
+      }
+    },
+    {
+      "name": "telemetry first to local future lane to stable later is Korean-documented",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local endpoint deferred policy is Korean-documented",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "telemetry_first == true",
+      "status": "pass",
+      "detail": {
+        "telemetry_first": true
+      }
+    },
+    {
+      "name": "local_endpoint_documented_as_future_lane == true",
+      "status": "pass",
+      "detail": {
+        "local_endpoint_documented_as_future_lane": true
+      }
+    },
+    {
+      "name": "local_endpoint_deferred == true",
+      "status": "pass",
+      "detail": {
+        "local_endpoint_deferred": true
+      }
+    },
+    {
+      "name": "stable decision later policy recorded",
+      "status": "pass",
+      "detail": {
+        "stable_decision_after_telemetry_and_local_or_out_of_scope": true
+      }
+    },
+    {
+      "name": "new_execution == false",
+      "status": "pass",
+      "detail": {
+        "new_execution": false
+      }
+    },
+    {
+      "name": "local_endpoint_probe == false",
+      "status": "pass",
+      "detail": {
+        "local_endpoint_probe": false
+      }
+    },
+    {
+      "name": "local_model_execution == false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "telemetry_connection == false",
+      "status": "pass",
+      "detail": {
+        "telemetry_connection": false
+      }
+    },
+    {
+      "name": "claims_allowed_by_this_record == []",
+      "status": "pass",
+      "detail": {
+        "claims_allowed_by_this_record": []
+      }
+    },
+    {
+      "name": "stable / bare release-gated / production-ready / provider-diverse positive claim absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    }
+  ]
+}

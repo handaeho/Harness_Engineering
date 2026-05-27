@@ -1,0 +1,18 @@
+suite_id: post_rc_production_monitoring_values_preflight
+stage: v2.0.0-post-rc-production-monitoring-values-owner-and-window-preflight
+description: Records operator-defined values, owner assignment, retention, and monitoring window preconditions before any monitoring window execution.
+forbidden_execution:
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  live_monitoring_window_execution: true
+  local_endpoint_probe: true
+  local_model_execution: true
+gate:
+  script: tools/check_post_rc_production_monitoring_values_preflight.mjs
+expected_status: blocked_by_missing_operator_values
+required_artifacts:
+  - evidence/post-rc-production-monitoring-values-preflight/production_monitoring_values_preflight_report.json
+  - evidence/post-rc-production-monitoring-values-preflight/production_monitoring_window_preconditions.json
+  - evidence/post-rc-production-monitoring-values-preflight/production_monitoring_values_claim_boundary.json
+  - evidence/post-rc-production-monitoring-values-preflight/production_monitoring_values_blocker_update.json
+  - evidence/post-rc-production-monitoring-values-preflight/production_monitoring_values_gate_report.json

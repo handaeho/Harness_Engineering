@@ -1,0 +1,20 @@
+{
+  "status": "updated",
+  "stage": "v2.0.0-post-rc-production-monitoring-window-execution",
+  "previous_status": "operator_values_complete_monitoring_window_approval_pending",
+  "new_status": "monitoring_window_evidence_insufficient_duration_or_sample_count",
+  "still_blocks": [
+    "production-monitored",
+    "production-ready",
+    "stable"
+  ],
+  "does_not_block": [
+    "telemetry-connected"
+  ],
+  "next_required_actions": [
+    "collect monitoring evidence until minimum duration is met",
+    "collect at least required sample count",
+    "rerun monitoring window check",
+    "run production monitoring final gate only after window evidence passes"
+  ]
+}

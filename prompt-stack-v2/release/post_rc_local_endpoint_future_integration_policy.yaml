@@ -1,0 +1,19 @@
+policy:
+  stage: post-rc-local-endpoint-future-integration-record
+  local_endpoint_in_current_goal: false
+  local_endpoint_probe_allowed_now: false
+  local_model_execution_allowed_now: false
+  operator_signal_required_before_any_probe: true
+  local_endpoint_not_ready_is_not_current_goal_blocker: true
+future_integration_order:
+  - local_endpoint_readiness_preflight
+  - local_no_tool_canary
+  - local_no_tool_canary_result_review
+  - provider_diversity_or_local_model_claim_gate
+claims_not_allowed_now:
+  - provider-diverse
+  - local-model-verified
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable

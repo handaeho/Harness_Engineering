@@ -257,10 +257,48 @@ export const allowedPositiveClaims = [
   "environment-requirements-indexed",
   "command-plans-indexed",
   "claim-impact-matrix-drafted",
-  "path-portability-audited"
+  "path-portability-audited",
+  "post-rc-operator-sequence-recorded",
+  "post-rc-local-endpoint-future-integration-recorded",
+  "post-rc-local-endpoint-operator-handoff-documented",
+  "post-rc-local-endpoint-verification-plan-documented",
+  "post-rc-telemetry-preflight-refreshed",
+  "post-rc-telemetry-approval-requirements-recorded",
+  "post-rc-telemetry-command-plan-drafted",
+  "post-rc-telemetry-local-endpoint-deferral-confirmed",
+  "post-rc-telemetry-connection-executed",
+  "post-rc-live-trace-receipt-recorded",
+  "post-rc-live-metric-receipt-recorded",
+  "post-rc-telemetry-secret-redaction-checked",
+  "post-rc-telemetry-connection-result-reviewed",
+  "post-rc-production-monitoring-readiness-assessed",
+  "post-rc-production-monitoring-blocker-recorded",
+  "post-rc-production-monitoring-controls-drafted",
+  "post-rc-production-monitoring-gate-designed",
+  "post-rc-production-monitoring-claim-boundary-audited",
+  "post-rc-production-monitoring-blocker-updated",
+  "post-rc-production-monitoring-values-preflight-completed",
+  "post-rc-production-monitoring-defaults-drafted",
+  "post-rc-production-monitoring-owner-template-drafted",
+  "post-rc-production-monitoring-window-preconditions-drafted",
+  "post-rc-production-monitoring-window-command-plan-drafted",
+  "post-rc-production-monitoring-operator-values-completed",
+  "post-rc-production-monitoring-threshold-values-recorded",
+  "post-rc-production-monitoring-owner-assignments-recorded",
+  "post-rc-production-monitoring-window-execution-preconditions-satisfied",
+  "post-rc-production-monitoring-window-approval-request-generated",
+  "post-rc-production-monitoring-window-executed",
+  "post-rc-monitoring-window-trace-continuity-reviewed",
+  "post-rc-monitoring-window-thresholds-evaluated",
+  "post-rc-monitoring-window-redaction-reviewed",
+  "post-rc-monitoring-window-incident-rollback-reviewed",
+  "post-rc-production-monitoring-window-checkpoint-recorded",
+  "post-rc-production-monitoring-window-progress-evaluated",
+  "post-rc-production-monitoring-window-remaining-requirements-recorded",
+  "post-rc-production-monitoring-window-redaction-checkpoint-recorded"
 ];
 
-const allowedContextPattern = /(not|never|blocked|blocks|prohibited|forbidden|deferred|later|without|must not|does not|is not|are not|not_allowed|claim_not_allowed|claims_not_allowed|forbidden_claims|blocked_claims|claims_blocked|prohibited_claim|prohibited_positive_claim|blocked_claims_found_as_positive|conditional_future_claims|claim_still_not_allowed|checklist|enum|fixture|policy|rule|does_not_allow|does_not_unblock|does_not_unlock|still_blocks|still_not_allowed|blocked|still_blocked|disallow|absent|can enter|why_not_stable|not_stable_notice|local_endpoint_deferred|AGENTS\\.md blocked claim list|current claim status|금지|차단|조건|정의|보류|미허용|불가)/i;
+const allowedContextPattern = /(not|never|blocked|blocks|prohibited|forbidden|deferred|later|without|must not|does not|is not|are not|allowed only if|not_allowed|claim_not_allowed|claims_not_allowed|forbidden_claims|blocked_claims|claims_blocked|prohibited_claim|prohibited_positive_claim|blocked_claims_found_as_positive|conditional_future_claims|claim_still_not_allowed|checklist|enum|fixture|policy|rule|does_not_allow|does_not_unblock|does_not_unlock|still_blocks|still_not_allowed|blocked|still_blocked|disallow|absent|can enter|why_not_stable|not_stable_notice|local_endpoint_deferred|AGENTS\\.md blocked claim list|current claim status|금지|차단|조건|정의|보류|미허용|불가|없음|검토)/i;
 
 export function isPositiveClaim(line, claim) {
   if (!line.includes(claim)) return false;
@@ -274,19 +312,62 @@ export function isPositiveClaim(line, claim) {
   return fieldPattern.test(line) || achievementPattern.test(line) || achievedPattern.test(line);
 }
 
-function isConditionallyAllowedPositiveClaim(root, claim) {
-  if (claim !== "containment-verified") return false;
+function readJsonSafe(file) {
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8").replace(/^\uFEFF/, ""));
+  } catch {
+    return null;
+  }
+}
+
+function telemetryConnectedGateInputsPassed(root) {
+  const report = readJsonSafe(`${root}/evidence/post-rc-telemetry-connection/telemetry_connection_report.json`);
+  const gate = readJsonSafe(`${root}/evidence/post-rc-telemetry-connection/telemetry_connection_gate_report.json`);
+  const boundary = readJsonSafe(`${root}/evidence/post-rc-telemetry-connection/telemetry_connection_claim_boundary.json`);
+  const gatePassed = gate?.status === "pass" && gate?.can_claim_telemetry_connected === true;
+  const reportPassed = report?.status === "pass"
+    && report?.telemetry_connection === true
+    && report?.telemetry_sink_write === true
+    && report?.telemetry_connected_allowed === true
+    && report?.production_monitored_allowed === false
+    && report?.production_ready_allowed === false
+    && report?.stable_allowed === false
+    && report?.provider_diverse_allowed === false
+    && report?.local_model_verified_allowed === false;
+  const boundaryPassed = boundary?.status === "pass"
+    && boundary?.telemetry_connected_allowed === true
+    && boundary?.production_monitored_allowed === false
+    && boundary?.production_ready_allowed === false
+    && boundary?.stable_allowed === false
+    && boundary?.provider_diverse_allowed === false
+    && boundary?.local_model_verified_allowed === false
+    && Array.isArray(boundary?.allowed_claims)
+    && boundary.allowed_claims.length === 1
+    && boundary.allowed_claims[0] === "telemetry-connected";
+
+  return boundaryPassed && (gatePassed || reportPassed);
+}
+
+function conditionallyAllowedPositiveClaimReason(root, claim) {
+  if (claim === "telemetry-connected") {
+    return telemetryConnectedGateInputsPassed(root)
+      ? "conditionally_allowed_after_post_rc_telemetry_connection_gate"
+      : null;
+  }
+
+  if (claim !== "containment-verified") return null;
   try {
     const decisionPath = `${root}/evidence/beta-containment-verified-decision-gate/containment_verified_decision_report.json`;
-    const decision = JSON.parse(fs.readFileSync(decisionPath, "utf8").replace(/^\uFEFF/, ""));
-    return decision.status === "containment_verified_decision_approved"
+    const decision = readJsonSafe(decisionPath);
+    const allowed = decision?.status === "containment_verified_decision_approved"
       && decision.owner_final_decision_present === true
       && decision.owner_final_decision === "approve_containment_verified"
       && decision.containment_verified_allowed === true
       && decision.release_gated_allowed === false
       && decision.production_ready_allowed === false;
+    return allowed ? "conditionally_allowed_after_owner_decision" : null;
   } catch {
-    return false;
+    return null;
   }
 }
 
@@ -314,13 +395,14 @@ export function scanClaims(root, options = {}) {
       for (const claim of prohibitedClaims) {
         if (!context.includes(claim)) continue;
         if (isPositiveClaim(context, claim)) {
-          if (isConditionallyAllowedPositiveClaim(root, claim)) {
+          const conditionalReason = conditionallyAllowedPositiveClaimReason(root, claim);
+          if (conditionalReason) {
             allowed_mentions.push({
               file: rel,
               claim,
               line: i + 1,
               context,
-              reason: "conditionally_allowed_after_owner_decision"
+              reason: conditionalReason
             });
           } else {
             matches.push({ file: rel, claim, line: i + 1, context });

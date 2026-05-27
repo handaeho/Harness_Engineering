@@ -1,0 +1,71 @@
+# Post-RC Production Monitoring Controls Gate Report
+
+Status: pass
+
+- Stage: v2.0.0-post-rc-production-monitoring-controls-design-and-gate
+- Production monitoring controls drafted: true
+- Can claim telemetry-connected: true
+- Can claim production-monitored: false
+- Can claim production-ready: false
+- Can enter stable release: false
+- Reason: Production monitoring controls are drafted, but live monitoring window and final production monitoring gate remain pending.
+
+## Checks
+
+- pass: build_post_rc_production_monitoring_controls.mjs pass
+- pass: audit_post_rc_production_monitoring_claim_boundary.mjs pass
+- pass: check_post_rc_telemetry_connection_result_review.mjs pass
+- pass: validate_alpha.mjs pass
+- pass: scan_prohibited_claims.mjs pass
+- pass: compare_v36_baseline.mjs pass
+- pass: release/post_rc_production_monitoring_controls_scope.yaml exists
+- pass: release/post_rc_production_monitoring_gate.yaml exists
+- pass: release/post_rc_production_monitoring_claim_boundary.yaml exists
+- pass: release/post_rc_production_monitoring_blocker_update.yaml exists
+- pass: evals/suites/post_rc_production_monitoring_controls.yaml exists
+- pass: evals/reports/post_rc_production_monitoring_controls_report.json exists
+- pass: evals/reports/post_rc_production_monitoring_controls_report.md exists
+- pass: evals/reports/post_rc_production_monitoring_claim_boundary_report.json exists
+- pass: evals/reports/post_rc_production_monitoring_claim_boundary_report.md exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_controls_report.json exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_controls_report.md exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_dashboard_spec_snapshot.yaml exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_alerting_policy_snapshot.yaml exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_anomaly_thresholds_snapshot.yaml exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_window_policy_snapshot.yaml exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_incident_response_snapshot.yaml exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_rollback_linkage_snapshot.yaml exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_retention_policy_snapshot.yaml exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_claim_boundary.json exists
+- pass: evidence/post-rc-production-monitoring-controls/production_monitoring_blocker_update.json exists
+- pass: evidence/post-rc-production-monitoring-controls/unresolved_items.json exists
+- pass: docs/production_monitoring_controls.md exists
+- pass: docs/production_monitoring_dashboard_spec.md exists
+- pass: docs/production_monitoring_alerting_policy.md exists
+- pass: docs/production_monitoring_anomaly_thresholds.md exists
+- pass: docs/production_monitoring_window_policy.md exists
+- pass: docs/production_monitoring_incident_response.md exists
+- pass: docs/production_monitoring_rollback_linkage.md exists
+- pass: docs/next_production_monitoring_window_plan.md exists
+- pass: docs/next_stable_scope_decision_plan.md exists
+- pass: observability/production_monitoring_dashboard_spec.yaml exists
+- pass: observability/production_monitoring_alerting_policy.yaml exists
+- pass: observability/production_monitoring_anomaly_thresholds.yaml exists
+- pass: observability/production_monitoring_window_policy.yaml exists
+- pass: observability/production_monitoring_retention_policy.yaml exists
+- pass: observability/production_monitoring_incident_response_policy.yaml exists
+- pass: observability/production_monitoring_rollback_linkage_policy.yaml exists
+- pass: controls report passed
+- pass: no new execution or forbidden execution occurred
+- pass: production monitoring claims remain blocked
+- pass: dashboard spec matches required shape
+- pass: alerting policy matches required shape
+- pass: anomaly thresholds require operator values
+- pass: monitoring window policy remains unexecuted
+- pass: incident response owner remains required
+- pass: rollback linkage drafted but not live-tested
+- pass: retention policy forbids raw payload and secret storage
+- pass: blocker updated to monitoring window pending
+- pass: unresolved items record pending next actions
+- pass: production-monitored / production-ready / stable / provider-diverse positive claims absent
+- pass: guardrail paths remain clean

@@ -1,0 +1,29 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-rc.1-final-handoff",
+  "deferred_paths": [
+    {
+      "path": "telemetry_connection",
+      "state": "post_rc_preflight_next",
+      "requires": [
+        "separate explicit approval phrase",
+        "OTEL or Langfuse credentials"
+      ],
+      "telemetry_connected_allowed_now": false
+    },
+    {
+      "path": "local_endpoint_future_integration",
+      "state": "deferred_until_operator_signal",
+      "local_endpoint_not_ready_is_not_current_goal_blocker": true,
+      "current_goal_runs_local_endpoint": false,
+      "local_endpoint_probe_allowed_now": false,
+      "local_model_execution_allowed_now": false,
+      "future_operator_signal_required": true
+    },
+    {
+      "path": "stable_scope_decision",
+      "state": "future_only_after_telemetry_and_local_resolved_or_explicitly_out_of_scope",
+      "stable_allowed_now": false
+    }
+  ]
+}

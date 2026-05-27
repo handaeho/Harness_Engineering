@@ -1,0 +1,63 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-rc-operator-sequence-record",
+  "document_path": "POST_RC_WORK_SEQUENCE_TEMP.ko.md",
+  "document_language": "ko",
+  "telemetry_first": true,
+  "local_endpoint_documented_as_future_lane": true,
+  "local_endpoint_deferred": true,
+  "stable_decision_after_telemetry_and_local_or_out_of_scope": true,
+  "new_execution": false,
+  "openai_provider_call": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "telemetry_connection": false,
+  "telemetry_sink_write": false,
+  "release_gate_rerun": false,
+  "dist_modified": false,
+  "v36_modified": false,
+  "raw_response_stored": false,
+  "raw_request_stored": false,
+  "raw_payload_stored": false,
+  "secrets_logged": false,
+  "post_rc_sequence": [
+    {
+      "order": 1,
+      "name": "telemetry_connection_after_approval_and_credentials",
+      "status": "next"
+    },
+    {
+      "order": 2,
+      "name": "local_endpoint_future_integration_lane",
+      "status": "documented_deferred_future_lane"
+    },
+    {
+      "order": 3,
+      "name": "local_no_tool_canary_after_endpoint_ready",
+      "status": "future_only_after_operator_signal"
+    },
+    {
+      "order": 4,
+      "name": "stable_scope_decision",
+      "status": "after_telemetry_and_local_resolved_or_explicitly_out_of_scope"
+    }
+  ],
+  "local_endpoint_policy": {
+    "local_endpoint_status": "deferred_until_operator_provides_endpoint",
+    "local_endpoint_probe_allowed": false,
+    "local_model_execution_allowed": false,
+    "operator_must_signal_readiness": true,
+    "local_endpoint_not_ready_is_not_current_goal_blocker": true
+  },
+  "claims_allowed_by_this_record": [],
+  "claims_still_blocked": [
+    "stable",
+    "release-gated",
+    "production-ready",
+    "production-monitored",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified"
+  ]
+}

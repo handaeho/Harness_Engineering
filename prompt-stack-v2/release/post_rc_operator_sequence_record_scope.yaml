@@ -1,0 +1,23 @@
+stage: v2.0.0-post-rc-operator-sequence-record
+document_path: POST_RC_WORK_SEQUENCE_TEMP.ko.md
+document_language: ko
+telemetry_first: true
+local_endpoint_future_lane: true
+stable_decision_later: true
+forbidden_execution:
+  openai_provider_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  telemetry_connection: true
+  telemetry_sink_write: true
+  stable_decision: true
+claims_not_allowed_now:
+  - stable
+  - release-gated
+  - production-ready
+  - production-monitored
+  - telemetry-connected
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified

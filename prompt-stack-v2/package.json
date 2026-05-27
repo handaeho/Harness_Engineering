@@ -22,6 +22,7 @@
     "check:openai-structured-output": "node tools/check_openai_structured_output_canary.mjs",
     "canary:openai-tool-calling": "node tools/run_openai_tool_calling_canary.mjs",
     "check:openai-tool-calling": "node tools/check_openai_tool_calling_canary.mjs",
+    "check:langfuse-tracing": "node tools/check_langfuse_tracing_integration.mjs",
     "preflight": "npm run compare:v36 && npm run dry-run:adapters && npm run validate:alpha && npm run scan:claims && npm run check:beta-entry",
     "mock-gate": "npm run compare:v36 && npm run dry-run:adapters && npm run mock:runtime && npm run validate:alpha && npm run scan:claims && npm run check:mock",
     "openai-canary-gate": "npm run compare:v36 && npm run dry-run:adapters && npm run mock:runtime && npm run canary:openai && npm run validate:alpha && npm run scan:claims && npm run check:openai-canary",
@@ -30,8 +31,10 @@
     "openai-tool-calling-gate": "npm run compare:v36 && npm run dry-run:adapters && npm run mock:runtime && npm run canary:openai-tool-calling && npm run validate:alpha && npm run scan:claims && npm run check:openai-tool-calling"
   },
   "dependencies": {
+    "@langfuse/otel": "^5.3.0",
+    "@langfuse/tracing": "^5.3.0",
+    "@opentelemetry/sdk-node": "^0.218.0",
     "ajv": "^8.17.1",
     "yaml": "^2.8.1"
-  },
-  "devDependencies": {}
+  }
 }

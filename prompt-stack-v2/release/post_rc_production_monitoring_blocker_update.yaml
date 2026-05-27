@@ -1,0 +1,15 @@
+stage: v2.0.0-post-rc-production-monitoring-controls-design-and-gate
+status: production_monitoring_controls_drafted_monitoring_window_pending
+previous_status: blocked_not_production_monitored
+still_blocks:
+  - production-monitored
+  - production-ready
+  - stable
+does_not_block:
+  - telemetry-connected
+next_required_actions:
+  - operator defines dashboard and threshold values
+  - operator defines incident owner and escalation path
+  - operator defines retention policy values
+  - execute monitoring window
+  - run production monitoring final gate

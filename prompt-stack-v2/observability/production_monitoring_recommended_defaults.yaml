@@ -1,0 +1,23 @@
+recommended_defaults:
+  status: draft_requires_operator_approval
+
+  anomaly_thresholds:
+    redaction_failure_threshold: 0
+    raw_payload_storage_violation_threshold: 0
+    secret_logging_threshold: 0
+    missing_trace_rate_threshold: "operator_review_recommended"
+    error_rate_threshold: "operator_review_recommended"
+    p95_latency_threshold_ms: "operator_review_recommended"
+
+  monitoring_window:
+    recommended_minimum_duration: "24h"
+    recommended_required_sample_count: "operator_review_recommended"
+    recommended_environment: "post-rc non-production or controlled production-like environment"
+
+  retention:
+    raw_payload_storage_allowed: false
+    secret_storage_allowed: false
+    trace_retention_period: "operator_review_recommended"
+    pii_retention_policy: "operator_review_recommended"
+
+  approval_required: true

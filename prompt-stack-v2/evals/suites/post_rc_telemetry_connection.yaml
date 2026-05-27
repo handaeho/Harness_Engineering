@@ -1,0 +1,17 @@
+suite_id: post_rc_telemetry_connection
+stage: v2.0.0-post-rc-telemetry-connection
+description: Actual Langfuse telemetry sink write gate for the scoped telemetry-connected claim.
+forbidden_execution:
+  openai_model_api_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  production_deployment: true
+required_artifacts:
+  - evidence/post-rc-telemetry-connection/telemetry_connection_report.json
+  - evidence/post-rc-telemetry-connection/telemetry_sink_connection_receipt.json
+  - evidence/post-rc-telemetry-connection/live_trace_receipt.json
+  - evidence/post-rc-telemetry-connection/live_metric_receipt.json
+  - evidence/post-rc-telemetry-connection/telemetry_secret_redaction_report.json
+  - evidence/post-rc-telemetry-connection/telemetry_connection_claim_boundary.json
+gate:
+  script: tools/check_post_rc_telemetry_connection.mjs

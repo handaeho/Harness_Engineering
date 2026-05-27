@@ -1,0 +1,332 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-telemetry-connection",
+  "can_claim_telemetry_connected": true,
+  "can_claim_production_monitored": false,
+  "can_claim_production_ready": false,
+  "can_enter_stable_release": false,
+  "local_endpoint_deferred": true,
+  "reason": "Telemetry connection passed. Production monitoring, production readiness, stable, and provider-diverse claims remain blocked.",
+  "post_rc_langfuse_trace_submitted": true,
+  "post_rc_live_trace_receipt_recorded": true,
+  "post_rc_live_metric_receipt_recorded": true,
+  "post_rc_telemetry_secret_redaction_checked": true,
+  "production_ready_allowed": false,
+  "production_monitored_allowed": false,
+  "provider_diverse_allowed": false,
+  "local_model_verified_allowed": false,
+  "receipt_strength": "client_flush_or_shutdown_completed_no_server_readback",
+  "trace_id_present": true,
+  "checks": [
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_post_rc_telemetry_connection_preflight_refresh.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "release/post_rc_telemetry_connection_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_telemetry_connection_claim_boundary.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_telemetry_connection_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/run_post_rc_telemetry_connection.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_post_rc_telemetry_connection.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/audit_post_rc_telemetry_connection_claims.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_telemetry_connection.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_telemetry_connection_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_telemetry_connection_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection/telemetry_connection_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection/telemetry_connection_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection/telemetry_sink_connection_receipt.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection/live_trace_receipt.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection/live_metric_receipt.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection/telemetry_secret_redaction_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection/telemetry_connection_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-telemetry-connection/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/post_rc_telemetry_connection.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/post_rc_telemetry_connection_result_review.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_telemetry_connected_claim_review.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "post-RC telemetry connection report passed",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "stage matches post-RC telemetry connection",
+      "status": "pass",
+      "detail": {
+        "report_stage": "v2.0.0-post-rc-telemetry-connection",
+        "trace_stage": "v2.0.0-post-rc-telemetry-connection"
+      }
+    },
+    {
+      "name": "post-RC telemetry preflight refresh passed",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-rc-telemetry-connection-preflight-refresh"
+      }
+    },
+    {
+      "name": "approval phrase verified",
+      "status": "pass",
+      "detail": {
+        "approval_phrase_verified": true,
+        "approval_present": true
+      }
+    },
+    {
+      "name": "Langfuse credential presence checked without values",
+      "status": "pass",
+      "detail": {
+        "configured_sink": "langfuse",
+        "credential_presence_checked": true,
+        "langfuse_public_key_present": true,
+        "langfuse_secret_key_present": true,
+        "langfuse_host_present": true
+      }
+    },
+    {
+      "name": "telemetry connection and sink write completed",
+      "status": "pass",
+      "detail": {
+        "telemetry_connection": true,
+        "telemetry_sink_write": true,
+        "trace_export_attempted": true,
+        "sink_write_performed": true
+      }
+    },
+    {
+      "name": "live trace receipt contains valid trace id",
+      "status": "pass",
+      "detail": {
+        "report_trace_id_present": true,
+        "receipt_trace_id_present": true,
+        "ids_match": true,
+        "trace_url_present": false
+      }
+    },
+    {
+      "name": "live metric receipt exists or is explicitly not supported",
+      "status": "pass",
+      "detail": {
+        "status": "not_supported_or_not_available",
+        "metric_receipt_required_for_telemetry_connected": false,
+        "event_receipt_recorded": true
+      }
+    },
+    {
+      "name": "mock runtime stayed inside non-provider boundary",
+      "status": "pass",
+      "detail": {
+        "openai_provider_call": false,
+        "openai_model_api_call": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "production_deployment": false,
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "secret and raw payload flags are false",
+      "status": "pass",
+      "detail": {
+        "secrets_logged": false,
+        "raw_payload_stored": false,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "auth_header_logged": false,
+        "api_key_logged": false
+      }
+    },
+    {
+      "name": "claim boundary allows only telemetry-connected",
+      "status": "pass",
+      "detail": {
+        "telemetry_connected_allowed": true,
+        "production_monitored_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "provider_diverse_allowed": false,
+        "local_model_verified_allowed": false,
+        "allowed_claims": [
+          "telemetry-connected"
+        ]
+      }
+    },
+    {
+      "name": "local endpoint remains deferred",
+      "status": "pass",
+      "detail": {
+        "report_local_endpoint_deferred": true,
+        "local_endpoint_status": "confirmed_deferred",
+        "preflight_local_endpoint_deferred": true
+      }
+    },
+    {
+      "name": "unresolved items are clear for this stage",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "stable / production / provider-diverse positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "guardrail paths remain clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "failures": [],
+  "dependency_results": {
+    "validate_alpha": {
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "scan_prohibited_claims": {
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "compare_v36_baseline": {
+      "exit_code": 0,
+      "status": "pass"
+    },
+    "check_post_rc_telemetry_connection_preflight_refresh": {
+      "exit_code": 0,
+      "status": "pass"
+    }
+  },
+  "claims_allowed_by_this_gate": [
+    "telemetry-connected",
+    "post-rc-telemetry-connection-executed",
+    "post-rc-live-trace-receipt-recorded",
+    "post-rc-live-metric-receipt-recorded",
+    "post-rc-telemetry-secret-redaction-checked"
+  ],
+  "claims_still_blocked": [
+    "production-monitored",
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified"
+  ]
+}

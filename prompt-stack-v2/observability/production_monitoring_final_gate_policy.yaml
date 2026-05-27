@@ -1,0 +1,17 @@
+production_monitoring_final_gate_policy:
+  status: drafted
+  gate_not_executed_in_this_stage: true
+  required_before_production_monitored:
+    - operator_values_complete
+    - operator_approval_for_monitoring_window
+    - monitoring_window_completed
+    - continuous_trace_receipts_recorded
+    - zero_redaction_failures
+    - zero_secret_logging_findings
+    - alerting_policy_reviewed
+    - incident_response_owner_acknowledged
+    - retention_policy_values_approved
+  still_blocked_until_gate_pass:
+    - production-monitored
+    - production-ready
+    - stable

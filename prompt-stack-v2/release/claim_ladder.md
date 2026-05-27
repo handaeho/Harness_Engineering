@@ -61,6 +61,11 @@ Hardening rules:
 - Parser sanity passed is not runtime verified.
 - Adapter skeleton exists is not adapter checked.
 - Trace schema exists is not telemetry connected.
+- `telemetry-connected` is not `production-monitored`.
+- `telemetry-connected` is not `production-ready`.
+- `telemetry-connected` is not `stable`.
+- `telemetry-connected` does not establish provider diversity.
+- `telemetry-connected` does not verify local model execution.
 - Checksum snapshot exists is not containment proof.
 - One provider design exists is not provider diversity.
 - Local validation record exists is not release gate approval.
@@ -799,6 +804,224 @@ Additional rules:
 - command plan drafted is not command executed
 - approval packet generated is not approval granted
 - telemetry blocker updated is not blocker resolved
+
+## Post-RC Telemetry Connected Claim
+
+`telemetry-connected` means the post-RC telemetry sink connection succeeded with live trace receipt and secret/raw payload redaction checks.
+
+It allows:
+- telemetry-connected claim
+- telemetry connection receipt statement
+- live trace receipt statement
+
+It does not allow:
+- `production-monitored`
+- `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+
+Additional rules:
+- `telemetry-connected` is not `production-monitored`
+- `telemetry-connected` is not `production-ready`
+- `telemetry-connected` is not `stable`
+- `telemetry-connected` does not establish provider diversity
+- `telemetry-connected` does not verify local model
+- metric/event receipt absence does not allow production monitoring when the scoped gate records Langfuse trace receipt only
+
+## Post-RC Telemetry Connection Result Review Claim
+
+`post-rc-telemetry-connection-result-reviewed` means the passed post-RC Langfuse telemetry connection result was reviewed, receipt evidence was indexed, and secret/raw payload redaction evidence was checked without additional telemetry sink writes, OpenAI model API calls, local endpoint probes, or local model execution.
+
+It allows:
+- telemetry connection result review statement
+- Langfuse receipt evidence index statement
+- telemetry-connected claim boundary statement
+
+It does not allow:
+- `production-monitored`
+- `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+
+Additional rules:
+- result review is not production monitoring
+- receipt indexing is not a monitoring window
+- no-secret/no-raw-payload review is not incident response readiness
+- telemetry-connected remains narrower than production readiness
+
+## Post-RC Production Monitoring Readiness Claim
+
+`post-rc-production-monitoring-readiness-assessed` means production monitoring readiness was evaluated after telemetry-connected evidence, and the result remained `blocked_not_production_monitored` because required monitoring controls and a monitoring window are missing.
+
+It allows:
+- production monitoring readiness assessment statement
+- production monitoring blocker recorded statement
+- remaining monitoring controls statement
+
+It does not allow:
+- `production-monitored`
+- `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+
+Additional rules:
+- production monitoring readiness assessment is not production monitoring
+- blocker recorded is not blocker resolved
+- local endpoint remains deferred until operator endpoint readiness
+- provider diversity is not required for this readiness assessment, but remains a separate blocked claim
+
+## Post-RC Production Monitoring Controls Design Claim
+
+`post-rc-production-monitoring-controls-drafted` means dashboard, alerting, anomaly threshold, monitoring window, incident response, rollback linkage, retention, and production monitoring gate design artifacts exist without executing production monitoring.
+
+It allows:
+- production monitoring controls drafted statement
+- production monitoring gate designed statement
+- production monitoring claim boundary audited statement
+- production monitoring blocker updated statement
+
+It does not allow:
+- `production-monitored`
+- `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+
+Additional rules:
+- controls drafted is not live monitoring
+- gate designed is not gate executed
+- monitoring window policy drafted is not monitoring window completed
+- alerting policy drafted is not live alerts enabled
+- rollback linkage drafted is not live rollback monitoring tested
+- operator-defined values and owners remain pending before production-monitored
+
+## Post-RC Production Monitoring Values Preflight Claim
+
+`post-rc-production-monitoring-values-preflight-completed` means operator-defined production monitoring value templates, draft defaults, owner assignment templates, monitoring window preconditions, and a later-stage command plan are recorded without executing the monitoring window.
+
+It allows:
+- production monitoring values preflight statement
+- recommended defaults drafted statement
+- owner assignment template drafted statement
+- monitoring window preconditions drafted statement
+- monitoring window command plan drafted statement
+
+It does not allow:
+- `production-monitored`
+- `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+
+Additional rules:
+- values preflight is not live monitoring
+- recommended defaults are not approved operator values
+- owner assignment template is not owner assignment
+- command plan drafted is not command execution
+- monitoring window preconditions drafted is not monitoring window completed
+- production monitoring final gate remains required before production-monitored
+- local endpoint remains deferred until operator provides endpoint readiness
+
+## Post-RC Production Monitoring Operator Values Completion Claim
+
+`post-rc-production-monitoring-operator-values-completed` means operator-provided dashboard, alerting, threshold, monitoring window, retention, and owner values are recorded and the monitoring window can execute only after the required explicit approval phrase.
+
+It allows:
+- operator values completion statement
+- threshold values recorded statement
+- owner assignments recorded statement
+- monitoring window execution preconditions satisfied statement
+- monitoring window approval request generated statement
+
+It does not allow:
+- `production-monitored`
+- `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+
+Additional rules:
+- operator values complete is not monitoring window execution
+- monitoring window can execute after approval is not monitoring window completed
+- approval request generated is not approval granted
+- threshold values recorded is not threshold pass evidence
+- owner assignment recorded is not incident response exercise evidence
+- production monitoring final gate remains required before production-monitored
+
+## Post-RC Production Monitoring Window Execution Claim
+
+`post-rc-production-monitoring-window-executed` means the approved production monitoring window evidence review was executed against Langfuse trace continuity, thresholds, redaction/secret handling, and incident/rollback readiness without OpenAI model API calls, local endpoint probes, local model execution, production deployment, or a production-monitored claim.
+
+It allows:
+- monitoring window execution evidence statement
+- trace continuity review statement
+- threshold evaluation statement
+- redaction/secret review statement
+- incident/rollback readiness review statement
+
+It does not allow:
+- `production-monitored`
+- `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+
+Additional rules:
+- monitoring window executed is not monitoring window completed when duration or sample count is insufficient
+- incomplete monitoring window evidence is not `production-monitored`
+- threshold values evaluated against insufficient samples do not establish production monitoring
+- incident/rollback readiness review is not live rollback monitoring tested
+- production monitoring final gate remains required before production-monitored
+
+## Post-RC Production Monitoring Window Continuation Checkpoint Claim
+
+`post-rc-production-monitoring-window-checkpoint-recorded` means the monitoring window continuation state was checkpointed from existing window execution evidence without synthetic traces, manual sample count changes, manual duration changes, telemetry sink writes, provider calls, local endpoint probes, local model execution, production deployment, or production monitoring claims.
+
+It allows:
+- monitoring window checkpoint statement
+- monitoring window progress evaluated statement
+- remaining duration and sample requirements statement
+- redaction checkpoint statement
+
+It does not allow:
+- `production-monitored`
+- `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+
+Additional rules:
+- checkpoint recorded is not monitoring window completed
+- remaining requirements recorded is not requirement satisfaction
+- clean redaction checkpoint is not production monitoring
+- result review remains required after duration and sample count are met
+- production monitoring final gate remains required before production-monitored
 
 ## Execution Readiness Dashboard Claim
 

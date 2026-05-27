@@ -1,0 +1,371 @@
+{
+  "status": "fail",
+  "stage": "v2.0.0-post-rc-production-monitoring-values-owner-and-window-preflight",
+  "operator_values_required": true,
+  "monitoring_window_can_execute": false,
+  "can_claim_telemetry_connected": false,
+  "can_claim_production_monitored": false,
+  "can_claim_production_ready": false,
+  "can_enter_stable_release": false,
+  "reason": "Production monitoring values preflight failed.",
+  "operator_values_complete": false,
+  "production_monitoring_controls_drafted": false,
+  "production_monitored_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "provider_diverse_allowed": false,
+  "telemetry_sink_write": false,
+  "openai_model_api_call": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "checks": [
+    {
+      "name": "build_post_rc_production_monitoring_values_preflight.mjs completed",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "blocked_by_missing_operator_values"
+      }
+    },
+    {
+      "name": "check_post_rc_production_monitoring_controls.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "release/post_rc_production_monitoring_values_owner_preflight_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_monitoring_values_owner_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_monitoring_window_preconditions.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_monitoring_values_approval_request.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_monitoring_window_command_plan.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "observability/production_monitoring_operator_values_template.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "observability/production_monitoring_recommended_defaults.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "observability/production_monitoring_owner_assignment_template.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "observability/production_monitoring_window_execution_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "observability/production_monitoring_final_gate_policy.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_production_monitoring_values_preflight.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_values_preflight_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_values_preflight_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_values_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_values_gate_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/production_monitoring_values_preflight_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/production_monitoring_operator_values_template_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/production_monitoring_recommended_defaults_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/production_monitoring_owner_assignment_template_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/production_monitoring_window_preconditions.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/production_monitoring_values_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/production_monitoring_values_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/production_monitoring_window_command_plan_snapshot.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/production_monitoring_values_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-values-preflight/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_values_owner_preflight.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_operator_values_template.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_recommended_defaults.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_window_execution_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_values_approval_request.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_monitoring_window_execution_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "values preflight report is blocked by missing operator values",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_missing_operator_values",
+        "operator_values_complete": false,
+        "monitoring_window_can_execute": false
+      }
+    },
+    {
+      "name": "no new execution or forbidden execution occurred",
+      "status": "pass",
+      "detail": {
+        "new_execution": false,
+        "telemetry_sink_write": false,
+        "openai_model_api_call": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "operator values template matches required shape",
+      "status": "pass",
+      "detail": {
+        "status": "pending_operator_input"
+      }
+    },
+    {
+      "name": "recommended defaults require operator approval",
+      "status": "pass",
+      "detail": {
+        "status": "draft_requires_operator_approval",
+        "approval_required": true
+      }
+    },
+    {
+      "name": "owner assignment template remains pending",
+      "status": "pass",
+      "detail": {
+        "status": "pending_operator_input"
+      }
+    },
+    {
+      "name": "monitoring window preconditions block execution",
+      "status": "pass",
+      "detail": {
+        "status": "operator_values_required",
+        "missing_operator_values": [
+          "dashboard_owner",
+          "alert_channel",
+          "alert_review_owner",
+          "escalation_policy",
+          "missing_trace_rate_threshold",
+          "error_rate_threshold",
+          "p95_latency_threshold_ms",
+          "minimum_duration",
+          "required_sample_count",
+          "trace_retention_period",
+          "pii_retention_policy",
+          "incident_owner",
+          "escalation_owner",
+          "rollback_owner"
+        ]
+      }
+    },
+    {
+      "name": "window execution policy is preflight-only",
+      "status": "pass",
+      "detail": {
+        "status": "preflight_only"
+      }
+    },
+    {
+      "name": "final gate policy remains unexecuted",
+      "status": "pass",
+      "detail": {
+        "status": "drafted"
+      }
+    },
+    {
+      "name": "command plan is not executable in this stage",
+      "status": "pass",
+      "detail": {
+        "not_executable_in_this_stage": true
+      }
+    },
+    {
+      "name": "window execution scripts were not created",
+      "status": "fail",
+      "detail": {
+        "run_script_exists": true,
+        "check_script_exists": true
+      }
+    },
+    {
+      "name": "claim boundary keeps stronger claims blocked",
+      "status": "pass",
+      "detail": {
+        "production_monitored_allowed": false,
+        "stable_allowed": false
+      }
+    },
+    {
+      "name": "blocker updated to operator values required",
+      "status": "pass",
+      "detail": {
+        "new_status": "operator_values_required_before_monitoring_window"
+      }
+    },
+    {
+      "name": "unresolved items record missing operator values",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 14
+      }
+    },
+    {
+      "name": "production-monitored / production-ready / stable / provider-diverse positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "guardrail paths remain clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "failures": [
+    {
+      "name": "window execution scripts were not created",
+      "status": "fail",
+      "detail": {
+        "run_script_exists": true,
+        "check_script_exists": true
+      }
+    }
+  ],
+  "claims_allowed_by_this_gate": [],
+  "claims_still_blocked": [
+    "production-monitored",
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "release-gated"
+  ]
+}

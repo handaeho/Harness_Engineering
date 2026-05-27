@@ -1,0 +1,39 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-rc.1-final-handoff",
+  "post_rc_options": [
+    {
+      "order": 1,
+      "option": "v2.0.0-post-rc-telemetry-connection-preflight-refresh",
+      "allowed_now": true,
+      "actual_connection_allowed_now": false
+    },
+    {
+      "order": 2,
+      "option": "v2.0.0-post-rc-telemetry-connection",
+      "allowed_now": false,
+      "requires": [
+        "I explicitly approve v2.0.0-post-rc-telemetry-connection",
+        "OTEL or Langfuse credentials"
+      ]
+    },
+    {
+      "order": 3,
+      "option": "v2.0.0-post-rc-local-endpoint-readiness-preflight",
+      "allowed_now": false,
+      "requires": [
+        "operator local endpoint readiness signal",
+        "endpoint details"
+      ]
+    },
+    {
+      "order": 4,
+      "option": "stable_scope_decision",
+      "allowed_now": false,
+      "requires": [
+        "telemetry result",
+        "local lane resolved or explicitly out-of-scope"
+      ]
+    }
+  ]
+}
