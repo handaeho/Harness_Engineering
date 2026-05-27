@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-05-27T00:00:00.000Z",
+  "validation_name": "codex_skill_routing_scenarios",
+  "claim_strength": "local_runtime_skill_routing_test_spec",
+  "scope": "prompt-stack/v36/codex/skills",
+  "scenarios": [
+    {
+      "case_id": "CSR-001",
+      "name": "new feature architecture planning",
+      "input_task": "Design the API boundary and rollout plan for a new audit logging feature before editing code.",
+      "expected_skill": "design-analysis",
+      "non_expected_skills": ["coding-core", "eval-ops", "harness-creator-adapter"],
+      "expected_workflow": "Analyze the decision, compare options, choose a route, define fallback and validation, then hand off bounded implementation to coding-core.",
+      "completion_report": "Decision, trade-offs, selected route, fallback, implementation slice, and verification plan."
+    },
+    {
+      "case_id": "CSR-002",
+      "name": "bug fix with refactor",
+      "input_task": "Fix this null dereference and do the smallest refactor needed to make the testable path clear.",
+      "expected_skill": "coding-core",
+      "non_expected_skills": ["grounded-research", "design-analysis", "harness-creator-adapter"],
+      "expected_workflow": "Analyze symptom, isolate target, patch narrowly, add or update regression test, verify, and report changed files and remaining risk.",
+      "completion_report": "Changed files, behavior fixed, tests/checks run, skipped checks, assumptions, and review points."
+    },
+    {
+      "case_id": "CSR-003",
+      "name": "test writing and code review",
+      "input_task": "Review this diff for missing tests and add focused tests for the failure paths you find.",
+      "expected_skill": "coding-core",
+      "non_expected_skills": ["eval-ops", "orchestration-control", "harness-creator-adapter"],
+      "expected_workflow": "Use review mode first, classify findings by severity, patch bounded tests, run targeted checks, and report review findings plus verification.",
+      "completion_report": "Findings first when review remains relevant, then test changes, checks run, and residual risk."
+    },
+    {
+      "case_id": "CSR-004",
+      "name": "latest official source check",
+      "input_task": "Check the latest official Codex Skill documentation and summarize what our descriptions must satisfy.",
+      "expected_skill": "grounded-research",
+      "non_expected_skills": ["coding-core", "eval-ops", "orchestration-control"],
+      "expected_workflow": "Define evidence target, retrieve official sources, synthesize with citations, and mark freshness or limitations.",
+      "completion_report": "Source-backed summary, citations, freshness note, and handoff if implementation follows."
+    },
+    {
+      "case_id": "CSR-005",
+      "name": "release gate judgment",
+      "input_task": "Decide whether this prompt candidate is release-ready based on the benchmark and regression results.",
+      "expected_skill": "eval-ops",
+      "non_expected_skills": ["coding-core", "design-analysis", "harness-creator-adapter"],
+      "expected_workflow": "Define gate contract, inspect executed evidence, compare baseline and candidate, downgrade unsupported claims, and issue pass/fail/hold verdict.",
+      "completion_report": "Verdict, evidence, failures, skipped checks, claim strength, and next required evidence."
+    },
+    {
+      "case_id": "CSR-006",
+      "name": "harness artifact creation",
+      "input_task": "Create a claim-strength checklist and validation fixture for this Codex runtime package.",
+      "expected_skill": "harness-creator-adapter",
+      "non_expected_skills": ["coding-core", "eval-ops", "grounded-research"],
+      "expected_workflow": "Identify subsystem and owner layer, create the smallest useful artifact, add validation expectations, verify boundary and claim strength.",
+      "completion_report": "Changed artifact, subsystem, owner layer, validation path, claim boundary, and remaining risk."
+    },
+    {
+      "case_id": "CSR-007",
+      "name": "multi-agent coordination",
+      "input_task": "Coordinate separate research, implementation, and review agents for a long-running migration.",
+      "expected_skill": "orchestration-control",
+      "non_expected_skills": ["coding-core", "grounded-research", "harness-creator-adapter"],
+      "expected_workflow": "Check single-agent sufficiency, choose topology, define roles and join contract, track lifecycle, integrate and verify.",
+      "completion_report": "Topology, roles, lifecycle state, join result, unresolved gaps, and validation owner."
+    }
+  ]
+}

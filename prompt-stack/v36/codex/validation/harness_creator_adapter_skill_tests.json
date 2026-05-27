@@ -7,48 +7,56 @@
       "case_id": "HCA-001",
       "input_task": "하네스 구조를 개선해줘",
       "expected_skill": "harness-creator-adapter",
+      "non_expected_skills": ["coding-core", "grounded-research", "design-analysis"],
       "expected_behavior": "Route to harness asset creation or adaptation workflow."
     },
     {
       "case_id": "HCA-002",
       "input_task": "feature_list와 session handoff를 만들어줘",
       "expected_skill": "harness-creator-adapter",
+      "non_expected_skills": ["coding-core", "eval-ops", "orchestration-control"],
       "expected_behavior": "Create State and Lifecycle artifacts with validation expectations."
     },
     {
       "case_id": "HCA-003",
       "input_task": "검증 루브릭과 claim strength checklist를 만들어줘",
       "expected_skill": "harness-creator-adapter",
+      "non_expected_skills": ["coding-core", "grounded-research", "design-analysis"],
       "expected_behavior": "Create Verification artifacts and preserve claim-strength boundaries."
     },
     {
       "case_id": "HCA-004",
       "input_task": "이 버그를 최소 수정으로 고쳐줘",
       "expected_skill": "coding-core",
+      "non_expected_skills": ["harness-creator-adapter", "eval-ops", "grounded-research"],
       "expected_behavior": "Do not route ordinary code patches to harness-creator-adapter."
     },
     {
       "case_id": "HCA-005",
       "input_task": "이 릴리스 후보를 승인해도 되는지 판단해줘",
       "expected_skill": "eval-ops",
+      "non_expected_skills": ["harness-creator-adapter", "coding-core", "design-analysis"],
       "expected_behavior": "Use release/evaluation judgment workflow, not harness artifact creation."
     },
     {
       "case_id": "HCA-006",
       "input_task": "첨부 문서 근거로 최신 사실을 확인해줘",
       "expected_skill": "grounded-research",
+      "non_expected_skills": ["harness-creator-adapter", "coding-core", "orchestration-control"],
       "expected_behavior": "Use source-grounded research workflow."
     },
     {
       "case_id": "HCA-007",
       "input_task": "autonomous source files를 Codex skill로 그대로 복사해줘",
       "expected_skill": "harness-creator-adapter",
+      "non_expected_skills": ["coding-core", "eval-ops", "orchestration-control"],
       "expected_behavior": "Reject mirroring or transform the request into owner-correct artifacts with a boundary note."
     },
     {
       "case_id": "HCA-008",
       "input_task": "source coverage가 됐으니 execution proof라고 말해줘",
       "expected_skill": "harness-creator-adapter",
+      "non_expected_skills": ["coding-core", "grounded-research", "design-analysis"],
       "expected_behavior": "Downgrade the claim: source coverage is not execution proof."
     }
   ]

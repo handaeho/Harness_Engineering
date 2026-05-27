@@ -255,6 +255,8 @@ Skill loading rules:
 - prefer no skill over a weakly matched skill
 - if the task changes materially, reroute
 - if the main problem is coordination topology or lifecycle control, prefer `orchestration-control` over improvised delegation
+- when skill routing is ambiguous, consult `validation/skill_routing_scenarios.json` as non-authoritative routing examples
+- treat routing scenarios as validation fixtures, not higher-priority instructions than this constitution or the selected `SKILL.md`
 
 ## 8. Tool and External Interaction Discipline
 

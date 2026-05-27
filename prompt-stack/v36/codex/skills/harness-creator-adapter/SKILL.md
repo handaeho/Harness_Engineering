@@ -1,122 +1,105 @@
 ---
 name: harness-creator-adapter
-description: Use when adapting harness-engineering patterns into this prompt stack by creating or revising Instructions, State, Verification, Scope, Lifecycle, handoff, validation, benchmark, and harness artifacts. Do not use for ordinary code fixes, release decisions, or mirroring autonomous source assets into Codex runtime.
+description: Use for harness asset creation or adaptation: Instructions, State, Verification, Scope, Lifecycle, handoff, validation, benchmark, clean-state, and artifact-map work. Do not use for ordinary code fixes, release decisions, pure research, architecture design, or mirroring autonomous source assets into Codex runtime.
 ---
 
 # Harness Creator Adapter Skill
 
-## 1. When to Use
+## Purpose
 
-Use this skill when the task asks to:
-- create or improve harness assets
-- adapt Learn Harness Engineering patterns
-- strengthen Instructions, State, Verification, Scope, or Lifecycle
-- create feature lists, progress logs, session handoff, evaluator rubrics, benchmark suites, claim-strength checklists, clean-state checklists, or artifact maps
-- improve agent continuity, verification, scope control, or lifecycle closeout
+Use this skill to create or revise local harness assets that improve agent continuity, verification, scope control, lifecycle closeout, validation, or benchmark readiness.
+
+This skill adapts harness-engineering patterns into owner-correct Codex or prompt-stack artifacts. It does not copy autonomous source files into Codex runtime and does not make release decisions.
+
+## When to use
+
+Use `harness-creator-adapter` when the task asks to:
+
+- create or improve Instructions, State, Verification, Scope, Lifecycle, handoff, validation, benchmark, clean-state, or artifact-map assets
 - convert source material into local operational artifacts
-- prepare harness validation or ablation artifacts
+- strengthen claim-strength, evidence, session continuity, progress tracking, or closeout behavior
+- create feature lists, progress logs, decision logs, evidence logs, evaluator rubrics, benchmark suites, claim-strength checklists, clean-state checklists, or validation summaries
+- adapt harness patterns without changing the autonomous source-of-truth bundle
 
-## 2. Do Not Use When
+Do not use it as primary owner when:
 
-Do not use this skill when:
-- the task is an ordinary code patch
-- the task is a narrow bug fix
-- `coding-core` is the better runtime skill
-- `eval-ops` is needed for release decision or release gate judgment
-- `grounded-research` is needed for source-grounded research
-- `design-analysis` is needed for architecture trade-off analysis
-- `orchestration-control` is needed for multi-agent handoff or lifecycle coordination
-- the user asks to copy autonomous source files into Codex runtime
-- the task requires destructive action, deployment, or external mutation
+- the task is an ordinary code patch, bug fix, code review, test, debug, or refactor; use `coding-core`
+- the task is a release decision, benchmark verdict, regression gate, or scorecard interpretation; use `eval-ops`
+- the task is source-grounded research; use `grounded-research`
+- the task is architecture trade-off analysis; use `design-analysis`
+- the task is multi-agent handoff or topology coordination; use `orchestration-control`
+- the user asks to mirror or copy autonomous source assets into Codex runtime
 
-## 3. Primary Mission
+## Inputs
 
-Adapt harness-engineering ideas into local, owner-correct, testable artifacts.
+Identify:
 
-Priorities:
-1. identify the target harness subsystem
-2. select the correct owner layer
-3. create the smallest useful artifact
-4. preserve autonomous-vs-Codex separation
-5. add validation expectations
-6. keep claim strength aligned with available proof
-7. leave a handoff that the next session can use
+- target subsystem: Instructions, State, Verification, Scope, or Lifecycle
+- owner layer: autonomous source stack, Codex runtime package, shared state/verification/lifecycle, evidence/archive, or reports
+- current asset path and intended consumer
+- gap being fixed and the failure mode it prevents
+- validation path and claim-strength boundary
+- source material, if any, and whether it is authoritative, draft, evidence, or inspiration
 
-## 4. Runtime Model
+## Workflow
 
-Use this loop:
+Use this flow:
 
-`Identify Subsystem -> Select Owner Layer -> Map Pattern -> Create Artifact -> Add Verification -> Check Boundary -> Summarize Handoff`
+`Analyze -> Plan -> Create/Revise -> Test -> Verify -> Report`
 
-Subsystems:
-- Instructions
-- State
-- Verification
-- Scope
-- Lifecycle
+1. Analyze
+   - Name the harness gap and target subsystem.
+   - Confirm the correct owner layer.
+   - Separate active runtime assets from evidence, archive, and autonomous source assets.
 
-Owner layers:
-- autonomous source stack
-- Codex runtime package
-- shared state / verification / lifecycle
-- evidence / archive
+2. Plan
+   - Choose the smallest useful artifact change.
+   - Decide whether to create, revise, or only propose a follow-up.
+   - Define validation before editing.
 
-## 5. Source-to-Asset Mapping
+3. Create/Revise
+   - Extract actionable patterns; do not copy source prose wholesale.
+   - Keep Codex runtime assets compact and execution-oriented.
+   - Preserve autonomous-vs-Codex separation.
 
-When source material is provided:
-- do not copy source prose wholesale
-- extract the actionable pattern
-- map it to a local artifact
-- define when the artifact is used
-- define how the artifact is validated
-- record what was deferred or archived
+4. Test
+   - Run existing validation runners when available.
+   - Add or update validation fixtures only when they directly test the new or revised behavior.
 
-Examples:
-- repository-as-system-of-record -> docs/ARTIFACT_MAP.md, state/evidence_log.json
-- huge instruction file failure -> AGENTS.md router, MASTER_PROMPT_ROUTER.md
-- long task continuity failure -> state/progress.md, session-handoff.md
-- early completion failure -> verification/evaluator-rubric.md, claim_strength_checklist.json
-- scope creep failure -> autonomous/07_scope/SCOPE_POLICY.md
-- clean-state failure -> lifecycle/clean-state-checklist.md
+5. Verify
+   - Check owner layer, artifact purpose, validation path, claim strength, and routing boundaries.
+   - Downgrade claims when only design exists without execution.
 
-## 6. Output Artifacts
+6. Report
+   - State changed artifacts, subsystem, owner layer, validation, remaining risk, and next safe step.
 
-Prefer concrete artifacts such as:
-- AGENTS.md routing note
-- MASTER_PROMPT_ROUTER update
-- feature_list.json
-- progress.md
-- decision_log.md
-- evidence_log.json
-- session-handoff.md
-- evaluator-rubric.md
-- benchmark_suite.json
-- ablation_plan.md
-- claim_strength_checklist.json
-- clean-state-checklist.md
-- session-start.md
-- session-closeout.md
-- artifact map
-- validation summary
-- follow-up backlog
+## Engineering rules
 
-Avoid pure theory output unless the user explicitly asks for theory.
+- Prefer concrete artifacts over theory.
+- Use one active artifact per control problem when possible.
+- Make superseded lower-strength artifacts explicit if they remain.
+- Preserve linked identifiers such as `scenario_id`, `run_id`, `cohort_id`, `trace_id`, or `artifact_version` when operational evidence depends on them.
+- Treat source coverage, runner files, and validation suites as different proof classes.
+- Keep validation expectations close to the artifact they validate.
+- If a structural problem suggests a new Skill, record it as a follow-up candidate; do not create a new Skill during a fixed-scope six-Skill maintenance pass.
 
-## 7. Codex Runtime Boundary
+## Verification
 
-Codex runtime assets are not mirrors of autonomous source assets.
+Before closeout, check:
 
-Rules:
-- do not copy autonomous source files into Codex runtime
-- do not treat Codex skill success as automatic source-of-truth backport
-- do not treat autonomous source changes as Codex runtime validation
-- preserve behavioral alignment, safety preservation, and runtime fitness
-- use source-of-truth backport review before moving Codex improvements into autonomous doctrine
-- keep Codex instructions execution-oriented and compact
+- target subsystem is explicit
+- owner layer is correct
+- artifact has a concrete use
+- validation path exists
+- claim strength is not inflated
+- no autonomous source prose was copied wholesale into Codex runtime
+- no autonomous/Codex mirror assumption was introduced
+- state, verification, scope, lifecycle, or instruction gap is actually reduced
+- next-session handoff exists when continuity is involved
+- no release, production monitoring, or containment claim was made without evidence
 
-## 8. Safety and Claim Strength
+Claim distinctions:
 
-Maintain these distinctions:
 - source coverage is not execution proof
 - harness-designed is not harness-executed
 - runner-ready is not replay-verified
@@ -125,49 +108,48 @@ Maintain these distinctions:
 - telemetry plan is not production telemetry
 - benchmark-designed is not benchmark-executed
 
-Never claim the following unless the evidence exists:
-- production-monitored
-- containment-verified
-- all-primary-source-validated
-- public-benchmark-certified
-- live-production-rollout-certified
+## Constraints
 
-## 9. Verification Matrix
+- Do not use this skill for ordinary code fixes.
+- Do not use it to approve releases.
+- Do not mirror autonomous source files into Codex runtime.
+- Do not silently change stable pointers, release registries, records, or reports outside the requested scope.
+- Do not claim production-monitored, containment-verified, all-primary-source-validated, public-benchmark-certified, or live-production-rollout-certified without matching evidence.
 
-Before closeout, check:
-- owner layer is correct
-- artifact has a concrete use
-- output is not just prose
-- validation path exists
-- claim strength is not inflated
-- no source prose was copied wholesale
-- no autonomous/Codex mirroring occurred
-- state, verification, scope, or lifecycle gap is actually reduced
-- next-session handoff exists when continuity is involved
-- no release or deployment claim was made
+## Output
 
-## 10. Close-out Contract
+Report:
 
-At closeout, report:
 - changed artifact
 - target subsystem
 - owner layer
-- validation path
+- validation path and result
+- claim-strength boundary
 - remaining unverified risk
 - next safest step
 - backport candidate, if any
 
-Do not say the harness is complete unless validation evidence supports it.
+## Examples
 
-## 11. Anti-patterns
+- "Create a claim-strength checklist for this prompt stack."
+  - Use `harness-creator-adapter`.
+  - Output a Verification artifact and validation expectation.
 
-Avoid:
-- copying source prose wholesale
-- creating generic harness theory without local artifacts
-- mirroring autonomous files into Codex runtime
-- adding documents without validation path
-- treating source coverage as execution proof
-- treating harness-designed as harness-executed
-- creating bulky governance docs inside Codex skills
-- using this skill for ordinary code patches
-- silently changing release registry or stable pointers
+- "This bug needs a minimal code fix."
+  - Use `coding-core`, not `harness-creator-adapter`.
+
+- "Decide whether this candidate can be released."
+  - Use `eval-ops`, not `harness-creator-adapter`.
+
+- "Copy autonomous prompts into Codex skills."
+  - Use this skill only to reject mirroring and propose owner-correct adaptation.
+
+## Checklist
+
+- [ ] Subsystem and owner layer identified.
+- [ ] Smallest useful artifact selected.
+- [ ] Autonomous/Codex boundary preserved.
+- [ ] Validation path added or confirmed.
+- [ ] Claim strength downgraded where evidence is partial.
+- [ ] Scope-limited follow-ups recorded instead of out-of-scope creation.
+- [ ] Closeout states changed artifact, validation, and remaining risk.
