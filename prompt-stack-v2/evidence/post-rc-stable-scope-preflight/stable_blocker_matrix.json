@@ -1,0 +1,33 @@
+{
+  "status": "blocked",
+  "stable_allowed": false,
+  "blockers": [
+    {
+      "id": "SB-001",
+      "category": "stable_scope_decision",
+      "status": "owner_decision_required",
+      "reason": "Need to decide whether stable is OpenAI-only scoped, strict provider-diverse/local-inclusive, or kept blocked."
+    },
+    {
+      "id": "SB-002",
+      "category": "local_endpoint",
+      "status": "deferred",
+      "blocks_strict_stable": true,
+      "can_be_out_of_scope_by_owner_decision": true
+    },
+    {
+      "id": "SB-003",
+      "category": "provider_diversity",
+      "status": "not_established",
+      "blocks_provider_diverse_claim": true,
+      "blocks_strict_stable": true,
+      "can_be_out_of_scope_by_owner_decision": true
+    },
+    {
+      "id": "SB-004",
+      "category": "bare_release_gated",
+      "status": "blocked",
+      "reason": "Only rc1-openai-scope-release-gated is allowed; bare release-gated remains blocked."
+    }
+  ]
+}

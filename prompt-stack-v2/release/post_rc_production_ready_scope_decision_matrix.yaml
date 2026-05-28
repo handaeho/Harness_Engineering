@@ -1,0 +1,12 @@
+stage: v2.0.0-post-rc-production-ready-scope-decision-preflight
+status: owner_decision_required
+options:
+  openai_only_production_ready_scope:
+    status: candidate_requires_owner_decision
+    allowed_to_consider: true
+  strict_provider_diverse_production_ready_scope:
+    status: blocked_until_local_or_second_provider_evidence
+    allowed_to_consider: false
+  keep_production_ready_blocked:
+    status: available
+recommended_option: owner_decision_required

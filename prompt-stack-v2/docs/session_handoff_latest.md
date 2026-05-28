@@ -1,7 +1,7 @@
 # Session Handoff Latest
 
-Latest stage: v2.0.0-beta-execution-readiness-dashboard-and-blocker-resolution-plan
+Latest scoped status: `v2.0.0-rc.1+postrc.telemetry-connected+production-monitored+openai-only-production-ready+openai-only-stable`.
 
-Latest gate expected result: pass for dashboard generation, with all execution lanes still blocked.
+Allowed scoped claim: `post-rc-openai-only-stable`.
 
-Read `session_handoff_2026-05-22.md` for full continuity context.
+Bare `stable`, bare `production-ready`, bare `release-gated`, `provider-diverse`, `provider-verified`, `adapter-checked`, and `local-model-verified` remain blocked.

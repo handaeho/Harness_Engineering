@@ -53,6 +53,22 @@ function round2(value) {
   return Math.round(value * 100) / 100;
 }
 
+function hoursBetween(start, end) {
+  const startMs = Date.parse(start);
+  const endMs = Date.parse(end);
+  if (!Number.isFinite(startMs) || !Number.isFinite(endMs) || endMs < startMs) return 0;
+  return round2((endMs - startMs) / 3_600_000);
+}
+
+function indexedSampleCount(index, fallback) {
+  if (!index || !Array.isArray(index.receipts)) return fallback;
+  const total = index.receipts.reduce((sum, receipt) => {
+    const value = Number(receipt.event_observations_emitted || 0);
+    return sum + (Number.isFinite(value) && value > 0 ? value : 0);
+  }, 0);
+  return total > 0 ? total : fallback;
+}
+
 function reportMarkdown(report) {
   return `# Production Monitoring Window Continuation Checkpoint
 
@@ -188,13 +204,17 @@ Run the monitoring window result review only after real Langfuse evidence shows 
 writeStaticArtifacts();
 
 const generatedAt = new Date().toISOString();
+const telemetryReport = readJsonIfExists("evidence/post-rc-telemetry-connection/telemetry_connection_report.json") || {};
 const sourceReport = readJsonIfExists(`${SOURCE_EVIDENCE_DIR}/production_monitoring_window_report.json`) || {};
 const sourceRedaction = readJsonIfExists(`${SOURCE_EVIDENCE_DIR}/monitoring_window_redaction_evaluation.json`) || {};
 const sourceGate = readJsonIfExists(`${SOURCE_EVIDENCE_DIR}/monitoring_window_gate_report.json`) || {};
+const sampleIndex = readJsonIfExists("evidence/post-rc-production-monitoring-window-samples/sample_receipt_index.json") || null;
 
-const elapsedDurationHours = round2(asNumber(sourceReport.monitoring_window_observed_duration_hours, 0));
+const liveElapsedDurationHours = hoursBetween(telemetryReport.generated_at, generatedAt);
+const sourceElapsedDurationHours = round2(asNumber(sourceReport.monitoring_window_observed_duration_hours, 0));
+const elapsedDurationHours = liveElapsedDurationHours > 0 ? liveElapsedDurationHours : sourceElapsedDurationHours;
 const requiredDurationHours = round2(asNumber(sourceReport.monitoring_window_required_duration_hours, 24));
-const sampleCount = Math.max(0, Math.trunc(asNumber(sourceReport.observed_sample_count, 0)));
+const sampleCount = Math.max(0, Math.trunc(indexedSampleCount(sampleIndex, asNumber(sourceReport.observed_sample_count, 0))));
 const requiredSampleCount = Math.max(0, Math.trunc(asNumber(sourceReport.required_sample_count, 50)));
 const durationMet = elapsedDurationHours >= requiredDurationHours;
 const sampleCountMet = sampleCount >= requiredSampleCount;

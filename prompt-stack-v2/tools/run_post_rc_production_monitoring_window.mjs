@@ -54,7 +54,16 @@ function hoursBetween(start, end) {
   const startMs = Date.parse(start);
   const endMs = Date.parse(end);
   if (!Number.isFinite(startMs) || !Number.isFinite(endMs) || endMs < startMs) return 0;
-  return Math.round(((endMs - startMs) / 36_000) / 100) / 100;
+  return Math.round(((endMs - startMs) / 3_600_000) * 100) / 100;
+}
+
+function indexedSampleCount(index, fallback) {
+  if (!index || !Array.isArray(index.receipts)) return fallback;
+  const total = index.receipts.reduce((sum, receipt) => {
+    const value = Number(receipt.event_observations_emitted || 0);
+    return sum + (Number.isFinite(value) && value > 0 ? value : 0);
+  }, 0);
+  return total > 0 ? total : fallback;
 }
 
 function reportMarkdown(report) {
@@ -208,6 +217,7 @@ const operatorCompletion = readJsonIfExists("evidence/post-rc-production-monitor
 const preconditions = readJsonIfExists("evidence/post-rc-production-monitoring-operator-values-completion/production_monitoring_window_preconditions_after_values.json") || {};
 const telemetryReport = readJsonIfExists("evidence/post-rc-telemetry-connection/telemetry_connection_report.json") || {};
 const traceReceipt = readJsonIfExists("evidence/post-rc-telemetry-connection/live_trace_receipt.json") || {};
+const sampleIndex = readJsonIfExists("evidence/post-rc-production-monitoring-window-samples/sample_receipt_index.json") || null;
 const redaction = readJsonIfExists("evidence/post-rc-telemetry-connection/telemetry_secret_redaction_report.json") || {};
 const operatorValues = readYamlIfExists("observability/production_monitoring_operator_values.yaml") || {};
 const thresholdValues = readYamlIfExists("observability/production_monitoring_threshold_values.yaml") || {};
@@ -216,7 +226,7 @@ const retentionValues = readYamlIfExists("observability/production_monitoring_re
 
 const requiredSampleCount = operatorValues.operator_values?.monitoring_window?.required_sample_count || 50;
 const requiredDurationHours = operatorValues.operator_values?.monitoring_window?.minimum_duration === "24h" ? 24 : 24;
-const observedSampleCount = telemetryReport.event_observations_emitted || 0;
+const observedSampleCount = indexedSampleCount(sampleIndex, telemetryReport.event_observations_emitted || 0);
 const observedDurationHours = hoursBetween(telemetryReport.generated_at, generatedAt);
 const durationMet = observedDurationHours >= requiredDurationHours;
 const sampleCountMet = observedSampleCount >= requiredSampleCount;
@@ -229,6 +239,7 @@ const traceContinuityPresent = telemetryReport.status === "pass"
   && telemetryReport.telemetry_connection === true
   && traceReceipt.trace_receipt_recorded === true
   && traceReceipt.trace_id_present === true;
+const indexedTraceReceiptCount = Array.isArray(sampleIndex?.receipts) ? sampleIndex.receipts.length : 0;
 const ownerReady = ownerAssignments.owner_assignments?.status === "complete"
   && ownerAssignments.owner_assignments?.owner_assignments_complete === true;
 const retentionReady = retentionValues.retention_values?.status === "recorded"
@@ -362,6 +373,8 @@ const report = {
   monitoring_window_required_duration_hours: requiredDurationHours,
   observed_sample_count: observedSampleCount,
   required_sample_count: requiredSampleCount,
+  indexed_trace_receipt_count: indexedTraceReceiptCount,
+  sample_index_present: indexedTraceReceiptCount > 0,
   openai_model_api_call: false,
   local_endpoint_probe: false,
   local_model_execution: false,

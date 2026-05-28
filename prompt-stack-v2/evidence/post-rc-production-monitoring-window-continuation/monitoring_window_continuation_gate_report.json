@@ -1,21 +1,21 @@
 {
-  "status": "pass",
+  "status": "ready_for_monitoring_window_result_review",
   "stage": "v2.0.0-post-rc-production-monitoring-window-continuation-checkpoint",
-  "monitoring_window_completed": false,
-  "can_enter_monitoring_window_result_review": false,
+  "monitoring_window_completed": true,
+  "can_enter_monitoring_window_result_review": true,
   "can_claim_telemetry_connected": true,
   "can_claim_production_monitored": false,
   "can_claim_production_ready": false,
   "can_enter_stable_release": false,
-  "reason": "Monitoring window remains in progress. Duration and sample count requirements are not yet met.",
-  "elapsed_duration_hours": 0.03,
+  "reason": "Monitoring window duration and sample count are met. Result review is required before any production monitoring claim.",
+  "elapsed_duration_hours": 25.63,
   "required_duration_hours": 24,
-  "duration_met": false,
-  "sample_count": 7,
+  "duration_met": true,
+  "sample_count": 56,
   "required_sample_count": 50,
-  "sample_count_met": false,
-  "remaining_duration_hours": 23.97,
-  "remaining_sample_count": 43,
+  "sample_count_met": true,
+  "remaining_duration_hours": 0,
+  "remaining_sample_count": 0,
   "redaction_failures": 0,
   "raw_payload_storage_violations": 0,
   "secret_logging_findings": 0,
@@ -33,7 +33,7 @@
       "status": "pass",
       "detail": {
         "exit_code": 0,
-        "status": "monitoring_window_incomplete"
+        "status": "pass"
       }
     },
     {
@@ -170,27 +170,27 @@
       "name": "progress snapshot preserves source duration and sample status",
       "status": "pass",
       "detail": {
-        "elapsed_duration_hours": 0.03,
-        "sample_count": 7,
-        "monitoring_window_completed": false
+        "elapsed_duration_hours": 25.63,
+        "sample_count": 56,
+        "monitoring_window_completed": true
       }
     },
     {
       "name": "remaining requirements are calculated without manual increments",
       "status": "pass",
       "detail": {
-        "remaining_duration_hours": 23.97,
-        "remaining_sample_count": 43,
-        "can_enter_monitoring_window_result_review": false
+        "remaining_duration_hours": 0,
+        "remaining_sample_count": 0,
+        "can_enter_monitoring_window_result_review": true
       }
     },
     {
       "name": "completion state only follows duration and sample count",
       "status": "pass",
       "detail": {
-        "monitoring_window_completed": false,
-        "duration_met": false,
-        "sample_count_met": false
+        "monitoring_window_completed": true,
+        "duration_met": true,
+        "sample_count_met": true
       }
     },
     {
@@ -235,15 +235,15 @@
       "name": "blocker update tracks in-progress or result-review-ready state",
       "status": "pass",
       "detail": {
-        "new_status": "monitoring_window_in_progress_duration_and_sample_count_pending"
+        "new_status": "monitoring_window_ready_for_result_review_final_gate_pending"
       }
     },
     {
       "name": "unresolved items remain actionable",
       "status": "pass",
       "detail": {
-        "status": "monitoring_window_incomplete",
-        "unresolved_items_count": 5
+        "status": "ready_for_monitoring_window_result_review",
+        "unresolved_items_count": 2
       }
     },
     {
@@ -258,8 +258,14 @@
       "status": "pass",
       "detail": {
         "exit_code": 0,
-        "stdout": "",
-        "stderr": ""
+        "stdout": "M prompt-stack-v2/evidence/v36-baseline/checksums.json\n M prompt-stack-v2/evidence/v36-baseline/file_inventory.json",
+        "stderr": "",
+        "approved_baseline_refresh": true,
+        "baseline_status_entries": [
+          "M prompt-stack-v2/evidence/v36-baseline/checksums.json",
+          "M prompt-stack-v2/evidence/v36-baseline/file_inventory.json"
+        ],
+        "forbidden_status_entries": []
       }
     }
   ],

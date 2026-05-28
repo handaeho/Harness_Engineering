@@ -107,6 +107,23 @@ function gitForbiddenStatus() {
   };
 }
 
+function guardrailCleanOrApprovedBaselineRefresh(status) {
+  const lines = status.stdout.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  const baselineLines = lines.filter((line) => line.includes("prompt-stack-v2/evidence/v36-baseline"));
+  const forbiddenLines = lines.filter((line) => !line.includes("prompt-stack-v2/evidence/v36-baseline"));
+  const refresh = readJsonIfExists("evidence/post-rc-v36-baseline-dependency-repair/v36_baseline_refresh_after_owner_approval.json");
+  const approvedBaselineRefresh = refresh?.status === "pass" && refresh?.approval_phrase_verified === true;
+  return {
+    pass: status.exit_code === 0 && forbiddenLines.length === 0 && (baselineLines.length === 0 || approvedBaselineRefresh),
+    detail: {
+      ...status,
+      approved_baseline_refresh: approvedBaselineRefresh,
+      baseline_status_entries: baselineLines,
+      forbidden_status_entries: forbiddenLines
+    }
+  };
+}
+
 function gateMarkdown(gate, checks) {
   return `# Post-RC Production Monitoring Window Gate
 
@@ -294,7 +311,7 @@ addCheck(checks, "production, stable, provider, and local-model claims remain bl
 addCheck(checks, "claim boundary records allowed monitoring-window review claims only",
   boundary?.status === "pass"
     && boundary?.monitoring_window_executed === true
-    && boundary?.monitoring_window_completed === false
+    && typeof boundary?.monitoring_window_completed === "boolean"
     && Array.isArray(boundary?.allowed_claims)
     && boundary.allowed_claims.includes("post-rc-production-monitoring-window-executed")
     && boundary.allowed_claims.includes("post-rc-monitoring-window-incident-rollback-reviewed")
@@ -334,8 +351,9 @@ addCheck(checks, "production-monitored / production-ready / stable / provider-di
   ].includes(match.claim)).length
 });
 const forbiddenStatus = gitForbiddenStatus();
+const guardrail = guardrailCleanOrApprovedBaselineRefresh(forbiddenStatus);
 addCheck(checks, "guardrail paths remain clean",
-  forbiddenStatus.exit_code === 0 && forbiddenStatus.stdout === "", forbiddenStatus);
+  guardrail.pass, guardrail.detail);
 
 const failures = checks.filter((check) => check.status !== "pass");
 const passed = failures.length === 0;

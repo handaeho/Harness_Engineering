@@ -295,7 +295,55 @@ export const allowedPositiveClaims = [
   "post-rc-production-monitoring-window-checkpoint-recorded",
   "post-rc-production-monitoring-window-progress-evaluated",
   "post-rc-production-monitoring-window-remaining-requirements-recorded",
-  "post-rc-production-monitoring-window-redaction-checkpoint-recorded"
+  "post-rc-production-monitoring-window-redaction-checkpoint-recorded",
+  "post-rc-production-monitoring-window-result-reviewed",
+  "post-rc-monitoring-window-duration-sample-validated",
+  "post-rc-monitoring-window-threshold-results-reviewed",
+  "post-rc-monitoring-window-redaction-results-reviewed",
+  "post-rc-production-monitoring-final-gate-preconditions-recorded",
+  "post-rc-v36-baseline-dependency-triaged",
+  "post-rc-v36-baseline-repair-decision-recorded",
+  "post-rc-monitoring-result-review-resume-attempted",
+  "post-rc-v36-baseline-snapshot-refreshed",
+  "post-rc-v36-baseline-refresh-owner-approved",
+  "post-rc-v36-baseline-refresh-delta-recorded",
+  "post-rc-v36-baseline-compare-restored",
+  "post-rc-monitoring-result-review-resumed",
+  "post-rc-production-monitoring-final-gate-passed",
+  "post-rc-production-monitored-claim-enabled",
+  "post-rc-production-monitoring-final-decision-recorded",
+  "post-rc-production-monitoring-controls-verified",
+  "post-rc-production-monitoring-window-evidence-accepted",
+  "post-rc-production-monitoring-claim-boundary-finalized",
+  "post-rc-production-ready-scope-preflight-completed",
+  "post-rc-production-ready-evidence-inventoried",
+  "post-rc-production-ready-blockers-recorded",
+  "post-rc-production-ready-owner-decision-requested",
+  "post-rc-openai-only-production-ready",
+  "post-rc-openai-only-production-ready-scope-decision-recorded",
+  "post-rc-openai-only-production-ready-gate-passed",
+  "post-rc-production-ready-claim-enabled-openai-only-scope",
+  "post-rc-production-ready-owner-scope-decision-recorded",
+  "post-rc-production-ready-out-of-scope-boundaries-recorded",
+  "post-rc-stable-scope-preflight-completed",
+  "post-rc-stable-evidence-inventoried",
+  "post-rc-stable-blockers-recorded",
+  "post-rc-stable-owner-decision-requested",
+  "post-rc-production-ready-claim-canonicalized",
+  "post-rc-openai-only-stable",
+  "post-rc-openai-only-stable-scope-decision-recorded",
+  "post-rc-openai-only-stable-gate-passed",
+  "post-rc-stable-claim-enabled-openai-only-scope",
+  "post-rc-stable-owner-scope-decision-recorded",
+  "post-rc-stable-out-of-scope-boundaries-recorded",
+  "post-rc-openai-only-stable-final-handoff-recorded",
+  "post-rc-openai-only-stable-archive-manifest-recorded",
+  "post-rc-openai-only-stable-final-claim-state-recorded",
+  "post-rc-openai-only-stable-deferred-paths-recorded",
+  "post-rc-new-conversation-handoff-recorded",
+  "post-rc-new-conversation-prompt-recorded",
+  "post-rc-new-conversation-evidence-indexed",
+  "post-rc-new-conversation-next-options-recorded"
 ];
 
 const allowedContextPattern = /(not|never|blocked|blocks|prohibited|forbidden|deferred|later|without|must not|does not|is not|are not|allowed only if|not_allowed|claim_not_allowed|claims_not_allowed|forbidden_claims|blocked_claims|claims_blocked|prohibited_claim|prohibited_positive_claim|blocked_claims_found_as_positive|conditional_future_claims|claim_still_not_allowed|checklist|enum|fixture|policy|rule|does_not_allow|does_not_unblock|does_not_unlock|still_blocks|still_not_allowed|blocked|still_blocked|disallow|absent|can enter|why_not_stable|not_stable_notice|local_endpoint_deferred|AGENTS\\.md blocked claim list|current claim status|금지|차단|조건|정의|보류|미허용|불가|없음|검토)/i;
@@ -303,6 +351,9 @@ const allowedContextPattern = /(not|never|blocked|blocks|prohibited|forbidden|de
 export function isPositiveClaim(line, claim) {
   if (!line.includes(claim)) return false;
   if (allowedContextPattern.test(line)) return false;
+  if (claim === "stable" && /(post-rc-openai-only-stable|openai_only_stable|OpenAI-Only Stable|OpenAI-only scoped stable)/.test(line)) return false;
+  if (claim === "production-ready" && /post-rc-openai-only-production-ready/.test(line)) return false;
+  if (claim === "release-gated" && /rc1-openai-scope-release-gated/.test(line)) return false;
 
   const escaped = claim.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const fieldPattern = new RegExp(`^(status|claim|claim_strength|final_claim_strength|release_status|summary_claim)\\s*[:=]\\s*["']?${escaped}["']?\\s*$`, "i");
@@ -348,10 +399,179 @@ function telemetryConnectedGateInputsPassed(root) {
   return boundaryPassed && (gatePassed || reportPassed);
 }
 
+function productionMonitoredGateInputsPassed(root) {
+  const report = readJsonSafe(`${root}/evidence/post-rc-production-monitoring-final-gate/production_monitoring_final_gate_report.json`);
+  const gate = readJsonSafe(`${root}/evidence/post-rc-production-monitoring-final-gate/production_monitoring_final_gate_gate_report.json`);
+  const boundary = readJsonSafe(`${root}/evidence/post-rc-production-monitoring-final-gate/production_monitored_claim_boundary.json`)
+    || readJsonSafe(`${root}/evidence/post-rc-production-monitoring-final-gate/production_monitoring_final_claim_boundary.json`);
+  const decision = readJsonSafe(`${root}/evidence/post-rc-production-monitoring-final-gate/production_monitoring_final_decision_record.json`);
+  const preconditions = readJsonSafe(`${root}/evidence/post-rc-production-monitoring-window-result-review/production_monitoring_final_gate_preconditions.json`);
+  const gatePassedOrPendingSelfCheck = !gate || gate?.status === "pass";
+  return report?.status === "pass"
+    && report?.production_monitoring_final_gate_passed === true
+    && gatePassedOrPendingSelfCheck
+    && boundary?.status === "pass"
+    && decision?.decision === "approve_production_monitored_claim"
+    && preconditions?.status === "ready_for_final_gate"
+    && report?.production_monitored_allowed === true
+    && (!gate || gate?.can_claim_production_monitored === true)
+    && boundary?.production_monitored_allowed === true
+    && boundary?.bare_release_gated_allowed === false
+    && report?.production_ready_allowed === false
+    && report?.stable_allowed === false
+    && report?.provider_diverse_allowed === false
+    && report?.local_model_verified_allowed === false
+    && report?.openai_model_api_call === false
+    && report?.local_endpoint_probe === false
+    && report?.local_model_execution === false
+    && report?.telemetry_sink_write === false;
+}
+
+function openaiOnlyProductionReadyGateInputsPassed(root) {
+  const report = readJsonSafe(`${root}/evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_scope_decision_report.json`);
+  const boundary = readJsonSafe(`${root}/evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_claim_boundary.json`);
+  const decision = readJsonSafe(`${root}/evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_decision_record.json`);
+  const owner = readJsonSafe(`${root}/evidence/post-rc-openai-only-production-ready-scope-decision/owner_scope_decision_record.json`);
+  const completeness = readJsonSafe(`${root}/evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_evidence_completeness.json`);
+  const finalGate = readJsonSafe(`${root}/evidence/post-rc-production-monitoring-final-gate/production_monitoring_final_gate_report.json`);
+
+  return report?.status === "pass"
+    && report?.production_ready_scope === "openai_only_post_rc"
+    && report?.owner_selected_openai_only_scope === true
+    && report?.post_rc_openai_only_production_ready === true
+    && report?.production_ready_allowed === false
+    && report?.bare_production_ready_allowed === false
+    && report?.production_ready_scope_limited === true
+    && report?.strict_provider_diverse_production_ready_allowed === false
+    && report?.stable_allowed === false
+    && report?.provider_diverse_allowed === false
+    && report?.local_model_verified_allowed === false
+    && report?.bare_release_gated_allowed === false
+    && report?.openai_model_api_call === false
+    && report?.openai_provider_call === false
+    && report?.telemetry_sink_write === false
+    && report?.local_endpoint_probe === false
+    && report?.local_model_execution === false
+    && report?.production_deployment === false
+    && report?.release_gate_rerun === false
+    && report?.v36_modified === false
+    && report?.dist_modified === false
+    && report?.additional_v36_baseline_refresh === false
+    && boundary?.status === "pass"
+    && boundary?.production_ready_scope === "openai_only_post_rc"
+    && boundary?.post_rc_openai_only_production_ready_allowed === true
+    && boundary?.production_ready_allowed === false
+    && boundary?.bare_production_ready_allowed === false
+    && boundary?.production_ready_scope_limited === true
+    && boundary?.stable_allowed === false
+    && boundary?.provider_diverse_allowed === false
+    && boundary?.local_model_verified_allowed === false
+    && boundary?.bare_release_gated_allowed === false
+    && decision?.status === "recorded"
+    && decision?.decision === "approve_post_rc_openai_only_production_ready_claim"
+    && decision?.post_rc_openai_only_production_ready === true
+    && decision?.bare_production_ready_allowed === false
+    && decision?.is_stable === false
+    && decision?.is_provider_diverse === false
+    && decision?.is_local_model_verified === false
+    && owner?.status === "pass"
+    && owner?.selected_option === "evaluate_openai_only_production_ready_scope"
+    && owner?.local_endpoint_out_of_scope === true
+    && owner?.provider_diversity_out_of_scope === true
+    && owner?.local_model_verification_out_of_scope === true
+    && completeness?.status === "pass"
+    && Array.isArray(completeness?.missing_evidence)
+    && completeness.missing_evidence.length === 0
+    && finalGate?.status === "pass"
+    && finalGate?.production_monitored_allowed === true;
+}
+
+function openaiOnlyStableGateInputsPassed(root) {
+  const report = readJsonSafe(`${root}/evidence/post-rc-openai-only-stable-scope-decision/stable_scope_decision_report.json`);
+  const boundary = readJsonSafe(`${root}/evidence/post-rc-openai-only-stable-scope-decision/stable_claim_boundary.json`);
+  const decision = readJsonSafe(`${root}/evidence/post-rc-openai-only-stable-scope-decision/stable_decision_record.json`);
+  const owner = readJsonSafe(`${root}/evidence/post-rc-openai-only-stable-scope-decision/owner_scope_decision_record.json`);
+  const completeness = readJsonSafe(`${root}/evidence/post-rc-openai-only-stable-scope-decision/stable_evidence_completeness.json`);
+  const productionReady = readJsonSafe(`${root}/evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_scope_decision_report.json`);
+
+  return report?.status === "pass"
+    && report?.stable_scope === "openai_only_post_rc"
+    && report?.owner_selected_openai_only_scope === true
+    && report?.post_rc_openai_only_stable === true
+    && report?.post_rc_openai_only_stable_allowed === true
+    && report?.stable_allowed === false
+    && report?.bare_stable_allowed === false
+    && report?.production_ready_allowed === false
+    && report?.bare_production_ready_allowed === false
+    && report?.provider_diverse_allowed === false
+    && report?.provider_verified_allowed === false
+    && report?.adapter_checked_allowed === false
+    && report?.local_model_verified_allowed === false
+    && report?.bare_release_gated_allowed === false
+    && report?.openai_model_api_call === false
+    && report?.openai_provider_call === false
+    && report?.telemetry_sink_write === false
+    && report?.local_endpoint_probe === false
+    && report?.local_model_execution === false
+    && report?.provider_verification_execution === false
+    && report?.adapter_check_execution === false
+    && report?.production_deployment === false
+    && report?.release_gate_rerun === false
+    && report?.v36_modified === false
+    && report?.dist_modified === false
+    && report?.additional_v36_baseline_refresh === false
+    && boundary?.status === "pass"
+    && boundary?.stable_scope === "openai_only_post_rc"
+    && boundary?.post_rc_openai_only_stable_allowed === true
+    && boundary?.stable_allowed === false
+    && boundary?.bare_stable_allowed === false
+    && boundary?.production_ready_allowed === false
+    && boundary?.bare_production_ready_allowed === false
+    && boundary?.provider_diverse_allowed === false
+    && boundary?.provider_verified_allowed === false
+    && boundary?.adapter_checked_allowed === false
+    && boundary?.local_model_verified_allowed === false
+    && boundary?.bare_release_gated_allowed === false
+    && decision?.status === "recorded"
+    && decision?.decision === "approve_post_rc_openai_only_stable_claim"
+    && decision?.post_rc_openai_only_stable === true
+    && decision?.bare_stable_allowed === false
+    && decision?.bare_release_gated_allowed === false
+    && decision?.is_provider_diverse === false
+    && decision?.is_provider_verified === false
+    && decision?.is_adapter_checked === false
+    && decision?.is_local_model_verified === false
+    && owner?.status === "pass"
+    && owner?.selected_option === "evaluate_openai_only_stable_scope"
+    && owner?.local_endpoint_out_of_scope === true
+    && owner?.provider_diversity_out_of_scope === true
+    && owner?.local_model_verification_out_of_scope === true
+    && owner?.provider_verification_out_of_scope === true
+    && owner?.adapter_checking_out_of_scope === true
+    && owner?.bare_release_gated_out_of_scope === true
+    && completeness?.status === "pass"
+    && Array.isArray(completeness?.missing_evidence)
+    && completeness.missing_evidence.length === 0
+    && productionReady?.status === "pass"
+    && productionReady?.post_rc_openai_only_production_ready === true;
+}
+
 function conditionallyAllowedPositiveClaimReason(root, claim) {
   if (claim === "telemetry-connected") {
     return telemetryConnectedGateInputsPassed(root)
       ? "conditionally_allowed_after_post_rc_telemetry_connection_gate"
+      : null;
+  }
+
+  if (claim === "production-monitored") {
+    return productionMonitoredGateInputsPassed(root)
+      ? "conditionally_allowed_after_post_rc_production_monitoring_final_gate"
+      : null;
+  }
+
+  if (claim === "stable") {
+    return openaiOnlyStableGateInputsPassed(root)
+      ? "conditionally_allowed_after_post_rc_openai_only_stable_scope_decision"
       : null;
   }
 

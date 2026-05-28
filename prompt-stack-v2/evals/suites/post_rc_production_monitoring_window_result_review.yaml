@@ -1,0 +1,11 @@
+suite_id: post_rc_production_monitoring_window_result_review
+stage: v2.0.0-post-rc-production-monitoring-window-result-review
+description: Reviews completed production monitoring window evidence and records final production monitoring gate preconditions without granting production-monitored.
+forbidden_execution:
+  telemetry_sink_write: true
+  openai_model_api_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  production_deployment: true
+gate:
+  script: tools/check_post_rc_production_monitoring_window_result_review.mjs

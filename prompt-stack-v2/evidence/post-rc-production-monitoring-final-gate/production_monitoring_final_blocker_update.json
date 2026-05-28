@@ -1,0 +1,28 @@
+{
+  "status": "updated",
+  "stage": "v2.0.0-post-rc-production-monitoring-final-gate",
+  "previous_status": "monitoring_window_result_reviewed_final_gate_pending",
+  "new_status": "production_monitored_allowed_production_ready_still_blocked",
+  "unblocks": [
+    "production-monitored"
+  ],
+  "does_not_block": [
+    "telemetry-connected",
+    "production-monitored"
+  ],
+  "still_blocks": [
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "bare release-gated"
+  ],
+  "next_required_actions": [
+    "decide whether local endpoint remains out-of-scope or wait for readiness",
+    "resolve or explicitly out-scope provider diversity",
+    "run production-ready scope decision only after blockers are resolved or out-of-scope",
+    "run stable scope decision only after production-ready/stability criteria are defined"
+  ]
+}

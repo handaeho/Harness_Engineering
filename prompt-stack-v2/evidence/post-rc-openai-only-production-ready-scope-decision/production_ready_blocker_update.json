@@ -1,0 +1,25 @@
+{
+  "status": "updated",
+  "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+  "previous_status": "production_monitored_allowed_production_ready_scope_decision_required",
+  "new_status": "post_rc_openai_only_production_ready_allowed_strict_paths_still_blocked",
+  "unblocks": [
+    "post-rc-openai-only-production-ready"
+  ],
+  "still_blocks": [
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "bare release-gated",
+    "strict provider-diverse production-ready scope"
+  ],
+  "next_required_actions": [
+    "decide stable scope only after production-ready scope is accepted and stability criteria are defined",
+    "keep local endpoint deferred until operator provides endpoint readiness",
+    "run local endpoint readiness preflight only after operator signal",
+    "run provider-diverse path only after local or second-provider evidence exists"
+  ]
+}

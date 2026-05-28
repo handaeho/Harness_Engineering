@@ -1,0 +1,17 @@
+stage: v2.0.0-post-rc-production-monitoring-window-result-review
+final_gate: v2.0.0-post-rc-production-monitoring-final-gate
+requires:
+  - telemetry_connected
+  - monitoring_window_completed
+  - duration_met
+  - sample_count_met
+  - thresholds_passed
+  - redaction_failures_zero
+  - raw_payload_storage_violations_zero
+  - secret_logging_findings_zero
+  - incident_rollback_review_pass
+does_not_allow:
+  - production-ready
+  - stable
+  - provider-diverse
+  - local-model-verified

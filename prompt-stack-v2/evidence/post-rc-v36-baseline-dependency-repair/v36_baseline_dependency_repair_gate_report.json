@@ -1,0 +1,278 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-v36-baseline-dependency-repair-for-monitoring-result-review",
+  "compare_v36_baseline_status": "pass",
+  "continuation_gate_status": "ready_for_monitoring_window_result_review",
+  "result_review_gate_status": "pass",
+  "can_enter_production_monitoring_final_gate": true,
+  "owner_decision_required": false,
+  "can_claim_production_monitored": false,
+  "can_claim_production_ready": false,
+  "can_enter_stable_release": false,
+  "reason": "v36 baseline dependency was repaired without modifying v36. Monitoring result review gate now passes.",
+  "root_cause": "resolved_after_owner_approved_v36_baseline_refresh",
+  "repair_performed": true,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": true,
+  "baseline_refresh_performed": true,
+  "telemetry_sink_write": false,
+  "openai_model_api_call": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "production_monitored_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "provider_diverse_allowed": false,
+  "checks": [
+    {
+      "name": "triage_post_rc_v36_baseline_dependency.mjs completed",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "release/post_rc_v36_baseline_dependency_repair_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_monitoring_result_review_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_v36_baseline_repair_decision_request.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/triage_post_rc_v36_baseline_dependency.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_post_rc_v36_baseline_dependency_repair.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_v36_baseline_dependency_repair.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_v36_baseline_dependency_repair_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_v36_baseline_dependency_repair_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/v36_baseline_dependency_repair_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/v36_baseline_dependency_repair_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/current_compare_v36_failure_snapshot.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/previous_owner_approved_refresh_comparison.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/v36_baseline_hash_source_comparison.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/v36_git_guardrail_status.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/compare_script_path_cwd_analysis.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/monitoring_result_review_gate_resume_attempt.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/monitoring_result_review_status_correction.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/v36_baseline_repair_decision_request.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-v36-baseline-dependency-repair/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/post_rc_v36_baseline_dependency_repair.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/monitoring_result_review_gate_resume_after_v36_repair.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_production_monitoring_final_gate_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "current compare v36 failure snapshot is captured",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0,
+        "current_snapshot_mismatch_count": 0
+      }
+    },
+    {
+      "name": "previous owner-approved refresh comparison is recorded",
+      "status": "pass",
+      "detail": {
+        "status": "missing_evidence",
+        "previous_refresh_evidence_exists": false
+      }
+    },
+    {
+      "name": "v36 baseline hash source comparison is recorded",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "mismatch_count": 0
+      }
+    },
+    {
+      "name": "v36 git guardrail status is clean",
+      "status": "pass",
+      "detail": {
+        "prompt_stack_v36_dirty": false,
+        "dist_dirty": false,
+        "evidence_v36_baseline_dirty": true,
+        "approved_baseline_refresh": true
+      }
+    },
+    {
+      "name": "compare script path and cwd analysis is clean",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "cwd_used": "C:\\WORK\\0.개인\\HARNESS"
+      }
+    },
+    {
+      "name": "monitoring result review status correction is recorded",
+      "status": "pass",
+      "detail": {
+        "corrected_status": "pass",
+        "compare_v36_baseline_status": "pass"
+      }
+    },
+    {
+      "name": "decision request is recorded when unrepaired",
+      "status": "pass",
+      "detail": {
+        "status": "not_required",
+        "recommended_option": "not_required"
+      }
+    },
+    {
+      "name": "resume attempt records gate dependency state",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "continuation_gate_status": "ready_for_monitoring_window_result_review",
+        "result_review_gate_status": "pass"
+      }
+    },
+    {
+      "name": "unresolved items match owner-decision state",
+      "status": "pass",
+      "detail": {
+        "status": "none"
+      }
+    },
+    {
+      "name": "forbidden execution and stronger claim flags remain false",
+      "status": "pass",
+      "detail": {
+        "v36_modified": false,
+        "evidence_v36_baseline_modified": true,
+        "telemetry_sink_write": false
+      }
+    },
+    {
+      "name": "guardrail paths remain clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "M prompt-stack-v2/evidence/v36-baseline/checksums.json\n M prompt-stack-v2/evidence/v36-baseline/file_inventory.json",
+        "stderr": "",
+        "approved_baseline_refresh": true,
+        "baseline_status_entries": [
+          "M prompt-stack-v2/evidence/v36-baseline/checksums.json",
+          "M prompt-stack-v2/evidence/v36-baseline/file_inventory.json"
+        ],
+        "forbidden_status_entries": []
+      }
+    }
+  ],
+  "failures": [],
+  "claims_allowed_by_this_gate": [
+    "post-rc-v36-baseline-dependency-triaged",
+    "post-rc-v36-baseline-repair-decision-recorded",
+    "post-rc-monitoring-result-review-resume-attempted"
+  ],
+  "claims_still_blocked": [
+    "production-monitored",
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "release-gated"
+  ]
+}

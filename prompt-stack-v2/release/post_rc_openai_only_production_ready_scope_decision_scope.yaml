@@ -1,0 +1,40 @@
+stage: v2.0.0-post-rc-openai-only-production-ready-scope-decision
+
+approved_actions:
+  owner_scope_decision_recording: true
+  openai_only_production_ready_scope_evaluation: true
+  evidence_completeness_audit: true
+  production_ready_claim_boundary_audit: true
+  out_of_scope_boundary_recording: true
+  blocker_update: true
+
+forbidden_execution:
+  openai_model_api_call: true
+  openai_provider_call: true
+  telemetry_sink_write: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  redteam_rerun: true
+  containment_rerun: true
+  production_deployment: true
+  release_gate_rerun: true
+  v36_modification: true
+  dist_modification: true
+  additional_v36_baseline_refresh: true
+
+claims_allowed:
+  - post-rc-openai-only-production-ready
+  - post-rc-openai-only-production-ready-scope-decision-recorded
+  - post-rc-openai-only-production-ready-gate-passed
+  - post-rc-production-ready-claim-enabled-openai-only-scope
+  - post-rc-production-ready-owner-scope-decision-recorded
+  - post-rc-production-ready-out-of-scope-boundaries-recorded
+
+claims_not_allowed:
+  - production-ready
+  - stable
+  - release-gated
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified

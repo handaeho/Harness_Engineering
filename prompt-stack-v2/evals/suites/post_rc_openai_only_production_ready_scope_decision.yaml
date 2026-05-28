@@ -1,0 +1,12 @@
+suite: post_rc_openai_only_production_ready_scope_decision
+stage: v2.0.0-post-rc-openai-only-production-ready-scope-decision
+expected_status: pass
+checks:
+  - owner_scope_decision_recorded
+  - production_monitored_true
+  - rc1_openai_scope_release_gated_true
+  - post_rc_openai_only_production_ready_allowed
+  - bare_production_ready_blocked
+  - local_provider_paths_out_of_scope
+  - stable_and_provider_claims_blocked
+  - no_forbidden_execution

@@ -1262,6 +1262,97 @@ Additional rules:
 - telemetry remains disconnected unless separately approved and executed
 
 
+## Production-Monitored Claim
+
+`production-monitored` means Langfuse telemetry is connected, monitoring controls and operator values are defined, monitoring window duration/sample requirements passed, thresholds passed, redaction/secret checks passed, and the production monitoring final gate approved the monitored claim.
+
+It allows:
+- `production-monitored` claim for the defined post-RC Langfuse monitoring scope
+
+It does not allow:
+- `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+
+Additional rules:
+- `production-monitored` is not `production-ready`
+- `production-monitored` is not `stable`
+- `production-monitored` does not establish provider diversity
+- `production-monitored` does not verify local endpoint
+- `production-monitored` does not allow bare `release-gated`
+
+## OpenAI-Only Production-Ready Scoped Claim
+
+`post-rc-openai-only-production-ready` means the post-RC OpenAI-only scope passed its scoped readiness decision gate after the owner explicitly scoped local endpoint, provider diversity, and local-model verification out of this decision.
+
+It allows:
+- `post-rc-openai-only-production-ready` claim only for the OpenAI-only post-RC scope
+
+It does not allow:
+- bare `production-ready`
+- `stable`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+- strict provider-diverse production-ready scope
+
+Additional rules:
+- bare `production-ready` remains blocked
+- `post-rc-openai-only-production-ready` is not `stable`
+- `post-rc-openai-only-production-ready` does not establish provider diversity
+- `post-rc-openai-only-production-ready` does not verify a local endpoint
+- `post-rc-openai-only-production-ready` does not allow bare `release-gated`
+
+## OpenAI-Only Stable Scoped Claim
+
+`post-rc-openai-only-stable` means the post-RC OpenAI-only scope passed its scoped stable decision gate after the owner explicitly scoped local endpoint, provider diversity, local-model verification, provider verification, adapter checking, and bare release-gated out of this decision.
+
+It allows:
+- `post-rc-openai-only-stable` claim only for the OpenAI-only post-RC scope
+
+It does not allow:
+- bare `stable`
+- bare `production-ready`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+- bare `release-gated`
+- strict provider-diverse stable scope
+
+Additional rules:
+- bare `stable` remains blocked
+- bare `production-ready` remains blocked
+- `post-rc-openai-only-stable` does not establish provider diversity
+- `post-rc-openai-only-stable` does not verify a local endpoint
+- `post-rc-openai-only-stable` does not verify a provider or adapter
+- `post-rc-openai-only-stable` does not allow bare `release-gated`
+
+## OpenAI-Only Stable Final Handoff Claim
+
+`post-rc-openai-only-stable-final-handoff-recorded` means the OpenAI-only post-RC scoped stable handoff/archive packet was recorded with final claim state, evidence pointer index, deferred paths, and next options.
+
+It allows:
+- final handoff statement
+- archive manifest statement
+- final claim state statement
+- deferred paths registry statement
+
+It does not allow:
+- bare `stable`
+- bare `production-ready`
+- bare `release-gated`
+- `provider-diverse`
+- `provider-verified`
+- `adapter-checked`
+- `local-model-verified`
+
 ## Later Claims
 
 - `runner-executed`: relevant runner executed and result is recorded.

@@ -1,0 +1,21 @@
+status: recorded
+stage: v2.0.0-post-rc-openai-only-stable-new-conversation-handoff
+recommended_default: stop_or_archive_export
+options:
+  - id: NEXT-001
+    name: final_archive_export_package
+    stage: v2.0.0-openai-only-stable-archive-export
+    requires_operator_signal: false
+    description: Package/export the current OpenAI-only scoped stable archive.
+  - id: NEXT-002
+    name: local_endpoint_readiness_preflight
+    stage: v2.0.0-post-stable-local-endpoint-readiness-preflight
+    requires_operator_signal: true
+    required_signal: local endpoint is ready
+    description: Start local endpoint path only after operator provides endpoint details.
+  - id: NEXT-003
+    name: strict_provider_diverse_path
+    stage: v2.0.0-post-stable-provider-diverse-path
+    requires_operator_signal: true
+    required_signal: local endpoint or second provider evidence ready
+    description: Begin strict provider-diverse path after provider/local evidence exists.

@@ -1,0 +1,17 @@
+suite: post_rc_v36_baseline_refresh_for_monitoring_result_review
+stage: v2.0.0-post-rc-v36-baseline-refresh-for-monitoring-result-review-after-owner-approval
+checks:
+  - owner_approval_recorded
+  - baseline_snapshot_refreshed
+  - refresh_delta_recorded
+  - compare_v36_baseline_pass
+  - monitoring_continuation_gate_rerun
+  - monitoring_result_review_gate_rerun
+  - final_gate_preconditions_available
+forbidden:
+  - v36_modification
+  - dist_modification
+  - telemetry_sink_write
+  - openai_model_api_call
+  - local_endpoint_probe
+  - production_monitored_claim

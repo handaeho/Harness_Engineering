@@ -1,0 +1,440 @@
+{
+  "status": "blocked_by_owner_scope_decision_required",
+  "stage": "v2.0.0-post-rc-production-ready-scope-decision-preflight",
+  "production_monitored": true,
+  "production_ready_allowed": false,
+  "owner_decision_required": true,
+  "can_evaluate_openai_only_production_ready_scope": true,
+  "can_evaluate_strict_provider_diverse_production_ready_scope": false,
+  "can_enter_stable_release": false,
+  "can_claim_provider_diverse": false,
+  "reason": "Production-ready requires owner scope decision: OpenAI-only scoped, strict provider-diverse/local-inclusive, or keep blocked.",
+  "checks": [
+    {
+      "name": "assess_post_rc_production_ready_scope_preflight.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "blocked_by_owner_scope_decision_required"
+      }
+    },
+    {
+      "name": "validate_alpha.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_post_rc_production_monitoring_final_gate.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "audit_post_rc_production_ready_claim_boundary.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "release/post_rc_production_ready_scope_preflight_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_ready_scope_decision_matrix.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_ready_blocker_matrix.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_ready_owner_decision_request.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_ready_claim_boundary.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/assess_post_rc_production_ready_scope_preflight.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/audit_post_rc_production_ready_claim_boundary.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_post_rc_production_ready_scope_preflight.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_production_ready_scope_preflight.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_ready_scope_preflight_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_ready_scope_preflight_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_ready_claim_boundary_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_ready_claim_boundary_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-ready-scope-preflight/production_ready_scope_preflight_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-ready-scope-preflight/production_ready_evidence_inventory.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-ready-scope-preflight/production_ready_blocker_matrix.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-ready-scope-preflight/production_ready_scope_decision_matrix.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-ready-scope-preflight/production_ready_owner_decision_request.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-ready-scope-preflight/production_ready_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-ready-scope-preflight/local_endpoint_deferral_confirmation.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-ready-scope-preflight/v36_baseline_refresh_worktree_status.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-ready-scope-preflight/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_ready_scope_preflight.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_ready_blocker_matrix.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_ready_scope_decision_matrix.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_ready_owner_decision_request.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_production_ready_scope_decision_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_local_canary_after_endpoint_ready.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "preflight report is owner-decision blocked",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_owner_scope_decision_required",
+        "stage": "v2.0.0-post-rc-production-ready-scope-decision-preflight",
+        "generated_at": "2026-05-28T09:14:00.907Z",
+        "production_monitored": true,
+        "telemetry_connected": true,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "provider_diverse_allowed": false,
+        "local_model_verified_allowed": false,
+        "bare_release_gated_allowed": false,
+        "owner_decision_required": true,
+        "can_evaluate_openai_only_production_ready_scope": true,
+        "can_evaluate_strict_provider_diverse_production_ready_scope": false,
+        "can_enter_stable_release": false,
+        "local_endpoint_status": "deferred_until_operator_provides_endpoint",
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "redteam_rerun": false,
+        "containment_rerun": false,
+        "production_deployment": false,
+        "release_gate_rerun": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_v36_baseline_refresh": false,
+        "final_gate_status": "pass",
+        "production_monitored_final_gate_passed": true,
+        "evidence_v36_baseline_modified_in_this_stage": false,
+        "owner_approved_refresh_files_modified_in_worktree": [
+          "prompt-stack-v2/evidence/v36-baseline/checksums.json",
+          "prompt-stack-v2/evidence/v36-baseline/file_inventory.json"
+        ],
+        "claims_allowed_by_this_stage": [
+          "post-rc-production-ready-scope-preflight-completed",
+          "post-rc-production-ready-evidence-inventoried",
+          "post-rc-production-ready-blockers-recorded",
+          "post-rc-production-ready-owner-decision-requested"
+        ],
+        "claims_still_blocked": [
+          "production-ready",
+          "stable",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "local-model-verified",
+          "release-gated"
+        ],
+        "reason": "Production-ready requires owner scope decision: OpenAI-only scoped, strict provider-diverse/local-inclusive, or keep blocked."
+      }
+    },
+    {
+      "name": "evidence inventory records current allowed and blocked claims",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "telemetry_connected": true,
+        "production_monitored": true,
+        "containment_verified": true,
+        "rc1_openai_scope_release_gated": true,
+        "openai_canary_suite_passed": true,
+        "openai_redteam_limited_and_additional_passed": true,
+        "v36_baseline_compare_pass": true,
+        "local_endpoint_verified": false,
+        "provider_diverse": false,
+        "production_ready": false,
+        "stable": false
+      }
+    },
+    {
+      "name": "blocker matrix and decision request require owner scope decision",
+      "status": "pass",
+      "detail": {
+        "blocker_status": "blocked",
+        "decision_matrix_status": "owner_decision_required",
+        "decision_request_status": "owner_decision_required"
+      }
+    },
+    {
+      "name": "local endpoint remains deferred",
+      "status": "pass",
+      "detail": {
+        "status": "confirmed_deferred",
+        "local_endpoint_status": "deferred_until_operator_provides_endpoint",
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "local_no_tool_canary": "deferred",
+        "still_blocks": [
+          "local-model-verified",
+          "provider-diverse",
+          "strict_provider_diverse_production_ready_scope"
+        ],
+        "does_not_block": [
+          "openai_only_scope_decision_if_owner_explicitly_out_of_scope"
+        ]
+      }
+    },
+    {
+      "name": "v36 baseline worktree status is recorded without this-stage refresh",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "compare_v36_baseline_status": "pass",
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified_in_this_stage": false,
+        "owner_approved_refresh_files_modified_in_worktree": [
+          "prompt-stack-v2/evidence/v36-baseline/checksums.json",
+          "prompt-stack-v2/evidence/v36-baseline/file_inventory.json"
+        ],
+        "notes": [
+          "These files are modified due to prior owner-approved baseline refresh, not this production-ready preflight stage."
+        ]
+      }
+    },
+    {
+      "name": "claim boundary keeps production-ready and stronger claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "telemetry_connected_allowed": true,
+        "production_monitored_allowed": true,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "local_model_verified_allowed": false,
+        "bare_release_gated_allowed": false,
+        "allowed_claims": [
+          "telemetry-connected",
+          "production-monitored",
+          "post-rc-production-ready-scope-preflight-completed"
+        ],
+        "blocked_claims": [
+          "production-ready",
+          "stable",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "local-model-verified",
+          "release-gated"
+        ]
+      }
+    },
+    {
+      "name": "forbidden execution flags remain false",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_owner_scope_decision_required",
+        "stage": "v2.0.0-post-rc-production-ready-scope-decision-preflight",
+        "generated_at": "2026-05-28T09:14:00.907Z",
+        "production_monitored": true,
+        "telemetry_connected": true,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "provider_diverse_allowed": false,
+        "local_model_verified_allowed": false,
+        "bare_release_gated_allowed": false,
+        "owner_decision_required": true,
+        "can_evaluate_openai_only_production_ready_scope": true,
+        "can_evaluate_strict_provider_diverse_production_ready_scope": false,
+        "can_enter_stable_release": false,
+        "local_endpoint_status": "deferred_until_operator_provides_endpoint",
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "redteam_rerun": false,
+        "containment_rerun": false,
+        "production_deployment": false,
+        "release_gate_rerun": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_v36_baseline_refresh": false,
+        "final_gate_status": "pass",
+        "production_monitored_final_gate_passed": true,
+        "evidence_v36_baseline_modified_in_this_stage": false,
+        "owner_approved_refresh_files_modified_in_worktree": [
+          "prompt-stack-v2/evidence/v36-baseline/checksums.json",
+          "prompt-stack-v2/evidence/v36-baseline/file_inventory.json"
+        ],
+        "claims_allowed_by_this_stage": [
+          "post-rc-production-ready-scope-preflight-completed",
+          "post-rc-production-ready-evidence-inventoried",
+          "post-rc-production-ready-blockers-recorded",
+          "post-rc-production-ready-owner-decision-requested"
+        ],
+        "claims_still_blocked": [
+          "production-ready",
+          "stable",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "local-model-verified",
+          "release-gated"
+        ],
+        "reason": "Production-ready requires owner scope decision: OpenAI-only scoped, strict provider-diverse/local-inclusive, or keep blocked."
+      }
+    },
+    {
+      "name": "production-ready / stable / provider-diverse / bare release-gated positive claims absent",
+      "status": "pass",
+      "detail": {
+        "match_count": 0
+      }
+    },
+    {
+      "name": "prompt-stack/v36 and dist remain clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    }
+  ],
+  "failures": [],
+  "claims_allowed_by_this_gate": [
+    "post-rc-production-ready-scope-preflight-completed",
+    "post-rc-production-ready-evidence-inventoried",
+    "post-rc-production-ready-blockers-recorded",
+    "post-rc-production-ready-owner-decision-requested"
+  ],
+  "claims_still_blocked": [
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "release-gated"
+  ]
+}

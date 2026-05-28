@@ -1,0 +1,37 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+  "scope": "openai_only_post_rc",
+  "allowed_claims": [
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated"
+  ],
+  "blocked_claims": [
+    "stable",
+    "production-ready",
+    "release-gated",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified"
+  ],
+  "canonicalization_rules": [
+    "Use post-rc-openai-only-stable, not stable.",
+    "Use post-rc-openai-only-production-ready, not production-ready.",
+    "Use rc1-openai-scope-release-gated, not release-gated.",
+    "Do not claim provider-diverse until separate provider/local evidence gate passes.",
+    "Do not claim local-model-verified until local endpoint evidence gate passes."
+  ],
+  "post_rc_openai_only_stable_allowed": true,
+  "stable_allowed": false,
+  "production_ready_allowed": false,
+  "release_gated_allowed": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "local_model_verified_allowed": false
+}

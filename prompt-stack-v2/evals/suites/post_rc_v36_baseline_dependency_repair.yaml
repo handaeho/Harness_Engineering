@@ -1,0 +1,17 @@
+suite: post_rc_v36_baseline_dependency_repair
+stage: v2.0.0-post-rc-v36-baseline-dependency-repair-for-monitoring-result-review
+checks:
+  - compare_v36_failure_snapshot_exists
+  - previous_refresh_evidence_comparison_exists
+  - v36_git_guardrail_status_clean
+  - compare_script_path_cwd_analysis_exists
+  - monitoring_result_review_status_correction_exists
+  - owner_decision_request_recorded_when_unrepaired
+forbidden:
+  - v36_modification
+  - dist_modification
+  - evidence_v36_baseline_refresh_without_owner_approval
+  - telemetry_sink_write
+  - openai_model_api_call
+  - local_endpoint_probe
+  - production_monitored_claim

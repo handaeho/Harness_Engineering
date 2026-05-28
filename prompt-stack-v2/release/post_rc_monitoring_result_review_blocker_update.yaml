@@ -1,0 +1,13 @@
+status: updated
+previous_status: monitoring_window_result_evidence_pass_gate_blocked
+new_status: monitoring_result_review_gate_pass_final_gate_pending
+still_blocks:
+  - production-monitored
+  - production-ready
+  - stable
+does_not_block:
+  - telemetry-connected
+next_required_actions:
+  - run production monitoring final gate
+  - keep local endpoint deferred unless operator provides readiness
+  - do not claim production-ready or stable

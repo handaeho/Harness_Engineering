@@ -1,0 +1,14 @@
+suite: post_rc_openai_only_stable_final_handoff
+stage: v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive
+expected_status: pass
+checks:
+  - final_handoff_report_exists
+  - final_claim_state_exists
+  - final_evidence_pointer_index_exists
+  - final_archive_manifest_exists
+  - final_archive_checksums_exists
+  - final_deferred_paths_exists
+  - final_next_options_registry_exists
+  - scoped_stable_maintained
+  - bare_claims_blocked
+  - no_forbidden_execution

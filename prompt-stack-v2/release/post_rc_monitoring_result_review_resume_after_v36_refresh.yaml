@@ -1,0 +1,10 @@
+stage: v2.0.0-post-rc-v36-baseline-refresh-for-monitoring-result-review-after-owner-approval
+previous_status: blocked_by_v36_baseline_dependency
+target_status: pass
+requires:
+  - compare_v36_baseline_pass
+  - monitoring_continuation_gate_rerun
+  - monitoring_result_review_gate_rerun
+production_monitored_allowed: false
+production_ready_allowed: false
+stable_allowed: false

@@ -1,0 +1,50 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-production-monitoring-window-sample-collection",
+  "trace_receipt_count_total": 8,
+  "sample_units_total": 56,
+  "required_sample_count": 50,
+  "sample_count_met": true,
+  "can_claim_production_monitored": false,
+  "can_claim_production_ready": false,
+  "can_enter_stable_release": false,
+  "checks": [
+    {
+      "name": "evidence/post-rc-production-monitoring-window-samples/sample_receipt_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "index is append-only Langfuse receipt index",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "trace_receipt_count": 8,
+        "sample_units_total": 56
+      }
+    },
+    {
+      "name": "all indexed receipts have safe receipt metadata only",
+      "status": "pass",
+      "detail": {
+        "receipts_checked": 8
+      }
+    },
+    {
+      "name": "sample total matches indexed receipt event observations",
+      "status": "pass",
+      "detail": {
+        "indexed_sample_units_total": 56,
+        "calculated_sample_units_total": 56
+      }
+    },
+    {
+      "name": "latest report keeps stronger claims blocked",
+      "status": "pass",
+      "detail": {
+        "report_status": "pass"
+      }
+    }
+  ],
+  "failures": []
+}

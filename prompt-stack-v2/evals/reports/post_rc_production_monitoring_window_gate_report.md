@@ -1,6 +1,6 @@
 # Post-RC Production Monitoring Window Gate
 
-Status: monitoring_window_incomplete
+Status: pass
 
 - Stage: v2.0.0-post-rc-production-monitoring-window-execution
 - Can claim telemetry-connected: true

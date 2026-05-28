@@ -1,0 +1,29 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+  "local_endpoint": {
+    "status": "deferred_until_operator_provides_endpoint",
+    "local_endpoint_probe": false,
+    "local_model_execution": false,
+    "next_stage_after_readiness": "v2.0.0-post-stable-local-endpoint-readiness-preflight",
+    "still_blocks": [
+      "local-model-verified",
+      "provider-diverse",
+      "provider-verified",
+      "adapter-checked"
+    ]
+  },
+  "provider_diversity": {
+    "status": "deferred_not_established",
+    "still_blocks": [
+      "provider-diverse",
+      "provider-verified",
+      "adapter-checked"
+    ]
+  },
+  "bare_claims": {
+    "stable": "blocked",
+    "production-ready": "blocked",
+    "release-gated": "blocked"
+  }
+}

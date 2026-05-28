@@ -1,0 +1,20 @@
+suite: post_rc_new_conversation_handoff
+stage: v2.0.0-post-rc-openai-only-stable-new-conversation-handoff
+scope: openai_only_post_rc
+checks:
+  - validate_alpha
+  - scan_prohibited_claims
+  - compare_v36_baseline
+  - check_post_rc_openai_only_stable_final_handoff
+  - check_post_rc_new_conversation_handoff
+expected:
+  document_language: ko
+  new_execution: false
+  post_rc_openai_only_stable: true
+  general_stable_allowed: false
+  general_production_ready_allowed: false
+  bare_release_gated_allowed: false
+  provider_diverse_allowed: false
+  local_endpoint_probe: false
+  local_model_execution: false
+  additional_v36_baseline_refresh: false

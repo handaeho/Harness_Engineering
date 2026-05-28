@@ -1,0 +1,32 @@
+{
+  "status": "owner_decision_required",
+  "question": "Should production-ready be evaluated as OpenAI-only scoped, strict provider-diverse/local-inclusive, or kept blocked?",
+  "decision_options": [
+    {
+      "option": "evaluate_openai_only_production_ready_scope",
+      "requires_explicit_out_of_scope": [
+        "local endpoint",
+        "provider diversity",
+        "local model verification"
+      ],
+      "does_not_allow": [
+        "provider-diverse",
+        "local-model-verified",
+        "stable"
+      ]
+    },
+    {
+      "option": "wait_for_strict_provider_diverse_path",
+      "requires": [
+        "local endpoint readiness",
+        "local no-tool canary",
+        "provider diversity claim gate"
+      ]
+    },
+    {
+      "option": "keep_production_ready_blocked",
+      "requires": []
+    }
+  ],
+  "recommended_next_action": "operator_decision_required"
+}

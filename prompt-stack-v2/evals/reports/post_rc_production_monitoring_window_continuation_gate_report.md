@@ -1,15 +1,15 @@
 # Production Monitoring Window Continuation Gate
 
-Status: pass
+Status: ready_for_monitoring_window_result_review
 
 - Stage: v2.0.0-post-rc-production-monitoring-window-continuation-checkpoint
-- Monitoring window completed: false
-- Can enter monitoring window result review: false
+- Monitoring window completed: true
+- Can enter monitoring window result review: true
 - Can claim telemetry-connected: true
 - Can claim production-monitored: false
 - Can claim production-ready: false
 - Can enter stable release: false
-- Reason: Monitoring window remains in progress. Duration and sample count requirements are not yet met.
+- Reason: Monitoring window duration and sample count are met. Result review is required before any production monitoring claim.
 
 ## Checks
 

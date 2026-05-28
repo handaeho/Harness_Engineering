@@ -32,12 +32,16 @@ const inventoryPaths = new Set(inventory.files.map((f) => normalizeV36Path(f.pat
 const snapshotByPath = new Map(checksums.files.map((f) => [normalizeV36Path(f.path), f]));
 const existingByPath = new Map(existingRecord.files.map((f) => [normalizeV36Path(f.path), f]));
 const excludedMutable = new Set((existingRecord.excluded_mutable || []).map(normalizeV36Path));
+const approvedChangedPaths = new Set((checksums.approved_changed_paths_against_existing_record || []).map(normalizeV36Path));
+const approvedNewPaths = new Set((checksums.approved_new_paths_not_in_existing_record || []).map(normalizeV36Path));
 
 const missingSnapshotForInventory = [...inventoryPaths].filter((p) => !snapshotByPath.has(p));
 const missingInventoryForSnapshot = [...snapshotByPath.keys()].filter((p) => !inventoryPaths.has(p));
 
 const comparedAgainstExisting = [];
 const existingMismatches = [];
+const approvedExistingMismatches = [];
+const unapprovedExistingMismatches = [];
 const existingMissingFromSnapshot = [];
 for (const [p, record] of existingByPath.entries()) {
   const snapshot = snapshotByPath.get(p);
@@ -47,11 +51,20 @@ for (const [p, record] of existingByPath.entries()) {
   }
   comparedAgainstExisting.push(p);
   if (snapshot.sha256 !== record.checksum) {
-    existingMismatches.push({
+    const mismatch = {
       path: p,
       existing_record_sha256: record.checksum,
       alpha_snapshot_sha256: snapshot.sha256
-    });
+    };
+    existingMismatches.push(mismatch);
+    if (approvedChangedPaths.has(p)) {
+      approvedExistingMismatches.push({
+        ...mismatch,
+        explanation: "approved by owner-approved v36 baseline refresh metadata"
+      });
+    } else {
+      unapprovedExistingMismatches.push(mismatch);
+    }
   }
 }
 
@@ -62,6 +75,8 @@ for (const p of snapshotByPath.keys()) {
       path: p,
       explanation: excludedMutable.has(p)
         ? "listed in v36 records/file_checksums.json excluded_mutable"
+        : approvedNewPaths.has(p)
+          ? "approved by owner-approved v36 baseline refresh metadata"
         : "not present in v36 records/file_checksums.json and not listed as excluded_mutable"
     });
   }
@@ -87,14 +102,15 @@ for (const [p, snapshot] of snapshotByPath.entries()) {
 }
 
 const unexplainedItems = notInExistingRecord
-  .filter((item) => !item.explanation.includes("excluded_mutable"))
+  .filter((item) => !item.explanation.includes("excluded_mutable") && !item.explanation.includes("approved by owner-approved"))
   .concat(missingSnapshotForInventory.map((p) => ({ path: p, explanation: "inventory path has no checksum snapshot" })))
   .concat(missingInventoryForSnapshot.map((p) => ({ path: p, explanation: "checksum snapshot path has no inventory entry" })))
   .concat(existingMissingFromSnapshot.map((p) => ({ path: p, explanation: "existing v36 checksum record missing from alpha snapshot" })))
+  .concat(unapprovedExistingMismatches.map((item) => ({ path: item.path, explanation: "existing v36 checksum record differs from baseline snapshot without owner-approved refresh metadata" })))
   .concat(currentSnapshotMismatches.map((item) => ({ path: item.path, explanation: item.issue })));
 
 const result = {
-  status: unexplainedItems.length === 0 && existingMismatches.length === 0 ? "pass" : "fail",
+  status: unexplainedItems.length === 0 && unapprovedExistingMismatches.length === 0 ? "pass" : "fail",
   source_package: "prompt-stack/v36",
   alpha_snapshot: {
     inventory_count: inventory.file_count,
@@ -107,6 +123,8 @@ const result = {
     path: "prompt-stack/v36/records/file_checksums.json",
     checked_count: comparedAgainstExisting.length,
     mismatch_count: existingMismatches.length,
+    approved_mismatch_count: approvedExistingMismatches.length,
+    unapproved_mismatch_count: unapprovedExistingMismatches.length,
     mismatch_scope_note: "Mismatch count applies only to files present in v36 records/file_checksums.json and alpha checksum snapshot.",
     excluded_mutable_count: excludedMutable.size,
     excluded_mutable_paths: [...excludedMutable].sort()
@@ -119,6 +137,8 @@ const result = {
   },
   not_in_existing_record: notInExistingRecord.sort((a, b) => a.path.localeCompare(b.path)),
   existing_record_mismatches: existingMismatches,
+  approved_existing_record_mismatches: approvedExistingMismatches,
+  unapproved_existing_record_mismatches: unapprovedExistingMismatches,
   unresolved_items_count: unexplainedItems.length,
   runner_reexecution: {
     v36_runners_reexecuted: false,

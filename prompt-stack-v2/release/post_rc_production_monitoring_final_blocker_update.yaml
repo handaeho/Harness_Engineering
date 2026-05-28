@@ -1,0 +1,16 @@
+stage: v2.0.0-post-rc-production-monitoring-final-gate
+status: updated
+previous_status: monitoring_window_result_reviewed_final_gate_pending
+new_status: production_monitored_allowed_production_ready_stable_still_blocked
+does_not_block:
+  - telemetry-connected
+  - production-monitored
+still_blocks:
+  - production-ready
+  - stable
+  - provider-diverse
+  - local-model-verified
+next_required_actions:
+  - production readiness scope decision
+  - local endpoint readiness preflight after operator signal
+  - stable scope decision only after readiness/local paths are resolved or explicitly out-of-scope

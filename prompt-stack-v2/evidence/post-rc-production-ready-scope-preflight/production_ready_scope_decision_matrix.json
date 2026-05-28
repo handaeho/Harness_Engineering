@@ -1,0 +1,35 @@
+{
+  "status": "owner_decision_required",
+  "options": {
+    "openai_only_production_ready_scope": {
+      "status": "candidate_requires_owner_decision",
+      "allowed_to_consider": true,
+      "would_keep_blocked": [
+        "provider-diverse",
+        "local-model-verified",
+        "provider-verified",
+        "adapter-checked",
+        "stable"
+      ],
+      "requires_explicit_out_of_scope": [
+        "local endpoint",
+        "provider diversity",
+        "local model verification"
+      ]
+    },
+    "strict_provider_diverse_production_ready_scope": {
+      "status": "blocked_until_local_or_second_provider_evidence",
+      "allowed_to_consider": false,
+      "blocked_by": [
+        "local endpoint not ready",
+        "provider diversity not established",
+        "local-model-verified not established"
+      ]
+    },
+    "keep_production_ready_blocked": {
+      "status": "available",
+      "reason": "Conservative option until local endpoint/provider diversity path is resolved."
+    }
+  },
+  "recommended_option": "owner_decision_required"
+}

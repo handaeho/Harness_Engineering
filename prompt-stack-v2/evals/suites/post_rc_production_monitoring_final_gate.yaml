@@ -1,0 +1,16 @@
+suite: post_rc_production_monitoring_final_gate
+stage: v2.0.0-post-rc-production-monitoring-final-gate
+checks:
+  - approval_phrase_verified
+  - monitoring_window_result_review_gate_pass
+  - v36_baseline_refresh_gate_pass
+  - compare_v36_baseline_pass
+  - zero_redaction_secret_raw_payload_findings
+  - production_monitored_allowed
+  - production_ready_stable_provider_diverse_local_model_still_blocked
+forbidden:
+  - telemetry_sink_write
+  - openai_model_api_call
+  - local_endpoint_probe
+  - local_model_execution
+  - production_deployment

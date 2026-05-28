@@ -1,0 +1,26 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+  "options": [
+    {
+      "id": "NEXT-001",
+      "name": "local_endpoint_readiness_preflight",
+      "stage": "v2.0.0-post-stable-local-endpoint-readiness-preflight",
+      "requires_operator_signal": true,
+      "required_signal": "local endpoint is ready"
+    },
+    {
+      "id": "NEXT-002",
+      "name": "strict_provider_diverse_path",
+      "stage": "v2.0.0-post-stable-provider-diverse-path",
+      "requires_operator_signal": true,
+      "required_signal": "local endpoint or second provider evidence ready"
+    },
+    {
+      "id": "NEXT-003",
+      "name": "final_packaging_or_archive_export",
+      "stage": "v2.0.0-openai-only-stable-archive-export",
+      "requires_operator_signal": false
+    }
+  ]
+}

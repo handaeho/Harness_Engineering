@@ -1,3 +1,5 @@
 # Next Production Monitoring Final Gate Plan
 
-The final production monitoring gate remains blocked until monitoring window duration and sample count requirements are met, threshold evaluation passes, and incident/rollback readiness is reviewed against completed window evidence.
+Next stage: v2.0.0-post-rc-production-monitoring-final-gate.
+
+The final gate is still required before any production-monitored claim. Production-ready, stable, provider-diverse, and local-model-verified remain separate blocked claims.

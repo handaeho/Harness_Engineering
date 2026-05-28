@@ -1,0 +1,33 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-rc-openai-only-stable-scope-decision",
+  "decision": "approve_post_rc_openai_only_stable_claim",
+  "scope": "openai_only_post_rc",
+  "post_rc_openai_only_stable": true,
+  "post_rc_openai_only_production_ready": true,
+  "bare_stable_allowed": false,
+  "bare_production_ready_allowed": false,
+  "bare_release_gated_allowed": false,
+  "is_stable": false,
+  "is_bare_stable": false,
+  "is_release_gated": false,
+  "is_provider_diverse": false,
+  "is_provider_verified": false,
+  "is_adapter_checked": false,
+  "is_local_model_verified": false,
+  "local_endpoint_out_of_scope": true,
+  "provider_diversity_out_of_scope": true,
+  "local_model_verification_out_of_scope": true,
+  "provider_verification_out_of_scope": true,
+  "adapter_checking_out_of_scope": true,
+  "bare_release_gated_out_of_scope": true,
+  "rationale": [
+    "Owner explicitly selected OpenAI-only stable scope",
+    "Local endpoint, provider diversity, local-model verification, provider verification, adapter checking, and bare release-gated are out of scope for this scoped stable decision",
+    "OpenAI-only production-ready scoped claim passed",
+    "Production monitoring final gate passed",
+    "Telemetry is connected and production-monitored is allowed",
+    "Redaction, raw payload storage, and secret logging findings are zero",
+    "v36 baseline compare passes after owner-approved refresh metadata"
+  ]
+}

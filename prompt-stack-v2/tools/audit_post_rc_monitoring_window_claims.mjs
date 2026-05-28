@@ -64,7 +64,7 @@ addCheck(checks, "trace continuity evaluation exists", continuity !== null, {});
 addCheck(checks, "window execution remains scoped",
   report?.stage === STAGE
     && report?.monitoring_window_executed === true
-    && report?.monitoring_window_completed === false
+    && typeof report?.monitoring_window_completed === "boolean"
     && report?.openai_model_api_call === false
     && report?.local_endpoint_probe === false
     && report?.local_model_execution === false

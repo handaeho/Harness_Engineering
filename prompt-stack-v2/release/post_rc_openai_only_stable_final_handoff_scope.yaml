@@ -1,0 +1,50 @@
+stage: v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive
+
+approved_actions:
+  final_handoff_generation: true
+  final_claim_state_snapshot: true
+  final_evidence_pointer_index: true
+  archive_manifest_generation: true
+  archive_checksum_generation: true
+  deferred_paths_registry: true
+  v36_baseline_refresh_status_recording: true
+  next_options_registry: true
+  handoff_update: true
+  claim_boundary_audit: true
+
+forbidden_execution:
+  openai_model_api_call: true
+  openai_provider_call: true
+  telemetry_sink_write: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  redteam_rerun: true
+  containment_rerun: true
+  production_deployment: true
+  release_gate_rerun: true
+  v36_modification: true
+  dist_modification: true
+  additional_v36_baseline_refresh: true
+
+claims_maintained:
+  - post-rc-openai-only-stable
+  - post-rc-openai-only-production-ready
+  - production-monitored
+  - telemetry-connected
+  - containment-verified
+  - rc1-openai-scope-release-gated
+
+claims_not_allowed:
+  - stable
+  - production-ready
+  - release-gated
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+
+claims_allowed:
+  - post-rc-openai-only-stable-final-handoff-recorded
+  - post-rc-openai-only-stable-archive-manifest-recorded
+  - post-rc-openai-only-stable-final-claim-state-recorded
+  - post-rc-openai-only-stable-deferred-paths-recorded

@@ -1,0 +1,748 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+  "scope": "openai_only_post_rc",
+  "archive_label": "v2.0.0-rc.1+postrc.telemetry-connected+production-monitored+openai-only-production-ready+openai-only-stable",
+  "can_claim_post_rc_openai_only_stable": true,
+  "can_claim_general_stable": false,
+  "can_claim_general_production_ready": false,
+  "can_claim_bare_release_gated": false,
+  "can_claim_provider_diverse": false,
+  "can_claim_local_model_verified": false,
+  "local_endpoint_deferred": true,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "additional_v36_baseline_refresh": false,
+  "claims_maintained": [
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated"
+  ],
+  "claims_allowed_by_this_stage": [
+    "post-rc-openai-only-stable-final-handoff-recorded",
+    "post-rc-openai-only-stable-archive-manifest-recorded",
+    "post-rc-openai-only-stable-final-claim-state-recorded",
+    "post-rc-openai-only-stable-deferred-paths-recorded"
+  ],
+  "claims_still_blocked": [
+    "stable",
+    "production-ready",
+    "release-gated",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified"
+  ],
+  "reason": "OpenAI-only post-RC stable scope is archived. General stable, general production-ready, bare release-gated, provider-diverse, and local-model claims remain blocked.",
+  "checks": [
+    {
+      "name": "build_post_rc_openai_only_stable_final_handoff.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "generate_post_rc_openai_only_stable_archive_manifest.mjs recorded",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "recorded",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "check_post_rc_openai_only_stable_scope_decision.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "stderr_excerpt": "",
+        "failure_names": []
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "release/post_rc_openai_only_stable_final_handoff_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_openai_only_stable_final_claim_state.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_openai_only_stable_archive_manifest.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_openai_only_stable_deferred_paths.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_openai_only_stable_next_options.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/build_post_rc_openai_only_stable_final_handoff.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/generate_post_rc_openai_only_stable_archive_manifest.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_post_rc_openai_only_stable_final_handoff.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_openai_only_stable_final_handoff.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_stable_final_handoff_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_stable_final_handoff_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_stable_archive_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_stable_archive_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-stable-final-handoff/final_handoff_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-stable-final-handoff/final_claim_state.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-stable-final-handoff/final_evidence_pointer_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-stable-final-handoff/final_archive_manifest.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-stable-final-handoff/final_archive_checksums.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-stable-final-handoff/final_deferred_paths.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-stable-final-handoff/final_v36_baseline_refresh_status.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-stable-final-handoff/final_next_options_registry.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-stable-final-handoff/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/openai_only_stable_final_handoff.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/openai_only_stable_final_claim_state.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/openai_only_stable_archive_manifest.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/openai_only_stable_deferred_paths.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_options_after_openai_only_stable.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_local_canary_after_endpoint_ready.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "final handoff report preserves scoped archive boundary",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+        "scope": "openai_only_post_rc",
+        "archive_label": "v2.0.0-rc.1+postrc.telemetry-connected+production-monitored+openai-only-production-ready+openai-only-stable",
+        "post_rc_openai_only_stable": true,
+        "post_rc_openai_only_stable_allowed": true,
+        "general_stable_allowed": false,
+        "general_production_ready_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "local_model_verified_allowed": false,
+        "bare_release_gated_allowed": false,
+        "local_endpoint_deferred": true,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "production_deployment": false,
+        "release_gate_rerun": false,
+        "redteam_rerun": false,
+        "containment_rerun": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_v36_baseline_refresh": false,
+        "evidence_v36_baseline_modified_in_this_stage": false,
+        "evidence_pointer_index_status": "recorded",
+        "final_claim_state_status": "recorded",
+        "deferred_paths_status": "recorded",
+        "next_options_status": "recorded",
+        "allowed_claims": [
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "blocked_claims": [
+          "stable",
+          "production-ready",
+          "release-gated",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "local-model-verified"
+        ],
+        "claims_allowed_by_this_stage": [
+          "post-rc-openai-only-stable-final-handoff-recorded",
+          "post-rc-openai-only-stable-archive-manifest-recorded",
+          "post-rc-openai-only-stable-final-claim-state-recorded",
+          "post-rc-openai-only-stable-deferred-paths-recorded"
+        ],
+        "reason": "Final handoff/archive records only the OpenAI-only scoped claim post-rc-openai-only-stable. Bare stable, bare production-ready, bare release-gated, provider-diverse, provider-verified, adapter-checked, and local-model-verified remain blocked."
+      }
+    },
+    {
+      "name": "final claim state records allowed scoped and blocked bare/general claims",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+        "scope": "openai_only_post_rc",
+        "allowed_claims": [
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "blocked_claims": [
+          "stable",
+          "production-ready",
+          "release-gated",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "local-model-verified"
+        ],
+        "canonicalization_rules": [
+          "Use post-rc-openai-only-stable, not stable.",
+          "Use post-rc-openai-only-production-ready, not production-ready.",
+          "Use rc1-openai-scope-release-gated, not release-gated.",
+          "Do not claim provider-diverse until separate provider/local evidence gate passes.",
+          "Do not claim local-model-verified until local endpoint evidence gate passes."
+        ],
+        "post_rc_openai_only_stable_allowed": true,
+        "stable_allowed": false,
+        "production_ready_allowed": false,
+        "release_gated_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "local_model_verified_allowed": false
+      }
+    },
+    {
+      "name": "final evidence pointer index includes required groups",
+      "status": "pass",
+      "detail": {
+        "indexedGroups": [
+          "rc1-agents-md-system-of-record-alignment",
+          "rc1-openai-scope-bundle",
+          "rc1-release-gate-dry-run-openai-scope",
+          "rc1-release-gate-actual-openai-scope",
+          "rc1-post-release-gate-review",
+          "rc1-final-handoff",
+          "post-rc-operator-sequence-record",
+          "post-rc-local-endpoint-future-integration",
+          "post-rc-telemetry-connection-preflight-refresh",
+          "post-rc-telemetry-connection",
+          "post-rc-telemetry-connection-result-review",
+          "post-rc-production-monitoring-controls",
+          "post-rc-production-monitoring-operator-values-completion",
+          "post-rc-production-monitoring-window",
+          "post-rc-production-monitoring-window-result-review",
+          "post-rc-production-monitoring-final-gate",
+          "post-rc-openai-only-production-ready-scope-decision",
+          "post-rc-stable-scope-preflight",
+          "post-rc-openai-only-stable-scope-decision",
+          "v36-baseline-owner-approved-refresh"
+        ],
+        "required": [
+          "rc1-agents-md-system-of-record-alignment",
+          "rc1-openai-scope-bundle",
+          "rc1-release-gate-dry-run-openai-scope",
+          "rc1-release-gate-actual-openai-scope",
+          "rc1-post-release-gate-review",
+          "rc1-final-handoff",
+          "post-rc-operator-sequence-record",
+          "post-rc-local-endpoint-future-integration",
+          "post-rc-telemetry-connection-preflight-refresh",
+          "post-rc-telemetry-connection",
+          "post-rc-telemetry-connection-result-review",
+          "post-rc-production-monitoring-controls",
+          "post-rc-production-monitoring-operator-values-completion",
+          "post-rc-production-monitoring-window",
+          "post-rc-production-monitoring-window-result-review",
+          "post-rc-production-monitoring-final-gate",
+          "post-rc-openai-only-production-ready-scope-decision",
+          "post-rc-stable-scope-preflight",
+          "post-rc-openai-only-stable-scope-decision",
+          "v36-baseline-owner-approved-refresh"
+        ]
+      }
+    },
+    {
+      "name": "archive manifest records no new execution",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+        "scope": "openai_only_post_rc",
+        "archive_label": "v2.0.0-rc.1+postrc.telemetry-connected+production-monitored+openai-only-production-ready+openai-only-stable",
+        "new_execution": false,
+        "openai_model_api_call": false,
+        "telemetry_sink_write": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_v36_baseline_refresh": false,
+        "included_evidence_groups": [
+          "rc1-agents-md-system-of-record-alignment",
+          "rc1-openai-scope-bundle",
+          "rc1-release-gate-dry-run-openai-scope",
+          "rc1-release-gate-actual-openai-scope",
+          "rc1-post-release-gate-review",
+          "rc1-final-handoff",
+          "post-rc-operator-sequence-record",
+          "post-rc-local-endpoint-future-integration",
+          "post-rc-telemetry-connection-preflight-refresh",
+          "post-rc-telemetry-connection",
+          "post-rc-telemetry-connection-result-review",
+          "post-rc-production-monitoring-controls",
+          "post-rc-production-monitoring-operator-values-completion",
+          "post-rc-production-monitoring-window",
+          "post-rc-production-monitoring-window-result-review",
+          "post-rc-production-monitoring-final-gate",
+          "post-rc-openai-only-production-ready-scope-decision",
+          "post-rc-stable-scope-preflight",
+          "post-rc-openai-only-stable-scope-decision",
+          "v36-baseline-owner-approved-refresh"
+        ],
+        "final_claim_state_path": "evidence/post-rc-openai-only-stable-final-handoff/final_claim_state.json",
+        "final_evidence_pointer_index_path": "evidence/post-rc-openai-only-stable-final-handoff/final_evidence_pointer_index.json",
+        "final_deferred_paths_path": "evidence/post-rc-openai-only-stable-final-handoff/final_deferred_paths.json"
+      }
+    },
+    {
+      "name": "archive checksums have no missing targets",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+        "scope": "openai_only_post_rc",
+        "generated_at": "2026-05-28T09:14:04.910Z",
+        "entries": [
+          {
+            "path": "evidence/post-rc-openai-only-stable-final-handoff/final_handoff_report.json",
+            "type": "file",
+            "sha256": "2319c9e0fd69b3bc42d461664a6f79f2f98b5a0ba373418da3094d918ab44fbc"
+          },
+          {
+            "path": "evidence/post-rc-openai-only-stable-final-handoff/final_claim_state.json",
+            "type": "file",
+            "sha256": "d5c2441bfab080441bd3253deb662fa8322eee9d3e7c2c9f9a2f2c9743aae9d4"
+          },
+          {
+            "path": "evidence/post-rc-openai-only-stable-final-handoff/final_evidence_pointer_index.json",
+            "type": "file",
+            "sha256": "19aacf1ac9ad297584920b5aa885cc223315016111c8f9dbeed68dd663dd5401"
+          },
+          {
+            "path": "evidence/post-rc-openai-only-stable-final-handoff/final_archive_manifest.json",
+            "type": "file",
+            "sha256": "e5ba589161965efd2e894ae2899f0d34398d15b8d27176de77e5a18917bb0261"
+          },
+          {
+            "path": "evidence/post-rc-openai-only-stable-final-handoff/final_deferred_paths.json",
+            "type": "file",
+            "sha256": "cbde1decdd3aa3bfd4ef81755a4fd6947e9b0d93d7825eb716c0c1367600fa91"
+          },
+          {
+            "path": "evidence/post-rc-openai-only-stable-final-handoff/final_v36_baseline_refresh_status.json",
+            "type": "file",
+            "sha256": "853d19fde758f612f74c0dcd714fc01322f7ed966386a938961bde32412b67cf"
+          },
+          {
+            "path": "evidence/post-rc-openai-only-stable-final-handoff/final_next_options_registry.json",
+            "type": "file",
+            "sha256": "607d23a6472af85a59c7c7c23817d930be0702ff43423a47990db1bf710ad3d8"
+          },
+          {
+            "path": "release/post_rc_openai_only_stable_final_handoff_scope.yaml",
+            "type": "file",
+            "sha256": "65517ab83ad018166184c436e99fe385ee722fc2cb02ea6955a740d179cde3bd"
+          },
+          {
+            "path": "release/post_rc_openai_only_stable_final_claim_state.yaml",
+            "type": "file",
+            "sha256": "7ee53eaf3f3c9316d88bb124285bfff2d8cfa1c8dbb6404d7097f12a5ebe248e"
+          },
+          {
+            "path": "release/post_rc_openai_only_stable_deferred_paths.yaml",
+            "type": "file",
+            "sha256": "662aa9744a3f161e2cd6888e092ddd08c68f035987be0952bf5b21fff5986e6c"
+          },
+          {
+            "path": "release/post_rc_openai_only_stable_next_options.yaml",
+            "type": "file",
+            "sha256": "38aea445ef6d145999a9a23d46d033d340d82a8cea91611a1e89087e2a9b875f"
+          },
+          {
+            "path": "docs/openai_only_stable_final_handoff.md",
+            "type": "file",
+            "sha256": "e02aa68bf69ccb71dc879a1e14872d94cad0d62d149ff2c507d56e48c7460e4b"
+          },
+          {
+            "path": "docs/openai_only_stable_final_claim_state.md",
+            "type": "file",
+            "sha256": "3b70761e180b287ae48a34858a397ba7ec908fae1dc6030241a1b5da91600a4f"
+          },
+          {
+            "path": "docs/openai_only_stable_deferred_paths.md",
+            "type": "file",
+            "sha256": "792a626620846cafd3a24f92bebed9a3ac252e673d7f2d6b87cb5aa9e42f4dfe"
+          },
+          {
+            "path": "docs/next_options_after_openai_only_stable.md",
+            "type": "file",
+            "sha256": "0b8955b46ba94425c584b641f9873307ada4d6235285ac749c49056ed450ca84"
+          }
+        ],
+        "missing_targets": []
+      }
+    },
+    {
+      "name": "deferred paths keep local and provider lanes deferred",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+        "local_endpoint": {
+          "status": "deferred_until_operator_provides_endpoint",
+          "local_endpoint_probe": false,
+          "local_model_execution": false,
+          "next_stage_after_readiness": "v2.0.0-post-stable-local-endpoint-readiness-preflight",
+          "still_blocks": [
+            "local-model-verified",
+            "provider-diverse",
+            "provider-verified",
+            "adapter-checked"
+          ]
+        },
+        "provider_diversity": {
+          "status": "deferred_not_established",
+          "still_blocks": [
+            "provider-diverse",
+            "provider-verified",
+            "adapter-checked"
+          ]
+        },
+        "bare_claims": {
+          "stable": "blocked",
+          "production-ready": "blocked",
+          "release-gated": "blocked"
+        }
+      }
+    },
+    {
+      "name": "v36 baseline refresh status records prior owner-approved files only",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+        "compare_v36_baseline_status": "pass",
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_refresh_in_this_stage": false,
+        "owner_approved_refresh_files_still_modified_in_worktree": [
+          "prompt-stack-v2/evidence/v36-baseline/checksums.json",
+          "prompt-stack-v2/evidence/v36-baseline/file_inventory.json"
+        ],
+        "notes": [
+          "These files are modified due to prior owner-approved baseline refresh, not this final handoff/archive stage."
+        ]
+      }
+    },
+    {
+      "name": "next options registry records local/provider/archive lanes",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+        "options": [
+          {
+            "id": "NEXT-001",
+            "name": "local_endpoint_readiness_preflight",
+            "stage": "v2.0.0-post-stable-local-endpoint-readiness-preflight",
+            "requires_operator_signal": true,
+            "required_signal": "local endpoint is ready"
+          },
+          {
+            "id": "NEXT-002",
+            "name": "strict_provider_diverse_path",
+            "stage": "v2.0.0-post-stable-provider-diverse-path",
+            "requires_operator_signal": true,
+            "required_signal": "local endpoint or second provider evidence ready"
+          },
+          {
+            "id": "NEXT-003",
+            "name": "final_packaging_or_archive_export",
+            "stage": "v2.0.0-openai-only-stable-archive-export",
+            "requires_operator_signal": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "stable scope decision boundary remains scoped",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-rc-openai-only-stable-scope-decision",
+        "stable_scope": "openai_only_post_rc",
+        "telemetry_connected_allowed": true,
+        "production_monitored_allowed": true,
+        "post_rc_openai_only_production_ready_allowed": true,
+        "post_rc_openai_only_stable_allowed": true,
+        "stable_allowed": false,
+        "bare_stable_allowed": false,
+        "stable_scope_limited": true,
+        "production_ready_allowed": false,
+        "bare_production_ready_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "local_model_verified_allowed": false,
+        "bare_release_gated_allowed": false,
+        "strict_provider_diverse_stable_allowed": false,
+        "allowed_claims": [
+          "telemetry-connected",
+          "production-monitored",
+          "post-rc-openai-only-production-ready",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-stable-scope-decision-recorded",
+          "post-rc-openai-only-stable-gate-passed",
+          "post-rc-stable-claim-enabled-openai-only-scope",
+          "post-rc-stable-owner-scope-decision-recorded",
+          "post-rc-stable-out-of-scope-boundaries-recorded"
+        ],
+        "blocked_claims": [
+          "stable",
+          "production-ready",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "local-model-verified",
+          "release-gated"
+        ],
+        "reason": "The canonical scoped stable claim is enabled as post-rc-openai-only-stable. Bare stable, bare production-ready, provider-diverse, provider-verified, adapter-checked, local-model-verified, and bare release-gated remain blocked."
+      }
+    },
+    {
+      "name": "forbidden execution flags remain false",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive",
+        "scope": "openai_only_post_rc",
+        "archive_label": "v2.0.0-rc.1+postrc.telemetry-connected+production-monitored+openai-only-production-ready+openai-only-stable",
+        "post_rc_openai_only_stable": true,
+        "post_rc_openai_only_stable_allowed": true,
+        "general_stable_allowed": false,
+        "general_production_ready_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "local_model_verified_allowed": false,
+        "bare_release_gated_allowed": false,
+        "local_endpoint_deferred": true,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "production_deployment": false,
+        "release_gate_rerun": false,
+        "redteam_rerun": false,
+        "containment_rerun": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_v36_baseline_refresh": false,
+        "evidence_v36_baseline_modified_in_this_stage": false,
+        "evidence_pointer_index_status": "recorded",
+        "final_claim_state_status": "recorded",
+        "deferred_paths_status": "recorded",
+        "next_options_status": "recorded",
+        "allowed_claims": [
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "blocked_claims": [
+          "stable",
+          "production-ready",
+          "release-gated",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "local-model-verified"
+        ],
+        "claims_allowed_by_this_stage": [
+          "post-rc-openai-only-stable-final-handoff-recorded",
+          "post-rc-openai-only-stable-archive-manifest-recorded",
+          "post-rc-openai-only-stable-final-claim-state-recorded",
+          "post-rc-openai-only-stable-deferred-paths-recorded"
+        ],
+        "reason": "Final handoff/archive records only the OpenAI-only scoped claim post-rc-openai-only-stable. Bare stable, bare production-ready, bare release-gated, provider-diverse, provider-verified, adapter-checked, and local-model-verified remain blocked."
+      }
+    },
+    {
+      "name": "forbidden positive claims absent and stable positives remain scoped",
+      "status": "pass",
+      "detail": {
+        "forbidden_positive_match_count": 0,
+        "conditional_stable_mention_count": 0,
+        "unscoped_conditional_stable_mention_count": 0
+      }
+    },
+    {
+      "name": "prompt-stack/v36 and dist remain unmodified",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "no additional evidence/v36-baseline refresh occurred",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "M prompt-stack-v2/evidence/v36-baseline/checksums.json\n M prompt-stack-v2/evidence/v36-baseline/file_inventory.json",
+        "stderr": "",
+        "status_paths": [
+          "prompt-stack-v2/evidence/v36-baseline/checksums.json",
+          "prompt-stack-v2/evidence/v36-baseline/file_inventory.json"
+        ],
+        "allowed_prior_owner_approved_files": [
+          "prompt-stack-v2/evidence/v36-baseline/checksums.json",
+          "prompt-stack-v2/evidence/v36-baseline/file_inventory.json"
+        ]
+      }
+    }
+  ],
+  "failures": []
+}

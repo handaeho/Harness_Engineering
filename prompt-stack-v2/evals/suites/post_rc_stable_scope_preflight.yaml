@@ -1,0 +1,10 @@
+suite: post_rc_stable_scope_preflight
+stage: v2.0.0-post-rc-stable-scope-decision-preflight
+expected_status: blocked_by_owner_stable_scope_decision_required
+checks:
+  - post_rc_openai_only_production_ready_true
+  - bare_production_ready_blocked
+  - stable_blocked
+  - owner_decision_required
+  - local_endpoint_deferred
+  - no_forbidden_execution

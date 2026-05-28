@@ -1,0 +1,10 @@
+suite: post_rc_production_ready_scope_preflight
+stage: v2.0.0-post-rc-production-ready-scope-decision-preflight
+expected_status: blocked_by_owner_scope_decision_required
+checks:
+  - production_monitored_true
+  - production_ready_false
+  - owner_decision_required
+  - local_endpoint_deferred
+  - no_forbidden_execution
+  - no_v36_or_dist_modification
