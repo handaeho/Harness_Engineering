@@ -1,0 +1,322 @@
+HARNESS Core 새 프로젝트 적용 구조 및 자율 에이전트 명령문
+============================================================
+
+목적
+----
+이 파일은 HARNESS Core 자산을 새 프로젝트에 붙여 사용할 때의 권장 디렉터리 구조와,
+새 프로젝트를 완전 자율 모드로 수행할 에이전트에게 전달할 명령문 템플릿을 기록한다.
+
+HARNESS Core의 역할은 product code 자체가 아니라 evidence-gated autonomous agent
+engineering harness다. 새 프로젝트에서는 HARNESS Core를 운영/검증/claim boundary
+자산으로 사용하고, 실제 제품 코드는 별도 디렉터리에 둔다.
+
+
+1. 권장 프로젝트 구조
+--------------------
+
+새 프로젝트 루트 예시:
+
+<new-project-root>/
+  AGENTS.md
+  README.md
+  PROJECT_BRIEF.md
+  CURRENT_STATE.yaml
+  src/
+  tests/
+  docs/
+    architecture/
+    decisions/
+    handoff/
+  evidence/
+    current-state/
+    runs/
+    gates/
+    checks/
+  release/
+    scope.yaml
+    claim_boundary.yaml
+    blocker_register.yaml
+    approval_requests/
+  tools/
+    check_project_current_state.mjs
+    check_project_claims.mjs
+    check_project_precommit.mjs
+  .harness/
+    harness-core/
+      AGENTS.md
+      START_HERE_FOR_AGENTS.ko.md
+      AGENT_BOOTSTRAP.ko.md
+      README.md
+      CURRENT_STATE.yaml
+      profiles/
+      tools/
+      evidence/reference-baseline/
+
+권장 원칙:
+
+1. 새 프로젝트의 작업 루트는 <new-project-root>다.
+2. HARNESS Core는 <new-project-root>/.harness/harness-core/ 아래에 둔다.
+3. 새 프로젝트의 evidence와 HARNESS Core의 evidence를 섞지 않는다.
+4. 새 프로젝트의 CURRENT_STATE.yaml은 프로젝트 상태를 기록한다.
+5. HARNESS Core의 CURRENT_STATE.yaml은 HARNESS Core 자체 상태를 기록한다.
+6. 새 프로젝트의 AGENTS.md는 프로젝트별 constitution이며, HARNESS Core의 운영 원칙을 참조한다.
+7. HARNESS Core 자산을 수정해야 할 때는 "harness adaptation" 작업으로 분리하고, 제품 구현 작업과 섞지 않는다.
+8. clean export는 전달/부트스트랩용이다. 새 프로젝트에서 장기 운영할 때는 압축 해제본을 .harness/harness-core/에 고정한다.
+
+
+2. HARNESS Core 배치 방법
+-------------------------
+
+권장 방법 A: agent-ready clean export 사용
+
+1. HARNESS Core 원본 workspace에서 clean export를 준비한다.
+   - canonical export: exports/harness-core-agent-ready.zip
+   - SHA-256은 archive 외부 delivery metadata 또는 HARNESS Core evidence report에서 확인한다.
+
+2. 새 프로젝트에 압축을 푼다.
+
+   mkdir -p .harness
+   unzip /path/to/harness-core-agent-ready.zip -d .harness/harness-core
+
+3. 압축 해제본 내부에서 self-contained check를 실행한다.
+
+   cd .harness/harness-core
+   node tools/check_agent_ready_self_contained.mjs
+   node tools/check_reference_baseline_integrity.mjs
+
+권장 방법 B: git-tracked harness-core 디렉터리 사용
+
+1. <new-project-root>/.harness/harness-core/에 HARNESS Core 디렉터리를 둔다.
+2. 새 프로젝트의 root git history에 포함할지, 별도 vendor artifact로 유지할지 먼저 결정한다.
+3. 새 프로젝트 agent는 기본적으로 <new-project-root>에서 실행한다.
+4. HARNESS Core 내부 checker는 HARNESS Core 상태 확인용으로만 실행한다.
+
+
+3. 새 프로젝트 AGENTS.md 최소 골격
+---------------------------------
+
+새 프로젝트 루트의 AGENTS.md에는 최소한 아래 항목을 둔다.
+
+1. 프로젝트 목표
+2. 현재 작업 루트
+3. HARNESS Core 위치
+4. product code 수정 가능 범위
+5. harness asset 수정 가능 범위
+6. 금지 작업
+7. 검증 명령
+8. claim boundary
+9. 커밋/배포 승인 정책
+
+예시:
+
+# Project Agent Constitution
+
+This project uses HARNESS Core as the evidence-gated autonomous engineering harness.
+
+Harness location:
+- .harness/harness-core/
+
+Before broad or release-sensitive work, read:
+- .harness/harness-core/AGENTS.md
+- .harness/harness-core/START_HERE_FOR_AGENTS.ko.md
+- .harness/harness-core/AGENT_BOOTSTRAP.ko.md
+- .harness/harness-core/README.md
+
+Project state lives in:
+- CURRENT_STATE.yaml
+- evidence/current-state/
+- release/claim_boundary.yaml
+- release/blocker_register.yaml
+
+Do not claim production-ready, stable, release-gated, provider-verified, or adapter-checked
+unless this project has an explicit project-specific gate and evidence bundle for that claim.
+
+
+4. 새 프로젝트 상태 파일 최소 필드
+---------------------------------
+
+CURRENT_STATE.yaml 예시:
+
+project:
+  name: <PROJECT_NAME>
+  slug: <project-slug>
+  harness:
+    name: HARNESS Core
+    path: .harness/harness-core
+    mode: external_project_usage
+
+stage: project-bootstrap
+
+goal:
+  summary: <ONE_SENTENCE_GOAL>
+  solved_condition:
+    - <observable condition 1>
+    - <observable condition 2>
+
+operation_mode:
+  primary: project_root
+  harness_reference: .harness/harness-core
+
+claims:
+  allowed_weak_claims:
+    - project-bootstrap-recorded
+    - project-current-state-recorded
+  blocked_strong_claims:
+    - provider-verified
+    - adapter-checked
+    - production-ready
+    - stable
+    - release-gated
+
+evidence:
+  current_state_dir: evidence/current-state
+  gate_dir: evidence/gates
+
+verification:
+  required_commands:
+    - node tools/check_project_current_state.mjs
+    - node tools/check_project_claims.mjs
+    - git diff --check
+
+
+5. 자율 에이전트에게 보낼 명령문 템플릿
+--------------------------------------
+
+아래 블록을 새 에이전트에게 그대로 전달하고, 대괄호 placeholder만 프로젝트별로 바꾼다.
+
+----- BEGIN AUTONOMOUS AGENT PROMPT -----
+
+작업명:
+[TASK_NAME]
+
+작업 루트:
+[PROJECT_ROOT]
+
+HARNESS Core 위치:
+[PROJECT_ROOT]/.harness/harness-core
+
+목표:
+[PROJECT_GOAL]
+
+완료 조건:
+1. [SOLVED_CONDITION_1]
+2. [SOLVED_CONDITION_2]
+3. [SOLVED_CONDITION_3]
+
+운영 원칙:
+1. 이 프로젝트는 HARNESS Core를 evidence-gated autonomous engineering harness로 사용한다.
+2. 먼저 [PROJECT_ROOT]/AGENTS.md를 읽고, 그 다음 아래 HARNESS Core 문서를 읽는다.
+   - .harness/harness-core/AGENTS.md
+   - .harness/harness-core/START_HERE_FOR_AGENTS.ko.md
+   - .harness/harness-core/AGENT_BOOTSTRAP.ko.md
+   - .harness/harness-core/README.md
+3. product code와 harness asset을 구분한다.
+4. 기본 작업 루트는 [PROJECT_ROOT]다.
+5. HARNESS Core 내부 파일은 harness adaptation이 명시된 경우에만 수정한다.
+6. 새 프로젝트 evidence는 [PROJECT_ROOT]/evidence/ 아래에 기록한다.
+7. HARNESS Core evidence를 새 프로젝트 실행 evidence처럼 재사용하지 않는다.
+
+자율 수행 범위:
+1. 필요한 파일을 읽고 현재 상태를 inventory한다.
+2. PROJECT_BRIEF.md, CURRENT_STATE.yaml, release/claim_boundary.yaml이 없거나 부족하면 생성/보강한다.
+3. 목표 달성을 위해 필요한 코드를 좁게 수정한다.
+4. 필요한 project-local checker를 작성하거나 보강한다.
+5. evidence/current-state/, evidence/gates/에 실행 결과와 unresolved item을 기록한다.
+6. 검증을 실행하고, 실패하면 원인을 분류한 뒤 가능한 범위에서 수정한다.
+7. 완료 조건이 충족되면 결과를 요약한다.
+
+금지:
+1. 사용자 승인 없는 paid provider/API call
+2. 사용자 승인 없는 local model generation
+3. 사용자 승인 없는 telemetry sink write
+4. 사용자 승인 없는 npm install / npm ci / dependency install
+5. 사용자 승인 없는 destructive command
+6. 사용자 승인 없는 production deployment
+7. raw request, raw response, secret, API key, auth header 저장
+8. evidence 없이 production-ready, stable, release-gated, provider-verified, adapter-checked claim 허용
+9. HARNESS Core reference-baseline refresh 또는 checksum recalculation
+10. project scope 밖의 파일 수정
+
+검증:
+아래 명령을 기본 검증으로 사용하되, 프로젝트에 맞게 필요한 checker를 추가한다.
+
+node tools/check_project_current_state.mjs
+node tools/check_project_claims.mjs
+git diff --check
+
+HARNESS Core 자체 health check가 필요하면 아래를 별도 실행한다.
+
+cd .harness/harness-core
+node tools/check_agent_ready_self_contained.mjs
+node tools/check_reference_baseline_integrity.mjs
+
+커밋 정책:
+1. 커밋은 사용자가 명시적으로 승인한 경우에만 수행한다.
+2. 승인 전에는 commit-ready 상태까지만 만든다.
+3. commit-ready 보고에는 git status, 검증 결과, claim boundary, unresolved item을 포함한다.
+4. 사용자가 커밋 승인 문구와 commit message를 명시하면, 마지막 검증 후 커밋한다.
+
+최종 보고 형식:
+Summary
+- 무엇을 완료했는지
+
+Files Modified
+- 수정/생성/이동/삭제 파일
+
+Verification
+- 실행한 명령과 결과
+
+Claims
+- 새로 기록 가능한 weak claim
+- 계속 blocked인 strong claim
+
+Risks / Next Step
+- 남은 blocker
+- 다음 operator action
+
+중요:
+완료 언어는 검증 상태보다 강하면 안 된다.
+실행하지 않은 검증은 실행했다고 말하지 않는다.
+강한 claim은 프로젝트별 gate와 evidence가 없으면 계속 blocked로 유지한다.
+
+----- END AUTONOMOUS AGENT PROMPT -----
+
+
+6. 강한 claim 기본 정책
+----------------------
+
+새 프로젝트에서도 아래 claim은 기본적으로 blocked다.
+
+- provider-verified
+- adapter-checked
+- production-ready
+- stable
+- release-gated
+
+이 claim들을 열려면 새 프로젝트 안에서 별도 gate, evidence bundle, owner decision이 필요하다.
+HARNESS Core 자체의 과거 evidence는 새 프로젝트 claim을 자동으로 열어 주지 않는다.
+
+
+7. 운영 체크리스트
+-----------------
+
+새 프로젝트 시작 시:
+
+1. .harness/harness-core/가 존재하는지 확인한다.
+2. HARNESS Core self-contained check를 실행한다.
+3. 프로젝트 AGENTS.md를 생성한다.
+4. PROJECT_BRIEF.md를 생성한다.
+5. CURRENT_STATE.yaml을 생성한다.
+6. release/claim_boundary.yaml을 생성한다.
+7. evidence/current-state/를 생성한다.
+8. project-local checker를 만든다.
+9. 첫 검증 결과를 evidence/gates/에 기록한다.
+10. 강한 claim은 모두 blocked로 유지한다.
+
+작업 종료 시:
+
+1. 변경 범위를 요약한다.
+2. 실행한 검증 명령과 결과를 기록한다.
+3. unresolved item을 명시한다.
+4. claim boundary를 업데이트한다.
+5. 커밋이 필요하면 승인 요청 상태로 멈춘다.
