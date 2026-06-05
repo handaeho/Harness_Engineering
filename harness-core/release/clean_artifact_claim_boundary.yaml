@@ -1,0 +1,32 @@
+stage: v2.0.0-post-clean-export-agent-ready-usability-polish
+status: recorded
+source: CURRENT_STATE.yaml
+weak_claims_allowed_after_pass:
+  - clean-artifact-classification-recorded
+  - clean-artifact-prune-completed
+  - agent-ready-clean-export-created
+  - clean-artifact-gate-checked
+strong_claims_not_allowed:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated
+claim_enablement:
+  provider_verified_allowed: false
+  adapter_checked_allowed: false
+  production_ready_allowed: false
+  stable_allowed: false
+  release_gated_allowed: false
+execution_boundary:
+  openai_model_api_call: false
+  openai_provider_rerun: false
+  local_model_generation: false
+  telemetry_sink_write: false
+  redteam_rerun: false
+  adapter_conformance_rerun: false
+  npm_install_or_ci: false
+  reference_baseline_source_modified: false
+  dist_modified: false
+  evidence_reference_baseline_refreshed: false

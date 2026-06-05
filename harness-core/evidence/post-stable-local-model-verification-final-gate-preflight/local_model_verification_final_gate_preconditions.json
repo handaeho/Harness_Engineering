@@ -1,0 +1,140 @@
+[
+  {
+    "id": "evidence_bundle_draft_passed",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "bundle_status": "pass"
+    }
+  },
+  {
+    "id": "source_no_tool_multimodel_comparison",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "path": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json",
+      "source_status": "pass"
+    }
+  },
+  {
+    "id": "source_gate_design",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "path": "evidence/post-stable-local-model-verification-gate-design/local_model_verification_gate_design_report.json",
+      "source_status": "pass"
+    }
+  },
+  {
+    "id": "source_structured_output_smoke",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+      "source_status": "pass"
+    }
+  },
+  {
+    "id": "source_tool_calling_mock_smoke",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+      "source_status": "pass"
+    }
+  },
+  {
+    "id": "source_replay_regression_smoke",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+      "source_status": "pass"
+    }
+  },
+  {
+    "id": "source_redaction_storage_audit",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+      "source_status": "pass"
+    }
+  },
+  {
+    "id": "local_redteam_coverage",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "observed_status": "pass",
+      "models_tested": [
+        "qwen3:14b",
+        "qwen3.6:27b"
+      ],
+      "total_cases": 8,
+      "cases_passed": 8,
+      "raw_request_stored": false,
+      "raw_response_stored": false
+    }
+  },
+  {
+    "id": "adapter_conformance_dependency_backed_validation",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "observed_status": "pass",
+      "dependency_backed_validation_executed": true,
+      "node_modules_yaml_present": true
+    }
+  },
+  {
+    "id": "v36_baseline_dependency_restored",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "observed_status": "pass",
+      "compare_v36_baseline_status": "pass"
+    }
+  },
+  {
+    "id": "owner_final_decision",
+    "status": "required",
+    "required": true,
+    "blocks_final_gate": true,
+    "detail": {
+      "observed_status": "required"
+    }
+  },
+  {
+    "id": "protected_paths_unmodified",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "v36_modified": false,
+      "dist_modified": false,
+      "evidence_v36_baseline_modified": true
+    }
+  },
+  {
+    "id": "raw_storage_absent",
+    "status": "pass",
+    "required": true,
+    "blocks_final_gate": false,
+    "detail": {
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "secrets_logged": false
+    }
+  }
+]

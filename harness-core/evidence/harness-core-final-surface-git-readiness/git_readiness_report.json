@@ -1,0 +1,64 @@
+{
+  "status": "ready_for_owner_commit_approval",
+  "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
+  "generated_at": "2026-06-05T07:47:34.376Z",
+  "checker": "check_harness_core_git_readiness.mjs",
+  "mode": "git_metadata_present",
+  "actual_project_directory": "harness-core",
+  "git_metadata_present": true,
+  "git_root": "/Users/daeho/GitProject/Harness",
+  "git_tracked_files_use_harness_core_path": true,
+  "git_ls_files_old_path_count": 0,
+  "git_status_old_rename_source_visibility_count": 2088,
+  "git_status_may_show_rename_source_until_commit": true,
+  "commit_needed_to_remove_old_path_from_status_diff_display": true,
+  "commit_approval_required": true,
+  "required_approval_phrase": "I approve committing the HARNESS Core rename and final surface cleanup.",
+  "commit_approval_present": false,
+  "commit_performed": false,
+  "reason": "Git status may show old rename source paths until commit.",
+  "checks": [
+    {
+      "name": "actual project directory is harness-core",
+      "status": "pass",
+      "detail": {
+        "project_root": "/Users/daeho/GitProject/Harness/harness-core"
+      }
+    },
+    {
+      "name": "git ls-files command succeeded",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "git tracked files use harness-core path",
+      "status": "pass",
+      "detail": {
+        "tracked_harness_core_count": 3579
+      }
+    },
+    {
+      "name": "git ls-files contains no old project path",
+      "status": "pass",
+      "detail": {
+        "tracked_old_path_count": 0
+      }
+    },
+    {
+      "name": "commit approval request exists",
+      "status": "pass",
+      "detail": {
+        "path": "release/harness_core_git_commit_approval_request.md"
+      }
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false
+}

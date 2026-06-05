@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/harness-core/runtime/tool_event.schema.json",
+  "title": "Mock Runtime Tool Event",
+  "type": "object",
+  "required": ["tool_name", "action", "status", "external_side_effect"],
+  "properties": {
+    "tool_name": { "type": "string" },
+    "action": { "enum": ["requested", "executed_mock", "blocked", "output_reclassified_untrusted"] },
+    "status": { "enum": ["requested", "allowed", "blocked", "completed"] },
+    "external_side_effect": { "const": false },
+    "payload": { "type": "object" }
+  },
+  "additionalProperties": false
+}

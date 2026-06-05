@@ -1,0 +1,21 @@
+stage: v2.0.0-post-stable-local-no-tool-canary-result-review-qwen3-6-27b
+status: drafted
+
+previous_status: qwen3_14b_no_tool_reviewed_qwen3_6_27b_added
+new_status: qwen3_14b_and_qwen3_6_27b_no_tool_paths_passed_multimodel_comparison_pending
+
+unblocks:
+  - post-stable-local-no-tool-canary-qwen3-6-27b-passed
+
+still_blocks:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+
+next_required_actions:
+  - compare qwen3:14b and qwen3.6:27b local no-tool results
+  - define local-model verification gate
+  - define provider-diverse path gate

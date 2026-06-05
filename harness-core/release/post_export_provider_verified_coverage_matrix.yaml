@@ -1,0 +1,24 @@
+stage: v2.0.0-post-export-provider-verified-coverage-completion-preflight
+status: recorded
+provider_verified_allowed: false
+can_enter_provider_verified_final_gate: false
+provider_lanes:
+  openai_api_lane:
+    status: partial
+    error_handling_reviewed: unknown_or_partial
+    replay_or_regression_coverage_strength: canary_suite_only_not_replay_verified
+  ollama_qwen3_local_lane:
+    status: partial
+    error_handling_reviewed: unknown_or_partial
+    replay_or_regression_evidence_exists: partial
+    structured_output_coverage: partial_smoke_only
+    tool_calling_coverage: partial_mock_smoke_only
+missing_or_partial_coverage:
+  - openai_provider_error_handling_review_unknown_or_partial
+  - openai_provider_contract_regression_evidence_incomplete
+  - ollama_provider_error_handling_review_unknown_or_partial
+  - ollama_provider_replay_or_regression_evidence_partial
+  - ollama_structured_output_coverage_partial_smoke_only
+  - ollama_tool_calling_coverage_partial_mock_only
+  - full_provider_verified_final_gate_not_executed
+  - owner_final_decision_required_after_coverage_completion

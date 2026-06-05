@@ -1,0 +1,29 @@
+suite: post_stable_local_model_verification_final_gate
+stage: v2.0.0-post-stable-local-model-verification-final-gate
+checks:
+  - exact_owner_approval_phrase
+  - final_gate_preflight_owner_decision_ready
+  - owner_decision_packet_ready
+  - qwen3_14b_no_tool_review_pass
+  - qwen3_6_27b_no_tool_review_pass
+  - no_tool_multimodel_pass
+  - local_redteam_pass
+  - adapter_conformance_pass
+  - local_ollama_adapter_conformance_reviewed
+  - redaction_storage_audit_pass
+  - v36_baseline_compare_pass
+  - ds_store_exclusion_policy_enforced
+  - protected_paths_unmodified_or_owner_approved_baseline_refresh
+forbidden:
+  - openai_model_api_call
+  - openai_provider_call
+  - telemetry_sink_write
+  - local_endpoint_probe
+  - local_model_execution_in_this_stage
+  - new_local_generation_call_in_this_stage
+  - local_redteam_rerun
+  - adapter_conformance_rerun_with_generation
+  - production_deployment
+  - release_gate_rerun
+  - evidence_v36_baseline_refresh
+  - ds_store_deletion_from_v36

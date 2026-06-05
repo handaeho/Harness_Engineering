@@ -1,0 +1,213 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-model-verification-evidence-bundle-draft",
+  "checks": [
+    {
+      "name": "local_model_verification_evidence_bundle_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_evidence_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_gap_register.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_bundle_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_bundle_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release scope exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "eval suite exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stage matches",
+      "status": "pass",
+      "detail": {
+        "stage": "v2.0.0-post-stable-local-model-verification-evidence-bundle-draft"
+      }
+    },
+    {
+      "name": "status pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "no new local generation",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "total autopilot call count bounded",
+      "status": "pass",
+      "detail": {
+        "report_calls": 6,
+        "index_calls": 6
+      }
+    },
+    {
+      "name": "required source surfaces satisfied",
+      "status": "pass",
+      "detail": {
+        "satisfied_surfaces": [
+          "no_tool_multimodel_comparison",
+          "gate_design",
+          "structured_output_smoke",
+          "tool_calling_mock_smoke",
+          "replay_regression_smoke",
+          "redaction_storage_audit"
+        ],
+        "source_statuses": [
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass"
+        ]
+      }
+    },
+    {
+      "name": "raw request/response not stored",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "secrets not logged",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "protected paths unmodified",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "remaining gaps recorded",
+      "status": "pass",
+      "detail": {
+        "gaps": [
+          {
+            "id": "local_redteam_coverage",
+            "status": "missing",
+            "blocks_final_claim": true
+          },
+          {
+            "id": "adapter_conformance_dependency_backed_validation",
+            "status": "blocked_by_missing_node_modules",
+            "blocks_final_claim": true
+          },
+          {
+            "id": "owner_final_decision",
+            "status": "required",
+            "blocks_final_claim": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "final gate not open",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "final gate preflight open",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "owner decision still required",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "strong claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verification-evidence-bundle-draft",
+        "local_model_verified_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "allowed_claims": [
+          "post-stable-local-model-verification-evidence-bundle-drafted",
+          "post-stable-local-model-verification-gap-register-recorded"
+        ],
+        "blocked_claims": [
+          "local-model-verified",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated"
+        ],
+        "reason": "Evidence bundle is drafted, but final strong local claim remains blocked by missing coverage and owner decision."
+      }
+    },
+    {
+      "name": "prohibited claim scan pass",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "local blocked positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": []
+      }
+    }
+  ],
+  "unresolved_items_count": 3,
+  "can_proceed_to_final_gate_preflight": true,
+  "can_enter_final_gate": false,
+  "claims_allowed": [
+    "post-stable-local-model-verification-evidence-bundle-drafted",
+    "post-stable-local-model-verification-gap-register-recorded"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "failures": []
+}

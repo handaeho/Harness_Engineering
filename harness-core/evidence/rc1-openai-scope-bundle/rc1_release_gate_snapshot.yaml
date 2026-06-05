@@ -1,0 +1,96 @@
+id: harness-core.release_gate
+version: 2.0.0-beta-containment-post-execution-claim-audit-and-owner-review
+status: blocked_not_release_gated
+
+alpha_required_checks:
+  - Dedicated containment verification execution gate exists and passes
+  - Containment post-execution review report exists and passes
+  - Dedicated containment evidence completeness report exists
+  - Containment canonical claims report exists
+  - Containment no-side-effect evidence review exists and passes
+  - Containment proof level update records zero verified boundaries
+  - Containment claim boundary audit exists and passes
+  - Containment owner review draft exists
+  - Containment claim decision draft exists
+  - Containment post-execution blocker update exists
+  - Containment release gate blocker refresh exists
+  - Containment verified claim remains blocked
+  - Release gated claim remains blocked
+  - Production ready claim remains blocked
+
+allowed_alpha_claims:
+  - dedicated-containment-verification-executed
+  - dedicated-containment-boundaries-checked
+  - dedicated-containment-no-side-effect-verified
+  - dedicated-containment-result-schema-validated
+  - dedicated-containment-trace-schema-validated
+  - dedicated-containment-severity-aggregation-recorded
+  - dedicated-containment-contract-guard-checked
+  - containment-post-execution-audit-completed
+  - containment-evidence-completeness-audited
+  - containment-claim-boundary-post-audited
+  - containment-owner-review-drafted
+  - containment-claim-decision-drafted
+  - containment-post-execution-blocker-updated
+
+prohibited_positive_claims:
+  - stable
+  - containment-verified
+  - telemetry-connected
+  - production-monitored
+  - production-ready
+  - release-gated
+  - redteam-passed
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - replay-verified
+  - integration-verified
+  - benchmark-backed
+
+claim_upgrade_rule:
+  dedicated_containment_execution_pass_is_not_containment_verified: true
+  post_execution_audit_is_not_containment_verified: true
+  owner_review_draft_is_not_owner_approval: true
+  claim_decision_draft_is_not_claim_decision: true
+  final_containment_decision_gate_remains_required: true
+
+runner_status:
+  provider_execution: false
+  local_model_execution: false
+  v36_runners_reexecuted_for_alpha: false
+  runtime_execution_loop_implemented: false
+  live_telemetry_connected: false
+  telemetry_sink_write_enabled: false
+  production_monitored: false
+  mock_runtime_execution_loop_implemented: true
+  mock_provider_execution: false
+  mock_local_model_execution: false
+  mock_external_side_effects: false
+  openai_provider_canary_allowed: true
+  openai_provider_execution_status: canary_only
+  openai_tool_calling_execution: canary_only
+  openai_tool_calling_rerun: canary_rerun_only
+  openai_canary_replay_suite: canary_suite_only
+  beta_release_evidence_bundle: draft_only
+  release_gate_dry_run: blocked_not_release_gated
+  redteam_suite_design: design_only
+  redteam_mock_runtime_dry_run: mock_dry_run_only
+  openai_redteam_limited_execution_plan: draft_only
+  openai_redteam_limited_execution_preflight: blocked_by_missing_credential
+  production_telemetry_design: design_only
+  actual_redteam_execution: false
+  actual_provider_redteam_execution: false
+  actual_local_redteam_execution: false
+  can_execute_provider_redteam: false
+  redteam_execution_allowed: false
+  replay_verified_claim: false
+  openai_structured_output_execution: canary_only
+  canary_matrix_summary_generated: true
+  local_endpoint_probe: false
+  local_readiness_documented: true
+  note: Dedicated containment execution and post-execution audit passed, but containment, release, and production claims remain blocked pending explicit owner decision and final claim gate.

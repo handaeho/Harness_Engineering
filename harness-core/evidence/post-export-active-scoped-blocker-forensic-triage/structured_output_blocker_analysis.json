@@ -1,0 +1,21 @@
+{
+  "status": "repairable",
+  "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+  "blockers": [
+    {
+      "id": "ollama_structured_output_qwen3_14b_structured_nested_flag",
+      "category": "structured_output",
+      "root_cause": "schema_prompt_issue",
+      "repair_strategy": "bounded_retry",
+      "max_retries": 1
+    },
+    {
+      "id": "ollama_structured_output_source_not_pass",
+      "category": "structured_output",
+      "root_cause": "evidence_missing",
+      "repair_strategy": "bounded_retry",
+      "max_retries": 1
+    }
+  ],
+  "previous_structured_status": "partial"
+}

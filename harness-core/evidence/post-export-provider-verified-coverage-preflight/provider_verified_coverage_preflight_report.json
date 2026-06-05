@@ -1,0 +1,267 @@
+{
+  "status": "blocked_by_missing_provider_coverage",
+  "stage": "v2.0.0-post-export-provider-verified-coverage-completion-preflight",
+  "scope": "openai_api_lane_plus_ollama_qwen3_local_lane",
+  "archive_label": "v2.0.0-rc.1-postrc-openai-local-provider-diverse-export",
+  "provider_verified_coverage_preflight_completed": true,
+  "provider_diverse_allowed": true,
+  "local_model_verified_allowed": true,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "can_enter_provider_verified_final_gate": false,
+  "source_evidence": {
+    "provider_diverse_final_gate": {
+      "path": "evidence/post-combined-provider-diverse-final-gate/provider_diverse_final_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-combined-provider-diverse-final-gate"
+    },
+    "provider_diverse_final_summary": {
+      "path": "evidence/post-combined-provider-diverse-final-gate/provider_diverse_final_evidence_summary.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-combined-provider-diverse-final-gate"
+    },
+    "openai_provider_diverse_lane_summary": {
+      "path": "evidence/post-combined-provider-diverse-evidence-inventory/openai_lane_evidence_summary.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-combined-provider-diverse-evidence-inventory-preflight"
+    },
+    "ollama_provider_diverse_lane_summary": {
+      "path": "evidence/post-combined-provider-diverse-evidence-inventory/ollama_qwen3_lane_evidence_summary.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-combined-provider-diverse-evidence-inventory-preflight"
+    },
+    "local_model_verified_final_handoff": {
+      "path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_handoff_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive"
+    },
+    "local_model_verification_final_gate": {
+      "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+    },
+    "openai_adapter_contract": {
+      "path": "adapters/api/openai/adapter.yaml",
+      "exists": true,
+      "status": null,
+      "stage": null
+    },
+    "ollama_adapter_contract": {
+      "path": "adapters/local/ollama/adapter.yaml",
+      "exists": true,
+      "status": null,
+      "stage": null
+    },
+    "provider_capability_matrix": {
+      "path": "adapters/provider_capability_matrix.yaml",
+      "exists": true,
+      "status": null,
+      "stage": null
+    },
+    "openai_provider_canary": {
+      "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+    },
+    "openai_canary_replay_suite": {
+      "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-openai-canary-replay-suite"
+    },
+    "openai_redteam_limited_execution": {
+      "path": "evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-openai-redteam-limited-execution"
+    },
+    "openai_storage_redaction_audit": {
+      "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+    },
+    "openai_stable_final_handoff": {
+      "path": "evidence/post-rc-openai-only-stable-final-handoff/final_handoff_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive"
+    },
+    "ollama_local_redteam_bounded_smoke": {
+      "path": "evidence/post-stable-local-redteam-bounded-smoke/local_redteam_bounded_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-redteam-bounded-smoke"
+    },
+    "ollama_local_replay_regression_smoke": {
+      "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+    },
+    "ollama_structured_output_smoke": {
+      "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+    },
+    "ollama_tool_calling_mock_smoke": {
+      "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+    },
+    "ollama_local_redaction_storage_audit": {
+      "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+    },
+    "ollama_adapter_conformance": {
+      "path": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-adapter-conformance-local-ollama-execution"
+    },
+    "prior_provider_verified_preflight_openai": {
+      "path": "evidence/post-combined-provider-verified-gate-preflight/openai_provider_verification_evidence_inventory.json",
+      "exists": true,
+      "status": "partial",
+      "stage": "v2.0.0-post-combined-provider-verified-gate-preflight"
+    },
+    "prior_provider_verified_preflight_ollama": {
+      "path": "evidence/post-combined-provider-verified-gate-preflight/ollama_provider_verification_evidence_inventory.json",
+      "exists": true,
+      "status": "partial",
+      "stage": "v2.0.0-post-combined-provider-verified-gate-preflight"
+    }
+  },
+  "provider_lanes": {
+    "openai_api_lane": {
+      "status": "partial",
+      "coverage_summary": "OpenAI provider contract, execution/canary, limited redteam, canary-suite replay, capability matrix, and storage redaction evidence exist; error handling and provider-level regression coverage remain partial."
+    },
+    "ollama_qwen3_local_lane": {
+      "status": "partial",
+      "coverage_summary": "Ollama qwen3 local execution, local-model-verified, redteam, structured-output smoke, tool-calling mock smoke, replay/regression smoke, capability matrix review, and storage redaction evidence exist; provider-level error handling and final-gate coverage remain partial."
+    }
+  },
+  "missing_or_partial_coverage": [
+    {
+      "id": "openai_provider_error_handling_review_unknown_or_partial",
+      "lane": "openai_api_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "OpenAI provider canary, canary-suite, redaction, and limited redteam evidence exist, but no provider-level error handling review is recorded for this final claim.",
+      "needed_for_provider_verified": "Provider-specific error handling, retry/failure behavior, and API-surface edge handling must be reviewed at provider level.",
+      "recommended_next_action": "Add a non-generative provider error-handling review or approved final-gate evidence packet before opening provider-verified."
+    },
+    {
+      "id": "openai_provider_contract_regression_evidence_incomplete",
+      "lane": "openai_api_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Canary replay suite status is pass with comparison_mode canary_suite_rerun_not_replay_verified.",
+      "needed_for_provider_verified": "Provider-verified needs provider-level regression/replay evidence stronger than canary-suite-only rerun consistency.",
+      "recommended_next_action": "Record provider-level regression evidence or explicitly scoped replay review for OpenAI."
+    },
+    {
+      "id": "ollama_provider_error_handling_review_unknown_or_partial",
+      "lane": "ollama_qwen3_local_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Local no-tool, structured-output smoke, mock tool-calling smoke, redteam, replay, and adapter reviews exist, but provider-level error handling remains unknown_or_partial.",
+      "needed_for_provider_verified": "Provider-specific local runtime fallback, error, and malformed response behavior must be reviewed for qwen3 local lane.",
+      "recommended_next_action": "Add non-generative error-handling review or approved provider final-gate evidence."
+    },
+    {
+      "id": "ollama_provider_replay_or_regression_evidence_partial",
+      "lane": "ollama_qwen3_local_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Local replay/regression smoke passed for no-tool, structured-output smoke, and tool-calling mock smoke.",
+      "needed_for_provider_verified": "Provider-verified needs final-gate provider-level replay/regression coverage, not only smoke/regression summaries.",
+      "recommended_next_action": "Promote the smoke/regression evidence into an explicit provider-level final gate or record the missing coverage as blocker."
+    },
+    {
+      "id": "ollama_structured_output_coverage_partial_smoke_only",
+      "lane": "ollama_qwen3_local_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Structured-output smoke evidence exists for qwen3:14b and qwen3.6:27b.",
+      "needed_for_provider_verified": "Provider-verified needs provider-level structured-output coverage with final-gate acceptance criteria.",
+      "recommended_next_action": "Record structured-output provider coverage acceptance or keep this as partial coverage."
+    },
+    {
+      "id": "ollama_tool_calling_coverage_partial_mock_only",
+      "lane": "ollama_qwen3_local_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Tool-calling mock smoke evidence exists, with external tool execution disabled.",
+      "needed_for_provider_verified": "Provider-verified needs provider-level tool-calling coverage suitable for the claimed runtime surface.",
+      "recommended_next_action": "Record provider-level tool-calling coverage or explicitly constrain the provider-verified scope."
+    },
+    {
+      "id": "full_provider_verified_final_gate_not_executed",
+      "lane": "all_lanes",
+      "status": "partial_or_missing",
+      "current_evidence": "Provider-diverse and local-model-verified final gates passed, but provider-verified final gate has not been executed.",
+      "needed_for_provider_verified": "A dedicated provider-verified final gate must evaluate all required provider-level coverage and claim boundaries.",
+      "recommended_next_action": "Do not open provider-verified in this stage; run a final gate only after the missing coverage is closed."
+    },
+    {
+      "id": "owner_final_decision_required_after_coverage_completion",
+      "lane": "all_lanes",
+      "status": "partial_or_missing",
+      "current_evidence": "No owner final decision for provider-verified is recorded in this post-export preflight.",
+      "needed_for_provider_verified": "Provider-verified requires owner acceptance after complete evidence coverage.",
+      "recommended_next_action": "Prepare owner decision packet only after final-gate coverage is ready."
+    }
+  ],
+  "missing_or_partial_coverage_count": 8,
+  "weak_stage_claims_allowed": [
+    "post-export-provider-verified-coverage-preflight-recorded"
+  ],
+  "blocked_claims": [
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "protected_path_status": {
+    "git_status": {
+      "exit_code": 0,
+      "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+      "stderr": ""
+    },
+    "observed_dirty_paths": [
+      "harness-core/evidence/v36-baseline/checksums.json",
+      "harness-core/evidence/v36-baseline/file_inventory.json"
+    ],
+    "v36_git_dirty": false,
+    "dist_git_dirty": false,
+    "evidence_v36_baseline_git_dirty": true,
+    "v36_modified": false,
+    "dist_modified": false,
+    "evidence_v36_baseline_modified": false,
+    "interpretation": "The modified flags are scoped to this preflight stage. Observed git dirty paths are recorded separately and are not written by this tool."
+  },
+  "reason": "Provider-verified coverage preflight recorded current coverage and gaps. Final claim remains blocked.",
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "new_local_model_execution": false,
+  "new_local_model_generation": false,
+  "qwen3_model_pull_or_download": false,
+  "adapter_conformance_rerun_with_generation": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "prompt_stack_v36_modified": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false
+}

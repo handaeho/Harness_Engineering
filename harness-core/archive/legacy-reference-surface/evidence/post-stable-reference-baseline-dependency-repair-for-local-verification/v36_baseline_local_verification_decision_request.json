@@ -1,0 +1,30 @@
+{
+  "status": "not_required",
+  "stage": "v2.0.0-post-stable-v36-baseline-dependency-repair-for-local-model-verification",
+  "reason": "compare_v36_baseline passed; baseline refresh is not required in this stage",
+  "mismatch_count": 0,
+  "decision_options": [
+    {
+      "option": "refresh_v36_baseline_snapshot_after_owner_approval",
+      "description": "Accept current clean v36/evidence state and refresh baseline snapshot for local verification dependency.",
+      "requires_owner_approval": true,
+      "modifies_v36": false,
+      "modifies_evidence_v36_baseline": true
+    },
+    {
+      "option": "fix_compare_script_or_path_rules",
+      "description": "Use only if triage proves the mismatch is a compare script/path issue.",
+      "requires_owner_approval": false,
+      "modifies_v36": false,
+      "modifies_evidence_v36_baseline": false
+    },
+    {
+      "option": "keep_blocked",
+      "description": "Leave local-model verification final gate blocked.",
+      "requires_owner_approval": false,
+      "modifies_v36": false,
+      "modifies_evidence_v36_baseline": false
+    }
+  ],
+  "recommended_option": "not_required"
+}

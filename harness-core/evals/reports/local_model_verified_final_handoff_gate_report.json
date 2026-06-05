@@ -1,0 +1,763 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive",
+  "scope": "ollama_qwen3_local_lane",
+  "archive_label": "v2.0.0-post-stable+local-model-verified-ollama-qwen3-lane",
+  "can_claim_local_model_verified": true,
+  "can_claim_provider_diverse": false,
+  "can_claim_provider_verified": false,
+  "can_claim_adapter_checked": false,
+  "can_enter_stable_release": false,
+  "local_model_verified": true,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "new_local_model_execution": false,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "additional_v36_baseline_refresh": false,
+  "reason": "Local-model-verified state is archived for Ollama qwen3 local lane. Provider-diverse, provider-verified, adapter-checked, production-ready, and stable remain blocked.",
+  "checks": [
+    {
+      "name": "build_local_model_verified_final_handoff.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "generate_local_model_verified_archive_manifest.mjs recorded",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "recorded",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "direct_status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "release/post_stable_local_model_verified_final_handoff_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verified_final_claim_state.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verified_archive_manifest.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verified_next_options.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_provider_strict_paths.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/build_local_model_verified_final_handoff.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/generate_local_model_verified_archive_manifest.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_local_model_verified_final_handoff.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_stable_local_model_verified_final_handoff.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verified_final_handoff_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verified_final_handoff_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verified_archive_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verified_archive_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verified_final_handoff_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verified_final_handoff_gate_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_handoff_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_claim_state.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_evidence_pointer_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_archive_manifest.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_archive_checksums.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_strict_paths.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_v36_baseline_status.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_next_options.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-stable-local-model-verified-final-handoff/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_model_verified_final_handoff.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_model_verified_final_claim_state.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_model_verified_archive_manifest.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_model_verified_strict_paths.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_provider_diverse_path_plan.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_provider_verified_path_plan.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_adapter_checked_path_plan.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "handoff report records local model verified only",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive",
+        "final_gate_stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "scope": "ollama_qwen3_local_lane",
+        "archive_label": "v2.0.0-post-stable+local-model-verified-ollama-qwen3-lane",
+        "local_model_verified": true,
+        "local_model_verified_allowed": true,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false,
+        "can_enter_stable_release": false,
+        "final_claim_state_status": "recorded",
+        "evidence_pointer_index_status": "recorded",
+        "strict_paths_status": "recorded",
+        "next_options_status": "recorded",
+        "v36_baseline_status": "recorded",
+        "new_local_model_execution": false,
+        "new_local_model_generation": false,
+        "new_local_generation_calls": 0,
+        "local_redteam_rerun": false,
+        "adapter_conformance_rerun_with_generation": false,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "local_endpoint_probe": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_v36_baseline_refresh": false,
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "ds_store_deletion_from_v36": false,
+        "claims_maintained": [
+          "local-model-verified",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "claims_allowed_by_this_stage": [
+          "post-stable-local-model-verified-final-handoff-recorded",
+          "post-stable-local-model-verified-archive-manifest-recorded",
+          "post-stable-local-model-verified-final-claim-state-recorded",
+          "post-stable-local-provider-strict-paths-recorded"
+        ],
+        "claims_still_blocked": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "included_evidence_groups": [
+          "post-stable-local-no-tool-canary-qwen3-14b-result-review",
+          "post-stable-local-no-tool-canary-qwen3-6-27b-result-review",
+          "post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+          "post-stable-local-redteam-bounded-smoke",
+          "post-stable-adapter-conformance-dependency-install",
+          "post-stable-local-ollama-adapter-conformance",
+          "post-stable-local-model-verification-owner-decision-packet-refresh",
+          "post-stable-v36-baseline-refresh-for-local-model-verification",
+          "post-stable-local-model-verification-final-gate"
+        ]
+      }
+    },
+    {
+      "name": "final claim state preserves allowed and blocked claims",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive",
+        "scope": "ollama_qwen3_local_lane",
+        "allowed_claims": [
+          "local-model-verified",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "blocked_claims": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "canonicalization_rules": [
+          "Use local-model-verified only for the Ollama qwen3 local lane.",
+          "local-model-verified does not imply provider-diverse.",
+          "local-model-verified does not imply provider-verified.",
+          "local-model-verified does not imply adapter-checked.",
+          "local-model-verified does not imply general production-ready or stable."
+        ],
+        "local_model_verified": true,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false
+      }
+    },
+    {
+      "name": "evidence pointer index includes required groups",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive",
+        "scope": "ollama_qwen3_local_lane",
+        "generated_at": "2026-06-02T07:34:30.878Z",
+        "entries": [
+          {
+            "group_id": "post-stable-local-no-tool-canary-qwen3-14b-result-review",
+            "path": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review",
+            "report_path": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+            "status": "pass",
+            "supports_claims": [
+              "local-model-verified"
+            ],
+            "does_not_support_claims": [
+              "provider-diverse",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated",
+              "bare release-gated"
+            ]
+          },
+          {
+            "group_id": "post-stable-local-no-tool-canary-qwen3-6-27b-result-review",
+            "path": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review",
+            "report_path": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+            "status": "pass",
+            "supports_claims": [
+              "local-model-verified"
+            ],
+            "does_not_support_claims": [
+              "provider-diverse",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated",
+              "bare release-gated"
+            ]
+          },
+          {
+            "group_id": "post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+            "path": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+            "report_path": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json",
+            "status": "pass",
+            "supports_claims": [
+              "local-model-verified"
+            ],
+            "does_not_support_claims": [
+              "provider-diverse",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated",
+              "bare release-gated"
+            ]
+          },
+          {
+            "group_id": "post-stable-local-redteam-bounded-smoke",
+            "path": "evidence/post-stable-local-redteam-bounded-smoke",
+            "report_path": "evidence/post-stable-local-redteam-bounded-smoke/local_redteam_bounded_smoke_report.json",
+            "status": "pass",
+            "supports_claims": [
+              "local-model-verified"
+            ],
+            "does_not_support_claims": [
+              "provider-diverse",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated",
+              "bare release-gated"
+            ]
+          },
+          {
+            "group_id": "post-stable-adapter-conformance-dependency-install",
+            "path": "evidence/post-stable-adapter-conformance-dependency-install",
+            "report_path": "evidence/post-stable-adapter-conformance-dependency-install/adapter_dependency_install_gate_report.json",
+            "status": "pass",
+            "supports_claims": [
+              "local-model-verified"
+            ],
+            "does_not_support_claims": [
+              "provider-diverse",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated",
+              "bare release-gated"
+            ]
+          },
+          {
+            "group_id": "post-stable-local-ollama-adapter-conformance",
+            "path": "evidence/post-stable-local-ollama-adapter-conformance",
+            "report_path": "evidence/post-stable-local-ollama-adapter-conformance/local_ollama_adapter_conformance_gate_report.json",
+            "status": "pass",
+            "supports_claims": [
+              "local-model-verified"
+            ],
+            "does_not_support_claims": [
+              "provider-diverse",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated",
+              "bare release-gated"
+            ]
+          },
+          {
+            "group_id": "post-stable-local-model-verification-owner-decision-packet-refresh",
+            "path": "evidence/post-stable-local-model-verification-owner-decision-packet-refresh",
+            "report_path": "evidence/post-stable-local-model-verification-owner-decision-packet-refresh/local_model_verification_owner_packet_refresh_gate_report.json",
+            "status": "pass",
+            "supports_claims": [
+              "local-model-verified"
+            ],
+            "does_not_support_claims": [
+              "provider-diverse",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated",
+              "bare release-gated"
+            ]
+          },
+          {
+            "group_id": "post-stable-v36-baseline-refresh-for-local-model-verification",
+            "path": "evidence/post-stable-v36-baseline-dependency-repair-for-local-verification",
+            "report_path": "evidence/post-stable-v36-baseline-dependency-repair-for-local-verification/v36_baseline_refresh_after_owner_approval_for_local_verification.json",
+            "status": "pass",
+            "supports_claims": [
+              "local-model-verified"
+            ],
+            "does_not_support_claims": [
+              "provider-diverse",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated",
+              "bare release-gated"
+            ]
+          },
+          {
+            "group_id": "post-stable-local-model-verification-final-gate",
+            "path": "evidence/post-stable-local-model-verification-final-gate",
+            "report_path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+            "status": "pass",
+            "supports_claims": [
+              "local-model-verified"
+            ],
+            "does_not_support_claims": [
+              "provider-diverse",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated",
+              "bare release-gated"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "archive manifest and checksums recorded",
+      "status": "pass",
+      "detail": {
+        "archive_manifest": {
+          "status": "recorded",
+          "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive",
+          "scope": "ollama_qwen3_local_lane",
+          "archive_label": "v2.0.0-post-stable+local-model-verified-ollama-qwen3-lane",
+          "new_local_model_execution": false,
+          "new_local_model_generation": false,
+          "openai_model_api_call": false,
+          "openai_provider_call": false,
+          "telemetry_sink_write": false,
+          "local_endpoint_probe": false,
+          "v36_modified": false,
+          "dist_modified": false,
+          "additional_v36_baseline_refresh": false,
+          "evidence_v36_baseline_refreshed_in_this_stage": false,
+          "included_evidence_groups": [
+            "post-stable-local-no-tool-canary-qwen3-14b-result-review",
+            "post-stable-local-no-tool-canary-qwen3-6-27b-result-review",
+            "post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+            "post-stable-local-redteam-bounded-smoke",
+            "post-stable-adapter-conformance-dependency-install",
+            "post-stable-local-ollama-adapter-conformance",
+            "post-stable-local-model-verification-owner-decision-packet-refresh",
+            "post-stable-v36-baseline-refresh-for-local-model-verification",
+            "post-stable-local-model-verification-final-gate"
+          ],
+          "final_handoff_report_path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_handoff_report.json",
+          "final_claim_state_path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_claim_state.json",
+          "evidence_pointer_index_path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_evidence_pointer_index.json",
+          "strict_paths_path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_strict_paths.json",
+          "next_options_path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_next_options.json"
+        },
+        "archive_checksums": {
+          "status": "recorded",
+          "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive",
+          "scope": "ollama_qwen3_local_lane",
+          "generated_at": "2026-06-02T07:34:30.907Z",
+          "entries": [
+            {
+              "path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_handoff_report.json",
+              "type": "file",
+              "sha256": "e3c881cd3e7b8105c2c7f93e9934417e500d34e6d8c1f5420c4aaa4199713bbb"
+            },
+            {
+              "path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_claim_state.json",
+              "type": "file",
+              "sha256": "e63a3ddfb4f745bfd7b7ab1d0af44e5645bb8a8fcf533c54d70b2ee6b367d7b5"
+            },
+            {
+              "path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_evidence_pointer_index.json",
+              "type": "file",
+              "sha256": "cde2602ce983054a520a7936716ddbd6de12fa38973d9ab8bf2b4c3a7064ee6f"
+            },
+            {
+              "path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_archive_manifest.json",
+              "type": "file",
+              "sha256": "01c6be46bd84274fbf8879b66d23a221c653685f96131cbb464ca18409cbc4df"
+            },
+            {
+              "path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_strict_paths.json",
+              "type": "file",
+              "sha256": "f1cc18640b01e6ab668282b52bc54bc992179e21473883cb0551de9d20dcf7db"
+            },
+            {
+              "path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_v36_baseline_status.json",
+              "type": "file",
+              "sha256": "f8b1c2c1cbf571b4bdaabb028b471d509ec6261df86552df321eee4afa00481d"
+            },
+            {
+              "path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_next_options.json",
+              "type": "file",
+              "sha256": "a3111b635727e389817b22b8f22b6cf8f7b34964f906ab293171aeb7ba05ae31"
+            },
+            {
+              "path": "release/post_stable_local_model_verified_final_handoff_scope.yaml",
+              "type": "file",
+              "sha256": "491b91bd0f08d8c22b50e7726abb6c08aad9c96f40e425c03c01ff48a0ffe069"
+            },
+            {
+              "path": "release/post_stable_local_model_verified_final_claim_state.yaml",
+              "type": "file",
+              "sha256": "be612e91e07a5bdd3c9735d31edd36a7a76a8b82c13b955010467459000245b4"
+            },
+            {
+              "path": "release/post_stable_local_model_verified_archive_manifest.yaml",
+              "type": "file",
+              "sha256": "06e1322a32cdd451c529bfc3dc716bfe9ff4bf997d08c289fed18051969c803c"
+            },
+            {
+              "path": "release/post_stable_local_model_verified_next_options.yaml",
+              "type": "file",
+              "sha256": "a429a23d2880a10444112815199aebfef69b89831ba0d800979abe48d4082b19"
+            },
+            {
+              "path": "release/post_stable_local_provider_strict_paths.yaml",
+              "type": "file",
+              "sha256": "c0e567e94ac606e1b54ed87be696ab686ffc4baed294f7df096ca224a376a593"
+            },
+            {
+              "path": "docs/local_model_verified_final_handoff.ko.md",
+              "type": "file",
+              "sha256": "f4dd54922052483fe2050ef7624e39e125fc27e449ba2f9028c4ea58be494e64"
+            },
+            {
+              "path": "docs/local_model_verified_final_claim_state.ko.md",
+              "type": "file",
+              "sha256": "36e216f17b300c52812fb3abacf61124a2bab3703b8134f0a7a0b8225be9ddc2"
+            },
+            {
+              "path": "docs/local_model_verified_archive_manifest.ko.md",
+              "type": "file",
+              "sha256": "9bcc44b10ac9c0633e65c19f23e848e462e48d80b1ce084ffc5b140bb043d6b6"
+            },
+            {
+              "path": "docs/local_model_verified_strict_paths.ko.md",
+              "type": "file",
+              "sha256": "bfe9cecaaaa026eb7aea7845093f591e6ab9f21921e1810f8dfd31e5b78bce78"
+            },
+            {
+              "path": "docs/next_provider_diverse_path_plan.ko.md",
+              "type": "file",
+              "sha256": "bc6902729b5c95e0202dd045ee2da45615cd7d67b3b6e63abca366974ac50543"
+            },
+            {
+              "path": "docs/next_provider_verified_path_plan.ko.md",
+              "type": "file",
+              "sha256": "0e9938da74340ba879be7da14741b43a0f5f3260cfec815dd31a9ac4c1972a82"
+            },
+            {
+              "path": "docs/next_adapter_checked_path_plan.ko.md",
+              "type": "file",
+              "sha256": "be09aea9c59fd41f69b02d2d59833ee54aae432621d00d61c28affd6f18f26bb"
+            }
+          ],
+          "missing_targets": []
+        }
+      }
+    },
+    {
+      "name": "strict paths keep provider and adapter lanes blocked",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive",
+        "provider_diversity": {
+          "status": "blocked",
+          "reason": "Provider diversity requires separate provider-diverse gate and evidence beyond local-model verification.",
+          "next_stage": "v2.0.0-post-stable-provider-diverse-path-design"
+        },
+        "provider_verification": {
+          "status": "blocked",
+          "reason": "Provider verification requires separate provider verification gate.",
+          "next_stage": "v2.0.0-post-stable-provider-verified-gate-design"
+        },
+        "adapter_checked": {
+          "status": "blocked",
+          "reason": "Adapter-checked requires dedicated full adapter coverage gate beyond Ollama mapping review.",
+          "next_stage": "v2.0.0-post-stable-adapter-checked-gate-design"
+        },
+        "general_production_ready_and_stable": {
+          "status": "blocked",
+          "reason": "General production-ready and stable remain blocked; scoped OpenAI-only claims remain separate."
+        }
+      }
+    },
+    {
+      "name": "v36 baseline status records pass without refresh",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive",
+        "compare_v36_baseline_status": "pass",
+        "ds_store_exclusion_policy_enforced": true,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_refresh_in_this_stage": false,
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "notes": [
+          "The final local-model verification gate read the owner-approved baseline state and did not refresh evidence/v36-baseline in this handoff stage."
+        ]
+      }
+    },
+    {
+      "name": "next options registry recorded",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive",
+        "options": [
+          {
+            "id": "NEXT-001",
+            "name": "provider_diverse_path_design",
+            "stage": "v2.0.0-post-stable-provider-diverse-path-design",
+            "description": "Define separate provider diversity evidence path before any provider diversity allowance."
+          },
+          {
+            "id": "NEXT-002",
+            "name": "provider_verified_gate_design",
+            "stage": "v2.0.0-post-stable-provider-verified-gate-design",
+            "description": "Define provider-level verification gate separately from local model verification."
+          },
+          {
+            "id": "NEXT-003",
+            "name": "adapter_checked_gate_design",
+            "stage": "v2.0.0-post-stable-adapter-checked-gate-design",
+            "description": "Define adapter-checked criteria beyond current Ollama mapping review."
+          },
+          {
+            "id": "NEXT-004",
+            "name": "combined_archive_export",
+            "stage": "v2.0.0-combined-openai-local-archive-export",
+            "description": "Package current OpenAI-only scoped stable plus local-model-verified evidence."
+          }
+        ]
+      }
+    },
+    {
+      "name": "no unresolved handoff items remain",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "provider-diverse/provider-verified/adapter-checked/production-ready/stable/release-gated positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": []
+      }
+    },
+    {
+      "name": "protected v36 and dist paths clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "baseline state is prior owner-approved refresh only",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+        "stderr": ""
+      }
+    }
+  ],
+  "failures": []
+}

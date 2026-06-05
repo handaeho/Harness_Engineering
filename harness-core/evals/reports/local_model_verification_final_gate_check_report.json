@@ -1,0 +1,1817 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+  "can_claim_local_model_verified": true,
+  "local_model_verified_allowed": true,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "bare_release_gated_allowed": false,
+  "can_enter_stable_release": false,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "local_model_execution": false,
+  "new_local_generation_calls": 0,
+  "additional_v36_baseline_refresh": false,
+  "evidence_v36_baseline_refreshed_in_this_stage": false,
+  "claims_allowed_by_this_gate": [
+    "local-model-verified"
+  ],
+  "claims_still_blocked": [
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "checks": [
+    {
+      "name": "local_model_verification_final_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_final_evidence_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_final_evidence_completeness.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_owner_final_decision.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_final_decision_record.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verified_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_final_gate_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_final_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verification_final_gate_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verification_final_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verification_owner_final_decision.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verification_final_decision_record.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verified_claim_boundary.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verification_final_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verification_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_stable_local_model_verification_final_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verification_final_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verification_final_gate_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verified_claim_boundary_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verified_claim_boundary_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verification_final_evidence_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/local_model_verification_final_evidence_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_model_verification_final_gate.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_model_verified_claim_boundary.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_model_verification_final_decision_record.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_provider_diverse_path_plan.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_adapter_checked_path_plan.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/run_local_model_verification_final_gate.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_local_model_verification_final_gate.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/audit_local_model_verified_claims.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/summarize_local_model_verification_final_evidence.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stage matches",
+      "status": "pass",
+      "detail": {
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+      }
+    },
+    {
+      "name": "final gate report passed",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "local_model_verification_final_gate_passed": true,
+        "final_gate_executed": true,
+        "approval_phrase_verified": true,
+        "approval_source": "existing_final_decision_record",
+        "can_claim_local_model_verified": true,
+        "local_model_verified_allowed": true,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false,
+        "can_enter_stable_release": false,
+        "why_not_stable": "This gate only enables the scoped local-model-verified claim; provider, adapter, production, stable, and release gates remain separate.",
+        "qwen3_14b_no_tool_review_passed": true,
+        "qwen3_6_27b_no_tool_review_passed": true,
+        "multimodel_no_tool_comparison_passed": true,
+        "local_redteam_bounded_smoke_passed": true,
+        "adapter_conformance_dependency_backed_validation_passed": true,
+        "local_ollama_adapter_conformance_reviewed": true,
+        "storage_redaction_audit_passed": true,
+        "v36_baseline_compare_passed": true,
+        "ds_store_exclusion_policy_enforced": true,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "new_local_model_execution": false,
+        "new_local_generation_calls": 0,
+        "local_redteam_rerun": false,
+        "adapter_conformance_rerun_with_generation": false,
+        "production_deployment": false,
+        "release_gate_rerun": false,
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "additional_v36_baseline_refresh": false,
+        "ds_store_deletion_from_v36": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": true,
+        "evidence_v36_baseline_modified_by_owner_approved_refresh": true,
+        "node_modules_modified": false,
+        "evidence_summary_status": "pass",
+        "evidence_completeness_status": "pass",
+        "checks": [
+          {
+            "name": "exact owner approval phrase verified",
+            "status": "pass",
+            "detail": {
+              "approval_phrase_verified": true,
+              "approval_source": "existing_final_decision_record"
+            }
+          },
+          {
+            "name": "final gate preflight is owner-decision-ready",
+            "status": "pass",
+            "detail": {
+              "preflight_status": "ready_for_owner_decision_to_claim_local_model_verified",
+              "blocked_by": [
+                "owner_final_decision"
+              ]
+            }
+          },
+          {
+            "name": "owner decision packet is owner-decision-ready",
+            "status": "pass",
+            "detail": {
+              "packet_status": "ready_for_owner_decision_to_claim_local_model_verified",
+              "remaining_blockers": [
+                {
+                  "id": "owner_final_decision",
+                  "status": "required",
+                  "blocks_final_gate": true
+                }
+              ]
+            }
+          },
+          {
+            "name": "evidence bundle passed",
+            "status": "pass",
+            "detail": {
+              "bundle_status": "pass"
+            }
+          },
+          {
+            "name": "qwen3:14b no-tool review passed",
+            "status": "pass",
+            "detail": {
+              "model": "qwen3:14b",
+              "provider": "ollama",
+              "readiness_preflight_passed": true,
+              "local_no_tool_canary_passed": true,
+              "result_review_passed": true,
+              "cases_total": 2,
+              "cases_passed": 2,
+              "cases_failed": 0,
+              "final_content_non_empty": true,
+              "tool_calling_used": false,
+              "structured_output_used": false,
+              "think_false_applied": true,
+              "reasoning_effort_none_applied": false,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redaction_passed": true,
+              "output_text_hashes": [
+                {
+                  "case_id": "local-no-tool-basic-001",
+                  "hash": "d4217439960414107cd17956859e2e060c2dadf34e941b3c8aaa84a4092ca4d8",
+                  "finish_reason": "length"
+                },
+                {
+                  "case_id": "local-no-tool-boundary-001",
+                  "hash": "6990b5f254e4f99d62de488380fe7927b1594e6c588ede6c2e68526c22b33bfb",
+                  "finish_reason": "stop"
+                }
+              ],
+              "completion_tokens": [
+                256,
+                170
+              ],
+              "completion_tokens_total": 426,
+              "source_files": {
+                "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+                "readiness": "evidence/post-rc-local-endpoint-readiness-preflight/local_endpoint_readiness_gate_report.json",
+                "canary": "evidence/post-rc-local-no-tool-canary/local_no_tool_canary_gate_report.json",
+                "mapping": "evidence/post-rc-local-no-tool-canary/local_response_mapping_report.json",
+                "redaction": "evidence/post-rc-local-no-tool-canary/local_no_tool_redaction_report.json"
+              }
+            }
+          },
+          {
+            "name": "qwen3.6:27b no-tool review passed",
+            "status": "pass",
+            "detail": {
+              "model": "qwen3.6:27b",
+              "provider": "ollama",
+              "readiness_preflight_passed": true,
+              "local_no_tool_canary_passed": true,
+              "result_review_passed": true,
+              "cases_total": 2,
+              "cases_passed": 2,
+              "cases_failed": 0,
+              "final_content_non_empty": true,
+              "tool_calling_used": false,
+              "structured_output_used": false,
+              "think_false_applied": true,
+              "reasoning_effort_none_applied": true,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redaction_passed": true,
+              "output_text_hashes": [
+                {
+                  "case_id": "local-no-tool-basic-001",
+                  "hash": "031bb82806c6728514f7f63f5e0de48172ca10f494d89947c3b52dac6612f34b",
+                  "finish_reason": "stop"
+                },
+                {
+                  "case_id": "local-no-tool-boundary-001",
+                  "hash": "89921e15623dfc44e2afdf0d31d423e097f0fa5fdb2352536209d2ab3d28f70c",
+                  "finish_reason": "stop"
+                }
+              ],
+              "completion_tokens": [
+                9,
+                6
+              ],
+              "completion_tokens_total": 15,
+              "source_files": {
+                "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+                "readiness": "evidence/post-rc-local-endpoint-readiness-preflight-qwen3-6-27b/local_endpoint_readiness_gate_report.json",
+                "canary": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_canary_gate_report.json",
+                "mapping": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_response_mapping_report.json",
+                "redaction": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_redaction_report.json"
+              }
+            }
+          },
+          {
+            "name": "no-tool multi-model qwen evidence passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "models": [
+                "qwen3:14b",
+                "qwen3.6:27b"
+              ]
+            }
+          },
+          {
+            "name": "bounded local redteam passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "total_cases": 8,
+              "cases_failed": 0
+            }
+          },
+          {
+            "name": "dependency-backed Ollama adapter conformance passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "dependency_backed_validation_executed": true
+            }
+          },
+          {
+            "name": "local Ollama reasoning response provider capability evidence reviewed",
+            "status": "pass",
+            "detail": {
+              "dependency_ready": true,
+              "dry_run_passed": true,
+              "ollama_adapter_loaded": true,
+              "provider_matrix_ollama_present": true,
+              "no_tool_mapping_reviewed": true,
+              "reasoning_control_mapping_reviewed": true,
+              "structured_output_mapping_reviewed": true,
+              "tool_calling_mock_mapping_reviewed": true,
+              "redaction_storage_boundary_reviewed": true,
+              "local_redteam_coverage_reviewed": true,
+              "protected_paths_unmodified": true
+            }
+          },
+          {
+            "name": "local redaction and storage audit passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "findings_count": 0
+            }
+          },
+          {
+            "name": "v36 baseline dependency and compare passed",
+            "status": "pass",
+            "detail": {
+              "dependency_status": "ready_after_repair",
+              "compare_status": "pass",
+              "baseline_refresh_approved": true
+            }
+          },
+          {
+            "name": ".DS_Store snapshot exclusion policy enforced",
+            "status": "pass",
+            "detail": {
+              "id": "v36-baseline-os-metadata-exclusion",
+              "excluded_basenames": [
+                ".DS_Store"
+              ],
+              "excluded_current_paths": [
+                "prompt-stack/v36/.DS_Store",
+                "prompt-stack/v36/codex/.DS_Store"
+              ],
+              "source_files_removed": false,
+              "reason": "macOS Finder metadata is not part of the v36 source baseline contract and is excluded from snapshot inventory/checksums only."
+            }
+          },
+          {
+            "name": "final evidence completeness passed",
+            "status": "pass",
+            "detail": {
+              "missing_evidence": []
+            }
+          },
+          {
+            "name": "protected paths remain inside allowed boundary",
+            "status": "pass",
+            "detail": {
+              "exit_code": 0,
+              "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+              "stderr": ""
+            }
+          },
+          {
+            "name": "no new external or local generation in final gate",
+            "status": "pass",
+            "detail": {
+              "openai_model_api_call": false,
+              "openai_provider_call": false,
+              "telemetry_sink_write": false,
+              "local_endpoint_probe": false,
+              "local_model_execution": false,
+              "new_local_generation_calls": 0
+            }
+          },
+          {
+            "name": "no additional v36 baseline refresh in final gate",
+            "status": "pass",
+            "detail": {
+              "evidence_v36_baseline_refreshed_in_this_stage": false,
+              "additional_v36_baseline_refresh": false
+            }
+          }
+        ],
+        "failures": [],
+        "claims_allowed": [
+          "local-model-verified",
+          "post-stable-local-model-verification-final-gate-passed",
+          "post-stable-local-model-verified-claim-enabled",
+          "post-stable-local-model-verification-owner-final-decision-recorded",
+          "post-stable-local-model-verification-final-decision-recorded",
+          "post-stable-local-model-verification-evidence-accepted"
+        ],
+        "claims_blocked": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "reason": "Owner final decision is recorded and all local Ollama qwen evidence gates passed. The allowed claim is limited to local-model-verified for the post-stable Ollama qwen local lane."
+      }
+    },
+    {
+      "name": "decision record approves only local-model-verified",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "decision": "approve_local_model_verified_claim",
+        "owner_final_decision_present": true,
+        "owner_approval_phrase_verified": true,
+        "owner_approval_phrase": "I approve local-model-verified for the post-stable Ollama qwen3 local lane based on completed no-tool, multi-model, redteam, adapter conformance, redaction, and v36 baseline evidence.",
+        "approval_source": "existing_final_decision_record",
+        "approved_claim": "local-model-verified",
+        "scope": "post_stable_ollama_qwen3_local_lane",
+        "provider": "ollama",
+        "models": [
+          "qwen3:14b",
+          "qwen3.6:27b"
+        ],
+        "based_on_completed_evidence": [
+          "qwen3_14b_no_tool_review",
+          "qwen3_6_27b_no_tool_review",
+          "multi_model_no_tool_comparison",
+          "bounded_local_redteam",
+          "adapter_conformance_dependency_backed_validation",
+          "local_ollama_adapter_conformance_review",
+          "redaction_storage_audit",
+          "v36_baseline_compare",
+          "ds_store_exclusion_policy",
+          "owner_final_decision"
+        ],
+        "local_model_verified": true,
+        "is_provider_diverse": false,
+        "is_provider_verified": false,
+        "is_adapter_checked": false,
+        "is_production_ready": false,
+        "is_stable": false,
+        "is_release_gated": false,
+        "bare_release_gated_allowed": false,
+        "can_enter_stable_release": false
+      }
+    },
+    {
+      "name": "legacy owner decision remains compatible",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "decision": "approve_post_stable_ollama_qwen3_local_model_verified",
+        "owner_final_decision_present": true,
+        "owner_approval_phrase_verified": true,
+        "owner_approval_phrase": "I approve local-model-verified for the post-stable Ollama qwen3 local lane based on completed no-tool, multi-model, redteam, adapter conformance, redaction, and v36 baseline evidence.",
+        "approval_source": "existing_final_decision_record",
+        "approved_claim": "local-model-verified",
+        "scope": "post_stable_ollama_qwen3_local_lane",
+        "provider": "ollama",
+        "models": [
+          "qwen3:14b",
+          "qwen3.6:27b"
+        ],
+        "based_on_completed_evidence": [
+          "qwen3_14b_no_tool_review",
+          "qwen3_6_27b_no_tool_review",
+          "multi_model_no_tool_comparison",
+          "bounded_local_redteam",
+          "adapter_conformance_dependency_backed_validation",
+          "local_ollama_adapter_conformance_review",
+          "redaction_storage_audit",
+          "v36_baseline_compare",
+          "ds_store_exclusion_policy",
+          "owner_final_decision"
+        ],
+        "local_model_verified": true,
+        "is_provider_diverse": false,
+        "is_provider_verified": false,
+        "is_adapter_checked": false,
+        "is_production_ready": false,
+        "is_stable": false,
+        "is_release_gated": false,
+        "bare_release_gated_allowed": false,
+        "can_enter_stable_release": false,
+        "legacy_decision_record": true
+      }
+    },
+    {
+      "name": "claim boundary opens only local-model-verified",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "provider": "ollama",
+        "scope": "post_stable_ollama_qwen3_local_lane",
+        "local_model_verified_allowed": true,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false,
+        "can_enter_stable_release": false,
+        "allowed_claims": [
+          "local-model-verified",
+          "post-stable-local-model-verification-final-gate-passed",
+          "post-stable-local-model-verified-claim-enabled",
+          "post-stable-local-model-verification-owner-final-decision-recorded",
+          "post-stable-local-model-verification-final-decision-recorded",
+          "post-stable-local-model-verification-evidence-accepted"
+        ],
+        "blocked_claims": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "does_not_allow": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "reason": "Owner final decision is recorded and all local Ollama qwen evidence gates passed. The allowed claim is limited to local-model-verified for the post-stable Ollama qwen local lane."
+      }
+    },
+    {
+      "name": "gate report matches allowed local claim",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "can_claim_local_model_verified": true,
+        "can_claim_provider_diverse": false,
+        "can_claim_provider_verified": false,
+        "can_claim_adapter_checked": false,
+        "can_claim_production_ready": false,
+        "can_claim_stable": false,
+        "can_claim_release_gated": false,
+        "bare_release_gated_allowed": false,
+        "can_enter_stable_release": false,
+        "reason": "This gate only enables the scoped local-model-verified claim; provider, adapter, production, stable, and release gates remain separate.",
+        "checks": [
+          {
+            "name": "exact owner approval phrase verified",
+            "status": "pass",
+            "detail": {
+              "approval_phrase_verified": true,
+              "approval_source": "existing_final_decision_record"
+            }
+          },
+          {
+            "name": "final gate preflight is owner-decision-ready",
+            "status": "pass",
+            "detail": {
+              "preflight_status": "ready_for_owner_decision_to_claim_local_model_verified",
+              "blocked_by": [
+                "owner_final_decision"
+              ]
+            }
+          },
+          {
+            "name": "owner decision packet is owner-decision-ready",
+            "status": "pass",
+            "detail": {
+              "packet_status": "ready_for_owner_decision_to_claim_local_model_verified",
+              "remaining_blockers": [
+                {
+                  "id": "owner_final_decision",
+                  "status": "required",
+                  "blocks_final_gate": true
+                }
+              ]
+            }
+          },
+          {
+            "name": "evidence bundle passed",
+            "status": "pass",
+            "detail": {
+              "bundle_status": "pass"
+            }
+          },
+          {
+            "name": "qwen3:14b no-tool review passed",
+            "status": "pass",
+            "detail": {
+              "model": "qwen3:14b",
+              "provider": "ollama",
+              "readiness_preflight_passed": true,
+              "local_no_tool_canary_passed": true,
+              "result_review_passed": true,
+              "cases_total": 2,
+              "cases_passed": 2,
+              "cases_failed": 0,
+              "final_content_non_empty": true,
+              "tool_calling_used": false,
+              "structured_output_used": false,
+              "think_false_applied": true,
+              "reasoning_effort_none_applied": false,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redaction_passed": true,
+              "output_text_hashes": [
+                {
+                  "case_id": "local-no-tool-basic-001",
+                  "hash": "d4217439960414107cd17956859e2e060c2dadf34e941b3c8aaa84a4092ca4d8",
+                  "finish_reason": "length"
+                },
+                {
+                  "case_id": "local-no-tool-boundary-001",
+                  "hash": "6990b5f254e4f99d62de488380fe7927b1594e6c588ede6c2e68526c22b33bfb",
+                  "finish_reason": "stop"
+                }
+              ],
+              "completion_tokens": [
+                256,
+                170
+              ],
+              "completion_tokens_total": 426,
+              "source_files": {
+                "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+                "readiness": "evidence/post-rc-local-endpoint-readiness-preflight/local_endpoint_readiness_gate_report.json",
+                "canary": "evidence/post-rc-local-no-tool-canary/local_no_tool_canary_gate_report.json",
+                "mapping": "evidence/post-rc-local-no-tool-canary/local_response_mapping_report.json",
+                "redaction": "evidence/post-rc-local-no-tool-canary/local_no_tool_redaction_report.json"
+              }
+            }
+          },
+          {
+            "name": "qwen3.6:27b no-tool review passed",
+            "status": "pass",
+            "detail": {
+              "model": "qwen3.6:27b",
+              "provider": "ollama",
+              "readiness_preflight_passed": true,
+              "local_no_tool_canary_passed": true,
+              "result_review_passed": true,
+              "cases_total": 2,
+              "cases_passed": 2,
+              "cases_failed": 0,
+              "final_content_non_empty": true,
+              "tool_calling_used": false,
+              "structured_output_used": false,
+              "think_false_applied": true,
+              "reasoning_effort_none_applied": true,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redaction_passed": true,
+              "output_text_hashes": [
+                {
+                  "case_id": "local-no-tool-basic-001",
+                  "hash": "031bb82806c6728514f7f63f5e0de48172ca10f494d89947c3b52dac6612f34b",
+                  "finish_reason": "stop"
+                },
+                {
+                  "case_id": "local-no-tool-boundary-001",
+                  "hash": "89921e15623dfc44e2afdf0d31d423e097f0fa5fdb2352536209d2ab3d28f70c",
+                  "finish_reason": "stop"
+                }
+              ],
+              "completion_tokens": [
+                9,
+                6
+              ],
+              "completion_tokens_total": 15,
+              "source_files": {
+                "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+                "readiness": "evidence/post-rc-local-endpoint-readiness-preflight-qwen3-6-27b/local_endpoint_readiness_gate_report.json",
+                "canary": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_canary_gate_report.json",
+                "mapping": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_response_mapping_report.json",
+                "redaction": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_redaction_report.json"
+              }
+            }
+          },
+          {
+            "name": "no-tool multi-model qwen evidence passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "models": [
+                "qwen3:14b",
+                "qwen3.6:27b"
+              ]
+            }
+          },
+          {
+            "name": "bounded local redteam passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "total_cases": 8,
+              "cases_failed": 0
+            }
+          },
+          {
+            "name": "dependency-backed Ollama adapter conformance passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "dependency_backed_validation_executed": true
+            }
+          },
+          {
+            "name": "local Ollama reasoning response provider capability evidence reviewed",
+            "status": "pass",
+            "detail": {
+              "dependency_ready": true,
+              "dry_run_passed": true,
+              "ollama_adapter_loaded": true,
+              "provider_matrix_ollama_present": true,
+              "no_tool_mapping_reviewed": true,
+              "reasoning_control_mapping_reviewed": true,
+              "structured_output_mapping_reviewed": true,
+              "tool_calling_mock_mapping_reviewed": true,
+              "redaction_storage_boundary_reviewed": true,
+              "local_redteam_coverage_reviewed": true,
+              "protected_paths_unmodified": true
+            }
+          },
+          {
+            "name": "local redaction and storage audit passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "findings_count": 0
+            }
+          },
+          {
+            "name": "v36 baseline dependency and compare passed",
+            "status": "pass",
+            "detail": {
+              "dependency_status": "ready_after_repair",
+              "compare_status": "pass",
+              "baseline_refresh_approved": true
+            }
+          },
+          {
+            "name": ".DS_Store snapshot exclusion policy enforced",
+            "status": "pass",
+            "detail": {
+              "id": "v36-baseline-os-metadata-exclusion",
+              "excluded_basenames": [
+                ".DS_Store"
+              ],
+              "excluded_current_paths": [
+                "prompt-stack/v36/.DS_Store",
+                "prompt-stack/v36/codex/.DS_Store"
+              ],
+              "source_files_removed": false,
+              "reason": "macOS Finder metadata is not part of the v36 source baseline contract and is excluded from snapshot inventory/checksums only."
+            }
+          },
+          {
+            "name": "final evidence completeness passed",
+            "status": "pass",
+            "detail": {
+              "missing_evidence": []
+            }
+          },
+          {
+            "name": "protected paths remain inside allowed boundary",
+            "status": "pass",
+            "detail": {
+              "exit_code": 0,
+              "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+              "stderr": ""
+            }
+          },
+          {
+            "name": "no new external or local generation in final gate",
+            "status": "pass",
+            "detail": {
+              "openai_model_api_call": false,
+              "openai_provider_call": false,
+              "telemetry_sink_write": false,
+              "local_endpoint_probe": false,
+              "local_model_execution": false,
+              "new_local_generation_calls": 0
+            }
+          },
+          {
+            "name": "no additional v36 baseline refresh in final gate",
+            "status": "pass",
+            "detail": {
+              "evidence_v36_baseline_refreshed_in_this_stage": false,
+              "additional_v36_baseline_refresh": false
+            }
+          }
+        ],
+        "failures": [],
+        "claims_allowed_by_this_gate": [
+          "local-model-verified",
+          "post-stable-local-model-verification-final-gate-passed",
+          "post-stable-local-model-verified-claim-enabled",
+          "post-stable-local-model-verification-owner-final-decision-recorded",
+          "post-stable-local-model-verification-final-decision-recorded",
+          "post-stable-local-model-verification-evidence-accepted"
+        ],
+        "claims_still_blocked": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ]
+      }
+    },
+    {
+      "name": "evidence summary passed required surfaces",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "provider": "ollama",
+        "scope": "post_stable_ollama_qwen3_local_lane",
+        "models": [
+          "qwen3:14b",
+          "qwen3.6:27b"
+        ],
+        "source_reports": {
+          "qwen3_14b_no_tool_result_review": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+          "qwen3_6_27b_no_tool_result_review": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+          "no_tool_multimodel": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json",
+          "redteam": "evidence/post-stable-local-redteam-bounded-smoke/local_redteam_bounded_smoke_report.json",
+          "adapter_conformance": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+          "redaction_storage_audit": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+          "v36_dependency": "evidence/post-stable-v36-baseline-dependency-repair-for-local-verification/v36_baseline_dependency_for_local_verification_gate_report.json",
+          "v36_refresh": "evidence/post-stable-v36-baseline-dependency-repair-for-local-verification/v36_baseline_refresh_after_owner_approval_for_local_verification.json"
+        },
+        "qwen3_14b_no_tool_review_passed": true,
+        "qwen3_6_27b_no_tool_review_passed": true,
+        "multimodel_no_tool_comparison_passed": true,
+        "local_redteam_bounded_smoke_passed": true,
+        "adapter_conformance_dependency_backed_validation_passed": true,
+        "local_ollama_adapter_conformance_reviewed": true,
+        "ollama_reasoning_control_mapping_reviewed": true,
+        "ollama_response_mapping_reviewed": true,
+        "ollama_provider_capability_reviewed": true,
+        "storage_redaction_audit_passed": true,
+        "v36_baseline_compare_passed": true,
+        "ds_store_exclusion_policy_enforced": true,
+        "owner_final_decision_present": true,
+        "no_tool_multimodel_pass": true,
+        "local_redteam_pass": true,
+        "adapter_conformance_pass": true,
+        "redaction_storage_audit_pass": true,
+        "v36_baseline_pass": true,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "secrets_logged": false,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "local_model_execution_in_this_stage": false,
+        "new_local_model_execution": false,
+        "new_local_generation_calls": 0,
+        "new_local_generation_calls_in_this_stage": 0,
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "additional_v36_baseline_refresh": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "node_modules_modified": false,
+        "evidence_v36_baseline_modified": true,
+        "evidence_v36_baseline_modified_by_owner_approved_refresh": true,
+        "ds_store_exclusion_policy": {
+          "id": "v36-baseline-os-metadata-exclusion",
+          "excluded_basenames": [
+            ".DS_Store"
+          ],
+          "excluded_current_paths": [
+            "prompt-stack/v36/.DS_Store",
+            "prompt-stack/v36/codex/.DS_Store"
+          ],
+          "source_files_removed": false,
+          "reason": "macOS Finder metadata is not part of the v36 source baseline contract and is excluded from snapshot inventory/checksums only."
+        },
+        "prior_local_generation_calls": {
+          "evidence_bundle_total_autopilot_local_generation_calls": 6,
+          "redteam_local_model_calls": 8,
+          "redteam_new_local_generation_calls": 8
+        }
+      }
+    },
+    {
+      "name": "evidence completeness passed with no missing evidence",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "required_evidence": [
+          {
+            "id": "qwen3_14b_no_tool_review",
+            "source": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+            "passed": true,
+            "present": true
+          },
+          {
+            "id": "qwen3_6_27b_no_tool_review",
+            "source": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+            "passed": true,
+            "present": true
+          },
+          {
+            "id": "multi_model_no_tool_comparison",
+            "source": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json",
+            "passed": true,
+            "present": true
+          },
+          {
+            "id": "bounded_local_redteam",
+            "source": "evidence/post-stable-local-redteam-bounded-smoke/local_redteam_bounded_smoke_report.json",
+            "passed": true,
+            "present": true
+          },
+          {
+            "id": "adapter_conformance_dependency_backed_validation",
+            "source": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+            "passed": true,
+            "present": true
+          },
+          {
+            "id": "local_ollama_adapter_conformance_review",
+            "source": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+            "passed": true,
+            "present": true
+          },
+          {
+            "id": "redaction_storage_audit",
+            "source": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+            "passed": true,
+            "present": true
+          },
+          {
+            "id": "v36_baseline_compare",
+            "source": "evidence/post-stable-v36-baseline-dependency-repair-for-local-verification/v36_baseline_dependency_for_local_verification_gate_report.json",
+            "passed": true,
+            "present": true
+          },
+          {
+            "id": "ds_store_exclusion_policy",
+            "source": "evidence/post-stable-v36-baseline-dependency-repair-for-local-verification/v36_baseline_refresh_after_owner_approval_for_local_verification.json",
+            "passed": true,
+            "present": true
+          },
+          {
+            "id": "owner_final_decision",
+            "source": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_decision_record.json",
+            "passed": true,
+            "present": true
+          }
+        ],
+        "missing_evidence": [],
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "ds_store_exclusion_policy_enforced": true,
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "telemetry_sink_write": false
+      }
+    },
+    {
+      "name": "preflight and owner packet were ready before final decision",
+      "status": "pass",
+      "detail": {
+        "preflight_status": "ready_for_owner_decision_to_claim_local_model_verified",
+        "owner_packet_status": "ready_for_owner_decision_to_claim_local_model_verified"
+      }
+    },
+    {
+      "name": "no new execution in final gate",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "local_model_verification_final_gate_passed": true,
+        "final_gate_executed": true,
+        "approval_phrase_verified": true,
+        "approval_source": "existing_final_decision_record",
+        "can_claim_local_model_verified": true,
+        "local_model_verified_allowed": true,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false,
+        "can_enter_stable_release": false,
+        "why_not_stable": "This gate only enables the scoped local-model-verified claim; provider, adapter, production, stable, and release gates remain separate.",
+        "qwen3_14b_no_tool_review_passed": true,
+        "qwen3_6_27b_no_tool_review_passed": true,
+        "multimodel_no_tool_comparison_passed": true,
+        "local_redteam_bounded_smoke_passed": true,
+        "adapter_conformance_dependency_backed_validation_passed": true,
+        "local_ollama_adapter_conformance_reviewed": true,
+        "storage_redaction_audit_passed": true,
+        "v36_baseline_compare_passed": true,
+        "ds_store_exclusion_policy_enforced": true,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "new_local_model_execution": false,
+        "new_local_generation_calls": 0,
+        "local_redteam_rerun": false,
+        "adapter_conformance_rerun_with_generation": false,
+        "production_deployment": false,
+        "release_gate_rerun": false,
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "additional_v36_baseline_refresh": false,
+        "ds_store_deletion_from_v36": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": true,
+        "evidence_v36_baseline_modified_by_owner_approved_refresh": true,
+        "node_modules_modified": false,
+        "evidence_summary_status": "pass",
+        "evidence_completeness_status": "pass",
+        "checks": [
+          {
+            "name": "exact owner approval phrase verified",
+            "status": "pass",
+            "detail": {
+              "approval_phrase_verified": true,
+              "approval_source": "existing_final_decision_record"
+            }
+          },
+          {
+            "name": "final gate preflight is owner-decision-ready",
+            "status": "pass",
+            "detail": {
+              "preflight_status": "ready_for_owner_decision_to_claim_local_model_verified",
+              "blocked_by": [
+                "owner_final_decision"
+              ]
+            }
+          },
+          {
+            "name": "owner decision packet is owner-decision-ready",
+            "status": "pass",
+            "detail": {
+              "packet_status": "ready_for_owner_decision_to_claim_local_model_verified",
+              "remaining_blockers": [
+                {
+                  "id": "owner_final_decision",
+                  "status": "required",
+                  "blocks_final_gate": true
+                }
+              ]
+            }
+          },
+          {
+            "name": "evidence bundle passed",
+            "status": "pass",
+            "detail": {
+              "bundle_status": "pass"
+            }
+          },
+          {
+            "name": "qwen3:14b no-tool review passed",
+            "status": "pass",
+            "detail": {
+              "model": "qwen3:14b",
+              "provider": "ollama",
+              "readiness_preflight_passed": true,
+              "local_no_tool_canary_passed": true,
+              "result_review_passed": true,
+              "cases_total": 2,
+              "cases_passed": 2,
+              "cases_failed": 0,
+              "final_content_non_empty": true,
+              "tool_calling_used": false,
+              "structured_output_used": false,
+              "think_false_applied": true,
+              "reasoning_effort_none_applied": false,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redaction_passed": true,
+              "output_text_hashes": [
+                {
+                  "case_id": "local-no-tool-basic-001",
+                  "hash": "d4217439960414107cd17956859e2e060c2dadf34e941b3c8aaa84a4092ca4d8",
+                  "finish_reason": "length"
+                },
+                {
+                  "case_id": "local-no-tool-boundary-001",
+                  "hash": "6990b5f254e4f99d62de488380fe7927b1594e6c588ede6c2e68526c22b33bfb",
+                  "finish_reason": "stop"
+                }
+              ],
+              "completion_tokens": [
+                256,
+                170
+              ],
+              "completion_tokens_total": 426,
+              "source_files": {
+                "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+                "readiness": "evidence/post-rc-local-endpoint-readiness-preflight/local_endpoint_readiness_gate_report.json",
+                "canary": "evidence/post-rc-local-no-tool-canary/local_no_tool_canary_gate_report.json",
+                "mapping": "evidence/post-rc-local-no-tool-canary/local_response_mapping_report.json",
+                "redaction": "evidence/post-rc-local-no-tool-canary/local_no_tool_redaction_report.json"
+              }
+            }
+          },
+          {
+            "name": "qwen3.6:27b no-tool review passed",
+            "status": "pass",
+            "detail": {
+              "model": "qwen3.6:27b",
+              "provider": "ollama",
+              "readiness_preflight_passed": true,
+              "local_no_tool_canary_passed": true,
+              "result_review_passed": true,
+              "cases_total": 2,
+              "cases_passed": 2,
+              "cases_failed": 0,
+              "final_content_non_empty": true,
+              "tool_calling_used": false,
+              "structured_output_used": false,
+              "think_false_applied": true,
+              "reasoning_effort_none_applied": true,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redaction_passed": true,
+              "output_text_hashes": [
+                {
+                  "case_id": "local-no-tool-basic-001",
+                  "hash": "031bb82806c6728514f7f63f5e0de48172ca10f494d89947c3b52dac6612f34b",
+                  "finish_reason": "stop"
+                },
+                {
+                  "case_id": "local-no-tool-boundary-001",
+                  "hash": "89921e15623dfc44e2afdf0d31d423e097f0fa5fdb2352536209d2ab3d28f70c",
+                  "finish_reason": "stop"
+                }
+              ],
+              "completion_tokens": [
+                9,
+                6
+              ],
+              "completion_tokens_total": 15,
+              "source_files": {
+                "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+                "readiness": "evidence/post-rc-local-endpoint-readiness-preflight-qwen3-6-27b/local_endpoint_readiness_gate_report.json",
+                "canary": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_canary_gate_report.json",
+                "mapping": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_response_mapping_report.json",
+                "redaction": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_redaction_report.json"
+              }
+            }
+          },
+          {
+            "name": "no-tool multi-model qwen evidence passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "models": [
+                "qwen3:14b",
+                "qwen3.6:27b"
+              ]
+            }
+          },
+          {
+            "name": "bounded local redteam passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "total_cases": 8,
+              "cases_failed": 0
+            }
+          },
+          {
+            "name": "dependency-backed Ollama adapter conformance passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "dependency_backed_validation_executed": true
+            }
+          },
+          {
+            "name": "local Ollama reasoning response provider capability evidence reviewed",
+            "status": "pass",
+            "detail": {
+              "dependency_ready": true,
+              "dry_run_passed": true,
+              "ollama_adapter_loaded": true,
+              "provider_matrix_ollama_present": true,
+              "no_tool_mapping_reviewed": true,
+              "reasoning_control_mapping_reviewed": true,
+              "structured_output_mapping_reviewed": true,
+              "tool_calling_mock_mapping_reviewed": true,
+              "redaction_storage_boundary_reviewed": true,
+              "local_redteam_coverage_reviewed": true,
+              "protected_paths_unmodified": true
+            }
+          },
+          {
+            "name": "local redaction and storage audit passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "findings_count": 0
+            }
+          },
+          {
+            "name": "v36 baseline dependency and compare passed",
+            "status": "pass",
+            "detail": {
+              "dependency_status": "ready_after_repair",
+              "compare_status": "pass",
+              "baseline_refresh_approved": true
+            }
+          },
+          {
+            "name": ".DS_Store snapshot exclusion policy enforced",
+            "status": "pass",
+            "detail": {
+              "id": "v36-baseline-os-metadata-exclusion",
+              "excluded_basenames": [
+                ".DS_Store"
+              ],
+              "excluded_current_paths": [
+                "prompt-stack/v36/.DS_Store",
+                "prompt-stack/v36/codex/.DS_Store"
+              ],
+              "source_files_removed": false,
+              "reason": "macOS Finder metadata is not part of the v36 source baseline contract and is excluded from snapshot inventory/checksums only."
+            }
+          },
+          {
+            "name": "final evidence completeness passed",
+            "status": "pass",
+            "detail": {
+              "missing_evidence": []
+            }
+          },
+          {
+            "name": "protected paths remain inside allowed boundary",
+            "status": "pass",
+            "detail": {
+              "exit_code": 0,
+              "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+              "stderr": ""
+            }
+          },
+          {
+            "name": "no new external or local generation in final gate",
+            "status": "pass",
+            "detail": {
+              "openai_model_api_call": false,
+              "openai_provider_call": false,
+              "telemetry_sink_write": false,
+              "local_endpoint_probe": false,
+              "local_model_execution": false,
+              "new_local_generation_calls": 0
+            }
+          },
+          {
+            "name": "no additional v36 baseline refresh in final gate",
+            "status": "pass",
+            "detail": {
+              "evidence_v36_baseline_refreshed_in_this_stage": false,
+              "additional_v36_baseline_refresh": false
+            }
+          }
+        ],
+        "failures": [],
+        "claims_allowed": [
+          "local-model-verified",
+          "post-stable-local-model-verification-final-gate-passed",
+          "post-stable-local-model-verified-claim-enabled",
+          "post-stable-local-model-verification-owner-final-decision-recorded",
+          "post-stable-local-model-verification-final-decision-recorded",
+          "post-stable-local-model-verification-evidence-accepted"
+        ],
+        "claims_blocked": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "reason": "Owner final decision is recorded and all local Ollama qwen evidence gates passed. The allowed claim is limited to local-model-verified for the post-stable Ollama qwen local lane."
+      }
+    },
+    {
+      "name": "no additional v36 refresh or .DS_Store deletion in final gate",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "local_model_verification_final_gate_passed": true,
+        "final_gate_executed": true,
+        "approval_phrase_verified": true,
+        "approval_source": "existing_final_decision_record",
+        "can_claim_local_model_verified": true,
+        "local_model_verified_allowed": true,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false,
+        "can_enter_stable_release": false,
+        "why_not_stable": "This gate only enables the scoped local-model-verified claim; provider, adapter, production, stable, and release gates remain separate.",
+        "qwen3_14b_no_tool_review_passed": true,
+        "qwen3_6_27b_no_tool_review_passed": true,
+        "multimodel_no_tool_comparison_passed": true,
+        "local_redteam_bounded_smoke_passed": true,
+        "adapter_conformance_dependency_backed_validation_passed": true,
+        "local_ollama_adapter_conformance_reviewed": true,
+        "storage_redaction_audit_passed": true,
+        "v36_baseline_compare_passed": true,
+        "ds_store_exclusion_policy_enforced": true,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "new_local_model_execution": false,
+        "new_local_generation_calls": 0,
+        "local_redteam_rerun": false,
+        "adapter_conformance_rerun_with_generation": false,
+        "production_deployment": false,
+        "release_gate_rerun": false,
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "additional_v36_baseline_refresh": false,
+        "ds_store_deletion_from_v36": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": true,
+        "evidence_v36_baseline_modified_by_owner_approved_refresh": true,
+        "node_modules_modified": false,
+        "evidence_summary_status": "pass",
+        "evidence_completeness_status": "pass",
+        "checks": [
+          {
+            "name": "exact owner approval phrase verified",
+            "status": "pass",
+            "detail": {
+              "approval_phrase_verified": true,
+              "approval_source": "existing_final_decision_record"
+            }
+          },
+          {
+            "name": "final gate preflight is owner-decision-ready",
+            "status": "pass",
+            "detail": {
+              "preflight_status": "ready_for_owner_decision_to_claim_local_model_verified",
+              "blocked_by": [
+                "owner_final_decision"
+              ]
+            }
+          },
+          {
+            "name": "owner decision packet is owner-decision-ready",
+            "status": "pass",
+            "detail": {
+              "packet_status": "ready_for_owner_decision_to_claim_local_model_verified",
+              "remaining_blockers": [
+                {
+                  "id": "owner_final_decision",
+                  "status": "required",
+                  "blocks_final_gate": true
+                }
+              ]
+            }
+          },
+          {
+            "name": "evidence bundle passed",
+            "status": "pass",
+            "detail": {
+              "bundle_status": "pass"
+            }
+          },
+          {
+            "name": "qwen3:14b no-tool review passed",
+            "status": "pass",
+            "detail": {
+              "model": "qwen3:14b",
+              "provider": "ollama",
+              "readiness_preflight_passed": true,
+              "local_no_tool_canary_passed": true,
+              "result_review_passed": true,
+              "cases_total": 2,
+              "cases_passed": 2,
+              "cases_failed": 0,
+              "final_content_non_empty": true,
+              "tool_calling_used": false,
+              "structured_output_used": false,
+              "think_false_applied": true,
+              "reasoning_effort_none_applied": false,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redaction_passed": true,
+              "output_text_hashes": [
+                {
+                  "case_id": "local-no-tool-basic-001",
+                  "hash": "d4217439960414107cd17956859e2e060c2dadf34e941b3c8aaa84a4092ca4d8",
+                  "finish_reason": "length"
+                },
+                {
+                  "case_id": "local-no-tool-boundary-001",
+                  "hash": "6990b5f254e4f99d62de488380fe7927b1594e6c588ede6c2e68526c22b33bfb",
+                  "finish_reason": "stop"
+                }
+              ],
+              "completion_tokens": [
+                256,
+                170
+              ],
+              "completion_tokens_total": 426,
+              "source_files": {
+                "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+                "readiness": "evidence/post-rc-local-endpoint-readiness-preflight/local_endpoint_readiness_gate_report.json",
+                "canary": "evidence/post-rc-local-no-tool-canary/local_no_tool_canary_gate_report.json",
+                "mapping": "evidence/post-rc-local-no-tool-canary/local_response_mapping_report.json",
+                "redaction": "evidence/post-rc-local-no-tool-canary/local_no_tool_redaction_report.json"
+              }
+            }
+          },
+          {
+            "name": "qwen3.6:27b no-tool review passed",
+            "status": "pass",
+            "detail": {
+              "model": "qwen3.6:27b",
+              "provider": "ollama",
+              "readiness_preflight_passed": true,
+              "local_no_tool_canary_passed": true,
+              "result_review_passed": true,
+              "cases_total": 2,
+              "cases_passed": 2,
+              "cases_failed": 0,
+              "final_content_non_empty": true,
+              "tool_calling_used": false,
+              "structured_output_used": false,
+              "think_false_applied": true,
+              "reasoning_effort_none_applied": true,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redaction_passed": true,
+              "output_text_hashes": [
+                {
+                  "case_id": "local-no-tool-basic-001",
+                  "hash": "031bb82806c6728514f7f63f5e0de48172ca10f494d89947c3b52dac6612f34b",
+                  "finish_reason": "stop"
+                },
+                {
+                  "case_id": "local-no-tool-boundary-001",
+                  "hash": "89921e15623dfc44e2afdf0d31d423e097f0fa5fdb2352536209d2ab3d28f70c",
+                  "finish_reason": "stop"
+                }
+              ],
+              "completion_tokens": [
+                9,
+                6
+              ],
+              "completion_tokens_total": 15,
+              "source_files": {
+                "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+                "readiness": "evidence/post-rc-local-endpoint-readiness-preflight-qwen3-6-27b/local_endpoint_readiness_gate_report.json",
+                "canary": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_canary_gate_report.json",
+                "mapping": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_response_mapping_report.json",
+                "redaction": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_redaction_report.json"
+              }
+            }
+          },
+          {
+            "name": "no-tool multi-model qwen evidence passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "models": [
+                "qwen3:14b",
+                "qwen3.6:27b"
+              ]
+            }
+          },
+          {
+            "name": "bounded local redteam passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "total_cases": 8,
+              "cases_failed": 0
+            }
+          },
+          {
+            "name": "dependency-backed Ollama adapter conformance passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "dependency_backed_validation_executed": true
+            }
+          },
+          {
+            "name": "local Ollama reasoning response provider capability evidence reviewed",
+            "status": "pass",
+            "detail": {
+              "dependency_ready": true,
+              "dry_run_passed": true,
+              "ollama_adapter_loaded": true,
+              "provider_matrix_ollama_present": true,
+              "no_tool_mapping_reviewed": true,
+              "reasoning_control_mapping_reviewed": true,
+              "structured_output_mapping_reviewed": true,
+              "tool_calling_mock_mapping_reviewed": true,
+              "redaction_storage_boundary_reviewed": true,
+              "local_redteam_coverage_reviewed": true,
+              "protected_paths_unmodified": true
+            }
+          },
+          {
+            "name": "local redaction and storage audit passed",
+            "status": "pass",
+            "detail": {
+              "status": "pass",
+              "findings_count": 0
+            }
+          },
+          {
+            "name": "v36 baseline dependency and compare passed",
+            "status": "pass",
+            "detail": {
+              "dependency_status": "ready_after_repair",
+              "compare_status": "pass",
+              "baseline_refresh_approved": true
+            }
+          },
+          {
+            "name": ".DS_Store snapshot exclusion policy enforced",
+            "status": "pass",
+            "detail": {
+              "id": "v36-baseline-os-metadata-exclusion",
+              "excluded_basenames": [
+                ".DS_Store"
+              ],
+              "excluded_current_paths": [
+                "prompt-stack/v36/.DS_Store",
+                "prompt-stack/v36/codex/.DS_Store"
+              ],
+              "source_files_removed": false,
+              "reason": "macOS Finder metadata is not part of the v36 source baseline contract and is excluded from snapshot inventory/checksums only."
+            }
+          },
+          {
+            "name": "final evidence completeness passed",
+            "status": "pass",
+            "detail": {
+              "missing_evidence": []
+            }
+          },
+          {
+            "name": "protected paths remain inside allowed boundary",
+            "status": "pass",
+            "detail": {
+              "exit_code": 0,
+              "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+              "stderr": ""
+            }
+          },
+          {
+            "name": "no new external or local generation in final gate",
+            "status": "pass",
+            "detail": {
+              "openai_model_api_call": false,
+              "openai_provider_call": false,
+              "telemetry_sink_write": false,
+              "local_endpoint_probe": false,
+              "local_model_execution": false,
+              "new_local_generation_calls": 0
+            }
+          },
+          {
+            "name": "no additional v36 baseline refresh in final gate",
+            "status": "pass",
+            "detail": {
+              "evidence_v36_baseline_refreshed_in_this_stage": false,
+              "additional_v36_baseline_refresh": false
+            }
+          }
+        ],
+        "failures": [],
+        "claims_allowed": [
+          "local-model-verified",
+          "post-stable-local-model-verification-final-gate-passed",
+          "post-stable-local-model-verified-claim-enabled",
+          "post-stable-local-model-verification-owner-final-decision-recorded",
+          "post-stable-local-model-verification-final-decision-recorded",
+          "post-stable-local-model-verification-evidence-accepted"
+        ],
+        "claims_blocked": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "reason": "Owner final decision is recorded and all local Ollama qwen evidence gates passed. The allowed claim is limited to local-model-verified for the post-stable Ollama qwen local lane."
+      }
+    },
+    {
+      "name": "v36 compare still passes",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "current_snapshot_mismatch_count": 0,
+        "disallowed_snapshot_path_count": 0
+      }
+    },
+    {
+      "name": "protected v36 dist node_modules paths clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "baseline modifications are prior owner-approved refresh only",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "blocker update keeps non-local strong claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "updated",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "previous_status": "ready_for_owner_decision_to_claim_local_model_verified",
+        "new_status": "local_model_verified_allowed_provider_diverse_still_blocked",
+        "unblocks": [
+          "local-model-verified"
+        ],
+        "still_blocks": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "next_required_actions": [
+          "define provider-diverse path",
+          "define provider-verified gate",
+          "define adapter-checked gate",
+          "keep production-ready/stable scoped claims separate"
+        ]
+      }
+    },
+    {
+      "name": "no unresolved final gate items remain",
+      "status": "pass",
+      "detail": {
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "prohibited claim scan pass",
+      "status": "pass",
+      "detail": {
+        "cli_status": "pass",
+        "direct_status": "pass",
+        "matches": 0
+      }
+    },
+    {
+      "name": "still-blocked claim positive matches absent",
+      "status": "pass",
+      "detail": {
+        "matches": []
+      }
+    }
+  ],
+  "failures": []
+}

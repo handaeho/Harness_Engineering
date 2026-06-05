@@ -1,0 +1,30 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-export-general-bare-claim-final-blocker-matrix",
+  "next_actions": [
+    {
+      "claim": "provider-verified",
+      "next_action": "Run a separately approved bare provider-verified coverage completion and final gate."
+    },
+    {
+      "claim": "adapter-checked",
+      "next_action": "Complete full adapter coverage including out-of-scope adapters, then run a separately approved final gate."
+    },
+    {
+      "claim": "production-ready",
+      "next_action": "After bare provider/adapter gates pass, run a separately approved general production readiness gate."
+    },
+    {
+      "claim": "stable",
+      "next_action": "After bare production readiness passes, run a separately approved stability gate."
+    },
+    {
+      "claim": "release-gated",
+      "next_action": "Run a separately approved release gate rerun."
+    },
+    {
+      "claim": "bare release-gated",
+      "next_action": "Run a separately approved bare release gate decision process."
+    }
+  ]
+}

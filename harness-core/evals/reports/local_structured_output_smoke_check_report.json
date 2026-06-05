@@ -1,0 +1,162 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary",
+  "checks": [
+    {
+      "name": "local_structured_output_smoke_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_structured_output_response_mapping.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_structured_output_redaction_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_structured_output_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_structured_output_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_structured_output_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stage matches",
+      "status": "pass",
+      "detail": {
+        "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+      }
+    },
+    {
+      "name": "status pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "new local generation call count bounded",
+      "status": "pass",
+      "detail": {
+        "calls": 4
+      }
+    },
+    {
+      "name": "models covered",
+      "status": "pass",
+      "detail": {
+        "models": [
+          "qwen3:14b",
+          "qwen3.6:27b"
+        ]
+      }
+    },
+    {
+      "name": "cases passed",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "all json parse checks passed",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "raw request/response not stored",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redaction passed",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "protected paths unmodified",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "strong claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary",
+        "structured_output_smoke_allowed": true,
+        "local_model_verified_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "schema_output_verified_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "allowed_claims": [
+          "post-stable-local-structured-output-smoke-canary-completed",
+          "post-stable-local-structured-output-json-smoke-checked",
+          "post-stable-local-structured-output-redaction-checked"
+        ],
+        "blocked_claims": [
+          "local-model-verified",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "schema-output-verified",
+          "production-ready",
+          "stable",
+          "release-gated"
+        ]
+      }
+    },
+    {
+      "name": "prohibited claim scan pass",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "local blocked positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": []
+      }
+    }
+  ],
+  "unresolved_items_count": 0,
+  "can_proceed_to_tool_calling_mock_smoke": true,
+  "new_local_generation_calls": 4,
+  "claims_allowed": [
+    "post-stable-local-structured-output-smoke-canary-completed",
+    "post-stable-local-structured-output-json-smoke-checked",
+    "post-stable-local-structured-output-redaction-checked"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "schema-output-verified",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "failures": []
+}

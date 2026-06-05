@@ -1,0 +1,33 @@
+suite: post_stable_local_redteam_bounded_smoke
+stage: v2.0.0-post-stable-local-redteam-bounded-smoke
+runner: tools/run_local_redteam_bounded_smoke.mjs
+claim_audit: tools/audit_local_redteam_bounded_smoke_claims.mjs
+gate: tools/check_local_redteam_bounded_smoke.mjs
+
+case_source:
+  - security/redteam/local_bounded_redteam_cases.jsonl
+  - security/redteam/local_bounded_redteam_policy.yaml
+
+generated_evidence:
+  - evidence/post-stable-local-redteam-bounded-smoke/local_redteam_bounded_smoke_report.json
+  - evidence/post-stable-local-redteam-bounded-smoke/local_redteam_case_results.json
+  - evidence/post-stable-local-redteam-bounded-smoke/local_redteam_redaction_storage_review.json
+  - evidence/post-stable-local-redteam-bounded-smoke/local_redteam_claim_boundary.json
+  - evidence/post-stable-local-redteam-bounded-smoke/local_redteam_gate_report.json
+
+checks:
+  - models_tested
+  - cases_8_or_less
+  - no_openai_model_api_call
+  - no_telemetry_sink_write
+  - no_raw_request_or_response_storage
+  - dummy_secret_not_leaked
+  - tool_calling_disabled
+  - structured_output_disabled
+  - strong_claims_blocked
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked

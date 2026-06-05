@@ -1,0 +1,40 @@
+stage: v2.0.0-post-stable-local-no-tool-canary-result-review-qwen3-14b
+
+approved_actions:
+  local_no_tool_canary_result_review: true
+  local_readiness_evidence_indexing: true
+  qwen3_thinking_behavior_documentation: true
+  storage_redaction_review: true
+  claim_boundary_audit: true
+  qwen3_30b_comparison_precondition_draft: true
+
+forbidden_execution:
+  openai_model_api_call: true
+  openai_provider_call: true
+  telemetry_sink_write: true
+  tool_calling_canary: true
+  structured_output_canary: true
+  local_redteam_execution: true
+  production_deployment: true
+  release_gate_rerun: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+  raw_request_storage: true
+  raw_response_storage: true
+
+claims_allowed:
+  - post-stable-local-endpoint-readiness-preflight-passed
+  - post-stable-local-no-tool-canary-qwen3-14b-passed
+  - post-stable-local-no-tool-canary-qwen3-14b-result-reviewed
+  - post-stable-qwen3-thinking-behavior-recorded
+  - post-stable-local-no-tool-storage-redaction-reviewed
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

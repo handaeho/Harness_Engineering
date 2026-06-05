@@ -1,0 +1,109 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-local-no-tool-canary",
+  "provider": "ollama",
+  "model_name": "qwen3.6:27b",
+  "endpoint_url": "http://127.0.0.1:11434/v1",
+  "local_endpoint_probe": true,
+  "local_model_execution": true,
+  "external_provider_call": false,
+  "telemetry_sink_write": false,
+  "synthetic_trace_generation": false,
+  "tools_used": false,
+  "structured_output_used": false,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "secrets_logged": false,
+  "cases_total": 2,
+  "cases_passed": 2,
+  "cases_failed": 0,
+  "trace_events_total": 4,
+  "redaction_passed": true,
+  "checks": [
+    {
+      "name": "readiness preflight gate passed",
+      "status": "pass",
+      "detail": {
+        "readiness_status": "pass",
+        "readiness_stage": "v2.0.0-post-rc-local-endpoint-readiness-preflight"
+      }
+    },
+    {
+      "name": "readiness stage matches expected stage",
+      "status": "pass",
+      "detail": {
+        "readiness_stage": "v2.0.0-post-rc-local-endpoint-readiness-preflight"
+      }
+    },
+    {
+      "name": "provider type is supported",
+      "status": "pass",
+      "detail": {
+        "provider": "ollama"
+      }
+    },
+    {
+      "name": "model name is present",
+      "status": "pass",
+      "detail": {
+        "model_name_present": true
+      }
+    },
+    {
+      "name": "endpoint URL parses",
+      "status": "pass",
+      "detail": {
+        "endpoint_url_present": true
+      }
+    },
+    {
+      "name": "endpoint is localhost-only",
+      "status": "pass",
+      "detail": {
+        "endpoint_host": "127.0.0.1"
+      }
+    },
+    {
+      "name": "auth token presence matches auth requirement",
+      "status": "pass",
+      "detail": {
+        "auth_required": "no",
+        "auth_token_present": false
+      }
+    },
+    {
+      "name": "timeout is bounded",
+      "status": "pass",
+      "detail": {
+        "timeout_ms": 30000
+      }
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "local-no-tool-basic-001",
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "case_id": "local-no-tool-boundary-001",
+      "status": "pass",
+      "failures": []
+    }
+  ],
+  "claims_allowed": [
+    "post-rc-local-no-tool-canary-completed",
+    "post-rc-local-model-no-tool-path-checked",
+    "post-rc-local-redaction-checked"
+  ],
+  "claims_blocked": [
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "failures": []
+}

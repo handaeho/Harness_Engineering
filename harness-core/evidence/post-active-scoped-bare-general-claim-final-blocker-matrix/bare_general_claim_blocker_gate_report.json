@@ -1,0 +1,545 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-active-scoped-bare-general-claim-final-blocker-matrix",
+  "unresolved_items_count": 0,
+  "checks": [
+    {
+      "name": "matrix exists",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-active-scoped-bare-general-claim-final-blocker-matrix",
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "blockers": {
+          "provider_verified": [
+            "bare provider verification final gate not run",
+            "active provider lanes verified is scoped and does not imply bare provider-verified"
+          ],
+          "adapter_checked": [
+            "bare adapter-checked final gate not run",
+            "active adapters checked is scoped and does not imply bare adapter-checked",
+            "vLLM/full adapter coverage remains out of scope"
+          ],
+          "production_ready": [
+            "active scoped production-ready is scoped and does not imply bare production-ready",
+            "bare provider-verified and adapter-checked remain blocked"
+          ],
+          "stable": [
+            "active scoped stable is scoped and does not imply bare stable",
+            "bare production-ready remains blocked"
+          ],
+          "release_gated": [
+            "release gate rerun is out of scope",
+            "only scoped release gate claims remain allowed"
+          ]
+        },
+        "rows": [
+          {
+            "claim": "provider-verified",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "bare provider verification final gate not run",
+              "active provider lanes verified is scoped and does not imply bare provider-verified"
+            ],
+            "hard_stop_now": [
+              "OpenAI provider rerun is not approved",
+              "bare/general claim approval is not allowed in this stage"
+            ],
+            "future_work": [
+              "Define and approve bare provider-verified gate",
+              "Run required provider evidence under separate approval"
+            ]
+          },
+          {
+            "claim": "adapter-checked",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "bare adapter-checked final gate not run",
+              "active adapters checked is scoped and does not imply bare adapter-checked",
+              "vLLM/full adapter coverage remains out of scope"
+            ],
+            "hard_stop_now": [
+              "vLLM execution is not approved",
+              "bare/general claim approval is not allowed in this stage"
+            ],
+            "future_work": [
+              "Complete full adapter conformance",
+              "Run vLLM or explicitly replace the adapter coverage policy"
+            ]
+          },
+          {
+            "claim": "production-ready",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "active scoped production-ready is scoped and does not imply bare production-ready",
+              "bare provider-verified and adapter-checked remain blocked"
+            ],
+            "hard_stop_now": [
+              "bare production-ready claim is not approved",
+              "release gate rerun is not approved"
+            ],
+            "future_work": [
+              "Resolve bare provider and adapter claims",
+              "Run general production-ready decision gate under separate approval"
+            ]
+          },
+          {
+            "claim": "stable",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "active scoped stable is scoped and does not imply bare stable",
+              "bare production-ready remains blocked"
+            ],
+            "hard_stop_now": [
+              "bare stable claim is not approved",
+              "release gate rerun is not approved"
+            ],
+            "future_work": [
+              "Resolve bare production readiness",
+              "Run general stable decision gate under separate approval"
+            ]
+          },
+          {
+            "claim": "release-gated",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "release gate rerun is out of scope",
+              "only scoped release gate claims remain allowed"
+            ],
+            "hard_stop_now": [
+              "release gate rerun is explicitly forbidden in this stage"
+            ],
+            "future_work": [
+              "Run separately approved general release gate after prerequisites pass"
+            ]
+          },
+          {
+            "claim": "bare release-gated",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "bare release gate decision record missing",
+              "general release gate rerun is out of scope"
+            ],
+            "hard_stop_now": [
+              "bare release-gated claim is not approved"
+            ],
+            "future_work": [
+              "Run separately approved bare release gate decision process"
+            ]
+          }
+        ],
+        "weak_claim_recorded": "post-active-scoped-bare-general-blocker-matrix-recorded",
+        "unresolved_items_count": 0,
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": true,
+        "post_export_active_adapters_checked_allowed": true,
+        "post_export_active_scoped_production_ready_allowed": true,
+        "post_export_active_scoped_stable_allowed": true
+      }
+    },
+    {
+      "name": "all five bare/general booleans false",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-active-scoped-bare-general-claim-final-blocker-matrix",
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "blockers": {
+          "provider_verified": [
+            "bare provider verification final gate not run",
+            "active provider lanes verified is scoped and does not imply bare provider-verified"
+          ],
+          "adapter_checked": [
+            "bare adapter-checked final gate not run",
+            "active adapters checked is scoped and does not imply bare adapter-checked",
+            "vLLM/full adapter coverage remains out of scope"
+          ],
+          "production_ready": [
+            "active scoped production-ready is scoped and does not imply bare production-ready",
+            "bare provider-verified and adapter-checked remain blocked"
+          ],
+          "stable": [
+            "active scoped stable is scoped and does not imply bare stable",
+            "bare production-ready remains blocked"
+          ],
+          "release_gated": [
+            "release gate rerun is out of scope",
+            "only scoped release gate claims remain allowed"
+          ]
+        },
+        "rows": [
+          {
+            "claim": "provider-verified",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "bare provider verification final gate not run",
+              "active provider lanes verified is scoped and does not imply bare provider-verified"
+            ],
+            "hard_stop_now": [
+              "OpenAI provider rerun is not approved",
+              "bare/general claim approval is not allowed in this stage"
+            ],
+            "future_work": [
+              "Define and approve bare provider-verified gate",
+              "Run required provider evidence under separate approval"
+            ]
+          },
+          {
+            "claim": "adapter-checked",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "bare adapter-checked final gate not run",
+              "active adapters checked is scoped and does not imply bare adapter-checked",
+              "vLLM/full adapter coverage remains out of scope"
+            ],
+            "hard_stop_now": [
+              "vLLM execution is not approved",
+              "bare/general claim approval is not allowed in this stage"
+            ],
+            "future_work": [
+              "Complete full adapter conformance",
+              "Run vLLM or explicitly replace the adapter coverage policy"
+            ]
+          },
+          {
+            "claim": "production-ready",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "active scoped production-ready is scoped and does not imply bare production-ready",
+              "bare provider-verified and adapter-checked remain blocked"
+            ],
+            "hard_stop_now": [
+              "bare production-ready claim is not approved",
+              "release gate rerun is not approved"
+            ],
+            "future_work": [
+              "Resolve bare provider and adapter claims",
+              "Run general production-ready decision gate under separate approval"
+            ]
+          },
+          {
+            "claim": "stable",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "active scoped stable is scoped and does not imply bare stable",
+              "bare production-ready remains blocked"
+            ],
+            "hard_stop_now": [
+              "bare stable claim is not approved",
+              "release gate rerun is not approved"
+            ],
+            "future_work": [
+              "Resolve bare production readiness",
+              "Run general stable decision gate under separate approval"
+            ]
+          },
+          {
+            "claim": "release-gated",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "release gate rerun is out of scope",
+              "only scoped release gate claims remain allowed"
+            ],
+            "hard_stop_now": [
+              "release gate rerun is explicitly forbidden in this stage"
+            ],
+            "future_work": [
+              "Run separately approved general release gate after prerequisites pass"
+            ]
+          },
+          {
+            "claim": "bare release-gated",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "bare release gate decision record missing",
+              "general release gate rerun is out of scope"
+            ],
+            "hard_stop_now": [
+              "bare release-gated claim is not approved"
+            ],
+            "future_work": [
+              "Run separately approved bare release gate decision process"
+            ]
+          }
+        ],
+        "weak_claim_recorded": "post-active-scoped-bare-general-blocker-matrix-recorded",
+        "unresolved_items_count": 0,
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": true,
+        "post_export_active_adapters_checked_allowed": true,
+        "post_export_active_scoped_production_ready_allowed": true,
+        "post_export_active_scoped_stable_allowed": true
+      }
+    },
+    {
+      "name": "details recorded",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-active-scoped-bare-general-claim-final-blocker-matrix",
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "blockers": {
+          "provider_verified": [
+            "bare provider verification final gate not run",
+            "active provider lanes verified is scoped and does not imply bare provider-verified"
+          ],
+          "adapter_checked": [
+            "bare adapter-checked final gate not run",
+            "active adapters checked is scoped and does not imply bare adapter-checked",
+            "vLLM/full adapter coverage remains out of scope"
+          ],
+          "production_ready": [
+            "active scoped production-ready is scoped and does not imply bare production-ready",
+            "bare provider-verified and adapter-checked remain blocked"
+          ],
+          "stable": [
+            "active scoped stable is scoped and does not imply bare stable",
+            "bare production-ready remains blocked"
+          ],
+          "release_gated": [
+            "release gate rerun is out of scope",
+            "only scoped release gate claims remain allowed"
+          ]
+        },
+        "rows": [
+          {
+            "claim": "provider-verified",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "bare provider verification final gate not run",
+              "active provider lanes verified is scoped and does not imply bare provider-verified"
+            ],
+            "hard_stop_now": [
+              "OpenAI provider rerun is not approved",
+              "bare/general claim approval is not allowed in this stage"
+            ],
+            "future_work": [
+              "Define and approve bare provider-verified gate",
+              "Run required provider evidence under separate approval"
+            ]
+          },
+          {
+            "claim": "adapter-checked",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "bare adapter-checked final gate not run",
+              "active adapters checked is scoped and does not imply bare adapter-checked",
+              "vLLM/full adapter coverage remains out of scope"
+            ],
+            "hard_stop_now": [
+              "vLLM execution is not approved",
+              "bare/general claim approval is not allowed in this stage"
+            ],
+            "future_work": [
+              "Complete full adapter conformance",
+              "Run vLLM or explicitly replace the adapter coverage policy"
+            ]
+          },
+          {
+            "claim": "production-ready",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "active scoped production-ready is scoped and does not imply bare production-ready",
+              "bare provider-verified and adapter-checked remain blocked"
+            ],
+            "hard_stop_now": [
+              "bare production-ready claim is not approved",
+              "release gate rerun is not approved"
+            ],
+            "future_work": [
+              "Resolve bare provider and adapter claims",
+              "Run general production-ready decision gate under separate approval"
+            ]
+          },
+          {
+            "claim": "stable",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "active scoped stable is scoped and does not imply bare stable",
+              "bare production-ready remains blocked"
+            ],
+            "hard_stop_now": [
+              "bare stable claim is not approved",
+              "release gate rerun is not approved"
+            ],
+            "future_work": [
+              "Resolve bare production readiness",
+              "Run general stable decision gate under separate approval"
+            ]
+          },
+          {
+            "claim": "release-gated",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "release gate rerun is out of scope",
+              "only scoped release gate claims remain allowed"
+            ],
+            "hard_stop_now": [
+              "release gate rerun is explicitly forbidden in this stage"
+            ],
+            "future_work": [
+              "Run separately approved general release gate after prerequisites pass"
+            ]
+          },
+          {
+            "claim": "bare release-gated",
+            "allowed": false,
+            "status": "blocked",
+            "missing_evidence": [
+              "bare release gate decision record missing",
+              "general release gate rerun is out of scope"
+            ],
+            "hard_stop_now": [
+              "bare release-gated claim is not approved"
+            ],
+            "future_work": [
+              "Run separately approved bare release gate decision process"
+            ]
+          }
+        ],
+        "weak_claim_recorded": "post-active-scoped-bare-general-blocker-matrix-recorded",
+        "unresolved_items_count": 0,
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": true,
+        "post_export_active_adapters_checked_allowed": true,
+        "post_export_active_scoped_production_ready_allowed": true,
+        "post_export_active_scoped_stable_allowed": true
+      }
+    },
+    {
+      "name": "boundary blocks claims",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-active-scoped-bare-general-claim-final-blocker-matrix",
+        "allowed_claims": [
+          "provider-diverse",
+          "local-model-verified",
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-adapters-checked",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-stable",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "allowed_scoped_claims": [
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-provider-lanes-verified-final-gate-passed",
+          "post-export-active-adapters-checked",
+          "post-export-active-adapters-checked-final-gate-passed",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-production-ready-final-gate-passed",
+          "post-export-active-scoped-stable",
+          "post-export-active-scoped-stable-final-gate-passed"
+        ],
+        "blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": true,
+        "post_export_active_adapters_checked_allowed": true,
+        "post_export_active_scoped_production_ready_allowed": true,
+        "post_export_active_scoped_stable_allowed": true,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    }
+  ],
+  "failures": [],
+  "new_local_model_execution": false,
+  "new_local_model_call_count": 0,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "post_export_active_provider_lanes_verified_allowed": true,
+  "post_export_active_adapters_checked_allowed": true,
+  "post_export_active_scoped_production_ready_allowed": true,
+  "post_export_active_scoped_stable_allowed": true,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false
+}

@@ -1,0 +1,43 @@
+suite: post_stable_local_no_tool_canary_qwen3_6_27b_result_review
+stage: v2.0.0-post-stable-local-no-tool-canary-result-review-qwen3-6-27b
+runner: tools/review_local_no_tool_canary_qwen3_6_27b.mjs
+gate: tools/check_local_no_tool_canary_qwen3_6_27b_result_review.mjs
+claim_audit: tools/audit_local_no_tool_canary_qwen3_6_27b_claims.mjs
+
+source_evidence:
+  - evidence/post-rc-local-endpoint-readiness-preflight-qwen3-6-27b/local_endpoint_readiness_gate_report.json
+  - evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_canary_gate_report.json
+  - evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_response_mapping_report.json
+  - evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_redaction_report.json
+
+generated_evidence:
+  - evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json
+  - evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/qwen3_6_27b_reasoning_control_record.json
+  - evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_storage_redaction_review.json
+  - evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_claim_boundary.json
+  - evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/multimodel_comparison_preconditions.json
+
+checks:
+  - readiness_preflight_passed
+  - local_no_tool_canary_passed
+  - cases_passed_2_of_2
+  - tool_calling_used_false
+  - structured_output_used_false
+  - think_false_applied
+  - reasoning_effort_none_applied
+  - reasoning_effort_nested_none_applied
+  - final_content_non_empty
+  - raw_request_not_stored
+  - raw_response_not_stored
+  - redaction_passed
+  - protected_paths_unmodified
+  - blocked_positive_claims_absent
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

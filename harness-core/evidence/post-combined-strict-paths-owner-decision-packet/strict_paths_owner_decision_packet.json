@@ -1,0 +1,51 @@
+{
+  "status": "keep_blocked_recommended",
+  "stage": "v2.0.0-post-combined-strict-paths-owner-decision-packet",
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "readiness": {
+    "provider_diverse": {
+      "status": "ready_for_owner_decision_to_claim_provider_diverse",
+      "ready_for_owner_decision": true,
+      "provider_diverse_allowed": false,
+      "blockers": [
+        "owner_final_decision_required",
+        "final_gate_not_executed"
+      ]
+    },
+    "provider_verified": {
+      "status": "blocked_by_missing_coverage",
+      "ready_for_owner_decision": false,
+      "provider_verified_allowed": false,
+      "blockers": [
+        "full_provider_level_verification_gate_not_executed",
+        "ollama_tool_calling_and_structured_output_coverage_missing",
+        "vllm_lane_not_verified",
+        "owner_final_decision_required"
+      ]
+    },
+    "adapter_checked": {
+      "status": "blocked_by_missing_coverage",
+      "ready_for_owner_decision": false,
+      "adapter_checked_allowed": false,
+      "blockers": [
+        "openai_general_adapter_gate_missing",
+        "ollama_tool_and_structured_mapping_coverage_missing",
+        "vllm_adapter_execution_missing",
+        "cross_adapter_contract_gate_missing",
+        "owner_final_decision_required"
+      ]
+    }
+  },
+  "owner_decision_options": [
+    "approve_provider_diversity_final_gate_execution",
+    "request_provider_level_verification_coverage",
+    "request_adapter_coverage_gate",
+    "keep_all_strict_paths_blocked"
+  ],
+  "recommended_action": "Keep strong claims blocked until owner decision and dedicated final gates."
+}

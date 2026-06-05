@@ -1,0 +1,24 @@
+stage: v2.0.0-post-stable-local-model-verification-evidence-bundle-draft
+
+allowed_scope_limited_claims:
+  - post-stable-local-model-verification-evidence-bundle-drafted
+  - post-stable-local-model-verification-gap-register-recorded
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+
+final_gate_status:
+  can_enter_final_gate: false
+  can_enter_final_gate_preflight: true
+  owner_decision_required: true
+
+remaining_blockers:
+  - local_redteam_coverage
+  - adapter_conformance_dependency_backed_validation
+  - owner_final_decision

@@ -1,0 +1,134 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-combined-provider-diverse-path-design",
+  "provider_diverse_path_design_passed": true,
+  "unresolved_items_count": 0,
+  "new_local_model_execution": false,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "checks": [
+    {
+      "name": "path design report exists",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-combined-provider-diverse-path-design",
+        "scope": "openai_only_post_rc_plus_ollama_qwen3_local_lane",
+        "provider_diverse_path_designed": true,
+        "ready_for_evidence_inventory": true,
+        "candidate_lanes": [
+          "openai_api_lane",
+          "ollama_qwen3_local_lane"
+        ],
+        "criteria_matrix_path": "evidence/post-combined-provider-diverse-path-design/provider_diverse_criteria_matrix.json",
+        "provider_lane_mapping_path": "evidence/post-combined-provider-diverse-path-design/provider_lane_mapping.json",
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "telemetry_sink_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "criteria matrix records no strong claim allowance",
+      "status": "pass",
+      "detail": {
+        "status": "drafted",
+        "provider_diverse_allowed": false,
+        "criteria": {
+          "at_least_two_distinct_provider_lanes": true,
+          "independent_execution_evidence_per_lane": true,
+          "capability_matrix_per_lane": true,
+          "redaction_storage_evidence_per_lane": true,
+          "claim_boundary_per_lane": true,
+          "owner_final_decision_required": true
+        },
+        "candidate_lanes": [
+          "openai_api_lane",
+          "ollama_qwen3_local_lane"
+        ],
+        "does_not_allow_provider_diverse_yet": true
+      }
+    },
+    {
+      "name": "candidate lanes are mapped",
+      "status": "pass",
+      "detail": {
+        "status": "drafted",
+        "stage": "v2.0.0-post-combined-provider-diverse-path-design",
+        "provider_diverse_allowed": false,
+        "lanes": [
+          {
+            "lane_id": "openai_api_lane",
+            "provider_family": "openai",
+            "source_archive": "evidence/post-rc-openai-only-stable-final-handoff/final_handoff_report.json",
+            "independent_execution_evidence_present": true
+          },
+          {
+            "lane_id": "ollama_qwen3_local_lane",
+            "provider_family": "ollama_local",
+            "source_archive": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_handoff_report.json",
+            "independent_execution_evidence_present": true
+          }
+        ],
+        "relationship": {
+          "distinct_provider_lanes_candidate": true,
+          "final_decision_required": true,
+          "current_stage_opens_strong_claims": false
+        }
+      }
+    },
+    {
+      "name": "claim boundary keeps strong claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-combined-provider-diverse-path-design",
+        "allowed_scoped_claims": [
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated",
+          "local-model-verified"
+        ],
+        "blocked_strong_claims": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false,
+        "owner_final_decision_required_for_strong_claims": true,
+        "provider_diverse_path_designed": true
+      }
+    }
+  ],
+  "failures": []
+}

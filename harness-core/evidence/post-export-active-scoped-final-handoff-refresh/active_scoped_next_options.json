@@ -1,0 +1,32 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-export-active-scoped-final-handoff-refresh",
+  "options": [
+    {
+      "id": "bare_provider_verified_path",
+      "description": "Complete and gate full provider-verified coverage under a separate approval.",
+      "opens_if_passed": [
+        "provider-verified"
+      ],
+      "requires_forbidden_in_this_stage": true
+    },
+    {
+      "id": "bare_adapter_checked_path",
+      "description": "Complete full adapter coverage, including currently excluded lanes, under a separate approval.",
+      "opens_if_passed": [
+        "adapter-checked"
+      ],
+      "requires_forbidden_in_this_stage": true
+    },
+    {
+      "id": "general_release_gate_path",
+      "description": "Run a separately approved general release gate after bare prerequisites pass.",
+      "opens_if_passed": [
+        "production-ready",
+        "stable",
+        "release-gated"
+      ],
+      "requires_forbidden_in_this_stage": true
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+stage: v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b
+
+approved_actions:
+  existing_no_tool_evidence_comparison: true
+  response_mapping_comparison: true
+  reasoning_control_comparison: true
+  storage_redaction_comparison: true
+  local_model_verification_precondition_draft: true
+
+forbidden_execution:
+  new_local_model_generation: true
+  openai_model_api_call: true
+  openai_provider_call: true
+  telemetry_sink_write: true
+  tool_calling_canary: true
+  structured_output_canary: true
+  model_pull: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+  raw_request_storage: true
+  raw_response_storage: true
+
+models:
+  - qwen3:14b
+  - qwen3.6:27b
+
+claims_allowed:
+  - post-stable-local-no-tool-multimodel-comparison-recorded
+  - post-stable-local-no-tool-qwen3-models-compared
+  - post-stable-local-no-tool-reasoning-control-compared
+  - post-stable-local-no-tool-storage-redaction-compared
+  - post-stable-local-model-verification-preconditions-drafted
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

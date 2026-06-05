@@ -1,0 +1,32 @@
+stage: v2.0.0-post-stable-local-model-verification-final-gate
+approved_actions:
+  owner_final_decision_record: true
+  local_model_verification_final_gate_evaluation: true
+  local_model_verified_claim_boundary_update: true
+  evidence_summary_update: true
+  final_evidence_completeness_update: true
+forbidden_execution:
+  openai_model_api_call: true
+  openai_provider_call: true
+  telemetry_sink_write: true
+  local_endpoint_probe: true
+  local_model_execution_in_this_stage: true
+  new_local_generation_call_in_this_stage: true
+  local_redteam_rerun: true
+  adapter_conformance_rerun_with_generation: true
+  production_deployment: true
+  release_gate_rerun: true
+  evidence_reference_baseline_refresh: true
+  ds_store_deletion_from_reference_baseline: true
+  reference_baseline_modification: true
+  dist_modification: true
+claims_conditionally_allowed:
+  - local-model-verified
+claims_not_allowed:
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated

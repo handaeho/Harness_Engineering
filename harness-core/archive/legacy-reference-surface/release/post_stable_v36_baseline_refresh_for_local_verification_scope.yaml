@@ -1,0 +1,21 @@
+stage: v2.0.0-post-stable-v36-baseline-refresh-for-local-model-verification-after-owner-approval
+approved_actions:
+  owner_approval_validation: true
+  v36_baseline_snapshot_refresh: true
+  file_inventory_refresh: true
+  checksum_refresh: true
+  compare_v36_baseline_rerun: true
+  local_verification_dependency_gate_rerun: true
+forbidden_actions:
+  v36_modification: true
+  dist_modification: true
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  local_model_generation: true
+  local_model_verified_claim: true
+  provider_diverse_claim: true
+  provider_verified_claim: true
+  adapter_checked_claim: true
+  production_ready_claim: true
+  stable_claim: true
+  bare_release_gated_claim: true

@@ -1,0 +1,54 @@
+stage: v2.0.0-rc.1-release-gate-actual-openai-scope-preflight
+
+approved_actions:
+  release_gate_actual_preflight: true
+  rc1_openai_scope_evidence_readiness_check: true
+  approval_gate_creation: true
+  release_command_plan_generation: true
+  rollback_readiness_check: true
+  owner_action_readiness_check: true
+  local_endpoint_deferral_confirmation: true
+  provider_diversity_deferral_confirmation: true
+  claim_boundary_audit: true
+  release_decision_record_preflight: true
+
+forbidden_execution:
+  openai_provider_call: true
+  redteam_rerun: true
+  containment_rerun: true
+  local_model_execution: true
+  local_endpoint_probe: true
+  telemetry_connection: true
+  telemetry_sink_write: true
+  release_gate_actual_execution: true
+  production_deployment: true
+  stable_release_claim: true
+  release_gated_claim: true
+  production_ready_claim: true
+  production_monitored_claim: true
+  provider_diverse_claim: true
+  provider_verified_claim: true
+  adapter_checked_claim: true
+  local_model_verified_claim: true
+  dist_modification: true
+  reference_baseline_modification: true
+
+claims_allowed:
+  - rc1-release-gate-actual-preflight-completed
+  - rc1-release-gate-approval-packet-generated
+  - rc1-release-gate-command-plan-drafted
+  - rc1-rollback-readiness-checked
+  - rc1-owner-action-readiness-checked
+  - rc1-local-endpoint-deferral-confirmed
+  - rc1-provider-diversity-deferral-confirmed
+
+claims_not_allowed:
+  - stable
+  - release-gated
+  - production-ready
+  - production-monitored
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - integration-verified

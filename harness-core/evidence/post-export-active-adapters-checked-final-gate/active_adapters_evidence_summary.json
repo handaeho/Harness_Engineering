@@ -1,0 +1,33 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-post-export-active-adapters-checked-final-gate",
+  "active_adapters": [
+    "openai",
+    "ollama"
+  ],
+  "excluded_adapters": [
+    "vllm"
+  ],
+  "criteria": [
+    {
+      "id": "ollama_structured_output_smoke",
+      "passed": false,
+      "status": "partial"
+    },
+    {
+      "id": "ollama_tool_calling_mock_smoke",
+      "passed": true,
+      "status": "pass"
+    },
+    {
+      "id": "ollama_replay_regression_smoke",
+      "passed": false,
+      "status": "partial"
+    },
+    {
+      "id": "cross_adapter_contract_dry_run",
+      "passed": false,
+      "status": "blocked_by_cross_adapter_gaps"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "status": "blocked_by_active_provider_lane_gaps",
+  "stage": "v2.0.0-post-export-active-provider-lanes-verified-final-gate",
+  "final_gate_executed": false,
+  "post_export_active_provider_lanes_verified_allowed": false,
+  "scoped_claim_allowed": null,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "criteria": [
+    {
+      "id": "openai_provider_contract_regression_review",
+      "passed": true,
+      "status": "pass"
+    },
+    {
+      "id": "provider_diverse_allowed",
+      "passed": true,
+      "status": "pass"
+    },
+    {
+      "id": "local_model_verified_allowed",
+      "passed": true,
+      "status": "pass"
+    },
+    {
+      "id": "ollama_structured_output_smoke",
+      "passed": false,
+      "status": "partial"
+    },
+    {
+      "id": "ollama_tool_calling_mock_smoke",
+      "passed": true,
+      "status": "pass"
+    },
+    {
+      "id": "ollama_replay_regression_smoke",
+      "passed": false,
+      "status": "partial"
+    }
+  ],
+  "unresolved_items_count": 2,
+  "blockers": [
+    {
+      "id": "provider_scoped_ollama_structured_output_smoke_not_ready",
+      "lane": "active_provider_lanes",
+      "status": "blocked_or_partial",
+      "reason": "Criterion ollama_structured_output_smoke is not pass/ready; observed status is partial.",
+      "next_action": "Complete the corresponding coverage-hardening stage before opening scoped provider lane claim."
+    },
+    {
+      "id": "provider_scoped_ollama_replay_regression_smoke_not_ready",
+      "lane": "active_provider_lanes",
+      "status": "blocked_or_partial",
+      "reason": "Criterion ollama_replay_regression_smoke is not pass/ready; observed status is partial.",
+      "next_action": "Complete the corresponding coverage-hardening stage before opening scoped provider lane claim."
+    }
+  ],
+  "new_local_model_execution": false,
+  "new_local_model_call_count": 0,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false
+}

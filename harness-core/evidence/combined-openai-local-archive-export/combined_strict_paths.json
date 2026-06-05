@@ -1,0 +1,23 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-combined-openai-local-archive-export",
+  "provider_diverse": {
+    "status": "blocked",
+    "reason": "Provider-diverse requires separate gate to decide whether OpenAI plus Ollama local lane qualifies for provider diversity.",
+    "next_stage": "v2.0.0-post-stable-provider-diverse-path-design"
+  },
+  "provider_verified": {
+    "status": "blocked",
+    "reason": "Provider-verified requires separate provider-level verification gate.",
+    "next_stage": "v2.0.0-post-stable-provider-verified-gate-design"
+  },
+  "adapter_checked": {
+    "status": "blocked",
+    "reason": "Adapter-checked requires dedicated full adapter coverage gate beyond current Ollama mapping review.",
+    "next_stage": "v2.0.0-post-stable-adapter-checked-gate-design"
+  },
+  "general_stable_and_production_ready": {
+    "status": "blocked",
+    "reason": "General stable, general production-ready, and bare release-gated remain blocked. Only scoped claims are allowed."
+  }
+}

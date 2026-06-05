@@ -1,0 +1,36 @@
+stage: v2.0.0-post-final-dossier-agent-ready-export-repair
+status: recorded
+source: CURRENT_STATE.yaml
+weak_claims_allowed_after_pass:
+  - post-final-dossier-agent-ready-export-repaired
+strong_claims_not_allowed:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated
+claim_enablement:
+  provider_verified_allowed: false
+  adapter_checked_allowed: false
+  production_ready_allowed: false
+  stable_allowed: false
+  release_gated_allowed: false
+canonicalization_rules:
+  - post-export-active-provider-lanes-verified is not provider-verified.
+  - post-export-active-adapters-checked is not adapter-checked.
+  - post-export-active-scoped-production-ready is not production-ready.
+  - post-export-active-scoped-stable is not stable.
+  - rc1-openai-scope-release-gated is not release-gated.
+execution_boundary:
+  openai_model_api_call: false
+  openai_provider_rerun: false
+  new_local_model_execution: false
+  local_model_generation: false
+  telemetry_sink_write: false
+  redteam_rerun: false
+  adapter_conformance_rerun: false
+  npm_install_or_ci: false
+  reference_baseline_source_modified: false
+  dist_modified: false
+  evidence_reference_baseline_refreshed: false

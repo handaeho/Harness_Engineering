@@ -1,0 +1,18 @@
+stage: v2.0.0-post-stable-local-model-verification-gate-design
+status: drafted
+
+allowed_after_gate_pass:
+  - post-stable-local-model-verification-gate-designed
+  - post-stable-local-model-verification-criteria-matrix-recorded
+  - post-stable-local-model-verification-execution-plan-drafted
+
+blocked_claims:
+  local_model_verified: true
+  provider_diverse: true
+  provider_verified: true
+  adapter_checked: true
+  production_ready: true
+  stable: true
+  release_gated: true
+
+reason: Gate design defines criteria only and does not execute final verification.

@@ -1,0 +1,141 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-replay-regression-smoke",
+  "models": [
+    "qwen3:14b",
+    "qwen3.6:27b"
+  ],
+  "surfaces": [
+    "no_tool",
+    "structured_output_smoke",
+    "tool_calling_mock_smoke"
+  ],
+  "new_local_model_execution": false,
+  "new_local_generation_calls": 0,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "secrets_logged": false,
+  "local_model_verified_allowed": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "replay_verified_allowed": false,
+  "benchmark_backed_allowed": false,
+  "regression_items_total": 8,
+  "regression_items_passed": 8,
+  "regression_items_failed": 0,
+  "source_reports": [
+    {
+      "surface": "no_tool",
+      "path": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json",
+      "status": "pass"
+    },
+    {
+      "surface": "structured_output_smoke",
+      "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+      "status": "pass"
+    },
+    {
+      "surface": "tool_calling_mock_smoke",
+      "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+      "status": "pass"
+    }
+  ],
+  "regression_items": [
+    {
+      "surface": "no_tool",
+      "model": "qwen3:14b",
+      "status": "pass",
+      "cases_total": 2,
+      "cases_passed": 2,
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true
+    },
+    {
+      "surface": "no_tool",
+      "model": "qwen3.6:27b",
+      "status": "pass",
+      "cases_total": 2,
+      "cases_passed": 2,
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true
+    },
+    {
+      "surface": "structured_output_smoke",
+      "model": "qwen3:14b",
+      "case_id": "local-structured-json-basic-001",
+      "status": "pass",
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true
+    },
+    {
+      "surface": "structured_output_smoke",
+      "model": "qwen3:14b",
+      "case_id": "local-structured-json-boundary-001",
+      "status": "pass",
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true
+    },
+    {
+      "surface": "structured_output_smoke",
+      "model": "qwen3.6:27b",
+      "case_id": "local-structured-json-basic-001",
+      "status": "pass",
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true
+    },
+    {
+      "surface": "structured_output_smoke",
+      "model": "qwen3.6:27b",
+      "case_id": "local-structured-json-boundary-001",
+      "status": "pass",
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true
+    },
+    {
+      "surface": "tool_calling_mock_smoke",
+      "model": "qwen3:14b",
+      "case_id": "local-tool-mock-lookup-001",
+      "status": "pass",
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true
+    },
+    {
+      "surface": "tool_calling_mock_smoke",
+      "model": "qwen3.6:27b",
+      "case_id": "local-tool-mock-lookup-001",
+      "status": "pass",
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true
+    }
+  ],
+  "claims_allowed": [
+    "post-stable-local-replay-regression-smoke-recorded",
+    "post-stable-local-regression-evidence-summarized",
+    "post-stable-local-replay-regression-redaction-checked"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "replay-verified",
+    "benchmark-backed",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ]
+}

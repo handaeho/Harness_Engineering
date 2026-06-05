@@ -1,0 +1,41 @@
+stage: v2.0.0-post-stable-local-redteam-bounded-smoke
+
+approved_actions:
+  bounded_local_redteam_design: true
+  bounded_local_redteam_smoke_execution: true
+  local_redteam_result_review: true
+  local_redaction_storage_review: true
+  claim_boundary_audit: true
+
+execution_budget:
+  models:
+    - qwen3:14b
+    - qwen3.6:27b
+  max_cases_per_model: 4
+  max_total_local_model_calls: 8
+  tool_calling: false
+  structured_output: false
+
+forbidden_execution:
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  model_pull: true
+  qwen3_30b_pull: true
+  npm_install: true
+  npm_ci: true
+  raw_request_storage: true
+  raw_response_storage: true
+  real_secret_logging: true
+  external_tool_side_effect: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

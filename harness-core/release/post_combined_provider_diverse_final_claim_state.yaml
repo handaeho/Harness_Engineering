@@ -1,0 +1,28 @@
+stage: v2.0.0-post-combined-provider-diverse-archive-refresh-and-next-gates-preflight
+status: recorded
+archive_scope: openai_api_lane_plus_ollama_qwen3_local_lane
+archive_label: v2.0.0-rc.1+postrc.openai-only-stable+local-model-verified+provider-diverse
+provider_diverse: true
+provider_diverse_allowed: true
+provider_verified_allowed: false
+adapter_checked_allowed: false
+production_ready_allowed: false
+stable_allowed: false
+release_gated_allowed: false
+bare_release_gated_allowed: false
+allowed_claims:
+  - provider-diverse
+  - local-model-verified
+  - post-rc-openai-only-stable
+  - post-rc-openai-only-production-ready
+  - production-monitored
+  - telemetry-connected
+  - containment-verified
+  - rc1-openai-scope-release-gated
+blocked_claims:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated

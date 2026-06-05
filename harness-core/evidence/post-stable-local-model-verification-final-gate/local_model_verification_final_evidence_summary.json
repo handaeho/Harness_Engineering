@@ -1,0 +1,74 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+  "provider": "ollama",
+  "scope": "post_stable_ollama_qwen3_local_lane",
+  "models": [
+    "qwen3:14b",
+    "qwen3.6:27b"
+  ],
+  "source_reports": {
+    "qwen3_14b_no_tool_result_review": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+    "qwen3_6_27b_no_tool_result_review": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+    "no_tool_multimodel": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json",
+    "redteam": "evidence/post-stable-local-redteam-bounded-smoke/local_redteam_bounded_smoke_report.json",
+    "adapter_conformance": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+    "redaction_storage_audit": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+    "v36_dependency": "evidence/post-stable-v36-baseline-dependency-repair-for-local-verification/v36_baseline_dependency_for_local_verification_gate_report.json",
+    "v36_refresh": "evidence/post-stable-v36-baseline-dependency-repair-for-local-verification/v36_baseline_refresh_after_owner_approval_for_local_verification.json"
+  },
+  "qwen3_14b_no_tool_review_passed": true,
+  "qwen3_6_27b_no_tool_review_passed": true,
+  "multimodel_no_tool_comparison_passed": true,
+  "local_redteam_bounded_smoke_passed": true,
+  "adapter_conformance_dependency_backed_validation_passed": true,
+  "local_ollama_adapter_conformance_reviewed": true,
+  "ollama_reasoning_control_mapping_reviewed": true,
+  "ollama_response_mapping_reviewed": true,
+  "ollama_provider_capability_reviewed": true,
+  "storage_redaction_audit_passed": true,
+  "v36_baseline_compare_passed": true,
+  "ds_store_exclusion_policy_enforced": true,
+  "owner_final_decision_present": true,
+  "no_tool_multimodel_pass": true,
+  "local_redteam_pass": true,
+  "adapter_conformance_pass": true,
+  "redaction_storage_audit_pass": true,
+  "v36_baseline_pass": true,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "secrets_logged": false,
+  "openai_model_api_call": false,
+  "openai_provider_call": false,
+  "telemetry_sink_write": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "local_model_execution_in_this_stage": false,
+  "new_local_model_execution": false,
+  "new_local_generation_calls": 0,
+  "new_local_generation_calls_in_this_stage": 0,
+  "evidence_v36_baseline_refreshed_in_this_stage": false,
+  "additional_v36_baseline_refresh": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "node_modules_modified": false,
+  "evidence_v36_baseline_modified": true,
+  "evidence_v36_baseline_modified_by_owner_approved_refresh": true,
+  "ds_store_exclusion_policy": {
+    "id": "v36-baseline-os-metadata-exclusion",
+    "excluded_basenames": [
+      ".DS_Store"
+    ],
+    "excluded_current_paths": [
+      "prompt-stack/v36/.DS_Store",
+      "prompt-stack/v36/codex/.DS_Store"
+    ],
+    "source_files_removed": false,
+    "reason": "macOS Finder metadata is not part of the v36 source baseline contract and is excluded from snapshot inventory/checksums only."
+  },
+  "prior_local_generation_calls": {
+    "evidence_bundle_total_autopilot_local_generation_calls": 6,
+    "redteam_local_model_calls": 8,
+    "redteam_new_local_generation_calls": 8
+  }
+}

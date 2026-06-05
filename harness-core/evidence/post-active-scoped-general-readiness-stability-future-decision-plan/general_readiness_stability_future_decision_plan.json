@@ -1,0 +1,65 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-active-scoped-general-readiness-stability-future-decision-plan",
+  "weak_claim_recorded": "post-active-scoped-general-readiness-stability-future-plan-recorded",
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "active_scoped_production_ready_is_bare_production_ready": false,
+  "active_scoped_stable_is_bare_stable": false,
+  "production_requirements": [
+    {
+      "id": "bare_provider_verified",
+      "description": "Bare provider-verified must pass under separate approval.",
+      "current_stage_status": "hard_stop"
+    },
+    {
+      "id": "bare_adapter_checked",
+      "description": "Bare adapter-checked must pass under separate approval.",
+      "current_stage_status": "hard_stop"
+    },
+    {
+      "id": "general_production_ready_gate",
+      "description": "Run a general production-ready gate after bare prerequisites.",
+      "current_stage_status": "future_work"
+    }
+  ],
+  "stable_requirements": [
+    {
+      "id": "bare_production_ready",
+      "description": "Bare production-ready must pass before bare stable.",
+      "current_stage_status": "hard_stop"
+    },
+    {
+      "id": "general_stable_gate",
+      "description": "Run a general stable gate after production readiness.",
+      "current_stage_status": "future_work"
+    },
+    {
+      "id": "release_gate_rerun_decision",
+      "description": "Decide whether a release gate rerun is required.",
+      "current_stage_status": "hard_stop"
+    }
+  ],
+  "operator_actions": [
+    "Choose whether to pursue bare provider-verified or adapter-checked first.",
+    "Redesign bare production-ready/stable criteria after prerequisite claims are resolved.",
+    "Approve any future release gate rerun separately."
+  ],
+  "new_local_model_execution": false,
+  "new_local_model_call_count": 0,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "post_export_active_provider_lanes_verified_allowed": true,
+  "post_export_active_adapters_checked_allowed": true,
+  "post_export_active_scoped_production_ready_allowed": true,
+  "post_export_active_scoped_stable_allowed": true,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false
+}

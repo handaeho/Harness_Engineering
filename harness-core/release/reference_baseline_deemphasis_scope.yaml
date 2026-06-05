@@ -1,0 +1,29 @@
+stage: v2.0.0-post-rename-reference-baseline-deemphasis
+status: active
+purpose: Remove legacy reference labels from active HARNESS Core operating surfaces.
+allowed_changes:
+  - Rename the active baseline evidence path to evidence/reference-baseline.
+  - Add dependency-free reference baseline integrity and naming checkers.
+  - Update active docs, profiles, current state, and clean export composition.
+forbidden_changes:
+  - OpenAI API call
+  - local model generation
+  - telemetry sink write
+  - npm install
+  - npm ci
+  - legacy reference source edit
+  - dist edit
+  - baseline checksum recalculation
+  - baseline source rescan
+claim_boundary:
+  weak_claims_recordable:
+    - reference-baseline-deemphasized
+    - reference-baseline-integrity-checked
+    - legacy-reference-policy-recorded
+    - active-docs-reference-name-aligned
+  strong_claims_blocked:
+    - provider-verified
+    - adapter-checked
+    - production-ready
+    - stable
+    - release-gated

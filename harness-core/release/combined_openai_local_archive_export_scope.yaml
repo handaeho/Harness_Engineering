@@ -1,0 +1,47 @@
+stage: v2.0.0-combined-openai-local-archive-export
+status: recorded
+scope: openai_only_post_rc_plus_ollama_qwen3_local_lane
+archive_label: v2.0.0-rc.1+postrc.openai-only-stable+local-model-verified-ollama-qwen3
+approved_actions:
+  combined_archive_export: true
+  combined_claim_state_snapshot: true
+  combined_evidence_pointer_index: true
+  archive_manifest_generation: true
+  archive_checksum_generation: true
+  strict_paths_registry: true
+  next_options_registry: true
+  reference_baseline_status_recording: true
+  claim_boundary_audit: true
+forbidden_execution:
+  new_local_model_generation: true
+  openai_model_api_call: true
+  openai_provider_call: true
+  telemetry_sink_write: true
+  local_endpoint_probe: true
+  local_redteam_rerun: true
+  adapter_conformance_rerun: true
+  production_deployment: true
+  release_gate_rerun: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_refresh: true
+claims_maintained:
+  - post-rc-openai-only-stable
+  - post-rc-openai-only-production-ready
+  - production-monitored
+  - telemetry-connected
+  - containment-verified
+  - rc1-openai-scope-release-gated
+  - local-model-verified
+claims_not_allowed:
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+claims_allowed:
+  - combined-openai-local-archive-export-recorded
+  - combined-openai-local-final-claim-state-recorded
+  - combined-openai-local-evidence-indexed
+  - combined-openai-local-strict-paths-recorded

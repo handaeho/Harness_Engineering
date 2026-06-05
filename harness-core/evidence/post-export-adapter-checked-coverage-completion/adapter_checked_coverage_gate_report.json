@@ -1,0 +1,148 @@
+{
+  "status": "blocked_by_missing_openai_full_conformance",
+  "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
+  "ready_for_adapter_checked_final_gate": false,
+  "can_enter_adapter_checked_final_gate": false,
+  "unresolved_items_count": 3,
+  "new_local_model_execution": false,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "checks": [
+    {
+      "name": "coverage report blocked by missing openai full conformance",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_missing_openai_full_conformance",
+        "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
+        "ready_for_adapter_checked_final_gate": false,
+        "can_enter_adapter_checked_final_gate": false,
+        "blockers": [
+          {
+            "id": "openai_adapter_full_conformance_missing",
+            "lane": "openai_adapter",
+            "status": "blocked_or_partial",
+            "reason": "OpenAI adapter has canary evidence, but no post-export full conformance execution is recorded and OpenAI rerun is forbidden.",
+            "next_action": "Run or approve OpenAI adapter conformance in a future provider-approved lane."
+          },
+          {
+            "id": "vllm_execution_coverage_out_of_scope",
+            "lane": "vllm_adapter",
+            "status": "blocked_or_partial",
+            "reason": "vLLM is a placeholder adapter and no execution coverage is available.",
+            "next_action": "Keep vLLM out of active-adapters claim scope or execute separately before broad adapter-checked."
+          },
+          {
+            "id": "cross_adapter_contract_static_only",
+            "lane": "all_adapters",
+            "status": "blocked_or_partial",
+            "reason": "Cross-adapter contract review is static/dry-run only in this stage.",
+            "next_action": "Record stronger cross-adapter regression evidence before opening adapter-checked."
+          }
+        ],
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "openai full conformance missing recorded",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
+        "adapter": "openai.api.skeleton",
+        "contract_documented": true,
+        "canary_evidence_exists": true,
+        "structured_output_evidence_exists": true,
+        "tool_calling_evidence_exists": true,
+        "full_conformance_evidence_exists": false,
+        "adapter_checked_ready": false
+      }
+    },
+    {
+      "name": "ollama smoke evidence reused without new execution",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
+        "adapter": "ollama.local.skeleton",
+        "contract_documented": true,
+        "structured_output_mapping_smoke_exists": true,
+        "tool_calling_mock_mapping_smoke_exists": true,
+        "adapter_conformance_review_exists": true,
+        "new_local_model_execution": false,
+        "adapter_checked_ready": false
+      }
+    },
+    {
+      "name": "cross adapter review partial",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
+        "adapters_reviewed": [
+          "openai.api.skeleton",
+          "ollama.local.skeleton",
+          "vllm.local.skeleton"
+        ],
+        "dry_run_or_static_only": true,
+        "adapter_checked_sufficient": false
+      }
+    },
+    {
+      "name": "unresolved blockers recorded",
+      "status": "pass",
+      "detail": {
+        "status": "blocked",
+        "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
+        "unresolved_items_count": 3,
+        "unresolved_items": [
+          {
+            "id": "openai_adapter_full_conformance_missing",
+            "lane": "openai_adapter",
+            "status": "blocked_or_partial",
+            "reason": "OpenAI adapter has canary evidence, but no post-export full conformance execution is recorded and OpenAI rerun is forbidden.",
+            "next_action": "Run or approve OpenAI adapter conformance in a future provider-approved lane."
+          },
+          {
+            "id": "vllm_execution_coverage_out_of_scope",
+            "lane": "vllm_adapter",
+            "status": "blocked_or_partial",
+            "reason": "vLLM is a placeholder adapter and no execution coverage is available.",
+            "next_action": "Keep vLLM out of active-adapters claim scope or execute separately before broad adapter-checked."
+          },
+          {
+            "id": "cross_adapter_contract_static_only",
+            "lane": "all_adapters",
+            "status": "blocked_or_partial",
+            "reason": "Cross-adapter contract review is static/dry-run only in this stage.",
+            "next_action": "Record stronger cross-adapter regression evidence before opening adapter-checked."
+          }
+        ]
+      }
+    }
+  ],
+  "failures": []
+}

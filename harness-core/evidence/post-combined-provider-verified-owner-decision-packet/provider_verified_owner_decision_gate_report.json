@@ -1,0 +1,190 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-combined-provider-verified-evidence-inventory-and-owner-packet",
+  "latest_packet_status": "keep_blocked_recommended",
+  "ready_for_owner_decision_to_claim_provider_verified": false,
+  "unresolved_items_count": 0,
+  "reason": "Provider verification owner packet recorded with keep-blocked recommendation.",
+  "new_local_model_execution": false,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "provider_diverse_allowed": true,
+  "checks": [
+    {
+      "name": "owner packet recorded",
+      "status": "pass",
+      "detail": {
+        "status": "keep_blocked_recommended",
+        "stage": "v2.0.0-post-combined-provider-verified-evidence-inventory-and-owner-packet",
+        "claim_target": "provider-verified",
+        "ready_for_owner_decision_to_claim_provider_verified": false,
+        "provider_verified_allowed": false,
+        "provider_diverse_allowed": true,
+        "blockers": [
+          "full_provider_level_verification_gate_not_executed",
+          "provider_error_handling_review_not_sufficient_for_provider_verified",
+          "provider_replay_or_regression_gap",
+          "ollama_provider_structured_output_coverage_missing",
+          "ollama_provider_tool_calling_coverage_missing",
+          "openai_provider_contract_regression_evidence_incomplete",
+          "owner_final_decision_required"
+        ],
+        "decision_options": [
+          "keep_provider_verified_blocked",
+          "request_provider_verification_coverage_completion",
+          "approve_future_provider_verified_final_gate_only_after_coverage_completion"
+        ],
+        "recommended_action": "Keep provider verification blocked until provider-level coverage gaps are closed.",
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "evidence summary recorded",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_missing_provider_verification_coverage",
+        "stage": "v2.0.0-post-combined-provider-verified-evidence-inventory-and-owner-packet",
+        "ready_for_owner_decision_to_claim_provider_verified": false,
+        "provider_verified_allowed": false,
+        "blockers": [
+          "full_provider_level_verification_gate_not_executed",
+          "provider_error_handling_review_not_sufficient_for_provider_verified",
+          "provider_replay_or_regression_gap",
+          "ollama_provider_structured_output_coverage_missing",
+          "ollama_provider_tool_calling_coverage_missing",
+          "openai_provider_contract_regression_evidence_incomplete",
+          "owner_final_decision_required"
+        ]
+      }
+    },
+    {
+      "name": "openai summary partial",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-combined-provider-verified-evidence-inventory-and-owner-packet",
+        "source": "evidence/post-combined-provider-verified-gate-preflight/openai_provider_verification_evidence_inventory.json",
+        "gaps": [
+          "full_provider_level_verification_gate_not_executed",
+          "provider_error_handling_review_not_sufficient_for_provider_verified",
+          "provider_replay_or_regression_gap"
+        ]
+      }
+    },
+    {
+      "name": "ollama summary partial",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-combined-provider-verified-evidence-inventory-and-owner-packet",
+        "source": "evidence/post-combined-provider-verified-gate-preflight/ollama_provider_verification_evidence_inventory.json",
+        "gaps": [
+          "ollama_provider_structured_output_coverage_missing",
+          "ollama_provider_tool_calling_coverage_missing",
+          "provider_replay_or_regression_gap",
+          "full_provider_level_verification_gate_not_executed"
+        ]
+      }
+    },
+    {
+      "name": "remaining blockers recorded",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_missing_provider_verification_coverage",
+        "stage": "v2.0.0-post-combined-provider-verified-evidence-inventory-and-owner-packet",
+        "blockers": [
+          "full_provider_level_verification_gate_not_executed",
+          "provider_error_handling_review_not_sufficient_for_provider_verified",
+          "provider_replay_or_regression_gap",
+          "ollama_provider_structured_output_coverage_missing",
+          "ollama_provider_tool_calling_coverage_missing",
+          "openai_provider_contract_regression_evidence_incomplete",
+          "owner_final_decision_required"
+        ]
+      }
+    },
+    {
+      "name": "claim boundary blocks strong claims",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-combined-provider-verified-evidence-inventory-and-owner-packet",
+        "allowed_claims_maintained": [
+          "provider-diverse",
+          "local-model-verified",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "weak_stage_claims_allowed": [
+          "post-combined-provider-verified-gate-preflight-completed",
+          "post-combined-provider-verified-evidence-inventoried",
+          "post-combined-provider-verified-owner-decision-packet-recorded",
+          "post-combined-adapter-checked-gate-preflight-completed",
+          "post-combined-adapter-checked-coverage-matrix-recorded",
+          "post-combined-adapter-checked-owner-decision-packet-recorded",
+          "post-combined-provider-adapter-final-owner-packet-recorded",
+          "final-export-execution-preflight-recorded"
+        ],
+        "blocked_strong_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "provider_diverse_allowed": true,
+        "local_model_verified_allowed": true,
+        "post_rc_openai_only_stable_allowed": true,
+        "post_rc_openai_only_production_ready_allowed": true,
+        "production_monitored_allowed": true,
+        "telemetry_connected_allowed": true,
+        "containment_verified_allowed": true,
+        "rc1_openai_scope_release_gated_allowed": true,
+        "bare_release_gated_allowed": false,
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    }
+  ],
+  "failures": []
+}

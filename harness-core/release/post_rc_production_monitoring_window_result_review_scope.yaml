@@ -1,0 +1,43 @@
+stage: v2.0.0-post-rc-production-monitoring-window-result-review
+
+approved_actions:
+  monitoring_window_result_review: true
+  duration_sample_validation: true
+  threshold_result_review: true
+  redaction_secret_result_review: true
+  incident_rollback_result_review: true
+  final_gate_precondition_check: true
+  claim_boundary_audit: true
+  blocker_update: true
+
+forbidden_execution:
+  synthetic_trace_generation: true
+  manual_sample_count_increment: true
+  manual_duration_increment: true
+  telemetry_sink_write: true
+  openai_model_api_call: true
+  openai_provider_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  production_deployment: true
+  release_gate_rerun: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+
+claims_allowed:
+  - post-rc-production-monitoring-window-result-reviewed
+  - post-rc-monitoring-window-duration-sample-validated
+  - post-rc-monitoring-window-threshold-results-reviewed
+  - post-rc-monitoring-window-redaction-results-reviewed
+  - post-rc-production-monitoring-final-gate-preconditions-recorded
+
+claims_not_allowed:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - release-gated

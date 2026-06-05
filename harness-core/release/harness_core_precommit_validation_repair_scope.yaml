@@ -1,0 +1,51 @@
+id: v2.0.0-post-rename-harness-core-precommit-validation-repair
+status: repair_scope_recorded
+scope:
+  summary: HARNESS Core rename/reference-baseline migration precommit validation repair.
+  allowed_changes:
+    - evals/fixtures/static/required_files.json reference baseline checker alignment
+    - stack schema reference_baseline requirement alignment
+    - validation report schema runner_reexecution field alignment
+    - git readiness no-git applicability mode
+    - precommit repair evidence and documentation
+  forbidden_changes:
+    - OpenAI API call
+    - OpenAI provider rerun
+    - local model generation
+    - telemetry sink write
+    - npm install
+    - npm ci
+    - reference baseline refresh
+    - legacy reference source edit
+    - dist edit
+    - git commit
+protected_paths:
+  - legacy-reference-source/**
+  - dist/**
+  - node_modules/**
+  - evidence/reference-baseline/**
+verification:
+  primary_checker: tools/check_harness_core_precommit_validation_repair.mjs
+  required_commands:
+    - node --check tools/check_harness_core_git_readiness.mjs
+    - node --check tools/check_current_state_alignment.mjs
+    - node --check tools/check_reference_baseline_integrity.mjs
+    - node --check tools/validate_alpha.mjs
+    - node tools/check_reference_baseline_integrity.mjs
+    - node tools/validate_alpha.mjs
+    - node tools/check_current_state_alignment.mjs
+    - node tools/check_harness_core_no_legacy_surface.mjs
+    - node tools/check_agent_ready_self_contained.mjs
+    - node tools/check_clean_export_self_contained.mjs
+    - node tools/scan_prohibited_claims.mjs
+    - git diff --check
+    - git diff --cached --check
+claims:
+  weak_claims_recordable:
+    - harness-core-precommit-validation-repair-recorded
+    - precommit-validation-repair-checked
+    - git-readiness-mode-awareness-recorded
+  strong_claims_allowed: false
+commit:
+  performed: false
+  owner_approval_required: true

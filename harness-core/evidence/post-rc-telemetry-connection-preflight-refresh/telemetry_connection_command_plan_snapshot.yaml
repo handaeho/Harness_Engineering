@@ -1,0 +1,15 @@
+command_plan:
+  stage_to_execute_after_approval: v2.0.0-post-rc-telemetry-connection
+  required_approval_phrase: I explicitly approve v2.0.0-post-rc-telemetry-connection
+  supported_sinks:
+    - otel_otlp
+    - langfuse
+  commands:
+    - node harness-core/tools/run_post_rc_telemetry_connection.mjs
+    - node harness-core/tools/check_post_rc_telemetry_connection.mjs
+  not_executable_in_preflight_refresh_stage: true
+  expected_outputs:
+    - evidence/post-rc-telemetry-connection/telemetry_connection_report.json
+    - evidence/post-rc-telemetry-connection/live_trace_receipt.json
+    - evidence/post-rc-telemetry-connection/live_metric_receipt.json
+    - evidence/post-rc-telemetry-connection/telemetry_connection_gate_report.json

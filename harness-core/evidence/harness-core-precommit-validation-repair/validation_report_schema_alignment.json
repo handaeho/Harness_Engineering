@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rename-harness-core-precommit-validation-repair",
+  "checked_file": "schemas/validation_report.schema.json",
+  "reference_baseline_runners_reexecuted_required": true,
+  "legacy_reference_runners_reexecuted_required": false,
+  "reference_baseline_runners_reexecuted_const_false": true,
+  "legacy_reference_runners_reexecuted_property_present": false,
+  "checks": [
+    {
+      "name": "runner_reexecution requires reference baseline field",
+      "status": "pass",
+      "detail": {
+        "required": [
+          "reference_baseline_runners_reexecuted",
+          "provider_execution",
+          "local_model_execution",
+          "runtime_execution_loop_implemented",
+          "live_telemetry_connected"
+        ]
+      }
+    },
+    {
+      "name": "runner_reexecution does not require legacy field",
+      "status": "pass",
+      "detail": {
+        "required": [
+          "reference_baseline_runners_reexecuted",
+          "provider_execution",
+          "local_model_execution",
+          "runtime_execution_loop_implemented",
+          "live_telemetry_connected"
+        ]
+      }
+    },
+    {
+      "name": "reference baseline field const false",
+      "status": "pass",
+      "detail": {
+        "property": {
+          "const": false
+        }
+      }
+    },
+    {
+      "name": "legacy runner field absent",
+      "status": "pass",
+      "detail": {
+        "legacy_property_present": false
+      }
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0
+}

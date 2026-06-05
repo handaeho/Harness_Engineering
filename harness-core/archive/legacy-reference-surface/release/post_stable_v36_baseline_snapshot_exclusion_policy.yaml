@@ -1,0 +1,27 @@
+stage: v2.0.0-post-stable-v36-baseline-snapshot-exclusion-policy
+status: active
+policy_id: v36-baseline-os-metadata-exclusion
+
+scope:
+  applies_to:
+    - harness-core/evidence/v36-baseline/file_inventory.json
+    - harness-core/evidence/v36-baseline/checksums.json
+  excluded_basenames:
+    - .DS_Store
+  source_files_removed: false
+
+enforcement:
+  refresh_v36_baseline_for_local_verification: true
+  compare_v36_baseline: true
+
+claims_allowed:
+  - post-stable-v36-baseline-snapshot-exclusion-policy-recorded
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

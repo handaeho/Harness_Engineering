@@ -1,0 +1,18 @@
+stage: v2.0.0-post-stable-local-model-verification-final-gate
+status: updated
+new_status: local_model_verified_allowed_provider_diverse_still_blocked
+unblocks:
+  - local-model-verified
+still_blocks:
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated
+next_required_actions:
+  - define provider-diverse path
+  - define provider-verified gate
+  - define adapter-checked gate
+  - keep production-ready/stable scoped claims separate

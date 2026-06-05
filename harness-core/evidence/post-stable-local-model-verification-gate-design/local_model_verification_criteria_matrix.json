@@ -1,0 +1,58 @@
+{
+  "status": "drafted",
+  "stage": "v2.0.0-post-stable-local-model-verification-gate-design",
+  "models_in_scope": [
+    "qwen3:14b",
+    "qwen3.6:27b"
+  ],
+  "criteria": [
+    {
+      "id": "local_no_tool_multimodel",
+      "required_for_final_gate": true,
+      "current_status": "satisfied",
+      "evidence": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json"
+    },
+    {
+      "id": "structured_output_smoke",
+      "required_for_final_gate": true,
+      "current_status": "pending",
+      "next_stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+    },
+    {
+      "id": "tool_calling_mock_smoke",
+      "required_for_final_gate": true,
+      "current_status": "pending",
+      "next_stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+    },
+    {
+      "id": "replay_regression_smoke",
+      "required_for_final_gate": true,
+      "current_status": "pending",
+      "next_stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+    },
+    {
+      "id": "redaction_storage_cross_suite_audit",
+      "required_for_final_gate": true,
+      "current_status": "pending",
+      "next_stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+    },
+    {
+      "id": "local_redteam_coverage",
+      "required_for_final_gate": true,
+      "current_status": "not_scheduled_in_autopilot_sequence",
+      "blocker_if_missing": true
+    },
+    {
+      "id": "adapter_conformance_dependency_backed_validation",
+      "required_for_final_gate": true,
+      "current_status": "blocked_by_missing_node_modules",
+      "blocker_if_missing": true
+    },
+    {
+      "id": "owner_final_decision",
+      "required_for_final_gate": true,
+      "current_status": "required_after_preflight",
+      "blocker_if_missing": true
+    }
+  ]
+}

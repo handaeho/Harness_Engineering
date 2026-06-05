@@ -1,0 +1,41 @@
+id: beta_cross_suite_storage_redaction_audit
+stage: v2.0.0-beta-cross-suite-storage-redaction-audit
+status: no_execution_static_artifact_audit
+description: Cross-suite raw storage, secret pattern, auth header, and redaction boundary audit over existing artifacts.
+
+inputs:
+  - evidence/
+  - evals/reports/
+  - docs/
+  - release/
+  - security/
+  - observability/
+  - runtime/
+  - adapters/
+  - tools/
+  - README.md
+  - session_handoff_2026-05-22.md
+
+excluded:
+  - node_modules/
+  - .git/
+  - dist/
+  - package-lock.json
+  - prompt-stack/v36/
+
+commands:
+  - node harness-core/tools/run_cross_suite_storage_redaction_audit.mjs
+  - node harness-core/tools/classify_storage_redaction_findings.mjs
+  - node harness-core/tools/summarize_storage_redaction_audit.mjs
+  - node harness-core/tools/check_cross_suite_storage_redaction_audit.mjs
+
+must_remain_false:
+  new_provider_execution: false
+  new_redteam_execution: false
+  containment_fixture_rerun: false
+  local_model_execution: false
+  telemetry_connection: false
+  containment_verified_allowed: false
+  telemetry_connected_allowed: false
+  release_gated_allowed: false
+  production_ready_allowed: false

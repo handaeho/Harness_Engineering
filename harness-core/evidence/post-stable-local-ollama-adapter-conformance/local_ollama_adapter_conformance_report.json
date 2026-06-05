@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-adapter-conformance-dependency-install-and-local-ollama-validation",
+  "provider": "ollama",
+  "models": [
+    "qwen3:14b",
+    "qwen3.6:27b"
+  ],
+  "dependency_backed_validation": true,
+  "new_local_model_execution": false,
+  "uses_existing_evidence": true,
+  "request_mapping_reviewed": true,
+  "response_mapping_reviewed": true,
+  "reasoning_control_mapping_reviewed": true,
+  "provider_capability_matrix_reviewed": true,
+  "storage_redaction_reviewed": true,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "local_model_verified_allowed": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "checks": {
+    "dependency_backed_validation": true,
+    "dry_run_passed": true,
+    "dry_run_ollama_cases_passed": true,
+    "request_mapping_reviewed": true,
+    "response_mapping_reviewed": true,
+    "reasoning_control_mapping_reviewed": true,
+    "provider_capability_matrix_reviewed": true,
+    "storage_redaction_reviewed": true,
+    "redteam_smoke_checked": true,
+    "protected_paths_unmodified": true
+  },
+  "claims_allowed": [
+    "post-stable-adapter-conformance-dependency-backed-validation-passed",
+    "post-stable-local-ollama-adapter-conformance-reviewed",
+    "post-stable-local-ollama-reasoning-control-mapping-reviewed",
+    "post-stable-local-provider-capability-matrix-reviewed"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ]
+}

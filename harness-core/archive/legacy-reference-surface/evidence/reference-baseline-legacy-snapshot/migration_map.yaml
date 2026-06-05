@@ -1,0 +1,101 @@
+version: 2.0.0-alpha
+source_package: prompt-stack/v36
+target_package: harness-core
+mutation_policy:
+  v36: read_only
+  v2: alpha_skeleton
+
+source_to_target:
+  prompt-stack/v36/README.md:
+    target: harness-core/README.md
+    treatment: summarized_alpha_entrypoint
+  prompt-stack/v36/AGENTS.md:
+    target: future adapters/common/agents-md
+    treatment: roadmap_only
+  prompt-stack/v36/MASTER_PROMPT_ROUTER.md:
+    target: stack.yaml
+    treatment: manifest_routing
+  prompt-stack/v36/autonomous/00_governance/PROMPT_guideline.md:
+    target:
+      - core/spec/behavior_policy.md
+      - core/spec/claim_strength_policy.md
+    treatment: contract_extraction
+  prompt-stack/v36/autonomous/01_base/PROMPT_full.md:
+    target: future core/prompts/full.md
+    treatment: deferred_prompt_artifact
+  prompt-stack/v36/autonomous/01_base/PROMPT_light.md:
+    target: future core/prompts/light.md
+    treatment: deferred_prompt_artifact
+  prompt-stack/v36/autonomous/01_base/PROMPT_lightest.md:
+    target: future core/prompts/lightest.md
+    treatment: deferred_prompt_artifact
+  prompt-stack/v36/autonomous/01_base/PROMPT_standalone.md:
+    target: future core/prompts/standalone.md
+    treatment: deferred_prompt_artifact
+  prompt-stack/v36/autonomous/02_overlays:
+    target: core/capabilities
+    treatment: deferred_capability_contracts
+  prompt-stack/v36/autonomous/03_examples:
+    target: future core/examples
+    treatment: deferred_example_catalog
+  prompt-stack/v36/autonomous/04_harness:
+    target:
+      - core/spec/harness.spec.yaml
+      - runtime
+      - evals
+      - release
+    treatment: split_document_harness_into_contract_runtime_eval_release
+  prompt-stack/v36/autonomous/05_state/STATE_CONTRACT.md:
+    target: future runtime/state
+    treatment: deferred_runtime_state_schema
+  prompt-stack/v36/autonomous/06_verification/VERIFICATION_CONTRACT.md:
+    target:
+      - evals
+      - release/claim_ladder.md
+    treatment: verification_and_claim_policy_extraction
+  prompt-stack/v36/autonomous/07_scope/SCOPE_POLICY.md:
+    target:
+      - stack.yaml
+      - release/release_gate.yaml
+    treatment: scope_boundary_extraction
+  prompt-stack/v36/autonomous/08_lifecycle/LIFECYCLE_CONTRACT.md:
+    target: future runtime/orchestrator
+    treatment: deferred_lifecycle_runtime
+  prompt-stack/v36/autonomous/99_total:
+    target: dist
+    treatment: generated_artifact_only
+  prompt-stack/v36/codex:
+    target: future adapters/common/agents-md or provider bundle
+    treatment: deferred_runtime_adapter_reference
+  prompt-stack/v36/harness:
+    target:
+      - evals/suites/static_structure.yaml
+      - future eval runners
+    treatment: static_first_then_runner_migration
+  prompt-stack/v36/validation:
+    target: future evals/graders
+    treatment: deferred_validation_assets
+  prompt-stack/v36/verification:
+    target: future evals/suites
+    treatment: deferred_eval_suites
+  prompt-stack/v36/records:
+    target: evidence/v36-baseline
+    treatment: baseline_reference
+  prompt-stack/v36/reports:
+    target: evidence/v36-baseline
+    treatment: baseline_reference
+
+alpha_deferred:
+  - anthropic adapter
+  - gemini adapter
+  - hf-transformers adapter
+  - mcp adapter
+  - agents-md linter
+  - full runtime implementation
+  - live telemetry integration
+  - containment proof
+  - provider matrix execution
+
+notes:
+  - Existing records/reports were inspected, but v36 runners were not re-executed in this step.
+  - dist remains generated-only and contains no alpha bundle.

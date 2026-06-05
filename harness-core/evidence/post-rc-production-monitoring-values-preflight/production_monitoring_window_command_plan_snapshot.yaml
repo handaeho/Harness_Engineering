@@ -1,0 +1,21 @@
+command_plan:
+  stage_to_execute_after_operator_values: v2.0.0-post-rc-production-monitoring-window-execution
+
+  required_before_execution:
+    - operator_values_complete
+    - operator_approval_for_monitoring_window
+    - telemetry_connected
+    - production_monitoring_controls_drafted
+
+  commands:
+    - node harness-core/tools/run_post_rc_production_monitoring_window.mjs
+    - node harness-core/tools/check_post_rc_production_monitoring_window.mjs
+
+  not_executable_in_this_stage: true
+
+  still_forbidden:
+    - production-monitored
+    - production-ready
+    - stable
+    - provider-diverse
+    - local-model-verified

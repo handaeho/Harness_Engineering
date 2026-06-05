@@ -1,0 +1,28 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-post-export-general-readiness-stability-preflight-refresh-after-active-repairs",
+  "unresolved_items_count": 3,
+  "unresolved_items": [
+    {
+      "id": "bare_provider_verified_still_blocked",
+      "lane": "general",
+      "status": "blocked_or_partial",
+      "reason": "Scoped active provider lane evidence does not permit bare provider-verified.",
+      "next_action": "Run a separately approved bare provider-verified final gate."
+    },
+    {
+      "id": "bare_adapter_checked_still_blocked",
+      "lane": "general",
+      "status": "blocked_or_partial",
+      "reason": "Scoped active adapter evidence does not permit bare adapter-checked.",
+      "next_action": "Run a separately approved bare adapter-checked final gate."
+    },
+    {
+      "id": "general_release_gate_not_rerun",
+      "lane": "general",
+      "status": "blocked_or_partial",
+      "reason": "General release gate rerun is outside this autopilot.",
+      "next_action": "Run a separately approved general release gate before bare production-ready/stable/release-gated claims."
+    }
+  ]
+}

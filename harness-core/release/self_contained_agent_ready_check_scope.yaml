@@ -1,0 +1,59 @@
+stage: v2.0.0-post-clean-export-self-contained-agent-check
+scope: self_contained_agent_ready_check
+owner_layer: harness-core clean agent export
+purpose: >
+  Record and validate that a newly handed-off clean export has a dependency-free
+  health check path that works without npm install, node_modules, or sibling
+  legacy reference source access.
+
+allowed_work:
+  - create CURRENT_STATE.json as a machine-readable current-state mirror
+  - create dependency-free self-contained checker scripts
+  - record self-contained checker evidence under evidence/self-contained-agent-ready-check
+  - update agent bootstrap/readme guidance for new agents
+  - regenerate the agent-ready clean export
+
+forbidden_work:
+  - OpenAI model API call
+  - OpenAI provider rerun
+  - local model generation
+  - telemetry sink write
+  - redteam rerun
+  - adapter conformance rerun
+  - npm install
+  - npm ci
+  - legacy reference source modification
+  - dist modification
+  - evidence/reference-baseline refresh
+  - raw request storage
+  - raw response storage
+  - secret storage
+
+validation:
+  required_commands:
+    - node --check tools/check_agent_ready_self_contained.mjs
+    - node --check tools/check_clean_export_self_contained.mjs
+    - node tools/check_agent_ready_self_contained.mjs
+    - node tools/check_clean_export_self_contained.mjs
+    - node tools/build_agent_ready_clean_export.mjs
+    - node tools/check_clean_export_self_contained.mjs
+    - node tools/check_current_state_alignment.mjs
+    - node tools/scan_prohibited_claims.mjs
+    - node tools/check_reference_baseline_integrity.mjs
+    - git diff --check
+    - git status --short -- legacy-reference-source dist evidence/reference-baseline
+  optional_commands:
+    - node tools/validate_alpha.mjs
+
+claim_strength_boundary:
+  newly_recordable_weak_claims:
+    - self-contained-agent-ready-check-recorded
+    - self-contained-clean-export-checked
+    - current-state-json-recorded
+    - reference-baseline-integrity-checked
+  still_blocked_strong_claims:
+    - provider-verified
+    - adapter-checked
+    - production-ready
+    - stable
+    - release-gated

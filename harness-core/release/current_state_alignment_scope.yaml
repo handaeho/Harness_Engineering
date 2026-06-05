@@ -1,0 +1,35 @@
+stage: v2.0.0-post-final-dossier-agent-application-layer-and-current-state-alignment
+scope: active_scoped_final_dossier_agent_application_layer
+purpose: align top-level agent entrypoints with the final dossier/export current state
+allowed_actions:
+  - create CURRENT_STATE.yaml
+  - create AGENT_BOOTSTRAP.ko.md
+  - create agent application profiles
+  - update top-level status documents
+  - create current state alignment checker
+  - write current-state evidence and reports
+forbidden_actions:
+  - OpenAI model API call
+  - OpenAI provider rerun
+  - local model generation
+  - telemetry sink write
+  - redteam rerun
+  - adapter conformance rerun
+  - npm install
+  - npm ci
+  - legacy-reference-source modification
+  - dist modification
+  - evidence/reference-baseline refresh
+  - raw request storage
+  - raw response storage
+  - secret/API key/auth header storage
+  - provider-verified claim remains forbidden
+  - adapter-checked claim remains forbidden
+  - production-ready claim remains forbidden
+  - stable claim remains forbidden
+  - release-gated claim remains forbidden
+protected_paths:
+  - legacy-reference-source/**
+  - dist/**
+  - node_modules/**
+  - evidence/reference-baseline/**

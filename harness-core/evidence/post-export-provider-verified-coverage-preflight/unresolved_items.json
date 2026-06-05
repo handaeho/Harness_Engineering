@@ -1,0 +1,71 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-post-export-provider-verified-coverage-completion-preflight",
+  "unresolved_items_count": 8,
+  "unresolved_items": [
+    {
+      "id": "openai_provider_error_handling_review_unknown_or_partial",
+      "lane": "openai_api_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "OpenAI provider canary, canary-suite, redaction, and limited redteam evidence exist, but no provider-level error handling review is recorded for this final claim.",
+      "needed_for_provider_verified": "Provider-specific error handling, retry/failure behavior, and API-surface edge handling must be reviewed at provider level.",
+      "recommended_next_action": "Add a non-generative provider error-handling review or approved final-gate evidence packet before opening provider-verified."
+    },
+    {
+      "id": "openai_provider_contract_regression_evidence_incomplete",
+      "lane": "openai_api_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Canary replay suite status is pass with comparison_mode canary_suite_rerun_not_replay_verified.",
+      "needed_for_provider_verified": "Provider-verified needs provider-level regression/replay evidence stronger than canary-suite-only rerun consistency.",
+      "recommended_next_action": "Record provider-level regression evidence or explicitly scoped replay review for OpenAI."
+    },
+    {
+      "id": "ollama_provider_error_handling_review_unknown_or_partial",
+      "lane": "ollama_qwen3_local_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Local no-tool, structured-output smoke, mock tool-calling smoke, redteam, replay, and adapter reviews exist, but provider-level error handling remains unknown_or_partial.",
+      "needed_for_provider_verified": "Provider-specific local runtime fallback, error, and malformed response behavior must be reviewed for qwen3 local lane.",
+      "recommended_next_action": "Add non-generative error-handling review or approved provider final-gate evidence."
+    },
+    {
+      "id": "ollama_provider_replay_or_regression_evidence_partial",
+      "lane": "ollama_qwen3_local_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Local replay/regression smoke passed for no-tool, structured-output smoke, and tool-calling mock smoke.",
+      "needed_for_provider_verified": "Provider-verified needs final-gate provider-level replay/regression coverage, not only smoke/regression summaries.",
+      "recommended_next_action": "Promote the smoke/regression evidence into an explicit provider-level final gate or record the missing coverage as blocker."
+    },
+    {
+      "id": "ollama_structured_output_coverage_partial_smoke_only",
+      "lane": "ollama_qwen3_local_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Structured-output smoke evidence exists for qwen3:14b and qwen3.6:27b.",
+      "needed_for_provider_verified": "Provider-verified needs provider-level structured-output coverage with final-gate acceptance criteria.",
+      "recommended_next_action": "Record structured-output provider coverage acceptance or keep this as partial coverage."
+    },
+    {
+      "id": "ollama_tool_calling_coverage_partial_mock_only",
+      "lane": "ollama_qwen3_local_lane",
+      "status": "partial_or_missing",
+      "current_evidence": "Tool-calling mock smoke evidence exists, with external tool execution disabled.",
+      "needed_for_provider_verified": "Provider-verified needs provider-level tool-calling coverage suitable for the claimed runtime surface.",
+      "recommended_next_action": "Record provider-level tool-calling coverage or explicitly constrain the provider-verified scope."
+    },
+    {
+      "id": "full_provider_verified_final_gate_not_executed",
+      "lane": "all_lanes",
+      "status": "partial_or_missing",
+      "current_evidence": "Provider-diverse and local-model-verified final gates passed, but provider-verified final gate has not been executed.",
+      "needed_for_provider_verified": "A dedicated provider-verified final gate must evaluate all required provider-level coverage and claim boundaries.",
+      "recommended_next_action": "Do not open provider-verified in this stage; run a final gate only after the missing coverage is closed."
+    },
+    {
+      "id": "owner_final_decision_required_after_coverage_completion",
+      "lane": "all_lanes",
+      "status": "partial_or_missing",
+      "current_evidence": "No owner final decision for provider-verified is recorded in this post-export preflight.",
+      "needed_for_provider_verified": "Provider-verified requires owner acceptance after complete evidence coverage.",
+      "recommended_next_action": "Prepare owner decision packet only after final-gate coverage is ready."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+stage: v2.0.0-combined-openai-local-archive-export
+status: recorded
+archive_scope: openai_only_post_rc_plus_ollama_qwen3_local_lane
+post_rc_openai_only_stable: true
+local_model_verified: true
+provider_diverse_allowed: false
+provider_verified_allowed: false
+adapter_checked_allowed: false
+production_ready_allowed: false
+stable_allowed: false
+release_gated_allowed: false
+bare_release_gated_allowed: false
+allowed_claims:
+  - post-rc-openai-only-stable
+  - post-rc-openai-only-production-ready
+  - production-monitored
+  - telemetry-connected
+  - containment-verified
+  - rc1-openai-scope-release-gated
+  - local-model-verified
+blocked_claims:
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

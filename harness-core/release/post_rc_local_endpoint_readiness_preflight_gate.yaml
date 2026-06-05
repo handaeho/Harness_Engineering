@@ -1,0 +1,31 @@
+stage: v2.0.0-post-rc-local-endpoint-readiness-preflight
+gate_type: local_endpoint_readiness_preflight
+operator_signal_required: true
+allowed_execution:
+  local_endpoint_probe: true
+  local_model_execution: false
+  telemetry_sink_write: false
+  synthetic_trace_generation: false
+endpoint_constraints:
+  localhost_only: true
+  api_shape: OpenAI-compatible
+  raw_request_storage_allowed: false
+  raw_response_storage_allowed: false
+pass_criteria:
+  - provider type is ollama or vllm
+  - endpoint URL is localhost-only
+  - target model name is present
+  - OpenAI-compatible models endpoint is reachable
+  - target model is listed
+  - no raw request or raw response is stored
+next_stage_if_pass:
+  - v2.0.0-post-rc-local-no-tool-canary
+claims_not_allowed:
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - local-no-tool-canary-executed
+  - production-ready
+  - stable
+  - release-gated

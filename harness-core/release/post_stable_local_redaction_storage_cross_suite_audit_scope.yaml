@@ -1,0 +1,28 @@
+stage: v2.0.0-post-stable-local-redaction-storage-cross-suite-audit
+
+approved_actions:
+  file_based_local_storage_audit: true
+  secret_pattern_scan: true
+  raw_storage_flag_scan: true
+
+forbidden_execution:
+  new_local_model_generation: true
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  model_pull: true
+  raw_request_storage: true
+  raw_response_storage: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+
+claims_allowed:
+  - post-stable-local-redaction-storage-audit-passed
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

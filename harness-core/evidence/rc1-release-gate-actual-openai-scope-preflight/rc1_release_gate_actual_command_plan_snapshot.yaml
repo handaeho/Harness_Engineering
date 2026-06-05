@@ -1,0 +1,16 @@
+command_plan:
+  stage_to_execute_after_approval: v2.0.0-rc.1-release-gate-actual-openai-scope
+
+  required_approval_phrase: "I explicitly approve v2.0.0-rc.1-release-gate-actual-openai-scope"
+
+  commands:
+    - node harness-core/tools/run_rc1_release_gate_actual_openai_scope.mjs
+    - node harness-core/tools/check_rc1_release_gate_actual_openai_scope.mjs
+
+  not_executable_in_this_stage: true
+
+  expected_execution_outputs:
+    - evidence/rc1-release-gate-actual-openai-scope/rc1_release_gate_actual_report.json
+    - evidence/rc1-release-gate-actual-openai-scope/rc1_release_gate_actual_claim_boundary.json
+    - evidence/rc1-release-gate-actual-openai-scope/rc1_release_decision_record.json
+    - evidence/rc1-release-gate-actual-openai-scope/rc1_release_gate_actual_gate_report.json

@@ -1,0 +1,22 @@
+stage: v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b
+status: drafted
+
+previous_status: qwen3_14b_and_qwen3_6_27b_no_tool_paths_passed_multimodel_comparison_pending
+new_status: local_no_tool_multimodel_comparison_ready_for_gate_design
+
+unblocks:
+  - post-stable-local-no-tool-multimodel-comparison-recorded
+  - post-stable-local-model-verification-preconditions-drafted
+
+still_blocks:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+
+next_required_actions:
+  - design local-model verification gate criteria
+  - run structured-output smoke only if required or recommended
+  - run tool-calling mock smoke only if required or recommended

@@ -1,0 +1,31 @@
+id: harness-core-precommit-validation-claim-boundary
+stage: v2.0.0-post-rename-harness-core-precommit-validation-repair
+status: claim_boundary_recorded
+allowed_scope:
+  - precommit validation fixtures aligned to reference_baseline
+  - stack schemas aligned to reference_baseline
+  - validation report schema aligned to reference_baseline runner field
+  - git readiness checker supports no-git clean export mode
+weak_claims_recordable:
+  - harness-core-precommit-validation-repair-recorded
+  - precommit-validation-repair-checked
+  - git-readiness-mode-awareness-recorded
+forbidden_claims:
+  provider_verified_allowed: false
+  adapter_checked_allowed: false
+  production_ready_allowed: false
+  stable_allowed: false
+  release_gated_allowed: false
+  bare_release_gated_allowed: false
+execution_boundary:
+  openai_model_api_call: false
+  openai_provider_rerun: false
+  local_model_generation: false
+  telemetry_sink_write: false
+  npm_install_or_ci: false
+  reference_baseline_refresh: false
+  legacy_reference_source_modified: false
+  dist_modified: false
+git:
+  commit_performed: false
+  commit_readiness_only: true

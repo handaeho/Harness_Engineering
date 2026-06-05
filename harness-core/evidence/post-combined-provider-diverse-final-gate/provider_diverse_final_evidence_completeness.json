@@ -1,0 +1,92 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-combined-provider-diverse-final-gate",
+  "required_evidence": {
+    "combined_archive_export": true,
+    "provider_diverse_path_design": true,
+    "provider_diverse_evidence_inventory": true,
+    "openai_lane_evidence_summary": true,
+    "ollama_qwen3_lane_evidence_summary": true,
+    "local_model_verified_final_handoff": true,
+    "provider_lane_independence_review": true,
+    "owner_final_decision": true
+  },
+  "evidence_checks": [
+    {
+      "id": "owner_final_decision",
+      "source": "current_invocation_approval_phrase",
+      "present": true,
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "id": "combined_openai_local_archive",
+      "source": "evidence/combined-openai-local-archive-export/combined_archive_export_gate_report.json",
+      "present": true,
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "id": "provider_diverse_inventory_preflight",
+      "source": "evidence/post-combined-provider-diverse-evidence-inventory/provider_diverse_evidence_inventory_gate_report.json",
+      "present": true,
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "id": "openai_lane_evidence",
+      "source": "evidence/post-combined-provider-diverse-evidence-inventory/openai_lane_evidence_summary.json",
+      "present": true,
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "id": "ollama_qwen3_lane_evidence",
+      "source": "evidence/post-combined-provider-diverse-evidence-inventory/ollama_qwen3_lane_evidence_summary.json",
+      "present": true,
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "id": "lane_independence_review",
+      "source": "evidence/post-combined-provider-diverse-evidence-inventory/provider_lane_independence_review.json",
+      "present": true,
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "id": "source_archives",
+      "source": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_handoff_report.json",
+      "present": true,
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "id": "protected_boundary",
+      "source": "evidence/combined-openai-local-archive-export/combined_archive_export_report.json",
+      "present": true,
+      "passed": true,
+      "detail": {
+        "protected_lines": [
+          "harness-core/evidence/v36-baseline/checksums.json",
+          "harness-core/evidence/v36-baseline/file_inventory.json"
+        ]
+      }
+    },
+    {
+      "id": "no_new_execution",
+      "source": "evidence/combined-openai-local-archive-export/combined_archive_export_report.json",
+      "present": true,
+      "passed": true,
+      "detail": {}
+    }
+  ],
+  "missing_evidence": [],
+  "no_new_execution": true,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "node_modules_modified": false,
+  "evidence_v36_baseline_refreshed_in_this_stage": false
+}

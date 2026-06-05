@@ -1,0 +1,25 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-stable-local-no-tool-canary-result-review-qwen3-6-27b",
+  "model": "qwen3.6:27b",
+  "provider": "ollama",
+  "issue_observed": "think:false alone produced empty final content in first no-tool canary",
+  "fix_applied": [
+    "think_false",
+    "reasoning_effort_none",
+    "reasoning_effort_nested_none"
+  ],
+  "think_false_applied": true,
+  "reasoning_effort_none_applied": true,
+  "reasoning_effort_nested_none_applied": true,
+  "result_after_fix": "final content non-empty and canary passed within token budget",
+  "current_mapping_evidence": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_response_mapping_report.json",
+  "runner_control_evidence": "tools/run_local_no_tool_canary.mjs",
+  "claim_impact": {
+    "allows_no_tool_canary_pass": true,
+    "does_not_allow_local_model_verified": true,
+    "does_not_allow_provider_diverse": true,
+    "does_not_allow_provider_verified": true,
+    "does_not_allow_adapter_checked": true
+  }
+}

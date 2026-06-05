@@ -1,0 +1,39 @@
+stage: v2.0.0-post-clean-export-self-contained-agent-check
+boundary: self_contained_agent_ready_claim_boundary
+
+allowed_weak_claims:
+  - self-contained-agent-ready-check-recorded
+  - self-contained-clean-export-checked
+  - current-state-json-recorded
+  - reference-baseline-integrity-checked
+
+allowed_meaning:
+  self-contained-agent-ready-check-recorded: >
+    The repository and clean export include a Node built-in-only checker that can
+    validate current-state, snapshot, and claim-boundary evidence without npm
+    install or node_modules.
+  self-contained-clean-export-checked: >
+    The clean export archive was inspected for required self-contained entries,
+    forbidden entries, and an extracted checker run.
+  current-state-json-recorded: >
+    CURRENT_STATE.json exists as a machine-readable current-state mirror for
+    dependency-free bootstrap checks.
+
+not_allowed_meaning:
+  - This stage does not run provider calls.
+  - This stage does not run adapter conformance.
+  - This stage does not run local model generation.
+  - This stage does not refresh reference baseline evidence.
+  - This stage does not make release, stable, production, or provider-verified claims.
+
+still_blocked_strong_claims:
+  provider_verified_allowed: false
+  adapter_checked_allowed: false
+  production_ready_allowed: false
+  stable_allowed: false
+  release_gated_allowed: false
+
+protected_paths:
+  - dist/**
+  - node_modules/**
+  - evidence/reference-baseline/**

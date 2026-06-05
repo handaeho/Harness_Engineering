@@ -1,0 +1,35 @@
+stage: v2.0.0-post-stable-local-model-verification-gate-design
+
+approved_actions:
+  gate_criteria_design: true
+  criteria_matrix_draft: true
+  claim_boundary_draft: true
+  execution_plan_draft: true
+
+forbidden_execution:
+  new_local_model_generation: true
+  openai_model_api_call: true
+  openai_provider_call: true
+  telemetry_sink_write: true
+  model_pull: true
+  production_deployment: true
+  final_claim_enablement: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+  raw_request_storage: true
+  raw_response_storage: true
+
+claims_allowed:
+  - post-stable-local-model-verification-gate-designed
+  - post-stable-local-model-verification-criteria-matrix-recorded
+  - post-stable-local-model-verification-execution-plan-drafted
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

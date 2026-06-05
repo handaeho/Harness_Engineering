@@ -1,0 +1,36 @@
+suite: post_stable_local_model_verification_evidence_bundle_draft
+stage: v2.0.0-post-stable-local-model-verification-evidence-bundle-draft
+runner: tools/draft_local_model_verification_evidence_bundle.mjs
+gate: tools/check_local_model_verification_evidence_bundle.mjs
+
+source_evidence:
+  - evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json
+  - evidence/post-stable-local-model-verification-gate-design/local_model_verification_gate_design_report.json
+  - evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json
+  - evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json
+  - evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json
+  - evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json
+
+generated_evidence:
+  - evidence/post-stable-local-model-verification-evidence-bundle-draft/local_model_verification_evidence_bundle_report.json
+  - evidence/post-stable-local-model-verification-evidence-bundle-draft/local_model_verification_evidence_index.json
+  - evidence/post-stable-local-model-verification-evidence-bundle-draft/local_model_verification_gap_register.json
+  - evidence/post-stable-local-model-verification-evidence-bundle-draft/local_model_verification_claim_boundary.json
+
+checks:
+  - required_source_surfaces_passed
+  - total_autopilot_local_generation_calls_bounded
+  - raw_storage_absent
+  - final_gate_not_open
+  - final_gate_preflight_open
+  - owner_decision_required
+  - strong_claims_blocked
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

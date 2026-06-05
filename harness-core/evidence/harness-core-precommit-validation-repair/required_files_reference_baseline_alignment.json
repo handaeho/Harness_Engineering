@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rename-harness-core-precommit-validation-repair",
+  "checked_file": "evals/fixtures/static/required_files.json",
+  "required_input_count": 153,
+  "legacy_compare_checker_required": false,
+  "reference_baseline_checker_required": true,
+  "legacy_reference_baseline_required_inputs": [],
+  "reference_baseline_required_inputs": [
+    "evidence/reference-baseline/file_inventory.json",
+    "evidence/reference-baseline/checksums.json"
+  ],
+  "checks": [
+    {
+      "name": "legacy compare checker not required",
+      "status": "pass",
+      "detail": {
+        "legacy_compare_checker": "tools/compare_v36_baseline.mjs"
+      }
+    },
+    {
+      "name": "reference baseline checker required",
+      "status": "pass",
+      "detail": {
+        "reference_checker": "tools/check_reference_baseline_integrity.mjs"
+      }
+    },
+    {
+      "name": "legacy reference baseline inputs not required",
+      "status": "pass",
+      "detail": {
+        "legacy_reference_baseline_inputs": []
+      }
+    },
+    {
+      "name": "reference baseline inventory required",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "reference baseline checksums required",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "all required inputs exist",
+      "status": "pass",
+      "detail": {
+        "missing": []
+      }
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0
+}

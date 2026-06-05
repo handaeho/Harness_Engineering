@@ -1,0 +1,152 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-local-endpoint-readiness-preflight",
+  "provider": "ollama",
+  "api_shape": "OpenAI-compatible",
+  "model_name": "qwen3:14b",
+  "endpoint_url": "http://127.0.0.1:11434/v1",
+  "auth_required": "no",
+  "auth_token_present": false,
+  "operator_signal_present": true,
+  "local_endpoint_probe": true,
+  "local_model_execution": false,
+  "external_provider_call": false,
+  "telemetry_sink_write": false,
+  "synthetic_trace_generation": false,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "secrets_logged": false,
+  "can_enter_local_no_tool_canary": true,
+  "checks": [
+    {
+      "name": "operator readiness signal is present",
+      "status": "pass",
+      "detail": {
+        "operator_signal_present": true
+      }
+    },
+    {
+      "name": "provider type is supported",
+      "status": "pass",
+      "detail": {
+        "provider": "ollama"
+      }
+    },
+    {
+      "name": "model name is present",
+      "status": "pass",
+      "detail": {
+        "model_name_present": true
+      }
+    },
+    {
+      "name": "endpoint URL parses",
+      "status": "pass",
+      "detail": {
+        "endpoint_url_present": true
+      }
+    },
+    {
+      "name": "endpoint is localhost-only",
+      "status": "pass",
+      "detail": {
+        "endpoint_host": "127.0.0.1"
+      }
+    },
+    {
+      "name": "endpoint has no embedded credentials",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "endpoint has no query or hash",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "api shape is OpenAI-compatible",
+      "status": "pass",
+      "detail": {
+        "api_shape": "OpenAI-compatible"
+      }
+    },
+    {
+      "name": "auth requirement is explicit",
+      "status": "pass",
+      "detail": {
+        "auth_required": "no"
+      }
+    },
+    {
+      "name": "auth token presence matches auth requirement",
+      "status": "pass",
+      "detail": {
+        "auth_required": "no",
+        "auth_token_present": false
+      }
+    },
+    {
+      "name": "timeout is bounded",
+      "status": "pass",
+      "detail": {
+        "timeout_ms": 10000
+      }
+    },
+    {
+      "name": "models endpoint is reachable",
+      "status": "pass",
+      "detail": {
+        "http_status": 200,
+        "error_name": null
+      }
+    },
+    {
+      "name": "models endpoint returns JSON data array",
+      "status": "pass",
+      "detail": {
+        "content_type_json": true,
+        "models_count": 1
+      }
+    },
+    {
+      "name": "target model is available",
+      "status": "pass",
+      "detail": {
+        "model_name": "qwen3:14b"
+      }
+    }
+  ],
+  "probe_summary": {
+    "status": "pass",
+    "stage": "v2.0.0-post-rc-local-endpoint-readiness-preflight",
+    "provider": "ollama",
+    "endpoint_host": "127.0.0.1",
+    "endpoint_path": "/v1",
+    "model_name": "qwen3:14b",
+    "local_endpoint_probe": true,
+    "local_model_execution": false,
+    "raw_request_stored": false,
+    "raw_response_stored": false,
+    "http_status": 200,
+    "data_array_present": true,
+    "models_count": 1,
+    "target_model_present": true
+  },
+  "claims_allowed": [
+    "post-rc-local-endpoint-readiness-preflight-completed",
+    "post-rc-local-endpoint-probe-checked"
+  ],
+  "claims_blocked": [
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "local-no-tool-canary-executed",
+    "vllm-no-tool-canary-executed",
+    "ollama-no-tool-canary-executed",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "failures": []
+}

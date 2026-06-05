@@ -1,0 +1,33 @@
+stage: v2.0.0-post-rename-harness-core-final-surface-and-git-readiness
+purpose: Finalize HARNESS Core active surface naming, reference baseline checker usage, clean export, and git readiness after project rename.
+allowed_mutation_scope:
+  - harness-core/**
+forbidden_mutation_scope:
+  - prompt-stack/reference-baseline-source/**
+  - dist/**
+  - node_modules/**
+  - evidence/reference-baseline refresh
+forbidden_execution:
+  openai_model_api_call: false
+  openai_provider_rerun: false
+  local_model_generation: false
+  telemetry_sink_write: false
+  redteam_rerun: false
+  adapter_conformance_rerun: false
+  npm_install_or_ci: false
+  raw_request_storage: false
+  raw_response_storage: false
+  secret_storage: false
+required_checkers:
+  - tools/check_harness_core_no_legacy_surface.mjs
+  - tools/check_reference_baseline_integrity.mjs
+  - tools/check_harness_core_git_readiness.mjs
+  - tools/check_agent_ready_self_contained.mjs
+  - tools/check_current_state_alignment.mjs
+  - tools/scan_prohibited_claims.mjs
+clean_export:
+  path: exports/harness-core-agent-ready.zip
+  builder: tools/build_agent_ready_clean_export.mjs
+commit_policy:
+  commit_without_owner_approval: false
+  required_approval_phrase: I approve committing the HARNESS Core rename and final surface cleanup.

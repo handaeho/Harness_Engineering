@@ -1,0 +1,39 @@
+stage: v2.0.0-post-stable-local-model-verification-evidence-bundle-draft
+
+approved_actions:
+  evidence_bundle_draft: true
+  evidence_index_summary: true
+  gap_register_update: true
+  final_gate_preflight_readiness_summary: true
+
+source_evidence:
+  - evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json
+  - evidence/post-stable-local-model-verification-gate-design/local_model_verification_gate_design_report.json
+  - evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json
+  - evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json
+  - evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json
+  - evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json
+
+forbidden_execution:
+  new_local_model_generation: true
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  model_pull: true
+  raw_request_storage: true
+  raw_response_storage: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+
+allowed_scope_limited_claims:
+  - post-stable-local-model-verification-evidence-bundle-drafted
+  - post-stable-local-model-verification-gap-register-recorded

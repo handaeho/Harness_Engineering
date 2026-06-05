@@ -1,0 +1,68 @@
+{
+  "status": "blocked_by_active_adapter_gaps",
+  "stage": "v2.0.0-post-export-active-adapters-checked-final-gate",
+  "final_gate_executed": false,
+  "post_export_active_adapters_checked_allowed": false,
+  "scoped_claim_allowed": null,
+  "adapter_checked_allowed": false,
+  "provider_verified_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "criteria": [
+    {
+      "id": "ollama_structured_output_smoke",
+      "passed": false,
+      "status": "partial"
+    },
+    {
+      "id": "ollama_tool_calling_mock_smoke",
+      "passed": true,
+      "status": "pass"
+    },
+    {
+      "id": "ollama_replay_regression_smoke",
+      "passed": false,
+      "status": "partial"
+    },
+    {
+      "id": "cross_adapter_contract_dry_run",
+      "passed": false,
+      "status": "blocked_by_cross_adapter_gaps"
+    }
+  ],
+  "unresolved_items_count": 3,
+  "blockers": [
+    {
+      "id": "adapter_scoped_ollama_structured_output_smoke_not_ready",
+      "lane": "active_adapters",
+      "status": "blocked_or_partial",
+      "reason": "Criterion ollama_structured_output_smoke is not pass/accepted; observed status is partial.",
+      "next_action": "Complete the corresponding adapter coverage-hardening stage before opening scoped active-adapters claim."
+    },
+    {
+      "id": "adapter_scoped_ollama_replay_regression_smoke_not_ready",
+      "lane": "active_adapters",
+      "status": "blocked_or_partial",
+      "reason": "Criterion ollama_replay_regression_smoke is not pass/accepted; observed status is partial.",
+      "next_action": "Complete the corresponding adapter coverage-hardening stage before opening scoped active-adapters claim."
+    },
+    {
+      "id": "adapter_scoped_cross_adapter_contract_dry_run_not_ready",
+      "lane": "active_adapters",
+      "status": "blocked_or_partial",
+      "reason": "Criterion cross_adapter_contract_dry_run is not pass/accepted; observed status is blocked_by_cross_adapter_gaps.",
+      "next_action": "Complete the corresponding adapter coverage-hardening stage before opening scoped active-adapters claim."
+    }
+  ],
+  "new_local_model_execution": false,
+  "new_local_model_call_count": 0,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false
+}

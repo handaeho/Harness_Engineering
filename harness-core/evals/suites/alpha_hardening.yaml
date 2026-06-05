@@ -1,0 +1,29 @@
+id: harness-core.alpha_hardening
+version: 2.0.0-alpha-hardening
+status: static-validation
+
+tools:
+  validate_alpha: tools/validate_alpha.mjs
+  scan_prohibited_claims: tools/scan_prohibited_claims.mjs
+  compare_v36_baseline: tools/compare_v36_baseline.mjs
+
+evidence_outputs:
+  - evidence/alpha/validation_report.json
+  - evidence/alpha/validation_report.md
+  - evidence/alpha/prohibited_claim_scan.json
+  - evidence/alpha/baseline_comparison.json
+  - evidence/alpha/unresolved_items.json
+
+required_order:
+  - scan prohibited claims
+  - compare v36 baseline
+  - validate alpha
+
+blocked_execution:
+  - provider API execution
+  - local model execution
+  - runtime execution loop
+  - live telemetry integration
+  - generated dist bundle
+
+allowed_claim_after_pass: alpha-static-validated

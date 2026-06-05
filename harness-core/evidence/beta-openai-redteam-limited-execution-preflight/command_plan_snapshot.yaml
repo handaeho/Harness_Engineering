@@ -1,0 +1,14 @@
+command_plan:
+  stage_to_execute_after_approval: v2.0.0-beta-openai-redteam-limited-execution
+  required_env:
+    - OPENAI_API_KEY
+    - OPENAI_MODEL
+  commands:
+    - node harness-core/tools/run_openai_redteam_limited_execution.mjs
+    - node harness-core/tools/check_openai_redteam_limited_execution.mjs
+  not_executable_in_this_stage: true
+  expected_execution_outputs:
+    - evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json
+    - evidence/beta-openai-redteam-limited-execution/redteam_case_results.jsonl
+    - evidence/beta-openai-redteam-limited-execution/redteam_trace_samples.jsonl
+    - evidence/beta-openai-redteam-limited-execution/redteam_gate_report.json

@@ -1,0 +1,28 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-post-export-ollama-replay-regression-smoke",
+  "unresolved_items_count": 3,
+  "unresolved_items": [
+    {
+      "id": "ollama_structured_output_source_not_pass",
+      "lane": "ollama_replay",
+      "status": "blocked_or_partial",
+      "reason": "Structured-output smoke source is not pass.",
+      "next_action": "Complete Stage B before replay/regression acceptance."
+    },
+    {
+      "id": "ollama_replay_qwen3_14b_replay_no_tool_exact",
+      "lane": "ollama_replay",
+      "status": "blocked_or_partial",
+      "reason": "Replay/regression smoke case did not pass.",
+      "next_action": "Inspect local replay behavior; do not open replay-verified."
+    },
+    {
+      "id": "ollama_replay_qwen3_14b_replay_structured_json",
+      "lane": "ollama_replay",
+      "status": "blocked_or_partial",
+      "reason": "Replay/regression smoke case did not pass.",
+      "next_action": "Inspect local replay behavior; do not open replay-verified."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-adapter-conformance-local-ollama-execution",
+  "dependency_backed_validation_executed": true,
+  "adapter_conformance_dry_run_status": "pass",
+  "adapters_checked": [
+    "ollama.local.skeleton",
+    "openai.api.skeleton",
+    "vllm.local.skeleton"
+  ],
+  "ollama_adapter_id": "ollama.local.skeleton",
+  "provider_matrix_ollama_status": "dry_run_checked",
+  "models_reviewed": [
+    "qwen3:14b",
+    "qwen3.6:27b"
+  ],
+  "new_local_model_execution": false,
+  "new_local_generation_calls": 0,
+  "source_local_model_execution_reviewed": true,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "secrets_logged": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "local_model_verified_allowed": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "checks": {
+    "dependency_ready": true,
+    "dry_run_passed": true,
+    "ollama_adapter_loaded": true,
+    "provider_matrix_ollama_present": true,
+    "no_tool_mapping_reviewed": true,
+    "reasoning_control_mapping_reviewed": true,
+    "structured_output_mapping_reviewed": true,
+    "tool_calling_mock_mapping_reviewed": true,
+    "redaction_storage_boundary_reviewed": true,
+    "local_redteam_coverage_reviewed": true,
+    "protected_paths_unmodified": true
+  },
+  "claims_allowed": [
+    "post-stable-adapter-conformance-local-ollama-execution-recorded",
+    "post-stable-ollama-adapter-mapping-reviewed",
+    "post-stable-qwen-reasoning-control-mapping-reviewed"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "status": "partial",
+  "stage": "v2.0.0-post-export-provider-verified-coverage-completion-preflight",
+  "lane_id": "ollama_qwen3_local_lane",
+  "provider_family": "ollama_local",
+  "models_in_input_evidence": [
+    "qwen3:14b",
+    "qwen3.6:27b"
+  ],
+  "provider_contract_documented": true,
+  "execution_evidence_exists": true,
+  "local_model_verified": true,
+  "redteam_evidence_exists": true,
+  "replay_or_regression_evidence_exists": "partial",
+  "replay_or_regression_coverage_strength": "local_smoke_regression_only",
+  "structured_output_coverage": "partial_smoke_only",
+  "tool_calling_coverage": "partial_mock_smoke_only",
+  "error_handling_reviewed": "unknown_or_partial",
+  "capability_matrix_reviewed": true,
+  "storage_redaction_reviewed": true,
+  "provider_verified_ready": false,
+  "source_evidence": {
+    "adapter_contract": {
+      "path": "adapters/local/ollama/adapter.yaml",
+      "exists": true,
+      "status": null,
+      "stage": null
+    },
+    "local_model_verified_final_handoff": {
+      "path": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_handoff_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-model-verified-final-handoff-and-archive"
+    },
+    "local_model_verification_final_gate": {
+      "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+    },
+    "local_redteam_bounded_smoke": {
+      "path": "evidence/post-stable-local-redteam-bounded-smoke/local_redteam_bounded_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-redteam-bounded-smoke"
+    },
+    "local_replay_regression_smoke": {
+      "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+    },
+    "local_structured_output_smoke": {
+      "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+    },
+    "local_tool_calling_mock_smoke": {
+      "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+    },
+    "local_redaction_storage_audit": {
+      "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+    },
+    "adapter_conformance": {
+      "path": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-adapter-conformance-local-ollama-execution"
+    },
+    "capability_matrix": {
+      "path": "adapters/provider_capability_matrix.yaml",
+      "exists": true,
+      "status": null,
+      "stage": null
+    }
+  },
+  "missing_or_partial_coverage": [
+    "ollama_provider_error_handling_review_unknown_or_partial",
+    "ollama_provider_replay_or_regression_evidence_partial",
+    "ollama_structured_output_coverage_partial_smoke_only",
+    "ollama_tool_calling_coverage_partial_mock_only"
+  ]
+}

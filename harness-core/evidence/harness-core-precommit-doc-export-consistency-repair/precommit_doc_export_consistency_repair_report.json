@@ -1,0 +1,82 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rename-harness-core-precommit-doc-export-consistency-repair",
+  "generated_at": "2026-06-05T06:55:27.866Z",
+  "scope": "precommit doc/export consistency repair only",
+  "archive_no_git_only": false,
+  "source_workspace_surface_available": true,
+  "reports": {
+    "root_vs_export_command_policy": "evidence/harness-core-precommit-doc-export-consistency-repair/root_vs_export_command_policy.json",
+    "no_git_precommit_checker_mode_report": "evidence/harness-core-precommit-doc-export-consistency-repair/no_git_precommit_checker_mode_report.json",
+    "clean_export_command_surface_report": "evidence/harness-core-precommit-doc-export-consistency-repair/clean_export_command_surface_report.json",
+    "gate_report": "evidence/harness-core-precommit-doc-export-consistency-repair/precommit_doc_export_consistency_gate_report.json"
+  },
+  "root_workspace_first_commands": [
+    "node tools/check_agent_ready_self_contained.mjs",
+    "node tools/check_current_state_alignment.mjs",
+    "node tools/check_reference_baseline_integrity.mjs"
+  ],
+  "clean_export_first_commands": [
+    "node tools/check_agent_ready_self_contained.mjs",
+    "node tools/check_reference_baseline_integrity.mjs"
+  ],
+  "current_state_alignment_placement": "root_workspace_only",
+  "git_readiness_mode_awareness": "git_metadata_present",
+  "git_metadata_present": true,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "local_model_generation": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "reference_baseline_refresh": false,
+  "legacy_reference_source_modified": false,
+  "dist_modified": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "weak_claims_recordable": [
+    "harness-core-precommit-doc-export-consistency-repair-recorded",
+    "root-vs-export-command-policy-recorded",
+    "no-git-precommit-checker-mode-recorded",
+    "clean-export-command-surface-checked"
+  ],
+  "section_statuses": [
+    {
+      "section": "evals/fixtures/static/required_files.json",
+      "status": "pass",
+      "unresolved_items_count": 0
+    },
+    {
+      "section": [
+        "stack.schema.json",
+        "schemas/stack.schema.json"
+      ],
+      "status": "pass",
+      "unresolved_items_count": 0
+    },
+    {
+      "section": "schemas/validation_report.schema.json",
+      "status": "pass",
+      "unresolved_items_count": 0
+    },
+    {
+      "section": "root_workspace_only",
+      "status": "pass",
+      "unresolved_items_count": 0
+    },
+    {
+      "section": "precommit_doc_export_consistency",
+      "status": "pass",
+      "unresolved_items_count": 0
+    },
+    {
+      "section": "root_workspace_only",
+      "status": "pass",
+      "unresolved_items_count": 0
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0
+}

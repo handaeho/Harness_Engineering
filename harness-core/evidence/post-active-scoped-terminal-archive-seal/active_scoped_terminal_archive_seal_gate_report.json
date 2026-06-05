@@ -1,0 +1,511 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-active-scoped-terminal-archive-seal",
+  "unresolved_items_count": 0,
+  "checks": [
+    {
+      "name": "report exists",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-active-scoped-terminal-archive-seal",
+        "terminal_archive_sealed": true,
+        "weak_claim_recorded": "post-active-scoped-terminal-archive-sealed",
+        "criteria": [
+          {
+            "id": "active_provider_lanes_scoped_claim_allowed",
+            "passed": true,
+            "observed": true
+          },
+          {
+            "id": "active_adapters_scoped_claim_allowed",
+            "passed": true,
+            "observed": true
+          },
+          {
+            "id": "active_scoped_production_ready_allowed",
+            "passed": true,
+            "observed": true
+          },
+          {
+            "id": "active_scoped_stable_allowed",
+            "passed": true,
+            "observed": true
+          },
+          {
+            "id": "latest_active_scoped_readiness_export_exists",
+            "passed": true,
+            "observed": {
+              "report_status": "pass",
+              "report_sha256": "50fef728fda31496485de47477ea925d230f984c8178230227799046a93036e9",
+              "file_exists": true
+            }
+          }
+        ],
+        "evidence_pointer_index": {
+          "previous_final_claim_state": {
+            "path": "evidence/post-export-active-scoped-final-handoff-refresh/active_scoped_final_claim_state.json",
+            "exists": true,
+            "status": "recorded",
+            "stage": null
+          },
+          "previous_readiness_export": {
+            "path": "evidence/final-export-refresh-after-active-scoped-readiness/final_export_refresh_after_active_scoped_readiness_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-final-export-refresh-after-active-scoped-readiness"
+          },
+          "previous_readiness_export_claim_state": {
+            "path": "evidence/final-export-refresh-after-active-scoped-readiness/final_export_refresh_claim_state.json",
+            "exists": true,
+            "status": "recorded",
+            "stage": null
+          },
+          "previous_final_handoff": {
+            "path": "evidence/post-export-active-scoped-final-handoff-refresh/active_scoped_final_handoff_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-scoped-final-handoff-refresh"
+          },
+          "previous_bare_general_blocker_matrix": {
+            "path": "evidence/post-export-general-bare-claim-final-blocker-matrix/general_bare_claim_final_blocker_matrix.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-general-bare-claim-final-blocker-matrix"
+          },
+          "active_provider_lanes_verified": {
+            "path": "evidence/post-export-active-provider-lanes-verified-final-gate-retry/active_provider_lanes_verified_final_gate_retry_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-provider-lanes-verified-final-gate-retry"
+          },
+          "active_adapters_checked": {
+            "path": "evidence/post-export-active-adapters-checked-final-gate-retry/active_adapters_checked_final_gate_retry_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-adapters-checked-final-gate-retry"
+          },
+          "active_scoped_production_ready": {
+            "path": "evidence/post-export-active-scoped-production-ready-final-gate/active_scoped_production_ready_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-scoped-production-ready-final-gate"
+          },
+          "active_scoped_stable": {
+            "path": "evidence/post-export-active-scoped-stable-final-gate/active_scoped_stable_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-scoped-stable-final-gate"
+          },
+          "provider_diverse": {
+            "path": "evidence/post-combined-provider-diverse-final-gate/provider_diverse_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-combined-provider-diverse-final-gate"
+          },
+          "local_model_verified": {
+            "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+          },
+          "production_monitored": {
+            "path": "evidence/post-rc-production-monitoring-final-gate/production_monitoring_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-rc-production-monitoring-final-gate"
+          },
+          "telemetry_connected": {
+            "path": "evidence/post-rc-telemetry-connection/telemetry_connection_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-rc-telemetry-connection"
+          },
+          "containment_verified": {
+            "path": "evidence/beta-containment-verified-decision-gate/containment_verified_decision_report.json",
+            "exists": true,
+            "status": "containment_verified_decision_approved",
+            "stage": "v2.0.0-beta-containment-verified-decision-gate"
+          }
+        },
+        "protected_path_status": {
+          "git_status": {
+            "exit_code": 0,
+            "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+            "stderr": ""
+          },
+          "observed_dirty_paths": [
+            "harness-core/evidence/v36-baseline/checksums.json",
+            "harness-core/evidence/v36-baseline/file_inventory.json"
+          ],
+          "v36_dirty_paths": [],
+          "dist_dirty_paths": [],
+          "node_modules_dirty_paths": [],
+          "evidence_v36_baseline_dirty_paths": [
+            "harness-core/evidence/v36-baseline/checksums.json",
+            "harness-core/evidence/v36-baseline/file_inventory.json"
+          ],
+          "v36_modified": false,
+          "dist_modified": false,
+          "evidence_v36_baseline_modified": false
+        },
+        "unresolved_items_count": 0,
+        "blockers": [],
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": true,
+        "post_export_active_adapters_checked_allowed": true,
+        "post_export_active_scoped_production_ready_allowed": true,
+        "post_export_active_scoped_stable_allowed": true,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "terminal seal pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-active-scoped-terminal-archive-seal",
+        "terminal_archive_sealed": true,
+        "weak_claim_recorded": "post-active-scoped-terminal-archive-sealed",
+        "criteria": [
+          {
+            "id": "active_provider_lanes_scoped_claim_allowed",
+            "passed": true,
+            "observed": true
+          },
+          {
+            "id": "active_adapters_scoped_claim_allowed",
+            "passed": true,
+            "observed": true
+          },
+          {
+            "id": "active_scoped_production_ready_allowed",
+            "passed": true,
+            "observed": true
+          },
+          {
+            "id": "active_scoped_stable_allowed",
+            "passed": true,
+            "observed": true
+          },
+          {
+            "id": "latest_active_scoped_readiness_export_exists",
+            "passed": true,
+            "observed": {
+              "report_status": "pass",
+              "report_sha256": "50fef728fda31496485de47477ea925d230f984c8178230227799046a93036e9",
+              "file_exists": true
+            }
+          }
+        ],
+        "evidence_pointer_index": {
+          "previous_final_claim_state": {
+            "path": "evidence/post-export-active-scoped-final-handoff-refresh/active_scoped_final_claim_state.json",
+            "exists": true,
+            "status": "recorded",
+            "stage": null
+          },
+          "previous_readiness_export": {
+            "path": "evidence/final-export-refresh-after-active-scoped-readiness/final_export_refresh_after_active_scoped_readiness_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-final-export-refresh-after-active-scoped-readiness"
+          },
+          "previous_readiness_export_claim_state": {
+            "path": "evidence/final-export-refresh-after-active-scoped-readiness/final_export_refresh_claim_state.json",
+            "exists": true,
+            "status": "recorded",
+            "stage": null
+          },
+          "previous_final_handoff": {
+            "path": "evidence/post-export-active-scoped-final-handoff-refresh/active_scoped_final_handoff_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-scoped-final-handoff-refresh"
+          },
+          "previous_bare_general_blocker_matrix": {
+            "path": "evidence/post-export-general-bare-claim-final-blocker-matrix/general_bare_claim_final_blocker_matrix.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-general-bare-claim-final-blocker-matrix"
+          },
+          "active_provider_lanes_verified": {
+            "path": "evidence/post-export-active-provider-lanes-verified-final-gate-retry/active_provider_lanes_verified_final_gate_retry_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-provider-lanes-verified-final-gate-retry"
+          },
+          "active_adapters_checked": {
+            "path": "evidence/post-export-active-adapters-checked-final-gate-retry/active_adapters_checked_final_gate_retry_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-adapters-checked-final-gate-retry"
+          },
+          "active_scoped_production_ready": {
+            "path": "evidence/post-export-active-scoped-production-ready-final-gate/active_scoped_production_ready_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-scoped-production-ready-final-gate"
+          },
+          "active_scoped_stable": {
+            "path": "evidence/post-export-active-scoped-stable-final-gate/active_scoped_stable_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-active-scoped-stable-final-gate"
+          },
+          "provider_diverse": {
+            "path": "evidence/post-combined-provider-diverse-final-gate/provider_diverse_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-combined-provider-diverse-final-gate"
+          },
+          "local_model_verified": {
+            "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+          },
+          "production_monitored": {
+            "path": "evidence/post-rc-production-monitoring-final-gate/production_monitoring_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-rc-production-monitoring-final-gate"
+          },
+          "telemetry_connected": {
+            "path": "evidence/post-rc-telemetry-connection/telemetry_connection_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-rc-telemetry-connection"
+          },
+          "containment_verified": {
+            "path": "evidence/beta-containment-verified-decision-gate/containment_verified_decision_report.json",
+            "exists": true,
+            "status": "containment_verified_decision_approved",
+            "stage": "v2.0.0-beta-containment-verified-decision-gate"
+          }
+        },
+        "protected_path_status": {
+          "git_status": {
+            "exit_code": 0,
+            "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+            "stderr": ""
+          },
+          "observed_dirty_paths": [
+            "harness-core/evidence/v36-baseline/checksums.json",
+            "harness-core/evidence/v36-baseline/file_inventory.json"
+          ],
+          "v36_dirty_paths": [],
+          "dist_dirty_paths": [],
+          "node_modules_dirty_paths": [],
+          "evidence_v36_baseline_dirty_paths": [
+            "harness-core/evidence/v36-baseline/checksums.json",
+            "harness-core/evidence/v36-baseline/file_inventory.json"
+          ],
+          "v36_modified": false,
+          "dist_modified": false,
+          "evidence_v36_baseline_modified": false
+        },
+        "unresolved_items_count": 0,
+        "blockers": [],
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": true,
+        "post_export_active_adapters_checked_allowed": true,
+        "post_export_active_scoped_production_ready_allowed": true,
+        "post_export_active_scoped_stable_allowed": true,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "claim state contains required claims",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "generated_at": "2026-06-04T01:02:53.507Z",
+        "allowed_claims": [
+          "provider-diverse",
+          "local-model-verified",
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-adapters-checked",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-stable",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "allowed_scoped_claims": [
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-provider-lanes-verified-final-gate-passed",
+          "post-export-active-adapters-checked",
+          "post-export-active-adapters-checked-final-gate-passed",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-production-ready-final-gate-passed",
+          "post-export-active-scoped-stable",
+          "post-export-active-scoped-stable-final-gate-passed"
+        ],
+        "allowed_weak_final_dossier_claims": [
+          "post-active-scoped-terminal-archive-sealed",
+          "post-active-scoped-bare-general-blocker-matrix-recorded",
+          "post-active-scoped-provider-verified-future-plan-recorded",
+          "post-active-scoped-adapter-checked-future-plan-recorded",
+          "post-active-scoped-general-readiness-stability-future-plan-recorded",
+          "post-active-scoped-final-release-dossier-recorded",
+          "final-export-refresh-after-final-dossier-recorded",
+          "post-active-scoped-final-new-conversation-handoff-recorded"
+        ],
+        "blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "canonicalization_rules": [
+          "Use post-export-active-provider-lanes-verified, not provider-verified.",
+          "Use post-export-active-adapters-checked, not adapter-checked.",
+          "Use post-export-active-scoped-production-ready, not production-ready.",
+          "Use post-export-active-scoped-stable, not stable.",
+          "Use rc1-openai-scope-release-gated, not release-gated."
+        ],
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": true,
+        "post_export_active_adapters_checked_allowed": true,
+        "post_export_active_scoped_production_ready_allowed": true,
+        "post_export_active_scoped_stable_allowed": true,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "include_weak_claims": true
+      }
+    },
+    {
+      "name": "bare/general claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-active-scoped-terminal-archive-seal",
+        "allowed_claims": [
+          "provider-diverse",
+          "local-model-verified",
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-adapters-checked",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-stable",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "allowed_scoped_claims": [
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-provider-lanes-verified-final-gate-passed",
+          "post-export-active-adapters-checked",
+          "post-export-active-adapters-checked-final-gate-passed",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-production-ready-final-gate-passed",
+          "post-export-active-scoped-stable",
+          "post-export-active-scoped-stable-final-gate-passed"
+        ],
+        "blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": true,
+        "post_export_active_adapters_checked_allowed": true,
+        "post_export_active_scoped_production_ready_allowed": true,
+        "post_export_active_scoped_stable_allowed": true,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "unresolved empty",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-active-scoped-terminal-archive-seal",
+        "unresolved_items_count": 0,
+        "unresolved_items": []
+      }
+    }
+  ],
+  "failures": [],
+  "new_local_model_execution": false,
+  "new_local_model_call_count": 0,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "post_export_active_provider_lanes_verified_allowed": true,
+  "post_export_active_adapters_checked_allowed": true,
+  "post_export_active_scoped_production_ready_allowed": true,
+  "post_export_active_scoped_stable_allowed": true,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false
+}

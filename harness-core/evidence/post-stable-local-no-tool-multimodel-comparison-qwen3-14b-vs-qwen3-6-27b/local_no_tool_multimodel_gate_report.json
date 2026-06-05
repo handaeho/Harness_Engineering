@@ -1,0 +1,162 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+  "models": [
+    "qwen3:14b",
+    "qwen3.6:27b"
+  ],
+  "new_local_model_execution": false,
+  "new_local_generation_calls": 0,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "secrets_logged": false,
+  "local_model_verified_allowed": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "model_results": [
+    {
+      "model": "qwen3:14b",
+      "provider": "ollama",
+      "readiness_preflight_passed": true,
+      "local_no_tool_canary_passed": true,
+      "result_review_passed": true,
+      "cases_total": 2,
+      "cases_passed": 2,
+      "cases_failed": 0,
+      "final_content_non_empty": true,
+      "tool_calling_used": false,
+      "structured_output_used": false,
+      "think_false_applied": true,
+      "reasoning_effort_none_applied": false,
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true,
+      "output_text_hashes": [
+        {
+          "case_id": "local-no-tool-basic-001",
+          "hash": "d4217439960414107cd17956859e2e060c2dadf34e941b3c8aaa84a4092ca4d8",
+          "finish_reason": "length"
+        },
+        {
+          "case_id": "local-no-tool-boundary-001",
+          "hash": "6990b5f254e4f99d62de488380fe7927b1594e6c588ede6c2e68526c22b33bfb",
+          "finish_reason": "stop"
+        }
+      ],
+      "completion_tokens": [
+        256,
+        170
+      ],
+      "completion_tokens_total": 426,
+      "source_files": {
+        "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+        "readiness": "evidence/post-rc-local-endpoint-readiness-preflight/local_endpoint_readiness_gate_report.json",
+        "canary": "evidence/post-rc-local-no-tool-canary/local_no_tool_canary_gate_report.json",
+        "mapping": "evidence/post-rc-local-no-tool-canary/local_response_mapping_report.json",
+        "redaction": "evidence/post-rc-local-no-tool-canary/local_no_tool_redaction_report.json"
+      }
+    },
+    {
+      "model": "qwen3.6:27b",
+      "provider": "ollama",
+      "readiness_preflight_passed": true,
+      "local_no_tool_canary_passed": true,
+      "result_review_passed": true,
+      "cases_total": 2,
+      "cases_passed": 2,
+      "cases_failed": 0,
+      "final_content_non_empty": true,
+      "tool_calling_used": false,
+      "structured_output_used": false,
+      "think_false_applied": true,
+      "reasoning_effort_none_applied": true,
+      "raw_request_stored": false,
+      "raw_response_stored": false,
+      "redaction_passed": true,
+      "output_text_hashes": [
+        {
+          "case_id": "local-no-tool-basic-001",
+          "hash": "031bb82806c6728514f7f63f5e0de48172ca10f494d89947c3b52dac6612f34b",
+          "finish_reason": "stop"
+        },
+        {
+          "case_id": "local-no-tool-boundary-001",
+          "hash": "89921e15623dfc44e2afdf0d31d423e097f0fa5fdb2352536209d2ab3d28f70c",
+          "finish_reason": "stop"
+        }
+      ],
+      "completion_tokens": [
+        9,
+        6
+      ],
+      "completion_tokens_total": 15,
+      "source_files": {
+        "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+        "readiness": "evidence/post-rc-local-endpoint-readiness-preflight-qwen3-6-27b/local_endpoint_readiness_gate_report.json",
+        "canary": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_canary_gate_report.json",
+        "mapping": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_response_mapping_report.json",
+        "redaction": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_redaction_report.json"
+      }
+    }
+  ],
+  "reasoning_control_comparison": {
+    "status": "recorded",
+    "qwen3_14b": {
+      "think_false_applied": true,
+      "reasoning_effort_none_applied": false
+    },
+    "qwen3_6_27b": {
+      "think_false_applied": true,
+      "reasoning_effort_none_applied": true
+    },
+    "conclusion": "qwen3.6:27b required explicit reasoning_effort none controls; qwen3:14b no-tool evidence only records think:false."
+  },
+  "storage_redaction_comparison": {
+    "status": "pass",
+    "raw_request_stored_any": false,
+    "raw_response_stored_any": false,
+    "redaction_passed_all": true
+  },
+  "local_model_verification_preconditions": {
+    "status": "drafted",
+    "stage": "v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+    "no_tool_multimodel_comparison_passed": true,
+    "required_next_surfaces": [
+      "local-model verification gate design",
+      "structured-output smoke canary",
+      "tool-calling mock smoke canary",
+      "local replay/regression smoke",
+      "local redaction/storage cross-suite audit",
+      "local model verification evidence bundle draft",
+      "owner decision required before any strong local verification claim"
+    ],
+    "local_model_verified_allowed": false,
+    "provider_diverse_allowed": false,
+    "provider_verified_allowed": false,
+    "adapter_checked_allowed": false
+  },
+  "claims_allowed": [
+    "post-stable-local-no-tool-multimodel-comparison-recorded",
+    "post-stable-local-no-tool-qwen3-models-compared",
+    "post-stable-local-no-tool-reasoning-control-compared",
+    "post-stable-local-no-tool-storage-redaction-compared",
+    "post-stable-local-model-verification-preconditions-drafted"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "missing_inputs": [],
+  "unresolved_items_count": 0
+}

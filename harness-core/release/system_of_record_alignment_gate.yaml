@@ -1,0 +1,33 @@
+system_of_record_alignment_gate:
+  stage: v2.0.0-rc.1-agents-md-and-system-of-record-alignment
+  status: designed
+
+  required_inputs:
+    - AGENTS.md
+    - MANIFEST.asset_classes.yaml
+    - stack.yaml
+    - docs/system_of_record.md
+    - docs/directory_roles.md
+    - docs/naming_conventions.md
+    - docs/agent_workflow.md
+
+  required_checks:
+    - validate_alpha.mjs
+    - scan_prohibited_claims.mjs
+    - check_reference_baseline_integrity.mjs
+    - validate_agents_md_alignment.mjs
+
+  claim_boundary:
+    containment_verified_allowed: true
+    can_enter_rc1_openai_scope_bundle: true
+    stable_allowed: false
+    release_gated_allowed: false
+    production_ready_allowed: false
+    production_monitored_allowed: false
+    provider_diverse_allowed: false
+
+  execution_boundary:
+    openai_provider_call: false
+    local_model_execution: false
+    telemetry_connection: false
+    release_gate_actual_execution: false

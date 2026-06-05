@@ -1,0 +1,136 @@
+{
+  "status": "blocked_by_strict_claim_gaps",
+  "stage": "v2.0.0-post-export-general-readiness-stability-preflight",
+  "unresolved_items_count": 3,
+  "new_local_model_execution": false,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "checks": [
+    {
+      "name": "report blocks general readiness",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_strict_claim_gaps",
+        "stage": "v2.0.0-post-export-general-readiness-stability-preflight",
+        "production_ready_allowed": false,
+        "general_production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "blockers": [
+          {
+            "id": "provider_verified_not_allowed",
+            "lane": "general",
+            "status": "blocked_or_partial",
+            "reason": "Provider-verified is not allowed.",
+            "next_action": "Complete provider-verified final gate first."
+          },
+          {
+            "id": "adapter_checked_not_allowed",
+            "lane": "general",
+            "status": "blocked_or_partial",
+            "reason": "Adapter-checked is not allowed.",
+            "next_action": "Complete adapter-checked final gate first."
+          },
+          {
+            "id": "bare_release_gate_not_rerun",
+            "lane": "general",
+            "status": "blocked_or_partial",
+            "reason": "Bare/general release gate rerun is outside this autopilot.",
+            "next_action": "Run a separately approved general release gate before general stable/release-gated claims."
+          }
+        ],
+        "provider_verified_status": "blocked_by_provider_verified_coverage_not_ready",
+        "adapter_checked_status": "blocked_by_adapter_checked_coverage_not_ready",
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false
+      }
+    },
+    {
+      "name": "production matrix blocked",
+      "status": "pass",
+      "detail": {
+        "status": "blocked",
+        "stage": "v2.0.0-post-export-general-readiness-stability-preflight",
+        "general_production_ready_allowed": false,
+        "provider_verified_required": true,
+        "provider_verified_allowed": false,
+        "adapter_checked_required": true,
+        "adapter_checked_allowed": false,
+        "blockers": [
+          "provider_verified_not_allowed",
+          "adapter_checked_not_allowed",
+          "bare_release_gate_not_rerun"
+        ]
+      }
+    },
+    {
+      "name": "stable matrix blocked",
+      "status": "pass",
+      "detail": {
+        "status": "blocked",
+        "stage": "v2.0.0-post-export-general-readiness-stability-preflight",
+        "stable_allowed": false,
+        "production_ready_required": true,
+        "release_gate_required": true,
+        "blockers": [
+          "provider_verified_not_allowed",
+          "adapter_checked_not_allowed",
+          "bare_release_gate_not_rerun"
+        ]
+      }
+    },
+    {
+      "name": "unresolved blockers recorded",
+      "status": "pass",
+      "detail": {
+        "status": "blocked",
+        "stage": "v2.0.0-post-export-general-readiness-stability-preflight",
+        "unresolved_items_count": 3,
+        "unresolved_items": [
+          {
+            "id": "provider_verified_not_allowed",
+            "lane": "general",
+            "status": "blocked_or_partial",
+            "reason": "Provider-verified is not allowed.",
+            "next_action": "Complete provider-verified final gate first."
+          },
+          {
+            "id": "adapter_checked_not_allowed",
+            "lane": "general",
+            "status": "blocked_or_partial",
+            "reason": "Adapter-checked is not allowed.",
+            "next_action": "Complete adapter-checked final gate first."
+          },
+          {
+            "id": "bare_release_gate_not_rerun",
+            "lane": "general",
+            "status": "blocked_or_partial",
+            "reason": "Bare/general release gate rerun is outside this autopilot.",
+            "next_action": "Run a separately approved general release gate before general stable/release-gated claims."
+          }
+        ]
+      }
+    }
+  ],
+  "failures": []
+}

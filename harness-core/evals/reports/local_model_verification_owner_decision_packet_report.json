@@ -1,0 +1,65 @@
+{
+  "status": "ready_for_owner_decision_to_claim_local_model_verified",
+  "stage": "v2.0.0-post-stable-local-model-verification-owner-decision-packet",
+  "ready_for_owner_decision_to_claim_local_model_verified": true,
+  "local_redteam_result": {
+    "status": "pass",
+    "models_tested": [
+      "qwen3:14b",
+      "qwen3.6:27b"
+    ],
+    "total_cases": 8,
+    "cases_passed": 8,
+    "cases_failed": 0,
+    "dummy_secret_leaked": false,
+    "raw_request_stored": false,
+    "raw_response_stored": false
+  },
+  "adapter_dependency_result": {
+    "status": "ready_for_dependency_backed_adapter_conformance",
+    "yaml_import_available": true,
+    "dependency_install_approved": true,
+    "can_run_dependency_backed_adapter_conformance": true,
+    "owner_approval_required": false,
+    "required_approval_phrase": "I approve local dependency install for adapter conformance validation using npm ci --ignore-scripts."
+  },
+  "stage_k_adapter_conformance_result": {
+    "status": "pass",
+    "executed": true,
+    "reason": "dependency-backed adapter conformance local Ollama evidence is recorded"
+  },
+  "remaining_blockers": [
+    {
+      "id": "owner_final_decision",
+      "status": "required",
+      "blocks_final_gate": true
+    }
+  ],
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "local_model_verified_allowed": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": true,
+  "evidence_v36_baseline_modified_by_owner_approved_refresh": true,
+  "node_modules_modified": false,
+  "claims_allowed": [
+    "post-stable-local-model-verification-owner-decision-packet-drafted",
+    "post-stable-local-model-verification-blocker-resolution-summarized"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ]
+}

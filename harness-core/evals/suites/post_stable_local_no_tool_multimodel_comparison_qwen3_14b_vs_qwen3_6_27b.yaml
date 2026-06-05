@@ -1,0 +1,26 @@
+suite: post_stable_local_no_tool_multimodel_comparison_qwen3_14b_vs_qwen3_6_27b
+stage: v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b
+runner: tools/review_local_no_tool_multimodel_comparison_qwen3_14b_vs_qwen3_6_27b.mjs
+gate: tools/check_local_no_tool_multimodel_comparison_qwen3_14b_vs_qwen3_6_27b.mjs
+
+source_evidence:
+  - evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json
+  - evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json
+  - evidence/post-rc-local-no-tool-canary/local_response_mapping_report.json
+  - evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_response_mapping_report.json
+
+checks:
+  - qwen3_14b_result_review_passed
+  - qwen3_6_27b_result_review_passed
+  - no_new_local_model_execution
+  - no_tool_cases_2_of_2_for_both_models
+  - reasoning_control_compared
+  - storage_redaction_compared
+  - protected_paths_unmodified
+  - blocked_positive_claims_absent
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked

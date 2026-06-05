@@ -1,0 +1,607 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+  "unresolved_items_count": 0,
+  "checks": [
+    {
+      "name": "report exists",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+        "blockers_total": 5,
+        "blockers": [
+          {
+            "id": "ollama_structured_output_qwen3_14b_structured_nested_flag",
+            "category": "structured_output",
+            "root_cause": "schema_prompt_issue",
+            "repair_strategy": "bounded_retry",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_structured_output_source_not_pass",
+            "category": "structured_output",
+            "root_cause": "evidence_missing",
+            "repair_strategy": "bounded_retry",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_no_tool_exact",
+            "category": "replay_regression",
+            "root_cause": "exact_match_policy_issue",
+            "repair_strategy": "canonical_acceptance_policy",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_structured_json",
+            "category": "replay_regression",
+            "root_cause": "exact_match_policy_issue",
+            "repair_strategy": "canonical_acceptance_policy",
+            "max_retries": 1
+          },
+          {
+            "id": "adapter_scoped_cross_adapter_contract_dry_run_not_ready",
+            "category": "cross_adapter_contract",
+            "root_cause": "adapter_contract_gap",
+            "repair_strategy": "static_contract_patch",
+            "max_retries": 1
+          }
+        ],
+        "repairable_blockers": [
+          "ollama_structured_output_qwen3_14b_structured_nested_flag",
+          "ollama_structured_output_source_not_pass",
+          "ollama_replay_qwen3_14b_replay_no_tool_exact",
+          "ollama_replay_qwen3_14b_replay_structured_json",
+          "adapter_scoped_cross_adapter_contract_dry_run_not_ready"
+        ],
+        "keep_blocked_blockers": [],
+        "previous_sources": {
+          "openaiReview": {
+            "path": "evidence/post-export-openai-provider-contract-regression-review/openai_provider_contract_regression_review.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-openai-provider-no-new-call-contract-regression-review"
+          },
+          "structuredSmoke": {
+            "path": "evidence/post-export-ollama-structured-output-smoke/ollama_structured_output_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-structured-output-smoke"
+          },
+          "toolMock": {
+            "path": "evidence/post-export-ollama-tool-calling-mock-smoke/ollama_tool_calling_mock_smoke_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-ollama-tool-calling-mock-smoke"
+          },
+          "replaySmoke": {
+            "path": "evidence/post-export-ollama-replay-regression-smoke/ollama_replay_regression_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-replay-regression-smoke"
+          },
+          "crossAdapter": {
+            "path": "evidence/post-export-cross-adapter-contract-dry-run/cross_adapter_contract_dry_run_report.json",
+            "exists": true,
+            "status": "blocked_by_cross_adapter_gaps",
+            "stage": "v2.0.0-post-export-cross-adapter-contract-dry-run"
+          },
+          "activeProviders": {
+            "path": "evidence/post-export-active-provider-lanes-verified-final-gate/active_provider_lanes_verified_final_gate_report.json",
+            "exists": true,
+            "status": "blocked_by_active_provider_lane_gaps",
+            "stage": "v2.0.0-post-export-active-provider-lanes-verified-final-gate"
+          },
+          "activeAdapters": {
+            "path": "evidence/post-export-active-adapters-checked-final-gate/active_adapters_checked_final_gate_report.json",
+            "exists": true,
+            "status": "blocked_by_active_adapter_gaps",
+            "stage": "v2.0.0-post-export-active-adapters-checked-final-gate"
+          },
+          "providerDiverse": {
+            "path": "evidence/post-combined-provider-diverse-final-gate/provider_diverse_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-combined-provider-diverse-final-gate"
+          },
+          "localModelVerified": {
+            "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+          }
+        },
+        "retry_plan": {
+          "status": "planned",
+          "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+          "total_new_local_call_budget": 36,
+          "qwen3_14b_budget": 24,
+          "qwen3_6_27b_budget": 12,
+          "planned_calls": {
+            "structured_primary_openai_compatible_qwen3_14b": 2,
+            "structured_diagnostic_native_qwen3_14b_max": 2,
+            "replay_regression_qwen3_14b": 2,
+            "cross_adapter_static_dry_run": 0
+          },
+          "one_repair_per_failure": true,
+          "hard_stop_if_second_repair_needed": true
+        },
+        "unresolved_items_count": 0,
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": false,
+        "post_export_active_adapters_checked_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "five blockers classified",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+        "blockers_total": 5,
+        "blockers": [
+          {
+            "id": "ollama_structured_output_qwen3_14b_structured_nested_flag",
+            "category": "structured_output",
+            "root_cause": "schema_prompt_issue",
+            "repair_strategy": "bounded_retry",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_structured_output_source_not_pass",
+            "category": "structured_output",
+            "root_cause": "evidence_missing",
+            "repair_strategy": "bounded_retry",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_no_tool_exact",
+            "category": "replay_regression",
+            "root_cause": "exact_match_policy_issue",
+            "repair_strategy": "canonical_acceptance_policy",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_structured_json",
+            "category": "replay_regression",
+            "root_cause": "exact_match_policy_issue",
+            "repair_strategy": "canonical_acceptance_policy",
+            "max_retries": 1
+          },
+          {
+            "id": "adapter_scoped_cross_adapter_contract_dry_run_not_ready",
+            "category": "cross_adapter_contract",
+            "root_cause": "adapter_contract_gap",
+            "repair_strategy": "static_contract_patch",
+            "max_retries": 1
+          }
+        ],
+        "repairable_blockers": [
+          "ollama_structured_output_qwen3_14b_structured_nested_flag",
+          "ollama_structured_output_source_not_pass",
+          "ollama_replay_qwen3_14b_replay_no_tool_exact",
+          "ollama_replay_qwen3_14b_replay_structured_json",
+          "adapter_scoped_cross_adapter_contract_dry_run_not_ready"
+        ],
+        "keep_blocked_blockers": [],
+        "previous_sources": {
+          "openaiReview": {
+            "path": "evidence/post-export-openai-provider-contract-regression-review/openai_provider_contract_regression_review.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-openai-provider-no-new-call-contract-regression-review"
+          },
+          "structuredSmoke": {
+            "path": "evidence/post-export-ollama-structured-output-smoke/ollama_structured_output_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-structured-output-smoke"
+          },
+          "toolMock": {
+            "path": "evidence/post-export-ollama-tool-calling-mock-smoke/ollama_tool_calling_mock_smoke_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-ollama-tool-calling-mock-smoke"
+          },
+          "replaySmoke": {
+            "path": "evidence/post-export-ollama-replay-regression-smoke/ollama_replay_regression_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-replay-regression-smoke"
+          },
+          "crossAdapter": {
+            "path": "evidence/post-export-cross-adapter-contract-dry-run/cross_adapter_contract_dry_run_report.json",
+            "exists": true,
+            "status": "blocked_by_cross_adapter_gaps",
+            "stage": "v2.0.0-post-export-cross-adapter-contract-dry-run"
+          },
+          "activeProviders": {
+            "path": "evidence/post-export-active-provider-lanes-verified-final-gate/active_provider_lanes_verified_final_gate_report.json",
+            "exists": true,
+            "status": "blocked_by_active_provider_lane_gaps",
+            "stage": "v2.0.0-post-export-active-provider-lanes-verified-final-gate"
+          },
+          "activeAdapters": {
+            "path": "evidence/post-export-active-adapters-checked-final-gate/active_adapters_checked_final_gate_report.json",
+            "exists": true,
+            "status": "blocked_by_active_adapter_gaps",
+            "stage": "v2.0.0-post-export-active-adapters-checked-final-gate"
+          },
+          "providerDiverse": {
+            "path": "evidence/post-combined-provider-diverse-final-gate/provider_diverse_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-combined-provider-diverse-final-gate"
+          },
+          "localModelVerified": {
+            "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+          }
+        },
+        "retry_plan": {
+          "status": "planned",
+          "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+          "total_new_local_call_budget": 36,
+          "qwen3_14b_budget": 24,
+          "qwen3_6_27b_budget": 12,
+          "planned_calls": {
+            "structured_primary_openai_compatible_qwen3_14b": 2,
+            "structured_diagnostic_native_qwen3_14b_max": 2,
+            "replay_regression_qwen3_14b": 2,
+            "cross_adapter_static_dry_run": 0
+          },
+          "one_repair_per_failure": true,
+          "hard_stop_if_second_repair_needed": true
+        },
+        "unresolved_items_count": 0,
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": false,
+        "post_export_active_adapters_checked_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "no local model execution",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+        "blockers_total": 5,
+        "blockers": [
+          {
+            "id": "ollama_structured_output_qwen3_14b_structured_nested_flag",
+            "category": "structured_output",
+            "root_cause": "schema_prompt_issue",
+            "repair_strategy": "bounded_retry",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_structured_output_source_not_pass",
+            "category": "structured_output",
+            "root_cause": "evidence_missing",
+            "repair_strategy": "bounded_retry",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_no_tool_exact",
+            "category": "replay_regression",
+            "root_cause": "exact_match_policy_issue",
+            "repair_strategy": "canonical_acceptance_policy",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_structured_json",
+            "category": "replay_regression",
+            "root_cause": "exact_match_policy_issue",
+            "repair_strategy": "canonical_acceptance_policy",
+            "max_retries": 1
+          },
+          {
+            "id": "adapter_scoped_cross_adapter_contract_dry_run_not_ready",
+            "category": "cross_adapter_contract",
+            "root_cause": "adapter_contract_gap",
+            "repair_strategy": "static_contract_patch",
+            "max_retries": 1
+          }
+        ],
+        "repairable_blockers": [
+          "ollama_structured_output_qwen3_14b_structured_nested_flag",
+          "ollama_structured_output_source_not_pass",
+          "ollama_replay_qwen3_14b_replay_no_tool_exact",
+          "ollama_replay_qwen3_14b_replay_structured_json",
+          "adapter_scoped_cross_adapter_contract_dry_run_not_ready"
+        ],
+        "keep_blocked_blockers": [],
+        "previous_sources": {
+          "openaiReview": {
+            "path": "evidence/post-export-openai-provider-contract-regression-review/openai_provider_contract_regression_review.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-openai-provider-no-new-call-contract-regression-review"
+          },
+          "structuredSmoke": {
+            "path": "evidence/post-export-ollama-structured-output-smoke/ollama_structured_output_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-structured-output-smoke"
+          },
+          "toolMock": {
+            "path": "evidence/post-export-ollama-tool-calling-mock-smoke/ollama_tool_calling_mock_smoke_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-ollama-tool-calling-mock-smoke"
+          },
+          "replaySmoke": {
+            "path": "evidence/post-export-ollama-replay-regression-smoke/ollama_replay_regression_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-replay-regression-smoke"
+          },
+          "crossAdapter": {
+            "path": "evidence/post-export-cross-adapter-contract-dry-run/cross_adapter_contract_dry_run_report.json",
+            "exists": true,
+            "status": "blocked_by_cross_adapter_gaps",
+            "stage": "v2.0.0-post-export-cross-adapter-contract-dry-run"
+          },
+          "activeProviders": {
+            "path": "evidence/post-export-active-provider-lanes-verified-final-gate/active_provider_lanes_verified_final_gate_report.json",
+            "exists": true,
+            "status": "blocked_by_active_provider_lane_gaps",
+            "stage": "v2.0.0-post-export-active-provider-lanes-verified-final-gate"
+          },
+          "activeAdapters": {
+            "path": "evidence/post-export-active-adapters-checked-final-gate/active_adapters_checked_final_gate_report.json",
+            "exists": true,
+            "status": "blocked_by_active_adapter_gaps",
+            "stage": "v2.0.0-post-export-active-adapters-checked-final-gate"
+          },
+          "providerDiverse": {
+            "path": "evidence/post-combined-provider-diverse-final-gate/provider_diverse_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-combined-provider-diverse-final-gate"
+          },
+          "localModelVerified": {
+            "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+          }
+        },
+        "retry_plan": {
+          "status": "planned",
+          "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+          "total_new_local_call_budget": 36,
+          "qwen3_14b_budget": 24,
+          "qwen3_6_27b_budget": 12,
+          "planned_calls": {
+            "structured_primary_openai_compatible_qwen3_14b": 2,
+            "structured_diagnostic_native_qwen3_14b_max": 2,
+            "replay_regression_qwen3_14b": 2,
+            "cross_adapter_static_dry_run": 0
+          },
+          "one_repair_per_failure": true,
+          "hard_stop_if_second_repair_needed": true
+        },
+        "unresolved_items_count": 0,
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": false,
+        "post_export_active_adapters_checked_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "strong claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+        "blockers_total": 5,
+        "blockers": [
+          {
+            "id": "ollama_structured_output_qwen3_14b_structured_nested_flag",
+            "category": "structured_output",
+            "root_cause": "schema_prompt_issue",
+            "repair_strategy": "bounded_retry",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_structured_output_source_not_pass",
+            "category": "structured_output",
+            "root_cause": "evidence_missing",
+            "repair_strategy": "bounded_retry",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_no_tool_exact",
+            "category": "replay_regression",
+            "root_cause": "exact_match_policy_issue",
+            "repair_strategy": "canonical_acceptance_policy",
+            "max_retries": 1
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_structured_json",
+            "category": "replay_regression",
+            "root_cause": "exact_match_policy_issue",
+            "repair_strategy": "canonical_acceptance_policy",
+            "max_retries": 1
+          },
+          {
+            "id": "adapter_scoped_cross_adapter_contract_dry_run_not_ready",
+            "category": "cross_adapter_contract",
+            "root_cause": "adapter_contract_gap",
+            "repair_strategy": "static_contract_patch",
+            "max_retries": 1
+          }
+        ],
+        "repairable_blockers": [
+          "ollama_structured_output_qwen3_14b_structured_nested_flag",
+          "ollama_structured_output_source_not_pass",
+          "ollama_replay_qwen3_14b_replay_no_tool_exact",
+          "ollama_replay_qwen3_14b_replay_structured_json",
+          "adapter_scoped_cross_adapter_contract_dry_run_not_ready"
+        ],
+        "keep_blocked_blockers": [],
+        "previous_sources": {
+          "openaiReview": {
+            "path": "evidence/post-export-openai-provider-contract-regression-review/openai_provider_contract_regression_review.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-openai-provider-no-new-call-contract-regression-review"
+          },
+          "structuredSmoke": {
+            "path": "evidence/post-export-ollama-structured-output-smoke/ollama_structured_output_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-structured-output-smoke"
+          },
+          "toolMock": {
+            "path": "evidence/post-export-ollama-tool-calling-mock-smoke/ollama_tool_calling_mock_smoke_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-ollama-tool-calling-mock-smoke"
+          },
+          "replaySmoke": {
+            "path": "evidence/post-export-ollama-replay-regression-smoke/ollama_replay_regression_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-replay-regression-smoke"
+          },
+          "crossAdapter": {
+            "path": "evidence/post-export-cross-adapter-contract-dry-run/cross_adapter_contract_dry_run_report.json",
+            "exists": true,
+            "status": "blocked_by_cross_adapter_gaps",
+            "stage": "v2.0.0-post-export-cross-adapter-contract-dry-run"
+          },
+          "activeProviders": {
+            "path": "evidence/post-export-active-provider-lanes-verified-final-gate/active_provider_lanes_verified_final_gate_report.json",
+            "exists": true,
+            "status": "blocked_by_active_provider_lane_gaps",
+            "stage": "v2.0.0-post-export-active-provider-lanes-verified-final-gate"
+          },
+          "activeAdapters": {
+            "path": "evidence/post-export-active-adapters-checked-final-gate/active_adapters_checked_final_gate_report.json",
+            "exists": true,
+            "status": "blocked_by_active_adapter_gaps",
+            "stage": "v2.0.0-post-export-active-adapters-checked-final-gate"
+          },
+          "providerDiverse": {
+            "path": "evidence/post-combined-provider-diverse-final-gate/provider_diverse_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-combined-provider-diverse-final-gate"
+          },
+          "localModelVerified": {
+            "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+          }
+        },
+        "retry_plan": {
+          "status": "planned",
+          "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+          "total_new_local_call_budget": 36,
+          "qwen3_14b_budget": 24,
+          "qwen3_6_27b_budget": 12,
+          "planned_calls": {
+            "structured_primary_openai_compatible_qwen3_14b": 2,
+            "structured_diagnostic_native_qwen3_14b_max": 2,
+            "replay_regression_qwen3_14b": 2,
+            "cross_adapter_static_dry_run": 0
+          },
+          "one_repair_per_failure": true,
+          "hard_stop_if_second_repair_needed": true
+        },
+        "unresolved_items_count": 0,
+        "new_local_model_execution": false,
+        "new_local_model_call_count": 0,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "post_export_active_provider_lanes_verified_allowed": false,
+        "post_export_active_adapters_checked_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "unresolved empty",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+        "unresolved_items_count": 0,
+        "unresolved_items": []
+      }
+    }
+  ],
+  "failures": [],
+  "new_local_model_execution": false,
+  "new_local_model_call_count": 0,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "post_export_active_provider_lanes_verified_allowed": false,
+  "post_export_active_adapters_checked_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false
+}

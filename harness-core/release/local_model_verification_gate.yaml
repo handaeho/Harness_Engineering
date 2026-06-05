@@ -1,0 +1,20 @@
+stage: v2.0.0-post-stable-local-model-verification-gate-design
+gate_type: local_model_verification_gate_design
+models_in_scope:
+  - qwen3:14b
+  - qwen3.6:27b
+required_surfaces:
+  - local_no_tool_multimodel
+  - structured_output_smoke
+  - tool_calling_mock_smoke
+  - replay_regression_smoke
+  - redaction_storage_cross_suite_audit
+  - local_redteam_coverage
+  - adapter_conformance_dependency_backed_validation
+  - owner_final_decision
+automatic_claim_enablement: false
+final_gate_requires_owner_decision: true
+local_model_verified_allowed_in_design_stage: false
+provider_diverse_allowed: false
+provider_verified_allowed: false
+adapter_checked_allowed: false

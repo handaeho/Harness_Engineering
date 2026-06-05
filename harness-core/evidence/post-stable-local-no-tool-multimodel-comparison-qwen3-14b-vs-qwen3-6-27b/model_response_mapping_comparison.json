@@ -1,0 +1,86 @@
+[
+  {
+    "model": "qwen3:14b",
+    "provider": "ollama",
+    "readiness_preflight_passed": true,
+    "local_no_tool_canary_passed": true,
+    "result_review_passed": true,
+    "cases_total": 2,
+    "cases_passed": 2,
+    "cases_failed": 0,
+    "final_content_non_empty": true,
+    "tool_calling_used": false,
+    "structured_output_used": false,
+    "think_false_applied": true,
+    "reasoning_effort_none_applied": false,
+    "raw_request_stored": false,
+    "raw_response_stored": false,
+    "redaction_passed": true,
+    "output_text_hashes": [
+      {
+        "case_id": "local-no-tool-basic-001",
+        "hash": "d4217439960414107cd17956859e2e060c2dadf34e941b3c8aaa84a4092ca4d8",
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "local-no-tool-boundary-001",
+        "hash": "6990b5f254e4f99d62de488380fe7927b1594e6c588ede6c2e68526c22b33bfb",
+        "finish_reason": "stop"
+      }
+    ],
+    "completion_tokens": [
+      256,
+      170
+    ],
+    "completion_tokens_total": 426,
+    "source_files": {
+      "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-14b-result-review/local_no_tool_canary_qwen3_14b_result_review.json",
+      "readiness": "evidence/post-rc-local-endpoint-readiness-preflight/local_endpoint_readiness_gate_report.json",
+      "canary": "evidence/post-rc-local-no-tool-canary/local_no_tool_canary_gate_report.json",
+      "mapping": "evidence/post-rc-local-no-tool-canary/local_response_mapping_report.json",
+      "redaction": "evidence/post-rc-local-no-tool-canary/local_no_tool_redaction_report.json"
+    }
+  },
+  {
+    "model": "qwen3.6:27b",
+    "provider": "ollama",
+    "readiness_preflight_passed": true,
+    "local_no_tool_canary_passed": true,
+    "result_review_passed": true,
+    "cases_total": 2,
+    "cases_passed": 2,
+    "cases_failed": 0,
+    "final_content_non_empty": true,
+    "tool_calling_used": false,
+    "structured_output_used": false,
+    "think_false_applied": true,
+    "reasoning_effort_none_applied": true,
+    "raw_request_stored": false,
+    "raw_response_stored": false,
+    "redaction_passed": true,
+    "output_text_hashes": [
+      {
+        "case_id": "local-no-tool-basic-001",
+        "hash": "031bb82806c6728514f7f63f5e0de48172ca10f494d89947c3b52dac6612f34b",
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "local-no-tool-boundary-001",
+        "hash": "89921e15623dfc44e2afdf0d31d423e097f0fa5fdb2352536209d2ab3d28f70c",
+        "finish_reason": "stop"
+      }
+    ],
+    "completion_tokens": [
+      9,
+      6
+    ],
+    "completion_tokens_total": 15,
+    "source_files": {
+      "resultReview": "evidence/post-stable-local-no-tool-canary-qwen3-6-27b-result-review/local_no_tool_canary_qwen3_6_27b_result_review.json",
+      "readiness": "evidence/post-rc-local-endpoint-readiness-preflight-qwen3-6-27b/local_endpoint_readiness_gate_report.json",
+      "canary": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_canary_gate_report.json",
+      "mapping": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_response_mapping_report.json",
+      "redaction": "evidence/post-rc-local-no-tool-canary-qwen3-6-27b/local_no_tool_redaction_report.json"
+    }
+  }
+]

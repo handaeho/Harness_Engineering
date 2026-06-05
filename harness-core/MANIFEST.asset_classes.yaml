@@ -1,0 +1,80 @@
+version: 1
+stage: v2.0.0-post-final-dossier-project-rename-to-harness-core
+
+asset_classes:
+  core_source:
+    description: Core machine-readable or executable harness source.
+    paths:
+      - stack.yaml
+      - stack.schema.json
+      - core/
+      - adapters/
+      - runtime/
+      - schemas/
+      - tools/
+      - release/
+      - security/
+      - observability/
+      - evals/suites/
+      - evals/fixtures/
+    edit_policy: editable_with_validation
+
+  evidence:
+    description: Generated or reviewed evidence and audit records.
+    paths:
+      - evidence/
+      - evals/reports/
+    edit_policy: generated_or_review_record_only
+
+  human_docs:
+    description: Human-readable docs, plans, handoffs, and explanations.
+    paths:
+      - README.md
+      - AGENTS.md
+      - NAME_MIGRATION.md
+      - docs/
+      - FINAL_HANDOFF.ko.md
+      - FINAL_NEW_CONVERSATION_PROMPT.ko.md
+      - session_handoff_2026-05-22.md
+    edit_policy: editable_with_claim_boundary_check
+
+  generated_or_ignored:
+    description: Install output or generated output that is not source-of-truth.
+    paths:
+      - node_modules/
+      - dist/
+    edit_policy: do_not_edit_manually
+
+  reference_baseline:
+    description: Historical reference snapshot used only for integrity comparison.
+    paths:
+      - evidence/reference-baseline/
+    edit_policy: read_only
+
+source_of_truth:
+  agent_index:
+    - AGENTS.md
+
+  machine_manifest:
+    - stack.yaml
+    - stack.schema.json
+
+  core_contract:
+    - core/spec/harness.spec.yaml
+
+  release_contract:
+    - release/claim_ladder.md
+    - release/release_gate.yaml
+
+  capability_contract:
+    - adapters/provider_capability_matrix.yaml
+
+  evidence_truth:
+    - evidence/
+
+rules:
+  dist_manual_edit_allowed: false
+  legacy_reference_source_edit_allowed: false
+  node_modules_is_asset: false
+  raw_provider_response_storage_allowed: false
+  secret_storage_allowed: false

@@ -1,0 +1,40 @@
+stage: v2.0.0-post-stable-local-model-verification-final-gate-preflight
+
+approved_actions:
+  final_gate_preflight: true
+  blocker_precondition_summary: true
+  claim_boundary_update: true
+
+source_evidence:
+  - evidence/post-stable-local-model-verification-evidence-bundle-draft/local_model_verification_evidence_bundle_report.json
+  - evidence/post-stable-local-model-verification-evidence-bundle-draft/local_model_verification_gap_register.json
+
+forbidden_execution:
+  final_gate_execution: true
+  new_local_model_generation: true
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  model_pull: true
+  raw_request_storage: true
+  raw_response_storage: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+
+expected_status:
+  blocked_by_missing_local_verification_coverage: true
+  can_enter_final_gate: false
+  owner_decision_required: true
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+
+allowed_scope_limited_claims:
+  - post-stable-local-model-verification-final-gate-preflight-completed
+  - post-stable-local-model-verification-final-gate-blockers-recorded

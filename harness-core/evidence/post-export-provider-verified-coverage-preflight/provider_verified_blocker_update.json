@@ -1,0 +1,25 @@
+{
+  "status": "blocked_by_missing_provider_coverage",
+  "stage": "v2.0.0-post-export-provider-verified-coverage-completion-preflight",
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "can_enter_provider_verified_final_gate": false,
+  "blockers": [
+    "openai_provider_error_handling_review_unknown_or_partial",
+    "openai_provider_contract_regression_evidence_incomplete",
+    "ollama_provider_error_handling_review_unknown_or_partial",
+    "ollama_provider_replay_or_regression_evidence_partial",
+    "ollama_structured_output_coverage_partial_smoke_only",
+    "ollama_tool_calling_coverage_partial_mock_only",
+    "full_provider_verified_final_gate_not_executed",
+    "owner_final_decision_required_after_coverage_completion"
+  ],
+  "resolved_input_evidence_used": [
+    "provider-diverse",
+    "local-model-verified"
+  ],
+  "recommended_next_action": "Close provider-level error handling and regression/replay gaps, then request a dedicated provider-verified final gate."
+}

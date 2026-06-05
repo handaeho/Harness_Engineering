@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
+  "current_state_json_exists": true,
+  "current_state_yaml_exists": true,
+  "current_state_json_valid": true,
+  "project": {
+    "name": "HARNESS Core",
+    "slug": "harness-core",
+    "legacy_names": [],
+    "description": "Evidence-gated autonomous agent engineering harness."
+  },
+  "operation_mode": {
+    "primary": "root_workspace",
+    "secondary": "agent_ready_export"
+  },
+  "root_workspace": {
+    "purpose": "primary_operating_mode",
+    "entrypoint": "START_HERE_FOR_AGENTS.ko.md",
+    "current_state_json": "CURRENT_STATE.json",
+    "current_state_yaml": "CURRENT_STATE.yaml",
+    "bootstrap": "AGENT_BOOTSTRAP.ko.md",
+    "first_command": "node tools/check_agent_ready_self_contained.mjs"
+  },
+  "agent_ready_export": {
+    "purpose": "transfer_or_archive_mode",
+    "path": "exports/harness-core-agent-ready.zip",
+    "checksum_report_path": "evidence/clean-artifact-prune/agent_ready_clean_export_report.json",
+    "intended_recipient": "different_agent_conversation_or_machine",
+    "note": "Use this HARNESS Core zip when handing the harness to a different agent, conversation, or machine. The exact archive SHA256 is recorded outside the archive after build to avoid a self-referential checksum."
+  },
+  "latest_dossier_export": {
+    "path": "exports/v2.0.0-rc.1-postrc-final-dossier-export.zip",
+    "sha256": "4f863c921cf1e00098f88913ba0810e8808cfff1dca824a2feeb9d1a0a48c424",
+    "intended_recipient": "dossier_archive",
+    "note": "This dossier export is retained as evidence, but is not included inside the clean agent-ready export."
+  },
+  "reference_baseline": {
+    "status": "available",
+    "role": "historical_reference_snapshot",
+    "active_source_of_truth": false,
+    "path": "evidence/reference-baseline",
+    "policy": "Used only as an integrity reference snapshot. It is not the current operating asset.",
+    "integrity_checker": "tools/check_reference_baseline_integrity.mjs",
+    "legacy_source_required": false,
+    "source_scan_performed": false,
+    "checksum_recalculated": false
+  }
+}

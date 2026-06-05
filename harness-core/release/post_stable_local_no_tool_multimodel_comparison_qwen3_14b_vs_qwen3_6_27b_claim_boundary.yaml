@@ -1,0 +1,20 @@
+stage: v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b
+status: drafted
+
+allowed_after_gate_pass:
+  - post-stable-local-no-tool-multimodel-comparison-recorded
+  - post-stable-local-no-tool-qwen3-models-compared
+  - post-stable-local-no-tool-reasoning-control-compared
+  - post-stable-local-no-tool-storage-redaction-compared
+  - post-stable-local-model-verification-preconditions-drafted
+
+blocked_claims:
+  local_model_verified: true
+  provider_diverse: true
+  provider_verified: true
+  adapter_checked: true
+  production_ready: true
+  stable: true
+  release_gated: true
+
+reason: Multi-model no-tool comparison is evidence for local no-tool text paths only.

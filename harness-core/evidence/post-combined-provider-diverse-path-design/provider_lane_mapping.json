@@ -1,0 +1,24 @@
+{
+  "status": "drafted",
+  "stage": "v2.0.0-post-combined-provider-diverse-path-design",
+  "provider_diverse_allowed": false,
+  "lanes": [
+    {
+      "lane_id": "openai_api_lane",
+      "provider_family": "openai",
+      "source_archive": "evidence/post-rc-openai-only-stable-final-handoff/final_handoff_report.json",
+      "independent_execution_evidence_present": true
+    },
+    {
+      "lane_id": "ollama_qwen3_local_lane",
+      "provider_family": "ollama_local",
+      "source_archive": "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_final_handoff_report.json",
+      "independent_execution_evidence_present": true
+    }
+  ],
+  "relationship": {
+    "distinct_provider_lanes_candidate": true,
+    "final_decision_required": true,
+    "current_stage_opens_strong_claims": false
+  }
+}

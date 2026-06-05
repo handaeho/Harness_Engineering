@@ -1,0 +1,28 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-post-export-active-adapters-checked-final-gate",
+  "unresolved_items_count": 3,
+  "unresolved_items": [
+    {
+      "id": "adapter_scoped_ollama_structured_output_smoke_not_ready",
+      "lane": "active_adapters",
+      "status": "blocked_or_partial",
+      "reason": "Criterion ollama_structured_output_smoke is not pass/accepted; observed status is partial.",
+      "next_action": "Complete the corresponding adapter coverage-hardening stage before opening scoped active-adapters claim."
+    },
+    {
+      "id": "adapter_scoped_ollama_replay_regression_smoke_not_ready",
+      "lane": "active_adapters",
+      "status": "blocked_or_partial",
+      "reason": "Criterion ollama_replay_regression_smoke is not pass/accepted; observed status is partial.",
+      "next_action": "Complete the corresponding adapter coverage-hardening stage before opening scoped active-adapters claim."
+    },
+    {
+      "id": "adapter_scoped_cross_adapter_contract_dry_run_not_ready",
+      "lane": "active_adapters",
+      "status": "blocked_or_partial",
+      "reason": "Criterion cross_adapter_contract_dry_run is not pass/accepted; observed status is blocked_by_cross_adapter_gaps.",
+      "next_action": "Complete the corresponding adapter coverage-hardening stage before opening scoped active-adapters claim."
+    }
+  ]
+}

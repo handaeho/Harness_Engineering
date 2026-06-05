@@ -1,0 +1,317 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-export-ollama-tool-calling-mock-smoke",
+  "provider": "ollama",
+  "endpoint": "http://127.0.0.1:11434/v1",
+  "models_tested": [
+    "qwen3:14b",
+    "qwen3.6:27b"
+  ],
+  "cases_total": 6,
+  "cases_passed": 6,
+  "cases_partial_safe_refusal": 0,
+  "cases_failed": 0,
+  "new_local_model_execution": true,
+  "new_local_model_call_count": 6,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "redacted_metadata_only": true,
+  "tool_side_effects": false,
+  "external_tool_executed": false,
+  "tool_call_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "partial_accepted_for_active_adapter_scope": true,
+  "partial_acceptance_criteria": "Each model must produce either a mock tool-call shape or a safe refusal for every case, with no external side effect.",
+  "case_results": [
+    {
+      "model": "qwen3:14b",
+      "case_id": "tool_lookup_alpha",
+      "status": "pass",
+      "http_status": 200,
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 177,
+        "completion_tokens": 131,
+        "total_tokens": 308
+      },
+      "tool_schema_sent": true,
+      "tool_choice_forced": true,
+      "tool_calls_present": true,
+      "tool_call_count": 1,
+      "tool_name_matches": true,
+      "tool_arguments_parse_passed": true,
+      "tool_argument_keys": [
+        "key"
+      ],
+      "safe_refusal_observed": false,
+      "external_tool_executed": false,
+      "mock_tool_output_reinjected": false,
+      "assistant_content_present": false,
+      "assistant_content_length": 0,
+      "assistant_content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool_arguments_hash": "5f95508fda8ff9af5d379e1650666bcff80bc0689c361cae4c593da7d2a81a6c",
+      "raw_response_hash": "1f9d54f4d02b372025f5a6fee5bc019a87c563ddfa4143b911e0a63110dfa064",
+      "request_metadata": {
+        "model": "qwen3:14b",
+        "case_id": "tool_lookup_alpha",
+        "endpoint_host": "127.0.0.1",
+        "input_hash": "9a632dafc7fa9da1b1155160e439fb4321179388544e47f8941a339c4fa90ded",
+        "messages_count": 2,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "redacted_metadata_only": true,
+        "controls": {
+          "think": false
+        }
+      },
+      "raw_request_stored": false,
+      "raw_response_stored": false
+    },
+    {
+      "model": "qwen3:14b",
+      "case_id": "tool_lookup_beta",
+      "status": "pass",
+      "http_status": 200,
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 15,
+        "completion_tokens": 167,
+        "total_tokens": 182
+      },
+      "tool_schema_sent": true,
+      "tool_choice_forced": true,
+      "tool_calls_present": true,
+      "tool_call_count": 1,
+      "tool_name_matches": true,
+      "tool_arguments_parse_passed": true,
+      "tool_argument_keys": [
+        "key"
+      ],
+      "safe_refusal_observed": false,
+      "external_tool_executed": false,
+      "mock_tool_output_reinjected": false,
+      "assistant_content_present": false,
+      "assistant_content_length": 0,
+      "assistant_content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool_arguments_hash": "3bceeffa22a1472b5491f2220ebd8637eb71411c8351dba7621e65e3a692ed78",
+      "raw_response_hash": "baf7f9ef8fdd8e29a4037adeff0c9f3a7e8617af59b140283c338b5c95a4e4dd",
+      "request_metadata": {
+        "model": "qwen3:14b",
+        "case_id": "tool_lookup_beta",
+        "endpoint_host": "127.0.0.1",
+        "input_hash": "d6254e9b9f5c61768df7cd8ef1b4826f9f0d9f542297a35a8db4c65a3bf62f9b",
+        "messages_count": 2,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "redacted_metadata_only": true,
+        "controls": {
+          "think": false
+        }
+      },
+      "raw_request_stored": false,
+      "raw_response_stored": false
+    },
+    {
+      "model": "qwen3:14b",
+      "case_id": "tool_lookup_json",
+      "status": "pass",
+      "http_status": 200,
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 20,
+        "completion_tokens": 137,
+        "total_tokens": 157
+      },
+      "tool_schema_sent": true,
+      "tool_choice_forced": true,
+      "tool_calls_present": true,
+      "tool_call_count": 1,
+      "tool_name_matches": true,
+      "tool_arguments_parse_passed": true,
+      "tool_argument_keys": [
+        "key"
+      ],
+      "safe_refusal_observed": false,
+      "external_tool_executed": false,
+      "mock_tool_output_reinjected": false,
+      "assistant_content_present": false,
+      "assistant_content_length": 0,
+      "assistant_content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool_arguments_hash": "ac74a98b24f250e504366ebb6c8f94c31bc0949ff90bf606ef97cc95c4378291",
+      "raw_response_hash": "5226c8f6ecbc640ed8448858f904dd42cd3ff37faacf9df0cb660eb1509b2a18",
+      "request_metadata": {
+        "model": "qwen3:14b",
+        "case_id": "tool_lookup_json",
+        "endpoint_host": "127.0.0.1",
+        "input_hash": "801d63d61fdddf226794d85c1e00ca839c8b306e549ac0ecd83028992175fb89",
+        "messages_count": 2,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "redacted_metadata_only": true,
+        "controls": {
+          "think": false
+        }
+      },
+      "raw_request_stored": false,
+      "raw_response_stored": false
+    },
+    {
+      "model": "qwen3.6:27b",
+      "case_id": "tool_lookup_alpha",
+      "status": "pass",
+      "http_status": 200,
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 318,
+        "completion_tokens": 27,
+        "total_tokens": 345
+      },
+      "tool_schema_sent": true,
+      "tool_choice_forced": true,
+      "tool_calls_present": true,
+      "tool_call_count": 1,
+      "tool_name_matches": true,
+      "tool_arguments_parse_passed": true,
+      "tool_argument_keys": [
+        "key"
+      ],
+      "safe_refusal_observed": false,
+      "external_tool_executed": false,
+      "mock_tool_output_reinjected": false,
+      "assistant_content_present": false,
+      "assistant_content_length": 0,
+      "assistant_content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool_arguments_hash": "5f95508fda8ff9af5d379e1650666bcff80bc0689c361cae4c593da7d2a81a6c",
+      "raw_response_hash": "81fe00687b76e0a04957a5c942e55a7d815ffe64f02e1cbec3fd40d5d315646b",
+      "request_metadata": {
+        "model": "qwen3.6:27b",
+        "case_id": "tool_lookup_alpha",
+        "endpoint_host": "127.0.0.1",
+        "input_hash": "9a632dafc7fa9da1b1155160e439fb4321179388544e47f8941a339c4fa90ded",
+        "messages_count": 2,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "redacted_metadata_only": true,
+        "controls": {
+          "think": false,
+          "reasoning_effort": "none",
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "raw_request_stored": false,
+      "raw_response_stored": false
+    },
+    {
+      "model": "qwen3.6:27b",
+      "case_id": "tool_lookup_beta",
+      "status": "pass",
+      "http_status": 200,
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 27,
+        "total_tokens": 346
+      },
+      "tool_schema_sent": true,
+      "tool_choice_forced": true,
+      "tool_calls_present": true,
+      "tool_call_count": 1,
+      "tool_name_matches": true,
+      "tool_arguments_parse_passed": true,
+      "tool_argument_keys": [
+        "key"
+      ],
+      "safe_refusal_observed": false,
+      "external_tool_executed": false,
+      "mock_tool_output_reinjected": false,
+      "assistant_content_present": false,
+      "assistant_content_length": 0,
+      "assistant_content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool_arguments_hash": "3bceeffa22a1472b5491f2220ebd8637eb71411c8351dba7621e65e3a692ed78",
+      "raw_response_hash": "634c30a091b9686d24bec994c2063e1ad764ae2c1b1b85a0d853b8b1c98dc8ca",
+      "request_metadata": {
+        "model": "qwen3.6:27b",
+        "case_id": "tool_lookup_beta",
+        "endpoint_host": "127.0.0.1",
+        "input_hash": "d6254e9b9f5c61768df7cd8ef1b4826f9f0d9f542297a35a8db4c65a3bf62f9b",
+        "messages_count": 2,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "redacted_metadata_only": true,
+        "controls": {
+          "think": false,
+          "reasoning_effort": "none",
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "raw_request_stored": false,
+      "raw_response_stored": false
+    },
+    {
+      "model": "qwen3.6:27b",
+      "case_id": "tool_lookup_json",
+      "status": "pass",
+      "http_status": 200,
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 316,
+        "completion_tokens": 27,
+        "total_tokens": 343
+      },
+      "tool_schema_sent": true,
+      "tool_choice_forced": true,
+      "tool_calls_present": true,
+      "tool_call_count": 1,
+      "tool_name_matches": true,
+      "tool_arguments_parse_passed": true,
+      "tool_argument_keys": [
+        "key"
+      ],
+      "safe_refusal_observed": false,
+      "external_tool_executed": false,
+      "mock_tool_output_reinjected": false,
+      "assistant_content_present": false,
+      "assistant_content_length": 0,
+      "assistant_content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool_arguments_hash": "ac74a98b24f250e504366ebb6c8f94c31bc0949ff90bf606ef97cc95c4378291",
+      "raw_response_hash": "d63406f9112f69792ec815106c12027e54a3e7a4e5968647da7d6abdea0bc9c4",
+      "request_metadata": {
+        "model": "qwen3.6:27b",
+        "case_id": "tool_lookup_json",
+        "endpoint_host": "127.0.0.1",
+        "input_hash": "801d63d61fdddf226794d85c1e00ca839c8b306e549ac0ecd83028992175fb89",
+        "messages_count": 2,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "redacted_metadata_only": true,
+        "controls": {
+          "think": false,
+          "reasoning_effort": "none",
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "raw_request_stored": false,
+      "raw_response_stored": false
+    }
+  ],
+  "unresolved_items_count": 0,
+  "blockers": [],
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "provider_verified_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false
+}

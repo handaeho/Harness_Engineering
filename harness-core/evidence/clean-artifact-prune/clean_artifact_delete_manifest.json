@@ -1,0 +1,40 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-clean-export-agent-ready-usability-polish",
+  "generated_at": "2026-06-04T04:21:06.479Z",
+  "items": [
+    {
+      "path": ".DS_Store",
+      "exists": true,
+      "action": "delete",
+      "reason": "macOS metadata"
+    },
+    {
+      "path": "harness-core",
+      "exists": true,
+      "action": "delete",
+      "reason": "nested harness-core residue under harness-core root"
+    }
+  ],
+  "item_count": 2,
+  "generated_dependency_exclusions": [
+    {
+      "path": "node_modules",
+      "exists": true,
+      "action": "exclude_from_backup_and_exports",
+      "physically_deleted": false,
+      "reason": "npm install/ci is forbidden and local validation still depends on installed packages"
+    },
+    {
+      "path": "dist",
+      "exists": true,
+      "action": "exclude_from_backup_and_exports",
+      "physically_deleted": false,
+      "reason": "generated output is protected from modification"
+    }
+  ],
+  "old_exports": [],
+  "nested_harness_core_residue": [
+    "harness-core"
+  ]
+}

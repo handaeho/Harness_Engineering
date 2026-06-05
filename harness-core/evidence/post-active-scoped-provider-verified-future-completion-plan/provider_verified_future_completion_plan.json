@@ -1,0 +1,76 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-active-scoped-provider-verified-future-completion-plan",
+  "claim": "provider-verified",
+  "weak_claim_recorded": "post-active-scoped-provider-verified-future-plan-recorded",
+  "provider_verified_allowed": false,
+  "requirements": [
+    {
+      "id": "bare_provider_verified_gate_design",
+      "description": "Define a gate for bare provider verification rather than active scoped lanes.",
+      "current_stage_status": "future_work"
+    },
+    {
+      "id": "openai_provider_rerun_or_fresh_evidence",
+      "description": "Collect fresh OpenAI provider evidence if the future gate requires it.",
+      "current_stage_status": "hard_stop"
+    },
+    {
+      "id": "additional_provider_or_vllm_policy_decision",
+      "description": "Decide whether vLLM or another provider is required for the bare claim.",
+      "current_stage_status": "future_work"
+    },
+    {
+      "id": "owner_approval_for_bare_claim",
+      "description": "Record explicit owner approval before opening bare provider-verified.",
+      "current_stage_status": "hard_stop"
+    }
+  ],
+  "operator_actions": [
+    "Approve a separate bare provider-verified completion run.",
+    "Decide whether existing active scoped provider evidence can be reused as input only.",
+    "If fresh provider evidence is required, approve OpenAI provider rerun or another provider lane."
+  ],
+  "current_stage_hard_stops": [
+    {
+      "id": "openai_provider_rerun_or_fresh_evidence",
+      "description": "Collect fresh OpenAI provider evidence if the future gate requires it.",
+      "current_stage_status": "hard_stop"
+    },
+    {
+      "id": "owner_approval_for_bare_claim",
+      "description": "Record explicit owner approval before opening bare provider-verified.",
+      "current_stage_status": "hard_stop"
+    }
+  ],
+  "future_work": [
+    {
+      "id": "bare_provider_verified_gate_design",
+      "description": "Define a gate for bare provider verification rather than active scoped lanes.",
+      "current_stage_status": "future_work"
+    },
+    {
+      "id": "additional_provider_or_vllm_policy_decision",
+      "description": "Decide whether vLLM or another provider is required for the bare claim.",
+      "current_stage_status": "future_work"
+    }
+  ],
+  "new_local_model_execution": false,
+  "new_local_model_call_count": 0,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "post_export_active_provider_lanes_verified_allowed": true,
+  "post_export_active_adapters_checked_allowed": true,
+  "post_export_active_scoped_production_ready_allowed": true,
+  "post_export_active_scoped_stable_allowed": true,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false
+}

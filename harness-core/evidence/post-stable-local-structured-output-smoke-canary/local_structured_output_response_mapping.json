@@ -1,0 +1,152 @@
+[
+  {
+    "model": "qwen3:14b",
+    "case_id": "local-structured-json-basic-001",
+    "status": "pass",
+    "http_status": 200,
+    "output_text_present": true,
+    "json_parse_passed": true,
+    "required_keys_present": true,
+    "parsed_keys": [
+      "count",
+      "status",
+      "surface"
+    ],
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 66,
+      "completion_tokens": 21,
+      "total_tokens": 87
+    },
+    "request": {
+      "model_present": true,
+      "input_preview": "Return a compact JSON object with keys status, surface, and count. Use status ok, surface structured_smoke, count 1.",
+      "input_hash": "df2b5e9080e947f83f645760795361b15e44dbef0c51be31374225dffd10cd63",
+      "response_format_json_object": true,
+      "tools_present": false,
+      "stream": false,
+      "max_tokens": 128,
+      "thinking_disabled": true,
+      "reasoning_effort": "none"
+    },
+    "response": {
+      "output_text_preview": "{\"status\": \"ok\", \"surface\": \"structured_smoke\", \"count\": 1}",
+      "output_text_hash": "779385a728b062db6eed52a290ae232db05be69f588d38e14c752375ded1d78e",
+      "raw_response_hash": "f0ccb36d1a628c4879fff63f6247c89e785ab169816fbb4ef9b8464fc3fb98f2"
+    },
+    "raw_request_stored": false,
+    "raw_response_stored": false
+  },
+  {
+    "model": "qwen3:14b",
+    "case_id": "local-structured-json-boundary-001",
+    "status": "pass",
+    "http_status": 200,
+    "output_text_present": true,
+    "json_parse_passed": true,
+    "required_keys_present": true,
+    "parsed_keys": [
+      "structured_smoke",
+      "tool_calls"
+    ],
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 14,
+      "total_tokens": 45
+    },
+    "request": {
+      "model_present": true,
+      "input_preview": "Return only a compact JSON object with keys tool_calls and structured_smoke. Use boolean values.",
+      "input_hash": "3326c383fed2ee164185016f3f7f8ff34f52db473a5f0fbfcf0beb25a586622a",
+      "response_format_json_object": true,
+      "tools_present": false,
+      "stream": false,
+      "max_tokens": 128,
+      "thinking_disabled": true,
+      "reasoning_effort": "none"
+    },
+    "response": {
+      "output_text_preview": "{\"tool_calls\": true, \"structured_smoke\": true}",
+      "output_text_hash": "2918e986a606d36235adf92c3aea18761e38b5b6764a441d5b4ba663dd7c12bf",
+      "raw_response_hash": "b5378a061e013bd24449722af730e9e513b1c2cf6d098694d87ed861db912f67"
+    },
+    "raw_request_stored": false,
+    "raw_response_stored": false
+  },
+  {
+    "model": "qwen3.6:27b",
+    "case_id": "local-structured-json-basic-001",
+    "status": "pass",
+    "http_status": 200,
+    "output_text_present": true,
+    "json_parse_passed": true,
+    "required_keys_present": true,
+    "parsed_keys": [
+      "count",
+      "status",
+      "surface"
+    ],
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 62,
+      "completion_tokens": 16,
+      "total_tokens": 78
+    },
+    "request": {
+      "model_present": true,
+      "input_preview": "Return a compact JSON object with keys status, surface, and count. Use status ok, surface structured_smoke, count 1.",
+      "input_hash": "df2b5e9080e947f83f645760795361b15e44dbef0c51be31374225dffd10cd63",
+      "response_format_json_object": true,
+      "tools_present": false,
+      "stream": false,
+      "max_tokens": 128,
+      "thinking_disabled": true,
+      "reasoning_effort": "none"
+    },
+    "response": {
+      "output_text_preview": "{\"status\":\"ok\",\"surface\":\"structured_smoke\",\"count\":1}",
+      "output_text_hash": "1a7503a471884f80f26edf90d5a05af3174545164420f6fb99e2283784728919",
+      "raw_response_hash": "14c96f3e1a5449dbdfc90260cddc65c41d99935d2d2f976440fb5a2837b3149b"
+    },
+    "raw_request_stored": false,
+    "raw_response_stored": false
+  },
+  {
+    "model": "qwen3.6:27b",
+    "case_id": "local-structured-json-boundary-001",
+    "status": "pass",
+    "http_status": 200,
+    "output_text_present": true,
+    "json_parse_passed": true,
+    "required_keys_present": true,
+    "parsed_keys": [
+      "structured_smoke",
+      "tool_calls"
+    ],
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 54,
+      "completion_tokens": 13,
+      "total_tokens": 67
+    },
+    "request": {
+      "model_present": true,
+      "input_preview": "Return only a compact JSON object with keys tool_calls and structured_smoke. Use boolean values.",
+      "input_hash": "3326c383fed2ee164185016f3f7f8ff34f52db473a5f0fbfcf0beb25a586622a",
+      "response_format_json_object": true,
+      "tools_present": false,
+      "stream": false,
+      "max_tokens": 128,
+      "thinking_disabled": true,
+      "reasoning_effort": "none"
+    },
+    "response": {
+      "output_text_preview": "{\"tool_calls\":false,\"structured_smoke\":true}",
+      "output_text_hash": "51e3f556fce7c274d71620fe042d39fd5099e1ac8bfb9c0607868ed2046b76b8",
+      "raw_response_hash": "f2e44f7ebcc7eef4db45d4f3cb21ef3a18ca5c72e5fb85656b39d4eb249b9b70"
+    },
+    "raw_request_stored": false,
+    "raw_response_stored": false
+  }
+]

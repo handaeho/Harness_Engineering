@@ -1,0 +1,21 @@
+{
+  "status": "repairable",
+  "stage": "v2.0.0-post-export-active-scoped-blocker-forensic-triage",
+  "blockers": [
+    {
+      "id": "ollama_replay_qwen3_14b_replay_no_tool_exact",
+      "category": "replay_regression",
+      "root_cause": "exact_match_policy_issue",
+      "repair_strategy": "canonical_acceptance_policy",
+      "max_retries": 1
+    },
+    {
+      "id": "ollama_replay_qwen3_14b_replay_structured_json",
+      "category": "replay_regression",
+      "root_cause": "exact_match_policy_issue",
+      "repair_strategy": "canonical_acceptance_policy",
+      "max_retries": 1
+    }
+  ],
+  "acceptance_policy_change": "exact_string_match_is_diagnostic_canonical_validation_can_gate_scoped_smoke"
+}

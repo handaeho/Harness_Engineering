@@ -1,0 +1,92 @@
+stage: v2.0.0-post-clean-export-agent-ready-usability-polish
+scope: final_dossier_clean_artifact_prune
+purpose: polish clean export usability for new agents, prune obsolete intermediate artifacts, and recreate the final agent-ready clean export
+backup_required_before_cleanup: true
+backup_path: exports/harness-core-full-pre-cleanup-backup.zip
+clean_export_path: exports/harness-core-final-agent-ready.zip
+allowed_actions:
+  - create full pre-cleanup backup archive
+  - classify keep/archive/delete artifacts
+  - archive legacy handoff files under archive/legacy-handoffs
+  - delete old export zip files after backup
+  - exclude node_modules and dist from backup/export packages
+  - create final agent-ready clean export
+  - separate agent_ready_export from latest_dossier_export in CURRENT_STATE.yaml
+  - add START_HERE_FOR_AGENTS.ko.md
+  - record and delete nested harness-core residue
+  - write cleanup evidence and gate reports
+forbidden_actions:
+  - OpenAI model API call
+  - OpenAI provider rerun
+  - local model generation
+  - telemetry sink write
+  - redteam rerun
+  - adapter conformance rerun
+  - npm install
+  - npm ci
+  - legacy-reference-source modification
+  - dist modification
+  - evidence/reference-baseline refresh
+  - raw request storage
+  - raw response storage
+  - secret/API key/auth header storage
+  - provider-verified claim remains forbidden
+  - adapter-checked claim remains forbidden
+  - production-ready claim remains forbidden
+  - stable claim remains forbidden
+  - release-gated claim remains forbidden
+protected_paths:
+  - legacy-reference-source/**
+  - dist/**
+  - harness-core/dist/**
+  - harness-core/evidence/reference-baseline/**
+generated_dependency_cleanup:
+  node_modules:
+    action: exclude_from_backup_and_exports
+    physical_delete_allowed: true
+    physical_delete_selected: false
+    reason: npm install/ci is forbidden and local validation depends on installed packages.
+  dist:
+    action: exclude_from_backup_and_exports
+    physical_delete_allowed: false
+required_keep_paths:
+  - CURRENT_STATE.yaml
+  - START_HERE_FOR_AGENTS.ko.md
+  - AGENT_BOOTSTRAP.ko.md
+  - AGENTS.md
+  - README.md
+  - FINAL_HANDOFF.ko.md
+  - FINAL_NEW_CONVERSATION_PROMPT.ko.md
+  - MANIFEST.asset_classes.yaml
+  - stack.yaml
+  - stack.schema.json
+  - package.json
+  - package-lock.json
+  - .gitignore
+  - adapters/
+  - core/
+  - docs/
+  - observability/
+  - profiles/
+  - release/
+  - runtime/
+  - schemas/
+  - security/
+  - tools/
+  - evidence/current-state/
+  - evidence/post-active-scoped-final-release-dossier/
+  - evidence/final-export-refresh-after-final-dossier/
+  - evidence/post-active-scoped-final-new-conversation-handoff/
+  - evidence/reference-baseline/
+  - exports/v2.0.0-rc.1-postrc-final-dossier-export.zip
+excluded_from_clean_export:
+  - node_modules/**
+  - dist/**
+  - .git/**
+  - .DS_Store
+  - exports/**
+  - archive/legacy-handoffs/**
+  - harness-core/**
+  - raw request payload
+  - raw response payload
+  - secret/API key/auth header values

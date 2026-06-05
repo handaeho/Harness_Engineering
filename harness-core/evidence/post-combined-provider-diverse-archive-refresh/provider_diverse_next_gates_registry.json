@@ -1,0 +1,27 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-combined-provider-diverse-archive-refresh-and-next-gates-preflight",
+  "next_gates": [
+    {
+      "id": "NEXT-001",
+      "name": "provider_verified_gate_preflight",
+      "stage": "v2.0.0-post-combined-provider-verified-gate-preflight",
+      "claim_target": "provider-verified",
+      "requires_owner_decision_before_final_claim": true
+    },
+    {
+      "id": "NEXT-002",
+      "name": "adapter_checked_gate_preflight",
+      "stage": "v2.0.0-post-combined-adapter-checked-gate-preflight",
+      "claim_target": "adapter-checked",
+      "requires_owner_decision_before_final_claim": true
+    },
+    {
+      "id": "NEXT-003",
+      "name": "final_export_execution",
+      "stage": "v2.0.0-final-export-execution",
+      "claim_target": "none",
+      "requires_operator_signal": true
+    }
+  ]
+}

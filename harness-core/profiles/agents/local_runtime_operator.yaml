@@ -1,0 +1,26 @@
+role: local_runtime_operator
+purpose: operate local runtime checks only after explicit scope and approval are present
+must_read:
+  - CURRENT_STATE.yaml
+  - AGENT_BOOTSTRAP.ko.md
+  - release/current_state_alignment_scope.yaml
+  - release/current_state_claim_boundary.yaml
+must_run_before_report:
+  - node tools/check_current_state_alignment.mjs
+  - node tools/scan_prohibited_claims.mjs
+forbidden_paths:
+  - dist/**
+  - node_modules/**
+  - evidence/reference-baseline/**
+forbidden_claims:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated
+approval_required_for:
+  - local model generation
+  - new model pull
+  - vLLM execution
+  - raw request or raw response capture

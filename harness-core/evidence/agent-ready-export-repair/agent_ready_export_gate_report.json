@@ -1,0 +1,478 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-final-dossier-agent-ready-export-repair",
+  "generated_at": "2026-06-04T02:57:15.657Z",
+  "checks": [
+    {
+      "name": "agent-ready export exists",
+      "status": "pass",
+      "detail": {
+        "package_path": "exports/v2.0.0-rc.1-postrc-final-dossier-agent-ready-export.zip"
+      }
+    },
+    {
+      "name": "zip entries readable",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "name": "CURRENT_STATE.yaml exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "CURRENT_STATE.yaml"
+      }
+    },
+    {
+      "name": "AGENT_BOOTSTRAP.ko.md exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "AGENT_BOOTSTRAP.ko.md"
+      }
+    },
+    {
+      "name": "AGENTS.md exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "AGENTS.md"
+      }
+    },
+    {
+      "name": "README.md exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "README.md"
+      }
+    },
+    {
+      "name": "stack.yaml exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "stack.yaml"
+      }
+    },
+    {
+      "name": "docs/session_handoff_latest.md exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "docs/session_handoff_latest.md"
+      }
+    },
+    {
+      "name": "docs/how_to_apply_harness_to_agents.ko.md exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "docs/how_to_apply_harness_to_agents.ko.md"
+      }
+    },
+    {
+      "name": "profiles/agents/codex_goal_executor.yaml exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "profiles/agents/codex_goal_executor.yaml"
+      }
+    },
+    {
+      "name": "profiles/agents/chatgpt_reviewer.yaml exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "profiles/agents/chatgpt_reviewer.yaml"
+      }
+    },
+    {
+      "name": "profiles/agents/local_runtime_operator.yaml exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "profiles/agents/local_runtime_operator.yaml"
+      }
+    },
+    {
+      "name": "profiles/agents/release_gate_reviewer.yaml exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "profiles/agents/release_gate_reviewer.yaml"
+      }
+    },
+    {
+      "name": "evidence/current-state/current_state_index.json exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "evidence/current-state/current_state_index.json"
+      }
+    },
+    {
+      "name": "evidence/current-state/current_state_gate_report.json exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "evidence/current-state/current_state_gate_report.json"
+      }
+    },
+    {
+      "name": "evidence/current-state/current_state_claim_boundary.json exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "evidence/current-state/current_state_claim_boundary.json"
+      }
+    },
+    {
+      "name": "tools/check_current_state_alignment.mjs exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "tools/check_current_state_alignment.mjs"
+      }
+    },
+    {
+      "name": "tools/build_current_state_index.mjs exists in export",
+      "status": "pass",
+      "detail": {
+        "entry": "tools/build_current_state_index.mjs"
+      }
+    },
+    {
+      "name": "AGENTS.md in export references CURRENT_STATE.yaml",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "README.md in export reflects v2.0.0-rc.1-postrc-final-dossier",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stack.yaml in export has version v2.0.0 and final dossier status",
+      "status": "pass",
+      "detail": {
+        "id": "harness-core",
+        "version": "v2.0.0",
+        "status": "v2.0.0-rc.1-postrc-final-dossier",
+        "agent_entrypoint": {
+          "path": "AGENTS.md",
+          "role": "human_and_agent_facing_system_of_record_index"
+        },
+        "legacy_source_of_truth": [
+          "stack.yaml",
+          "stack.schema.json",
+          "core/spec/harness.spec.yaml"
+        ],
+        "source_of_truth": {
+          "agent_index": [
+            "CURRENT_STATE.yaml",
+            "AGENT_BOOTSTRAP.ko.md",
+            "AGENTS.md"
+          ],
+          "machine_manifest": [
+            "stack.yaml",
+            "stack.schema.json"
+          ],
+          "core_contract": [
+            "core/spec/harness.spec.yaml"
+          ],
+          "release_contract": [
+            "release/claim_ladder.md",
+            "release/release_gate.yaml"
+          ],
+          "capability_contract": [
+            "adapters/provider_capability_matrix.yaml"
+          ],
+          "evidence_truth": [
+            "evidence/"
+          ]
+        },
+        "asset_class_manifest": {
+          "path": "MANIFEST.asset_classes.yaml"
+        },
+        "baseline": {
+          "source_package": "prompt-stack/v36",
+          "evidence_path": "evidence/v36-baseline",
+          "mutation_policy": "read_only"
+        },
+        "dist_policy": {
+          "path": "dist",
+          "generated_only": true,
+          "editable_by_human": false
+        },
+        "core": {
+          "harness_spec": "core/spec/harness.spec.yaml",
+          "policies": [
+            "core/spec/behavior_policy.md",
+            "core/spec/context_policy.md",
+            "core/spec/tool_policy.md",
+            "core/spec/output_contract.schema.json",
+            "core/spec/claim_strength_policy.md",
+            "core/spec/failure_modes.md"
+          ]
+        },
+        "adapters": {
+          "capability_matrix": "adapters/provider_capability_matrix.yaml",
+          "skeletons": [
+            "adapters/api/openai/adapter.yaml",
+            "adapters/local/vllm/adapter.yaml",
+            "adapters/local/ollama/adapter.yaml"
+          ]
+        },
+        "validation": {
+          "static_suite": "evals/suites/static_structure.yaml"
+        },
+        "observability": {
+          "trace_schema": "observability/trace.schema.json",
+          "telemetry_schema": "observability/telemetry.schema.json"
+        },
+        "release": {
+          "gate": "release/release_gate.yaml",
+          "claim_ladder": "release/claim_ladder.md",
+          "rollback_plan": "release/rollback_plan.md"
+        },
+        "allowed_claims": [
+          "provider-diverse",
+          "local-model-verified",
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-adapters-checked",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-stable",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "notes": [
+          "Current state is indexed in CURRENT_STATE.yaml.",
+          "Latest export is exports/v2.0.0-rc.1-postrc-final-dossier-export.zip.",
+          "Bare/general provider-verified, adapter-checked, production-ready, stable, and release-gated claims remain blocked.",
+          "Existing records/reports were inspected, but v36 runners were not re-executed in this step."
+        ]
+      }
+    },
+    {
+      "name": "provider_capability_matrix.yaml in export does not show Ollama local endpoint as missing",
+      "status": "pass",
+      "detail": {
+        "ollama_local_no_tool_canary": "canary_suite_checked"
+      }
+    },
+    {
+      "name": "provider_capability_matrix.yaml in export keeps provider verified false",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "export does not include node_modules",
+      "status": "pass",
+      "detail": {
+        "entries": []
+      }
+    },
+    {
+      "name": "export does not include dist",
+      "status": "pass",
+      "detail": {
+        "entries": []
+      }
+    },
+    {
+      "name": "export does not include .git",
+      "status": "pass",
+      "detail": {
+        "entries": []
+      }
+    },
+    {
+      "name": "export does not include .DS_Store",
+      "status": "pass",
+      "detail": {
+        "entries": []
+      }
+    },
+    {
+      "name": "export does not include raw payload paths",
+      "status": "pass",
+      "detail": {
+        "entries": []
+      }
+    },
+    {
+      "name": "export does not include secret/API key/auth header value paths",
+      "status": "pass",
+      "detail": {
+        "entries": []
+      }
+    },
+    {
+      "name": "export does not include raw/secret payload values",
+      "status": "pass",
+      "detail": {
+        "leaks": []
+      }
+    },
+    {
+      "name": "provider-verified remains blocked",
+      "status": "pass",
+      "detail": {
+        "current_state_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "current_state_claim_boundary_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ]
+      }
+    },
+    {
+      "name": "adapter-checked remains blocked",
+      "status": "pass",
+      "detail": {
+        "current_state_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "current_state_claim_boundary_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ]
+      }
+    },
+    {
+      "name": "production-ready remains blocked",
+      "status": "pass",
+      "detail": {
+        "current_state_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "current_state_claim_boundary_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ]
+      }
+    },
+    {
+      "name": "stable remains blocked",
+      "status": "pass",
+      "detail": {
+        "current_state_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "current_state_claim_boundary_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ]
+      }
+    },
+    {
+      "name": "release-gated remains blocked",
+      "status": "pass",
+      "detail": {
+        "current_state_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "current_state_claim_boundary_blocked_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ]
+      }
+    },
+    {
+      "name": "provider-verified allowed flag remains false",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "adapter-checked allowed flag remains false",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "production-ready allowed flag remains false",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stable allowed flag remains false",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release-gated allowed flag remains false",
+      "status": "pass",
+      "detail": {}
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0,
+  "unresolved_items": [],
+  "export": {
+    "package_path": "exports/v2.0.0-rc.1-postrc-final-dossier-agent-ready-export.zip",
+    "package_sha256": "e4858d81317d4a7675e014955e6a2d017518ff56937ddf10700209da338ced12",
+    "package_entry_count": 2102,
+    "current_state_layer_included": true,
+    "stale_top_level_docs_check": true,
+    "node_modules_included": false,
+    "dist_included": false,
+    "git_metadata_included": false,
+    "ds_store_included": false,
+    "raw_or_secret_included": false
+  },
+  "weak_claim_recorded": "post-final-dossier-agent-ready-export-repaired",
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "new_local_model_execution": false,
+  "local_model_generation": false,
+  "telemetry_sink_write": false,
+  "redteam_rerun": false,
+  "adapter_conformance_rerun": false,
+  "npm_install_or_ci": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_refreshed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false
+}

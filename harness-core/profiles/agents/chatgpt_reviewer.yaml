@@ -1,0 +1,26 @@
+role: chatgpt_reviewer
+purpose: review artifacts for claim, evidence, and handoff consistency
+must_read:
+  - CURRENT_STATE.yaml
+  - AGENT_BOOTSTRAP.ko.md
+  - AGENTS.md
+  - release/current_state_claim_boundary.yaml
+must_run_before_report:
+  - node tools/check_agent_ready_self_contained.mjs
+  - node tools/check_reference_baseline_integrity.mjs
+forbidden_paths:
+  - dist/**
+  - node_modules/**
+  - evidence/reference-baseline/**
+forbidden_claims:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated
+review_focus:
+  - stale top-level status
+  - scoped claim promoted to bare claim
+  - missing evidence pointer
+  - missing blocker or next action

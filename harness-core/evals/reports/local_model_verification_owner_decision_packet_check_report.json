@@ -1,0 +1,241 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-model-verification-owner-decision-packet",
+  "observed_packet_status": "ready_for_owner_decision_to_claim_local_model_verified",
+  "expected_packet_status": "ready_for_owner_decision_to_claim_local_model_verified",
+  "checks": [
+    {
+      "name": "local_model_verification_owner_decision_packet.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_evidence_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_remaining_blockers.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_model_verification_owner_decision_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verification_owner_decision_packet_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verification_owner_decision_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_stable_local_model_verification_claim_boundary.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/local_model_verification_owner_decision_packet.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_local_model_verification_final_gate_plan.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stage matches",
+      "status": "pass",
+      "detail": {
+        "stage": "v2.0.0-post-stable-local-model-verification-owner-decision-packet"
+      }
+    },
+    {
+      "name": "expected ready-for-owner-decision status recorded",
+      "status": "pass",
+      "detail": {
+        "status": "ready_for_owner_decision_to_claim_local_model_verified"
+      }
+    },
+    {
+      "name": "redteam coverage recorded",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "models_tested": [
+          "qwen3:14b",
+          "qwen3.6:27b"
+        ],
+        "total_cases": 8,
+        "cases_passed": 8,
+        "cases_failed": 0,
+        "dummy_secret_leaked": false,
+        "raw_request_stored": false,
+        "raw_response_stored": false
+      }
+    },
+    {
+      "name": "adapter dependency resolved",
+      "status": "pass",
+      "detail": {
+        "status": "ready_for_dependency_backed_adapter_conformance",
+        "yaml_import_available": true,
+        "dependency_install_approved": true,
+        "can_run_dependency_backed_adapter_conformance": true,
+        "owner_approval_required": false,
+        "required_approval_phrase": "I approve local dependency install for adapter conformance validation using npm ci --ignore-scripts."
+      }
+    },
+    {
+      "name": "stage K adapter conformance recorded",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "executed": true,
+        "reason": "dependency-backed adapter conformance local Ollama evidence is recorded"
+      }
+    },
+    {
+      "name": "ready for owner final wording decision",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "only owner final decision remains",
+      "status": "pass",
+      "detail": {
+        "blockers": [
+          {
+            "id": "owner_final_decision",
+            "status": "required",
+            "blocks_final_gate": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "evidence summary reflects available surfaces",
+      "status": "pass",
+      "detail": {
+        "status": "ready_for_owner_decision_to_claim_local_model_verified",
+        "stage": "v2.0.0-post-stable-local-model-verification-owner-decision-packet",
+        "evidence_sources": [
+          {
+            "id": "local_model_verification_evidence_bundle",
+            "path": "evidence/post-stable-local-model-verification-evidence-bundle-draft/local_model_verification_evidence_bundle_report.json",
+            "status": "pass"
+          },
+          {
+            "id": "final_gate_preflight",
+            "path": "evidence/post-stable-local-model-verification-final-gate-preflight/local_model_verification_final_gate_preflight_report.json",
+            "status": "ready_for_owner_decision_to_claim_local_model_verified"
+          },
+          {
+            "id": "local_redteam_bounded_smoke",
+            "path": "evidence/post-stable-local-redteam-bounded-smoke/local_redteam_bounded_smoke_report.json",
+            "status": "pass"
+          },
+          {
+            "id": "adapter_conformance_dependency_preflight",
+            "path": "evidence/post-stable-adapter-conformance-dependency-preflight/adapter_conformance_dependency_preflight_report.json",
+            "status": "ready_for_dependency_backed_adapter_conformance"
+          },
+          {
+            "id": "adapter_conformance_local_ollama_execution",
+            "path": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+            "status": "pass"
+          }
+        ],
+        "local_redteam_coverage_recorded": true,
+        "adapter_dependency_status_recorded": true,
+        "adapter_conformance_execution_recorded": true,
+        "stage_k_status": "pass"
+      }
+    },
+    {
+      "name": "no external side-effect surfaces",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "protected paths and node_modules unmodified or owner-approved baseline refresh recorded",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "strong claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "ready_for_owner_decision_to_claim_local_model_verified",
+        "stage": "v2.0.0-post-stable-local-model-verification-owner-decision-packet",
+        "local_model_verified_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "allowed_claims": [
+          "post-stable-local-model-verification-owner-decision-packet-drafted",
+          "post-stable-local-model-verification-blocker-resolution-summarized"
+        ],
+        "blocked_claims": [
+          "local-model-verified",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated"
+        ],
+        "reason": "Owner decision packet is ready for owner final decision; final strong local wording remains unavailable until owner decision is recorded."
+      }
+    },
+    {
+      "name": "prohibited claim scan pass",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "local blocked positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": []
+      }
+    }
+  ],
+  "unresolved_items_count": 1,
+  "ready_for_owner_decision_to_claim_local_model_verified": true,
+  "claims_allowed": [
+    "post-stable-local-model-verification-owner-decision-packet-drafted",
+    "post-stable-local-model-verification-blocker-resolution-summarized"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "failures": []
+}

@@ -1,0 +1,34 @@
+stage: v2.0.0-post-rc-telemetry-connection-result-review
+source_stage: v2.0.0-post-rc-telemetry-connection
+approved_actions:
+  telemetry_connection_result_review: true
+  telemetry_connected_claim_boundary_audit: true
+  langfuse_receipt_evidence_indexing: true
+  telemetry_secret_redaction_review: true
+  local_file_report_checker_execution: true
+forbidden_actions:
+  openai_model_api_call: true
+  openai_provider_canary_rerun: true
+  openai_replay_rerun: true
+  openai_redteam_rerun: true
+  local_endpoint_probe: true
+  vllm_execution: true
+  ollama_execution: true
+  local_model_execution: true
+  telemetry_sink_additional_write: true
+  production_deployment: true
+  release_gate_rerun: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+claims_allowed_after_gate:
+  - telemetry-connected
+claims_still_blocked:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - release-gated

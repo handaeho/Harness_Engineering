@@ -1,0 +1,29 @@
+stage: v2.0.0-post-stable-local-no-tool-multimodel-comparison-preconditions
+status: ready_after_qwen3_6_27b_result_review_pass
+
+next_candidate_stage: v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b
+
+models_ready:
+  - qwen3:14b
+  - qwen3.6:27b
+
+required_evidence:
+  - qwen3:14b readiness preflight pass
+  - qwen3:14b no-tool canary pass
+  - qwen3:14b result review pass
+  - qwen3.6:27b readiness preflight pass
+  - qwen3.6:27b no-tool canary pass
+  - qwen3.6:27b result review pass
+
+forbidden_execution:
+  new_local_model_generation: true
+  model_pull: true
+  tool_calling_canary: true
+  structured_output_canary: true
+  local_redteam_execution: true
+
+claims_still_blocked:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked

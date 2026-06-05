@@ -1,0 +1,28 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-post-export-general-readiness-stability-preflight",
+  "unresolved_items_count": 3,
+  "unresolved_items": [
+    {
+      "id": "provider_verified_not_allowed",
+      "lane": "general",
+      "status": "blocked_or_partial",
+      "reason": "Provider-verified is not allowed.",
+      "next_action": "Complete provider-verified final gate first."
+    },
+    {
+      "id": "adapter_checked_not_allowed",
+      "lane": "general",
+      "status": "blocked_or_partial",
+      "reason": "Adapter-checked is not allowed.",
+      "next_action": "Complete adapter-checked final gate first."
+    },
+    {
+      "id": "bare_release_gate_not_rerun",
+      "lane": "general",
+      "status": "blocked_or_partial",
+      "reason": "Bare/general release gate rerun is outside this autopilot.",
+      "next_action": "Run a separately approved general release gate before general stable/release-gated claims."
+    }
+  ]
+}

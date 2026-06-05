@@ -1,0 +1,41 @@
+stage: v2.0.0-post-rc-production-monitoring-values-owner-and-window-preflight
+
+approved_actions:
+  production_monitoring_values_template: true
+  recommended_defaults_draft: true
+  owner_assignment_template: true
+  monitoring_window_precondition_definition: true
+  monitoring_window_command_plan: true
+  production_monitoring_final_gate_policy: true
+  blocker_update: true
+  claim_boundary_audit: true
+
+forbidden_execution:
+  openai_model_api_call: true
+  openai_provider_call: true
+  telemetry_sink_write: true
+  live_monitoring_window_execution: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  production_deployment: true
+  release_gate_rerun: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+
+claims_allowed:
+  - post-rc-production-monitoring-values-preflight-completed
+  - post-rc-production-monitoring-defaults-drafted
+  - post-rc-production-monitoring-owner-template-drafted
+  - post-rc-production-monitoring-window-preconditions-drafted
+  - post-rc-production-monitoring-window-command-plan-drafted
+
+claims_not_allowed:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - release-gated

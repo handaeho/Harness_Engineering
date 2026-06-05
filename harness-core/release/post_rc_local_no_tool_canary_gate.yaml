@@ -1,0 +1,35 @@
+stage: v2.0.0-post-rc-local-no-tool-canary
+gate_type: local_no_tool_canary
+requires:
+  - v2.0.0-post-rc-local-endpoint-readiness-preflight
+allowed_execution:
+  local_endpoint_probe: true
+  local_model_execution: true
+  tool_calling: false
+  structured_output: false
+  telemetry_sink_write: false
+  synthetic_trace_generation: false
+endpoint_constraints:
+  localhost_only: true
+  api_shape: OpenAI-compatible
+  raw_request_storage_allowed: false
+  raw_response_storage_allowed: false
+thinking_model_controls:
+  ollama_openai_compatible:
+    - think_false
+    - reasoning_effort_none
+pass_criteria:
+  - readiness preflight gate passed
+  - local chat completion returns successful HTTP response
+  - assistant output text is non-empty
+  - tool call fields are absent
+  - structured output markers are absent
+  - no raw request or raw response is stored
+claims_not_allowed:
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - production-ready
+  - stable
+  - release-gated

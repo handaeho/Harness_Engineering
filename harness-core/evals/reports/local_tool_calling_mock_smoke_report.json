@@ -1,0 +1,137 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary",
+  "provider": "ollama",
+  "endpoint": "http://127.0.0.1:11434/v1",
+  "models": [
+    "qwen3:14b",
+    "qwen3.6:27b"
+  ],
+  "new_local_model_execution": true,
+  "new_local_generation_calls": 2,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "secrets_logged": false,
+  "local_model_verified_allowed": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "tool_call_verified_allowed": false,
+  "cases_total": 2,
+  "cases_passed": 2,
+  "cases_failed": 0,
+  "mock_tool_schema_used": true,
+  "external_tool_executed": false,
+  "mock_tool_output_reinjected": false,
+  "redaction_passed": true,
+  "case_results": [
+    {
+      "model": "qwen3:14b",
+      "case_id": "local-tool-mock-lookup-001",
+      "status": "pass",
+      "http_status": 200,
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 206,
+        "completion_tokens": 21,
+        "total_tokens": 227
+      },
+      "tool_schema_sent": true,
+      "tool_choice_forced": true,
+      "tool_calls_present": true,
+      "tool_call_count": 1,
+      "tool_name_matches": true,
+      "tool_arguments_parse_passed": true,
+      "tool_argument_keys": [
+        "key"
+      ],
+      "external_tool_executed": false,
+      "mock_tool_output_reinjected": false,
+      "request": {
+        "model_present": true,
+        "input_preview": "Use the local_mock_lookup tool to look up the local canary key alpha and do not answer directly.",
+        "input_hash": "022874dbb5621ccb4c7711f6f1b3001492f362970295273bc206e7eb5bd9515e",
+        "tools_count": 1,
+        "tool_choice": "local_mock_lookup",
+        "stream": false,
+        "max_tokens": 128,
+        "thinking_disabled": true,
+        "reasoning_effort": "none"
+      },
+      "response": {
+        "assistant_content_present": false,
+        "assistant_content_preview": "",
+        "assistant_content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tool_arguments_preview": "{\"key\":\"alpha\"}",
+        "tool_arguments_hash": "5f95508fda8ff9af5d379e1650666bcff80bc0689c361cae4c593da7d2a81a6c",
+        "raw_response_hash": "688e9b6c10d66cfa54acace9213be964bd7ffab5fd0bfcf34e42ae12dc97459c"
+      },
+      "raw_request_stored": false,
+      "raw_response_stored": false
+    },
+    {
+      "model": "qwen3.6:27b",
+      "case_id": "local-tool-mock-lookup-001",
+      "status": "pass",
+      "http_status": 200,
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 341,
+        "completion_tokens": 27,
+        "total_tokens": 368
+      },
+      "tool_schema_sent": true,
+      "tool_choice_forced": true,
+      "tool_calls_present": true,
+      "tool_call_count": 1,
+      "tool_name_matches": true,
+      "tool_arguments_parse_passed": true,
+      "tool_argument_keys": [
+        "key"
+      ],
+      "external_tool_executed": false,
+      "mock_tool_output_reinjected": false,
+      "request": {
+        "model_present": true,
+        "input_preview": "Use the local_mock_lookup tool to look up the local canary key alpha and do not answer directly.",
+        "input_hash": "022874dbb5621ccb4c7711f6f1b3001492f362970295273bc206e7eb5bd9515e",
+        "tools_count": 1,
+        "tool_choice": "local_mock_lookup",
+        "stream": false,
+        "max_tokens": 128,
+        "thinking_disabled": true,
+        "reasoning_effort": "none"
+      },
+      "response": {
+        "assistant_content_present": false,
+        "assistant_content_preview": "",
+        "assistant_content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tool_arguments_preview": "{\"key\":\"alpha\"}",
+        "tool_arguments_hash": "5f95508fda8ff9af5d379e1650666bcff80bc0689c361cae4c593da7d2a81a6c",
+        "raw_response_hash": "20ffa6cdea129c494ca58f97aaa360d105a1a567bcc217c3573e2a1300844f16"
+      },
+      "raw_request_stored": false,
+      "raw_response_stored": false
+    }
+  ],
+  "claims_allowed": [
+    "post-stable-local-tool-calling-mock-smoke-canary-completed",
+    "post-stable-local-tool-calling-mock-schema-checked",
+    "post-stable-local-tool-calling-mock-redaction-checked"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "tool-call-verified",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ]
+}

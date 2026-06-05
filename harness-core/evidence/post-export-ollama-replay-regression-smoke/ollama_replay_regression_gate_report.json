@@ -1,0 +1,777 @@
+{
+  "status": "partial",
+  "stage": "v2.0.0-post-export-ollama-replay-regression-smoke",
+  "unresolved_items_count": 3,
+  "new_local_model_execution": true,
+  "new_local_model_call_count": 4,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "checks": [
+    {
+      "name": "report exists",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-export-ollama-replay-regression-smoke",
+        "provider": "ollama",
+        "endpoint": "http://127.0.0.1:11434/v1",
+        "models_tested": [
+          "qwen3:14b",
+          "qwen3.6:27b"
+        ],
+        "surfaces": [
+          "no_tool",
+          "structured_output",
+          "tool_calling_mock"
+        ],
+        "cases_total": 4,
+        "cases_passed": 2,
+        "cases_failed": 2,
+        "source_reports": {
+          "no_tool_sources": [
+            {
+              "path": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json",
+              "exists": true,
+              "status": "pass",
+              "stage": "v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b"
+            },
+            {
+              "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+              "exists": true,
+              "status": "pass",
+              "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+            }
+          ],
+          "structured_output_smoke": {
+            "path": "evidence/post-export-ollama-structured-output-smoke/ollama_structured_output_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-structured-output-smoke"
+          },
+          "tool_calling_mock_smoke": {
+            "path": "evidence/post-export-ollama-tool-calling-mock-smoke/ollama_tool_calling_mock_smoke_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-ollama-tool-calling-mock-smoke"
+          }
+        },
+        "case_results": [
+          {
+            "model": "qwen3:14b",
+            "surface": "no_tool",
+            "case_id": "replay_no_tool_exact",
+            "status": "fail",
+            "http_status": 200,
+            "finish_reason": "length",
+            "usage": {
+              "prompt_tokens": 37,
+              "completion_tokens": 128,
+              "total_tokens": 165
+            },
+            "output_text_present": false,
+            "output_text_length": 0,
+            "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_response_hash": "489faf2082c35190f968ce2091b8ace74028daf77abfb8965f20cb83916d8f20",
+            "parsed_keys": [],
+            "request_metadata": {
+              "model": "qwen3:14b",
+              "case_id": "replay_no_tool_exact",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "96523dfc61cda16fbd8e0f28ab0f8995f2b8be172f118057dc8f2e1d3c0ca70e",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          {
+            "model": "qwen3:14b",
+            "surface": "structured_output",
+            "case_id": "replay_structured_json",
+            "status": "fail",
+            "http_status": 200,
+            "finish_reason": "length",
+            "usage": {
+              "prompt_tokens": 25,
+              "completion_tokens": 128,
+              "total_tokens": 153
+            },
+            "output_text_present": false,
+            "output_text_length": 0,
+            "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_response_hash": "015c7a4419a289010e8454cb670ff007b3e3955d70820bc8bf6d3395d31ac644",
+            "parsed_keys": [],
+            "request_metadata": {
+              "model": "qwen3:14b",
+              "case_id": "replay_structured_json",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "ca6254816e174392851a78d2f41946165ede03ac53b2be4c2b4456ef6c2b2288",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          {
+            "model": "qwen3.6:27b",
+            "surface": "no_tool",
+            "case_id": "replay_no_tool_exact",
+            "status": "pass",
+            "http_status": 200,
+            "finish_reason": "stop",
+            "usage": {
+              "prompt_tokens": 42,
+              "completion_tokens": 5,
+              "total_tokens": 47
+            },
+            "output_text_present": true,
+            "output_text_length": 16,
+            "output_text_hash": "513b8f118444a6bd12de76515c178352f836ad0786b68c09c3cecce5bfaeac02",
+            "raw_response_hash": "ec94ef8d794e23096cb935f1aff13ae383bbdf2f37b61bae2c963d0a6402d87f",
+            "parsed_keys": [],
+            "request_metadata": {
+              "model": "qwen3.6:27b",
+              "case_id": "replay_no_tool_exact",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "96523dfc61cda16fbd8e0f28ab0f8995f2b8be172f118057dc8f2e1d3c0ca70e",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false,
+                "reasoning_effort": "none",
+                "reasoning": {
+                  "effort": "none"
+                }
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          {
+            "model": "qwen3.6:27b",
+            "surface": "structured_output",
+            "case_id": "replay_structured_json",
+            "status": "pass",
+            "http_status": 200,
+            "finish_reason": "stop",
+            "usage": {
+              "prompt_tokens": 50,
+              "completion_tokens": 11,
+              "total_tokens": 61
+            },
+            "output_text_present": true,
+            "output_text_length": 29,
+            "output_text_hash": "b3072752463b7164aba7a04a8dac5e457da362461c65c9c2095e29957a37838d",
+            "raw_response_hash": "96add16794ca6ee94b8e54100a7da2b9855fac402f497c77f372531210936f46",
+            "parsed_keys": [
+              "replay",
+              "status"
+            ],
+            "request_metadata": {
+              "model": "qwen3.6:27b",
+              "case_id": "replay_structured_json",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "ca6254816e174392851a78d2f41946165ede03ac53b2be4c2b4456ef6c2b2288",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false,
+                "reasoning_effort": "none",
+                "reasoning": {
+                  "effort": "none"
+                }
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          }
+        ],
+        "new_local_model_execution": true,
+        "new_local_model_call_count": 4,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "redacted_metadata_only": true,
+        "replay_verified_allowed": false,
+        "benchmark_backed_allowed": false,
+        "unresolved_items_count": 3,
+        "blockers": [
+          {
+            "id": "ollama_structured_output_source_not_pass",
+            "lane": "ollama_replay",
+            "status": "blocked_or_partial",
+            "reason": "Structured-output smoke source is not pass.",
+            "next_action": "Complete Stage B before replay/regression acceptance."
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_no_tool_exact",
+            "lane": "ollama_replay",
+            "status": "blocked_or_partial",
+            "reason": "Replay/regression smoke case did not pass.",
+            "next_action": "Inspect local replay behavior; do not open replay-verified."
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_structured_json",
+            "lane": "ollama_replay",
+            "status": "blocked_or_partial",
+            "reason": "Replay/regression smoke case did not pass.",
+            "next_action": "Inspect local replay behavior; do not open replay-verified."
+          }
+        ],
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "call count bounded",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-export-ollama-replay-regression-smoke",
+        "provider": "ollama",
+        "endpoint": "http://127.0.0.1:11434/v1",
+        "models_tested": [
+          "qwen3:14b",
+          "qwen3.6:27b"
+        ],
+        "surfaces": [
+          "no_tool",
+          "structured_output",
+          "tool_calling_mock"
+        ],
+        "cases_total": 4,
+        "cases_passed": 2,
+        "cases_failed": 2,
+        "source_reports": {
+          "no_tool_sources": [
+            {
+              "path": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json",
+              "exists": true,
+              "status": "pass",
+              "stage": "v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b"
+            },
+            {
+              "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+              "exists": true,
+              "status": "pass",
+              "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+            }
+          ],
+          "structured_output_smoke": {
+            "path": "evidence/post-export-ollama-structured-output-smoke/ollama_structured_output_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-structured-output-smoke"
+          },
+          "tool_calling_mock_smoke": {
+            "path": "evidence/post-export-ollama-tool-calling-mock-smoke/ollama_tool_calling_mock_smoke_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-ollama-tool-calling-mock-smoke"
+          }
+        },
+        "case_results": [
+          {
+            "model": "qwen3:14b",
+            "surface": "no_tool",
+            "case_id": "replay_no_tool_exact",
+            "status": "fail",
+            "http_status": 200,
+            "finish_reason": "length",
+            "usage": {
+              "prompt_tokens": 37,
+              "completion_tokens": 128,
+              "total_tokens": 165
+            },
+            "output_text_present": false,
+            "output_text_length": 0,
+            "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_response_hash": "489faf2082c35190f968ce2091b8ace74028daf77abfb8965f20cb83916d8f20",
+            "parsed_keys": [],
+            "request_metadata": {
+              "model": "qwen3:14b",
+              "case_id": "replay_no_tool_exact",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "96523dfc61cda16fbd8e0f28ab0f8995f2b8be172f118057dc8f2e1d3c0ca70e",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          {
+            "model": "qwen3:14b",
+            "surface": "structured_output",
+            "case_id": "replay_structured_json",
+            "status": "fail",
+            "http_status": 200,
+            "finish_reason": "length",
+            "usage": {
+              "prompt_tokens": 25,
+              "completion_tokens": 128,
+              "total_tokens": 153
+            },
+            "output_text_present": false,
+            "output_text_length": 0,
+            "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_response_hash": "015c7a4419a289010e8454cb670ff007b3e3955d70820bc8bf6d3395d31ac644",
+            "parsed_keys": [],
+            "request_metadata": {
+              "model": "qwen3:14b",
+              "case_id": "replay_structured_json",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "ca6254816e174392851a78d2f41946165ede03ac53b2be4c2b4456ef6c2b2288",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          {
+            "model": "qwen3.6:27b",
+            "surface": "no_tool",
+            "case_id": "replay_no_tool_exact",
+            "status": "pass",
+            "http_status": 200,
+            "finish_reason": "stop",
+            "usage": {
+              "prompt_tokens": 42,
+              "completion_tokens": 5,
+              "total_tokens": 47
+            },
+            "output_text_present": true,
+            "output_text_length": 16,
+            "output_text_hash": "513b8f118444a6bd12de76515c178352f836ad0786b68c09c3cecce5bfaeac02",
+            "raw_response_hash": "ec94ef8d794e23096cb935f1aff13ae383bbdf2f37b61bae2c963d0a6402d87f",
+            "parsed_keys": [],
+            "request_metadata": {
+              "model": "qwen3.6:27b",
+              "case_id": "replay_no_tool_exact",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "96523dfc61cda16fbd8e0f28ab0f8995f2b8be172f118057dc8f2e1d3c0ca70e",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false,
+                "reasoning_effort": "none",
+                "reasoning": {
+                  "effort": "none"
+                }
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          {
+            "model": "qwen3.6:27b",
+            "surface": "structured_output",
+            "case_id": "replay_structured_json",
+            "status": "pass",
+            "http_status": 200,
+            "finish_reason": "stop",
+            "usage": {
+              "prompt_tokens": 50,
+              "completion_tokens": 11,
+              "total_tokens": 61
+            },
+            "output_text_present": true,
+            "output_text_length": 29,
+            "output_text_hash": "b3072752463b7164aba7a04a8dac5e457da362461c65c9c2095e29957a37838d",
+            "raw_response_hash": "96add16794ca6ee94b8e54100a7da2b9855fac402f497c77f372531210936f46",
+            "parsed_keys": [
+              "replay",
+              "status"
+            ],
+            "request_metadata": {
+              "model": "qwen3.6:27b",
+              "case_id": "replay_structured_json",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "ca6254816e174392851a78d2f41946165ede03ac53b2be4c2b4456ef6c2b2288",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false,
+                "reasoning_effort": "none",
+                "reasoning": {
+                  "effort": "none"
+                }
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          }
+        ],
+        "new_local_model_execution": true,
+        "new_local_model_call_count": 4,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "redacted_metadata_only": true,
+        "replay_verified_allowed": false,
+        "benchmark_backed_allowed": false,
+        "unresolved_items_count": 3,
+        "blockers": [
+          {
+            "id": "ollama_structured_output_source_not_pass",
+            "lane": "ollama_replay",
+            "status": "blocked_or_partial",
+            "reason": "Structured-output smoke source is not pass.",
+            "next_action": "Complete Stage B before replay/regression acceptance."
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_no_tool_exact",
+            "lane": "ollama_replay",
+            "status": "blocked_or_partial",
+            "reason": "Replay/regression smoke case did not pass.",
+            "next_action": "Inspect local replay behavior; do not open replay-verified."
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_structured_json",
+            "lane": "ollama_replay",
+            "status": "blocked_or_partial",
+            "reason": "Replay/regression smoke case did not pass.",
+            "next_action": "Inspect local replay behavior; do not open replay-verified."
+          }
+        ],
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "raw storage false",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-export-ollama-replay-regression-smoke",
+        "provider": "ollama",
+        "endpoint": "http://127.0.0.1:11434/v1",
+        "models_tested": [
+          "qwen3:14b",
+          "qwen3.6:27b"
+        ],
+        "surfaces": [
+          "no_tool",
+          "structured_output",
+          "tool_calling_mock"
+        ],
+        "cases_total": 4,
+        "cases_passed": 2,
+        "cases_failed": 2,
+        "source_reports": {
+          "no_tool_sources": [
+            {
+              "path": "evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json",
+              "exists": true,
+              "status": "pass",
+              "stage": "v2.0.0-post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b"
+            },
+            {
+              "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+              "exists": true,
+              "status": "pass",
+              "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+            }
+          ],
+          "structured_output_smoke": {
+            "path": "evidence/post-export-ollama-structured-output-smoke/ollama_structured_output_smoke_report.json",
+            "exists": true,
+            "status": "partial",
+            "stage": "v2.0.0-post-export-ollama-structured-output-smoke"
+          },
+          "tool_calling_mock_smoke": {
+            "path": "evidence/post-export-ollama-tool-calling-mock-smoke/ollama_tool_calling_mock_smoke_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-post-export-ollama-tool-calling-mock-smoke"
+          }
+        },
+        "case_results": [
+          {
+            "model": "qwen3:14b",
+            "surface": "no_tool",
+            "case_id": "replay_no_tool_exact",
+            "status": "fail",
+            "http_status": 200,
+            "finish_reason": "length",
+            "usage": {
+              "prompt_tokens": 37,
+              "completion_tokens": 128,
+              "total_tokens": 165
+            },
+            "output_text_present": false,
+            "output_text_length": 0,
+            "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_response_hash": "489faf2082c35190f968ce2091b8ace74028daf77abfb8965f20cb83916d8f20",
+            "parsed_keys": [],
+            "request_metadata": {
+              "model": "qwen3:14b",
+              "case_id": "replay_no_tool_exact",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "96523dfc61cda16fbd8e0f28ab0f8995f2b8be172f118057dc8f2e1d3c0ca70e",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          {
+            "model": "qwen3:14b",
+            "surface": "structured_output",
+            "case_id": "replay_structured_json",
+            "status": "fail",
+            "http_status": 200,
+            "finish_reason": "length",
+            "usage": {
+              "prompt_tokens": 25,
+              "completion_tokens": 128,
+              "total_tokens": 153
+            },
+            "output_text_present": false,
+            "output_text_length": 0,
+            "output_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_response_hash": "015c7a4419a289010e8454cb670ff007b3e3955d70820bc8bf6d3395d31ac644",
+            "parsed_keys": [],
+            "request_metadata": {
+              "model": "qwen3:14b",
+              "case_id": "replay_structured_json",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "ca6254816e174392851a78d2f41946165ede03ac53b2be4c2b4456ef6c2b2288",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          {
+            "model": "qwen3.6:27b",
+            "surface": "no_tool",
+            "case_id": "replay_no_tool_exact",
+            "status": "pass",
+            "http_status": 200,
+            "finish_reason": "stop",
+            "usage": {
+              "prompt_tokens": 42,
+              "completion_tokens": 5,
+              "total_tokens": 47
+            },
+            "output_text_present": true,
+            "output_text_length": 16,
+            "output_text_hash": "513b8f118444a6bd12de76515c178352f836ad0786b68c09c3cecce5bfaeac02",
+            "raw_response_hash": "ec94ef8d794e23096cb935f1aff13ae383bbdf2f37b61bae2c963d0a6402d87f",
+            "parsed_keys": [],
+            "request_metadata": {
+              "model": "qwen3.6:27b",
+              "case_id": "replay_no_tool_exact",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "96523dfc61cda16fbd8e0f28ab0f8995f2b8be172f118057dc8f2e1d3c0ca70e",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false,
+                "reasoning_effort": "none",
+                "reasoning": {
+                  "effort": "none"
+                }
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          },
+          {
+            "model": "qwen3.6:27b",
+            "surface": "structured_output",
+            "case_id": "replay_structured_json",
+            "status": "pass",
+            "http_status": 200,
+            "finish_reason": "stop",
+            "usage": {
+              "prompt_tokens": 50,
+              "completion_tokens": 11,
+              "total_tokens": 61
+            },
+            "output_text_present": true,
+            "output_text_length": 29,
+            "output_text_hash": "b3072752463b7164aba7a04a8dac5e457da362461c65c9c2095e29957a37838d",
+            "raw_response_hash": "96add16794ca6ee94b8e54100a7da2b9855fac402f497c77f372531210936f46",
+            "parsed_keys": [
+              "replay",
+              "status"
+            ],
+            "request_metadata": {
+              "model": "qwen3.6:27b",
+              "case_id": "replay_structured_json",
+              "endpoint_host": "127.0.0.1",
+              "input_hash": "ca6254816e174392851a78d2f41946165ede03ac53b2be4c2b4456ef6c2b2288",
+              "messages_count": 2,
+              "raw_request_stored": false,
+              "raw_response_stored": false,
+              "redacted_metadata_only": true,
+              "controls": {
+                "think": false,
+                "reasoning_effort": "none",
+                "reasoning": {
+                  "effort": "none"
+                }
+              }
+            },
+            "raw_request_stored": false,
+            "raw_response_stored": false
+          }
+        ],
+        "new_local_model_execution": true,
+        "new_local_model_call_count": 4,
+        "raw_request_stored": false,
+        "raw_response_stored": false,
+        "redacted_metadata_only": true,
+        "replay_verified_allowed": false,
+        "benchmark_backed_allowed": false,
+        "unresolved_items_count": 3,
+        "blockers": [
+          {
+            "id": "ollama_structured_output_source_not_pass",
+            "lane": "ollama_replay",
+            "status": "blocked_or_partial",
+            "reason": "Structured-output smoke source is not pass.",
+            "next_action": "Complete Stage B before replay/regression acceptance."
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_no_tool_exact",
+            "lane": "ollama_replay",
+            "status": "blocked_or_partial",
+            "reason": "Replay/regression smoke case did not pass.",
+            "next_action": "Inspect local replay behavior; do not open replay-verified."
+          },
+          {
+            "id": "ollama_replay_qwen3_14b_replay_structured_json",
+            "lane": "ollama_replay",
+            "status": "blocked_or_partial",
+            "reason": "Replay/regression smoke case did not pass.",
+            "next_action": "Inspect local replay behavior; do not open replay-verified."
+          }
+        ],
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "replay/benchmark claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-export-ollama-replay-regression-smoke",
+        "post_export_ollama_replay_regression_smoke_allowed": false,
+        "replay_verified_allowed": false,
+        "benchmark_backed_allowed": false,
+        "adapter_checked_allowed": false,
+        "provider_verified_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "allowed_claims": [],
+        "blocked_claims": [
+          "replay-verified",
+          "benchmark-backed",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "new_local_model_execution": true,
+        "new_local_model_call_count": 4,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false
+      }
+    }
+  ],
+  "failures": []
+}

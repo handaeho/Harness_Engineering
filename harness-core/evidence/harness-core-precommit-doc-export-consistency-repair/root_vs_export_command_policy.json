@@ -1,0 +1,389 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rename-harness-core-precommit-doc-export-consistency-repair",
+  "root_workspace_mode": {
+    "purpose": "project root source workspace mode",
+    "first_commands": [
+      "node tools/check_agent_ready_self_contained.mjs",
+      "node tools/check_current_state_alignment.mjs",
+      "node tools/check_reference_baseline_integrity.mjs"
+    ],
+    "git_readiness_full_verification_requires_git_metadata": true
+  },
+  "agent_ready_export_mode": {
+    "purpose": "clean export transfer/archive mode",
+    "first_commands": [
+      "node tools/check_agent_ready_self_contained.mjs",
+      "node tools/check_reference_baseline_integrity.mjs"
+    ],
+    "node_modules_required": false,
+    "git_metadata_required": false,
+    "current_state_alignment_default_command": false,
+    "reference_baseline_policy": "snapshot_integrity_only"
+  },
+  "current_state_alignment_placement": "root_workspace_only",
+  "docs": [
+    {
+      "entry": "AGENT_BOOTSTRAP.ko.md",
+      "included": true,
+      "export_mode_commands": [
+        "node tools/check_agent_ready_self_contained.mjs",
+        "node tools/check_reference_baseline_integrity.mjs"
+      ],
+      "export_first_command_is_self_contained": true,
+      "export_reference_baseline_command_present": true,
+      "current_state_alignment_mentioned": true,
+      "current_state_alignment_root_only_if_mentioned": true,
+      "current_state_alignment_not_default_export_command": true
+    },
+    {
+      "entry": "README.md",
+      "included": true,
+      "export_mode_commands": [
+        "node tools/check_agent_ready_self_contained.mjs",
+        "node tools/check_reference_baseline_integrity.mjs"
+      ],
+      "export_first_command_is_self_contained": true,
+      "export_reference_baseline_command_present": true,
+      "current_state_alignment_mentioned": true,
+      "current_state_alignment_root_only_if_mentioned": true,
+      "current_state_alignment_not_default_export_command": true
+    },
+    {
+      "entry": "START_HERE_FOR_AGENTS.ko.md",
+      "included": true,
+      "export_mode_commands": [
+        "node tools/check_agent_ready_self_contained.mjs",
+        "node tools/check_reference_baseline_integrity.mjs",
+        "node tools/check_reference_baseline_integrity.mjs"
+      ],
+      "export_first_command_is_self_contained": true,
+      "export_reference_baseline_command_present": true,
+      "current_state_alignment_mentioned": true,
+      "current_state_alignment_root_only_if_mentioned": true,
+      "current_state_alignment_not_default_export_command": true
+    },
+    {
+      "entry": "docs/agent_ready_self_contained_mode.ko.md",
+      "included": true,
+      "export_mode_commands": [
+        "node tools/check_agent_ready_self_contained.mjs",
+        "node tools/check_reference_baseline_integrity.mjs"
+      ],
+      "export_first_command_is_self_contained": true,
+      "export_reference_baseline_command_present": true,
+      "current_state_alignment_mentioned": true,
+      "current_state_alignment_root_only_if_mentioned": true,
+      "current_state_alignment_not_default_export_command": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "docs exist",
+      "status": "pass",
+      "detail": {
+        "docs": [
+          {
+            "entry": "AGENT_BOOTSTRAP.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "README.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "START_HERE_FOR_AGENTS.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "docs/agent_ready_self_contained_mode.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "agent-ready export first command is self-contained checker",
+      "status": "pass",
+      "detail": {
+        "docs": [
+          {
+            "entry": "AGENT_BOOTSTRAP.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "README.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "START_HERE_FOR_AGENTS.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "docs/agent_ready_self_contained_mode.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "agent-ready export includes reference baseline integrity command",
+      "status": "pass",
+      "detail": {
+        "docs": [
+          {
+            "entry": "AGENT_BOOTSTRAP.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "README.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "START_HERE_FOR_AGENTS.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "docs/agent_ready_self_contained_mode.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "current-state alignment is root-workspace-only if mentioned",
+      "status": "pass",
+      "detail": {
+        "docs": [
+          {
+            "entry": "AGENT_BOOTSTRAP.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "README.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "START_HERE_FOR_AGENTS.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "docs/agent_ready_self_contained_mode.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "current-state alignment is not default export command",
+      "status": "pass",
+      "detail": {
+        "docs": [
+          {
+            "entry": "AGENT_BOOTSTRAP.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "README.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "START_HERE_FOR_AGENTS.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          },
+          {
+            "entry": "docs/agent_ready_self_contained_mode.ko.md",
+            "included": true,
+            "export_mode_commands": [
+              "node tools/check_agent_ready_self_contained.mjs",
+              "node tools/check_reference_baseline_integrity.mjs"
+            ],
+            "export_first_command_is_self_contained": true,
+            "export_reference_baseline_command_present": true,
+            "current_state_alignment_mentioned": true,
+            "current_state_alignment_root_only_if_mentioned": true,
+            "current_state_alignment_not_default_export_command": true
+          }
+        ]
+      }
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0
+}

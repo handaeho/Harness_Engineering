@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-final-export-execution",
+  "provider_diverse_allowed": true,
+  "local_model_verified_allowed": true,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "bare_release_gated_allowed": false,
+  "allowed_claims": [
+    "provider-diverse",
+    "local-model-verified",
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated"
+  ],
+  "blocked_claims": [
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "reason": "Final export reflects current combined archive state. Provider-verified, adapter-checked, general production-ready, stable, and release-gated remain blocked."
+}

@@ -1,0 +1,48 @@
+stage: v2.0.0-post-combined-provider-diverse-archive-refresh-and-next-gates-preflight
+status: recorded
+approved_actions:
+  provider_diverse_archive_refresh: true
+  combined_claim_state_refresh: true
+  provider_diverse_evidence_index_update: true
+  archive_manifest_refresh: true
+  archive_checksum_refresh: true
+  final_export_draft_refresh: true
+  strict_paths_refresh: true
+  next_gates_registry: true
+  claim_boundary_audit: true
+forbidden_execution:
+  openai_model_api_call: true
+  openai_provider_rerun: true
+  new_local_model_execution: true
+  local_redteam_rerun: true
+  adapter_conformance_rerun_with_generation: true
+  telemetry_sink_write: true
+  npm_install_or_ci: true
+  production_deployment: true
+  actual_export_write: true
+  release_gate_rerun: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_refresh: true
+claims_maintained:
+  - provider-diverse
+  - local-model-verified
+  - post-rc-openai-only-stable
+  - post-rc-openai-only-production-ready
+  - production-monitored
+  - telemetry-connected
+  - containment-verified
+  - rc1-openai-scope-release-gated
+claims_not_allowed:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated
+claims_allowed:
+  - post-combined-provider-diverse-archive-refreshed
+  - post-combined-provider-diverse-final-claim-state-recorded
+  - post-combined-provider-diverse-evidence-indexed
+  - post-combined-provider-diverse-next-gates-recorded
+  - post-combined-provider-diverse-final-export-draft-refreshed

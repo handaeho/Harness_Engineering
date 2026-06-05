@@ -1,0 +1,26 @@
+stage: v2.0.0-post-stable-local-replay-regression-smoke
+
+approved_actions:
+  file_based_replay_regression_summary: true
+  no_tool_evidence_summary: true
+  structured_output_smoke_summary: true
+  tool_calling_mock_smoke_summary: true
+
+forbidden_execution:
+  new_local_model_generation: true
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  model_pull: true
+  raw_request_storage: true
+  raw_response_storage: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+
+claims_not_allowed:
+  - replay-verified
+  - benchmark-backed
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked

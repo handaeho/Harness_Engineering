@@ -1,0 +1,7 @@
+# Provider Verification Gate Preflight Report
+
+Status: blocked_by_missing_ollama_provider_verification_coverage
+
+- Ready for owner decision: false
+- Blockers: full_provider_level_verification_gate_not_executed, openai_provider_contract_regression_evidence_incomplete, ollama_provider_structured_output_coverage_missing, ollama_provider_tool_calling_coverage_missing, provider_replay_or_regression_gap, owner_final_decision_required
+- Strong claim allowance changed: false

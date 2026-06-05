@@ -1,0 +1,32 @@
+stage: v2.0.0-post-final-dossier-project-rename-to-harness-core
+scope: project_name_migration
+canonical_name: HARNESS Core
+slug: harness-core
+legacy_names:
+  - harness-core
+allowed_changes:
+  - current_state_project_metadata
+  - active_agent_facing_docs
+  - checker_name_validation
+  - agent_ready_clean_export_path
+  - name_migration_reports
+forbidden_changes:
+  - OpenAI model API call
+  - OpenAI provider rerun
+  - local model generation
+  - telemetry sink write
+  - npm install
+  - npm ci
+  - legacy reference source
+  - dist/**
+  - node_modules/**
+  - evidence/reference-baseline/**
+  - provider-verified remains forbidden
+  - adapter-checked remains forbidden
+  - production-ready remains forbidden
+  - stable remains forbidden
+  - release-gated remains forbidden
+legacy_reference_policy:
+  historical_evidence_may_retain_legacy_name: true
+  active_entrypoints_must_use_canonical_name: true
+  legacy_references_must_be_marked_legacy: true

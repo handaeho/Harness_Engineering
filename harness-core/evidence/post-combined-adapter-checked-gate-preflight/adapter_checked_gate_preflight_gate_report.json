@@ -1,0 +1,207 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-combined-adapter-checked-gate-preflight",
+  "adapter_checked_gate_preflight_passed": true,
+  "latest_preflight_status": "blocked_by_missing_adapter_coverage",
+  "ready_for_owner_decision_to_claim_adapter_checked": false,
+  "unresolved_items_count": 0,
+  "reason": "Adapter checked preflight completed and remains blocked by missing adapter coverage.",
+  "new_local_model_execution": false,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "provider_diverse_allowed": true,
+  "checks": [
+    {
+      "name": "preflight report recorded",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_missing_adapter_coverage",
+        "stage": "v2.0.0-post-combined-adapter-checked-gate-preflight",
+        "adapter_checked_gate_preflight_completed": true,
+        "ready_for_owner_decision_to_claim_adapter_checked": false,
+        "blockers": [
+          "OpenAI adapter full conformance coverage",
+          "Ollama adapter structured-output mapping coverage",
+          "Ollama adapter tool-calling mapping coverage",
+          "vLLM adapter execution coverage, if claimed",
+          "cross-adapter contract coverage",
+          "replay/regression across adapters"
+        ],
+        "weak_claims_allowed_by_this_stage": [
+          "post-combined-adapter-checked-gate-preflight-completed",
+          "post-combined-adapter-checked-coverage-matrix-recorded"
+        ],
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "provider_diverse_allowed": true
+      }
+    },
+    {
+      "name": "criteria matrix drafted",
+      "status": "pass",
+      "detail": {
+        "status": "drafted",
+        "stage": "v2.0.0-post-combined-adapter-checked-gate-preflight",
+        "adapter_checked_allowed": false,
+        "criteria": {
+          "request_mapping_per_adapter": true,
+          "response_mapping_per_adapter": true,
+          "error_mapping_per_adapter": true,
+          "redaction_storage_per_adapter": true,
+          "tool_schema_mapping_when_supported": true,
+          "structured_output_mapping_when_supported": true,
+          "negative_cases_per_adapter": true,
+          "cross_adapter_contract_reviewed": true,
+          "replay_or_regression_across_adapters": true,
+          "owner_final_decision_required": true
+        }
+      }
+    },
+    {
+      "name": "coverage matrix records adapters",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-combined-adapter-checked-gate-preflight",
+        "adapter_checked_allowed": false,
+        "adapters": [
+          {
+            "adapter_id": "openai_api",
+            "coverage": "partial",
+            "gaps": [
+              "OpenAI adapter full conformance coverage"
+            ]
+          },
+          {
+            "adapter_id": "ollama_local",
+            "coverage": "partial",
+            "gaps": [
+              "Ollama adapter structured-output mapping coverage",
+              "Ollama adapter tool-calling mapping coverage"
+            ]
+          },
+          {
+            "adapter_id": "vllm_local",
+            "coverage": "placeholder",
+            "gaps": [
+              "vLLM adapter execution coverage, if claimed"
+            ]
+          },
+          {
+            "adapter_id": "common_adapter_policy",
+            "coverage": "policy_only",
+            "gaps": [
+              "cross-adapter contract coverage",
+              "replay/regression across adapters"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "gap analysis records required gaps",
+      "status": "pass",
+      "detail": {
+        "status": "blocked_by_missing_adapter_coverage",
+        "stage": "v2.0.0-post-combined-adapter-checked-gate-preflight",
+        "adapter_checked_allowed": false,
+        "required_gaps": [
+          "OpenAI adapter full conformance coverage",
+          "Ollama adapter structured-output mapping coverage",
+          "Ollama adapter tool-calling mapping coverage",
+          "vLLM adapter execution coverage, if claimed",
+          "cross-adapter contract coverage",
+          "replay/regression across adapters"
+        ],
+        "recommended_next_actions": [
+          "Run non-generative adapter conformance coverage where possible.",
+          "Add structured-output and tool-calling mapping evidence for Ollama.",
+          "Record cross-adapter contract coverage and replay/regression evidence."
+        ]
+      }
+    },
+    {
+      "name": "claim boundary blocks strong claims",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-combined-adapter-checked-gate-preflight",
+        "allowed_claims_maintained": [
+          "provider-diverse",
+          "local-model-verified",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated"
+        ],
+        "weak_stage_claims_allowed": [
+          "post-combined-provider-verified-gate-preflight-completed",
+          "post-combined-provider-verified-evidence-inventoried",
+          "post-combined-provider-verified-owner-decision-packet-recorded",
+          "post-combined-adapter-checked-gate-preflight-completed",
+          "post-combined-adapter-checked-coverage-matrix-recorded",
+          "post-combined-adapter-checked-owner-decision-packet-recorded",
+          "post-combined-provider-adapter-final-owner-packet-recorded",
+          "final-export-execution-preflight-recorded"
+        ],
+        "blocked_strong_claims": [
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "provider_diverse_allowed": true,
+        "local_model_verified_allowed": true,
+        "post_rc_openai_only_stable_allowed": true,
+        "post_rc_openai_only_production_ready_allowed": true,
+        "production_monitored_allowed": true,
+        "telemetry_connected_allowed": true,
+        "containment_verified_allowed": true,
+        "rc1_openai_scope_release_gated_allowed": true,
+        "bare_release_gated_allowed": false,
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_rerun": false,
+        "telemetry_sink_write": false,
+        "npm_install_or_ci": false,
+        "actual_export_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    }
+  ],
+  "failures": []
+}

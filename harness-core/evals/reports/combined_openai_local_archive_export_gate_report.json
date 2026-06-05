@@ -1,0 +1,656 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-combined-openai-local-archive-export",
+  "archive_label": "v2.0.0-rc.1+postrc.openai-only-stable+local-model-verified-ollama-qwen3",
+  "scope": "openai_only_post_rc_plus_ollama_qwen3_local_lane",
+  "can_claim_post_rc_openai_only_stable": true,
+  "can_claim_local_model_verified": true,
+  "can_claim_provider_diverse": false,
+  "can_claim_provider_verified": false,
+  "can_claim_adapter_checked": false,
+  "can_claim_general_stable": false,
+  "can_claim_general_production_ready": false,
+  "can_claim_bare_release_gated": false,
+  "post_rc_openai_only_stable": true,
+  "local_model_verified": true,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "new_local_model_execution": false,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "local_endpoint_probe": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "additional_v36_baseline_refresh": false,
+  "reason": "Combined OpenAI-only scoped stable and Ollama qwen3 local-model-verified archive is recorded. Strict/provider/general claims remain blocked.",
+  "checks": [
+    {
+      "name": "build_combined_openai_local_archive_export.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "generate_combined_openai_local_archive_manifest.mjs recorded",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "recorded",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass",
+        "report_status": "pass",
+        "matches": 0,
+        "stderr_excerpt": ""
+      }
+    },
+    {
+      "name": "release/combined_openai_local_archive_export_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/combined_openai_local_final_claim_state.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/combined_openai_local_archive_manifest.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/combined_openai_local_strict_paths.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/combined_openai_local_next_options.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/build_combined_openai_local_archive_export.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/generate_combined_openai_local_archive_manifest.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_combined_openai_local_archive_export.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/combined_openai_local_archive_export.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/combined_openai_local_archive_export_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/combined_openai_local_archive_export_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/combined_openai_local_archive_manifest_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/combined_openai_local_archive_manifest_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/combined_openai_local_archive_export_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/combined_openai_local_archive_export_gate_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/combined_archive_export_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/combined_final_claim_state.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/combined_evidence_pointer_index.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/combined_archive_manifest.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/combined_archive_checksums.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/combined_strict_paths.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/combined_v36_baseline_status.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/combined_next_options.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/combined_archive_export_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/combined-openai-local-archive-export/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/combined_openai_local_archive_export.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/combined_openai_local_final_claim_state.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/combined_openai_local_strict_paths.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/combined_openai_local_next_options.ko.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "combined archive export report preserves scoped claims only",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-combined-openai-local-archive-export",
+        "archive_label": "v2.0.0-rc.1+postrc.openai-only-stable+local-model-verified-ollama-qwen3",
+        "scope": "openai_only_post_rc_plus_ollama_qwen3_local_lane",
+        "post_rc_openai_only_stable": true,
+        "local_model_verified": true,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false,
+        "claims_maintained": [
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated",
+          "local-model-verified"
+        ],
+        "claims_allowed_by_this_stage": [
+          "combined-openai-local-archive-export-recorded",
+          "combined-openai-local-final-claim-state-recorded",
+          "combined-openai-local-evidence-indexed",
+          "combined-openai-local-strict-paths-recorded"
+        ],
+        "claims_still_blocked": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "final_claim_state_status": "recorded",
+        "evidence_pointer_index_status": "recorded",
+        "archive_manifest_status": "recorded",
+        "strict_paths_status": "recorded",
+        "v36_baseline_status": "recorded",
+        "next_options_status": "recorded",
+        "new_local_model_execution": false,
+        "new_local_model_generation": false,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "local_endpoint_probe": false,
+        "local_redteam_rerun": false,
+        "adapter_conformance_rerun": false,
+        "production_deployment": false,
+        "release_gate_rerun": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_v36_baseline_refresh": false,
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "included_evidence_groups": [
+          "post-rc-openai-only-stable-final-handoff",
+          "post-stable-local-model-verified-final-handoff",
+          "post-stable-local-model-verification-final-gate",
+          "post-stable-local-ollama-adapter-conformance",
+          "post-stable-local-redteam-bounded-smoke",
+          "post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+          "post-rc-production-monitoring-final-gate",
+          "post-rc-telemetry-connection",
+          "post-rc-openai-only-production-ready-scope-decision",
+          "rc1-openai-scope-bundle",
+          "rc1-release-gate-actual-openai-scope",
+          "rc1-post-release-gate-review",
+          "v36-baseline-owner-approved-refresh"
+        ]
+      }
+    },
+    {
+      "name": "combined final claim state records allowed and blocked claims",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-combined-openai-local-archive-export",
+        "archive_scope": "openai_only_post_rc_plus_ollama_qwen3_local_lane",
+        "allowed_claims": [
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated",
+          "local-model-verified"
+        ],
+        "blocked_claims": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated"
+        ],
+        "canonicalization_rules": [
+          "Use post-rc-openai-only-stable, not stable.",
+          "Use post-rc-openai-only-production-ready, not production-ready.",
+          "Use rc1-openai-scope-release-gated, not release-gated.",
+          "Use local-model-verified only for the Ollama qwen3 local lane.",
+          "Do not claim provider-diverse until a separate provider-diverse gate passes.",
+          "Do not claim provider-verified until a separate provider verification gate passes.",
+          "Do not claim adapter-checked until a dedicated adapter-checked gate passes."
+        ],
+        "post_rc_openai_only_stable": true,
+        "local_model_verified": true,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false
+      }
+    },
+    {
+      "name": "combined evidence pointer index includes required groups",
+      "status": "pass",
+      "detail": {
+        "indexedGroups": [
+          "post-rc-openai-only-stable-final-handoff",
+          "post-stable-local-model-verified-final-handoff",
+          "post-stable-local-model-verification-final-gate",
+          "post-stable-local-ollama-adapter-conformance",
+          "post-stable-local-redteam-bounded-smoke",
+          "post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+          "post-rc-production-monitoring-final-gate",
+          "post-rc-telemetry-connection",
+          "post-rc-openai-only-production-ready-scope-decision",
+          "rc1-openai-scope-bundle",
+          "rc1-release-gate-actual-openai-scope",
+          "rc1-post-release-gate-review",
+          "v36-baseline-owner-approved-refresh"
+        ],
+        "required": [
+          "post-rc-openai-only-stable-final-handoff",
+          "post-stable-local-model-verified-final-handoff",
+          "post-stable-local-model-verification-final-gate",
+          "post-stable-local-ollama-adapter-conformance",
+          "post-stable-local-redteam-bounded-smoke",
+          "post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+          "post-rc-production-monitoring-final-gate",
+          "post-rc-telemetry-connection",
+          "post-rc-openai-only-production-ready-scope-decision",
+          "rc1-openai-scope-bundle",
+          "rc1-release-gate-actual-openai-scope",
+          "rc1-post-release-gate-review",
+          "v36-baseline-owner-approved-refresh"
+        ]
+      }
+    },
+    {
+      "name": "combined archive manifest records no new execution",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-combined-openai-local-archive-export",
+        "archive_label": "v2.0.0-rc.1+postrc.openai-only-stable+local-model-verified-ollama-qwen3",
+        "scope": "openai_only_post_rc_plus_ollama_qwen3_local_lane",
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "local_endpoint_probe": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_v36_baseline_refresh": false,
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "included_evidence_groups": [
+          "post-rc-openai-only-stable-final-handoff",
+          "post-stable-local-model-verified-final-handoff",
+          "post-stable-local-model-verification-final-gate",
+          "post-stable-local-ollama-adapter-conformance",
+          "post-stable-local-redteam-bounded-smoke",
+          "post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b",
+          "post-rc-production-monitoring-final-gate",
+          "post-rc-telemetry-connection",
+          "post-rc-openai-only-production-ready-scope-decision",
+          "rc1-openai-scope-bundle",
+          "rc1-release-gate-actual-openai-scope",
+          "rc1-post-release-gate-review",
+          "v36-baseline-owner-approved-refresh"
+        ],
+        "source_archives": [
+          "evidence/post-rc-openai-only-stable-final-handoff/final_archive_manifest.json",
+          "evidence/post-stable-local-model-verified-final-handoff/local_model_verified_archive_manifest.json"
+        ],
+        "combined_archive_export_report_path": "evidence/combined-openai-local-archive-export/combined_archive_export_report.json",
+        "combined_final_claim_state_path": "evidence/combined-openai-local-archive-export/combined_final_claim_state.json",
+        "combined_evidence_pointer_index_path": "evidence/combined-openai-local-archive-export/combined_evidence_pointer_index.json",
+        "combined_strict_paths_path": "evidence/combined-openai-local-archive-export/combined_strict_paths.json",
+        "combined_next_options_path": "evidence/combined-openai-local-archive-export/combined_next_options.json"
+      }
+    },
+    {
+      "name": "combined archive checksums recorded without missing targets",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-combined-openai-local-archive-export",
+        "scope": "openai_only_post_rc_plus_ollama_qwen3_local_lane",
+        "generated_at": "2026-06-02T08:05:28.432Z",
+        "entries": [
+          {
+            "path": "evidence/combined-openai-local-archive-export/combined_archive_export_report.json",
+            "type": "file",
+            "sha256": "cd552ab9f16bae0375574f1585491c837ea351ff1a04d04328565d8be2bcdea2"
+          },
+          {
+            "path": "evidence/combined-openai-local-archive-export/combined_final_claim_state.json",
+            "type": "file",
+            "sha256": "c6977b8c41b5d760d6aa5f2987ff54a112e7951a9b40e3ad0e55203e84090558"
+          },
+          {
+            "path": "evidence/combined-openai-local-archive-export/combined_evidence_pointer_index.json",
+            "type": "file",
+            "sha256": "488f45ddf66aab75725a8d66aeaa92f0d0c8ae8a513ce40cf59be24a473013b5"
+          },
+          {
+            "path": "evidence/combined-openai-local-archive-export/combined_archive_manifest.json",
+            "type": "file",
+            "sha256": "58cf4e86b40df2e496bd6facdd2f403e11f69140a2b854c1ae6fe97b3c456c45"
+          },
+          {
+            "path": "evidence/combined-openai-local-archive-export/combined_strict_paths.json",
+            "type": "file",
+            "sha256": "5daa5918ebc37a2983f5dc2753c1a3865e0dcc9f52d1c954f63e2dcc1114180a"
+          },
+          {
+            "path": "evidence/combined-openai-local-archive-export/combined_v36_baseline_status.json",
+            "type": "file",
+            "sha256": "727114ef20ef6e872036bd99e1db8ba381f03f2656b0de46b48b7d04e322e1f8"
+          },
+          {
+            "path": "evidence/combined-openai-local-archive-export/combined_next_options.json",
+            "type": "file",
+            "sha256": "0ff429ecbd124c08384518593e3d45b13ab162df3ca2ff2661b3e4149bbb19e8"
+          },
+          {
+            "path": "evidence/combined-openai-local-archive-export/unresolved_items.json",
+            "type": "file",
+            "sha256": "e082c1c0508ae58acf7a6181ffa5ea0da7c584fa767a315b267e1f7fb9d015a5"
+          },
+          {
+            "path": "release/combined_openai_local_archive_export_scope.yaml",
+            "type": "file",
+            "sha256": "2ac0a6b1aca5506f67a14bee268124b759d94ab8fc85207d9c183c2991f7a356"
+          },
+          {
+            "path": "release/combined_openai_local_final_claim_state.yaml",
+            "type": "file",
+            "sha256": "8523ee7ed8a464f55d38912815110354f6d576242031e031fda41ecf76ba4a33"
+          },
+          {
+            "path": "release/combined_openai_local_archive_manifest.yaml",
+            "type": "file",
+            "sha256": "b56960d6888cb2f2a7e47e44f124d6e549dc3dae9409a472f52da6e5108b33b9"
+          },
+          {
+            "path": "release/combined_openai_local_strict_paths.yaml",
+            "type": "file",
+            "sha256": "b263f1bc59b2813fcbdd5633aec899ea989fa8303545b06798b80f22ffc1d40a"
+          },
+          {
+            "path": "release/combined_openai_local_next_options.yaml",
+            "type": "file",
+            "sha256": "88cfd26e341369900745e3ac43b61ecc5b773b97b066eea3d05272682d9b9fc1"
+          },
+          {
+            "path": "tools/build_combined_openai_local_archive_export.mjs",
+            "type": "file",
+            "sha256": "c68abef511517bf0abede5cbea4860c57b15ab2c99d3a8b7ddac35098150b4c1"
+          },
+          {
+            "path": "tools/generate_combined_openai_local_archive_manifest.mjs",
+            "type": "file",
+            "sha256": "9b889a4e591da1cd26130fe28810d986ef4cdb8adfc7f441b379720b325e1466"
+          },
+          {
+            "path": "tools/check_combined_openai_local_archive_export.mjs",
+            "type": "file",
+            "sha256": "14abc5fa33368fb5f5710703424387eee5a022b0d46d282025ecb6ebd9e9aa1e"
+          },
+          {
+            "path": "evals/suites/combined_openai_local_archive_export.yaml",
+            "type": "file",
+            "sha256": "f0a44b84d873d3d7d3a046d3b9d43f1cc2ee4c24f4e07dfdec1cd75c711fa344"
+          },
+          {
+            "path": "evals/reports/combined_openai_local_archive_export_report.json",
+            "type": "file",
+            "sha256": "cd552ab9f16bae0375574f1585491c837ea351ff1a04d04328565d8be2bcdea2"
+          },
+          {
+            "path": "evals/reports/combined_openai_local_archive_export_report.md",
+            "type": "file",
+            "sha256": "96e4af74b289f8fd883d407c8771de09bce1a082178052f3914e5930835b0801"
+          },
+          {
+            "path": "docs/combined_openai_local_archive_export.ko.md",
+            "type": "file",
+            "sha256": "c9887f48898aa672c3e749fdf93ca950077d3bfcbfc6af260e77fc7260353936"
+          },
+          {
+            "path": "docs/combined_openai_local_final_claim_state.ko.md",
+            "type": "file",
+            "sha256": "2d4a953ed6abf669d1387888f5062898419819388609a2802a875e0cb217edf3"
+          },
+          {
+            "path": "docs/combined_openai_local_strict_paths.ko.md",
+            "type": "file",
+            "sha256": "2f927aed0a0bb818e94a9a9fd081db2d8dbf8b4c742797fdf45c4b09f1567c80"
+          },
+          {
+            "path": "docs/combined_openai_local_next_options.ko.md",
+            "type": "file",
+            "sha256": "76a48fc22da042582315ea43d2d64d3eb51260810789f524555f258d4012cc89"
+          }
+        ],
+        "missing_targets": []
+      }
+    },
+    {
+      "name": "combined strict paths remain blocked",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-combined-openai-local-archive-export",
+        "provider_diverse": {
+          "status": "blocked",
+          "reason": "Provider-diverse requires separate gate to decide whether OpenAI plus Ollama local lane qualifies for provider diversity.",
+          "next_stage": "v2.0.0-post-stable-provider-diverse-path-design"
+        },
+        "provider_verified": {
+          "status": "blocked",
+          "reason": "Provider-verified requires separate provider-level verification gate.",
+          "next_stage": "v2.0.0-post-stable-provider-verified-gate-design"
+        },
+        "adapter_checked": {
+          "status": "blocked",
+          "reason": "Adapter-checked requires dedicated full adapter coverage gate beyond current Ollama mapping review.",
+          "next_stage": "v2.0.0-post-stable-adapter-checked-gate-design"
+        },
+        "general_stable_and_production_ready": {
+          "status": "blocked",
+          "reason": "General stable, general production-ready, and bare release-gated remain blocked. Only scoped claims are allowed."
+        }
+      }
+    },
+    {
+      "name": "combined v36 baseline status records pass without refresh",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-combined-openai-local-archive-export",
+        "compare_v36_baseline_status": "pass",
+        "ds_store_exclusion_policy_enforced": true,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_refresh_in_this_stage": false,
+        "evidence_v36_baseline_refreshed_in_this_stage": false,
+        "protected_status_lines": [
+          "M harness-core/evidence/v36-baseline/checksums.json",
+          "M harness-core/evidence/v36-baseline/file_inventory.json"
+        ],
+        "notes": [
+          "The combined archive export reads the owner-approved baseline state and does not refresh evidence/v36-baseline.",
+          ".DS_Store files are excluded from baseline inventory/checksum snapshots but not deleted from prompt-stack/v36."
+        ]
+      }
+    },
+    {
+      "name": "combined next options recorded",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-combined-openai-local-archive-export",
+        "options": [
+          {
+            "id": "NEXT-001",
+            "name": "provider_diverse_path_design",
+            "stage": "v2.0.0-post-stable-provider-diverse-path-design",
+            "description": "Define whether OpenAI plus Ollama qwen3 local lane can support a provider diversity allowance."
+          },
+          {
+            "id": "NEXT-002",
+            "name": "provider_verified_gate_design",
+            "stage": "v2.0.0-post-stable-provider-verified-gate-design",
+            "description": "Define provider-level verification gate separately from local model verification."
+          },
+          {
+            "id": "NEXT-003",
+            "name": "adapter_checked_gate_design",
+            "stage": "v2.0.0-post-stable-adapter-checked-gate-design",
+            "description": "Define adapter-checked criteria beyond current Ollama mapping review."
+          },
+          {
+            "id": "NEXT-004",
+            "name": "final_export_package",
+            "stage": "v2.0.0-final-export-package",
+            "description": "Create a distributable export package for the current combined archive."
+          }
+        ]
+      }
+    },
+    {
+      "name": "no unresolved combined export items remain",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-combined-openai-local-archive-export",
+        "unresolved_items_count": 0,
+        "unresolved_items": []
+      }
+    },
+    {
+      "name": "protected v36 and dist paths clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "baseline state is prior owner-approved refresh only",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+        "stderr": ""
+      }
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,37 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-combined-adapter-checked-gate-preflight",
+  "adapter_checked_allowed": false,
+  "adapters": [
+    {
+      "adapter_id": "openai_api",
+      "coverage": "partial",
+      "gaps": [
+        "OpenAI adapter full conformance coverage"
+      ]
+    },
+    {
+      "adapter_id": "ollama_local",
+      "coverage": "partial",
+      "gaps": [
+        "Ollama adapter structured-output mapping coverage",
+        "Ollama adapter tool-calling mapping coverage"
+      ]
+    },
+    {
+      "adapter_id": "vllm_local",
+      "coverage": "placeholder",
+      "gaps": [
+        "vLLM adapter execution coverage, if claimed"
+      ]
+    },
+    {
+      "adapter_id": "common_adapter_policy",
+      "coverage": "policy_only",
+      "gaps": [
+        "cross-adapter contract coverage",
+        "replay/regression across adapters"
+      ]
+    }
+  ]
+}

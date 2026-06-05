@@ -1,0 +1,18 @@
+stage: v2.0.0-post-stable-local-redteam-bounded-smoke
+
+previous_status: local_model_verification_final_gate_preflight_blocked_by_missing_local_verification_coverage
+new_status: local_redteam_bounded_smoke_pending
+
+still_blocks:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+
+next_required_actions:
+  - execute bounded local redteam smoke
+  - review dummy secret leakage and raw storage flags
+  - run adapter conformance dependency preflight

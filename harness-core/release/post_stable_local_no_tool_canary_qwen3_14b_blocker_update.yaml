@@ -1,0 +1,18 @@
+stage: v2.0.0-post-stable-local-no-tool-canary-result-review-qwen3-14b
+previous_status: local_endpoint_deferred_until_operator_provides_endpoint
+new_status: local_endpoint_readiness_and_qwen3_14b_no_tool_canary_passed_broader_local_verification_pending
+unblocks:
+  - post-stable-local-endpoint-readiness-preflight-passed
+  - post-stable-local-no-tool-canary-qwen3-14b-passed
+still_blocks:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+next_required_actions:
+  - review qwen3:30b readiness or availability
+  - run qwen3:30b local no-tool canary if operator confirms model is available
+  - compare qwen3:14b and qwen3:30b local no-tool results
+  - define local-model verification gate

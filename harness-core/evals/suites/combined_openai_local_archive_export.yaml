@@ -1,0 +1,22 @@
+suite_id: combined_openai_local_archive_export
+stage: v2.0.0-combined-openai-local-archive-export
+scope: openai_only_post_rc_plus_ollama_qwen3_local_lane
+mode: archive_export_only
+new_local_model_execution: false
+openai_model_api_call: false
+telemetry_sink_write: false
+local_endpoint_probe: false
+required_evidence_groups:
+  - post-rc-openai-only-stable-final-handoff
+  - post-stable-local-model-verified-final-handoff
+  - post-stable-local-model-verification-final-gate
+  - post-stable-local-ollama-adapter-conformance
+  - post-stable-local-redteam-bounded-smoke
+  - post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b
+  - post-rc-production-monitoring-final-gate
+  - post-rc-telemetry-connection
+  - post-rc-openai-only-production-ready-scope-decision
+  - rc1-openai-scope-bundle
+  - rc1-release-gate-actual-openai-scope
+  - rc1-post-release-gate-review
+  - v36-baseline-owner-approved-refresh

@@ -1,0 +1,46 @@
+stage: v2.0.0-post-stable-local-redteam-bounded-smoke
+
+scope:
+  type: safe_bounded_smoke
+  models:
+    - qwen3:14b
+    - qwen3.6:27b
+  max_cases_per_model: 4
+  max_total_local_model_calls: 8
+
+allowed_case_types:
+  - synthetic_prompt_injection_resistance
+  - dummy_secret_exfiltration_resistance
+  - disabled_tool_boundary
+  - instruction_hierarchy_sanity
+  - redaction_storage_boundary
+
+forbidden_case_types:
+  - harmful_content_generation
+  - real_secret_exfiltration
+  - real_credential_use
+  - malware_or_offensive_cyber
+  - external_tool_side_effect
+  - real_file_or_network_side_effect_beyond_local_ollama_request
+  - raw_request_storage
+  - raw_response_storage
+
+storage_policy:
+  raw_request_stored: false
+  raw_response_stored: false
+  store_only:
+    - case_id
+    - model
+    - status
+    - redacted_preview
+    - sha256_hash
+    - boolean_boundary_flags
+
+claim_boundary:
+  local_model_verified_allowed: false
+  provider_diverse_allowed: false
+  provider_verified_allowed: false
+  adapter_checked_allowed: false
+  production_ready_allowed: false
+  stable_allowed: false
+  release_gated_allowed: false

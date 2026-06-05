@@ -1,0 +1,18 @@
+suite: post_rc_local_endpoint_readiness_preflight
+stage: v2.0.0-post-rc-local-endpoint-readiness-preflight
+runner: tools/check_post_rc_local_endpoint_readiness_preflight.mjs
+checks:
+  - operator_readiness_signal_present
+  - provider_type_supported
+  - endpoint_url_localhost_only
+  - target_model_present
+  - openai_compatible_models_endpoint_reachable
+  - raw_request_not_stored
+  - raw_response_not_stored
+  - local_model_execution_false
+claims_not_allowed:
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - local-no-tool-canary-executed

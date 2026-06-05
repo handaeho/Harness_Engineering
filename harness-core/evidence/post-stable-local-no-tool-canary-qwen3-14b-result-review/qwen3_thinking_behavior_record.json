@@ -1,0 +1,17 @@
+{
+  "status": "recorded",
+  "stage": "v2.0.0-post-stable-local-no-tool-canary-result-review-qwen3-14b",
+  "model": "qwen3:14b",
+  "provider": "ollama",
+  "issue_observed": "first no-tool canary produced empty final content because thinking behavior was active",
+  "fix_applied": "think_false",
+  "think_false_applied": true,
+  "result_after_fix": "final content non-empty and canary passed",
+  "original_failure_evidence_retained": false,
+  "current_mapping_evidence": "evidence/post-rc-local-no-tool-canary/local_response_mapping_report.json",
+  "claim_impact": {
+    "allows_no_tool_canary_pass": true,
+    "does_not_allow_local_model_verified": true,
+    "does_not_allow_provider_diverse": true
+  }
+}

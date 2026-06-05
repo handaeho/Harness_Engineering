@@ -1,0 +1,27 @@
+{
+  "status": "blocked_by_adapter_checked_coverage_not_ready",
+  "stage": "v2.0.0-post-export-adapter-checked-final-gate",
+  "blockers": [
+    {
+      "id": "openai_adapter_full_conformance_missing",
+      "lane": "openai_adapter",
+      "status": "blocked_or_partial",
+      "reason": "OpenAI adapter has canary evidence, but no post-export full conformance execution is recorded and OpenAI rerun is forbidden.",
+      "next_action": "Run or approve OpenAI adapter conformance in a future provider-approved lane."
+    },
+    {
+      "id": "vllm_execution_coverage_out_of_scope",
+      "lane": "vllm_adapter",
+      "status": "blocked_or_partial",
+      "reason": "vLLM is a placeholder adapter and no execution coverage is available.",
+      "next_action": "Keep vLLM out of active-adapters claim scope or execute separately before broad adapter-checked."
+    },
+    {
+      "id": "cross_adapter_contract_static_only",
+      "lane": "all_adapters",
+      "status": "blocked_or_partial",
+      "reason": "Cross-adapter contract review is static/dry-run only in this stage.",
+      "next_action": "Record stronger cross-adapter regression evidence before opening adapter-checked."
+    }
+  ]
+}

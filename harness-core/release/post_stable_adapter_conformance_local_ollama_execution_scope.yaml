@@ -1,0 +1,14 @@
+stage: v2.0.0-post-stable-adapter-conformance-local-ollama-execution
+
+approved_actions:
+  dependency_backed_adapter_conformance_execution: true
+  ollama_adapter_mapping_review: true
+  qwen_reasoning_control_mapping_review: true
+  local_evidence_redaction_boundary_review: true
+
+forbidden_execution:
+  new_local_model_generation: true
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  adapter_checked_claim: true
+  local_model_verified_claim: true

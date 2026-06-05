@@ -1,0 +1,19 @@
+stage: v2.0.0-post-stable-local-qwen3-30b-comparison-preconditions
+status: operator_model_readiness_required
+next_candidate_stage: v2.0.0-post-stable-local-no-tool-canary-qwen3-30b
+required_operator_signal: qwen3:30b is installed and ready in Ollama
+do_not_auto_pull_model: true
+do_not_auto_download_model: true
+provider: ollama
+model: qwen3:30b
+endpoint: http://127.0.0.1:11434
+preconditions:
+  - operator confirms qwen3:30b availability
+  - readiness preflight confirms model exists
+  - no raw response storage
+  - think:false policy applied if needed
+claims_still_blocked:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked

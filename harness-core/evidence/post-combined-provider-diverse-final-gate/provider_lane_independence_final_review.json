@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-combined-provider-diverse-final-gate",
+  "lanes": {
+    "openai_api_lane": {
+      "type": "remote_provider_api",
+      "execution_evidence_exists": true,
+      "scoped_stable_evidence_exists": true,
+      "redaction_storage_evidence_exists": true
+    },
+    "ollama_qwen3_local_lane": {
+      "type": "local_provider_runtime",
+      "execution_evidence_exists": true,
+      "local_model_verified": true,
+      "redaction_storage_evidence_exists": true
+    }
+  },
+  "independence_basis": [
+    "different provider/runtime boundary",
+    "different execution environment",
+    "different model serving path",
+    "separate evidence bundles"
+  ],
+  "does_not_establish_provider_verified": true,
+  "does_not_establish_adapter_checked": true
+}

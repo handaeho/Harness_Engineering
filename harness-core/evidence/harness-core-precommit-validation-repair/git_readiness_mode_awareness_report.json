@@ -1,0 +1,63 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rename-harness-core-precommit-validation-repair",
+  "source_workspace": {
+    "exit_code": 0,
+    "status": "ready_for_owner_commit_approval",
+    "mode": "git_metadata_present",
+    "git_metadata_present": true
+  },
+  "no_git_context": {
+    "exit_code": 0,
+    "status": "not_applicable_no_git_metadata",
+    "mode": "no_git_metadata",
+    "git_metadata_present": false,
+    "commit_approval_required": false,
+    "commit_performed": false
+  },
+  "checks": [
+    {
+      "name": "source workspace git readiness checker exits zero",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "ready_for_owner_commit_approval",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "source workspace uses git metadata mode",
+      "status": "pass",
+      "detail": {
+        "mode": "git_metadata_present",
+        "git_metadata_present": true
+      }
+    },
+    {
+      "name": "no-git context exits zero",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "not_applicable_no_git_metadata",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "no-git context is not applicable",
+      "status": "pass",
+      "detail": {
+        "status": "not_applicable_no_git_metadata"
+      }
+    },
+    {
+      "name": "no-git context does not require commit",
+      "status": "pass",
+      "detail": {
+        "commit_approval_required": false,
+        "commit_performed": false
+      }
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0
+}

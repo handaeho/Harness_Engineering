@@ -1,0 +1,17 @@
+stage: v2.0.0-post-stable-local-model-verification-owner-decision-packet
+
+approved_actions:
+  owner_decision_packet_draft: true
+  evidence_summary: true
+  remaining_blocker_summary: true
+  claim_boundary_update: true
+
+forbidden_execution:
+  local_model_verified_final_claim: true
+  provider_diverse_claim: true
+  provider_verified_claim: true
+  adapter_checked_claim: true
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  npm_install_without_approval: true
+  npm_ci_without_approval: true

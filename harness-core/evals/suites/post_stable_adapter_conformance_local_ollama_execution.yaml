@@ -1,0 +1,15 @@
+suite: post_stable_adapter_conformance_local_ollama_execution
+stage: v2.0.0-post-stable-adapter-conformance-local-ollama-execution
+runner: tools/run_adapter_conformance_local_ollama_execution.mjs
+gate: tools/check_adapter_conformance_local_ollama_execution.mjs
+
+checks:
+  - dependency_ready
+  - adapter_conformance_dry_run_passed
+  - ollama_adapter_mapping_reviewed
+  - qwen_reasoning_control_mapping_reviewed
+  - no_tool_mapping_reviewed
+  - structured_output_mapping_reviewed
+  - tool_calling_mock_mapping_reviewed
+  - redaction_storage_boundary_reviewed
+  - strong_claims_blocked

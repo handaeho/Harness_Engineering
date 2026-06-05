@@ -1,0 +1,34 @@
+suite: post_stable_local_model_verification_final_gate_preflight
+stage: v2.0.0-post-stable-local-model-verification-final-gate-preflight
+runner: tools/run_local_model_verification_final_gate_preflight.mjs
+gate: tools/check_local_model_verification_final_gate_preflight.mjs
+
+source_evidence:
+  - evidence/post-stable-local-model-verification-evidence-bundle-draft/local_model_verification_evidence_bundle_report.json
+  - evidence/post-stable-local-model-verification-evidence-bundle-draft/local_model_verification_gap_register.json
+
+generated_evidence:
+  - evidence/post-stable-local-model-verification-final-gate-preflight/local_model_verification_final_gate_preflight_report.json
+  - evidence/post-stable-local-model-verification-final-gate-preflight/local_model_verification_final_gate_preconditions.json
+  - evidence/post-stable-local-model-verification-final-gate-preflight/local_model_verification_final_gate_claim_boundary.json
+  - evidence/post-stable-local-model-verification-final-gate-preflight/local_model_verification_final_gate_blocker_update.json
+
+checks:
+  - expected_blocked_status_recorded
+  - source_bundle_passed
+  - local_redteam_blocker_recorded
+  - adapter_dependency_backed_validation_blocker_recorded
+  - owner_decision_required
+  - final_gate_not_executed
+  - final_gate_remains_closed
+  - raw_storage_absent
+  - strong_claims_blocked
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

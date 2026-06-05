@@ -1,0 +1,21 @@
+suite_id: post_export_provider_verified_coverage_preflight
+stage: v2.0.0-post-export-provider-verified-coverage-completion-preflight
+mode: coverage_inventory_preflight_only
+required_outputs:
+  - evidence/post-export-provider-verified-coverage-preflight/provider_verified_coverage_preflight_report.json
+  - evidence/post-export-provider-verified-coverage-preflight/openai_provider_coverage_inventory.json
+  - evidence/post-export-provider-verified-coverage-preflight/ollama_provider_coverage_inventory.json
+  - evidence/post-export-provider-verified-coverage-preflight/provider_verified_coverage_matrix.json
+  - evidence/post-export-provider-verified-coverage-preflight/provider_verified_missing_coverage.json
+forbidden_actions:
+  openai_model_api_call: false
+  openai_provider_rerun: false
+  new_local_model_execution: false
+  telemetry_sink_write: false
+  npm_install_or_ci: false
+expected_claim_boundary:
+  provider_verified_allowed: false
+  adapter_checked_allowed: false
+  production_ready_allowed: false
+  stable_allowed: false
+  release_gated_allowed: false

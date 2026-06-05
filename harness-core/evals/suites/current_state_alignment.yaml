@@ -1,0 +1,30 @@
+suite: current_state_alignment
+stage: v2.0.0-post-final-dossier-agent-application-layer-and-current-state-alignment
+runner: tools/build_current_state_index.mjs
+checker: tools/check_current_state_alignment.mjs
+inputs:
+  - CURRENT_STATE.yaml
+  - AGENT_BOOTSTRAP.ko.md
+  - AGENTS.md
+  - README.md
+  - stack.yaml
+  - docs/session_handoff_latest.md
+  - adapters/provider_capability_matrix.yaml
+  - evidence/post-active-scoped-final-release-dossier/final_release_claim_state.json
+  - evidence/final-export-refresh-after-final-dossier/final_export_refresh_after_final_dossier_report.json
+outputs:
+  - evidence/current-state/current_state_index.json
+  - evidence/current-state/current_state_alignment_report.json
+  - evidence/current-state/current_state_gate_report.json
+  - evals/reports/current_state_alignment_report.json
+  - evals/reports/current_state_alignment_report.md
+claims_allowed_after_pass:
+  - post-final-dossier-agent-application-layer-recorded
+  - post-final-dossier-current-state-aligned
+claims_not_allowed:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated

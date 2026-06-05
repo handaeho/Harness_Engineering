@@ -1,0 +1,26 @@
+role: release_gate_reviewer
+purpose: review release gate language without opening bare/general claims
+must_read:
+  - CURRENT_STATE.yaml
+  - AGENT_BOOTSTRAP.ko.md
+  - release/claim_ladder.md
+  - release/current_state_claim_boundary.yaml
+must_run_before_report:
+  - node tools/check_agent_ready_self_contained.mjs
+  - node tools/check_reference_baseline_integrity.mjs
+forbidden_paths:
+  - dist/**
+  - node_modules/**
+  - evidence/reference-baseline/**
+forbidden_claims:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated
+approval_required_for:
+  - release gate rerun
+  - bare/general production-ready decision
+  - bare/general stable decision
+  - bare release-gated decision

@@ -1,0 +1,89 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-export-general-bare-claim-final-blocker-matrix",
+  "claim_blockers_count": 6,
+  "matrix": [
+    {
+      "claim": "provider-verified",
+      "allowed": false,
+      "status": "blocked",
+      "blockers": [
+        "active provider lanes evidence is scoped only",
+        "no separately approved bare provider-verified final gate"
+      ],
+      "next_action": "Run a separately approved bare provider-verified coverage completion and final gate."
+    },
+    {
+      "claim": "adapter-checked",
+      "allowed": false,
+      "status": "blocked",
+      "blockers": [
+        "active adapters evidence excludes vLLM",
+        "no separately approved bare adapter-checked final gate"
+      ],
+      "next_action": "Complete full adapter coverage including out-of-scope adapters, then run a separately approved final gate."
+    },
+    {
+      "claim": "production-ready",
+      "allowed": false,
+      "status": "blocked",
+      "blockers": [
+        "active scoped readiness is not bare production readiness",
+        "bare provider-verified remains blocked",
+        "bare adapter-checked remains blocked",
+        "release gate rerun is not approved"
+      ],
+      "next_action": "After bare provider/adapter gates pass, run a separately approved general production readiness gate."
+    },
+    {
+      "claim": "stable",
+      "allowed": false,
+      "status": "blocked",
+      "blockers": [
+        "active scoped stability is not bare stable",
+        "bare production-ready remains blocked",
+        "release gate rerun is not approved"
+      ],
+      "next_action": "After bare production readiness passes, run a separately approved stability gate."
+    },
+    {
+      "claim": "release-gated",
+      "allowed": false,
+      "status": "blocked",
+      "blockers": [
+        "general release gate rerun is explicitly out of scope",
+        "bare production-ready/stable remain blocked"
+      ],
+      "next_action": "Run a separately approved release gate rerun."
+    },
+    {
+      "claim": "bare release-gated",
+      "allowed": false,
+      "status": "blocked",
+      "blockers": [
+        "same blocked release gate rerun prerequisite",
+        "no bare release gate decision record"
+      ],
+      "next_action": "Run a separately approved bare release gate decision process."
+    }
+  ],
+  "scoped_claims_do_not_unblock_bare_claims": true,
+  "unresolved_items_count": 0,
+  "new_local_model_execution": false,
+  "new_local_model_call_count": 0,
+  "openai_model_api_call": false,
+  "openai_provider_rerun": false,
+  "telemetry_sink_write": false,
+  "npm_install_or_ci": false,
+  "actual_export_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "post_export_active_provider_lanes_verified_allowed": true,
+  "post_export_active_adapters_checked_allowed": true,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false
+}

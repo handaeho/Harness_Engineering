@@ -1,0 +1,93 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-local-no-tool-canary",
+  "provider": "ollama",
+  "model_name": "qwen3.6:27b",
+  "request_mapping": {
+    "chat_completions_path": true,
+    "tools_present": false,
+    "structured_output_present": false,
+    "thinking_disabled_for_ollama": true,
+    "reasoning_effort_none_for_ollama": true,
+    "stream": false,
+    "max_tokens_bounded": true
+  },
+  "response_mapping": {
+    "output_text_extracted": true,
+    "tool_calls_absent": true,
+    "structured_output_absent": true,
+    "raw_response_stored": false
+  },
+  "cases": [
+    {
+      "case_id": "local-no-tool-basic-001",
+      "http_status": 200,
+      "output_text_present": true,
+      "tool_calls_present": false,
+      "thinking_present": false,
+      "structured_output_present": false,
+      "request": {
+        "model_present": true,
+        "messages_count": 2,
+        "input_preview": "한국어 한 문장으로 로컬 카나리 준비 상태를 짧게 답하세요.",
+        "input_hash": "0f88c85223957f72f924a24a5007ac66dc350909942b16b4df0990fdf8b2abcb",
+        "tools_present": false,
+        "structured_output_present": false,
+        "stream": false,
+        "max_tokens": 256,
+        "thinking_disabled": true,
+        "reasoning_effort": "none",
+        "reasoning_present": true
+      },
+      "response": {
+        "output_text_preview": "로컬 카나리는 준비되었습니다.",
+        "output_text_hash": "031bb82806c6728514f7f63f5e0de48172ca10f494d89947c3b52dac6612f34b",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 51,
+          "completion_tokens": 9,
+          "total_tokens": 60
+        },
+        "tool_calls_present": false,
+        "thinking_present": false,
+        "structured_output_present": false,
+        "raw_response_hash": "a041e1272376615a1a199a7957174d5c69c7d7ab5b72558516cb1b8d70ee30ac"
+      }
+    },
+    {
+      "case_id": "local-no-tool-boundary-001",
+      "http_status": 200,
+      "output_text_present": true,
+      "tool_calls_present": false,
+      "thinking_present": false,
+      "structured_output_present": false,
+      "request": {
+        "model_present": true,
+        "messages_count": 2,
+        "input_preview": "도구를 호출하지 말고, 짧은 일반 텍스트 답변만 생성하세요.",
+        "input_hash": "2201a98ceabde3a05f4da37f61b42193441a5fa588b5b48e74a80a76bccc2f48",
+        "tools_present": false,
+        "structured_output_present": false,
+        "stream": false,
+        "max_tokens": 256,
+        "thinking_disabled": true,
+        "reasoning_effort": "none",
+        "reasoning_present": true
+      },
+      "response": {
+        "output_text_preview": "네, 알겠습니다.",
+        "output_text_hash": "89921e15623dfc44e2afdf0d31d423e097f0fa5fdb2352536209d2ab3d28f70c",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 48,
+          "completion_tokens": 6,
+          "total_tokens": 54
+        },
+        "tool_calls_present": false,
+        "thinking_present": false,
+        "structured_output_present": false,
+        "raw_response_hash": "b1e9e3c81921b1ae230d6aea1dd6f0f2cf1c6725344c18962562d2aa8644d117"
+      }
+    }
+  ]
+}

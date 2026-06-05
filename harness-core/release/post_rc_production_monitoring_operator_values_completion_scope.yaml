@@ -1,0 +1,41 @@
+stage: v2.0.0-post-rc-production-monitoring-operator-values-completion
+
+approved_actions:
+  operator_values_completion: true
+  owner_assignment_completion: true
+  threshold_values_recording: true
+  retention_values_recording: true
+  monitoring_window_precondition_refresh: true
+  monitoring_window_approval_request_generation: true
+  claim_boundary_audit: true
+  blocker_update: true
+
+forbidden_execution:
+  monitoring_window_execution: true
+  telemetry_sink_write: true
+  openai_model_api_call: true
+  openai_provider_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  production_deployment: true
+  release_gate_rerun: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+
+claims_allowed:
+  - post-rc-production-monitoring-operator-values-completed
+  - post-rc-production-monitoring-threshold-values-recorded
+  - post-rc-production-monitoring-owner-assignments-recorded
+  - post-rc-production-monitoring-window-execution-preconditions-satisfied
+  - post-rc-production-monitoring-window-approval-request-generated
+
+claims_not_allowed:
+  - production-monitored
+  - production-ready
+  - stable
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - local-model-verified
+  - release-gated

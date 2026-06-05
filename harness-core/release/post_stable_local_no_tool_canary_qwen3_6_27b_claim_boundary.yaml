@@ -1,0 +1,20 @@
+stage: v2.0.0-post-stable-local-no-tool-canary-result-review-qwen3-6-27b
+status: drafted
+
+allowed_after_gate_pass:
+  - post-stable-local-endpoint-readiness-preflight-qwen3-6-27b-passed
+  - post-stable-local-no-tool-canary-qwen3-6-27b-passed
+  - post-stable-local-no-tool-canary-qwen3-6-27b-result-reviewed
+  - post-stable-qwen3-6-27b-reasoning-control-recorded
+  - post-stable-local-no-tool-qwen3-6-27b-storage-redaction-reviewed
+
+blocked_claims:
+  local_model_verified: true
+  provider_diverse: true
+  provider_verified: true
+  adapter_checked: true
+  production_ready: true
+  stable: true
+  release_gated: true
+
+reason: qwen3.6:27b local no-tool path passed, but broader local model verification and provider-diverse claims require additional gates.

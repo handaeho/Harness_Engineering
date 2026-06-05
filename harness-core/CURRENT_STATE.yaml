@@ -1,0 +1,166 @@
+version: v2.0.0
+state_label: v2.0.0-rc.1-postrc-final-dossier
+scope: active_scoped_final_dossier
+stage: v2.0.0-harness-core-final-precommit-convergence-autopilot
+
+project:
+  name: HARNESS Core
+  slug: harness-core
+  legacy_names: []
+  description: Evidence-gated autonomous agent engineering harness.
+
+operation_mode:
+  primary: root_workspace
+  secondary: agent_ready_export
+
+root_workspace:
+  purpose: primary_operating_mode
+  entrypoint: START_HERE_FOR_AGENTS.ko.md
+  current_state_json: CURRENT_STATE.json
+  current_state_yaml: CURRENT_STATE.yaml
+  bootstrap: AGENT_BOOTSTRAP.ko.md
+  first_command: node tools/check_agent_ready_self_contained.mjs
+
+agent_ready_export:
+  purpose: transfer_or_archive_mode
+  path: exports/harness-core-agent-ready.zip
+  checksum_report_path: evidence/clean-artifact-prune/agent_ready_clean_export_report.json
+  intended_recipient: different_agent_conversation_or_machine
+  note: Use this HARNESS Core zip when handing the harness to a different agent, conversation, or machine. The exact archive SHA256 is recorded outside the archive after build to avoid a self-referential checksum.
+
+latest_dossier_export:
+  path: exports/v2.0.0-rc.1-postrc-final-dossier-export.zip
+  sha256: 4f863c921cf1e00098f88913ba0810e8808cfff1dca824a2feeb9d1a0a48c424
+  intended_recipient: dossier_archive
+  note: This dossier export is retained as evidence, but is not included inside the clean agent-ready export.
+
+reference_baseline:
+  status: available
+  role: historical_reference_snapshot
+  active_source_of_truth: false
+  path: evidence/reference-baseline
+  policy: Used only as an integrity reference snapshot. It is not the current operating asset.
+  integrity_checker: tools/check_reference_baseline_integrity.mjs
+  legacy_source_required: false
+  source_scan_performed: false
+  checksum_recalculated: false
+
+final_dossier:
+  path: evidence/post-active-scoped-final-release-dossier/final_release_dossier.json
+  claim_state_path: evidence/post-active-scoped-final-release-dossier/final_release_claim_state.json
+  export_report_path: evidence/final-export-refresh-after-final-dossier/final_export_refresh_after_final_dossier_report.json
+
+allowed_claims:
+  - provider-diverse
+  - local-model-verified
+  - post-export-active-provider-lanes-verified
+  - post-export-active-adapters-checked
+  - post-export-active-scoped-production-ready
+  - post-export-active-scoped-stable
+  - post-rc-openai-only-stable
+  - post-rc-openai-only-production-ready
+  - production-monitored
+  - telemetry-connected
+  - containment-verified
+  - rc1-openai-scope-release-gated
+
+blocked_claims:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated
+
+protected_paths:
+  - dist/**
+  - node_modules/**
+  - evidence/reference-baseline/**
+
+canonicalization_rules:
+  - Use post-export-active-scoped-stable, not stable.
+  - Use post-export-active-scoped-production-ready, not production-ready.
+  - Use post-export-active-provider-lanes-verified, not provider-verified.
+  - Use post-export-active-adapters-checked, not adapter-checked.
+  - Use rc1-openai-scope-release-gated, not release-gated.
+
+agent_application_layer:
+  start_here: START_HERE_FOR_AGENTS.ko.md
+  bootstrap: AGENT_BOOTSTRAP.ko.md
+  how_to: docs/how_to_apply_harness_to_agents.ko.md
+  reference_baseline_policy: docs/reference_baseline_policy.ko.md
+  profiles:
+    - profiles/agents/codex_goal_executor.yaml
+    - profiles/agents/chatgpt_reviewer.yaml
+    - profiles/agents/local_runtime_operator.yaml
+    - profiles/agents/release_gate_reviewer.yaml
+  alignment_checker: tools/check_current_state_alignment.mjs
+
+execution_boundary:
+  openai_model_api_call: false
+  openai_provider_rerun: false
+  new_local_model_execution: false
+  local_model_generation: false
+  telemetry_sink_write: false
+  redteam_rerun: false
+  adapter_conformance_rerun: false
+  npm_install_or_ci: false
+  release_gate_rerun: false
+  raw_request_storage: false
+  raw_response_storage: false
+  secret_storage: false
+
+self_contained_agent_ready_check:
+  stage: v2.0.0-post-clean-export-self-contained-agent-check
+  checker: tools/check_agent_ready_self_contained.mjs
+  clean_export_checker: tools/check_clean_export_self_contained.mjs
+  reference_baseline_checker: tools/check_reference_baseline_integrity.mjs
+  evidence_dir: evidence/self-contained-agent-ready-check
+  requires_node_modules: false
+  requires_npm_install: false
+  requires_legacy_reference_source: false
+  reference_baseline_check_policy: snapshot_files_only
+  weak_claims_recordable:
+    - self-contained-agent-ready-check-recorded
+    - self-contained-clean-export-checked
+    - current-state-json-recorded
+    - reference-baseline-deemphasized
+    - reference-baseline-integrity-checked
+    - legacy-reference-policy-recorded
+    - active-docs-reference-name-aligned
+
+harness_core_final_surface_git_readiness:
+  stage: v2.0.0-post-rename-harness-core-final-surface-and-git-readiness
+  no_legacy_surface_checker: tools/check_harness_core_no_legacy_surface.mjs
+  reference_baseline_checker: tools/check_reference_baseline_integrity.mjs
+  git_readiness_checker: tools/check_harness_core_git_readiness.mjs
+  evidence_dir: evidence/harness-core-final-surface-git-readiness
+  clean_export_path: exports/harness-core-agent-ready.zip
+  commit_approval_request: release/harness_core_git_commit_approval_request.md
+  commit_performed: false
+  weak_claims_recordable:
+    - harness-core-final-surface-checked
+    - reference-baseline-integrity-checked
+    - harness-core-git-readiness-recorded
+    - harness-core-agent-ready-export-refreshed
+
+harness_core_final_precommit_convergence:
+  stage: v2.0.0-harness-core-final-precommit-convergence-autopilot
+  checker: tools/check_harness_core_final_precommit_convergence.mjs
+  evidence_dir: evidence/harness-core-final-precommit-convergence
+  clean_export_path: exports/harness-core-agent-ready.zip
+  commit_ready: true
+  commit_performed: false
+  commit_approval_required: true
+  weak_claims_recordable:
+    - harness-core-final-precommit-convergence-recorded
+    - root-vs-export-command-surface-finalized
+    - reference-baseline-final-integrity-checked
+    - clean-export-finalized
+    - git-final-readiness-recorded
+
+next_options:
+  - provider-verified future completion
+  - adapter-checked future completion
+  - bare production-ready/stable criteria redesign
+  - current final dossier/export maintenance

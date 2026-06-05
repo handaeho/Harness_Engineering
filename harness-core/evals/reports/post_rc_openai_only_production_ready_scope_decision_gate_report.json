@@ -1,0 +1,649 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+  "production_ready_scope": "openai_only_post_rc",
+  "can_claim_post_rc_openai_only_production_ready": true,
+  "can_claim_production_ready": false,
+  "can_enter_stable_release": false,
+  "can_claim_provider_diverse": false,
+  "can_claim_local_model_verified": false,
+  "strict_provider_diverse_production_ready_allowed": false,
+  "reason": "OpenAI-only scoped readiness decision passed for canonical claim post-rc-openai-only-production-ready. Bare production-ready, stable, provider-diverse, local-model, and bare release-gated claims remain blocked.",
+  "checks": [
+    {
+      "name": "run_post_rc_openai_only_production_ready_scope_decision.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "validate_alpha.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_post_rc_production_monitoring_final_gate.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "check_post_rc_production_ready_scope_preflight.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "blocked_by_owner_scope_decision_required"
+      }
+    },
+    {
+      "name": "audit_post_rc_openai_only_production_ready_claims.mjs expected status",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "release/post_rc_openai_only_production_ready_scope_decision_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_openai_only_production_ready_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_openai_only_production_ready_claim_boundary.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_openai_only_production_ready_decision_record.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_openai_only_production_ready_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_openai_only_production_ready_out_of_scope_boundaries.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/run_post_rc_openai_only_production_ready_scope_decision.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/audit_post_rc_openai_only_production_ready_claims.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_post_rc_openai_only_production_ready_scope_decision.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_openai_only_production_ready_scope_decision.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_production_ready_scope_decision_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_production_ready_scope_decision_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_production_ready_claim_boundary_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_production_ready_claim_boundary_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_production_ready_claim_audit_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_production_ready_claim_audit_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_production_ready_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_openai_only_production_ready_gate_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/owner_scope_decision_record.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_evidence_summary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_evidence_completeness.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_out_of_scope_boundaries.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_scope_decision_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_scope_decision_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_decision_record.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/production_ready_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-openai-only-production-ready-scope-decision/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/openai_only_production_ready_scope_decision.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_ready_openai_only_claim_boundary.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_ready_out_of_scope_boundaries.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_stable_scope_decision_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "owner selected OpenAI-only scoped readiness decision",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+        "owner_decision_text": "I choose OpenAI-only production-ready scope for post-RC decision. Local endpoint, provider diversity, and local-model verification are explicitly out of scope for this scoped decision.",
+        "selected_option": "evaluate_openai_only_production_ready_scope",
+        "production_ready_scope": "openai_only_post_rc",
+        "local_endpoint_out_of_scope": true,
+        "provider_diversity_out_of_scope": true,
+        "local_model_verification_out_of_scope": true,
+        "owner_decision_required_before_this_stage": true,
+        "owner_decision_recorded": true
+      }
+    },
+    {
+      "name": "required evidence is complete",
+      "status": "pass",
+      "detail": {
+        "completeness": {
+          "status": "pass",
+          "required_evidence": {
+            "production_ready_scope_preflight": true,
+            "production_monitoring_final_gate": true,
+            "production_monitored_allowed": true,
+            "telemetry_connected": true,
+            "containment_verified": true,
+            "rc1_openai_scope_release_gated": true,
+            "openai_canary_suite_passed": true,
+            "openai_redteam_limited_and_additional_passed": true,
+            "v36_baseline_compare_pass": true,
+            "owner_scope_decision": true
+          },
+          "missing_evidence": []
+        },
+        "summary": {
+          "status": "pass",
+          "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+          "production_ready_scope": "openai_only_post_rc",
+          "telemetry_connected": true,
+          "production_monitored": true,
+          "containment_verified": true,
+          "rc1_openai_scope_release_gated": true,
+          "openai_canary_suite_passed": true,
+          "openai_redteam_limited_and_additional_passed": true,
+          "production_monitoring_final_gate_passed": true,
+          "post_rc_openai_only_production_ready": true,
+          "bare_production_ready_allowed": false,
+          "monitoring_window_completed": true,
+          "thresholds_passed": true,
+          "redaction_failures": 0,
+          "raw_payload_storage_violations": 0,
+          "secret_logging_findings": 0,
+          "compare_v36_baseline_status": "pass",
+          "local_endpoint_out_of_scope": true,
+          "provider_diversity_out_of_scope": true,
+          "local_model_verification_out_of_scope": true,
+          "openai_model_api_call": false,
+          "openai_provider_call": false,
+          "telemetry_sink_write": false,
+          "local_endpoint_probe": false,
+          "local_model_execution": false,
+          "production_deployment": false,
+          "release_gate_rerun": false,
+          "redteam_rerun": false,
+          "containment_rerun": false,
+          "v36_modified": false,
+          "dist_modified": false,
+          "additional_v36_baseline_refresh": false,
+          "evidence_v36_baseline_modified_in_this_stage": false,
+          "owner_approved_refresh_files_modified_in_worktree": [
+            "harness-core/evidence/v36-baseline/checksums.json",
+            "harness-core/evidence/v36-baseline/file_inventory.json"
+          ]
+        }
+      }
+    },
+    {
+      "name": "canonical scoped readiness claim is allowed and bare production-ready remains blocked",
+      "status": "pass",
+      "detail": {
+        "report": {
+          "status": "pass",
+          "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+          "production_ready_scope": "openai_only_post_rc",
+          "owner_decision_recorded": true,
+          "owner_selected_openai_only_scope": true,
+          "local_endpoint_out_of_scope": true,
+          "provider_diversity_out_of_scope": true,
+          "local_model_verification_out_of_scope": true,
+          "post_rc_openai_only_production_ready": true,
+          "production_ready_allowed": false,
+          "bare_production_ready_allowed": false,
+          "production_ready_scope_limited": true,
+          "strict_provider_diverse_production_ready_allowed": false,
+          "stable_allowed": false,
+          "provider_diverse_allowed": false,
+          "provider_verified_allowed": false,
+          "adapter_checked_allowed": false,
+          "local_model_verified_allowed": false,
+          "bare_release_gated_allowed": false,
+          "openai_model_api_call": false,
+          "openai_provider_call": false,
+          "telemetry_sink_write": false,
+          "local_endpoint_probe": false,
+          "local_model_execution": false,
+          "production_deployment": false,
+          "release_gate_rerun": false,
+          "redteam_rerun": false,
+          "containment_rerun": false,
+          "v36_modified": false,
+          "dist_modified": false,
+          "additional_v36_baseline_refresh": false,
+          "evidence_v36_baseline_modified_in_this_stage": false,
+          "reason": "Owner selected OpenAI-only post-RC scope and required evidence is complete. The canonical scoped readiness claim is post-rc-openai-only-production-ready; bare production-ready remains blocked."
+        },
+        "boundary": {
+          "status": "pass",
+          "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+          "production_ready_scope": "openai_only_post_rc",
+          "telemetry_connected_allowed": true,
+          "production_monitored_allowed": true,
+          "post_rc_openai_only_production_ready_allowed": true,
+          "production_ready_allowed": false,
+          "bare_production_ready_allowed": false,
+          "production_ready_scope_limited": true,
+          "strict_provider_diverse_production_ready_allowed": false,
+          "stable_allowed": false,
+          "provider_diverse_allowed": false,
+          "provider_verified_allowed": false,
+          "adapter_checked_allowed": false,
+          "local_model_verified_allowed": false,
+          "bare_release_gated_allowed": false,
+          "allowed_claims": [
+            "telemetry-connected",
+            "production-monitored",
+            "post-rc-openai-only-production-ready",
+            "post-rc-openai-only-production-ready-scope-decision-recorded",
+            "post-rc-openai-only-production-ready-gate-passed",
+            "post-rc-production-ready-claim-enabled-openai-only-scope",
+            "post-rc-production-ready-owner-scope-decision-recorded",
+            "post-rc-production-ready-out-of-scope-boundaries-recorded"
+          ],
+          "blocked_claims": [
+            "production-ready",
+            "stable",
+            "provider-diverse",
+            "provider-verified",
+            "adapter-checked",
+            "local-model-verified",
+            "release-gated"
+          ],
+          "reason": "The canonical scoped readiness claim is enabled as post-rc-openai-only-production-ready. Bare production-ready, stable, provider-diverse, provider-verified, adapter-checked, local-model-verified, and bare release-gated remain blocked."
+        },
+        "decision": {
+          "status": "recorded",
+          "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+          "decision": "approve_post_rc_openai_only_production_ready_claim",
+          "scope": "openai_only_post_rc",
+          "post_rc_openai_only_production_ready": true,
+          "bare_production_ready_allowed": false,
+          "telemetry_connected": true,
+          "production_monitored": true,
+          "is_stable": false,
+          "is_provider_diverse": false,
+          "is_local_model_verified": false,
+          "local_endpoint_out_of_scope": true,
+          "provider_diversity_out_of_scope": true,
+          "local_model_verification_out_of_scope": true,
+          "rationale": [
+            "Owner explicitly selected OpenAI-only production-ready scope",
+            "Local endpoint, provider diversity, and local-model verification are out of scope for this scoped decision",
+            "RC1 OpenAI-only scoped release evidence exists",
+            "Production monitoring final gate passed",
+            "Telemetry is connected and production-monitored is allowed",
+            "Redaction, raw payload storage, and secret logging findings are zero",
+            "v36 baseline compare passes after owner-approved refresh metadata"
+          ]
+        }
+      }
+    },
+    {
+      "name": "local endpoint/provider/local-model remain out of scope",
+      "status": "pass",
+      "detail": {
+        "status": "recorded",
+        "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+        "production_ready_scope": "openai_only_post_rc",
+        "local_endpoint_out_of_scope": true,
+        "provider_diversity_out_of_scope": true,
+        "local_model_verification_out_of_scope": true,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "provider_diverse_allowed": false,
+        "local_model_verified_allowed": false,
+        "strict_provider_diverse_production_ready_allowed": false,
+        "does_not_allow": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "local-model-verified",
+          "stable",
+          "bare release-gated"
+        ]
+      }
+    },
+    {
+      "name": "stable/provider/local/bare release claims remain blocked",
+      "status": "pass",
+      "detail": {
+        "report": {
+          "status": "pass",
+          "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+          "production_ready_scope": "openai_only_post_rc",
+          "owner_decision_recorded": true,
+          "owner_selected_openai_only_scope": true,
+          "local_endpoint_out_of_scope": true,
+          "provider_diversity_out_of_scope": true,
+          "local_model_verification_out_of_scope": true,
+          "post_rc_openai_only_production_ready": true,
+          "production_ready_allowed": false,
+          "bare_production_ready_allowed": false,
+          "production_ready_scope_limited": true,
+          "strict_provider_diverse_production_ready_allowed": false,
+          "stable_allowed": false,
+          "provider_diverse_allowed": false,
+          "provider_verified_allowed": false,
+          "adapter_checked_allowed": false,
+          "local_model_verified_allowed": false,
+          "bare_release_gated_allowed": false,
+          "openai_model_api_call": false,
+          "openai_provider_call": false,
+          "telemetry_sink_write": false,
+          "local_endpoint_probe": false,
+          "local_model_execution": false,
+          "production_deployment": false,
+          "release_gate_rerun": false,
+          "redteam_rerun": false,
+          "containment_rerun": false,
+          "v36_modified": false,
+          "dist_modified": false,
+          "additional_v36_baseline_refresh": false,
+          "evidence_v36_baseline_modified_in_this_stage": false,
+          "reason": "Owner selected OpenAI-only post-RC scope and required evidence is complete. The canonical scoped readiness claim is post-rc-openai-only-production-ready; bare production-ready remains blocked."
+        },
+        "boundary": {
+          "status": "pass",
+          "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+          "production_ready_scope": "openai_only_post_rc",
+          "telemetry_connected_allowed": true,
+          "production_monitored_allowed": true,
+          "post_rc_openai_only_production_ready_allowed": true,
+          "production_ready_allowed": false,
+          "bare_production_ready_allowed": false,
+          "production_ready_scope_limited": true,
+          "strict_provider_diverse_production_ready_allowed": false,
+          "stable_allowed": false,
+          "provider_diverse_allowed": false,
+          "provider_verified_allowed": false,
+          "adapter_checked_allowed": false,
+          "local_model_verified_allowed": false,
+          "bare_release_gated_allowed": false,
+          "allowed_claims": [
+            "telemetry-connected",
+            "production-monitored",
+            "post-rc-openai-only-production-ready",
+            "post-rc-openai-only-production-ready-scope-decision-recorded",
+            "post-rc-openai-only-production-ready-gate-passed",
+            "post-rc-production-ready-claim-enabled-openai-only-scope",
+            "post-rc-production-ready-owner-scope-decision-recorded",
+            "post-rc-production-ready-out-of-scope-boundaries-recorded"
+          ],
+          "blocked_claims": [
+            "production-ready",
+            "stable",
+            "provider-diverse",
+            "provider-verified",
+            "adapter-checked",
+            "local-model-verified",
+            "release-gated"
+          ],
+          "reason": "The canonical scoped readiness claim is enabled as post-rc-openai-only-production-ready. Bare production-ready, stable, provider-diverse, provider-verified, adapter-checked, local-model-verified, and bare release-gated remain blocked."
+        }
+      }
+    },
+    {
+      "name": "forbidden execution flags remain false",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+        "production_ready_scope": "openai_only_post_rc",
+        "owner_decision_recorded": true,
+        "owner_selected_openai_only_scope": true,
+        "local_endpoint_out_of_scope": true,
+        "provider_diversity_out_of_scope": true,
+        "local_model_verification_out_of_scope": true,
+        "post_rc_openai_only_production_ready": true,
+        "production_ready_allowed": false,
+        "bare_production_ready_allowed": false,
+        "production_ready_scope_limited": true,
+        "strict_provider_diverse_production_ready_allowed": false,
+        "stable_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "local_model_verified_allowed": false,
+        "bare_release_gated_allowed": false,
+        "openai_model_api_call": false,
+        "openai_provider_call": false,
+        "telemetry_sink_write": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false,
+        "production_deployment": false,
+        "release_gate_rerun": false,
+        "redteam_rerun": false,
+        "containment_rerun": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "additional_v36_baseline_refresh": false,
+        "evidence_v36_baseline_modified_in_this_stage": false,
+        "reason": "Owner selected OpenAI-only post-RC scope and required evidence is complete. The canonical scoped readiness claim is post-rc-openai-only-production-ready; bare production-ready remains blocked."
+      }
+    },
+    {
+      "name": "blocker update leaves bare readiness, strict and stable paths blocked",
+      "status": "pass",
+      "detail": {
+        "status": "updated",
+        "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+        "previous_status": "production_monitored_allowed_production_ready_scope_decision_required",
+        "new_status": "post_rc_openai_only_production_ready_allowed_strict_paths_still_blocked",
+        "unblocks": [
+          "post-rc-openai-only-production-ready"
+        ],
+        "still_blocks": [
+          "production-ready",
+          "stable",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "local-model-verified",
+          "bare release-gated",
+          "strict provider-diverse production-ready scope"
+        ],
+        "next_required_actions": [
+          "decide stable scope only after production-ready scope is accepted and stability criteria are defined",
+          "keep local endpoint deferred until operator provides endpoint readiness",
+          "run local endpoint readiness preflight only after operator signal",
+          "run provider-diverse path only after local or second-provider evidence exists"
+        ]
+      }
+    },
+    {
+      "name": "stage gate allows only canonical scoped readiness and blocks stronger claims",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-rc-openai-only-production-ready-scope-decision",
+        "production_ready_scope": "openai_only_post_rc",
+        "can_claim_post_rc_openai_only_production_ready": true,
+        "can_claim_production_ready": false,
+        "can_enter_stable_release": false,
+        "can_claim_provider_diverse": false,
+        "can_claim_local_model_verified": false,
+        "strict_provider_diverse_production_ready_allowed": false,
+        "reason": "OpenAI-only readiness scope decision passed for canonical claim post-rc-openai-only-production-ready. Bare production-ready, stable, provider-diverse, and local-model claims remain blocked."
+      }
+    },
+    {
+      "name": "bare production-ready / stable / provider-diverse / local-model / bare release-gated positive claims absent",
+      "status": "pass",
+      "detail": {
+        "match_count": 0
+      }
+    },
+    {
+      "name": "prompt-stack/v36 and dist remain clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "evidence/v36-baseline has no this-stage refresh",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+        "stderr": "",
+        "note": "Modified baseline files are prior owner-approved refresh artifacts, not this stage."
+      }
+    }
+  ],
+  "failures": [],
+  "claims_allowed_by_this_gate": [
+    "post-rc-openai-only-production-ready",
+    "post-rc-openai-only-production-ready-scope-decision-recorded",
+    "post-rc-openai-only-production-ready-gate-passed",
+    "post-rc-production-ready-claim-enabled-openai-only-scope",
+    "post-rc-production-ready-owner-scope-decision-recorded",
+    "post-rc-production-ready-out-of-scope-boundaries-recorded"
+  ],
+  "claims_still_blocked": [
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "release-gated"
+  ]
+}

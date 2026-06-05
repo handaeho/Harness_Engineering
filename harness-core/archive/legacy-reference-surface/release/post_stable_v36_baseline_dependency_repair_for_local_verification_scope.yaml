@@ -1,0 +1,48 @@
+stage: v2.0.0-post-stable-v36-baseline-dependency-repair-for-local-model-verification
+
+approved_actions:
+  v36_baseline_dependency_triage: true
+  compare_v36_failure_analysis: true
+  mismatch_inventory_generation: true
+  hash_source_comparison: true
+  previous_owner_approved_refresh_comparison: true
+  compare_script_path_cwd_analysis: true
+  safe_compare_script_repair_if_needed: true
+  owner_decision_request_generation: true
+  local_verification_owner_packet_status_refresh: true
+
+forbidden_actions:
+  v36_modification: true
+  dist_modification: true
+  evidence_v36_baseline_refresh_without_owner_approval: true
+  evidence_v36_baseline_overwrite_without_owner_approval: true
+  v36_restore: true
+  local_model_generation: true
+  telemetry_sink_write: true
+  openai_model_api_call: true
+  openai_provider_call: true
+  local_model_verified_claim: true
+  provider_diverse_claim: true
+  provider_verified_claim: true
+  adapter_checked_claim: true
+  production_ready_claim: true
+  stable_claim: true
+  bare_release_gated_claim: true
+
+claims_allowed:
+  - post-stable-v36-baseline-dependency-triaged-for-local-verification
+  - post-stable-v36-baseline-local-verification-decision-requested
+  - post-stable-local-verification-gate-dependency-status-recorded
+
+claims_conditionally_allowed_after_repair:
+  - post-stable-v36-baseline-compare-restored-for-local-verification
+  - post-stable-local-model-verification-owner-packet-ready-after-v36-repair
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated

@@ -1,0 +1,108 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-combined-provider-verified-gate-design",
+  "provider_verified_gate_design_passed": true,
+  "ready_for_owner_decision_to_claim_provider_verified": false,
+  "unresolved_items_count": 0,
+  "new_local_model_execution": false,
+  "openai_model_api_call": false,
+  "telemetry_sink_write": false,
+  "v36_modified": false,
+  "dist_modified": false,
+  "evidence_v36_baseline_modified": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "checks": [
+    {
+      "name": "gate design report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-combined-provider-verified-gate-design",
+        "provider_verified_gate_designed": true,
+        "ready_for_owner_decision_to_claim_provider_verified": false,
+        "blockers": [
+          "full_provider_level_verification_gate_not_executed",
+          "ollama_tool_calling_and_structured_output_coverage_missing",
+          "vllm_lane_not_verified",
+          "owner_final_decision_required"
+        ],
+        "new_local_model_execution": false,
+        "openai_model_api_call": false,
+        "telemetry_sink_write": false,
+        "v36_modified": false,
+        "dist_modified": false,
+        "evidence_v36_baseline_modified": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false
+      }
+    },
+    {
+      "name": "criteria matrix drafted",
+      "status": "pass",
+      "detail": {
+        "status": "drafted",
+        "stage": "v2.0.0-post-combined-provider-verified-gate-design",
+        "provider_verified_allowed": false,
+        "criteria": {
+          "provider_level_contract_per_lane": true,
+          "no_tool_text_per_lane": true,
+          "structured_output_per_lane": true,
+          "tool_calling_or_declared_not_supported_per_lane": true,
+          "redaction_storage_per_lane": true,
+          "replay_or_repeatability_surface_per_lane": true,
+          "owner_final_decision_required": true
+        },
+        "current_coverage_summary": {
+          "openai_api_lane": "partial_canary_coverage_not_general_provider_verification",
+          "ollama_qwen3_local_lane": "local_model_verified_no_tool_and_mapping_review_only",
+          "vllm_lane": "placeholder_not_verified"
+        },
+        "does_not_allow_provider_verified_yet": true
+      }
+    },
+    {
+      "name": "boundary blocks strong claims",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-combined-provider-verified-gate-design",
+        "allowed_scoped_claims": [
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated",
+          "local-model-verified"
+        ],
+        "blocked_strong_claims": [
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "bare_release_gated_allowed": false,
+        "owner_final_decision_required_for_strong_claims": true
+      }
+    }
+  ],
+  "failures": []
+}

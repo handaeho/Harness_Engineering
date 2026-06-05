@@ -1,0 +1,290 @@
+{
+  "status": "ready_for_monitoring_window_result_review",
+  "stage": "v2.0.0-post-rc-production-monitoring-window-continuation-checkpoint",
+  "monitoring_window_completed": true,
+  "can_enter_monitoring_window_result_review": true,
+  "can_claim_telemetry_connected": true,
+  "can_claim_production_monitored": false,
+  "can_claim_production_ready": false,
+  "can_enter_stable_release": false,
+  "reason": "Monitoring window duration and sample count are met. Result review is required before any production monitoring claim.",
+  "elapsed_duration_hours": 25.63,
+  "required_duration_hours": 24,
+  "duration_met": true,
+  "sample_count": 56,
+  "required_sample_count": 50,
+  "sample_count_met": true,
+  "remaining_duration_hours": 0,
+  "remaining_sample_count": 0,
+  "redaction_failures": 0,
+  "raw_payload_storage_violations": 0,
+  "secret_logging_findings": 0,
+  "telemetry_sink_write": false,
+  "openai_model_api_call": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "production_monitored_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "provider_diverse_allowed": false,
+  "checks": [
+    {
+      "name": "check_post_rc_production_monitoring_window.mjs monitoring_window_incomplete or pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "checkpoint_post_rc_production_monitoring_window.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "validate_alpha.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "scan_prohibited_claims.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "compare_v36_baseline.mjs pass",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "release/post_rc_production_monitoring_window_continuation_checkpoint_scope.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_monitoring_window_continuation_gate.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "release/post_rc_production_monitoring_window_continuation_blocker_update.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/checkpoint_post_rc_production_monitoring_window.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools/check_post_rc_production_monitoring_window_continuation.mjs exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/suites/post_rc_production_monitoring_window_continuation_checkpoint.yaml exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_window_continuation_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evals/reports/post_rc_production_monitoring_window_continuation_report.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-continuation/monitoring_window_continuation_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-continuation/monitoring_window_progress_snapshot.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-continuation/monitoring_window_remaining_requirements.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-continuation/monitoring_window_redaction_checkpoint.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-continuation/monitoring_window_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-continuation/monitoring_window_continuation_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "evidence/post-rc-production-monitoring-window-continuation/unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_window_continuation_checkpoint.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/production_monitoring_window_remaining_requirements.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "docs/next_monitoring_window_result_review_plan.md exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "continuation report is scoped and checkpointed",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "monitoring_window_checkpoint_recorded": true
+      }
+    },
+    {
+      "name": "progress snapshot preserves source duration and sample status",
+      "status": "pass",
+      "detail": {
+        "elapsed_duration_hours": 25.63,
+        "sample_count": 56,
+        "monitoring_window_completed": true
+      }
+    },
+    {
+      "name": "remaining requirements are calculated without manual increments",
+      "status": "pass",
+      "detail": {
+        "remaining_duration_hours": 0,
+        "remaining_sample_count": 0,
+        "can_enter_monitoring_window_result_review": true
+      }
+    },
+    {
+      "name": "completion state only follows duration and sample count",
+      "status": "pass",
+      "detail": {
+        "monitoring_window_completed": true,
+        "duration_met": true,
+        "sample_count_met": true
+      }
+    },
+    {
+      "name": "redaction checkpoint remains clean",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "forbidden execution flags remain false",
+      "status": "pass",
+      "detail": {
+        "telemetry_sink_write": false,
+        "openai_model_api_call": false,
+        "local_endpoint_probe": false,
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "production and stable claims remain blocked",
+      "status": "pass",
+      "detail": {
+        "production_monitored_allowed": false,
+        "stable_allowed": false
+      }
+    },
+    {
+      "name": "claim boundary records continuation claims only",
+      "status": "pass",
+      "detail": {
+        "allowed_claims": [
+          "telemetry-connected",
+          "post-rc-production-monitoring-window-checkpoint-recorded",
+          "post-rc-production-monitoring-window-progress-evaluated",
+          "post-rc-production-monitoring-window-remaining-requirements-recorded",
+          "post-rc-production-monitoring-window-redaction-checkpoint-recorded"
+        ]
+      }
+    },
+    {
+      "name": "blocker update tracks in-progress or result-review-ready state",
+      "status": "pass",
+      "detail": {
+        "new_status": "monitoring_window_ready_for_result_review_final_gate_pending"
+      }
+    },
+    {
+      "name": "unresolved items remain actionable",
+      "status": "pass",
+      "detail": {
+        "status": "ready_for_monitoring_window_result_review",
+        "unresolved_items_count": 2
+      }
+    },
+    {
+      "name": "production-monitored / production-ready / stable / provider-diverse positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "guardrail paths remain clean",
+      "status": "pass",
+      "detail": {
+        "exit_code": 0,
+        "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+        "stderr": "",
+        "approved_baseline_refresh": true,
+        "baseline_status_entries": [
+          "M harness-core/evidence/v36-baseline/checksums.json",
+          "M harness-core/evidence/v36-baseline/file_inventory.json"
+        ],
+        "forbidden_status_entries": []
+      }
+    }
+  ],
+  "failures": [],
+  "claims_allowed_by_this_gate": [
+    "telemetry-connected",
+    "post-rc-production-monitoring-window-checkpoint-recorded",
+    "post-rc-production-monitoring-window-progress-evaluated",
+    "post-rc-production-monitoring-window-remaining-requirements-recorded",
+    "post-rc-production-monitoring-window-redaction-checkpoint-recorded"
+  ],
+  "claims_still_blocked": [
+    "production-monitored",
+    "production-ready",
+    "stable",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "local-model-verified",
+    "release-gated"
+  ]
+}

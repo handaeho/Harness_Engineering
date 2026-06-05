@@ -1,0 +1,167 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary",
+  "checks": [
+    {
+      "name": "local_tool_calling_mock_smoke_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_tool_calling_mock_response_mapping.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_tool_calling_mock_redaction_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_tool_calling_mock_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_tool_calling_mock_blocker_update.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "local_tool_calling_mock_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stage matches",
+      "status": "pass",
+      "detail": {
+        "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+      }
+    },
+    {
+      "name": "status pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "new local generation call count bounded",
+      "status": "pass",
+      "detail": {
+        "calls": 2
+      }
+    },
+    {
+      "name": "models covered",
+      "status": "pass",
+      "detail": {
+        "models": [
+          "qwen3:14b",
+          "qwen3.6:27b"
+        ]
+      }
+    },
+    {
+      "name": "cases passed",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tool calls present",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "no external tool execution",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "raw request/response not stored",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "redaction passed",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "protected paths unmodified",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "strong claims blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary",
+        "tool_calling_mock_smoke_allowed": true,
+        "local_model_verified_allowed": false,
+        "provider_diverse_allowed": false,
+        "provider_verified_allowed": false,
+        "adapter_checked_allowed": false,
+        "tool_call_verified_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "allowed_claims": [
+          "post-stable-local-tool-calling-mock-smoke-canary-completed",
+          "post-stable-local-tool-calling-mock-schema-checked",
+          "post-stable-local-tool-calling-mock-redaction-checked"
+        ],
+        "blocked_claims": [
+          "local-model-verified",
+          "provider-diverse",
+          "provider-verified",
+          "adapter-checked",
+          "tool-call-verified",
+          "production-ready",
+          "stable",
+          "release-gated"
+        ]
+      }
+    },
+    {
+      "name": "prohibited claim scan pass",
+      "status": "pass",
+      "detail": {
+        "matches": 0
+      }
+    },
+    {
+      "name": "local blocked positive claims absent",
+      "status": "pass",
+      "detail": {
+        "matches": []
+      }
+    }
+  ],
+  "unresolved_items_count": 0,
+  "can_proceed_to_replay_regression_smoke": true,
+  "new_local_generation_calls": 2,
+  "claims_allowed": [
+    "post-stable-local-tool-calling-mock-smoke-canary-completed",
+    "post-stable-local-tool-calling-mock-schema-checked",
+    "post-stable-local-tool-calling-mock-redaction-checked"
+  ],
+  "claims_blocked": [
+    "local-model-verified",
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "tool-call-verified",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "failures": []
+}

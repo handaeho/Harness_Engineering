@@ -1,0 +1,17 @@
+stage: v2.0.0-post-stable-adapter-conformance-dependency-preflight
+
+approved_actions:
+  dependency_availability_check: true
+  dependency_approval_request_generation: true
+  adapter_conformance_blocker_recording: true
+
+forbidden_execution:
+  npm_install_without_approval: true
+  npm_ci_without_approval: true
+  node_modules_modification_without_approval: true
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  local_model_execution: true
+  local_model_verified_final_claim: true
+
+required_approval_phrase: "I approve local dependency install for adapter conformance validation using npm ci --ignore-scripts."

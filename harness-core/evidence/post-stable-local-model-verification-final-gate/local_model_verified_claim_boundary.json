@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+  "provider": "ollama",
+  "scope": "post_stable_ollama_qwen3_local_lane",
+  "local_model_verified_allowed": true,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "bare_release_gated_allowed": false,
+  "can_enter_stable_release": false,
+  "allowed_claims": [
+    "local-model-verified",
+    "post-stable-local-model-verification-final-gate-passed",
+    "post-stable-local-model-verified-claim-enabled",
+    "post-stable-local-model-verification-owner-final-decision-recorded",
+    "post-stable-local-model-verification-final-decision-recorded",
+    "post-stable-local-model-verification-evidence-accepted"
+  ],
+  "blocked_claims": [
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "does_not_allow": [
+    "provider-diverse",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "reason": "Owner final decision is recorded and all local Ollama qwen evidence gates passed. The allowed claim is limited to local-model-verified for the post-stable Ollama qwen local lane."
+}

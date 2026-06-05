@@ -1,0 +1,51 @@
+id: v2.0.0-post-rename-harness-core-precommit-doc-export-consistency-repair
+status: repair_scope_recorded
+scope:
+  summary: Distinguish root workspace commands from agent-ready clean export commands before commit approval.
+  allowed_changes:
+    - root workspace versus agent-ready export command documentation
+    - clean export command-surface checker hardening
+    - precommit repair checker no-git mode handling
+    - clean export regeneration
+    - repair evidence and documentation
+  forbidden_changes:
+    - OpenAI API call
+    - OpenAI provider rerun
+    - local model generation
+    - telemetry sink write
+    - redteam rerun
+    - adapter conformance rerun
+    - npm install
+    - npm ci
+    - legacy reference source edit
+    - dist edit
+    - reference baseline refresh
+    - raw request storage
+    - raw response storage
+    - secret/API key/auth header storage
+    - git commit
+command_policy:
+  root_workspace_mode:
+    first_commands:
+      - node tools/check_agent_ready_self_contained.mjs
+      - node tools/check_current_state_alignment.mjs
+      - node tools/check_reference_baseline_integrity.mjs
+    current_state_alignment_allowed: true
+    git_readiness_requires_git_metadata: true
+  agent_ready_export_mode:
+    first_commands:
+      - node tools/check_agent_ready_self_contained.mjs
+      - node tools/check_reference_baseline_integrity.mjs
+    current_state_alignment_default_command: false
+    node_modules_required: false
+    git_metadata_required: false
+claims:
+  weak_claims_recordable:
+    - harness-core-precommit-doc-export-consistency-repair-recorded
+    - root-vs-export-command-policy-recorded
+    - no-git-precommit-checker-mode-recorded
+    - clean-export-command-surface-checked
+  strong_claims_allowed: false
+commit:
+  performed: false
+  owner_approval_required: true

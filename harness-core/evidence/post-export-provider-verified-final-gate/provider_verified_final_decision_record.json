@@ -1,0 +1,29 @@
+{
+  "status": "blocked",
+  "stage": "v2.0.0-post-export-provider-verified-final-gate",
+  "decision": "keep_provider_verified_blocked",
+  "provider_verified_allowed": false,
+  "blockers": [
+    {
+      "id": "openai_provider_replay_regression_not_replay_verified",
+      "lane": "openai_api_lane",
+      "status": "blocked_or_partial",
+      "reason": "OpenAI replay source is canary_suite_rerun_not_replay_verified; existing evidence is canary-suite consistency, not final provider replay verification.",
+      "next_action": "Operator must approve a no-new-call acceptance boundary or authorize a future OpenAI provider rerun outside this autopilot."
+    },
+    {
+      "id": "openai_provider_error_handling_static_only",
+      "lane": "openai_api_lane",
+      "status": "blocked_or_partial",
+      "reason": "OpenAI provider error handling can only be reviewed statically in this stage because OpenAI API calls are forbidden.",
+      "next_action": "Complete an execution-backed provider error-handling review in a future approved provider lane."
+    },
+    {
+      "id": "provider_verified_final_gate_not_ready",
+      "lane": "all_lanes",
+      "status": "blocked_or_partial",
+      "reason": "Provider-level coverage remains partial across error handling and replay/regression surfaces.",
+      "next_action": "Keep provider-verified blocked and carry exact coverage gaps to final handoff."
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "status": "partial",
+  "stage": "v2.0.0-post-export-provider-verified-coverage-completion-preflight",
+  "lane_id": "openai_api_lane",
+  "provider_family": "openai",
+  "provider_contract_documented": true,
+  "execution_evidence_exists": true,
+  "canary_evidence_exists": true,
+  "redteam_evidence_exists": true,
+  "redteam_evidence_scope": "limited_execution_evidence_exists_not_redteam_pass_claim",
+  "redteam_pass_claim_allowed": false,
+  "replay_or_regression_evidence_exists": true,
+  "replay_or_regression_coverage_strength": "canary_suite_only_not_replay_verified",
+  "error_handling_reviewed": "unknown_or_partial",
+  "capability_matrix_reviewed": true,
+  "storage_redaction_reviewed": true,
+  "provider_verified_ready": false,
+  "source_evidence": {
+    "adapter_contract": {
+      "path": "adapters/api/openai/adapter.yaml",
+      "exists": true,
+      "status": null,
+      "stage": null
+    },
+    "final_handoff": {
+      "path": "evidence/post-rc-openai-only-stable-final-handoff/final_handoff_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-rc-openai-only-stable-final-handoff-and-archive"
+    },
+    "provider_canary": {
+      "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+    },
+    "canary_replay_suite": {
+      "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-openai-canary-replay-suite"
+    },
+    "redteam_limited_execution": {
+      "path": "evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-openai-redteam-limited-execution"
+    },
+    "storage_redaction_audit": {
+      "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+    },
+    "capability_matrix": {
+      "path": "adapters/provider_capability_matrix.yaml",
+      "exists": true,
+      "status": null,
+      "stage": null
+    }
+  },
+  "missing_or_partial_coverage": [
+    "openai_provider_error_handling_review_unknown_or_partial",
+    "openai_provider_contract_regression_evidence_incomplete"
+  ]
+}

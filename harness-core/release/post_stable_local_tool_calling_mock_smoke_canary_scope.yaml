@@ -1,0 +1,35 @@
+stage: v2.0.0-post-stable-local-tool-calling-mock-smoke-canary
+
+approved_actions:
+  local_tool_calling_mock_smoke: true
+  qwen3_14b_local_generation: true
+  qwen3_6_27b_local_generation: true
+  mock_tool_schema_request: true
+  sanitized_response_mapping: true
+  redaction_review: true
+
+limits:
+  models:
+    - qwen3:14b
+    - qwen3.6:27b
+  max_cases_per_model: 1
+  max_generation_calls: 2
+
+forbidden_execution:
+  actual_tool_execution: true
+  external_side_effect: true
+  openai_model_api_call: true
+  telemetry_sink_write: true
+  model_pull: true
+  raw_request_storage: true
+  raw_response_storage: true
+  reference_baseline_modification: true
+  dist_modification: true
+  evidence_reference_baseline_modification: true
+
+claims_not_allowed:
+  - tool-call-verified
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked

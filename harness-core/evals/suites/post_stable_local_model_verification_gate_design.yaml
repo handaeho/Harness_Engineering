@@ -1,0 +1,28 @@
+suite: post_stable_local_model_verification_gate_design
+stage: v2.0.0-post-stable-local-model-verification-gate-design
+runner: tools/design_local_model_verification_gate.mjs
+gate: tools/check_local_model_verification_gate_design.mjs
+
+source_evidence:
+  - evidence/post-stable-local-no-tool-multimodel-comparison-qwen3-14b-vs-qwen3-6-27b/local_no_tool_multimodel_comparison_report.json
+
+generated_evidence:
+  - evidence/post-stable-local-model-verification-gate-design/local_model_verification_gate_design_report.json
+  - evidence/post-stable-local-model-verification-gate-design/local_model_verification_criteria_matrix.json
+  - evidence/post-stable-local-model-verification-gate-design/local_model_verification_claim_boundary.json
+
+checks:
+  - no_tool_multimodel_comparison_passed
+  - structured_output_smoke_required
+  - tool_calling_mock_smoke_required
+  - replay_regression_smoke_required
+  - redaction_storage_cross_suite_audit_required
+  - local_redteam_blocker_recorded
+  - owner_decision_required
+  - strong_claims_blocked
+
+claims_not_allowed:
+  - local-model-verified
+  - provider-diverse
+  - provider-verified
+  - adapter-checked
