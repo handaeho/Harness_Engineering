@@ -1,12 +1,10 @@
-# HARNESS
+# Harness-Engineering
 
-HARNESS는 자율형 코딩 에이전트와 프롬프트 런타임을 증거, 게이트, claim boundary로 운영하기 위한 agent engineering 프로젝트입니다.
-
-이 README는 Codex 오픈소스 지원 프로그램 심사자가 프로젝트의 목적, 구성, 현재 검증 상태, 유지관리 가치를 빠르게 파악할 수 있도록 작성되었습니다.
+Harness-Engineering은 자율형 코딩 에이전트와 프롬프트 런타임을 증거, 게이트, claim boundary로 운영하기 위한 agent engineering 프로젝트입니다.
 
 ## 1. 프로젝트 개요
 
-HARNESS는 에이전트가 코딩, 리뷰, 릴리스 준비, 보안 점검, 운영 인수인계를 수행할 때 "무엇을 했는지"와 "무엇을 검증했는지"를 분리해서 남기도록 만드는 하네스입니다.
+Harness-Engineering은 에이전트가 코딩, 리뷰, 릴리스 준비, 보안 점검, 운영 인수인계를 수행할 때 "무엇을 했는지"와 "무엇을 검증했는지"를 분리해서 남기도록 만드는 하네스입니다.
 
 프로젝트는 두 축으로 구성됩니다.
 
@@ -19,7 +17,7 @@ HARNESS는 에이전트가 코딩, 리뷰, 릴리스 준비, 보안 점검, 운�
 
 에이전트 기반 개발에서는 작업 결과보다 강한 표현이 쉽게 생깁니다. 예를 들어 runner 파일이 존재한다는 사실이 실행 검증을 뜻하지 않고, canary 통과가 전체 provider 검증을 뜻하지 않으며, scoped release gate 결과가 일반 release-gated 상태를 뜻하지 않습니다.
 
-HARNESS는 이런 문제를 줄이기 위해 만들어졌습니다.
+Harness-Engineering은 이런 문제를 줄이기 위해 만들어졌습니다.
 
 - 메인테이너가 반복적으로 수행하는 리뷰, 분류, 검증, 릴리스 판단을 파일과 게이트로 남깁니다.
 - 에이전트가 현재 증거보다 강한 claim을 하지 못하도록 claim ladder와 prohibited claim scan을 둡니다.
@@ -28,7 +26,7 @@ HARNESS는 이런 문제를 줄이기 위해 만들어졌습니다.
 
 ## 3. 완전 자율형 에이전트에게 적용 시 기대점
 
-HARNESS 자산을 보유한 프로젝트는 완전 자율형 에이전트에게 단순한 작업 지시만 전달하는 것이 아니라, 현재 상태, 허용 범위, 검증 기준, 금지 claim, evidence 기록 방식을 함께 전달할 수 있습니다. 이 구조는 에이전트가 긴 작업을 이어가거나 다른 에이전트가 후속 작업을 맡을 때 특히 유용합니다.
+Harness-Engineering 자산을 보유한 프로젝트는 완전 자율형 에이전트에게 단순한 작업 지시만 전달하는 것이 아니라, 현재 상태, 허용 범위, 검증 기준, 금지 claim, evidence 기록 방식을 함께 전달할 수 있습니다. 이 구조는 에이전트가 긴 작업을 이어가거나 다른 에이전트가 후속 작업을 맡을 때 특히 유용합니다.
 
 - 작업 시작점이 명확합니다.
   - 에이전트는 `CURRENT_STATE.yaml`, `AGENT_BOOTSTRAP.ko.md`, `AGENTS.md`, agent profile을 읽고 현재 stage, 보호 경로, claim boundary, 첫 검증 명령을 파악할 수 있습니다.
@@ -98,7 +96,7 @@ HARNESS 자산을 보유한 프로젝트는 완전 자율형 에이전트에게 
 | `prompt-stack/v36/` | 현재 active prompt harness package |
 | `prompt-stack/_evidence/v36/` | v36 evidence package |
 | `prompt-stack/_legacy/`, `prompt-stack/_archive/` | 이전 버전과 release evidence 보존 영역 |
-| `harness-core/CURRENT_STATE.yaml` | HARNESS Core 현재 상태와 claim boundary |
+| `harness-core/CURRENT_STATE.yaml` | `harness-core` 현재 상태와 claim boundary |
 | `harness-core/core/` | model-independent harness contract |
 | `harness-core/adapters/` | provider/local adapter definitions and capability matrix |
 | `harness-core/runtime/` | context, orchestration, tool, provider, sandbox, mock runtime layer |
@@ -112,9 +110,9 @@ HARNESS 자산을 보유한 프로젝트는 완전 자율형 에이전트에게 
 
 ## 6. 자율 구현 산출물의 위치와 성격
 
-완전 자율형 에이전트가 HARNESS를 사용해 새로운 프로젝트를 구현할 때 산출물은 한 문서나 한 폴더에 몰리지 않습니다. 실제 제품 코드, 요구사항, 현재 상태, 검증 증거, gate 결과, claim boundary, 인수인계 자료가 서로 다른 성격의 파일로 분리되어 남습니다.
+완전 자율형 에이전트가 Harness-Engineering을 사용해 새로운 프로젝트를 구현할 때 산출물은 한 문서나 한 폴더에 몰리지 않습니다. 실제 제품 코드, 요구사항, 현재 상태, 검증 증거, gate 결과, claim boundary, 인수인계 자료가 서로 다른 성격의 파일로 분리되어 남습니다.
 
-신규 프로젝트의 운영 방식은 프로젝트 저장소 자체를 `<new-project-root>`로 두고, 실제 코드는 해당 언어와 프레임워크가 기대하는 표준 구조로 개발하는 것입니다. HARNESS Core 자산은 프로젝트 코드와 섞지 않고 `<new-project-root>/.harness/harness-core/` 아래에 둡니다.
+신규 프로젝트의 운영 방식은 프로젝트 저장소 자체를 `<new-project-root>`로 두고, 실제 코드는 해당 언어와 프레임워크가 기대하는 표준 구조로 개발하는 것입니다. `harness-core` 자산은 프로젝트 코드와 섞지 않고 `<new-project-root>/.harness/harness-core/` 아래에 둡니다.
 
 이 구조는 `harness-core/docs/guides/NEW_PROJECT_HARNESS_USAGE_STRUCTURE.ko.txt`의 표준 사용 모델입니다.
 
@@ -143,16 +141,16 @@ HARNESS 자산을 보유한 프로젝트는 완전 자율형 에이전트에게 
 | `<new-project-root>/tools/check_project_current_state.mjs` | 프로젝트 상태 파일과 evidence pointer를 확인하는 checker |
 | `<new-project-root>/tools/check_project_claims.mjs` | 프로젝트 claim boundary와 금지 claim을 확인하는 checker |
 | `<new-project-root>/tools/check_project_precommit.mjs` | 커밋 전 프로젝트 검증을 묶는 checker |
-| `<new-project-root>/.harness/harness-core/` | HARNESS Core 자산. 운영 가이드, reusable checker, claim ladder, reference baseline 보관 위치 |
+| `<new-project-root>/.harness/harness-core/` | `harness-core` 자산. 운영 가이드, reusable checker, claim ladder, reference baseline 보관 위치 |
 | `<new-project-root>/.harness/harness-core/docs/guides/PROJECT_INPUT_TEMPLATE.ko.md` | 새 프로젝트 입력 양식의 reference template |
 | `<new-project-root>/.harness/harness-core/templates/external-project/` | 새 프로젝트 루트로 복사할 수 있는 AGENTS, CURRENT_STATE, release, checker 템플릿 |
-| `harness-core/tools/check_external_project_template_contract.mjs` | HARNESS Core 안의 external project template 계약 검증 |
+| `harness-core/tools/check_external_project_template_contract.mjs` | `harness-core` 안의 external project template 계약 검증 |
 
-예를 들어 사용자가 정형 템플릿으로 `task-board` 프로젝트를 요청하면 에이전트는 `task-board/`를 새 프로젝트 루트로 만들고, 채운 입력은 `task-board/PROJECT_INPUT.md`에 남깁니다. 실제 소스는 선택한 프레임워크의 표준 구조에 맞춰 `src/`, `app/`, `package.json`, `tests/` 등에 둡니다. HARNESS Core는 `task-board/.harness/harness-core/`에 배치하고, 프로젝트 상태와 검증 증거는 `task-board/CURRENT_STATE.yaml`, `task-board/evidence/`, `task-board/release/`, `task-board/tools/`에 남깁니다.
+예를 들어 사용자가 정형 템플릿으로 `task-board` 프로젝트를 요청하면 에이전트는 `task-board/`를 새 프로젝트 루트로 만들고, 채운 입력은 `task-board/PROJECT_INPUT.md`에 남깁니다. 실제 소스는 선택한 프레임워크의 표준 구조에 맞춰 `src/`, `app/`, `package.json`, `tests/` 등에 둡니다. `harness-core`는 `task-board/.harness/harness-core/`에 배치하고, 프로젝트 상태와 검증 증거는 `task-board/CURRENT_STATE.yaml`, `task-board/evidence/`, `task-board/release/`, `task-board/tools/`에 남깁니다.
 
-따라서 `harness-core/tools`는 HARNESS 자체의 공통 validator, runner, scanner, export/check script를 보관하는 위치로 유지합니다. 프로젝트별 checker는 `.harness/harness-core/tools`에 계속 추가하지 않고 `<new-project-root>/tools/`에 두어야 탐색성과 소유권 경계가 유지됩니다.
+따라서 `harness-core/tools`는 Harness-Engineering 자체의 공통 validator, runner, scanner, export/check script를 보관하는 위치로 유지합니다. 프로젝트별 checker는 `.harness/harness-core/tools`에 계속 추가하지 않고 `<new-project-root>/tools/`에 두어야 탐색성과 소유권 경계가 유지됩니다.
 
-이 구조의 목적은 코드와 주장을 분리하는 것입니다. 제품 코드가 만들어졌다는 사실은 테스트 통과나 운영 준비를 뜻하지 않으며, 테스트 일부가 통과했다는 사실도 일반 `production-ready` 또는 `stable` claim을 뜻하지 않습니다. HARNESS는 실제 산출물, 실행 증거, claim boundary를 분리해 다음 에이전트나 사람이 이어받을 때 무엇을 믿을 수 있고 무엇을 다시 검증해야 하는지 확인할 수 있게 합니다.
+이 구조의 목적은 코드와 주장을 분리하는 것입니다. 제품 코드가 만들어졌다는 사실은 테스트 통과나 운영 준비를 뜻하지 않으며, 테스트 일부가 통과했다는 사실도 일반 `production-ready` 또는 `stable` claim을 뜻하지 않습니다. Harness-Engineering은 실제 산출물, 실행 증거, claim boundary를 분리해 다음 에이전트나 사람이 이어받을 때 무엇을 믿을 수 있고 무엇을 다시 검증해야 하는지 확인할 수 있게 합니다.
 
 MCP 형태로 확장할 경우에도 이 원칙은 유지됩니다. `PRODUCT_SPEC`, `PRODUCT_STATE`, evidence, claim boundary는 MCP `resources`로 노출하고, checker 실행이나 report 생성은 MCP `tools`로 제공하며, 프로젝트 생성 템플릿은 MCP `prompts`로 제공할 수 있습니다. MCP는 접근과 실행 인터페이스이고, 신뢰 가능한 source-of-record는 repo 안의 코드, 상태 파일, evidence, gate 결과로 유지하는 방향이 안전합니다.
 
@@ -208,7 +206,7 @@ node prompt-stack/v36/harness/validate_assembled_bundle.mjs
 node prompt-stack/v36/harness/validate_codex_runtime.mjs
 ```
 
-### 8.2. HARNESS Core를 확인할 때
+### 8.2. `harness-core`를 확인할 때
 
 ```bash
 cd harness-core
@@ -239,7 +237,7 @@ node tools/check_reference_baseline_integrity.mjs
 
 ## 9. 유지관리 워크플로
 
-HARNESS는 변경을 다음 순서로 다룹니다.
+Harness-Engineering은 변경을 다음 순서로 다룹니다.
 
 1. 현재 상태와 claim boundary를 읽습니다.
 2. 작업 scope와 수정 가능 경로를 정합니다.
@@ -253,7 +251,7 @@ HARNESS는 변경을 다음 순서로 다룹니다.
 
 ## 10. 제한과 claim boundary
 
-HARNESS의 중요한 원칙은 "증거가 없는 claim을 열지 않는다"입니다.
+Harness-Engineering의 중요한 원칙은 "증거가 없는 claim을 열지 않는다"입니다.
 
 현재 `harness-core/CURRENT_STATE.yaml` 기준 허용된 scoped/qualified claims:
 
@@ -302,7 +300,7 @@ Canonicalization rules:
 
 ## 11. 향후 계획
 
-HARNESS의 궁극적인 목표는 사용자가 정형화된 템플릿으로 프로젝트를 설명하면, 완전 자율형 에이전트가 현대적인 컴퓨터 엔지니어링 원칙을 최대한 적용해 신뢰할 수 있고 안전한 결과물을 만들도록 돕는 것입니다. 이를 위해 단순한 prompt 개선이 아니라, 요구사항 입력, 설계, 구현, 검증, 보안, 배포 판단, 인수인계까지 이어지는 전체 agent engineering loop를 강화할 계획입니다.
+Harness-Engineering의 궁극적인 목표는 사용자가 정형화된 템플릿으로 프로젝트를 설명하면, 완전 자율형 에이전트가 현대적인 컴퓨터 엔지니어링 원칙을 최대한 적용해 신뢰할 수 있고 안전한 결과물을 만들도록 돕는 것입니다. 이를 위해 단순한 prompt 개선이 아니라, 요구사항 입력, 설계, 구현, 검증, 보안, 배포 판단, 인수인계까지 이어지는 전체 agent engineering loop를 강화할 계획입니다.
 
 ### 11.1. 개발 로드맵
 
@@ -339,9 +337,9 @@ HARNESS의 궁극적인 목표는 사용자가 정형화된 템플릿으로 프�
   - 새 에이전트가 프로젝트를 이어받을 때 필요한 `current state`, `decision log`, `evidence index`, `unresolved items`, `approval boundary`, `next action`을 더 작은 패킷으로 재구성할 수 있게 합니다.
 
 - MCP 형태의 하네스 제공을 준비합니다.
-  - HARNESS를 문서형 자산에 머무르게 하지 않고, MCP server가 제공하는 `resources`, `tools`, `prompts` 형태로 노출하는 방향을 검토합니다.
+  - Harness-Engineering을 문서형 자산에 머무르게 하지 않고, MCP server가 제공하는 `resources`, `tools`, `prompts` 형태로 노출하는 방향을 검토합니다.
   - 에이전트가 필요한 순간에 프로젝트 상태, 템플릿, 검증 기준, evidence pointer, claim boundary를 MCP resource로 읽고, checker 실행이나 report 생성을 MCP tool로 호출할 수 있게 하는 구조를 목표로 합니다.
-  - 사용자는 정형화된 프로젝트 설명을 제출하고, MCP 기반 HARNESS가 이를 실행 가능한 spec, gate, evidence workflow로 변환하는 인터페이스를 지향합니다.
+  - 사용자는 정형화된 프로젝트 설명을 제출하고, MCP 기반 Harness-Engineering이 이를 실행 가능한 spec, gate, evidence workflow로 변환하는 인터페이스를 지향합니다.
 
 ### 11.2. 보강점
 
@@ -374,7 +372,7 @@ HARNESS의 궁극적인 목표는 사용자가 정형화된 템플릿으로 프�
   - 전달성과 감사 가능성은 확보되어 있지만, 새 사용자가 압축 해제 후 바로 self-check, 적용, 프로젝트 템플릿 생성을 수행하는 흐름은 더 단순화할 필요가 있습니다.
 
 - MCP 제공 형태는 아직 구현되지 않았습니다.
-  - 현재 HARNESS는 파일, 문서, runner, evidence 중심으로 구성되어 있으며, MCP server로 resource/tool/prompt를 제공하는 runtime interface는 별도 설계와 구현이 필요합니다.
+  - 현재 Harness-Engineering은 파일, 문서, runner, evidence 중심으로 구성되어 있으며, MCP server로 resource/tool/prompt를 제공하는 runtime interface는 별도 설계와 구현이 필요합니다.
   - MCP로 제공할 resource schema, tool contract, permission boundary, audit log, error handling, versioning, compatibility policy를 정의해야 합니다.
 
 현재 final dossier/export 이후의 즉시 후속 경로는 다음과 같습니다.
