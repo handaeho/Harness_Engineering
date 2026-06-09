@@ -8,7 +8,7 @@ forbidden_execution:
   local_endpoint_probe: true
   local_model_execution: true
 gate:
-  script: tools/check_post_rc_production_monitoring_values_preflight.mjs
+  script: tools/checks/observability/check_post_rc_production_monitoring_values_preflight.mjs
 expected_status: blocked_by_missing_operator_values
 required_artifacts:
   - evidence/post-rc-production-monitoring-values-preflight/production_monitoring_values_preflight_report.json

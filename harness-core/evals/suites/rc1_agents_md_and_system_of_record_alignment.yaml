@@ -7,19 +7,19 @@ inputs:
   - MANIFEST.asset_classes.yaml
   - stack.yaml
   - stack.schema.json
-  - docs/system_of_record.md
-  - docs/directory_roles.md
-  - docs/naming_conventions.md
-  - docs/agent_workflow.md
-  - release/rc1_agents_md_alignment_scope.yaml
-  - release/system_of_record_alignment_gate.yaml
+  - docs/workspace/system_of_record.md
+  - docs/workspace/directory_roles.md
+  - docs/workspace/naming_conventions.md
+  - docs/workspace/agent_workflow.md
+  - release/scopes/rc1/rc1_agents_md_alignment_scope.yaml
+  - release/gates/general/system_of_record_alignment_gate.yaml
 
 checks:
-  - tools/validate_alpha.mjs
-  - tools/scan_prohibited_claims.mjs
+  - tools/validators/evals/validate_alpha.mjs
+  - tools/scanners/release/scan_prohibited_claims.mjs
   - tools/compare_v36_baseline.mjs
-  - tools/validate_agents_md_alignment.mjs
-  - tools/check_system_of_record_alignment.mjs
+  - tools/validators/general/validate_agents_md_alignment.mjs
+  - tools/checks/workspace/check_system_of_record_alignment.mjs
 
 expected:
   agents_md_exists: true

@@ -47,7 +47,7 @@
 ## Reference Baseline
 
 - Path: `evidence/reference-baseline`
-- Integrity checker: `node tools/check_reference_baseline_integrity.mjs`
+- Integrity checker: `node tools/checks/workspace/check_reference_baseline_integrity.mjs`
 - Legacy reference source는 현재 운영 대상이 아니며 clean export/self-contained check에 필요하지 않습니다.
 
 ## Next Options

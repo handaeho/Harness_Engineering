@@ -3,11 +3,11 @@ purpose: operate local runtime checks only after explicit scope and approval are
 must_read:
   - CURRENT_STATE.yaml
   - AGENT_BOOTSTRAP.ko.md
-  - release/current_state_alignment_scope.yaml
-  - release/current_state_claim_boundary.yaml
+  - release/scopes/general/current_state_alignment_scope.yaml
+  - release/claims/general/current_state_claim_boundary.yaml
 must_run_before_report:
-  - node tools/check_current_state_alignment.mjs
-  - node tools/scan_prohibited_claims.mjs
+  - node tools/checks/workspace/check_current_state_alignment.mjs
+  - node tools/scanners/release/scan_prohibited_claims.mjs
 forbidden_paths:
   - dist/**
   - node_modules/**

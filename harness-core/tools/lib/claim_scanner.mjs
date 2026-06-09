@@ -904,6 +904,7 @@ export function scanClaims(root, options = {}) {
     "evidence/reference-baseline",
     "evidence/reference-baseline",
     "evidence/alpha/prohibited_claim_scan.json",
+    "evidence/harness-core-final-precommit-convergence/final_precommit_convergence_report.json",
     "node_modules",
     ".git"
   ];

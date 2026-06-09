@@ -10,4 +10,4 @@ Stage: v2.0.0-rc.1-agents-md-and-system-of-record-alignment
 - evidence
 - human_docs
 - generated_or_ignored
-- immutable_baseline
+- reference_baseline

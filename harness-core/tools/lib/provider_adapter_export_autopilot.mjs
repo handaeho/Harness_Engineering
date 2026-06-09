@@ -334,7 +334,7 @@ export function assessProviderVerifiedGatePreflight(root) {
   writeJsonRel(root, `${dir}/provider_verified_claim_boundary.json`, claimBoundary(stage));
   writeJsonRel(root, `${dir}/provider_verified_blocker_update.json`, blockerUpdate);
   writeUnresolved(root, dir, stage);
-  writeTextRel(root, "release/post_combined_provider_verified_gate_preflight_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/gates/post-combined/post_combined_provider_verified_gate_preflight_scope.yaml", `stage: ${stage}
 status: ${report.status}
 mode: preflight_only
 provider_verified_allowed: false
@@ -343,7 +343,7 @@ openai_model_api_call: false
 telemetry_sink_write: false
 actual_export_write: false
 `);
-  writeTextRel(root, "release/post_combined_provider_verified_preflight_claim_boundary.yaml", `stage: ${stage}
+  writeTextRel(root, "release/claims/post-combined/post_combined_provider_verified_preflight_claim_boundary.yaml", `stage: ${stage}
 status: pass
 provider_diverse_allowed: true
 provider_verified_allowed: false
@@ -352,7 +352,7 @@ production_ready_allowed: false
 stable_allowed: false
 release_gated_allowed: false
 `);
-  writeTextRel(root, "release/post_combined_provider_verified_blocker_update.yaml", `stage: ${stage}
+  writeTextRel(root, "release/blockers/post-combined/post_combined_provider_verified_blocker_update.yaml", `stage: ${stage}
 status: blocked_by_missing_provider_verification_coverage
 provider_verified_allowed: false
 blockers:
@@ -370,7 +370,7 @@ telemetry_sink_write: false
     `- Blockers: ${blockerList.join(", ")}`,
     "- Strong claim allowance changed: false"
   ]);
-  writeKoDoc(root, "docs/provider_verified_gate_preflight.ko.md", "Provider-Verified Gate Preflight", [
+  writeKoDoc(root, "docs/providers/provider_verified_gate_preflight.ko.md", "Provider-Verified Gate Preflight", [
     "`provider-diverse`와 `provider-verified`를 분리해 preflight를 기록했습니다.",
     "",
     `- Status: \`${report.status}\``,
@@ -378,11 +378,11 @@ telemetry_sink_write: false
     "- provider-verified allowed: false",
     "- 새 OpenAI/local/telemetry/npm/export 실행: false"
   ]);
-  writeKoDoc(root, "docs/provider_verified_claim_boundary.ko.md", "Provider-Verified Claim Boundary", [
+  writeKoDoc(root, "docs/claims/provider_verified_claim_boundary.ko.md", "Provider-Verified Claim Boundary", [
     "`provider-verified`는 계속 blocked입니다.",
     "`provider-diverse`는 유지 허용되지만 provider-level verification을 의미하지 않습니다."
   ]);
-  writeKoDoc(root, "docs/next_provider_verified_evidence_completion_plan.ko.md", "Next Provider Verification Evidence Completion Plan", [
+  writeKoDoc(root, "docs/plans/next_provider_verified_evidence_completion_plan.ko.md", "Next Provider Verification Evidence Completion Plan", [
     "필요 작업:",
     "- OpenAI provider-level contract/error/replay evidence 보강",
     "- Ollama structured-output/tool-calling coverage 보강",
@@ -491,7 +491,7 @@ export function inventoryProviderVerifiedEvidence(root) {
   });
   writeJsonRel(root, `${dir}/provider_verified_claim_boundary.json`, claimBoundary(stage));
   writeUnresolved(root, dir, stage);
-  writeTextRel(root, "release/post_combined_provider_verified_evidence_inventory_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/scopes/post-combined/post_combined_provider_verified_evidence_inventory_scope.yaml", `stage: ${stage}
 status: blocked_by_missing_provider_verification_coverage
 provider_verified_allowed: false
 new_execution: false
@@ -526,19 +526,19 @@ export function buildProviderVerifiedOwnerDecisionPacket(root) {
     ...noExecFlags()
   };
   writeJsonRel(root, `${dir}/provider_verified_owner_decision_packet.json`, packet);
-  writeTextRel(root, "release/post_combined_provider_verified_owner_decision_gate.yaml", `stage: ${stage}
+  writeTextRel(root, "release/gates/post-combined/post_combined_provider_verified_owner_decision_gate.yaml", `stage: ${stage}
 status: keep_blocked_recommended
 claim_target: provider-verified
 provider_verified_allowed: false
 ready_for_owner_decision_to_claim_provider_verified: false
 `);
-  writeKoDoc(root, "docs/provider_verified_owner_decision_packet.ko.md", "Provider-Verified Owner Decision Packet", [
+  writeKoDoc(root, "docs/approvals/provider_verified_owner_decision_packet.ko.md", "Provider-Verified Owner Decision Packet", [
     `Packet status: \`${packet.status}\``,
     "- ready_for_owner_decision: false",
     "- provider-verified allowed: false",
     "- 권장 조치: provider-level coverage 보강 후 재검토"
   ]);
-  writeKoDoc(root, "docs/next_provider_verified_final_gate_plan.ko.md", "Next Provider-Verified Final Gate Plan", [
+  writeKoDoc(root, "docs/plans/next_provider_verified_final_gate_plan.ko.md", "Next Provider-Verified Final Gate Plan", [
     "현재는 final gate 진입 전 coverage gap이 남아 있습니다.",
     "OpenAI/Ollama provider-level evidence completion 후 owner decision이 필요합니다."
   ]);
@@ -653,13 +653,13 @@ export function assessAdapterCheckedGatePreflight(root) {
     blockers: gaps
   });
   writeUnresolved(root, dir, stage);
-  writeTextRel(root, "release/post_combined_adapter_checked_gate_preflight_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/gates/post-combined/post_combined_adapter_checked_gate_preflight_scope.yaml", `stage: ${stage}
 status: blocked_by_missing_adapter_coverage
 mode: preflight_only
 adapter_checked_allowed: false
 new_execution: false
 `);
-  writeTextRel(root, "release/post_combined_adapter_checked_claim_boundary.yaml", `stage: ${stage}
+  writeTextRel(root, "release/claims/post-combined/post_combined_adapter_checked_claim_boundary.yaml", `stage: ${stage}
 status: pass
 provider_diverse_allowed: true
 provider_verified_allowed: false
@@ -668,24 +668,24 @@ production_ready_allowed: false
 stable_allowed: false
 release_gated_allowed: false
 `);
-  writeTextRel(root, "release/post_combined_adapter_checked_blocker_update.yaml", `stage: ${stage}
+  writeTextRel(root, "release/blockers/post-combined/post_combined_adapter_checked_blocker_update.yaml", `stage: ${stage}
 status: blocked_by_missing_adapter_coverage
 adapter_checked_allowed: false
 blockers:
 ${gaps.map((gap) => `  - ${gap}`).join("\n")}
 `);
-  writeKoDoc(root, "docs/adapter_checked_gate_preflight.ko.md", "Adapter-Checked Gate Preflight", [
+  writeKoDoc(root, "docs/adapters/adapter_checked_gate_preflight.ko.md", "Adapter-Checked Gate Preflight", [
     "`adapter-checked` 기준을 preflight 수준에서 상세화했습니다.",
     "",
     `- Status: \`${report.status}\``,
     "- ready_for_owner_decision: false",
     "- adapter-checked allowed: false"
   ]);
-  writeKoDoc(root, "docs/adapter_checked_coverage_matrix.ko.md", "Adapter-Checked Coverage Matrix", [
+  writeKoDoc(root, "docs/adapters/adapter_checked_coverage_matrix.ko.md", "Adapter-Checked Coverage Matrix", [
     "OpenAI, Ollama, vLLM placeholder, common adapter policy coverage를 기록했습니다.",
     "현재 full adapter checked allowance를 열기에는 coverage gap이 남아 있습니다."
   ]);
-  writeKoDoc(root, "docs/adapter_checked_gap_analysis.ko.md", "Adapter-Checked Gap Analysis", [
+  writeKoDoc(root, "docs/adapters/adapter_checked_gap_analysis.ko.md", "Adapter-Checked Gap Analysis", [
     "필수 gap:",
     ...gaps.map((gap) => `- ${gap}`)
   ]);
@@ -798,18 +798,18 @@ export function buildAdapterCheckedOwnerDecisionPacket(root) {
   });
   writeJsonRel(root, `${dir}/adapter_checked_claim_boundary.json`, claimBoundary(stage));
   writeUnresolved(root, dir, stage);
-  writeTextRel(root, "release/post_combined_adapter_checked_owner_decision_packet_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/scopes/post-combined/post_combined_adapter_checked_owner_decision_packet_scope.yaml", `stage: ${stage}
 status: keep_blocked_recommended
 adapter_checked_allowed: false
 new_execution: false
 `);
-  writeKoDoc(root, "docs/adapter_checked_owner_decision_packet.ko.md", "Adapter-Checked Owner Decision Packet", [
+  writeKoDoc(root, "docs/approvals/adapter_checked_owner_decision_packet.ko.md", "Adapter-Checked Owner Decision Packet", [
     `Packet status: \`${packet.status}\``,
     "- ready_for_owner_decision: false",
     "- adapter-checked allowed: false",
     "- 권장 조치: adapter coverage 보강 후 재검토"
   ]);
-  writeKoDoc(root, "docs/next_adapter_checked_coverage_completion_plan.ko.md", "Next Adapter-Checked Coverage Completion Plan", [
+  writeKoDoc(root, "docs/plans/next_adapter_checked_coverage_completion_plan.ko.md", "Next Adapter-Checked Coverage Completion Plan", [
     "OpenAI/Ollama/vLLM/common adapter coverage와 replay/regression coverage를 보강해야 합니다.",
     "owner final decision 전까지 `adapter-checked`는 blocked입니다."
   ]);
@@ -894,14 +894,14 @@ export function buildProviderAdapterFinalOwnerPacket(root) {
   writeJsonRel(root, `${dir}/adapter_checked_final_readiness.json`, adapterReadiness);
   writeJsonRel(root, `${dir}/provider_adapter_claim_boundary.json`, claimBoundary(stage));
   writeUnresolved(root, dir, stage);
-  writeTextRel(root, "release/post_combined_provider_adapter_final_owner_packet_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/scopes/post-combined/post_combined_provider_adapter_final_owner_packet_scope.yaml", `stage: ${stage}
 status: keep_blocked_recommended
 provider_diverse_allowed: true
 provider_verified_allowed: false
 adapter_checked_allowed: false
 new_execution: false
 `);
-  writeTextRel(root, "release/post_combined_provider_adapter_claim_boundary.yaml", `stage: ${stage}
+  writeTextRel(root, "release/claims/post-combined/post_combined_provider_adapter_claim_boundary.yaml", `stage: ${stage}
 status: pass
 provider_diverse_allowed: true
 provider_verified_allowed: false
@@ -910,13 +910,13 @@ production_ready_allowed: false
 stable_allowed: false
 release_gated_allowed: false
 `);
-  writeKoDoc(root, "docs/provider_adapter_final_owner_packet.ko.md", "Provider/Adapter Final Owner Packet", [
+  writeKoDoc(root, "docs/providers/provider_adapter_final_owner_packet.ko.md", "Provider/Adapter Final Owner Packet", [
     `Packet status: \`${packet.status}\``,
     "- provider-diverse allowed: true",
     "- provider-verified allowed: false",
     "- adapter-checked allowed: false"
   ]);
-  writeKoDoc(root, "docs/next_provider_adapter_final_gates_plan.ko.md", "Next Provider/Adapter Final Gates Plan", [
+  writeKoDoc(root, "docs/plans/next_provider_adapter_final_gates_plan.ko.md", "Next Provider/Adapter Final Gates Plan", [
     "다음 선택지는 provider verification coverage completion, adapter coverage completion, final export execution preflight입니다.",
     "provider-verified와 adapter-checked는 별도 owner decision/final gate 전까지 blocked입니다."
   ]);
@@ -1019,7 +1019,7 @@ Boundary:
     provider_diverse_reflected_in_export_metadata: true
   }));
   writeUnresolved(root, dir, stage);
-  writeTextRel(root, "release/final_export_execution_preflight_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/scopes/final-export/final_export_execution_preflight_scope.yaml", `stage: ${stage}
 status: ${report.status}
 actual_export_write: false
 dist_modified: false
@@ -1027,16 +1027,16 @@ provider_diverse_allowed: true
 provider_verified_allowed: false
 adapter_checked_allowed: false
 `);
-  writeTextRel(root, "release/final_export_execution_approval_request.md", approvalRequest);
-  writeTextRel(root, "release/final_export_execution_command_plan.yaml", commandPlan);
-  writeKoDoc(root, "docs/final_export_execution_preflight.ko.md", "Final Export Execution Preflight", [
+  writeTextRel(root, "release/approvals/final-export/final_export_execution_approval_request.md", approvalRequest);
+  writeTextRel(root, "release/commands/final-export/final_export_execution_command_plan.yaml", commandPlan);
+  writeKoDoc(root, "docs/release/final_export_execution_preflight.ko.md", "Final Export Execution Preflight", [
     `Status: \`${report.status}\``,
     "- actual export write: false",
     "- dist modified: false",
     "- requires_operator_approval: true",
     "- provider-diverse reflected: true"
   ]);
-  writeKoDoc(root, "docs/final_export_execution_approval_request.ko.md", "Final Export Execution Approval Request", [
+  writeKoDoc(root, "docs/approvals/final_export_execution_approval_request.ko.md", "Final Export Execution Approval Request", [
     "실제 export write를 위해서는 별도 operator approval이 필요합니다.",
     "Approval phrase: `I approve v2.0.0-final-export-execution.`",
     "이번 preflight에서는 `dist`를 수정하지 않았습니다."
@@ -1109,7 +1109,7 @@ export function runAutopilotUntilBlocked(root) {
       actual_export_write: false,
       requires_operator_approval: true
     },
-    latest_gate_script: "tools/check_final_export_execution_preflight.mjs",
+    latest_gate_script: "tools/checks/workspace/check_final_export_execution_preflight.mjs",
     latest_gate_result: exportGate.status,
     unresolved_items_count: exportGate.unresolved_items_count,
     ...noExecFlags({ provider_diverse_allowed: true }),

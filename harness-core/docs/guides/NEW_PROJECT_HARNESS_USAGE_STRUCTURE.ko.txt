@@ -1,0 +1,630 @@
+HARNESS Core 새 프로젝트 적용 구조
+=================================
+
+목적
+----
+이 파일은 HARNESS Core 자산을 새 프로젝트에서 사용하는 표준 구조를 기록한다.
+사용자가 작성하는 정형 프로젝트 입력 양식은 `PROJECT_INPUT_TEMPLATE.ko.md`를
+reference로 사용한다. 실제로 채운 프로젝트별 입력값은 새 프로젝트 루트의
+`PROJECT_INPUT.md`에 남긴다.
+
+HARNESS Core는 단순 프롬프트 묶음이 아니라, 자율형 코딩 에이전트가 evidence,
+gate, claim boundary를 따라 안전하게 작업하도록 만드는 하네스 엔지니어링 코어다.
+
+
+0. 표준 사용 모델
+----------------
+
+새 프로젝트에서 HARNESS Core를 쓰는 표준 모델은 external project + vendored
+harness mode다.
+
+원칙:
+
+1. 새 프로젝트의 작업 루트는 `<new-project-root>`다.
+2. 실제 제품 코드는 해당 언어와 프레임워크가 기대하는 표준 구조에 둔다.
+3. HARNESS Core 자산은 `<new-project-root>/.harness/harness-core/` 아래에 둔다.
+4. 새 프로젝트의 evidence와 HARNESS Core 자체 evidence를 섞지 않는다.
+5. 새 프로젝트의 `CURRENT_STATE.yaml`은 프로젝트 상태를 기록한다.
+6. HARNESS Core의 `CURRENT_STATE.yaml`은 HARNESS Core 자체 상태를 기록한다.
+7. HARNESS Core 자산을 수정해야 할 때는 제품 구현이 아니라 `harness adaptation`
+   작업으로 분리한다.
+8. HARNESS Core evidence를 제품 claim evidence처럼 자동 승격하지 않는다.
+9. `provider-verified`, `adapter-checked`, `production-ready`, `stable`,
+   `release-gated`는 프로젝트별 gate와 evidence가 없으면 계속 blocked다.
+
+과거 root workspace mode는 HARNESS Core 자체를 개발하거나 검증할 때 쓰는 모드다.
+새 제품 구현의 기본 모델로 사용하지 않는다.
+
+
+1. 새 프로젝트 권장 구조
+-----------------------
+
+권장 구조:
+
+```text
+<new-project-root>/
+  AGENTS.md
+  README.md
+  PROJECT_INPUT.md
+  PROJECT_BRIEF.md
+  CURRENT_STATE.yaml
+
+  <framework-standard-source-layout>
+    예: src/
+    예: app/
+    예: pages/
+    예: lib/
+    예: cmd/
+    예: internal/
+
+  <framework-standard-test-layout>
+    예: tests/
+    예: __tests__/
+    예: src/**/*.test.ts
+
+  docs/
+    architecture/
+    decisions/
+    handoff/
+
+  evidence/
+    current-state/
+    runs/
+    gates/
+    checks/
+
+  release/
+    scope.yaml
+    claim_boundary.yaml
+    blocker_register.yaml
+    approval_requests/
+
+  tools/
+    check_project_current_state.mjs
+    check_project_claims.mjs
+    check_project_precommit.mjs
+
+  .harness/
+    harness-core/
+      AGENTS.md
+      START_HERE_FOR_AGENTS.ko.md
+      AGENT_BOOTSTRAP.ko.md
+      README.md
+      CURRENT_STATE.yaml
+      profiles/
+      tools/
+      release/
+      evidence/reference-baseline/
+```
+
+디렉터리 역할:
+
+| 경로 | 역할 |
+|---|---|
+| `<new-project-root>/` | 새 제품 프로젝트의 실제 작업 루트 |
+| `<new-project-root>/<framework-standard-source-layout>` | 실제 소프트웨어 코드 |
+| `<new-project-root>/<framework-standard-test-layout>` | 제품 테스트와 fixture |
+| `<new-project-root>/PROJECT_INPUT.md` | 사용자가 채운 프로젝트별 정형 입력 |
+| `<new-project-root>/PROJECT_BRIEF.md` | 제품 목표, 사용자 가치, 요구사항, 제외 범위 |
+| `<new-project-root>/CURRENT_STATE.yaml` | 프로젝트별 상태와 claim boundary |
+| `<new-project-root>/docs/` | 아키텍처, 의사결정, handoff |
+| `<new-project-root>/evidence/` | 프로젝트 구현/테스트/게이트 증거 |
+| `<new-project-root>/release/` | 프로젝트 scope, claim boundary, blocker register |
+| `<new-project-root>/tools/` | 프로젝트별 checker와 precommit 검증 |
+| `<new-project-root>/.harness/harness-core/` | HARNESS Core vendored reference |
+
+
+2. HARNESS Core 배치 방법
+-------------------------
+
+새 프로젝트 루트에서 agent-ready clean export를 사용한다.
+
+```bash
+mkdir -p .harness
+unzip /path/to/harness-core-agent-ready.zip -d .harness/harness-core
+cd .harness/harness-core
+node tools/checks/workspace/check_agent_ready_self_contained.mjs
+node tools/checks/workspace/check_reference_baseline_integrity.mjs
+cd ../..
+```
+
+canonical export:
+
+```text
+exports/harness-core-agent-ready.zip
+```
+
+정확한 SHA-256은 archive 외부 delivery metadata 또는 HARNESS Core evidence report에서
+확인한다. archive 내부에 자기 자신의 checksum을 고정하지 않는다.
+
+
+3. 템플릿 자산
+--------------
+
+HARNESS Core는 새 프로젝트 루트로 복사할 수 있는 템플릿 자산을 제공한다.
+
+```text
+harness-core/templates/external-project/
+```
+
+사용자가 프로젝트를 설명할 때 쓰는 정형 입력 양식은 별도 문서에 둔다.
+
+```text
+harness-core/docs/guides/PROJECT_INPUT_TEMPLATE.ko.md
+```
+
+이 파일은 HARNESS Core 안의 reference template다. 프로젝트별로 채운 입력값은
+새 프로젝트 루트의 `PROJECT_INPUT.md`에 둔다.
+
+템플릿에는 아래 파일이 포함된다.
+
+```text
+AGENTS.md
+PROJECT_INPUT.md
+PROJECT_BRIEF.md
+CURRENT_STATE.yaml
+release/scope.yaml
+release/claim_boundary.yaml
+release/blocker_register.yaml
+tools/check_project_current_state.mjs
+tools/check_project_claims.mjs
+tools/check_project_precommit.mjs
+docs/architecture/README.md
+docs/decisions/README.md
+docs/handoff/README.md
+evidence/current-state/.gitkeep
+evidence/runs/.gitkeep
+evidence/gates/.gitkeep
+evidence/checks/.gitkeep
+```
+
+사용 방법:
+
+```bash
+cp -R .harness/harness-core/templates/external-project/. .
+node tools/check_project_current_state.mjs
+node tools/check_project_claims.mjs
+```
+
+이미 프로젝트 파일이 있는 경우에는 덮어쓰기 전에 사람이 확인한다. 특히 기존
+`AGENTS.md`, `CURRENT_STATE.yaml`, `release/*`, `tools/check_*`가 있다면 병합한다.
+
+HARNESS Core workspace에서 템플릿 계약 자체를 검증할 때는 아래를 실행한다.
+
+```bash
+node tools/checks/workspace/check_external_project_template_contract.mjs
+```
+
+
+4. 새 에이전트 시작 순서
+-----------------------
+
+에이전트는 `<new-project-root>`에서 시작한다.
+
+먼저 프로젝트 상태를 읽는다.
+
+```text
+AGENTS.md
+PROJECT_BRIEF.md
+CURRENT_STATE.yaml
+release/scope.yaml
+release/claim_boundary.yaml
+release/blocker_register.yaml
+```
+
+그 다음 HARNESS Core 운영 규칙을 reference로 읽는다.
+
+```text
+.harness/harness-core/AGENTS.md
+.harness/harness-core/START_HERE_FOR_AGENTS.ko.md
+.harness/harness-core/AGENT_BOOTSTRAP.ko.md
+.harness/harness-core/README.md
+.harness/harness-core/release/claims/general/claim_ladder.md
+```
+
+HARNESS Core 자체 health check가 필요할 때만 아래를 별도 실행한다.
+
+```bash
+cd .harness/harness-core
+node tools/checks/workspace/check_agent_ready_self_contained.mjs
+node tools/checks/workspace/check_reference_baseline_integrity.mjs
+cd ../..
+```
+
+프로젝트 작업 전 기본 검증:
+
+```bash
+node tools/check_project_current_state.mjs
+node tools/check_project_claims.mjs
+```
+
+프로젝트 작업 후 기본 검증:
+
+```bash
+node tools/check_project_precommit.mjs
+```
+
+
+5. 보호 경로와 금지 작업
+-----------------------
+
+제품 기능 구현 중 아래는 수정하지 않는다.
+
+```text
+node_modules/**
+dist/**
+.harness/harness-core/evidence/reference-baseline/**
+.harness/harness-core/dist/**
+.harness/harness-core/node_modules/**
+```
+
+금지 작업:
+
+```text
+OpenAI model API call, 사용자 승인 없는 경우
+OpenAI provider rerun, 사용자 승인 없는 경우
+외부 유료 API call, 사용자 승인 없는 경우
+local model generation, 사용자 승인 없는 경우
+telemetry sink write, 사용자 승인 없는 경우
+npm install, 사용자 승인 없는 경우
+npm ci, 사용자 승인 없는 경우
+new model pull/download, 사용자 승인 없는 경우
+raw request 저장
+raw response 저장
+secret/API key/auth header 저장
+production deployment
+release gate rerun
+destructive command, 사용자 승인 없는 경우
+```
+
+
+6. 계속 금지되는 강한 claim
+--------------------------
+
+새 제품 기능 구현이 성공해도 아래 claim은 자동으로 열지 않는다.
+
+```text
+provider-verified
+adapter-checked
+production-ready
+stable
+release-gated
+bare release-gated
+```
+
+제품 기능 구현에서 허용되는 것은 기능 단위의 약한 claim이다.
+
+예:
+
+```text
+project-<project-slug>-<feature-id>-implemented
+project-<project-slug>-<feature-id>-tested
+project-<project-slug>-<feature-id>-gate-passed
+```
+
+
+7. 기능 구현 플로우
+------------------
+
+권장 플로우:
+
+```text
+1. 프로젝트 루트에서 CURRENT_STATE.yaml 확인
+2. .harness/harness-core health check 확인, 필요한 경우
+3. PROJECT_INPUT.md 작성 또는 갱신
+4. PROJECT_BRIEF.md 작성 또는 갱신
+5. release/scope.yaml 작성 또는 갱신
+6. release/claim_boundary.yaml 작성 또는 갱신
+7. 프레임워크 표준 구조에 제품 코드 구현
+8. 프레임워크 표준 위치에 테스트 작성
+9. evidence/runs 또는 evidence/checks에 실행 결과 기록
+10. 프로젝트 checker 실행
+11. HARNESS Core health check 실행, 필요한 경우
+12. 최종 보고와 handoff 작성
+```
+
+
+8. 기능 스펙 예시
+----------------
+
+`PROJECT_BRIEF.md` 또는 기능별 brief에 아래 내용을 둔다.
+
+```yaml
+feature_id: feature-001-kanban-board
+project: task-board
+status: requested
+
+goal:
+  summary: 로컬 저장 기반 Kanban 보드 구현
+  user_value: 사용자가 브라우저에서 보드/컬럼/카드를 관리할 수 있다.
+
+requirements:
+  functional:
+    - 보드를 생성할 수 있다.
+    - 컬럼을 생성/수정/삭제할 수 있다.
+    - 카드를 생성/수정/삭제할 수 있다.
+    - 카드를 컬럼 간 이동할 수 있다.
+    - 브라우저 새로고침 후에도 localStorage에 상태가 남는다.
+  non_functional:
+    - 외부 서버가 필요 없다.
+    - secret을 사용하지 않는다.
+    - 기본 빌드가 통과해야 한다.
+
+acceptance_criteria:
+  - 핵심 로직 테스트 통과
+  - 빌드 통과
+  - README에 실행법 포함
+  - evidence report 생성
+  - project checker 통과
+
+out_of_scope:
+  - 사용자 로그인
+  - 서버 DB
+  - 실시간 협업
+  - 외부 API 연동
+
+allowed_paths:
+  - AGENTS.md
+  - README.md
+  - PROJECT_BRIEF.md
+  - CURRENT_STATE.yaml
+  - src/**
+  - app/**
+  - tests/**
+  - docs/**
+  - evidence/**
+  - release/**
+  - tools/**
+  - package.json
+  - pyproject.toml
+  - Cargo.toml
+  - go.mod
+
+forbidden_paths:
+  - node_modules/**
+  - dist/**
+  - .harness/harness-core/evidence/reference-baseline/**
+  - .harness/harness-core/dist/**
+  - .harness/harness-core/node_modules/**
+```
+
+
+9. 프로젝트 checker 기본 구조
+----------------------------
+
+프로젝트별 checker는 `<new-project-root>/tools/` 아래에 둔다. HARNESS Core의
+`.harness/harness-core/tools/`에 제품별 checker를 추가하지 않는다.
+
+최소 확인 항목:
+
+```text
+필수 파일 존재
+HARNESS Core vendored path 존재
+프로젝트 CURRENT_STATE.yaml과 HARNESS Core CURRENT_STATE.yaml 분리
+release/scope.yaml 존재
+release/claim_boundary.yaml 존재
+blocker register 존재
+evidence/checks report 생성 가능
+보호 경로 수정 없음
+강한 claim 미허용
+secret/raw payload 저장 없음
+```
+
+출력 예시:
+
+```json
+{
+  "status": "pass",
+  "project_root": "<new-project-root>",
+  "harness_reference": ".harness/harness-core",
+  "project_state_exists": true,
+  "harness_state_exists": true,
+  "claim_boundary_exists": true,
+  "blocked_strong_claims_recorded": true,
+  "secret_or_raw_payload_stored": false
+}
+```
+
+
+10. 새 프로젝트 AGENTS.md 최소 골격
+----------------------------------
+
+새 프로젝트 루트의 `AGENTS.md`에는 최소한 아래 항목을 둔다.
+
+1. 프로젝트 목표
+2. 현재 작업 루트
+3. HARNESS Core 위치
+4. product code 수정 가능 범위
+5. harness asset 수정 가능 범위
+6. 금지 작업
+7. 검증 명령
+8. claim boundary
+9. 커밋/배포 승인 정책
+
+예시:
+
+```markdown
+# Project Agent Constitution
+
+This project uses HARNESS Core as the evidence-gated autonomous engineering
+harness.
+
+Harness location:
+- .harness/harness-core/
+
+Before broad or release-sensitive work, read:
+- AGENTS.md
+- CURRENT_STATE.yaml
+- release/scope.yaml
+- release/claim_boundary.yaml
+- .harness/harness-core/AGENTS.md
+- .harness/harness-core/START_HERE_FOR_AGENTS.ko.md
+- .harness/harness-core/AGENT_BOOTSTRAP.ko.md
+- .harness/harness-core/README.md
+
+Project state lives in:
+- CURRENT_STATE.yaml
+- evidence/current-state/
+- release/claim_boundary.yaml
+- release/blocker_register.yaml
+
+Project-specific checkers live in:
+- tools/
+
+Do not put project-specific checkers under:
+- .harness/harness-core/tools/
+
+Do not claim production-ready, stable, release-gated, provider-verified, or
+adapter-checked unless this project has an explicit project-specific gate and
+evidence bundle for that claim.
+```
+
+
+11. 새 프로젝트 CURRENT_STATE.yaml 최소 필드
+------------------------------------------
+
+```yaml
+project:
+  name: <PROJECT_NAME>
+  slug: <project-slug>
+  harness:
+    name: HARNESS Core
+    path: .harness/harness-core
+    mode: external_project_vendored_harness
+
+stage: project-bootstrap
+
+goal:
+  summary: <ONE_SENTENCE_GOAL>
+  solved_condition:
+    - <observable condition 1>
+    - <observable condition 2>
+
+operation_mode:
+  primary: project_root
+  harness_reference: .harness/harness-core
+
+claims:
+  allowed_weak_claims:
+    - project-bootstrap-recorded
+    - project-current-state-recorded
+  blocked_strong_claims:
+    - provider-verified
+    - adapter-checked
+    - production-ready
+    - stable
+    - release-gated
+
+evidence:
+  current_state_dir: evidence/current-state
+  runs_dir: evidence/runs
+  gates_dir: evidence/gates
+  checks_dir: evidence/checks
+
+verification:
+  required_commands:
+    - node tools/check_project_current_state.mjs
+    - node tools/check_project_claims.mjs
+    - node tools/check_project_precommit.mjs
+```
+
+
+12. dependency 추가가 필요한 경우
+--------------------------------
+
+에이전트가 새 dependency가 필요하다고 판단하면 자동 설치하지 않고 아래 형식으로
+보고해야 한다.
+
+```text
+dependency approval required
+
+필요한 dependency:
+- <package-name>
+
+필요한 이유:
+- <reason>
+
+수정 예정 파일:
+- package.json 또는 해당 언어의 dependency manifest
+- lockfile, 승인 시
+
+승인 문구:
+I approve dependency changes for <project-slug> using <install command>.
+```
+
+사용자가 승인하기 전까지 아래는 금지다.
+
+```text
+npm install
+npm ci
+pip install that mutates project dependency state
+cargo add
+go get
+node_modules 수정
+```
+
+
+13. 외부 API가 필요한 경우
+-------------------------
+
+외부 API가 필요하면 자동 호출하지 않고 아래 형식으로 멈춘다.
+
+```text
+external API approval required
+
+필요한 외부 API:
+- <api-name>
+
+필요한 이유:
+- <reason>
+
+데이터/비용/credential 영향:
+- <impact>
+
+승인 문구:
+I approve external API usage for <project-slug> feature <feature-id>.
+```
+
+승인 전까지 외부 API 호출은 금지다.
+
+
+14. 운영 체크리스트
+------------------
+
+새 프로젝트 시작 시:
+
+1. `<new-project-root>`를 만든다.
+2. 언어/프레임워크 표준 구조를 따른다.
+3. `.harness/harness-core/`에 HARNESS Core clean export를 배치한다.
+4. `harness-core/templates/external-project/` 템플릿을 프로젝트 루트로 복사한다.
+5. `PROJECT_INPUT.md`에 사용자가 채운 정형 입력을 남긴다.
+6. `AGENTS.md`, `PROJECT_BRIEF.md`, `CURRENT_STATE.yaml`을 프로젝트에 맞게 수정한다.
+7. `release/scope.yaml`과 `release/claim_boundary.yaml`을 생성 또는 수정한다.
+8. 프로젝트별 evidence 디렉터리를 만든다.
+9. 프로젝트별 checker를 `tools/` 아래에 둔다.
+10. 첫 검증 결과를 `evidence/checks/`에 기록한다.
+11. 강한 claim은 모두 blocked로 유지한다.
+
+작업 종료 시:
+
+1. 변경 범위를 요약한다.
+2. 실행한 검증 명령과 결과를 기록한다.
+3. unresolved item을 명시한다.
+4. claim boundary를 업데이트한다.
+5. 보호 경로 수정 여부를 확인한다.
+6. secret/raw payload 저장 여부를 확인한다.
+7. 커밋이 필요하면 승인 요청 상태로 멈춘다.
+
+
+15. 사용자가 최종 보고에서 확인할 핵심
+-------------------------------------
+
+```text
+1. 기능이 요구사항을 만족하는가
+2. 테스트가 통과했는가
+3. project checker가 통과했는가
+4. HARNESS Core health check가 필요한 경우 통과했는가
+5. 보호 경로를 건드리지 않았는가
+6. strong claim을 열지 않았는가
+7. unresolved item이 0이거나 정직하게 기록됐는가
+```

@@ -277,7 +277,7 @@ Status: ${report.status}
 - Strong claim allowance changed: false
 - New execution: false
 `);
-  writeTextRel(root, "release/post_combined_provider_diverse_path_design_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/scopes/post-combined/post_combined_provider_diverse_path_design_scope.yaml", `stage: ${stage}
 status: pass
 provider_diverse_allowed: false
 approved_actions:
@@ -292,14 +292,14 @@ forbidden_execution:
   dist_modification: true
   evidence_reference_baseline_refresh: true
 `);
-  writeTextRel(root, "release/post_combined_provider_diverse_gate_policy.yaml", `stage: ${stage}
+  writeTextRel(root, "release/gates/post-combined/post_combined_provider_diverse_gate_policy.yaml", `stage: ${stage}
 status: drafted
 provider_diverse_allowed: false
 criteria_matrix: ${dir}/provider_diverse_criteria_matrix.json
 owner_final_decision_required: true
 final_gate_required: true
 `);
-  writeTextRel(root, "release/post_combined_provider_diverse_claim_boundary.yaml", `stage: ${stage}
+  writeTextRel(root, "release/claims/post-combined/post_combined_provider_diverse_claim_boundary.yaml", `stage: ${stage}
 status: pass
 provider_diverse_allowed: false
 provider_verified_allowed: false
@@ -308,7 +308,7 @@ production_ready_allowed: false
 stable_allowed: false
 release_gated_allowed: false
 `);
-  writeTextRel(root, "release/post_combined_provider_diverse_blocker_update.yaml", `stage: ${stage}
+  writeTextRel(root, "release/blockers/post-combined/post_combined_provider_diverse_blocker_update.yaml", `stage: ${stage}
 status: blocked_until_owner_decision_and_final_gate
 provider_diverse_allowed: false
 blockers:
@@ -320,7 +320,7 @@ stage: ${stage}
 mode: design_only
 new_execution: false
 `);
-  writeKoDoc(root, "docs/provider_diverse_path_design.ko.md", "Provider Diversity Path Design", [
+  writeKoDoc(root, "docs/providers/provider_diverse_path_design.ko.md", "Provider Diversity Path Design", [
     "OpenAI API lane과 Ollama qwen3 local lane을 provider diversity 후보 lane으로 정리했습니다.",
     "",
     "- 강한 claim 허용 변경: false",
@@ -329,11 +329,11 @@ new_execution: false
     "- telemetry sink write: false",
     "- referenceBaseline/dist 수정: false"
   ]);
-  writeKoDoc(root, "docs/provider_diverse_claim_boundary.ko.md", "Provider Diversity Claim Boundary", [
+  writeKoDoc(root, "docs/claims/provider_diverse_claim_boundary.ko.md", "Provider Diversity Claim Boundary", [
     "`provider-diverse` remains blocked.",
     "현재 단계는 criteria와 lane mapping만 기록합니다."
   ]);
-  writeKoDoc(root, "docs/next_provider_diverse_evidence_inventory_plan.ko.md", "Next Provider Diversity Inventory Plan", [
+  writeKoDoc(root, "docs/plans/next_provider_diverse_evidence_inventory_plan.ko.md", "Next Provider Diversity Inventory Plan", [
     "다음 단계는 OpenAI API lane과 Ollama qwen3 local lane의 inventory를 비교하고 owner decision packet을 준비하는 것입니다."
   ]);
   return report;
@@ -468,24 +468,24 @@ export function inventoryProviderDiverseEvidence(root) {
   writeJsonRel(root, `${dir}/provider_diverse_evidence_claim_boundary.json`, claimBoundary);
   writeJsonRel(root, `${dir}/provider_diverse_owner_decision_packet.json`, ownerPacket);
   writeJsonRel(root, `${dir}/unresolved_items.json`, { status: "pass", stage, unresolved_items_count: 0, unresolved_items: [] });
-  writeTextRel(root, "release/post_combined_provider_diverse_evidence_inventory_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/scopes/post-combined/post_combined_provider_diverse_evidence_inventory_scope.yaml", `stage: ${stage}
 status: ${report.status}
 provider_diverse_allowed: false
 new_execution: false
 `);
-  writeTextRel(root, "release/post_combined_provider_diverse_owner_decision_gate.yaml", `stage: ${stage}
+  writeTextRel(root, "release/gates/post-combined/post_combined_provider_diverse_owner_decision_gate.yaml", `stage: ${stage}
 status: drafted
 provider_diverse_allowed: false
 owner_final_decision_required: true
 final_gate_required: true
 `);
-  writeKoDoc(root, "docs/provider_diverse_evidence_inventory.ko.md", "Provider Diversity Inventory", [
+  writeKoDoc(root, "docs/providers/provider_diverse_evidence_inventory.ko.md", "Provider Diversity Inventory", [
     "OpenAI API lane과 Ollama qwen3 local lane 자료를 색인했습니다.",
     "",
     `- owner decision readiness: ${ready}`,
     "- strong claim allowance changed: false"
   ]);
-  writeKoDoc(root, "docs/provider_diverse_owner_decision_packet.ko.md", "Provider Diversity Owner Decision Packet", [
+  writeKoDoc(root, "docs/approvals/provider_diverse_owner_decision_packet.ko.md", "Provider Diversity Owner Decision Packet", [
     `Packet status: \`${ownerPacket.status}\``,
     "Owner final decision 없이는 strong claim을 열지 않습니다."
   ]);
@@ -565,13 +565,13 @@ export function designProviderVerifiedGate(root) {
   writeJsonRel(root, `${dir}/provider_verified_claim_boundary.json`, stageClaimBoundary(stage, { status: "pass" }));
   writeJsonRel(root, `${dir}/provider_verified_blocker_update.json`, blocker);
   writeJsonRel(root, `${dir}/unresolved_items.json`, { status: "pass", stage, unresolved_items_count: 0, unresolved_items: [] });
-  writeTextRel(root, "release/post_combined_provider_verified_gate_design_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/gates/post-combined/post_combined_provider_verified_gate_design_scope.yaml", `stage: ${stage}
 status: pass
 provider_verified_allowed: false
 mode: design_only
 new_execution: false
 `);
-  writeTextRel(root, "release/post_combined_provider_verified_claim_boundary.yaml", `stage: ${stage}
+  writeTextRel(root, "release/claims/post-combined/post_combined_provider_verified_claim_boundary.yaml", `stage: ${stage}
 status: pass
 provider_verified_allowed: false
 provider_diverse_allowed: false
@@ -580,11 +580,11 @@ production_ready_allowed: false
 stable_allowed: false
 release_gated_allowed: false
 `);
-  writeKoDoc(root, "docs/provider_verified_gate_design.ko.md", "Provider Verification Gate Design", [
+  writeKoDoc(root, "docs/providers/provider_verified_gate_design.ko.md", "Provider Verification Gate Design", [
     "Provider verification과 provider diversity를 분리해 criteria를 설계했습니다.",
     "현재 evidence만으로는 provider-level verification allowance를 변경하지 않습니다."
   ]);
-  writeKoDoc(root, "docs/provider_verified_claim_boundary.ko.md", "Provider Verification Claim Boundary", [
+  writeKoDoc(root, "docs/claims/provider_verified_claim_boundary.ko.md", "Provider Verification Claim Boundary", [
     "`provider-verified` remains blocked.",
     "별도 provider-level verification gate와 owner final decision이 필요합니다."
   ]);
@@ -672,13 +672,13 @@ export function designAdapterCheckedGate(root) {
   writeJsonRel(root, `${dir}/adapter_checked_claim_boundary.json`, stageClaimBoundary(stage, { status: "pass" }));
   writeJsonRel(root, `${dir}/adapter_checked_blocker_update.json`, blocker);
   writeJsonRel(root, `${dir}/unresolved_items.json`, { status: "pass", stage, unresolved_items_count: 0, unresolved_items: [] });
-  writeTextRel(root, "release/post_combined_adapter_checked_gate_design_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/gates/post-combined/post_combined_adapter_checked_gate_design_scope.yaml", `stage: ${stage}
 status: pass
 adapter_checked_allowed: false
 mode: design_only
 new_execution: false
 `);
-  writeTextRel(root, "release/post_combined_adapter_checked_claim_boundary.yaml", `stage: ${stage}
+  writeTextRel(root, "release/claims/post-combined/post_combined_adapter_checked_claim_boundary.yaml", `stage: ${stage}
 status: pass
 adapter_checked_allowed: false
 provider_diverse_allowed: false
@@ -687,11 +687,11 @@ production_ready_allowed: false
 stable_allowed: false
 release_gated_allowed: false
 `);
-  writeKoDoc(root, "docs/adapter_checked_gate_design.ko.md", "Adapter Checked Gate Design", [
+  writeKoDoc(root, "docs/adapters/adapter_checked_gate_design.ko.md", "Adapter Checked Gate Design", [
     "OpenAI, Ollama, vLLM placeholder, common adapter policy의 coverage와 gap을 기록했습니다.",
     "현재 Ollama mapping review만으로는 adapter-wide allowance를 변경하지 않습니다."
   ]);
-  writeKoDoc(root, "docs/adapter_checked_claim_boundary.ko.md", "Adapter Checked Claim Boundary", [
+  writeKoDoc(root, "docs/claims/adapter_checked_claim_boundary.ko.md", "Adapter Checked Claim Boundary", [
     "`adapter-checked` remains blocked.",
     "전 adapter coverage gate와 owner final decision이 필요합니다."
   ]);
@@ -790,14 +790,14 @@ export function buildStrictPathsOwnerDecisionPacket(root) {
   writeJsonRel(root, `${dir}/adapter_checked_decision_readiness.json`, adapterCheckedReadiness);
   writeJsonRel(root, `${dir}/strict_paths_claim_boundary.json`, stageClaimBoundary(stage, { status: "pass" }));
   writeJsonRel(root, `${dir}/unresolved_items.json`, { status: "pass", stage, unresolved_items_count: 0, unresolved_items: [] });
-  writeTextRel(root, "release/post_combined_strict_paths_owner_decision_packet_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/scopes/post-combined/post_combined_strict_paths_owner_decision_packet_scope.yaml", `stage: ${stage}
 status: keep_blocked_recommended
 provider_diverse_allowed: false
 provider_verified_allowed: false
 adapter_checked_allowed: false
 new_execution: false
 `);
-  writeTextRel(root, "release/post_combined_strict_paths_claim_boundary.yaml", `stage: ${stage}
+  writeTextRel(root, "release/claims/post-combined/post_combined_strict_paths_claim_boundary.yaml", `stage: ${stage}
 status: pass
 provider_diverse_allowed: false
 provider_verified_allowed: false
@@ -806,20 +806,20 @@ production_ready_allowed: false
 stable_allowed: false
 release_gated_allowed: false
 `);
-  writeKoDoc(root, "docs/strict_paths_owner_decision_packet.ko.md", "Strict Paths Owner Decision Packet", [
+  writeKoDoc(root, "docs/approvals/strict_paths_owner_decision_packet.ko.md", "Strict Paths Owner Decision Packet", [
     `Packet status: \`${packet.status}\``,
     `Provider diversity readiness: \`${providerDiverseReadiness.status}\``,
     `Provider verification readiness: \`${providerVerifiedReadiness.status}\``,
     `Adapter checked readiness: \`${adapterCheckedReadiness.status}\``,
     "강한 claim은 모두 blocked 상태로 유지했습니다."
   ]);
-  writeKoDoc(root, "docs/next_provider_diverse_final_gate_plan.ko.md", "Next Provider Diversity Final Gate Plan", [
+  writeKoDoc(root, "docs/plans/next_provider_diverse_final_gate_plan.ko.md", "Next Provider Diversity Final Gate Plan", [
     "Owner decision 후 별도 final gate를 실행해야 allowance 변경을 검토할 수 있습니다."
   ]);
-  writeKoDoc(root, "docs/next_provider_verified_gate_plan.ko.md", "Next Provider Verification Gate Plan", [
+  writeKoDoc(root, "docs/plans/next_provider_verified_gate_plan.ko.md", "Next Provider Verification Gate Plan", [
     "Provider-level verification coverage를 보강한 뒤 gate를 실행해야 합니다."
   ]);
-  writeKoDoc(root, "docs/next_adapter_checked_gate_plan.ko.md", "Next Adapter Checked Gate Plan", [
+  writeKoDoc(root, "docs/plans/next_adapter_checked_gate_plan.ko.md", "Next Adapter Checked Gate Plan", [
     "OpenAI/Ollama/vLLM/common adapter coverage gate를 별도로 실행해야 합니다."
   ]);
   return packet;
@@ -857,10 +857,10 @@ export function draftFinalExportPackage(root) {
     "evidence/combined-openai-local-archive-export/combined_archive_manifest.json",
     "evidence/post-combined-strict-paths-owner-decision-packet/strict_paths_owner_decision_packet.json",
     "evidence/post-combined-strict-paths-owner-decision-packet/strict_paths_owner_decision_gate_report.json",
-    "release/combined_openai_local_archive_manifest.yaml",
-    "release/post_combined_strict_paths_owner_decision_packet_scope.yaml",
-    "docs/combined_openai_local_archive_export.ko.md",
-    "docs/strict_paths_owner_decision_packet.ko.md"
+    "release/manifests/combined/combined_openai_local_archive_manifest.yaml",
+    "release/scopes/post-combined/post_combined_strict_paths_owner_decision_packet_scope.yaml",
+    "docs/local/combined_openai_local_archive_export.ko.md",
+    "docs/approvals/strict_paths_owner_decision_packet.ko.md"
   ];
   const manifest = {
     status: "drafted",
@@ -902,7 +902,7 @@ export function draftFinalExportPackage(root) {
     ]
   });
   writeJsonRel(root, `${dir}/unresolved_items.json`, { status: "pass", stage, unresolved_items_count: 0, unresolved_items: [] });
-  writeTextRel(root, "release/final_export_package_draft_scope.yaml", `stage: ${stage}
+  writeTextRel(root, "release/scopes/final-export/final_export_package_draft_scope.yaml", `stage: ${stage}
 status: ${report.status}
 dist_modified: false
 actual_export_write: false
@@ -910,11 +910,11 @@ provider_diverse_allowed: false
 provider_verified_allowed: false
 adapter_checked_allowed: false
 `);
-  writeKoDoc(root, "docs/final_export_package_draft.ko.md", "Final Export Package Draft", [
+  writeKoDoc(root, "docs/release/final_export_package_draft.ko.md", "Final Export Package Draft", [
     "현재 combined archive와 strict paths owner packet을 export package draft로 정리했습니다.",
     "dist에는 쓰지 않았고 actual export write도 수행하지 않았습니다."
   ]);
-  writeKoDoc(root, "docs/next_final_export_execution_plan.ko.md", "Next Final Export Execution Plan", [
+  writeKoDoc(root, "docs/plans/next_final_export_execution_plan.ko.md", "Next Final Export Execution Plan", [
     "실제 export write는 operator signal 이후 별도 단계에서 수행해야 합니다.",
     "현재 단계에서는 manifest와 checksum만 evidence에 기록했습니다."
   ]);

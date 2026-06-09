@@ -437,14 +437,14 @@ export function reviewOpenAIProviderContractRegressionNoNewCall(root) {
     blockers,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_openai_provider_contract_regression_review_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_openai_provider_contract_regression_review_scope.yaml", [
     `stage: ${stage}`,
     "status: existing_evidence_review",
     "openai_model_api_call: false",
     "openai_provider_rerun: false",
     "provider_verified_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_openai_provider_contract_regression_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_openai_provider_contract_regression_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "post_export_openai_provider_contract_regression_reviewed_allowed: " + (status === "pass"),
@@ -457,7 +457,7 @@ export function reviewOpenAIProviderContractRegressionNoNewCall(root) {
   writeJsonRel(root, `${dir}/openai_provider_claim_boundary.json`, claimBoundary);
   writeJsonRel(root, `${dir}/openai_provider_contract_regression_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/openai_provider_contract_regression_review.ko.md", "OpenAI Provider Contract/Regression Review", [
+  writeMd(root, "docs/providers/openai_provider_contract_regression_review.ko.md", "OpenAI Provider Contract/Regression Review", [
     `Status: \`${status}\``,
     "",
     "- 새 OpenAI API 호출 없이 기존 canary/replay evidence만 재색인했습니다.",
@@ -606,7 +606,7 @@ export async function runOllamaStructuredOutputSmoke(root) {
     blocked_claims: ["schema-output-verified", ...BARE_BLOCKED_CLAIMS],
     ...commonFlags({ new_local_model_execution: true, new_local_model_call_count: caseResults.length })
   };
-  writeYaml(root, "release/post_export_ollama_structured_output_smoke_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_ollama_structured_output_smoke_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "models:",
@@ -615,7 +615,7 @@ export async function runOllamaStructuredOutputSmoke(root) {
     "raw_request_stored: false",
     "raw_response_stored: false"
   ]);
-  writeYaml(root, "release/post_export_ollama_structured_output_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_ollama_structured_output_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "schema_output_verified_allowed: false",
@@ -634,7 +634,7 @@ export async function runOllamaStructuredOutputSmoke(root) {
   writeJsonRel(root, `${dir}/ollama_structured_output_claim_boundary.json`, claimBoundary);
   writeJsonRel(root, `${dir}/ollama_structured_output_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/ollama_structured_output_smoke.ko.md", "Ollama Structured Output Smoke", [
+  writeMd(root, "docs/local/ollama_structured_output_smoke.ko.md", "Ollama Structured Output Smoke", [
     `Status: \`${status}\``,
     "",
     `- Cases passed: ${casesPassed}/${caseResults.length}`,
@@ -820,7 +820,7 @@ export async function runOllamaToolCallingMockSmoke(root) {
     blocked_claims: ["tool-call-verified", ...BARE_BLOCKED_CLAIMS],
     ...commonFlags({ new_local_model_execution: true, new_local_model_call_count: caseResults.length })
   };
-  writeYaml(root, "release/post_export_ollama_tool_calling_mock_smoke_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_ollama_tool_calling_mock_smoke_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "models:",
@@ -830,7 +830,7 @@ export async function runOllamaToolCallingMockSmoke(root) {
     "raw_request_stored: false",
     "raw_response_stored: false"
   ]);
-  writeYaml(root, "release/post_export_ollama_tool_calling_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_ollama_tool_calling_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "tool_call_verified_allowed: false",
@@ -850,7 +850,7 @@ export async function runOllamaToolCallingMockSmoke(root) {
   writeJsonRel(root, `${dir}/ollama_tool_calling_claim_boundary.json`, claimBoundary);
   writeJsonRel(root, `${dir}/ollama_tool_calling_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/ollama_tool_calling_mock_smoke.ko.md", "Ollama Tool Calling Mock Smoke", [
+  writeMd(root, "docs/local/ollama_tool_calling_mock_smoke.ko.md", "Ollama Tool Calling Mock Smoke", [
     `Status: \`${status}\``,
     "",
     `- Pass: ${casesPassed}/${caseResults.length}`,
@@ -1023,7 +1023,7 @@ export async function runOllamaReplayRegressionSmoke(root) {
     blocked_claims: ["replay-verified", "benchmark-backed", ...BARE_BLOCKED_CLAIMS],
     ...commonFlags({ new_local_model_execution: true, new_local_model_call_count: caseResults.length })
   };
-  writeYaml(root, "release/post_export_ollama_replay_regression_smoke_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_ollama_replay_regression_smoke_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "models:",
@@ -1031,7 +1031,7 @@ export async function runOllamaReplayRegressionSmoke(root) {
     "  - qwen3.6:27b",
     "replay_verified_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_ollama_replay_regression_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_ollama_replay_regression_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "replay_verified_allowed: false",
@@ -1042,7 +1042,7 @@ export async function runOllamaReplayRegressionSmoke(root) {
   writeJsonRel(root, `${dir}/ollama_replay_regression_claim_boundary.json`, claimBoundary);
   writeJsonRel(root, `${dir}/ollama_replay_regression_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/ollama_replay_regression_smoke.ko.md", "Ollama Replay/Regression Smoke", [
+  writeMd(root, "docs/local/ollama_replay_regression_smoke.ko.md", "Ollama Replay/Regression Smoke", [
     `Status: \`${status}\``,
     "",
     `- Cases passed: ${passed}/${caseResults.length}`,
@@ -1152,14 +1152,14 @@ export function runCrossAdapterContractDryRun(root) {
     blocked_claims: BARE_BLOCKED_CLAIMS,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_cross_adapter_contract_dry_run_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_cross_adapter_contract_dry_run_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "dry_run_only: true",
     "vllm_execution_performed: false",
     "adapter_checked_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_cross_adapter_contract_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_cross_adapter_contract_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "adapter_checked_allowed: false",
@@ -1173,14 +1173,14 @@ export function runCrossAdapterContractDryRun(root) {
   writeJsonRel(root, `${dir}/cross_adapter_contract_claim_boundary.json`, claimBoundary);
   writeJsonRel(root, `${dir}/cross_adapter_contract_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/cross_adapter_contract_dry_run.ko.md", "Cross Adapter Contract Dry Run", [
+  writeMd(root, "docs/adapters/cross_adapter_contract_dry_run.ko.md", "Cross Adapter Contract Dry Run", [
     `Status: \`${status}\``,
     "",
     "- OpenAI/Ollama active adapter scope only.",
     "- vLLM execution was not performed and remains out of active scope.",
     "- Bare `adapter-checked` remains false."
   ]);
-  writeMd(root, "docs/cross_adapter_contract_gap_analysis.ko.md", "Cross Adapter Contract Gap Analysis", [
+  writeMd(root, "docs/adapters/cross_adapter_contract_gap_analysis.ko.md", "Cross Adapter Contract Gap Analysis", [
     `Status: \`${status}\``,
     "",
     ...blockers.map((item) => `- ${item.id}: ${item.reason}`),
@@ -1275,14 +1275,14 @@ export function runActiveProviderLanesVerifiedFinalGate(root) {
     blocked_claims: BARE_BLOCKED_CLAIMS,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_active_provider_lanes_verified_final_gate_scope.yaml", [
+  writeYaml(root, "release/gates/post-export/post_export_active_provider_lanes_verified_final_gate_scope.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     "scope: active_provider_lanes_openai_plus_ollama",
     `post_export_active_provider_lanes_verified_allowed: ${allowed}`,
     "provider_verified_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_provider_lanes_verified_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_provider_lanes_verified_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_provider_lanes_verified_allowed: ${allowed}`,
@@ -1300,7 +1300,7 @@ export function runActiveProviderLanesVerifiedFinalGate(root) {
   });
   writeJsonRel(root, `${dir}/active_provider_lanes_verified_gate_check_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_provider_lanes_verified_final_gate.ko.md", "Active Provider Lanes Verified Final Gate", [
+  writeMd(root, "docs/providers/active_provider_lanes_verified_final_gate.ko.md", "Active Provider Lanes Verified Final Gate", [
     `Status: \`${report.status}\``,
     "",
     `- Scoped claim allowed: ${allowed}`,
@@ -1386,14 +1386,14 @@ export function runActiveAdaptersCheckedFinalGate(root) {
     blocked_claims: BARE_BLOCKED_CLAIMS,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_active_adapters_checked_final_gate_scope.yaml", [
+  writeYaml(root, "release/gates/post-export/post_export_active_adapters_checked_final_gate_scope.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     "scope: active_adapters_openai_plus_ollama_vllm_excluded",
     `post_export_active_adapters_checked_allowed: ${allowed}`,
     "adapter_checked_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_adapters_checked_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_adapters_checked_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_adapters_checked_allowed: ${allowed}`,
@@ -1411,7 +1411,7 @@ export function runActiveAdaptersCheckedFinalGate(root) {
   });
   writeJsonRel(root, `${dir}/active_adapters_checked_gate_check_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_adapters_checked_final_gate.ko.md", "Active Adapters Checked Final Gate", [
+  writeMd(root, "docs/release/active_adapters_checked_final_gate.ko.md", "Active Adapters Checked Final Gate", [
     `Status: \`${report.status}\``,
     "",
     `- Scoped claim allowed: ${allowed}`,
@@ -1480,7 +1480,7 @@ export function refreshGeneralReadinessStabilityPreflight(root) {
     blocked_claims: BARE_BLOCKED_CLAIMS,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_general_readiness_stability_preflight_refresh_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_general_readiness_stability_preflight_refresh_scope.yaml", [
     `stage: ${stage}`,
     "status: blocked_by_bare_general_claim_gaps",
     "production_ready_allowed: false",
@@ -1492,7 +1492,7 @@ export function refreshGeneralReadinessStabilityPreflight(root) {
   writeJsonRel(root, `${dir}/general_readiness_stability_remaining_blockers.json`, { status: "blocked", stage, blockers });
   writeJsonRel(root, `${dir}/general_readiness_stability_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/general_readiness_stability_preflight_refresh.ko.md", "General Readiness/Stability Preflight Refresh", [
+  writeMd(root, "docs/release/general_readiness_stability_preflight_refresh.ko.md", "General Readiness/Stability Preflight Refresh", [
     "Status: `blocked_by_bare_general_claim_gaps`",
     "",
     "- Scoped provider/adapters 결과는 general production-ready/stable을 열지 않습니다.",
@@ -1626,7 +1626,7 @@ export function runFinalExportRefreshAfterActiveScopedGates(root) {
     excluded_basenames: [".DS_Store"],
     excluded_patterns: ["*.log", "raw request/response payload files"]
   };
-  writeYaml(root, "release/final_export_refresh_after_active_scoped_gates_scope.yaml", [
+  writeYaml(root, "release/gates/final-export/final_export_refresh_after_active_scoped_gates_scope.yaml", [
     `stage: ${stage}`,
     "status: packaging",
     `package_path: ${EXPORT_PACKAGE}`,
@@ -1685,7 +1685,7 @@ export function runFinalExportRefreshAfterActiveScopedGates(root) {
   writeJsonRel(root, `${dir}/final_export_refresh_manifest.json`, manifest);
   writeJsonRel(root, `${dir}/final_export_refresh_checksums.json`, { status: "recorded", stage, entries: [{ path: EXPORT_PACKAGE, sha256: checksum }] });
   writeJsonRel(root, `${dir}/final_export_refresh_gate_report.json`, { status: packageCreated ? "pass" : "blocked", stage, unresolved_items_count: packageCreated ? 0 : 1, package_record: report, ...commonFlags({ actual_export_write: packageCreated }) });
-  writeMd(root, "docs/final_export_refresh_after_active_scoped_gates.ko.md", "Final Export Refresh After Active Scoped Gates", [
+  writeMd(root, "docs/release/final_export_refresh_after_active_scoped_gates.ko.md", "Final Export Refresh After Active Scoped Gates", [
     `Status: \`${report.status}\``,
     "",
     `- package path: \`${EXPORT_PACKAGE}\``,

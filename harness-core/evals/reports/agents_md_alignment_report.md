@@ -12,7 +12,7 @@ Stage: v2.0.0-rc.1-agents-md-and-system-of-record-alignment
 - pass: stack.yaml source_of_truth includes required records
 - pass: AGENTS.md mentions required operating sections
 - pass: asset class manifest contains required classes
-- pass: asset class manifest classifies generated and immutable paths
+- pass: asset class manifest classifies generated and reference baseline paths
 - pass: docs required by alignment exist
 
 ## Errors
@@ -26,4 +26,4 @@ Stage: v2.0.0-rc.1-agents-md-and-system-of-record-alignment
 - Telemetry connection: false
 - Release gate execution: false
 - dist modified: false
-- v36 modified: false
+- reference baseline source modified: false

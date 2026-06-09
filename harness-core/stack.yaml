@@ -28,8 +28,8 @@ source_of_truth:
   core_contract:
     - core/spec/harness.spec.yaml
   release_contract:
-    - release/claim_ladder.md
-    - release/release_gate.yaml
+    - release/claims/general/claim_ladder.md
+    - release/gates/core-release/release_gate.yaml
   capability_contract:
     - adapters/provider_capability_matrix.yaml
   evidence_truth:
@@ -69,9 +69,9 @@ observability:
   trace_schema: observability/trace.schema.json
   telemetry_schema: observability/telemetry.schema.json
 release:
-  gate: release/release_gate.yaml
-  claim_ladder: release/claim_ladder.md
-  rollback_plan: release/rollback_plan.md
+  gate: release/gates/core-release/release_gate.yaml
+  claim_ladder: release/claims/general/claim_ladder.md
+  rollback_plan: release/plans/core-release/rollback_plan.md
 allowed_claims:
   - provider-diverse
   - local-model-verified
@@ -90,5 +90,7 @@ notes:
   - Agent-ready clean export is exports/harness-core-agent-ready.zip.
   - Latest dossier evidence export is exports/v2.0.0-rc.1-postrc-final-dossier-export.zip.
   - harness-core is the canonical directory and slug.
+  - New product projects vendor HARNESS Core at <new-project-root>/.harness/harness-core/ and can copy templates/external-project/.
+  - Structured user project input uses docs/guides/PROJECT_INPUT_TEMPLATE.ko.md as the reference template and is captured per project in PROJECT_INPUT.md.
   - Bare/general provider-verified, adapter-checked, production-ready, stable, and release-gated claims remain blocked.
   - Historical reference records/reports were inspected, but legacy reference runners were not re-executed in this step.

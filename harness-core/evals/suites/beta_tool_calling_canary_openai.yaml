@@ -1,8 +1,8 @@
 id: beta_tool_calling_canary_openai
 stage: v2.0.0-beta-tool-calling-canary-openai
 mode: openai_tool_calling_canary_mock_tools_only
-runner: tools/run_openai_tool_calling_canary.mjs
-gate: tools/check_openai_tool_calling_canary.mjs
+runner: tools/runners/openai/run_openai_tool_calling_canary.mjs
+gate: tools/checks/openai/check_openai_tool_calling_canary.mjs
 
 requires:
   - OpenAI credentialed no-tool provider canary pass

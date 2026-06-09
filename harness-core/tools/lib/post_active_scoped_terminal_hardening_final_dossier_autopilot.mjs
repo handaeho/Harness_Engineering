@@ -455,7 +455,7 @@ export function sealActiveScopedTerminalArchive(root) {
     blockers,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_active_scoped_terminal_archive_seal_scope.yaml", [
+  writeYaml(root, "release/scopes/post-active-scoped/post_active_scoped_terminal_archive_seal_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "terminal_archive_sealed: true",
@@ -465,7 +465,7 @@ export function sealActiveScopedTerminalArchive(root) {
     "stable_allowed: false",
     "release_gated_allowed: false"
   ]);
-  writeYaml(root, "release/post_active_scoped_terminal_final_claim_state.yaml", [
+  writeYaml(root, "release/claims/post-active-scoped/post_active_scoped_terminal_final_claim_state.yaml", [
     `stage: ${stage}`,
     "status: recorded",
     "allowed_claims:",
@@ -473,7 +473,7 @@ export function sealActiveScopedTerminalArchive(root) {
     "blocked_claims:",
     ...BLOCKED_CLAIMS.map((claim) => `  - ${claim}`)
   ]);
-  writeYaml(root, "release/post_active_scoped_terminal_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-active-scoped/post_active_scoped_terminal_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "provider_verified_allowed: false",
@@ -490,14 +490,14 @@ export function sealActiveScopedTerminalArchive(root) {
   writeJsonRel(root, `${dir}/active_scoped_terminal_claim_boundary.json`, claimBoundary(stage, status));
   writeJsonRel(root, `${dir}/active_scoped_terminal_archive_seal_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_scoped_terminal_archive_seal.ko.md", "Active Scoped Terminal Archive Seal", [
+  writeMd(root, "docs/release/active_scoped_terminal_archive_seal.ko.md", "Active Scoped Terminal Archive Seal", [
     `Status: \`${status}\``,
     "",
     "- Active scoped state was sealed as terminal archive state.",
     "- No new execution, provider rerun, telemetry sink write, or protected path refresh was performed.",
     "- Bare/general claims remain blocked."
   ]);
-  writeMd(root, "docs/active_scoped_terminal_final_claim_state.ko.md", "Active Scoped Terminal Final Claim State", [
+  writeMd(root, "docs/claims/active_scoped_terminal_final_claim_state.ko.md", "Active Scoped Terminal Final Claim State", [
     "Status: `recorded`",
     "",
     `- Allowed scoped claims: ${ALLOWED_SCOPED_CLAIMS.join(", ")}`,
@@ -563,7 +563,7 @@ export function buildBareGeneralClaimFinalBlockerMatrix(root) {
     unresolved_items_count: 0,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_active_scoped_bare_general_claim_blocker_matrix_scope.yaml", [
+  writeYaml(root, "release/blockers/post-active-scoped/post_active_scoped_bare_general_claim_blocker_matrix_scope.yaml", [
     `stage: ${stage}`,
     "status: recorded",
     "provider_verified_allowed: false",
@@ -572,7 +572,7 @@ export function buildBareGeneralClaimFinalBlockerMatrix(root) {
     "stable_allowed: false",
     "release_gated_allowed: false"
   ]);
-  writeYaml(root, "release/post_active_scoped_bare_general_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-active-scoped/post_active_scoped_bare_general_claim_boundary.yaml", [
     `stage: ${stage}`,
     "status: recorded",
     "provider_verified_allowed: false",
@@ -590,14 +590,14 @@ export function buildBareGeneralClaimFinalBlockerMatrix(root) {
   writeJsonRel(root, `${dir}/bare_general_claim_boundary.json`, claimBoundary(stage, "recorded"));
   writeJsonRel(root, `${dir}/bare_general_claim_blocker_gate_report.json`, report);
   writeUnresolved(root, dir, stage, []);
-  writeMd(root, "docs/bare_general_claim_final_blocker_matrix.ko.md", "Bare/General Claim Final Blocker Matrix", [
+  writeMd(root, "docs/release/bare_general_claim_final_blocker_matrix.ko.md", "Bare/General Claim Final Blocker Matrix", [
     "Status: `recorded`",
     "",
     "- Bare/general provider, adapter, production, stability, release claims remain blocked.",
     "- Each missing evidence item is classified into current hard stop and future work.",
     "- Scoped active claims do not imply bare/general claims."
   ]);
-  writeMd(root, "docs/bare_general_claim_boundary.ko.md", "Bare/General Claim Boundary", [
+  writeMd(root, "docs/claims/bare_general_claim_boundary.ko.md", "Bare/General Claim Boundary", [
     "- `post-export-active-provider-lanes-verified` is not `provider-verified`.",
     "- `post-export-active-adapters-checked` is not `adapter-checked`.",
     "- `post-export-active-scoped-production-ready` is not bare `production-ready`.",
@@ -654,7 +654,7 @@ export function buildProviderVerifiedFutureCompletionPlan(root) {
   ];
   const report = futurePlan(stage, "provider-verified", "post-active-scoped-provider-verified-future-plan-recorded", requirements, actions);
   report.provider_verified_allowed = false;
-  writeYaml(root, "release/post_active_scoped_provider_verified_future_completion_plan_scope.yaml", [
+  writeYaml(root, "release/scopes/post-active-scoped/post_active_scoped_provider_verified_future_completion_plan_scope.yaml", [
     `stage: ${stage}`,
     "status: recorded",
     "provider_verified_allowed: false",
@@ -665,7 +665,7 @@ export function buildProviderVerifiedFutureCompletionPlan(root) {
   writeJsonRel(root, `${dir}/provider_verified_operator_actions.json`, { status: "recorded", stage, operator_actions: actions });
   writeJsonRel(root, `${dir}/provider_verified_future_completion_gate_report.json`, report);
   writeUnresolved(root, dir, stage, []);
-  writeMd(root, "docs/provider_verified_future_completion_plan.ko.md", "Provider-Verified Future Completion Plan", [
+  writeMd(root, "docs/providers/provider_verified_future_completion_plan.ko.md", "Provider-Verified Future Completion Plan", [
     "Status: `recorded`",
     "",
     "- Current result: `provider_verified_allowed: false`.",
@@ -706,7 +706,7 @@ export function buildAdapterCheckedFutureCompletionPlan(root) {
   ];
   const report = futurePlan(stage, "adapter-checked", "post-active-scoped-adapter-checked-future-plan-recorded", requirements, actions);
   report.adapter_checked_allowed = false;
-  writeYaml(root, "release/post_active_scoped_adapter_checked_future_completion_plan_scope.yaml", [
+  writeYaml(root, "release/scopes/post-active-scoped/post_active_scoped_adapter_checked_future_completion_plan_scope.yaml", [
     `stage: ${stage}`,
     "status: recorded",
     "adapter_checked_allowed: false",
@@ -717,7 +717,7 @@ export function buildAdapterCheckedFutureCompletionPlan(root) {
   writeJsonRel(root, `${dir}/adapter_checked_operator_actions.json`, { status: "recorded", stage, operator_actions: actions });
   writeJsonRel(root, `${dir}/adapter_checked_future_completion_gate_report.json`, report);
   writeUnresolved(root, dir, stage, []);
-  writeMd(root, "docs/adapter_checked_future_completion_plan.ko.md", "Adapter-Checked Future Completion Plan", [
+  writeMd(root, "docs/adapters/adapter_checked_future_completion_plan.ko.md", "Adapter-Checked Future Completion Plan", [
     "Status: `recorded`",
     "",
     "- Current result: `adapter_checked_allowed: false`.",
@@ -773,7 +773,7 @@ export function buildGeneralReadinessStabilityFutureDecisionPlan(root) {
     operator_actions: actions,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_active_scoped_general_readiness_stability_future_decision_plan_scope.yaml", [
+  writeYaml(root, "release/scopes/post-active-scoped/post_active_scoped_general_readiness_stability_future_decision_plan_scope.yaml", [
     `stage: ${stage}`,
     "status: recorded",
     "production_ready_allowed: false",
@@ -786,7 +786,7 @@ export function buildGeneralReadinessStabilityFutureDecisionPlan(root) {
   writeJsonRel(root, `${dir}/general_readiness_stability_operator_actions.json`, { status: "recorded", stage, operator_actions: actions });
   writeJsonRel(root, `${dir}/general_readiness_stability_future_plan_gate_report.json`, report);
   writeUnresolved(root, dir, stage, []);
-  writeMd(root, "docs/general_readiness_stability_future_decision_plan.ko.md", "General Readiness/Stability Future Decision Plan", [
+  writeMd(root, "docs/release/general_readiness_stability_future_decision_plan.ko.md", "General Readiness/Stability Future Decision Plan", [
     "Status: `recorded`",
     "",
     "- Current result: `production_ready_allowed: false`, `stable_allowed: false`, `release_gated_allowed: false`.",
@@ -849,7 +849,7 @@ export function buildFinalReleaseDossier(root) {
     terminal_state: "active_scoped_terminal_state_recorded_bare_general_blocked",
     ...commonFlags()
   };
-  writeYaml(root, "release/post_active_scoped_final_release_dossier_scope.yaml", [
+  writeYaml(root, "release/scopes/post-active-scoped/post_active_scoped_final_release_dossier_scope.yaml", [
     `stage: ${stage}`,
     "status: recorded",
     "provider_verified_allowed: false",
@@ -865,21 +865,21 @@ export function buildFinalReleaseDossier(root) {
   writeJsonRel(root, `${dir}/final_release_future_work_register.json`, futureWork);
   writeJsonRel(root, `${dir}/final_release_dossier_gate_report.json`, dossier);
   writeUnresolved(root, dir, stage, []);
-  writeMd(root, "docs/final_release_dossier.ko.md", "Final Release Dossier", [
+  writeMd(root, "docs/release/final_release_dossier.ko.md", "Final Release Dossier", [
     "Status: `recorded`",
     "",
     "- Active scoped terminal state, final blocker matrix, future plans, and export index were recorded.",
     "- No bare/general claim was opened.",
     `- Latest active scoped readiness export: \`${exportIndex.latest_active_scoped_readiness_export.path}\``
   ]);
-  writeMd(root, "docs/final_release_claim_state.ko.md", "Final Release Claim State", [
+  writeMd(root, "docs/claims/final_release_claim_state.ko.md", "Final Release Claim State", [
     "Status: `recorded`",
     "",
     `- Allowed claims: ${ALLOWED_CLAIMS.join(", ")}`,
     `- Blocked claims: ${BLOCKED_CLAIMS.join(", ")}`,
     `- Weak final dossier claims: ${WEAK_DOSSIER_CLAIMS.join(", ")}`
   ]);
-  writeMd(root, "docs/final_release_future_work_register.ko.md", "Final Release Future Work Register", [
+  writeMd(root, "docs/release/final_release_future_work_register.ko.md", "Final Release Future Work Register", [
     "Status: `recorded`",
     "",
     "- Provider-verified future completion plan recorded.",
@@ -985,7 +985,7 @@ export function runFinalExportRefreshAfterFinalDossier(root) {
     excluded_basenames: [".DS_Store"],
     excluded_patterns: ["*.log", "raw request/response payload files", "secret/API-key/auth-header files"]
   };
-  writeYaml(root, "release/final_export_refresh_after_final_dossier_scope.yaml", [
+  writeYaml(root, "release/scopes/final-export/final_export_refresh_after_final_dossier_scope.yaml", [
     `stage: ${stage}`,
     "status: packaging",
     `package_path: ${EXPORT_PACKAGE}`,
@@ -1037,7 +1037,7 @@ export function runFinalExportRefreshAfterFinalDossier(root) {
   writeJsonRel(root, `${dir}/final_export_refresh_manifest.json`, manifest);
   writeJsonRel(root, `${dir}/final_export_refresh_checksums.json`, { status: "recorded", stage, entries: [{ path: EXPORT_PACKAGE, sha256: checksum }] });
   writeJsonRel(root, `${dir}/final_export_refresh_gate_report.json`, { status: packageCreated ? "pass" : "blocked", stage, unresolved_items_count: packageCreated ? 0 : 1, package_record: report, ...commonFlags({ actual_export_write: packageCreated }) });
-  writeMd(root, "docs/final_export_refresh_after_final_dossier.ko.md", "Final Export Refresh After Final Dossier", [
+  writeMd(root, "docs/release/final_export_refresh_after_final_dossier.ko.md", "Final Export Refresh After Final Dossier", [
     `Status: \`${report.status}\``,
     "",
     `- package path: \`${EXPORT_PACKAGE}\``,
@@ -1141,7 +1141,7 @@ export function buildFinalNewConversationHandoff(root) {
   ].join("\n");
   writeTextRel(root, "FINAL_HANDOFF.ko.md", handoff);
   writeTextRel(root, "FINAL_NEW_CONVERSATION_PROMPT.ko.md", prompt);
-  writeYaml(root, "release/post_active_scoped_final_new_conversation_handoff_scope.yaml", [
+  writeYaml(root, "release/scopes/post-active-scoped/post_active_scoped_final_new_conversation_handoff_scope.yaml", [
     `stage: ${stage}`,
     "status: pass",
     "handoff_path: FINAL_HANDOFF.ko.md",
@@ -1157,7 +1157,7 @@ export function buildFinalNewConversationHandoff(root) {
   writeJsonRel(root, `${dir}/final_new_conversation_next_options.json`, nextOptions);
   writeJsonRel(root, `${dir}/final_new_conversation_gate_report.json`, report);
   writeUnresolved(root, dir, stage, []);
-  writeMd(root, "docs/final_new_conversation_handoff.ko.md", "Final New Conversation Handoff", [
+  writeMd(root, "docs/handoffs/final_new_conversation_handoff.ko.md", "Final New Conversation Handoff", [
     "Status: `pass`",
     "",
     "- Final handoff and prompt were generated.",

@@ -1,0 +1,13 @@
+command_plans:
+  - lane: openai_limited_redteam_execution
+    command_plan_path: release/commands/openai/openai_redteam_limited_execution_command_plan.yaml
+    currently_executable_in_agent_env: false
+    operator_powershell_execution_supported: true
+    requires_exact_approval_phrase: true
+    currently_executable: false
+  - lane: production_telemetry_connection
+    command_plan_path: release/commands/telemetry/production_telemetry_connection_command_plan.yaml
+    currently_executable: false
+  - lane: local_no_tool_canary
+    command_plan_path: docs/plans/next_local_canary_plan.md
+    currently_executable: false

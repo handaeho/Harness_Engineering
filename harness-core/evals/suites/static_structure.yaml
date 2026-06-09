@@ -25,9 +25,9 @@ required_files:
   - observability/trace.schema.json
   - observability/telemetry.schema.json
   - security/threat_model.md
-  - release/release_gate.yaml
-  - release/claim_ladder.md
-  - release/rollback_plan.md
+  - release/gates/core-release/release_gate.yaml
+  - release/claims/general/claim_ladder.md
+  - release/plans/core-release/rollback_plan.md
   - evidence/v36-baseline/file_inventory.json
   - evidence/v36-baseline/checksums.json
   - evidence/v36-baseline/limitation_register.json
@@ -42,7 +42,7 @@ parse_checks:
     - adapters/api/openai/adapter.yaml
     - adapters/local/vllm/adapter.yaml
     - adapters/local/ollama/adapter.yaml
-    - release/release_gate.yaml
+    - release/gates/core-release/release_gate.yaml
     - evidence/v36-baseline/migration_map.yaml
   json_schema:
     - stack.schema.json

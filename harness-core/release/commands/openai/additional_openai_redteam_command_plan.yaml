@@ -1,0 +1,22 @@
+command_plan:
+  stage_to_execute_after_approval: v2.0.0-beta-additional-openai-redteam-execution
+
+  required_approval_phrase: "I explicitly approve v2.0.0-beta-additional-openai-redteam-execution"
+
+  required_env:
+    - OPENAI_API_KEY
+    - OPENAI_MODEL
+
+  operator_powershell_execution_supported: true
+
+  commands:
+    - node harness-core/tools/runners/openai/run_additional_openai_redteam_execution.mjs
+    - node harness-core/tools/checks/openai/check_additional_openai_redteam_execution.mjs
+
+  not_executable_in_this_stage: true
+
+  expected_execution_outputs:
+    - evidence/beta-additional-openai-redteam-execution/additional_openai_redteam_execution_report.json
+    - evidence/beta-additional-openai-redteam-execution/additional_openai_case_results.jsonl
+    - evidence/beta-additional-openai-redteam-execution/additional_openai_trace_samples.jsonl
+    - evidence/beta-additional-openai-redteam-execution/additional_openai_redteam_gate_report.json

@@ -22,7 +22,7 @@
 
 - `evidence/beta-*` for beta-stage evidence.
 - `evidence/rc1-*` for release-candidate evidence.
-- `evidence/v36-baseline` for the read-only baseline snapshot.
+- `evidence/reference-baseline` for the read-only baseline snapshot.
 
 ## Claim Names
 

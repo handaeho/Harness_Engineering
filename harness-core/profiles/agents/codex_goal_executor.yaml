@@ -4,10 +4,10 @@ must_read:
   - CURRENT_STATE.yaml
   - AGENT_BOOTSTRAP.ko.md
   - AGENTS.md
-  - release/claim_ladder.md
+  - release/claims/general/claim_ladder.md
 must_run_before_report:
-  - node tools/check_agent_ready_self_contained.mjs
-  - node tools/check_reference_baseline_integrity.mjs
+  - node tools/checks/workspace/check_agent_ready_self_contained.mjs
+  - node tools/checks/workspace/check_reference_baseline_integrity.mjs
 forbidden_paths:
   - dist/**
   - node_modules/**

@@ -499,7 +499,7 @@ export function triageActiveScopedBlockers(root) {
     unresolved_items_count: 0,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_active_scoped_blocker_forensic_triage_scope.yaml", [
+  writeYaml(root, "release/blockers/post-export/post_export_active_scoped_blocker_forensic_triage_scope.yaml", [
     `stage: ${stage}`,
     "status: pass",
     "openai_model_api_call: false",
@@ -507,7 +507,7 @@ export function triageActiveScopedBlockers(root) {
     "provider_verified_allowed: false",
     "adapter_checked_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_scoped_blocker_repair_plan.yaml", [
+  writeYaml(root, "release/blockers/post-export/post_export_active_scoped_blocker_repair_plan.yaml", [
     `stage: ${stage}`,
     "status: planned",
     "total_new_local_call_budget: 36",
@@ -537,14 +537,14 @@ export function triageActiveScopedBlockers(root) {
   writeJsonRel(root, `${dir}/active_scoped_repair_plan.json`, retryPlan);
   writeJsonRel(root, `${dir}/active_scoped_blocker_triage_gate_report.json`, report);
   writeUnresolved(root, dir, stage, []);
-  writeMd(root, "docs/active_scoped_blocker_forensic_triage.ko.md", "Active Scoped Blocker Forensic Triage", [
+  writeMd(root, "docs/release/active_scoped_blocker_forensic_triage.ko.md", "Active Scoped Blocker Forensic Triage", [
     "Status: `pass`",
     "",
     "- 5개 blocker를 structured-output, replay/regression, cross-adapter contract로 분류했습니다.",
     "- 새 local model execution은 수행하지 않았습니다.",
     "- bare/general claims는 모두 false입니다."
   ]);
-  writeMd(root, "docs/active_scoped_repair_plan.ko.md", "Active Scoped Repair Plan", [
+  writeMd(root, "docs/release/active_scoped_repair_plan.ko.md", "Active Scoped Repair Plan", [
     "Status: `planned`",
     "",
     "- qwen3:14b structured-output primary retry: 2 calls.",
@@ -756,7 +756,7 @@ export async function repairQwen3StructuredOutputSmoke(root) {
     acceptable_partial_for_scoped_criteria: acceptablePartial,
     ...common
   };
-  writeYaml(root, "release/post_export_qwen3_14b_structured_output_targeted_repair_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_qwen3_14b_structured_output_targeted_repair_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "model: qwen3:14b",
@@ -764,7 +764,7 @@ export async function repairQwen3StructuredOutputSmoke(root) {
     "raw_request_stored: false",
     "raw_response_stored: false"
   ]);
-  writeYaml(root, "release/post_export_qwen3_14b_structured_output_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_qwen3_14b_structured_output_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "schema_output_verified_allowed: false",
@@ -784,7 +784,7 @@ export async function repairQwen3StructuredOutputSmoke(root) {
   writeJsonRel(root, `${dir}/qwen3_14b_structured_output_claim_boundary.json`, claimBoundary);
   writeJsonRel(root, `${dir}/qwen3_14b_structured_output_repair_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/qwen3_14b_structured_output_targeted_repair.ko.md", "qwen3:14b Structured Output Targeted Repair", [
+  writeMd(root, "docs/local/qwen3_14b_structured_output_targeted_repair.ko.md", "qwen3:14b Structured Output Targeted Repair", [
     `Status: \`${status}\``,
     "",
     `- Primary path: \`${primaryStatus}\``,
@@ -950,14 +950,14 @@ export async function repairQwen3ReplayRegressionSmoke(root) {
     exact_match_is_diagnostic: true,
     ...commonFlags({ new_local_model_execution: true, new_local_model_call_count: results.length })
   };
-  writeYaml(root, "release/post_export_qwen3_14b_replay_regression_targeted_repair_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_qwen3_14b_replay_regression_targeted_repair_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "model: qwen3:14b",
     "exact_string_match: diagnostic",
     "replay_verified_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_qwen3_14b_replay_regression_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_qwen3_14b_replay_regression_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "replay_verified_allowed: false",
@@ -978,7 +978,7 @@ export async function repairQwen3ReplayRegressionSmoke(root) {
   writeJsonRel(root, `${dir}/qwen3_14b_replay_regression_claim_boundary.json`, claimBoundary);
   writeJsonRel(root, `${dir}/qwen3_14b_replay_regression_repair_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/qwen3_14b_replay_regression_targeted_repair.ko.md", "qwen3:14b Replay Regression Targeted Repair", [
+  writeMd(root, "docs/local/qwen3_14b_replay_regression_targeted_repair.ko.md", "qwen3:14b Replay Regression Targeted Repair", [
     `Status: \`${status}\``,
     "",
     `- No-tool exact match passed: ${report.no_tool_exact_match_passed}`,
@@ -987,7 +987,7 @@ export async function repairQwen3ReplayRegressionSmoke(root) {
     `- Structured schema replay passed: ${report.structured_json_schema_replay_passed}`,
     "- `replay-verified` remains false."
   ]);
-  writeMd(root, "docs/qwen3_14b_replay_acceptance_policy.ko.md", "qwen3:14b Replay Acceptance Policy", [
+  writeMd(root, "docs/local/qwen3_14b_replay_acceptance_policy.ko.md", "qwen3:14b Replay Acceptance Policy", [
     "- Exact string match is diagnostic.",
     "- No-tool canonical replay can pass when required final content is present.",
     "- Structured replay can pass when JSON parses and required schema fields validate.",
@@ -1095,7 +1095,7 @@ export function repairCrossAdapterContractDryRun(root) {
     blockers,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_cross_adapter_contract_targeted_repair_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_cross_adapter_contract_targeted_repair_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "active_adapters:",
@@ -1105,7 +1105,7 @@ export function repairCrossAdapterContractDryRun(root) {
     "  - vllm",
     "dry_run_only: true"
   ]);
-  writeYaml(root, "release/post_export_active_adapter_contract_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_adapter_contract_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     `post_export_active_adapters_checked_allowed_candidate: ${status === "pass"}`,
@@ -1127,14 +1127,14 @@ export function repairCrossAdapterContractDryRun(root) {
   writeJsonRel(root, `${dir}/active_adapter_contract_claim_boundary.json`, claimBoundary);
   writeJsonRel(root, `${dir}/cross_adapter_contract_repair_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/cross_adapter_contract_targeted_repair.ko.md", "Cross Adapter Contract Targeted Repair", [
+  writeMd(root, "docs/adapters/cross_adapter_contract_targeted_repair.ko.md", "Cross Adapter Contract Targeted Repair", [
     `Status: \`${status}\``,
     "",
     "- Active adapters: OpenAI, Ollama.",
     "- vLLM은 inactive/placeholder로 분리했습니다.",
     "- Bare `adapter-checked` remains false."
   ]);
-  writeMd(root, "docs/active_adapter_contract_scope.ko.md", "Active Adapter Contract Scope", [
+  writeMd(root, "docs/adapters/active_adapter_contract_scope.ko.md", "Active Adapter Contract Scope", [
     "- Scoped active adapter contract covers OpenAI and Ollama only.",
     "- vLLM execution is not approved and remains out of scoped active-adapters claim.",
     "- General adapter coverage remains incomplete."
@@ -1225,13 +1225,13 @@ export function runActiveProviderLanesVerifiedFinalGateRetry(root) {
     blockers,
     ...commonFlags({ post_export_active_provider_lanes_verified_allowed: allowed })
   };
-  writeYaml(root, "release/post_export_active_provider_lanes_verified_final_gate_retry_scope.yaml", [
+  writeYaml(root, "release/gates/post-export/post_export_active_provider_lanes_verified_final_gate_retry_scope.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_provider_lanes_verified_allowed: ${allowed}`,
     "provider_verified_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_provider_lanes_verified_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_provider_lanes_verified_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_provider_lanes_verified_allowed: ${allowed}`,
@@ -1249,7 +1249,7 @@ export function runActiveProviderLanesVerifiedFinalGateRetry(root) {
   });
   writeJsonRel(root, `${dir}/active_provider_lanes_verified_gate_check_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_provider_lanes_verified_final_gate_retry.ko.md", "Active Provider Lanes Verified Final Gate Retry", [
+  writeMd(root, "docs/providers/active_provider_lanes_verified_final_gate_retry.ko.md", "Active Provider Lanes Verified Final Gate Retry", [
     `Status: \`${report.status}\``,
     "",
     `- Scoped claim allowed: ${allowed}`,
@@ -1334,13 +1334,13 @@ export function runActiveAdaptersCheckedFinalGateRetry(root) {
     blockers,
     ...commonFlags({ post_export_active_adapters_checked_allowed: allowed })
   };
-  writeYaml(root, "release/post_export_active_adapters_checked_final_gate_retry_scope.yaml", [
+  writeYaml(root, "release/gates/post-export/post_export_active_adapters_checked_final_gate_retry_scope.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_adapters_checked_allowed: ${allowed}`,
     "adapter_checked_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_adapters_checked_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_adapters_checked_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_adapters_checked_allowed: ${allowed}`,
@@ -1358,7 +1358,7 @@ export function runActiveAdaptersCheckedFinalGateRetry(root) {
   });
   writeJsonRel(root, `${dir}/active_adapters_checked_gate_check_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_adapters_checked_final_gate_retry.ko.md", "Active Adapters Checked Final Gate Retry", [
+  writeMd(root, "docs/release/active_adapters_checked_final_gate_retry.ko.md", "Active Adapters Checked Final Gate Retry", [
     `Status: \`${report.status}\``,
     "",
     `- Scoped claim allowed: ${allowed}`,
@@ -1437,7 +1437,7 @@ export function refreshGeneralReadinessStabilityAfterActiveRepairs(root) {
   writeJsonRel(root, `${dir}/general_readiness_stability_remaining_blockers.json`, { status: "blocked", stage, blockers });
   writeJsonRel(root, `${dir}/general_readiness_stability_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/general_readiness_stability_refresh_after_repairs.ko.md", "General Readiness/Stability Refresh After Active Repairs", [
+  writeMd(root, "docs/release/general_readiness_stability_refresh_after_repairs.ko.md", "General Readiness/Stability Refresh After Active Repairs", [
     `Status: \`${report.status}\``,
     "",
     "- Scoped repair results were reflected.",
@@ -1582,7 +1582,7 @@ export function runFinalExportRefreshAfterActiveScopedRepairs(root) {
     excluded_basenames: [".DS_Store"],
     excluded_patterns: ["*.log", "raw request/response payload files", "secret/API-key/auth-header files"]
   };
-  writeYaml(root, "release/final_export_refresh_after_active_scoped_repairs_scope.yaml", [
+  writeYaml(root, "release/scopes/final-export/final_export_refresh_after_active_scoped_repairs_scope.yaml", [
     `stage: ${stage}`,
     "status: packaging",
     `package_path: ${EXPORT_PACKAGE}`,
@@ -1656,7 +1656,7 @@ export function runFinalExportRefreshAfterActiveScopedRepairs(root) {
     package_record: report,
     ...commonFlags({ actual_export_write: packageCreated })
   });
-  writeMd(root, "docs/final_export_refresh_after_active_scoped_repairs.ko.md", "Final Export Refresh After Active Scoped Repairs", [
+  writeMd(root, "docs/release/final_export_refresh_after_active_scoped_repairs.ko.md", "Final Export Refresh After Active Scoped Repairs", [
     `Status: \`${report.status}\``,
     "",
     `- package path: \`${EXPORT_PACKAGE}\``,

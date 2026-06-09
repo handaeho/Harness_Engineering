@@ -9,10 +9,10 @@ inputs:
   - evidence/beta-containment-boundary-mock-dry-run/containment_mock_gate_report.json
 
 commands:
-  - node harness-core/tools/refine_containment_verification_gate.mjs
-  - node harness-core/tools/map_containment_evidence_to_boundaries.mjs
-  - node harness-core/tools/audit_containment_proof_levels.mjs
-  - node harness-core/tools/check_containment_verification_gate_refinement.mjs
+  - node harness-core/tools/refinements/security/refine_containment_verification_gate.mjs
+  - node harness-core/tools/mappers/security/map_containment_evidence_to_boundaries.mjs
+  - node harness-core/tools/audits/security/audit_containment_proof_levels.mjs
+  - node harness-core/tools/checks/security/check_containment_verification_gate_refinement.mjs
 
 expected_outputs:
   - evidence/beta-containment-verification-gate-refinement/containment_verification_gate_refinement_report.json

@@ -1,11 +1,11 @@
 {
   "status": "pass",
   "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-  "generated_at": "2026-06-05T07:47:24.994Z",
+  "generated_at": "2026-06-09T02:56:03.617Z",
   "weak_claim_recorded": "self-contained-clean-export-checked",
   "export_path": "exports/harness-core-agent-ready.zip",
-  "export_sha256": "55783ebf0e514dc0976d8ddae09e12cc8fb21a5659bab71b338f3af6dffd1934",
-  "export_entry_count": 66,
+  "export_sha256": "65981e4f2f21f8cd9d8cff872b1576a284d1ca6cab1c29b86ab283e3a6c92754",
+  "export_entry_count": 56,
   "required_entries_missing": [],
   "current_state_json_included": true,
   "current_state_yaml_included": true,
@@ -20,12 +20,13 @@
   "extracted_self_contained_agent_check": {
     "status": "pass",
     "extract_exit_code": 0,
-    "extract_stderr": "",
+    "extract_method": "node-zip-central-directory",
+    "extract_stderr": "spawnSync unzip ENOENT",
     "checker_exit_code": 0,
     "checker_stdout_json": {
       "status": "pass",
       "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-      "generated_at": "2026-06-05T07:47:24.942Z",
+      "generated_at": "2026-06-09T02:56:03.532Z",
       "checker": "check_agent_ready_self_contained.mjs",
       "weak_claims_recorded": [
         "self-contained-agent-ready-check-recorded",
@@ -54,14 +55,14 @@
       "legacy_project_names": [],
       "operation_mode_primary": "root_workspace",
       "operation_mode_secondary": "agent_ready_export",
-      "root_workspace_first_command": "node tools/check_agent_ready_self_contained.mjs",
+      "root_workspace_first_command": "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
       "reference_baseline": {
         "status": "available",
         "role": "historical_reference_snapshot",
         "active_source_of_truth": false,
         "path": "evidence/reference-baseline",
         "policy": "Used only as an integrity reference snapshot. It is not the current operating asset.",
-        "integrity_checker": "tools/check_reference_baseline_integrity.mjs",
+        "integrity_checker": "tools/checks/workspace/check_reference_baseline_integrity.mjs",
         "legacy_source_required": false,
         "source_scan_performed": false,
         "checksum_recalculated": false
@@ -148,143 +149,143 @@
           }
         },
         {
-          "name": "docs/how_to_apply_harness_to_agents.ko.md exists",
+          "name": "docs/workspace/how_to_apply_harness_to_agents.ko.md exists",
           "status": "pass",
           "detail": {
-            "path": "docs/how_to_apply_harness_to_agents.ko.md"
+            "path": "docs/workspace/how_to_apply_harness_to_agents.ko.md"
           }
         },
         {
-          "name": "docs/agent_ready_self_contained_mode.ko.md exists",
+          "name": "docs/workspace/agent_ready_self_contained_mode.ko.md exists",
           "status": "pass",
           "detail": {
-            "path": "docs/agent_ready_self_contained_mode.ko.md"
+            "path": "docs/workspace/agent_ready_self_contained_mode.ko.md"
           }
         },
         {
-          "name": "docs/name_migration_to_harness_core.ko.md exists",
+          "name": "docs/workspace/name_migration_to_harness_core.ko.md exists",
           "status": "pass",
           "detail": {
-            "path": "docs/name_migration_to_harness_core.ko.md"
+            "path": "docs/workspace/name_migration_to_harness_core.ko.md"
           }
         },
         {
-          "name": "docs/reference_baseline_policy.ko.md exists",
+          "name": "docs/workspace/reference_baseline_policy.ko.md exists",
           "status": "pass",
           "detail": {
-            "path": "docs/reference_baseline_policy.ko.md"
+            "path": "docs/workspace/reference_baseline_policy.ko.md"
           }
         },
         {
-          "name": "docs/harness_core_final_surface_git_readiness.ko.md exists",
+          "name": "docs/release/harness_core_final_surface_git_readiness.ko.md exists",
           "status": "pass",
           "detail": {
-            "path": "docs/harness_core_final_surface_git_readiness.ko.md"
+            "path": "docs/release/harness_core_final_surface_git_readiness.ko.md"
           }
         },
         {
-          "name": "docs/git_commit_after_harness_core_rename.ko.md exists",
+          "name": "docs/workspace/git_commit_after_harness_core_rename.ko.md exists",
           "status": "pass",
           "detail": {
-            "path": "docs/git_commit_after_harness_core_rename.ko.md"
+            "path": "docs/workspace/git_commit_after_harness_core_rename.ko.md"
           }
         },
         {
-          "name": "tools/check_agent_ready_self_contained.mjs exists",
+          "name": "tools/checks/workspace/check_agent_ready_self_contained.mjs exists",
           "status": "pass",
           "detail": {
-            "path": "tools/check_agent_ready_self_contained.mjs"
+            "path": "tools/checks/workspace/check_agent_ready_self_contained.mjs"
           }
         },
         {
-          "name": "tools/check_clean_export_self_contained.mjs exists",
+          "name": "tools/checks/workspace/check_clean_export_self_contained.mjs exists",
           "status": "pass",
           "detail": {
-            "path": "tools/check_clean_export_self_contained.mjs"
+            "path": "tools/checks/workspace/check_clean_export_self_contained.mjs"
           }
         },
         {
-          "name": "tools/check_reference_baseline_integrity.mjs exists",
+          "name": "tools/checks/workspace/check_reference_baseline_integrity.mjs exists",
           "status": "pass",
           "detail": {
-            "path": "tools/check_reference_baseline_integrity.mjs"
+            "path": "tools/checks/workspace/check_reference_baseline_integrity.mjs"
           }
         },
         {
-          "name": "tools/check_harness_core_no_legacy_surface.mjs exists",
+          "name": "tools/checks/workspace/check_harness_core_no_legacy_surface.mjs exists",
           "status": "pass",
           "detail": {
-            "path": "tools/check_harness_core_no_legacy_surface.mjs"
+            "path": "tools/checks/workspace/check_harness_core_no_legacy_surface.mjs"
           }
         },
         {
-          "name": "tools/check_harness_core_git_readiness.mjs exists",
+          "name": "tools/checks/workspace/check_harness_core_git_readiness.mjs exists",
           "status": "pass",
           "detail": {
-            "path": "tools/check_harness_core_git_readiness.mjs"
+            "path": "tools/checks/workspace/check_harness_core_git_readiness.mjs"
           }
         },
         {
-          "name": "release/project_rename_to_harness_core_scope.yaml exists",
+          "name": "release/scopes/project-rename/project_rename_to_harness_core_scope.yaml exists",
           "status": "pass",
           "detail": {
-            "path": "release/project_rename_to_harness_core_scope.yaml"
+            "path": "release/scopes/project-rename/project_rename_to_harness_core_scope.yaml"
           }
         },
         {
-          "name": "release/project_rename_claim_boundary.yaml exists",
+          "name": "release/claims/project-rename/project_rename_claim_boundary.yaml exists",
           "status": "pass",
           "detail": {
-            "path": "release/project_rename_claim_boundary.yaml"
+            "path": "release/claims/project-rename/project_rename_claim_boundary.yaml"
           }
         },
         {
-          "name": "release/self_contained_agent_ready_check_scope.yaml exists",
+          "name": "release/scopes/agent-ready/self_contained_agent_ready_check_scope.yaml exists",
           "status": "pass",
           "detail": {
-            "path": "release/self_contained_agent_ready_check_scope.yaml"
+            "path": "release/scopes/agent-ready/self_contained_agent_ready_check_scope.yaml"
           }
         },
         {
-          "name": "release/self_contained_agent_ready_claim_boundary.yaml exists",
+          "name": "release/claims/agent-ready/self_contained_agent_ready_claim_boundary.yaml exists",
           "status": "pass",
           "detail": {
-            "path": "release/self_contained_agent_ready_claim_boundary.yaml"
+            "path": "release/claims/agent-ready/self_contained_agent_ready_claim_boundary.yaml"
           }
         },
         {
-          "name": "release/reference_baseline_deemphasis_scope.yaml exists",
+          "name": "release/scopes/reference-baseline/reference_baseline_deemphasis_scope.yaml exists",
           "status": "pass",
           "detail": {
-            "path": "release/reference_baseline_deemphasis_scope.yaml"
+            "path": "release/scopes/reference-baseline/reference_baseline_deemphasis_scope.yaml"
           }
         },
         {
-          "name": "release/reference_baseline_claim_boundary.yaml exists",
+          "name": "release/claims/reference-baseline/reference_baseline_claim_boundary.yaml exists",
           "status": "pass",
           "detail": {
-            "path": "release/reference_baseline_claim_boundary.yaml"
+            "path": "release/claims/reference-baseline/reference_baseline_claim_boundary.yaml"
           }
         },
         {
-          "name": "release/harness_core_final_surface_git_readiness_scope.yaml exists",
+          "name": "release/scopes/harness-core/harness_core_final_surface_git_readiness_scope.yaml exists",
           "status": "pass",
           "detail": {
-            "path": "release/harness_core_final_surface_git_readiness_scope.yaml"
+            "path": "release/scopes/harness-core/harness_core_final_surface_git_readiness_scope.yaml"
           }
         },
         {
-          "name": "release/harness_core_final_surface_claim_boundary.yaml exists",
+          "name": "release/claims/harness-core/harness_core_final_surface_claim_boundary.yaml exists",
           "status": "pass",
           "detail": {
-            "path": "release/harness_core_final_surface_claim_boundary.yaml"
+            "path": "release/claims/harness-core/harness_core_final_surface_claim_boundary.yaml"
           }
         },
         {
-          "name": "release/harness_core_git_commit_approval_request.md exists",
+          "name": "release/approvals/harness-core/harness_core_git_commit_approval_request.md exists",
           "status": "pass",
           "detail": {
-            "path": "release/harness_core_git_commit_approval_request.md"
+            "path": "release/approvals/harness-core/harness_core_git_commit_approval_request.md"
           }
         },
         {
@@ -506,7 +507,7 @@
               "active_source_of_truth": false,
               "path": "evidence/reference-baseline",
               "policy": "Used only as an integrity reference snapshot. It is not the current operating asset.",
-              "integrity_checker": "tools/check_reference_baseline_integrity.mjs",
+              "integrity_checker": "tools/checks/workspace/check_reference_baseline_integrity.mjs",
               "legacy_source_required": false,
               "source_scan_performed": false,
               "checksum_recalculated": false
@@ -533,7 +534,7 @@
               "current_state_json": "CURRENT_STATE.json",
               "current_state_yaml": "CURRENT_STATE.yaml",
               "bootstrap": "AGENT_BOOTSTRAP.ko.md",
-              "first_command": "node tools/check_agent_ready_self_contained.mjs"
+              "first_command": "node tools/checks/workspace/check_agent_ready_self_contained.mjs"
             }
           }
         },
@@ -664,9 +665,9 @@
           "detail": {
             "self_contained_agent_ready_check": {
               "stage": "v2.0.0-post-clean-export-self-contained-agent-check",
-              "checker": "tools/check_agent_ready_self_contained.mjs",
-              "clean_export_checker": "tools/check_clean_export_self_contained.mjs",
-              "reference_baseline_checker": "tools/check_reference_baseline_integrity.mjs",
+              "checker": "tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "clean_export_checker": "tools/checks/workspace/check_clean_export_self_contained.mjs",
+              "reference_baseline_checker": "tools/checks/workspace/check_reference_baseline_integrity.mjs",
               "evidence_dir": "evidence/self-contained-agent-ready-check",
               "requires_node_modules": false,
               "requires_npm_install": false,
@@ -700,7 +701,7 @@
             "checker_stdout_json": {
               "status": "pass",
               "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-              "generated_at": "2026-06-05T07:47:24.936Z",
+              "generated_at": "2026-06-09T02:56:03.512Z",
               "weak_claim_recorded": "reference-baseline-integrity-checked",
               "checker": "check_reference_baseline_integrity.mjs",
               "reference_baseline_path": "evidence/reference-baseline",
@@ -870,12 +871,13 @@
   "extracted_reference_baseline_integrity_check": {
     "status": "pass",
     "extract_exit_code": 0,
-    "extract_stderr": "",
+    "extract_method": "node-zip-central-directory",
+    "extract_stderr": "spawnSync unzip ENOENT",
     "checker_exit_code": 0,
     "checker_stdout_json": {
       "status": "pass",
       "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-      "generated_at": "2026-06-05T07:47:24.980Z",
+      "generated_at": "2026-06-09T02:56:03.604Z",
       "weak_claim_recorded": "reference-baseline-integrity-checked",
       "checker": "check_reference_baseline_integrity.mjs",
       "reference_baseline_path": "evidence/reference-baseline",
@@ -1020,13 +1022,13 @@
   "command_surface": {
     "status": "pass",
     "root_workspace_first_commands": [
-      "node tools/check_agent_ready_self_contained.mjs",
-      "node tools/check_current_state_alignment.mjs",
-      "node tools/check_reference_baseline_integrity.mjs"
+      "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+      "node tools/checks/workspace/check_current_state_alignment.mjs",
+      "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
     ],
     "agent_ready_export_first_commands": [
-      "node tools/check_agent_ready_self_contained.mjs",
-      "node tools/check_reference_baseline_integrity.mjs"
+      "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+      "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
     ],
     "current_state_alignment_placement": "root_workspace_only",
     "docs": [
@@ -1034,24 +1036,24 @@
         "entry": "AGENT_BOOTSTRAP.ko.md",
         "included": true,
         "all_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_current_state_alignment.mjs",
-          "node tools/check_reference_baseline_integrity.mjs",
-          "node tools/check_harness_core_final_precommit_convergence.mjs",
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs",
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_current_state_alignment.mjs",
-          "node tools/scan_prohibited_claims.mjs",
-          "node tools/check_reference_baseline_integrity.mjs",
-          "node tools/check_harness_core_final_precommit_convergence.mjs",
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_current_state_alignment.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+          "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_current_state_alignment.mjs",
+          "node tools/scanners/release/scan_prohibited_claims.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+          "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_mode_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_first_command_is_self_contained": true,
         "export_reference_baseline_command_present": true,
@@ -1063,24 +1065,28 @@
         "entry": "README.md",
         "included": true,
         "all_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_current_state_alignment.mjs",
-          "node tools/check_reference_baseline_integrity.mjs",
-          "node tools/check_harness_core_final_precommit_convergence.mjs",
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs",
-          "node tools/check_clean_export_self_contained.mjs",
-          "node tools/check_current_state_alignment.mjs",
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/scan_prohibited_claims.mjs",
-          "node tools/check_reference_baseline_integrity.mjs",
-          "node tools/check_harness_core_final_precommit_convergence.mjs",
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/check_project_current_state.mjs",
+          "node tools/check_project_claims.mjs",
+          "node tools/checks/workspace/check_external_project_template_contract.mjs",
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_current_state_alignment.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+          "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+          "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+          "node tools/checks/workspace/check_current_state_alignment.mjs",
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/scanners/release/scan_prohibited_claims.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+          "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+          "node tools/checks/workspace/check_external_project_template_contract.mjs",
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_mode_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_first_command_is_self_contained": true,
         "export_reference_baseline_command_present": true,
@@ -1092,18 +1098,18 @@
         "entry": "START_HERE_FOR_AGENTS.ko.md",
         "included": true,
         "all_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_current_state_alignment.mjs",
-          "node tools/check_reference_baseline_integrity.mjs",
-          "node tools/check_harness_core_final_precommit_convergence.mjs",
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_current_state_alignment.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+          "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_mode_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_first_command_is_self_contained": true,
         "export_reference_baseline_command_present": true,
@@ -1112,15 +1118,15 @@
         "current_state_alignment_not_default_export_command": true
       },
       {
-        "entry": "docs/agent_ready_self_contained_mode.ko.md",
+        "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
         "included": true,
         "all_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_mode_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_first_command_is_self_contained": true,
         "export_reference_baseline_command_present": true,
@@ -1139,24 +1145,24 @@
               "entry": "AGENT_BOOTSTRAP.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1168,24 +1174,28 @@
               "entry": "README.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_clean_export_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/check_project_current_state.mjs",
+                "node tools/check_project_claims.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1197,18 +1207,18 @@
               "entry": "START_HERE_FOR_AGENTS.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1217,15 +1227,15 @@
               "current_state_alignment_not_default_export_command": true
             },
             {
-              "entry": "docs/agent_ready_self_contained_mode.ko.md",
+              "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1245,24 +1255,24 @@
               "entry": "AGENT_BOOTSTRAP.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1274,24 +1284,28 @@
               "entry": "README.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_clean_export_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/check_project_current_state.mjs",
+                "node tools/check_project_claims.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1303,18 +1317,18 @@
               "entry": "START_HERE_FOR_AGENTS.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1323,15 +1337,15 @@
               "current_state_alignment_not_default_export_command": true
             },
             {
-              "entry": "docs/agent_ready_self_contained_mode.ko.md",
+              "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1351,24 +1365,24 @@
               "entry": "AGENT_BOOTSTRAP.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1380,24 +1394,28 @@
               "entry": "README.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_clean_export_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/check_project_current_state.mjs",
+                "node tools/check_project_claims.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1409,18 +1427,18 @@
               "entry": "START_HERE_FOR_AGENTS.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1429,15 +1447,15 @@
               "current_state_alignment_not_default_export_command": true
             },
             {
-              "entry": "docs/agent_ready_self_contained_mode.ko.md",
+              "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1457,24 +1475,24 @@
               "entry": "AGENT_BOOTSTRAP.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1486,24 +1504,28 @@
               "entry": "README.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_clean_export_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/check_project_current_state.mjs",
+                "node tools/check_project_claims.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1515,18 +1537,18 @@
               "entry": "START_HERE_FOR_AGENTS.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1535,15 +1557,15 @@
               "current_state_alignment_not_default_export_command": true
             },
             {
-              "entry": "docs/agent_ready_self_contained_mode.ko.md",
+              "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1563,24 +1585,24 @@
               "entry": "AGENT_BOOTSTRAP.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1592,24 +1614,28 @@
               "entry": "README.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_clean_export_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/scan_prohibited_claims.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/check_project_current_state.mjs",
+                "node tools/check_project_claims.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/scanners/release/scan_prohibited_claims.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1621,18 +1647,18 @@
               "entry": "START_HERE_FOR_AGENTS.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_current_state_alignment.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_harness_core_final_precommit_convergence.mjs",
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_current_state_alignment.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1641,15 +1667,15 @@
               "current_state_alignment_not_default_export_command": true
             },
             {
-              "entry": "docs/agent_ready_self_contained_mode.ko.md",
+              "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
               "included": true,
               "all_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
-                "node tools/check_agent_ready_self_contained.mjs",
-                "node tools/check_reference_baseline_integrity.mjs"
+                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
               "export_reference_baseline_command_present": true,
@@ -1696,9 +1722,9 @@
       "name": "zip entries readable",
       "status": "pass",
       "detail": {
-        "method": "zipinfo -1",
+        "method": "node-zip-central-directory",
         "exit_code": 0,
-        "stderr": ""
+        "stderr": "spawnSync unzip ENOENT\nspawnSync zipinfo ENOENT"
       }
     },
     {
@@ -1744,101 +1770,101 @@
       }
     },
     {
-      "name": "docs/agent_ready_self_contained_mode.ko.md included",
+      "name": "docs/workspace/agent_ready_self_contained_mode.ko.md included",
       "status": "pass",
       "detail": {
-        "entry": "docs/agent_ready_self_contained_mode.ko.md"
+        "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md"
       }
     },
     {
-      "name": "docs/reference_baseline_policy.ko.md included",
+      "name": "docs/workspace/reference_baseline_policy.ko.md included",
       "status": "pass",
       "detail": {
-        "entry": "docs/reference_baseline_policy.ko.md"
+        "entry": "docs/workspace/reference_baseline_policy.ko.md"
       }
     },
     {
-      "name": "docs/harness_core_final_surface_git_readiness.ko.md included",
+      "name": "docs/release/harness_core_final_surface_git_readiness.ko.md included",
       "status": "pass",
       "detail": {
-        "entry": "docs/harness_core_final_surface_git_readiness.ko.md"
+        "entry": "docs/release/harness_core_final_surface_git_readiness.ko.md"
       }
     },
     {
-      "name": "docs/git_commit_after_harness_core_rename.ko.md included",
+      "name": "docs/workspace/git_commit_after_harness_core_rename.ko.md included",
       "status": "pass",
       "detail": {
-        "entry": "docs/git_commit_after_harness_core_rename.ko.md"
+        "entry": "docs/workspace/git_commit_after_harness_core_rename.ko.md"
       }
     },
     {
-      "name": "tools/check_agent_ready_self_contained.mjs included",
+      "name": "tools/checks/workspace/check_agent_ready_self_contained.mjs included",
       "status": "pass",
       "detail": {
-        "entry": "tools/check_agent_ready_self_contained.mjs"
+        "entry": "tools/checks/workspace/check_agent_ready_self_contained.mjs"
       }
     },
     {
-      "name": "tools/check_clean_export_self_contained.mjs included",
+      "name": "tools/checks/workspace/check_clean_export_self_contained.mjs included",
       "status": "pass",
       "detail": {
-        "entry": "tools/check_clean_export_self_contained.mjs"
+        "entry": "tools/checks/workspace/check_clean_export_self_contained.mjs"
       }
     },
     {
-      "name": "tools/check_reference_baseline_integrity.mjs included",
+      "name": "tools/checks/workspace/check_reference_baseline_integrity.mjs included",
       "status": "pass",
       "detail": {
-        "entry": "tools/check_reference_baseline_integrity.mjs"
+        "entry": "tools/checks/workspace/check_reference_baseline_integrity.mjs"
       }
     },
     {
-      "name": "tools/check_harness_core_no_legacy_surface.mjs included",
+      "name": "tools/checks/workspace/check_harness_core_no_legacy_surface.mjs included",
       "status": "pass",
       "detail": {
-        "entry": "tools/check_harness_core_no_legacy_surface.mjs"
+        "entry": "tools/checks/workspace/check_harness_core_no_legacy_surface.mjs"
       }
     },
     {
-      "name": "tools/check_harness_core_git_readiness.mjs included",
+      "name": "tools/checks/workspace/check_harness_core_git_readiness.mjs included",
       "status": "pass",
       "detail": {
-        "entry": "tools/check_harness_core_git_readiness.mjs"
+        "entry": "tools/checks/workspace/check_harness_core_git_readiness.mjs"
       }
     },
     {
-      "name": "release/reference_baseline_deemphasis_scope.yaml included",
+      "name": "release/scopes/reference-baseline/reference_baseline_deemphasis_scope.yaml included",
       "status": "pass",
       "detail": {
-        "entry": "release/reference_baseline_deemphasis_scope.yaml"
+        "entry": "release/scopes/reference-baseline/reference_baseline_deemphasis_scope.yaml"
       }
     },
     {
-      "name": "release/reference_baseline_claim_boundary.yaml included",
+      "name": "release/claims/reference-baseline/reference_baseline_claim_boundary.yaml included",
       "status": "pass",
       "detail": {
-        "entry": "release/reference_baseline_claim_boundary.yaml"
+        "entry": "release/claims/reference-baseline/reference_baseline_claim_boundary.yaml"
       }
     },
     {
-      "name": "release/harness_core_final_surface_git_readiness_scope.yaml included",
+      "name": "release/scopes/harness-core/harness_core_final_surface_git_readiness_scope.yaml included",
       "status": "pass",
       "detail": {
-        "entry": "release/harness_core_final_surface_git_readiness_scope.yaml"
+        "entry": "release/scopes/harness-core/harness_core_final_surface_git_readiness_scope.yaml"
       }
     },
     {
-      "name": "release/harness_core_final_surface_claim_boundary.yaml included",
+      "name": "release/claims/harness-core/harness_core_final_surface_claim_boundary.yaml included",
       "status": "pass",
       "detail": {
-        "entry": "release/harness_core_final_surface_claim_boundary.yaml"
+        "entry": "release/claims/harness-core/harness_core_final_surface_claim_boundary.yaml"
       }
     },
     {
-      "name": "release/harness_core_git_commit_approval_request.md included",
+      "name": "release/approvals/harness-core/harness_core_git_commit_approval_request.md included",
       "status": "pass",
       "detail": {
-        "entry": "release/harness_core_git_commit_approval_request.md"
+        "entry": "release/approvals/harness-core/harness_core_git_commit_approval_request.md"
       }
     },
     {
@@ -2064,12 +2090,13 @@
       "detail": {
         "status": "pass",
         "extract_exit_code": 0,
-        "extract_stderr": "",
+        "extract_method": "node-zip-central-directory",
+        "extract_stderr": "spawnSync unzip ENOENT",
         "checker_exit_code": 0,
         "checker_stdout_json": {
           "status": "pass",
           "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-          "generated_at": "2026-06-05T07:47:24.942Z",
+          "generated_at": "2026-06-09T02:56:03.532Z",
           "checker": "check_agent_ready_self_contained.mjs",
           "weak_claims_recorded": [
             "self-contained-agent-ready-check-recorded",
@@ -2098,14 +2125,14 @@
           "legacy_project_names": [],
           "operation_mode_primary": "root_workspace",
           "operation_mode_secondary": "agent_ready_export",
-          "root_workspace_first_command": "node tools/check_agent_ready_self_contained.mjs",
+          "root_workspace_first_command": "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
           "reference_baseline": {
             "status": "available",
             "role": "historical_reference_snapshot",
             "active_source_of_truth": false,
             "path": "evidence/reference-baseline",
             "policy": "Used only as an integrity reference snapshot. It is not the current operating asset.",
-            "integrity_checker": "tools/check_reference_baseline_integrity.mjs",
+            "integrity_checker": "tools/checks/workspace/check_reference_baseline_integrity.mjs",
             "legacy_source_required": false,
             "source_scan_performed": false,
             "checksum_recalculated": false
@@ -2192,143 +2219,143 @@
               }
             },
             {
-              "name": "docs/how_to_apply_harness_to_agents.ko.md exists",
+              "name": "docs/workspace/how_to_apply_harness_to_agents.ko.md exists",
               "status": "pass",
               "detail": {
-                "path": "docs/how_to_apply_harness_to_agents.ko.md"
+                "path": "docs/workspace/how_to_apply_harness_to_agents.ko.md"
               }
             },
             {
-              "name": "docs/agent_ready_self_contained_mode.ko.md exists",
+              "name": "docs/workspace/agent_ready_self_contained_mode.ko.md exists",
               "status": "pass",
               "detail": {
-                "path": "docs/agent_ready_self_contained_mode.ko.md"
+                "path": "docs/workspace/agent_ready_self_contained_mode.ko.md"
               }
             },
             {
-              "name": "docs/name_migration_to_harness_core.ko.md exists",
+              "name": "docs/workspace/name_migration_to_harness_core.ko.md exists",
               "status": "pass",
               "detail": {
-                "path": "docs/name_migration_to_harness_core.ko.md"
+                "path": "docs/workspace/name_migration_to_harness_core.ko.md"
               }
             },
             {
-              "name": "docs/reference_baseline_policy.ko.md exists",
+              "name": "docs/workspace/reference_baseline_policy.ko.md exists",
               "status": "pass",
               "detail": {
-                "path": "docs/reference_baseline_policy.ko.md"
+                "path": "docs/workspace/reference_baseline_policy.ko.md"
               }
             },
             {
-              "name": "docs/harness_core_final_surface_git_readiness.ko.md exists",
+              "name": "docs/release/harness_core_final_surface_git_readiness.ko.md exists",
               "status": "pass",
               "detail": {
-                "path": "docs/harness_core_final_surface_git_readiness.ko.md"
+                "path": "docs/release/harness_core_final_surface_git_readiness.ko.md"
               }
             },
             {
-              "name": "docs/git_commit_after_harness_core_rename.ko.md exists",
+              "name": "docs/workspace/git_commit_after_harness_core_rename.ko.md exists",
               "status": "pass",
               "detail": {
-                "path": "docs/git_commit_after_harness_core_rename.ko.md"
+                "path": "docs/workspace/git_commit_after_harness_core_rename.ko.md"
               }
             },
             {
-              "name": "tools/check_agent_ready_self_contained.mjs exists",
+              "name": "tools/checks/workspace/check_agent_ready_self_contained.mjs exists",
               "status": "pass",
               "detail": {
-                "path": "tools/check_agent_ready_self_contained.mjs"
+                "path": "tools/checks/workspace/check_agent_ready_self_contained.mjs"
               }
             },
             {
-              "name": "tools/check_clean_export_self_contained.mjs exists",
+              "name": "tools/checks/workspace/check_clean_export_self_contained.mjs exists",
               "status": "pass",
               "detail": {
-                "path": "tools/check_clean_export_self_contained.mjs"
+                "path": "tools/checks/workspace/check_clean_export_self_contained.mjs"
               }
             },
             {
-              "name": "tools/check_reference_baseline_integrity.mjs exists",
+              "name": "tools/checks/workspace/check_reference_baseline_integrity.mjs exists",
               "status": "pass",
               "detail": {
-                "path": "tools/check_reference_baseline_integrity.mjs"
+                "path": "tools/checks/workspace/check_reference_baseline_integrity.mjs"
               }
             },
             {
-              "name": "tools/check_harness_core_no_legacy_surface.mjs exists",
+              "name": "tools/checks/workspace/check_harness_core_no_legacy_surface.mjs exists",
               "status": "pass",
               "detail": {
-                "path": "tools/check_harness_core_no_legacy_surface.mjs"
+                "path": "tools/checks/workspace/check_harness_core_no_legacy_surface.mjs"
               }
             },
             {
-              "name": "tools/check_harness_core_git_readiness.mjs exists",
+              "name": "tools/checks/workspace/check_harness_core_git_readiness.mjs exists",
               "status": "pass",
               "detail": {
-                "path": "tools/check_harness_core_git_readiness.mjs"
+                "path": "tools/checks/workspace/check_harness_core_git_readiness.mjs"
               }
             },
             {
-              "name": "release/project_rename_to_harness_core_scope.yaml exists",
+              "name": "release/scopes/project-rename/project_rename_to_harness_core_scope.yaml exists",
               "status": "pass",
               "detail": {
-                "path": "release/project_rename_to_harness_core_scope.yaml"
+                "path": "release/scopes/project-rename/project_rename_to_harness_core_scope.yaml"
               }
             },
             {
-              "name": "release/project_rename_claim_boundary.yaml exists",
+              "name": "release/claims/project-rename/project_rename_claim_boundary.yaml exists",
               "status": "pass",
               "detail": {
-                "path": "release/project_rename_claim_boundary.yaml"
+                "path": "release/claims/project-rename/project_rename_claim_boundary.yaml"
               }
             },
             {
-              "name": "release/self_contained_agent_ready_check_scope.yaml exists",
+              "name": "release/scopes/agent-ready/self_contained_agent_ready_check_scope.yaml exists",
               "status": "pass",
               "detail": {
-                "path": "release/self_contained_agent_ready_check_scope.yaml"
+                "path": "release/scopes/agent-ready/self_contained_agent_ready_check_scope.yaml"
               }
             },
             {
-              "name": "release/self_contained_agent_ready_claim_boundary.yaml exists",
+              "name": "release/claims/agent-ready/self_contained_agent_ready_claim_boundary.yaml exists",
               "status": "pass",
               "detail": {
-                "path": "release/self_contained_agent_ready_claim_boundary.yaml"
+                "path": "release/claims/agent-ready/self_contained_agent_ready_claim_boundary.yaml"
               }
             },
             {
-              "name": "release/reference_baseline_deemphasis_scope.yaml exists",
+              "name": "release/scopes/reference-baseline/reference_baseline_deemphasis_scope.yaml exists",
               "status": "pass",
               "detail": {
-                "path": "release/reference_baseline_deemphasis_scope.yaml"
+                "path": "release/scopes/reference-baseline/reference_baseline_deemphasis_scope.yaml"
               }
             },
             {
-              "name": "release/reference_baseline_claim_boundary.yaml exists",
+              "name": "release/claims/reference-baseline/reference_baseline_claim_boundary.yaml exists",
               "status": "pass",
               "detail": {
-                "path": "release/reference_baseline_claim_boundary.yaml"
+                "path": "release/claims/reference-baseline/reference_baseline_claim_boundary.yaml"
               }
             },
             {
-              "name": "release/harness_core_final_surface_git_readiness_scope.yaml exists",
+              "name": "release/scopes/harness-core/harness_core_final_surface_git_readiness_scope.yaml exists",
               "status": "pass",
               "detail": {
-                "path": "release/harness_core_final_surface_git_readiness_scope.yaml"
+                "path": "release/scopes/harness-core/harness_core_final_surface_git_readiness_scope.yaml"
               }
             },
             {
-              "name": "release/harness_core_final_surface_claim_boundary.yaml exists",
+              "name": "release/claims/harness-core/harness_core_final_surface_claim_boundary.yaml exists",
               "status": "pass",
               "detail": {
-                "path": "release/harness_core_final_surface_claim_boundary.yaml"
+                "path": "release/claims/harness-core/harness_core_final_surface_claim_boundary.yaml"
               }
             },
             {
-              "name": "release/harness_core_git_commit_approval_request.md exists",
+              "name": "release/approvals/harness-core/harness_core_git_commit_approval_request.md exists",
               "status": "pass",
               "detail": {
-                "path": "release/harness_core_git_commit_approval_request.md"
+                "path": "release/approvals/harness-core/harness_core_git_commit_approval_request.md"
               }
             },
             {
@@ -2550,7 +2577,7 @@
                   "active_source_of_truth": false,
                   "path": "evidence/reference-baseline",
                   "policy": "Used only as an integrity reference snapshot. It is not the current operating asset.",
-                  "integrity_checker": "tools/check_reference_baseline_integrity.mjs",
+                  "integrity_checker": "tools/checks/workspace/check_reference_baseline_integrity.mjs",
                   "legacy_source_required": false,
                   "source_scan_performed": false,
                   "checksum_recalculated": false
@@ -2577,7 +2604,7 @@
                   "current_state_json": "CURRENT_STATE.json",
                   "current_state_yaml": "CURRENT_STATE.yaml",
                   "bootstrap": "AGENT_BOOTSTRAP.ko.md",
-                  "first_command": "node tools/check_agent_ready_self_contained.mjs"
+                  "first_command": "node tools/checks/workspace/check_agent_ready_self_contained.mjs"
                 }
               }
             },
@@ -2708,9 +2735,9 @@
               "detail": {
                 "self_contained_agent_ready_check": {
                   "stage": "v2.0.0-post-clean-export-self-contained-agent-check",
-                  "checker": "tools/check_agent_ready_self_contained.mjs",
-                  "clean_export_checker": "tools/check_clean_export_self_contained.mjs",
-                  "reference_baseline_checker": "tools/check_reference_baseline_integrity.mjs",
+                  "checker": "tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                  "clean_export_checker": "tools/checks/workspace/check_clean_export_self_contained.mjs",
+                  "reference_baseline_checker": "tools/checks/workspace/check_reference_baseline_integrity.mjs",
                   "evidence_dir": "evidence/self-contained-agent-ready-check",
                   "requires_node_modules": false,
                   "requires_npm_install": false,
@@ -2744,7 +2771,7 @@
                 "checker_stdout_json": {
                   "status": "pass",
                   "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-                  "generated_at": "2026-06-05T07:47:24.936Z",
+                  "generated_at": "2026-06-09T02:56:03.512Z",
                   "weak_claim_recorded": "reference-baseline-integrity-checked",
                   "checker": "check_reference_baseline_integrity.mjs",
                   "reference_baseline_path": "evidence/reference-baseline",
@@ -2924,12 +2951,13 @@
       "detail": {
         "status": "pass",
         "extract_exit_code": 0,
-        "extract_stderr": "",
+        "extract_method": "node-zip-central-directory",
+        "extract_stderr": "spawnSync unzip ENOENT",
         "checker_exit_code": 0,
         "checker_stdout_json": {
           "status": "pass",
           "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-          "generated_at": "2026-06-05T07:47:24.980Z",
+          "generated_at": "2026-06-09T02:56:03.604Z",
           "weak_claim_recorded": "reference-baseline-integrity-checked",
           "checker": "check_reference_baseline_integrity.mjs",
           "reference_baseline_path": "evidence/reference-baseline",
@@ -3077,13 +3105,13 @@
       "detail": {
         "status": "pass",
         "root_workspace_first_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_current_state_alignment.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_current_state_alignment.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "agent_ready_export_first_commands": [
-          "node tools/check_agent_ready_self_contained.mjs",
-          "node tools/check_reference_baseline_integrity.mjs"
+          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+          "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "current_state_alignment_placement": "root_workspace_only",
         "docs": [
@@ -3091,24 +3119,24 @@
             "entry": "AGENT_BOOTSTRAP.ko.md",
             "included": true,
             "all_commands": [
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_current_state_alignment.mjs",
-              "node tools/check_reference_baseline_integrity.mjs",
-              "node tools/check_harness_core_final_precommit_convergence.mjs",
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs",
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_current_state_alignment.mjs",
-              "node tools/scan_prohibited_claims.mjs",
-              "node tools/check_reference_baseline_integrity.mjs",
-              "node tools/check_harness_core_final_precommit_convergence.mjs",
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs"
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_current_state_alignment.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+              "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_current_state_alignment.mjs",
+              "node tools/scanners/release/scan_prohibited_claims.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+              "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_mode_commands": [
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs"
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_first_command_is_self_contained": true,
             "export_reference_baseline_command_present": true,
@@ -3120,24 +3148,28 @@
             "entry": "README.md",
             "included": true,
             "all_commands": [
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_current_state_alignment.mjs",
-              "node tools/check_reference_baseline_integrity.mjs",
-              "node tools/check_harness_core_final_precommit_convergence.mjs",
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs",
-              "node tools/check_clean_export_self_contained.mjs",
-              "node tools/check_current_state_alignment.mjs",
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/scan_prohibited_claims.mjs",
-              "node tools/check_reference_baseline_integrity.mjs",
-              "node tools/check_harness_core_final_precommit_convergence.mjs",
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs"
+              "node tools/check_project_current_state.mjs",
+              "node tools/check_project_claims.mjs",
+              "node tools/checks/workspace/check_external_project_template_contract.mjs",
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_current_state_alignment.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+              "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+              "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+              "node tools/checks/workspace/check_current_state_alignment.mjs",
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/scanners/release/scan_prohibited_claims.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+              "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+              "node tools/checks/workspace/check_external_project_template_contract.mjs",
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_mode_commands": [
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs"
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_first_command_is_self_contained": true,
             "export_reference_baseline_command_present": true,
@@ -3149,18 +3181,18 @@
             "entry": "START_HERE_FOR_AGENTS.ko.md",
             "included": true,
             "all_commands": [
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_current_state_alignment.mjs",
-              "node tools/check_reference_baseline_integrity.mjs",
-              "node tools/check_harness_core_final_precommit_convergence.mjs",
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs",
-              "node tools/check_reference_baseline_integrity.mjs"
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_current_state_alignment.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+              "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_mode_commands": [
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs",
-              "node tools/check_reference_baseline_integrity.mjs"
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_first_command_is_self_contained": true,
             "export_reference_baseline_command_present": true,
@@ -3169,15 +3201,15 @@
             "current_state_alignment_not_default_export_command": true
           },
           {
-            "entry": "docs/agent_ready_self_contained_mode.ko.md",
+            "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
             "included": true,
             "all_commands": [
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs"
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_mode_commands": [
-              "node tools/check_agent_ready_self_contained.mjs",
-              "node tools/check_reference_baseline_integrity.mjs"
+              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+              "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_first_command_is_self_contained": true,
             "export_reference_baseline_command_present": true,
@@ -3196,24 +3228,24 @@
                   "entry": "AGENT_BOOTSTRAP.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3225,24 +3257,28 @@
                   "entry": "README.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_clean_export_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/check_project_current_state.mjs",
+                    "node tools/check_project_claims.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3254,18 +3290,18 @@
                   "entry": "START_HERE_FOR_AGENTS.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3274,15 +3310,15 @@
                   "current_state_alignment_not_default_export_command": true
                 },
                 {
-                  "entry": "docs/agent_ready_self_contained_mode.ko.md",
+                  "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3302,24 +3338,24 @@
                   "entry": "AGENT_BOOTSTRAP.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3331,24 +3367,28 @@
                   "entry": "README.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_clean_export_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/check_project_current_state.mjs",
+                    "node tools/check_project_claims.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3360,18 +3400,18 @@
                   "entry": "START_HERE_FOR_AGENTS.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3380,15 +3420,15 @@
                   "current_state_alignment_not_default_export_command": true
                 },
                 {
-                  "entry": "docs/agent_ready_self_contained_mode.ko.md",
+                  "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3408,24 +3448,24 @@
                   "entry": "AGENT_BOOTSTRAP.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3437,24 +3477,28 @@
                   "entry": "README.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_clean_export_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/check_project_current_state.mjs",
+                    "node tools/check_project_claims.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3466,18 +3510,18 @@
                   "entry": "START_HERE_FOR_AGENTS.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3486,15 +3530,15 @@
                   "current_state_alignment_not_default_export_command": true
                 },
                 {
-                  "entry": "docs/agent_ready_self_contained_mode.ko.md",
+                  "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3514,24 +3558,24 @@
                   "entry": "AGENT_BOOTSTRAP.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3543,24 +3587,28 @@
                   "entry": "README.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_clean_export_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/check_project_current_state.mjs",
+                    "node tools/check_project_claims.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3572,18 +3620,18 @@
                   "entry": "START_HERE_FOR_AGENTS.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3592,15 +3640,15 @@
                   "current_state_alignment_not_default_export_command": true
                 },
                 {
-                  "entry": "docs/agent_ready_self_contained_mode.ko.md",
+                  "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3620,24 +3668,24 @@
                   "entry": "AGENT_BOOTSTRAP.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3649,24 +3697,28 @@
                   "entry": "README.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_clean_export_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/scan_prohibited_claims.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/check_project_current_state.mjs",
+                    "node tools/check_project_claims.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_clean_export_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/scanners/release/scan_prohibited_claims.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3678,18 +3730,18 @@
                   "entry": "START_HERE_FOR_AGENTS.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_current_state_alignment.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_harness_core_final_precommit_convergence.mjs",
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_current_state_alignment.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,
@@ -3698,15 +3750,15 @@
                   "current_state_alignment_not_default_export_command": true
                 },
                 {
-                  "entry": "docs/agent_ready_self_contained_mode.ko.md",
+                  "entry": "docs/workspace/agent_ready_self_contained_mode.ko.md",
                   "included": true,
                   "all_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
-                    "node tools/check_agent_ready_self_contained.mjs",
-                    "node tools/check_reference_baseline_integrity.mjs"
+                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
+                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
                   "export_reference_baseline_command_present": true,

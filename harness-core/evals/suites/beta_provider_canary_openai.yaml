@@ -1,8 +1,8 @@
 id: beta_provider_canary_openai
 stage: v2.0.0-beta-provider-canary-openai-credentialed-rerun
 mode: openai_provider_canary_no_tools_no_structured_output
-runner: tools/run_openai_provider_canary.mjs
-scope: release/beta_provider_canary_openai_scope.yaml
+runner: tools/runners/providers/run_openai_provider_canary.mjs
+scope: release/scopes/beta/beta_provider_canary_openai_scope.yaml
 fixtures:
   - adapters/api/openai/canary_cases.jsonl
 assertions:

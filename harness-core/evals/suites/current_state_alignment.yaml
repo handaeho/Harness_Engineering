@@ -1,14 +1,14 @@
 suite: current_state_alignment
 stage: v2.0.0-post-final-dossier-agent-application-layer-and-current-state-alignment
-runner: tools/build_current_state_index.mjs
-checker: tools/check_current_state_alignment.mjs
+runner: tools/builders/workspace/build_current_state_index.mjs
+checker: tools/checks/workspace/check_current_state_alignment.mjs
 inputs:
   - CURRENT_STATE.yaml
   - AGENT_BOOTSTRAP.ko.md
   - AGENTS.md
   - README.md
   - stack.yaml
-  - docs/session_handoff_latest.md
+  - docs/handoffs/session_handoff_latest.md
   - adapters/provider_capability_matrix.yaml
   - evidence/post-active-scoped-final-release-dossier/final_release_claim_state.json
   - evidence/final-export-refresh-after-final-dossier/final_export_refresh_after_final_dossier_report.json

@@ -1,9 +1,9 @@
 id: beta_structured_output_canary_openai
 stage: v2.0.0-beta-structured-output-canary-openai
 mode: openai_structured_output_canary_no_tools
-runner: tools/run_openai_structured_output_canary.mjs
-gate: tools/check_openai_structured_output_canary.mjs
-scope: release/beta_structured_output_canary_openai_scope.yaml
+runner: tools/runners/openai/run_openai_structured_output_canary.mjs
+gate: tools/checks/openai/check_openai_structured_output_canary.mjs
+scope: release/scopes/beta/beta_structured_output_canary_openai_scope.yaml
 fixtures:
   - adapters/api/openai/structured_output_cases.jsonl
 assertions:

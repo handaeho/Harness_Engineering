@@ -1,0 +1,36 @@
+scope_id: project-bootstrap-scope
+status: draft
+
+allowed_paths:
+  - AGENTS.md
+  - README.md
+  - PROJECT_BRIEF.md
+  - CURRENT_STATE.yaml
+  - src/**
+  - app/**
+  - pages/**
+  - lib/**
+  - cmd/**
+  - internal/**
+  - tests/**
+  - __tests__/**
+  - docs/**
+  - evidence/**
+  - release/**
+  - tools/**
+  - package.json
+  - pyproject.toml
+  - Cargo.toml
+  - go.mod
+
+forbidden_paths:
+  - node_modules/**
+  - dist/**
+  - .harness/harness-core/evidence/reference-baseline/**
+  - .harness/harness-core/dist/**
+  - .harness/harness-core/node_modules/**
+
+notes:
+  - Product code should follow the framework standard layout.
+  - HARNESS Core is a vendored reference at .harness/harness-core.
+  - Project-specific checkers belong in tools/.

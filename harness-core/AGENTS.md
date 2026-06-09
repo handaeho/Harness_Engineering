@@ -25,15 +25,15 @@ Use these in order:
 3. `AGENTS.md` - agent-facing navigation and operating rules
 4. `stack.yaml` - machine-readable stack manifest
 5. `core/spec/harness.spec.yaml` - model-independent Core Harness Spec
-6. `release/claim_ladder.md` - allowed claim levels
-7. `release/current_state_claim_boundary.yaml` - current state claim boundary
-8. `release/release_gate.yaml` - release and production gates
+6. `release/claims/general/claim_ladder.md` - allowed claim levels
+7. `release/claims/general/current_state_claim_boundary.yaml` - current state claim boundary
+8. `release/gates/core-release/release_gate.yaml` - release and production gates
 9. `adapters/provider_capability_matrix.yaml` - current capability status
 10. `evidence/**` - execution and validation evidence
 
 ## Non-Negotiable Rules
 
-- Do not modify the legacy reference source.
+- Do not manually modify `evidence/reference-baseline/**`; it is a read-only historical reference snapshot.
 - Do not manually modify `dist/**`.
 - Do not upgrade claims beyond available evidence.
 - Do not store API keys, authorization headers, raw requests, or raw responses.
@@ -52,7 +52,7 @@ Current stage:
 
 - `v2.0.0-rc.1-postrc-final-dossier`
 - Final dossier/export recorded.
-- Agent application layer and current-state alignment use `tools/check_current_state_alignment.mjs`.
+- Agent application layer and current-state alignment use `tools/checks/workspace/check_current_state_alignment.mjs`.
 - Agent-ready clean export: `exports/harness-core-agent-ready.zip`
 - Latest dossier evidence export: `exports/v2.0.0-rc.1-postrc-final-dossier-export.zip`
 - Latest dossier evidence export SHA256: `4f863c921cf1e00098f88913ba0810e8808cfff1dca824a2feeb9d1a0a48c424`
@@ -120,10 +120,10 @@ Every change should follow this pattern:
 ## Minimum Validation
 
 ```bash
-node tools/check_current_state_alignment.mjs
-node tools/validate_alpha.mjs
-node tools/scan_prohibited_claims.mjs
-node tools/check_reference_baseline_integrity.mjs
+node tools/checks/workspace/check_current_state_alignment.mjs
+node tools/validators/evals/validate_alpha.mjs
+node tools/scanners/release/scan_prohibited_claims.mjs
+node tools/checks/workspace/check_reference_baseline_integrity.mjs
 ```
 
 Run task-specific gates as required.

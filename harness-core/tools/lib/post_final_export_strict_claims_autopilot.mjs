@@ -305,7 +305,7 @@ export function completeProviderVerifiedCoverage(root) {
   writeJsonRel(root, `${dir}/provider_redaction_storage_review.json`, redactionReview);
   writeJsonRel(root, `${dir}/provider_verified_coverage_claim_boundary.json`, boundary);
   writeUnresolved(root, dir, stage, blockers);
-  writeYaml(root, "release/post_export_provider_verified_coverage_completion_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_provider_verified_coverage_completion_scope.yaml", [
     `stage: ${stage}`,
     "status: keep_blocked_recommended",
     "mode: coverage_completion_no_forbidden_execution",
@@ -316,7 +316,7 @@ export function completeProviderVerifiedCoverage(root) {
     "reference_baseline_source_modified: false",
     "evidence_reference_baseline_modified: false"
   ]);
-  writeYaml(root, "release/post_export_provider_verified_coverage_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_provider_verified_coverage_claim_boundary.yaml", [
     `stage: ${stage}`,
     "status: pass",
     "provider_diverse_allowed: true",
@@ -327,20 +327,20 @@ export function completeProviderVerifiedCoverage(root) {
     "stable_allowed: false",
     "release_gated_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_provider_verified_blocker_update.yaml", [
+  writeYaml(root, "release/blockers/post-export/post_export_provider_verified_blocker_update.yaml", [
     `stage: ${stage}`,
     "status: keep_blocked_recommended",
     "provider_verified_allowed: false",
     "blockers:",
     ...blockers.map((item) => `  - ${item.id}`)
   ]);
-  writeMd(root, "docs/provider_verified_coverage_completion.ko.md", "Provider-Verified Coverage Completion", [
+  writeMd(root, "docs/providers/provider_verified_coverage_completion.ko.md", "Provider-Verified Coverage Completion", [
     "OpenAI는 새 API 호출 없이 기존 evidence와 static contract review만 사용했습니다.",
     "Ollama는 기존 bounded local smoke/replay evidence를 사용했고 새 local generation은 수행하지 않았습니다.",
     "",
     "결론: provider-level error handling과 replay/regression coverage가 final-gate 수준으로 충분하지 않아 `provider-verified`는 계속 blocked입니다."
   ]);
-  writeMd(root, "docs/provider_verified_remaining_gaps.ko.md", "Provider-Verified Remaining Gaps", blockers.map((item) => `- ${item.id}: ${item.next_action}`));
+  writeMd(root, "docs/providers/provider_verified_remaining_gaps.ko.md", "Provider-Verified Remaining Gaps", blockers.map((item) => `- ${item.id}: ${item.next_action}`));
   return report;
 }
 
@@ -450,12 +450,12 @@ export function runProviderVerifiedFinalGate(root) {
     blockers
   });
   writeUnresolved(root, PROVIDER_FINAL_DIR, PROVIDER_FINAL_STAGE, blockers);
-  writeYaml(root, "release/post_export_provider_verified_final_gate_scope.yaml", [`stage: ${PROVIDER_FINAL_STAGE}`, `status: ${report.status}`, `provider_verified_allowed: ${ready}`]);
-  writeYaml(root, "release/post_export_provider_verified_final_gate.yaml", [`stage: ${PROVIDER_FINAL_STAGE}`, `status: ${report.status}`, `provider_verified_allowed: ${ready}`]);
-  writeYaml(root, "release/post_export_provider_verified_claim_boundary.yaml", [`stage: ${PROVIDER_FINAL_STAGE}`, "status: pass", `provider_verified_allowed: ${ready}`, "adapter_checked_allowed: false", "production_ready_allowed: false", "stable_allowed: false", "release_gated_allowed: false"]);
-  writeYaml(root, "release/post_export_provider_verified_decision_record.yaml", [`stage: ${PROVIDER_FINAL_STAGE}`, `status: ${ready ? "recorded" : "blocked"}`, `provider_verified_allowed: ${ready}`]);
-  writeMd(root, "docs/provider_verified_final_gate.ko.md", "Provider-Verified Final Gate", [`Status: \`${report.status}\``, "", ready ? "`provider-verified` claim enabled." : "Stage A가 ready 상태가 아니므로 final gate는 blocked로 기록했습니다."]);
-  writeMd(root, "docs/provider_verified_claim_boundary.ko.md", "Provider-Verified Claim Boundary", ["`provider-verified`는 이번 final gate에서 열리지 않았습니다.", "`adapter-checked`, `production-ready`, `stable`, `release-gated`도 계속 blocked입니다."]);
+  writeYaml(root, "release/gates/post-export/post_export_provider_verified_final_gate_scope.yaml", [`stage: ${PROVIDER_FINAL_STAGE}`, `status: ${report.status}`, `provider_verified_allowed: ${ready}`]);
+  writeYaml(root, "release/gates/post-export/post_export_provider_verified_final_gate.yaml", [`stage: ${PROVIDER_FINAL_STAGE}`, `status: ${report.status}`, `provider_verified_allowed: ${ready}`]);
+  writeYaml(root, "release/claims/post-export/post_export_provider_verified_claim_boundary.yaml", [`stage: ${PROVIDER_FINAL_STAGE}`, "status: pass", `provider_verified_allowed: ${ready}`, "adapter_checked_allowed: false", "production_ready_allowed: false", "stable_allowed: false", "release_gated_allowed: false"]);
+  writeYaml(root, "release/decisions/post-export/post_export_provider_verified_decision_record.yaml", [`stage: ${PROVIDER_FINAL_STAGE}`, `status: ${ready ? "recorded" : "blocked"}`, `provider_verified_allowed: ${ready}`]);
+  writeMd(root, "docs/providers/provider_verified_final_gate.ko.md", "Provider-Verified Final Gate", [`Status: \`${report.status}\``, "", ready ? "`provider-verified` claim enabled." : "Stage A가 ready 상태가 아니므로 final gate는 blocked로 기록했습니다."]);
+  writeMd(root, "docs/claims/provider_verified_claim_boundary.ko.md", "Provider-Verified Claim Boundary", ["`provider-verified`는 이번 final gate에서 열리지 않았습니다.", "`adapter-checked`, `production-ready`, `stable`, `release-gated`도 계속 blocked입니다."]);
   return report;
 }
 
@@ -549,11 +549,11 @@ export function completeAdapterCheckedCoverage(root) {
   writeJsonRel(root, `${dir}/cross_adapter_contract_review.json`, cross);
   writeJsonRel(root, `${dir}/adapter_checked_coverage_claim_boundary.json`, boundary);
   writeUnresolved(root, dir, stage, blockers);
-  writeYaml(root, "release/post_export_adapter_checked_coverage_completion_scope.yaml", [`stage: ${stage}`, "status: blocked_by_missing_openai_full_conformance", "adapter_checked_allowed: false", "openai_provider_rerun: false", "new_local_model_execution: false"]);
-  writeYaml(root, "release/post_export_adapter_checked_coverage_claim_boundary.yaml", [`stage: ${stage}`, "status: pass", "provider_verified_allowed: false", "adapter_checked_allowed: false", "production_ready_allowed: false", "stable_allowed: false", "release_gated_allowed: false"]);
-  writeYaml(root, "release/post_export_adapter_checked_blocker_update.yaml", [`stage: ${stage}`, "status: blocked_by_missing_openai_full_conformance", "adapter_checked_allowed: false", "blockers:", ...blockers.map((item) => `  - ${item.id}`)]);
-  writeMd(root, "docs/adapter_checked_coverage_completion.ko.md", "Adapter-Checked Coverage Completion", ["기존 OpenAI/Ollama adapter evidence와 static/dry-run review를 사용했습니다.", "OpenAI full conformance와 cross-adapter regression이 부족해 `adapter-checked`는 계속 blocked입니다."]);
-  writeMd(root, "docs/adapter_checked_remaining_gaps.ko.md", "Adapter-Checked Remaining Gaps", blockers.map((item) => `- ${item.id}: ${item.next_action}`));
+  writeYaml(root, "release/scopes/post-export/post_export_adapter_checked_coverage_completion_scope.yaml", [`stage: ${stage}`, "status: blocked_by_missing_openai_full_conformance", "adapter_checked_allowed: false", "openai_provider_rerun: false", "new_local_model_execution: false"]);
+  writeYaml(root, "release/claims/post-export/post_export_adapter_checked_coverage_claim_boundary.yaml", [`stage: ${stage}`, "status: pass", "provider_verified_allowed: false", "adapter_checked_allowed: false", "production_ready_allowed: false", "stable_allowed: false", "release_gated_allowed: false"]);
+  writeYaml(root, "release/blockers/post-export/post_export_adapter_checked_blocker_update.yaml", [`stage: ${stage}`, "status: blocked_by_missing_openai_full_conformance", "adapter_checked_allowed: false", "blockers:", ...blockers.map((item) => `  - ${item.id}`)]);
+  writeMd(root, "docs/adapters/adapter_checked_coverage_completion.ko.md", "Adapter-Checked Coverage Completion", ["기존 OpenAI/Ollama adapter evidence와 static/dry-run review를 사용했습니다.", "OpenAI full conformance와 cross-adapter regression이 부족해 `adapter-checked`는 계속 blocked입니다."]);
+  writeMd(root, "docs/adapters/adapter_checked_remaining_gaps.ko.md", "Adapter-Checked Remaining Gaps", blockers.map((item) => `- ${item.id}: ${item.next_action}`));
   return report;
 }
 
@@ -615,12 +615,12 @@ export function runAdapterCheckedFinalGate(root) {
   writeJsonRel(root, `${ADAPTER_FINAL_DIR}/adapter_checked_final_decision_record.json`, { status: ready ? "recorded" : "blocked", stage: ADAPTER_FINAL_STAGE, decision: ready ? "approve_adapter_checked_claim" : "keep_adapter_checked_blocked", adapter_checked_allowed: ready, blockers });
   writeJsonRel(root, `${ADAPTER_FINAL_DIR}/adapter_checked_blocker_update.json`, { status: report.status, stage: ADAPTER_FINAL_STAGE, blockers });
   writeUnresolved(root, ADAPTER_FINAL_DIR, ADAPTER_FINAL_STAGE, blockers);
-  writeYaml(root, "release/post_export_adapter_checked_final_gate_scope.yaml", [`stage: ${ADAPTER_FINAL_STAGE}`, `status: ${report.status}`, `adapter_checked_allowed: ${ready}`]);
-  writeYaml(root, "release/post_export_adapter_checked_final_gate.yaml", [`stage: ${ADAPTER_FINAL_STAGE}`, `status: ${report.status}`, `adapter_checked_allowed: ${ready}`]);
-  writeYaml(root, "release/post_export_adapter_checked_claim_boundary.yaml", [`stage: ${ADAPTER_FINAL_STAGE}`, "status: pass", "provider_verified_allowed: false", `adapter_checked_allowed: ${ready}`, "production_ready_allowed: false", "stable_allowed: false", "release_gated_allowed: false"]);
-  writeYaml(root, "release/post_export_adapter_checked_decision_record.yaml", [`stage: ${ADAPTER_FINAL_STAGE}`, `status: ${ready ? "recorded" : "blocked"}`, `adapter_checked_allowed: ${ready}`]);
-  writeMd(root, "docs/adapter_checked_final_gate.ko.md", "Adapter-Checked Final Gate", [`Status: \`${report.status}\``, "", ready ? "`adapter-checked` claim enabled." : "Stage C가 ready 상태가 아니므로 final gate는 blocked로 기록했습니다."]);
-  writeMd(root, "docs/adapter_checked_claim_boundary.ko.md", "Adapter-Checked Claim Boundary", ["`adapter-checked`는 이번 final gate에서 열리지 않았습니다.", "`production-ready`, `stable`, `release-gated`도 계속 blocked입니다."]);
+  writeYaml(root, "release/gates/post-export/post_export_adapter_checked_final_gate_scope.yaml", [`stage: ${ADAPTER_FINAL_STAGE}`, `status: ${report.status}`, `adapter_checked_allowed: ${ready}`]);
+  writeYaml(root, "release/gates/post-export/post_export_adapter_checked_final_gate.yaml", [`stage: ${ADAPTER_FINAL_STAGE}`, `status: ${report.status}`, `adapter_checked_allowed: ${ready}`]);
+  writeYaml(root, "release/claims/post-export/post_export_adapter_checked_claim_boundary.yaml", [`stage: ${ADAPTER_FINAL_STAGE}`, "status: pass", "provider_verified_allowed: false", `adapter_checked_allowed: ${ready}`, "production_ready_allowed: false", "stable_allowed: false", "release_gated_allowed: false"]);
+  writeYaml(root, "release/decisions/post-export/post_export_adapter_checked_decision_record.yaml", [`stage: ${ADAPTER_FINAL_STAGE}`, `status: ${ready ? "recorded" : "blocked"}`, `adapter_checked_allowed: ${ready}`]);
+  writeMd(root, "docs/adapters/adapter_checked_final_gate.ko.md", "Adapter-Checked Final Gate", [`Status: \`${report.status}\``, "", ready ? "`adapter-checked` claim enabled." : "Stage C가 ready 상태가 아니므로 final gate는 blocked로 기록했습니다."]);
+  writeMd(root, "docs/claims/adapter_checked_claim_boundary.ko.md", "Adapter-Checked Claim Boundary", ["`adapter-checked`는 이번 final gate에서 열리지 않았습니다.", "`production-ready`, `stable`, `release-gated`도 계속 blocked입니다."]);
   return report;
 }
 
@@ -687,10 +687,10 @@ export function assessGeneralReadinessStabilityPreflight(root) {
   writeJsonRel(root, `${GENERAL_PREFLIGHT_DIR}/general_stable_criteria_matrix.json`, stable);
   writeJsonRel(root, `${GENERAL_PREFLIGHT_DIR}/general_readiness_stability_claim_boundary.json`, boundary);
   writeUnresolved(root, GENERAL_PREFLIGHT_DIR, GENERAL_PREFLIGHT_STAGE, blockers);
-  writeYaml(root, "release/post_export_general_readiness_stability_preflight_scope.yaml", [`stage: ${GENERAL_PREFLIGHT_STAGE}`, "status: blocked_by_strict_claim_gaps", "production_ready_allowed: false", "stable_allowed: false"]);
-  writeYaml(root, "release/post_export_general_readiness_stability_claim_boundary.yaml", [`stage: ${GENERAL_PREFLIGHT_STAGE}`, "status: pass", "production_ready_allowed: false", "stable_allowed: false", "release_gated_allowed: false"]);
-  writeMd(root, "docs/general_readiness_stability_preflight.ko.md", "General Readiness Stability Preflight", ["Scoped claims와 bare/general claims를 분리했습니다.", "현재 general `production-ready`, `stable`, `release-gated`는 모두 blocked입니다."]);
-  writeMd(root, "docs/general_production_ready_stable_remaining_gaps.ko.md", "General Production-Ready Stable Remaining Gaps", blockers.map((item) => `- ${item.id}: ${item.next_action}`));
+  writeYaml(root, "release/scopes/post-export/post_export_general_readiness_stability_preflight_scope.yaml", [`stage: ${GENERAL_PREFLIGHT_STAGE}`, "status: blocked_by_strict_claim_gaps", "production_ready_allowed: false", "stable_allowed: false"]);
+  writeYaml(root, "release/claims/post-export/post_export_general_readiness_stability_claim_boundary.yaml", [`stage: ${GENERAL_PREFLIGHT_STAGE}`, "status: pass", "production_ready_allowed: false", "stable_allowed: false", "release_gated_allowed: false"]);
+  writeMd(root, "docs/release/general_readiness_stability_preflight.ko.md", "General Readiness Stability Preflight", ["Scoped claims와 bare/general claims를 분리했습니다.", "현재 general `production-ready`, `stable`, `release-gated`는 모두 blocked입니다."]);
+  writeMd(root, "docs/release/general_production_ready_stable_remaining_gaps.ko.md", "General Production-Ready Stable Remaining Gaps", blockers.map((item) => `- ${item.id}: ${item.next_action}`));
   return report;
 }
 
@@ -802,7 +802,7 @@ export function runFinalExportRefreshAfterStrictPaths(root) {
     excluded_basenames: [".DS_Store"],
     excluded_patterns: ["*.log", "raw request/response payload files"]
   };
-  writeYaml(root, "release/final_export_refresh_after_strict_paths_scope.yaml", [`stage: ${EXPORT_REFRESH_STAGE}`, "status: packaging", `package_path: ${EXPORT_PACKAGE}`, "dist_modified: false", "reference_baseline_source_modified: false"]);
+  writeYaml(root, "release/scopes/final-export/final_export_refresh_after_strict_paths_scope.yaml", [`stage: ${EXPORT_REFRESH_STAGE}`, "status: packaging", `package_path: ${EXPORT_PACKAGE}`, "dist_modified: false", "reference_baseline_source_modified: false"]);
   writeJsonRel(root, `${EXPORT_REFRESH_DIR}/final_export_refresh_claim_state.json`, claimState);
   writeUnresolved(root, EXPORT_REFRESH_DIR, EXPORT_REFRESH_STAGE, []);
   const stageRoot = path.join(os.tmpdir(), `harness-core-strict-refresh-${process.pid}`);
@@ -856,7 +856,7 @@ export function runFinalExportRefreshAfterStrictPaths(root) {
   writeJsonRel(root, `${EXPORT_REFRESH_DIR}/final_export_refresh_manifest.json`, manifest);
   writeJsonRel(root, `${EXPORT_REFRESH_DIR}/final_export_refresh_checksums.json`, { status: "recorded", stage: EXPORT_REFRESH_STAGE, entries: [{ path: EXPORT_PACKAGE, sha256: checksum }] });
   writeJsonRel(root, `${EXPORT_REFRESH_DIR}/final_export_refresh_gate_report.json`, { status: packageCreated ? "pass" : "blocked", stage: EXPORT_REFRESH_STAGE, unresolved_items_count: packageCreated ? 0 : 1, ...noExecFlags({ actual_export_write: packageCreated }), package_record: packageRecord });
-  writeMd(root, "docs/final_export_refresh_after_strict_paths.ko.md", "Final Export Refresh After Strict Paths", [`Status: \`${report.status}\``, "", `- package path: \`${EXPORT_PACKAGE}\``, `- package sha256: \`${checksum || "missing"}\``, "- dist modified: false", "- legacy-reference-source modified: false", "- evidence/reference-baseline refresh: false"]);
+  writeMd(root, "docs/release/final_export_refresh_after_strict_paths.ko.md", "Final Export Refresh After Strict Paths", [`Status: \`${report.status}\``, "", `- package path: \`${EXPORT_PACKAGE}\``, `- package sha256: \`${checksum || "missing"}\``, "- dist modified: false", "- legacy-reference-source modified: false", "- evidence/reference-baseline refresh: false"]);
   return report;
 }
 

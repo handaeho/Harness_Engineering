@@ -3,7 +3,7 @@ stage: v2.0.0-post-rc-production-monitoring-window-continuation-checkpoint
 source_stage: v2.0.0-post-rc-production-monitoring-window-execution
 description: Records monitoring window continuation progress without synthetic samples, manual duration changes, telemetry writes, provider calls, local endpoint probes, or production claims.
 gate:
-  script: tools/check_post_rc_production_monitoring_window_continuation.mjs
+  script: tools/checks/observability/check_post_rc_production_monitoring_window_continuation.mjs
 expected_status:
   - pass
   - ready_for_monitoring_window_result_review

@@ -482,7 +482,7 @@ export function refreshActiveScopedArchiveState(root) {
       post_export_active_adapters_checked_allowed: base.adapter_allowed
     })
   };
-  writeYaml(root, "release/post_export_active_scoped_archive_refresh_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_active_scoped_archive_refresh_scope.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_provider_lanes_verified_allowed: ${base.provider_allowed}`,
@@ -493,7 +493,7 @@ export function refreshActiveScopedArchiveState(root) {
     "stable_allowed: false",
     "release_gated_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_scoped_final_claim_state.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_scoped_final_claim_state.yaml", [
     `stage: ${stage}`,
     "status: recorded",
     "allowed_scoped_claims:",
@@ -501,7 +501,7 @@ export function refreshActiveScopedArchiveState(root) {
     "blocked_claims:",
     ...BARE_BLOCKED_CLAIMS.map((claim) => `  - ${claim}`)
   ]);
-  writeYaml(root, "release/post_export_active_scoped_strict_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_scoped_strict_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${boundary.status}`,
     "scoped_claims_are_not_bare_claims: true",
@@ -519,7 +519,7 @@ export function refreshActiveScopedArchiveState(root) {
   writeJsonRel(root, `${dir}/active_scoped_claim_boundary.json`, boundary);
   writeJsonRel(root, `${dir}/active_scoped_archive_refresh_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_scoped_archive_refresh.ko.md", "Active Scoped Archive Refresh", [
+  writeMd(root, "docs/release/active_scoped_archive_refresh.ko.md", "Active Scoped Archive Refresh", [
     `Status: \`${report.status}\``,
     "",
     `- ${ACTIVE_PROVIDER_SCOPED_CLAIM}: ${base.provider_allowed}`,
@@ -527,7 +527,7 @@ export function refreshActiveScopedArchiveState(root) {
     "- bare/general claim은 모두 blocked로 유지했습니다.",
     "- 새 모델 실행, OpenAI provider rerun, telemetry sink write는 수행하지 않았습니다."
   ]);
-  writeMd(root, "docs/active_scoped_final_claim_state.ko.md", "Active Scoped Final Claim State", [
+  writeMd(root, "docs/claims/active_scoped_final_claim_state.ko.md", "Active Scoped Final Claim State", [
     "Status: `recorded`",
     "",
     `- Allowed scoped claims: ${state.allowed_scoped_claims.join(", ")}`,
@@ -633,7 +633,7 @@ export function assessActiveScopedProductionReadyPreflight(root) {
     },
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_active_scoped_production_ready_preflight_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_active_scoped_production_ready_preflight_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "final_gate_allowed_by_instruction: true",
@@ -641,7 +641,7 @@ export function assessActiveScopedProductionReadyPreflight(root) {
     "stable_allowed: false",
     "release_gated_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_scoped_production_ready_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_scoped_production_ready_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "post_export_active_scoped_production_ready_allowed: false",
@@ -657,7 +657,7 @@ export function assessActiveScopedProductionReadyPreflight(root) {
   writeJsonRel(root, `${dir}/active_scoped_production_ready_gate_preconditions.json`, preconditions);
   writeJsonRel(root, `${dir}/active_scoped_production_ready_preflight_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_scoped_production_ready_preflight.ko.md", "Active Scoped Production Readiness Preflight", [
+  writeMd(root, "docs/release/active_scoped_production_ready_preflight.ko.md", "Active Scoped Production Readiness Preflight", [
     `Status: \`${status}\``,
     "",
     `- Criteria passed: ${matrix.criteria_passed}/${matrix.criteria_total}`,
@@ -727,7 +727,7 @@ export function runActiveScopedProductionReadyFinalGate(root) {
     blockers,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_active_scoped_production_ready_final_gate_scope.yaml", [
+  writeYaml(root, "release/gates/post-export/post_export_active_scoped_production_ready_final_gate_scope.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_scoped_production_ready_allowed: ${allowed}`,
@@ -735,14 +735,14 @@ export function runActiveScopedProductionReadyFinalGate(root) {
     "stable_allowed: false",
     "release_gated_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_scoped_production_ready_final_gate.yaml", [
+  writeYaml(root, "release/gates/post-export/post_export_active_scoped_production_ready_final_gate.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `allowed_claim: ${allowed ? ACTIVE_SCOPED_PRODUCTION_READY : "none"}`,
     `final_gate_claim: ${allowed ? ACTIVE_SCOPED_PRODUCTION_READY_GATE : "none"}`,
     "bare_production_ready_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_scoped_production_ready_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_scoped_production_ready_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_scoped_production_ready_allowed: ${allowed}`,
@@ -764,14 +764,14 @@ export function runActiveScopedProductionReadyFinalGate(root) {
   });
   writeJsonRel(root, `${dir}/active_scoped_production_ready_gate_check_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_scoped_production_ready_final_gate.ko.md", "Active Scoped Production Readiness Final Gate", [
+  writeMd(root, "docs/release/active_scoped_production_ready_final_gate.ko.md", "Active Scoped Production Readiness Final Gate", [
     `Status: \`${report.status}\``,
     "",
     `- Scoped claim allowed: ${allowed}`,
     `- Allowed scoped claim: \`${allowed ? ACTIVE_SCOPED_PRODUCTION_READY : "none"}\``,
     "- Bare `production-ready` remains blocked."
   ]);
-  writeMd(root, "docs/active_scoped_production_ready_claim_boundary.ko.md", "Active Scoped Production Readiness Boundary", [
+  writeMd(root, "docs/claims/active_scoped_production_ready_claim_boundary.ko.md", "Active Scoped Production Readiness Boundary", [
     `Status: \`${claimBoundary.status}\``,
     "",
     "- This boundary is active scoped only.",
@@ -867,7 +867,7 @@ export function assessActiveScopedStablePreflight(root) {
     blockers,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_active_scoped_stable_preflight_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_active_scoped_stable_preflight_scope.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "final_gate_allowed_by_instruction: true",
@@ -875,7 +875,7 @@ export function assessActiveScopedStablePreflight(root) {
     "production_ready_allowed: false",
     "release_gated_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_scoped_stable_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_scoped_stable_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${status}`,
     "post_export_active_scoped_stable_allowed: false",
@@ -891,7 +891,7 @@ export function assessActiveScopedStablePreflight(root) {
   writeJsonRel(root, `${dir}/active_scoped_stable_gate_preconditions.json`, preconditions);
   writeJsonRel(root, `${dir}/active_scoped_stable_preflight_gate_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_scoped_stable_preflight.ko.md", "Active Scoped Stability Preflight", [
+  writeMd(root, "docs/release/active_scoped_stable_preflight.ko.md", "Active Scoped Stability Preflight", [
     `Status: \`${status}\``,
     "",
     `- Criteria passed: ${matrix.criteria_passed}/${matrix.criteria_total}`,
@@ -961,7 +961,7 @@ export function runActiveScopedStableFinalGate(root) {
     blockers,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_active_scoped_stable_final_gate_scope.yaml", [
+  writeYaml(root, "release/gates/post-export/post_export_active_scoped_stable_final_gate_scope.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_scoped_stable_allowed: ${allowed}`,
@@ -969,14 +969,14 @@ export function runActiveScopedStableFinalGate(root) {
     "production_ready_allowed: false",
     "release_gated_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_scoped_stable_final_gate.yaml", [
+  writeYaml(root, "release/gates/post-export/post_export_active_scoped_stable_final_gate.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `allowed_claim: ${allowed ? ACTIVE_SCOPED_STABLE : "none"}`,
     `final_gate_claim: ${allowed ? ACTIVE_SCOPED_STABLE_GATE : "none"}`,
     "bare_stable_allowed: false"
   ]);
-  writeYaml(root, "release/post_export_active_scoped_stable_claim_boundary.yaml", [
+  writeYaml(root, "release/claims/post-export/post_export_active_scoped_stable_claim_boundary.yaml", [
     `stage: ${stage}`,
     `status: ${report.status}`,
     `post_export_active_scoped_stable_allowed: ${allowed}`,
@@ -998,14 +998,14 @@ export function runActiveScopedStableFinalGate(root) {
   });
   writeJsonRel(root, `${dir}/active_scoped_stable_gate_check_report.json`, report);
   writeUnresolved(root, dir, stage, blockers);
-  writeMd(root, "docs/active_scoped_stable_final_gate.ko.md", "Active Scoped Stability Final Gate", [
+  writeMd(root, "docs/release/active_scoped_stable_final_gate.ko.md", "Active Scoped Stability Final Gate", [
     `Status: \`${report.status}\``,
     "",
     `- Scoped claim allowed: ${allowed}`,
     `- Allowed scoped claim: \`${allowed ? ACTIVE_SCOPED_STABLE : "none"}\``,
     "- Bare `stable` remains blocked."
   ]);
-  writeMd(root, "docs/active_scoped_stable_claim_boundary.ko.md", "Active Scoped Stability Boundary", [
+  writeMd(root, "docs/claims/active_scoped_stable_claim_boundary.ko.md", "Active Scoped Stability Boundary", [
     `Status: \`${claimBoundary.status}\``,
     "",
     "- This boundary is active scoped only.",
@@ -1136,7 +1136,7 @@ export function buildGeneralBareClaimFinalBlockerMatrix(root) {
     unresolved_items_count: 0,
     ...commonFlags()
   };
-  writeYaml(root, "release/post_export_general_bare_claim_final_blocker_matrix_scope.yaml", [
+  writeYaml(root, "release/blockers/post-export/post_export_general_bare_claim_final_blocker_matrix_scope.yaml", [
     `stage: ${stage}`,
     "status: pass",
     "provider_verified_allowed: false",
@@ -1150,7 +1150,7 @@ export function buildGeneralBareClaimFinalBlockerMatrix(root) {
   writeJsonRel(root, `${dir}/general_bare_claim_next_actions.json`, nextActions);
   writeJsonRel(root, `${dir}/general_bare_claim_gate_report.json`, report);
   writeUnresolved(root, dir, stage, []);
-  writeMd(root, "docs/general_bare_claim_final_blocker_matrix.ko.md", "General Bare Claim Final Blocker Matrix", [
+  writeMd(root, "docs/release/general_bare_claim_final_blocker_matrix.ko.md", "General Bare Claim Final Blocker Matrix", [
     "Status: `pass`",
     "",
     "- bare provider/adapter/production/stability/release claims remain blocked.",
@@ -1288,7 +1288,7 @@ export function runFinalExportRefreshAfterActiveScopedReadiness(root) {
     excluded_basenames: [".DS_Store"],
     excluded_patterns: ["*.log", "raw request/response payload files", "secret/API-key/auth-header files"]
   };
-  writeYaml(root, "release/final_export_refresh_after_active_scoped_readiness_scope.yaml", [
+  writeYaml(root, "release/scopes/final-export/final_export_refresh_after_active_scoped_readiness_scope.yaml", [
     `stage: ${stage}`,
     "status: packaging",
     `package_path: ${EXPORT_PACKAGE}`,
@@ -1355,7 +1355,7 @@ export function runFinalExportRefreshAfterActiveScopedReadiness(root) {
     package_record: report,
     ...commonFlags({ actual_export_write: packageCreated })
   });
-  writeMd(root, "docs/final_export_refresh_after_active_scoped_readiness.ko.md", "Final Export Refresh After Active Scoped Readiness", [
+  writeMd(root, "docs/release/final_export_refresh_after_active_scoped_readiness.ko.md", "Final Export Refresh After Active Scoped Readiness", [
     `Status: \`${report.status}\``,
     "",
     `- package path: \`${EXPORT_PACKAGE}\``,
@@ -1478,7 +1478,7 @@ export function buildActiveScopedFinalHandoffRefresh(root) {
   ].join("\n");
   writeTextRel(root, "NEW_CONVERSATION_HANDOFF_AFTER_ACTIVE_SCOPED.ko.md", handoff);
   writeTextRel(root, "NEW_CONVERSATION_PROMPT_AFTER_ACTIVE_SCOPED.ko.md", prompt);
-  writeYaml(root, "release/post_export_active_scoped_final_handoff_refresh_scope.yaml", [
+  writeYaml(root, "release/scopes/post-export/post_export_active_scoped_final_handoff_refresh_scope.yaml", [
     `stage: ${stage}`,
     "status: pass",
     "handoff_path: NEW_CONVERSATION_HANDOFF_AFTER_ACTIVE_SCOPED.ko.md",
@@ -1494,7 +1494,7 @@ export function buildActiveScopedFinalHandoffRefresh(root) {
   writeJsonRel(root, `${dir}/active_scoped_next_options.json`, nextOptions);
   writeJsonRel(root, `${dir}/active_scoped_final_handoff_gate_report.json`, report);
   writeUnresolved(root, dir, stage, []);
-  writeMd(root, "docs/active_scoped_final_handoff_refresh.ko.md", "Active Scoped Final Handoff Refresh", [
+  writeMd(root, "docs/handoffs/active_scoped_final_handoff_refresh.ko.md", "Active Scoped Final Handoff Refresh", [
     "Status: `pass`",
     "",
     "- New conversation handoff and prompt were refreshed.",

@@ -1,0 +1,21 @@
+claim_boundary_id: project-bootstrap-claim-boundary
+status: draft
+
+allowed_weak_claims:
+  - project-bootstrap-recorded
+  - project-current-state-recorded
+
+blocked_strong_claims:
+  - provider-verified
+  - adapter-checked
+  - production-ready
+  - stable
+  - release-gated
+  - bare release-gated
+
+canonicalization_rules:
+  - Do not treat project code creation as production-ready.
+  - Do not treat a passing test as stable.
+  - Do not treat a project checker pass as release-gated.
+  - Do not treat HARNESS Core evidence as project claim evidence.
+  - Project-specific gates are required before opening strong claims.

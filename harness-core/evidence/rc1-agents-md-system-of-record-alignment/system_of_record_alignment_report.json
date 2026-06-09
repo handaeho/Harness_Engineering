@@ -10,13 +10,13 @@
   "telemetry_connection": false,
   "release_gate_execution": false,
   "dist_modified": false,
-  "v36_modified": false,
+  "reference_baseline_source_modified": false,
   "checks": [
     {
-      "name": "tools/validate_alpha.mjs",
+      "name": "tools/validators/evals/validate_alpha.mjs",
       "status": "pass",
       "detail": {
-        "script": "tools/validate_alpha.mjs",
+        "script": "tools/validators/evals/validate_alpha.mjs",
         "status": "pass",
         "exit_code": 0,
         "stdout_tail": "  ],\n  \"claims_blocked\": [\n    \"adapter-checked\",\n    \"provider-verified\",\n    \"runtime-verified\",\n    \"tool-call-verified\",\n    \"schema-output-verified\",\n    \"telemetry-connected\",\n    \"production-ready\",\n    \"production-monitored\",\n    \"containment-verified\",\n    \"replay-verified\",\n    \"benchmark-backed\",\n    \"provider-diverse\",\n    \"integration-verified\",\n    \"stable\",\n    \"release-gated\"\n  ]\n}\n",
@@ -24,32 +24,32 @@
       }
     },
     {
-      "name": "tools/scan_prohibited_claims.mjs",
+      "name": "tools/scanners/release/scan_prohibited_claims.mjs",
       "status": "pass",
       "detail": {
-        "script": "tools/scan_prohibited_claims.mjs",
+        "script": "tools/scanners/release/scan_prohibited_claims.mjs",
         "status": "pass",
         "exit_code": 0,
-        "stdout_tail": "      \"reason\": \"allowed_context\"\n    },\n    {\n      \"file\": \"tools/validate_redteam_fixtures.mjs\",\n      \"claim\": \"containment-verified\",\n      \"line\": 47,\n      \"context\": \"const requiredBlockedClaims = new Set([\\\"redteam-passed\\\", \\\"containment-verified\\\", \\\"release-gated\\\"]);\",\n      \"reason\": \"allowed_context\"\n    },\n    {\n      \"file\": \"tools/validate_redteam_fixtures.mjs\",\n      \"claim\": \"release-gated\",\n      \"line\": 47,\n      \"context\": \"const requiredBlockedClaims = new Set([\\\"redteam-passed\\\", \\\"containment-verified\\\", \\\"release-gated\\\"]);\",\n      \"reason\": \"allowed_context\"\n    }\n  ],\n  \"matches\": []\n}\n",
+        "stdout_tail": "      \"reason\": \"allowed_context\"\n    },\n    {\n      \"file\": \"tools/validators/security/validate_containment_fixtures.mjs\",\n      \"claim\": \"containment-verified\",\n      \"line\": 91,\n      \"context\": \"if (!item.claims_not_allowed?.includes?.(\\\"containment-verified\\\")) errors.push(\\\"containment_claim_not_blocked\\\");\",\n      \"reason\": \"allowed_context\"\n    },\n    {\n      \"file\": \"tools/validators/security/validate_dedicated_containment_verification_plan.mjs\",\n      \"claim\": \"containment-verified\",\n      \"line\": 97,\n      \"context\": \"&& blocker?.does_not_unblock?.includes(\\\"containment-verified\\\"), {\",\n      \"reason\": \"allowed_context\"\n    }\n  ],\n  \"matches\": []\n}\n",
         "stderr_tail": ""
       }
     },
     {
-      "name": "tools/compare_v36_baseline.mjs",
+      "name": "tools/checks/workspace/check_reference_baseline_integrity.mjs",
       "status": "pass",
       "detail": {
-        "script": "tools/compare_v36_baseline.mjs",
+        "script": "tools/checks/workspace/check_reference_baseline_integrity.mjs",
         "status": "pass",
         "exit_code": 0,
-        "stdout_tail": "      \"path\": \"v36/records/file_checksums.json\",\n      \"explanation\": \"listed in v36 records/file_checksums.json excluded_mutable\"\n    },\n    {\n      \"path\": \"v36/validation/current_validation_result.json\",\n      \"explanation\": \"listed in v36 records/file_checksums.json excluded_mutable\"\n    },\n    {\n      \"path\": \"v36/verification/current_validation_result.json\",\n      \"explanation\": \"listed in v36 records/file_checksums.json excluded_mutable\"\n    }\n  ],\n  \"existing_record_mismatches\": [],\n  \"unresolved_items_count\": 0,\n  \"runner_reexecution\": {\n    \"v36_runners_reexecuted\": false,\n    \"note\": \"Existing records/reports were inspected, but v36 runners were not re-executed in this step.\"\n  }\n}\n",
+        "stdout_tail": "        }\n      }\n    },\n    {\n      \"name\": \".DS_Store paths absent from reference baseline\",\n      \"status\": \"pass\",\n      \"detail\": {\n        \"ds_store_paths\": []\n      }\n    }\n  ],\n  \"failures\": [],\n  \"unresolved_items_count\": 0,\n  \"provider_verified_allowed\": false,\n  \"adapter_checked_allowed\": false,\n  \"production_ready_allowed\": false,\n  \"stable_allowed\": false,\n  \"release_gated_allowed\": false\n}\n",
         "stderr_tail": ""
       }
     },
     {
-      "name": "tools/validate_agents_md_alignment.mjs",
+      "name": "tools/validators/general/validate_agents_md_alignment.mjs",
       "status": "pass",
       "detail": {
-        "script": "tools/validate_agents_md_alignment.mjs",
+        "script": "tools/validators/general/validate_agents_md_alignment.mjs",
         "status": "pass",
         "exit_code": 0,
         "stdout_tail": "    \"agents-md-root-entrypoint-added\",\n    \"system-of-record-aligned\",\n    \"asset-classes-manifested\",\n    \"directory-roles-documented\",\n    \"naming-conventions-documented\",\n    \"agent-workflow-documented\"\n  ],\n  \"claims_blocked\": [\n    \"stable\",\n    \"release-gated\",\n    \"production-ready\",\n    \"production-monitored\",\n    \"provider-diverse\",\n    \"provider-verified\",\n    \"adapter-checked\",\n    \"local-model-verified\",\n    \"integration-verified\"\n  ]\n}\n",
@@ -76,6 +76,8 @@
         },
         "source_of_truth": {
           "agent_index": [
+            "CURRENT_STATE.yaml",
+            "AGENT_BOOTSTRAP.ko.md",
             "AGENTS.md"
           ],
           "machine_manifest": [
@@ -86,8 +88,8 @@
             "core/spec/harness.spec.yaml"
           ],
           "release_contract": [
-            "release/claim_ladder.md",
-            "release/release_gate.yaml"
+            "release/claims/general/claim_ladder.md",
+            "release/gates/core-release/release_gate.yaml"
           ],
           "capability_contract": [
             "adapters/provider_capability_matrix.yaml"

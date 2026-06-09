@@ -3,8 +3,8 @@ stage: v2.0.0-beta-containment-boundary-mock-dry-run
 execution_mode: mock_containment_dry_run
 
 runner:
-  command: node harness-core/tools/run_containment_boundary_mock_dry_run.mjs
-  check: node harness-core/tools/check_containment_boundary_mock_dry_run.mjs
+  command: node harness-core/tools/runners/security/run_containment_boundary_mock_dry_run.mjs
+  check: node harness-core/tools/checks/security/check_containment_boundary_mock_dry_run.mjs
 
 required_inputs:
   - evals/fixtures/containment/

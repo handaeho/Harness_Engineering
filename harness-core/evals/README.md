@@ -21,9 +21,9 @@ Deferred:
 ## Commands
 
 ```powershell
-node harness-core/tools/scan_prohibited_claims.mjs
+node harness-core/tools/scanners/release/scan_prohibited_claims.mjs
 node harness-core/tools/compare_v36_baseline.mjs
-node harness-core/tools/validate_alpha.mjs
+node harness-core/tools/validators/evals/validate_alpha.mjs
 ```
 
 Fixture presence does not mean a test passed.

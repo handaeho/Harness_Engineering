@@ -16,7 +16,8 @@
         "security/",
         "observability/",
         "evals/suites/",
-        "evals/fixtures/"
+        "evals/fixtures/",
+        "templates/"
       ],
       "edit_policy": "editable_with_validation"
     },
@@ -33,7 +34,10 @@
       "paths": [
         "README.md",
         "AGENTS.md",
+        "NAME_MIGRATION.md",
         "docs/",
+        "FINAL_HANDOFF.ko.md",
+        "FINAL_NEW_CONVERSATION_PROMPT.ko.md",
         "session_handoff_2026-05-22.md"
       ],
       "edit_policy": "editable_with_claim_boundary_check"
@@ -46,17 +50,17 @@
       ],
       "edit_policy": "do_not_edit_manually"
     },
-    "immutable_baseline": {
-      "description": "Previous stable baseline.",
+    "reference_baseline": {
+      "description": "Historical reference snapshot used only for integrity comparison.",
       "paths": [
-        "prompt-stack/v36/"
+        "evidence/reference-baseline/"
       ],
       "edit_policy": "read_only"
     }
   },
   "rules": {
     "dist_manual_edit_allowed": false,
-    "v36_edit_allowed": false,
+    "legacy_reference_source_edit_allowed": false,
     "node_modules_is_asset": false,
     "raw_provider_response_storage_allowed": false,
     "secret_storage_allowed": false
@@ -71,20 +75,20 @@
           "evidence",
           "human_docs",
           "generated_or_ignored",
-          "immutable_baseline"
+          "reference_baseline"
         ]
       }
     },
     {
-      "name": "asset class manifest classifies generated and immutable paths",
+      "name": "asset class manifest classifies generated and reference baseline paths",
       "status": "pass",
       "detail": {
         "generated_or_ignored": [
           "node_modules/",
           "dist/"
         ],
-        "immutable_baseline": [
-          "prompt-stack/v36/"
+        "reference_baseline": [
+          "evidence/reference-baseline/"
         ]
       }
     }

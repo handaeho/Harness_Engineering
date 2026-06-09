@@ -1,0 +1,47 @@
+project:
+  name: <PROJECT_NAME>
+  slug: <project-slug>
+  harness:
+    name: HARNESS Core
+    path: .harness/harness-core
+    mode: external_project_vendored_harness
+
+stage: project-bootstrap
+
+goal:
+  summary: <ONE_SENTENCE_GOAL>
+  solved_condition:
+    - <observable condition 1>
+    - <observable condition 2>
+
+operation_mode:
+  primary: project_root
+  harness_reference: .harness/harness-core
+
+claims:
+  allowed_weak_claims:
+    - project-bootstrap-recorded
+    - project-current-state-recorded
+  blocked_strong_claims:
+    - provider-verified
+    - adapter-checked
+    - production-ready
+    - stable
+    - release-gated
+
+evidence:
+  current_state_dir: evidence/current-state
+  runs_dir: evidence/runs
+  gates_dir: evidence/gates
+  checks_dir: evidence/checks
+
+release:
+  scope: release/scope.yaml
+  claim_boundary: release/claim_boundary.yaml
+  blocker_register: release/blocker_register.yaml
+
+verification:
+  required_commands:
+    - node tools/check_project_current_state.mjs
+    - node tools/check_project_claims.mjs
+    - node tools/check_project_precommit.mjs

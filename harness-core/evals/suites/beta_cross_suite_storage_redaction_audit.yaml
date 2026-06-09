@@ -24,10 +24,10 @@ excluded:
   - prompt-stack/v36/
 
 commands:
-  - node harness-core/tools/run_cross_suite_storage_redaction_audit.mjs
-  - node harness-core/tools/classify_storage_redaction_findings.mjs
-  - node harness-core/tools/summarize_storage_redaction_audit.mjs
-  - node harness-core/tools/check_cross_suite_storage_redaction_audit.mjs
+  - node harness-core/tools/runners/security/run_cross_suite_storage_redaction_audit.mjs
+  - node harness-core/tools/classifiers/security/classify_storage_redaction_findings.mjs
+  - node harness-core/tools/summaries/security/summarize_storage_redaction_audit.mjs
+  - node harness-core/tools/checks/security/check_cross_suite_storage_redaction_audit.mjs
 
 must_remain_false:
   new_provider_execution: false

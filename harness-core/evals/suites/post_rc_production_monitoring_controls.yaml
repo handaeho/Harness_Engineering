@@ -7,7 +7,7 @@ forbidden_execution:
   local_model_execution: true
   telemetry_sink_write: true
 gate:
-  script: tools/check_post_rc_production_monitoring_controls.mjs
+  script: tools/checks/observability/check_post_rc_production_monitoring_controls.mjs
 required_artifacts:
   - evidence/post-rc-production-monitoring-controls/production_monitoring_controls_report.json
   - evidence/post-rc-production-monitoring-controls/production_monitoring_claim_boundary.json

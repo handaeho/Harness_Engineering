@@ -9,6 +9,6 @@ preflight_policy:
     - observability/telemetry_redaction_policy.yaml
     - observability/otel/genai_semantic_mapping.yaml
     - observability/langfuse/integration_plan.yaml
-    - release/production_telemetry_gate.yaml
-    - release/production_telemetry_connection_approval_gate.yaml
+    - release/gates/telemetry/production_telemetry_gate.yaml
+    - release/gates/telemetry/production_telemetry_connection_approval_gate.yaml
   expected_preflight_status_without_approval: ready_but_blocked_by_missing_explicit_approval

@@ -1,7 +1,7 @@
 stage: v2.0.0-beta-openai-redteam-limited-execution
 suite: beta_openai_redteam_limited_execution
-runner: tools/run_openai_redteam_limited_execution.mjs
-gate: tools/check_openai_redteam_limited_execution.mjs
+runner: tools/runners/openai/run_openai_redteam_limited_execution.mjs
+gate: tools/checks/openai/check_openai_redteam_limited_execution.mjs
 selected_case_subset: evals/fixtures/redteam_openai_limited/openai_limited_case_subset.jsonl
 max_cases_total: 12
 max_provider_calls: 24

@@ -3,11 +3,11 @@ purpose: review release gate language without opening bare/general claims
 must_read:
   - CURRENT_STATE.yaml
   - AGENT_BOOTSTRAP.ko.md
-  - release/claim_ladder.md
-  - release/current_state_claim_boundary.yaml
+  - release/claims/general/claim_ladder.md
+  - release/claims/general/current_state_claim_boundary.yaml
 must_run_before_report:
-  - node tools/check_agent_ready_self_contained.mjs
-  - node tools/check_reference_baseline_integrity.mjs
+  - node tools/checks/workspace/check_agent_ready_self_contained.mjs
+  - node tools/checks/workspace/check_reference_baseline_integrity.mjs
 forbidden_paths:
   - dist/**
   - node_modules/**
