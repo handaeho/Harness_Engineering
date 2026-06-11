@@ -1,0 +1,73 @@
+stage: v2.0.0-gemini-runtime-dry-run-provider-canary
+
+approved_execution:
+  gemini_live_provider_canary_preflight: true
+  gemini_native_request_mapping_dry_run: true
+  gemini_response_mapping_dry_run: true
+  gemini_structured_output_local_validation: true
+  gemini_function_calling_dry_run: true
+  gemini_tool_argument_ajv_validation: true
+  gemini_function_response_reinjection_dry_run: true
+  gemini_safety_blocked_response_fixture: true
+  request_response_redaction: true
+  provider_trace_capture: true
+  optional_live_text_canary_only_with_explicit_env: true
+  structured_output_doc_freshness_gate: true
+
+required_live_execution_environment:
+  GEMINI_API_KEY: required_for_live_provider_call
+  GEMINI_MODEL: required_for_live_provider_call
+  GEMINI_PROVIDER_CANARY_ENABLE_LIVE: must_equal_1
+  GEMINI_PROVIDER_CANARY_NETWORK_APPROVAL: must_equal_1_after_separate_approval
+  separate_network_approval_boundary: required_outside_env
+
+forbidden_execution:
+  live_provider_call_without_explicit_env: true
+  live_provider_call_without_network_approval_marker: true
+  built_in_tools: true
+  remote_mcp: true
+  code_execution_tool: true
+  google_search_tool: true
+  url_context_tool: true
+  external_side_effect_tools: true
+  local_model_execution: true
+  live_telemetry: true
+  redteam_execution: true
+  replay_verification: true
+  release_gate_claim: true
+  structured_output_live_canary: separate_future_stage
+  tool_calling_live_canary: separate_future_stage
+
+structured_output_doc_freshness_gate:
+  required_sources:
+    - https://ai.google.dev/api/generate-content
+    - https://ai.google.dev/gemini-api/docs/structured-output
+  target_shape: generationConfig.responseJsonSchema
+  alternate_doc_shape_seen: generationConfig.responseFormat
+  live_structured_output_execution: separate_future_stage
+
+claims_allowed_after_dry_run:
+  - gemini-request-mapping-dry-run-checked
+  - gemini-structured-output-dry-run-checked
+  - gemini-tool-calling-dry-run-checked
+  - gemini-safety-fixture-checked
+
+claims_allowed_after_live_pass:
+  - gemini-provider-canary-executed
+  - gemini-provider-trace-captured
+
+claims_not_allowed:
+  - adapter-checked
+  - provider-verified
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - telemetry-connected
+  - production-ready
+  - production-monitored
+  - containment-verified
+  - replay-verified
+  - benchmark-backed
+  - provider-diverse
+  - integration-verified
+  - release-gated

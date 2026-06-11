@@ -7,6 +7,7 @@ const runners = [
   "validate_current.mjs",
   "validate_assembled_bundle.mjs",
   "validate_codex_runtime.mjs",
+  "validate_gemini_runtime.mjs",
 ];
 
 const results = [];

@@ -9,7 +9,7 @@
 
 ## 사용법
 ```powershell
-node prompt-stack/v36/harness/validate_current_v36.mjs
+node prompt-stack/<current_package>/harness/validate_current.mjs
 ```
 
-validation run history는 active package가 아니라 `_evidence/v36/validation_runs/`에 보존한다.
+validation run history는 active package가 아니라 `_evidence/<current_package>/validation_runs/`에 보존한다.

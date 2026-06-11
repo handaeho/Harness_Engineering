@@ -1,6 +1,6 @@
 ﻿# Current Package Plans
 
-이 문서는 `v36/`의 현재 운영 계획만 기록한다.
+이 문서는 `<current_package>/`의 현재 운영 계획만 기록한다.
 
 ## Active plan
 - active package와 evidence package를 분리해서 운영한다.

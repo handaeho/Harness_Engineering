@@ -1,0 +1,140 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-tool-calling-live-canary",
+  "mode": "gemini_tool_calling_live_canary_mock_tools_only",
+  "provider": "gemini",
+  "provider_execution": true,
+  "tool_calling_used": true,
+  "function_tools_used": true,
+  "built_in_tools_used": false,
+  "remote_mcp_used": false,
+  "local_model_execution": false,
+  "external_side_effects": false,
+  "store_false_enforced": true,
+  "tool_argument_ajv_validation_used": true,
+  "mock_tools_only": true,
+  "local_dry_run_status": "pass",
+  "cases_total": 3,
+  "cases_passed": 3,
+  "cases_failed": 0,
+  "live_cases_total": 2,
+  "live_cases_passed": 2,
+  "live_cases_failed": 0,
+  "tool_calls_total": 2,
+  "tool_argument_validations_total": 4,
+  "tool_argument_validations_passed": 4,
+  "tool_argument_validations_failed": 0,
+  "mock_tools_executed": 2,
+  "blocked_tools_requested": 1,
+  "blocked_tools_executed": 0,
+  "tool_outputs_reclassified_untrusted": 2,
+  "thought_signatures_captured": 2,
+  "thought_signatures_reinjected": 2,
+  "final_responses_received": 2,
+  "expected_final_responses": 2,
+  "trace_events_total": 13,
+  "redaction_passed": true,
+  "raw_response_stored": false,
+  "claims_allowed": [
+    "gemini-tool-calling-dry-run-checked",
+    "gemini-tool-argument-schema-local-validation-checked",
+    "gemini-function-response-reinjection-dry-run-checked",
+    "gemini-tool-calling-live-canary-executed",
+    "gemini-provider-tool-call-path-checked",
+    "gemini-tool-argument-schema-live-validated",
+    "gemini-function-response-reinjection-live-checked",
+    "gemini-tool-approval-boundary-checked",
+    "gemini-tool-output-reclassification-checked",
+    "gemini-tool-calling-trace-captured",
+    "gemini-tool-calling-redaction-checked"
+  ],
+  "claims_not_allowed": [
+    "tool-call-verified",
+    "provider-verified",
+    "adapter-checked",
+    "integration-verified",
+    "provider-diverse",
+    "replay-verified",
+    "release-gated",
+    "production-ready",
+    "production-monitored"
+  ],
+  "failures": [],
+  "local_case_results": [
+    {
+      "case_id": "gemini_lookup_tool_call_dry_run",
+      "status": "pass",
+      "provider_case": true,
+      "request_surface": {
+        "ok": true,
+        "native_gemini_surface": true,
+        "tools_present": true,
+        "function_declarations_present": true,
+        "function_declaration_names": [
+          "canary_lookup"
+        ],
+        "function_calling_config_present": true,
+        "function_calling_mode": "ANY",
+        "allowed_function_names": [
+          "canary_lookup"
+        ],
+        "built_in_tools_present": false,
+        "built_in_tool_fields": [],
+        "unallowlisted_tools": [],
+        "schemas_ok": true,
+        "store_false_enforced": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true
+      }
+    },
+    {
+      "case_id": "gemini_calculator_tool_call_dry_run",
+      "status": "pass",
+      "provider_case": true,
+      "request_surface": {
+        "ok": true,
+        "native_gemini_surface": true,
+        "tools_present": true,
+        "function_declarations_present": true,
+        "function_declaration_names": [
+          "canary_calculator"
+        ],
+        "function_calling_config_present": true,
+        "function_calling_mode": "ANY",
+        "allowed_function_names": [
+          "canary_calculator"
+        ],
+        "built_in_tools_present": false,
+        "built_in_tool_fields": [],
+        "unallowlisted_tools": [],
+        "schemas_ok": true,
+        "store_false_enforced": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true
+      }
+    },
+    {
+      "case_id": "gemini_blocked_external_post_not_executed",
+      "status": "pass",
+      "provider_case": false
+    }
+  ],
+  "live_case_results": [
+    {
+      "case_id": "gemini_lookup_tool_call_dry_run",
+      "status": "pass",
+      "provider_execution": true,
+      "tool_calls_total": 1,
+      "final_response_received": true,
+      "failures": []
+    },
+    {
+      "case_id": "gemini_calculator_tool_call_dry_run",
+      "status": "pass",
+      "provider_execution": true,
+      "tool_calls_total": 1,
+      "final_response_received": true,
+      "failures": []
+    }
+  ]
+}

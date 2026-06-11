@@ -1,0 +1,135 @@
+{
+  "status": "partial",
+  "stage": "v2.0.0-post-export-provider-verified-coverage-completion",
+  "lane": "native_gemini_api_lane",
+  "provider_contract_reviewed": true,
+  "capability_matrix_reviewed": true,
+  "execution_evidence_equivalent_to_openai_local": true,
+  "live_text_canary_passed": true,
+  "structured_output_live_canary_passed": true,
+  "tool_calling_live_canary_passed": true,
+  "tool_calling_final_responses_received": 2,
+  "tool_calling_expected_final_responses": 2,
+  "thought_signature_reinjection_checked": true,
+  "replay_regression_reviewed": "missing",
+  "error_handling_reviewed": "missing_execution_backed_review",
+  "live_safety_metadata_reviewed": "missing",
+  "redaction_storage_reviewed": true,
+  "provider_verified_ready": false,
+  "source_evidence": {
+    "provider_verified_preflight": {
+      "path": "evidence/post-export-provider-verified-coverage-preflight/provider_verified_coverage_preflight_report.json",
+      "exists": true,
+      "status": "blocked_by_missing_provider_coverage",
+      "stage": "v2.0.0-post-export-provider-verified-coverage-completion-preflight"
+    },
+    "openai_preflight_inventory": {
+      "path": "evidence/post-export-provider-verified-coverage-preflight/openai_provider_coverage_inventory.json",
+      "exists": true,
+      "status": "partial",
+      "stage": "v2.0.0-post-export-provider-verified-coverage-completion-preflight"
+    },
+    "ollama_preflight_inventory": {
+      "path": "evidence/post-export-provider-verified-coverage-preflight/ollama_provider_coverage_inventory.json",
+      "exists": true,
+      "status": "partial",
+      "stage": "v2.0.0-post-export-provider-verified-coverage-completion-preflight"
+    },
+    "provider_diverse_final_gate": {
+      "path": "evidence/post-combined-provider-diverse-final-gate/provider_diverse_final_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-combined-provider-diverse-final-gate"
+    },
+    "local_model_verified_final_gate": {
+      "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+    },
+    "openai_canary_suite": {
+      "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-openai-canary-replay-suite"
+    },
+    "openai_redteam": {
+      "path": "evidence/beta-openai-redteam-limited-execution/redteam_limited_execution_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-openai-redteam-limited-execution"
+    },
+    "openai_redaction": {
+      "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+    },
+    "ollama_replay": {
+      "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+    },
+    "ollama_redteam": {
+      "path": "evidence/post-stable-local-redteam-bounded-smoke/local_redteam_bounded_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-redteam-bounded-smoke"
+    },
+    "ollama_structured": {
+      "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+    },
+    "ollama_tool_mock": {
+      "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+    },
+    "ollama_redaction": {
+      "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+    },
+    "gemini_asset_pack": {
+      "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+    },
+    "gemini_text_canary": {
+      "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+    },
+    "gemini_structured_canary": {
+      "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-structured-output-live-canary"
+    },
+    "gemini_tool_calling_canary": {
+      "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-tool-calling-live-canary"
+    },
+    "gemini_tool_calling_gate": {
+      "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-tool-calling-live-canary"
+    },
+    "capability_matrix": {
+      "path": "adapters/provider_capability_matrix.yaml",
+      "exists": true,
+      "status": null,
+      "stage": null
+    }
+  }
+}

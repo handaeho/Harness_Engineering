@@ -10,7 +10,7 @@ project:
 
 agent_entrypoint:
   path: AGENTS.md
-  role: human_and_agent_facing_system_of_record_index
+  role: agent_facing_system_of_record_index
 
 legacy_source_of_truth:
   - stack.yaml
@@ -20,6 +20,7 @@ legacy_source_of_truth:
 source_of_truth:
   agent_index:
     - CURRENT_STATE.yaml
+    - START_HERE_FOR_AGENTS.ko.md
     - AGENT_BOOTSTRAP.ko.md
     - AGENTS.md
   machine_manifest:
@@ -61,6 +62,7 @@ adapters:
   capability_matrix: adapters/provider_capability_matrix.yaml
   skeletons:
     - adapters/api/openai/adapter.yaml
+    - adapters/api/gemini/adapter.yaml
     - adapters/local/vllm/adapter.yaml
     - adapters/local/ollama/adapter.yaml
 validation:

@@ -74,7 +74,7 @@ Escalate to explicit operator approval or propose-only mode when:
 - Say which validation was run after the change.
 - Do not claim repository-wide correctness from a local document edit.
 - Do not claim release readiness from contract text alone.
-- Keep `v36` and any referenced future version distinct when paths conflict.
+- Keep `current package` and any referenced future version distinct when paths conflict.
 
 ## 8. Anti-Patterns
 

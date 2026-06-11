@@ -1,0 +1,137 @@
+{
+  "status": "pass",
+  "stage": "asset-purpose-boundary-check",
+  "generated_at": "2026-06-11T09:45:28.358Z",
+  "agent_instruction_files": [
+    "AGENTS.md",
+    "START_HERE_FOR_AGENTS.ko.md",
+    "AGENT_BOOTSTRAP.ko.md"
+  ],
+  "human_doc_roots": [
+    "README.md",
+    "NAME_MIGRATION.md",
+    "FINAL_HANDOFF.ko.md",
+    "FINAL_NEW_CONVERSATION_PROMPT.ko.md",
+    "docs/"
+  ],
+  "checks": [
+    {
+      "name": "asset class manifest parses",
+      "status": "pass",
+      "detail": {
+        "file": "MANIFEST.asset_classes.yaml"
+      }
+    },
+    {
+      "name": "AGENTS.md exists",
+      "status": "pass",
+      "detail": {
+        "file": "AGENTS.md"
+      }
+    },
+    {
+      "name": "START_HERE_FOR_AGENTS.ko.md exists",
+      "status": "pass",
+      "detail": {
+        "file": "START_HERE_FOR_AGENTS.ko.md"
+      }
+    },
+    {
+      "name": "AGENT_BOOTSTRAP.ko.md exists",
+      "status": "pass",
+      "detail": {
+        "file": "AGENT_BOOTSTRAP.ko.md"
+      }
+    },
+    {
+      "name": "agent instruction class exists",
+      "status": "pass",
+      "detail": {
+        "classes": [
+          "agent_instructions",
+          "core_source",
+          "evidence",
+          "human_docs",
+          "generated_or_ignored",
+          "reference_baseline"
+        ]
+      }
+    },
+    {
+      "name": "agent instruction files classified as agent_instructions",
+      "status": "pass",
+      "detail": {
+        "missing": [],
+        "agent_instructions": [
+          "AGENTS.md",
+          "START_HERE_FOR_AGENTS.ko.md",
+          "AGENT_BOOTSTRAP.ko.md"
+        ]
+      }
+    },
+    {
+      "name": "agent instruction files absent from human_docs",
+      "status": "pass",
+      "detail": {
+        "leaked": [],
+        "human_docs": [
+          "README.md",
+          "NAME_MIGRATION.md",
+          "docs/",
+          "FINAL_HANDOFF.ko.md",
+          "FINAL_NEW_CONVERSATION_PROMPT.ko.md"
+        ]
+      }
+    },
+    {
+      "name": "human docs keep human-facing roots",
+      "status": "pass",
+      "detail": {
+        "missing": [],
+        "human_docs": [
+          "README.md",
+          "NAME_MIGRATION.md",
+          "docs/",
+          "FINAL_HANDOFF.ko.md",
+          "FINAL_NEW_CONVERSATION_PROMPT.ko.md"
+        ]
+      }
+    },
+    {
+      "name": "agent instruction files avoid human-doc prose",
+      "status": "pass",
+      "detail": {
+        "findings": []
+      }
+    },
+    {
+      "name": "AGENTS.md keeps runtime rule language",
+      "status": "pass",
+      "detail": {
+        "file": "AGENTS.md"
+      }
+    },
+    {
+      "name": "START_HERE keeps executable bootstrap commands",
+      "status": "pass",
+      "detail": {
+        "file": "START_HERE_FOR_AGENTS.ko.md"
+      }
+    },
+    {
+      "name": "AGENT_BOOTSTRAP keeps execution and claim boundaries",
+      "status": "pass",
+      "detail": {
+        "file": "AGENT_BOOTSTRAP.ko.md"
+      }
+    }
+  ],
+  "failures": [],
+  "claim_boundary": {
+    "agent_instruction_boundary_checked": true,
+    "human_doc_boundary_checked": true,
+    "provider_execution": false,
+    "local_model_execution": false,
+    "release_gate_execution": false
+  }
+}

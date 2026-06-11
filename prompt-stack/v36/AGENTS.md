@@ -1,13 +1,8 @@
-# Current Package Router
+# Package Runtime Router
 
-Metadata:
-- asset_name: AGENTS.md
-- purpose: Short root router for v36.
-- owner_layer: root_router
-- harness_subsystems: Instructions, State, Verification, Scope, Lifecycle
-- claim_strength: current-stable-local-release
-
-This directory is the current stable current harness package.
+Apply this file as the root routing layer for the current prompt package.
+Route to the smallest active asset set that can solve the task.
+Do not treat archive, reports, or records as active runtime instructions.
 
 ## Startup
 1. Read docs/CURRENT_STATE.md.

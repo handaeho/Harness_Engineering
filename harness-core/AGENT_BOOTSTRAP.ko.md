@@ -1,13 +1,11 @@
-# HARNESS Core Agent Bootstrap
+# Agent Bootstrap Rules
 
-## 목적
+HARNESS Core를 evidence-gated autonomous agent engineering harness로 실행한다.
+canonical directory/slug는 `harness-core`다.
+프롬프트 묶음으로 취급하지 않는다.
+claim은 evidence와 gate 없이 강화하지 않는다.
 
-이 문서는 새 에이전트가 HARNESS Core 작업을 시작할 때 가장 먼저 읽는 적용 지침이다.
-현재 canonical directory/slug는 `harness-core`다.
-
-이 하네스는 프롬프트 묶음이 아니라, 에이전트가 claim을 과장하지 않고 evidence/gate 기반으로 작업하도록 만드는 운영 레이어입니다.
-
-## 현재 상태 요약
+## State
 
 - 현재 상태 파일: `CURRENT_STATE.yaml`
 - dependency-free 현재 상태 파일: `CURRENT_STATE.json`
@@ -19,54 +17,12 @@
 - 최신 dossier evidence export: `exports/v2.0.0-rc.1-postrc-final-dossier-export.zip`
 - 최신 dossier evidence export SHA256: `4f863c921cf1e00098f88913ba0810e8808cfff1dca824a2feeb9d1a0a48c424`
 
-기본 운영 방식은 이 디렉토리 자체를 에이전트 프로젝트 루트로 사용하는 것이다. 디렉토리명은 `harness-core/`이며 공식 프로젝트 이름은 HARNESS Core다. 다른 대화, 다른 머신, 외부 에이전트에게 넘겨야 하는 경우에만 `harness-core-agent-ready.zip`을 전달한다. Agent-ready export mode에서는 새 에이전트에게는 `harness-core-agent-ready.zip`을 전달한다. `v2.0.0-rc.1-postrc-final-dossier-export.zip`은 dossier evidence 보관용이며, clean export 내부에 포함되지 않을 수 있다.
-정확한 clean export SHA-256은 archive 외부의 delivery metadata 또는 `evidence/clean-artifact-prune/agent_ready_clean_export_report.json`에서 확인한다. clean export 내부 문서에는 자기 자신의 SHA를 직접 고정하지 않는다.
+기본 운영 방식은 이 디렉토리 자체를 에이전트 프로젝트 루트로 사용하는 것이다.
+새 에이전트에게는 `harness-core-agent-ready.zip`을 전달한다.
+`v2.0.0-rc.1-postrc-final-dossier-export.zip`은 dossier evidence 보관용이며 clean export 내부에 포함되지 않을 수 있다.
+clean export 내부 문서에는 자기 자신의 SHA를 직접 고정하지 않는다.
 
-새 제품 프로젝트에 적용할 때는 제품 프로젝트 루트를 `<new-project-root>`로 유지하고, HARNESS Core를 `<new-project-root>/.harness/harness-core/` 아래에 둔다. 제품 코드와 프로젝트별 evidence/checker는 `<new-project-root>`에 남기며, HARNESS Core 내부에는 추가하지 않는다. 사용자의 정형 프로젝트 입력 reference는 `docs/guides/PROJECT_INPUT_TEMPLATE.ko.md`이고, 실제로 채운 입력은 새 프로젝트 루트의 `PROJECT_INPUT.md`에 둔다. 새 프로젝트용 템플릿과 project-level checker는 `templates/external-project/`에 있다.
-
-## 운영 모드
-
-### 1. Root workspace mode, 기본 모드
-
-사용자가 HARNESS Core 루트 디렉토리 전체를 프로젝트 루트로 사용하는 경우입니다.
-이때 에이전트는 루트에서 직접 시작합니다.
-`.git` metadata가 있는 source workspace에서는 git readiness와 current-state alignment를 완전 검증할 수 있습니다.
-
-첫 명령:
-
-```bash
-node tools/checks/workspace/check_agent_ready_self_contained.mjs
-```
-
-Root workspace 전용 추가 검증:
-
-```bash
-node tools/checks/workspace/check_current_state_alignment.mjs
-node tools/checks/workspace/check_reference_baseline_integrity.mjs
-```
-
-커밋 승인 직전 수렴 검증:
-
-```bash
-node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs
-```
-
-### 2. Agent-ready export mode, 전달/백업 모드
-
-다른 대화, 다른 머신, 외부 에이전트에게 넘길 때 사용하는 모드입니다.
-이때는 `exports/harness-core-agent-ready.zip`을 전달합니다.
-압축을 푼 디렉터리에는 `node_modules`와 `.git` metadata가 없습니다.
-압축을 푼 뒤 첫 명령은 아래 명령입니다.
-
-```bash
-node tools/checks/workspace/check_agent_ready_self_contained.mjs
-node tools/checks/workspace/check_reference_baseline_integrity.mjs
-```
-
-Agent-ready export mode에서는 `node tools/checks/workspace/check_current_state_alignment.mjs`를 기본 명령으로 사용하지 않습니다. 해당 checker는 root workspace mode 전용 검증 명령입니다.
-`node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs`도 root workspace mode 전용 precommit 검증 명령이며, clean export 압축 해제본의 기본 명령이 아닙니다.
-
-## 반드시 읽을 파일
+## Read Order
 
 1. `START_HERE_FOR_AGENTS.ko.md`
 2. `CURRENT_STATE.json`
@@ -77,29 +33,59 @@ Agent-ready export mode에서는 `node tools/checks/workspace/check_current_stat
 7. 현재 작업 stage의 `release/scopes/**/<stage>_scope.yaml`
 8. 관련 `evidence/**` gate report
 
-## Self-Contained Health Check
+## Root Workspace Mode
 
-root workspace mode에서는 `harness-core/` 루트에서 아래 명령을 먼저 실행한다.
+먼저 실행한다:
 
 ```bash
 node tools/checks/workspace/check_agent_ready_self_contained.mjs
 ```
 
-agent-ready export mode에서는 clean export를 압축 해제한 직후, 압축 해제된 clean export 디렉터리 안에서 같은 명령을 실행한다.
+source workspace 전용 검증이 필요하면 실행한다:
 
-이 명령은 Node.js built-in module만 사용한다. `npm install`, `npm ci`, `node_modules`, legacy reference source 접근을 요구하지 않는다.
+```bash
+node tools/checks/workspace/check_current_state_alignment.mjs
+node tools/checks/workspace/check_reference_baseline_integrity.mjs
+```
 
-`node tools/checks/workspace/check_clean_export_self_contained.mjs`는 원본 workspace에서 `exports/harness-core-agent-ready.zip` archive 자체를 검사할 때만 사용하는 checker다. 루트 워크스페이스 작업이나 새 에이전트의 압축 해제본 내부 첫 검증 명령으로 사용하지 않는다.
+커밋 승인 직전 수렴 검증만 필요할 때 실행한다:
 
-## 작업 전 체크리스트
+```bash
+node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs
+```
+
+## Agent-Ready Export Mode
+
+clean export 압축 해제본에서는 아래 명령을 기본 health check로 실행한다:
+
+```bash
+node tools/checks/workspace/check_agent_ready_self_contained.mjs
+node tools/checks/workspace/check_reference_baseline_integrity.mjs
+```
+
+`node tools/checks/workspace/check_current_state_alignment.mjs`는 root workspace mode 전용이다.
+`node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs`는 root workspace mode 전용 precommit 검증 명령이다.
+`node tools/checks/workspace/check_clean_export_self_contained.mjs`는 원본 workspace에서 `exports/harness-core-agent-ready.zip` archive 자체를 검사할 때만 사용한다.
+
+## External Product Project Placement
+
+새 제품 프로젝트에 적용할 때는 제품 프로젝트 루트를 `<new-project-root>`로 유지한다.
+HARNESS Core는 `<new-project-root>/.harness/harness-core/` 아래에 둔다.
+제품 코드와 프로젝트별 evidence/checker는 `<new-project-root>`에 둔다.
+HARNESS Core 내부에는 추가하지 않는다.
+사용자의 정형 프로젝트 입력 reference는 `docs/guides/PROJECT_INPUT_TEMPLATE.ko.md`다.
+실제 입력은 새 프로젝트 루트의 `PROJECT_INPUT.md`에 둔다.
+새 프로젝트용 템플릿과 project-level checker는 `templates/external-project/`에 있다.
+
+## Pre-Work Checks
 
 - `CURRENT_STATE.yaml`의 `allowed_claims`와 `blocked_claims`를 확인한다.
 - 수정 가능 경로와 금지 경로를 확인한다.
-- 작업 stage가 새 provider/local/telemetry execution을 요구하는지 확인한다.
+- 작업 stage가 provider, local model, telemetry execution을 요구하는지 확인한다.
 - 필요한 checker와 evidence 위치를 먼저 정한다.
-- bare/general claim을 열어야 한다면 별도 승인 없이는 중단한다.
+- bare/general claim을 열어야 하면 별도 승인 없이는 중단한다.
 
-## 작업 중 금지 사항
+## Forbidden Without Approval
 
 - OpenAI model API call
 - OpenAI provider rerun
@@ -107,13 +93,14 @@ agent-ready export mode에서는 clean export를 압축 해제한 직후, 압축
 - telemetry sink write
 - redteam rerun
 - adapter conformance rerun
-- `npm install` 또는 `npm ci`
+- `npm install`
+- `npm ci`
 - `dist/**` 수정
 - legacy reference source 수정
 - `evidence/reference-baseline/**` refresh
 - raw request/raw response/secret/API key/auth header 저장
 
-## 작업 후 검증 명령
+## Post-Work Validation
 
 Root workspace mode:
 
@@ -123,6 +110,7 @@ node tools/checks/workspace/check_current_state_alignment.mjs
 node tools/scanners/release/scan_prohibited_claims.mjs
 node tools/checks/workspace/check_reference_baseline_integrity.mjs
 node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs
+node tools/checks/workspace/check_asset_purpose_boundaries.mjs
 ```
 
 Agent-ready export mode:
@@ -133,19 +121,11 @@ node tools/checks/workspace/check_reference_baseline_integrity.mjs
 ```
 
 작업 성격에 따라 `node tools/validators/evals/validate_alpha.mjs`와 stage별 checker를 추가한다.
-원본 workspace에서 clean export zip 자체를 다시 검증하는 작업일 때만 `node tools/checks/workspace/check_clean_export_self_contained.mjs`를 추가한다.
 
-## claim boundary 규칙
+## Claim Boundary
 
 - `post-export-active-scoped-stable`은 bare `stable`이 아니다.
 - `post-export-active-scoped-production-ready`는 bare `production-ready`가 아니다.
 - `post-export-active-provider-lanes-verified`는 bare `provider-verified`가 아니다.
 - `post-export-active-adapters-checked`는 bare `adapter-checked`가 아니다.
 - `rc1-openai-scope-release-gated`는 bare `release-gated`가 아니다.
-
-## 다음 작업 선택지
-
-1. provider-verified future completion
-2. adapter-checked future completion
-3. bare production-ready/stable criteria redesign
-4. current final dossier/export maintenance

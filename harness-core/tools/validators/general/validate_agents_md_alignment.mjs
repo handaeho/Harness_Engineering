@@ -71,7 +71,7 @@ check("stack.yaml declares AGENTS.md entrypoint and asset manifest", () => {
 check("stack.yaml source_of_truth includes required records", () => {
   const source = stack.source_of_truth || {};
   const required = {
-    agent_index: ["AGENTS.md"],
+    agent_index: ["AGENTS.md", "START_HERE_FOR_AGENTS.ko.md", "AGENT_BOOTSTRAP.ko.md"],
     machine_manifest: ["stack.yaml", "stack.schema.json"],
     core_contract: ["core/spec/harness.spec.yaml"],
     release_contract: ["release/claims/general/claim_ladder.md", "release/gates/core-release/release_gate.yaml"],
@@ -104,10 +104,22 @@ check("AGENTS.md mentions required operating sections", () => {
 
 check("asset class manifest contains required classes", () => {
   const classes = manifest.asset_classes || {};
-  const required = ["core_source", "evidence", "human_docs", "generated_or_ignored", "reference_baseline"];
+  const required = ["agent_instructions", "core_source", "evidence", "human_docs", "generated_or_ignored", "reference_baseline"];
   const missing = required.filter((key) => !classes[key]);
   if (missing.length) throw new Error(`missing asset classes: ${missing.join(", ")}`);
   return { classes: required };
+});
+
+check("agent instructions are separate from human docs", () => {
+  const agentInstructions = manifest.asset_classes?.agent_instructions?.paths || [];
+  const humanDocs = manifest.asset_classes?.human_docs?.paths || [];
+  const requiredAgentFiles = ["AGENTS.md", "START_HERE_FOR_AGENTS.ko.md", "AGENT_BOOTSTRAP.ko.md"];
+  const missing = requiredAgentFiles.filter((file) => !includesPath(agentInstructions, file));
+  const leaked = requiredAgentFiles.filter((file) => includesPath(humanDocs, file));
+  if (missing.length || leaked.length) {
+    throw new Error(`agent instruction classification mismatch: missing=${missing.join(", ")} leaked=${leaked.join(", ")}`);
+  }
+  return { agent_instructions: agentInstructions, human_docs: humanDocs };
 });
 
 check("asset class manifest classifies generated and reference baseline paths", () => {

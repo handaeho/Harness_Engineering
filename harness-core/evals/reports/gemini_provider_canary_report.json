@@ -1,0 +1,79 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary",
+  "mode": "gemini_native_generate_content_static_and_optional_live_canary",
+  "api_lane": "native_gemini_api",
+  "provider": "gemini",
+  "provider_execution": true,
+  "live_execution_enabled": true,
+  "local_model_execution": false,
+  "external_side_effects": false,
+  "local_dry_run_status": "pass",
+  "request_response_mapping_status": "pass",
+  "structured_output_status": "pass",
+  "tool_calling_dry_run_status": "pass",
+  "safety_fixture_status": "pass",
+  "cases_total": 9,
+  "cases_passed": 9,
+  "cases_failed": 0,
+  "live_cases_total": 3,
+  "live_cases_passed": 3,
+  "live_cases_failed": 0,
+  "redaction_passed": true,
+  "trace_events_total": 18,
+  "raw_response_stored": false,
+  "model_env_present": true,
+  "credential_env_present": true,
+  "network_approval_marker_present": true,
+  "claims_allowed": [
+    "gemini-adapter-skeleton-created",
+    "gemini-request-mapping-dry-run-checked",
+    "gemini-response-mapping-dry-run-checked",
+    "gemini-structured-output-dry-run-checked",
+    "gemini-json-schema-local-validation-checked",
+    "gemini-tool-calling-dry-run-checked",
+    "gemini-tool-argument-schema-local-validation-checked",
+    "gemini-function-response-reinjection-dry-run-checked",
+    "gemini-safety-fixture-checked",
+    "gemini-redaction-dry-run-checked",
+    "gemini-provider-canary-executed",
+    "gemini-provider-trace-captured"
+  ],
+  "claims_not_allowed": [
+    "provider-verified",
+    "adapter-checked",
+    "release-gated",
+    "production-ready",
+    "live Gemini canary passed",
+    "tool-call-verified",
+    "schema-output-verified",
+    "integration-verified",
+    "provider-diverse",
+    "replay-verified",
+    "production-monitored"
+  ],
+  "failures": [],
+  "live_case_results": [
+    {
+      "case_id": "gemini_simple_text_response",
+      "status": "pass",
+      "provider_execution": true,
+      "finish_reason": null,
+      "failures": []
+    },
+    {
+      "case_id": "gemini_korean_instruction_following",
+      "status": "pass",
+      "provider_execution": true,
+      "finish_reason": null,
+      "failures": []
+    },
+    {
+      "case_id": "gemini_no_tool_surface_assertion",
+      "status": "pass",
+      "provider_execution": true,
+      "finish_reason": null,
+      "failures": []
+    }
+  ]
+}

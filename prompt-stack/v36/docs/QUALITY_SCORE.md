@@ -1,6 +1,6 @@
 ﻿# Current Package Quality Score
 
-`v36/`의 품질 기준은 현재 validation runner와 보존된 evidence를 기준으로 관리한다.
+`<current_package>/`의 품질 기준은 현재 validation runner와 보존된 evidence를 기준으로 관리한다.
 
 ## Current quality surfaces
 - Instructions: agent가 시작 경로를 찾을 수 있는가

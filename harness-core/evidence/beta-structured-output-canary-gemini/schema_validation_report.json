@@ -1,0 +1,66 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-structured-output-live-canary",
+  "ajv_validation_used": true,
+  "schema_validations_total": 2,
+  "schema_validations_passed": 2,
+  "schema_validations_failed": 0,
+  "local_cases": [
+    {
+      "case_id": "gemini_simple_status_object",
+      "status": "pass",
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "native_gemini_surface": true,
+        "tools_used": false,
+        "structured_output_used": true,
+        "response_mime_type_json": true,
+        "response_json_schema_used": true,
+        "response_format_used": false,
+        "response_format_json": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true
+      },
+      "ajv_valid": true
+    },
+    {
+      "case_id": "gemini_korean_summary_object",
+      "status": "pass",
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "native_gemini_surface": true,
+        "tools_used": false,
+        "structured_output_used": true,
+        "response_mime_type_json": true,
+        "response_json_schema_used": true,
+        "response_format_used": false,
+        "response_format_json": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true
+      },
+      "ajv_valid": true
+    }
+  ],
+  "live_cases": [
+    {
+      "case_id": "gemini_simple_status_object",
+      "status": "pass",
+      "provider_execution": true,
+      "shape": "responseJsonSchema",
+      "failures": []
+    },
+    {
+      "case_id": "gemini_korean_summary_object",
+      "status": "pass",
+      "provider_execution": true,
+      "shape": "responseJsonSchema",
+      "failures": []
+    }
+  ]
+}

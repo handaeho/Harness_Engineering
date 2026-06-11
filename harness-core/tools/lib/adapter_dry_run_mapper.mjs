@@ -1,5 +1,6 @@
 export function providerKeyForAdapter(adapterId) {
   if (adapterId.startsWith("openai.")) return "openai";
+  if (adapterId.startsWith("gemini.")) return "gemini";
   if (adapterId.startsWith("vllm.")) return "vllm";
   if (adapterId.startsWith("ollama.")) return "ollama";
   return null;

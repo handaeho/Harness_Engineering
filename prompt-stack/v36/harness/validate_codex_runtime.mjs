@@ -7,11 +7,44 @@ const skills = ["coding-core","design-analysis","eval-ops","grounded-research","
 const checks = [];
 function read(rel){ return fs.existsSync(path.join(root, rel)) ? fs.readFileSync(path.join(root, rel), "utf8") : ""; }
 function check(name, pass, detail){ checks.push({ name, pass:Boolean(pass), detail }); }
+const forbiddenAgentProse = [
+  "this file is",
+  "this package",
+  "this document",
+  "metadata:",
+  "asset_name",
+  "purpose:",
+  "owner_layer",
+  "claim_strength",
+  "install mode",
+  "preferred install",
+  "supported manual",
+  "## purpose",
+  "## examples",
+  "## checklist",
+  "## output",
+  "## status",
+  "reserved for"
+];
 check("codex_agents_exists", fs.existsSync(path.join(root, "codex", "AGENTS.md")), "codex/AGENTS.md");
 const guide = read("codex/CODEX_RUNTIME_GUIDE.md");
 check("codex_runtime_guide_exists", guide.length > 0, "codex/CODEX_RUNTIME_GUIDE.md");
-check("codex_runtime_non_mirror_policy", /not a textual mirror|not a copy|not a mirror/i.test(guide), "guide must reject autonomous mirror assumption");
+check("codex_runtime_non_mirror_policy", /not a textual mirror|not a copy|not a mirror|do not mirror|not.*mirror/i.test(guide), "guide must reject autonomous mirror assumption");
 for (const s of skills) check(`skill_exists:${s}`, fs.existsSync(path.join(root, "codex", "skills", s, "SKILL.md")), `codex/skills/${s}/SKILL.md`);
+const agentFacingFiles = [
+  "codex/AGENTS.md",
+  "codex/CODEX_RUNTIME_GUIDE.md",
+  "codex/actor_packets/README.md",
+  ...skills.map((skill) => `codex/skills/${skill}/SKILL.md`)
+];
+const proseFindings = [];
+for (const rel of agentFacingFiles) {
+  const text = read(rel).toLowerCase();
+  for (const term of forbiddenAgentProse) {
+    if (text.includes(term)) proseFindings.push(`${rel}: ${term}`);
+  }
+}
+check("agent_consumed_assets_are_runtime_instructions", proseFindings.length === 0, proseFindings);
 const combined = guide + "\n" + read("codex/AGENTS.md");
 for (const term of ["safety", "approval", "tool", "retrieval", "memory", "multi-agent", "release"]) {
   check(`boundary_term:${term}`, combined.toLowerCase().includes(term), term);

@@ -1,8 +1,8 @@
 ﻿# Current Package 운영 가이드
 
 ## 기본 운영 규칙
-- active package는 `v36/` 현재 상태만 설명한다.
-- raw evidence는 `_evidence/v36/`에 보존한다.
+- active package는 `<current_package>/` 현재 상태만 설명한다.
+- raw evidence는 `_evidence/<current_package>/`에 보존한다.
 - autonomous asset과 Codex runtime asset을 섞지 않는다.
 - 완료 claim은 검증 결과와 같은 강도로만 표현한다.
 

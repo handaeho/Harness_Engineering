@@ -3,16 +3,16 @@
   "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
   "ready_for_adapter_checked_final_gate": false,
   "can_enter_adapter_checked_final_gate": false,
-  "unresolved_items_count": 3,
+  "unresolved_items_count": 4,
   "new_local_model_execution": false,
   "openai_model_api_call": false,
   "openai_provider_rerun": false,
   "telemetry_sink_write": false,
   "npm_install_or_ci": false,
   "actual_export_write": false,
-  "v36_modified": false,
+  "reference_baseline_source_modified": false,
   "dist_modified": false,
-  "evidence_v36_baseline_modified": false,
+  "evidence_reference_baseline_modified": false,
   "provider_verified_allowed": false,
   "adapter_checked_allowed": false,
   "production_ready_allowed": false,
@@ -36,6 +36,13 @@
             "next_action": "Run or approve OpenAI adapter conformance in a future provider-approved lane."
           },
           {
+            "id": "gemini_adapter_full_conformance_missing",
+            "lane": "gemini_adapter",
+            "status": "blocked_or_partial",
+            "reason": "Gemini adapter has text, structured-output, and tool-calling canary evidence, but no post-export full adapter conformance execution is recorded.",
+            "next_action": "Run or approve Gemini adapter conformance in a future provider-approved lane."
+          },
+          {
             "id": "vllm_execution_coverage_out_of_scope",
             "lane": "vllm_adapter",
             "status": "blocked_or_partial",
@@ -56,9 +63,9 @@
         "telemetry_sink_write": false,
         "npm_install_or_ci": false,
         "actual_export_write": false,
-        "v36_modified": false,
+        "reference_baseline_source_modified": false,
         "dist_modified": false,
-        "evidence_v36_baseline_modified": false,
+        "evidence_reference_baseline_modified": false,
         "provider_verified_allowed": false,
         "adapter_checked_allowed": false,
         "production_ready_allowed": false,
@@ -77,6 +84,23 @@
         "canary_evidence_exists": true,
         "structured_output_evidence_exists": true,
         "tool_calling_evidence_exists": true,
+        "full_conformance_evidence_exists": false,
+        "adapter_checked_ready": false
+      }
+    },
+    {
+      "name": "gemini canary evidence recorded but full conformance missing",
+      "status": "pass",
+      "detail": {
+        "status": "partial",
+        "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
+        "adapter": "gemini.api.skeleton",
+        "contract_documented": true,
+        "live_text_canary_exists": true,
+        "structured_output_evidence_exists": true,
+        "tool_calling_evidence_exists": true,
+        "thought_signature_reinjection_checked": true,
+        "execution_evidence_equivalent_to_openai_local": true,
         "full_conformance_evidence_exists": false,
         "adapter_checked_ready": false
       }
@@ -104,6 +128,7 @@
         "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
         "adapters_reviewed": [
           "openai.api.skeleton",
+          "gemini.api.skeleton",
           "ollama.local.skeleton",
           "vllm.local.skeleton"
         ],
@@ -117,7 +142,7 @@
       "detail": {
         "status": "blocked",
         "stage": "v2.0.0-post-export-adapter-checked-coverage-completion",
-        "unresolved_items_count": 3,
+        "unresolved_items_count": 4,
         "unresolved_items": [
           {
             "id": "openai_adapter_full_conformance_missing",
@@ -125,6 +150,13 @@
             "status": "blocked_or_partial",
             "reason": "OpenAI adapter has canary evidence, but no post-export full conformance execution is recorded and OpenAI rerun is forbidden.",
             "next_action": "Run or approve OpenAI adapter conformance in a future provider-approved lane."
+          },
+          {
+            "id": "gemini_adapter_full_conformance_missing",
+            "lane": "gemini_adapter",
+            "status": "blocked_or_partial",
+            "reason": "Gemini adapter has text, structured-output, and tool-calling canary evidence, but no post-export full adapter conformance execution is recorded.",
+            "next_action": "Run or approve Gemini adapter conformance in a future provider-approved lane."
           },
           {
             "id": "vllm_execution_coverage_out_of_scope",

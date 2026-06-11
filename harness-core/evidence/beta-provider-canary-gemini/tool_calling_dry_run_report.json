@@ -1,0 +1,178 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary",
+  "api_lane": "native_gemini_api",
+  "function_declarations_used": true,
+  "function_calling_config_used": true,
+  "built_in_tools_used": false,
+  "tool_argument_ajv_validation_used": true,
+  "tool_argument_validations_total": 2,
+  "tool_argument_validations_passed": 2,
+  "tool_argument_validations_failed": 0,
+  "mock_tools_only": true,
+  "mock_tools_executed": 2,
+  "blocked_tools_requested": 1,
+  "blocked_tools_executed": 0,
+  "tool_outputs_reclassified_untrusted": 2,
+  "reinjections_checked": 2,
+  "reinjections_passed": 2,
+  "reinjections_failed": 0,
+  "external_side_effects": false,
+  "cases": [
+    {
+      "case_id": "gemini_lookup_tool_call_dry_run",
+      "fixture_file": "adapters/api/gemini/tool_calling_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "request_surface": {
+        "ok": true,
+        "native_gemini_surface": true,
+        "tools_present": true,
+        "function_declarations_present": true,
+        "function_declaration_names": [
+          "canary_lookup"
+        ],
+        "function_calling_config_present": true,
+        "function_calling_mode": "ANY",
+        "allowed_function_names": [
+          "canary_lookup"
+        ],
+        "built_in_tools_present": false,
+        "built_in_tool_fields": [],
+        "unallowlisted_tools": [],
+        "schemas_ok": true,
+        "store_false_enforced": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true
+      },
+      "argument_results": [
+        {
+          "tool_name": "canary_lookup",
+          "status": "pass",
+          "ajv_valid": true,
+          "errors": []
+        }
+      ],
+      "approval_decisions": [
+        {
+          "status": "approved",
+          "approved": true,
+          "tool_name": "canary_lookup",
+          "reason": "deterministic provider mock tool is allowlisted"
+        }
+      ],
+      "tool_executions": [
+        {
+          "tool_name": "canary_lookup",
+          "output_classification": "untrusted_tool_output",
+          "external_side_effect": false
+        }
+      ],
+      "reinjection_surfaces": [
+        {
+          "ok": true,
+          "function_call_present": true,
+          "function_response_present": true,
+          "tools_present": false,
+          "store_false_enforced": true
+        }
+      ],
+      "failures": []
+    },
+    {
+      "case_id": "gemini_calculator_tool_call_dry_run",
+      "fixture_file": "adapters/api/gemini/tool_calling_cases.jsonl",
+      "fixture_line": 2,
+      "status": "pass",
+      "request_surface": {
+        "ok": true,
+        "native_gemini_surface": true,
+        "tools_present": true,
+        "function_declarations_present": true,
+        "function_declaration_names": [
+          "canary_calculator"
+        ],
+        "function_calling_config_present": true,
+        "function_calling_mode": "ANY",
+        "allowed_function_names": [
+          "canary_calculator"
+        ],
+        "built_in_tools_present": false,
+        "built_in_tool_fields": [],
+        "unallowlisted_tools": [],
+        "schemas_ok": true,
+        "store_false_enforced": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true
+      },
+      "argument_results": [
+        {
+          "tool_name": "canary_calculator",
+          "status": "pass",
+          "ajv_valid": true,
+          "errors": []
+        }
+      ],
+      "approval_decisions": [
+        {
+          "status": "approved",
+          "approved": true,
+          "tool_name": "canary_calculator",
+          "reason": "deterministic provider mock tool is allowlisted"
+        }
+      ],
+      "tool_executions": [
+        {
+          "tool_name": "canary_calculator",
+          "output_classification": "untrusted_tool_output",
+          "external_side_effect": false
+        }
+      ],
+      "reinjection_surfaces": [
+        {
+          "ok": true,
+          "function_call_present": true,
+          "function_response_present": true,
+          "tools_present": false,
+          "store_false_enforced": true
+        }
+      ],
+      "failures": []
+    },
+    {
+      "case_id": "gemini_blocked_external_post_not_executed",
+      "fixture_file": "adapters/api/gemini/tool_calling_cases.jsonl",
+      "fixture_line": 3,
+      "status": "pass",
+      "request_surface": {
+        "ok": true,
+        "native_gemini_surface": true,
+        "tools_present": true,
+        "function_declarations_present": false,
+        "function_declaration_names": [],
+        "function_calling_config_present": true,
+        "function_calling_mode": "ANY",
+        "allowed_function_names": [],
+        "built_in_tools_present": false,
+        "built_in_tool_fields": [],
+        "unallowlisted_tools": [],
+        "schemas_ok": true,
+        "store_false_enforced": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true
+      },
+      "argument_results": [],
+      "approval_decisions": [
+        {
+          "status": "blocked",
+          "approved": false,
+          "tool_name": "blocked_external_post",
+          "reason": "external side-effect tool is always blocked"
+        }
+      ],
+      "tool_executions": [],
+      "reinjection_surfaces": [],
+      "failures": []
+    }
+  ]
+}

@@ -1,0 +1,535 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-runtime-asset-pack-check",
+  "provider": "gemini",
+  "owner_layer": "harness-core provider runtime",
+  "target_agent": "fully autonomous programming agent",
+  "asset_pack_surface_equivalent_to_openai_local": true,
+  "live_text_execution_evidence_equivalent_to_openai": true,
+  "structured_output_live_evidence_equivalent_to_openai": true,
+  "tool_calling_live_evidence_equivalent_to_openai": true,
+  "execution_evidence_equivalent_to_openai_local": true,
+  "execution_evidence_equivalence_gap": [
+    "Gemini live text canary passed.",
+    "Gemini structured output live canary passed.",
+    "Gemini tool-calling live canary passed.",
+    "Provider-verified, adapter-checked, release-gated, and production-ready claims remain blocked."
+  ],
+  "live_provider_execution": true,
+  "local_dry_run_status": "pass",
+  "checks": [
+    {
+      "name": "required file exists: adapters/api/gemini/adapter.yaml",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/adapter.yaml"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/request_mapper.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/request_mapper.mjs"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/response_mapper.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/response_mapper.mjs"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/structured_output_mapper.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/structured_output_mapper.mjs"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/tool_calling_mapper.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/tool_calling_mapper.mjs"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/safety_mapper.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/safety_mapper.mjs"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/generate_content_client.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/generate_content_client.mjs"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/canary_cases.jsonl",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/canary_cases.jsonl"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/structured_output_cases.jsonl",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/structured_output_cases.jsonl"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/tool_calling_cases.jsonl",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/tool_calling_cases.jsonl"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/safety_cases.jsonl",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/safety_cases.jsonl"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/tool_schemas/canary_lookup.schema.json",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/tool_schemas/canary_lookup.schema.json"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/tool_schemas/canary_calculator.schema.json",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/tool_schemas/canary_calculator.schema.json"
+      }
+    },
+    {
+      "name": "required file exists: adapters/api/gemini/tool_schemas/blocked_external_post.schema.json",
+      "status": "pass",
+      "detail": {
+        "file": "adapters/api/gemini/tool_schemas/blocked_external_post.schema.json"
+      }
+    },
+    {
+      "name": "required file exists: tools/runners/providers/run_gemini_provider_canary.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "tools/runners/providers/run_gemini_provider_canary.mjs"
+      }
+    },
+    {
+      "name": "required file exists: tools/runners/providers/run_gemini_structured_output_canary.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "tools/runners/providers/run_gemini_structured_output_canary.mjs"
+      }
+    },
+    {
+      "name": "required file exists: tools/runners/providers/run_gemini_tool_calling_canary.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "tools/runners/providers/run_gemini_tool_calling_canary.mjs"
+      }
+    },
+    {
+      "name": "required file exists: tools/checks/providers/check_gemini_live_canary_preflight.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "tools/checks/providers/check_gemini_live_canary_preflight.mjs"
+      }
+    },
+    {
+      "name": "required file exists: tools/checks/providers/check_provider_canary_gemini.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "tools/checks/providers/check_provider_canary_gemini.mjs"
+      }
+    },
+    {
+      "name": "required file exists: tools/checks/providers/check_gemini_structured_output_canary.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "tools/checks/providers/check_gemini_structured_output_canary.mjs"
+      }
+    },
+    {
+      "name": "required file exists: tools/checks/providers/check_gemini_tool_calling_canary.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "tools/checks/providers/check_gemini_tool_calling_canary.mjs"
+      }
+    },
+    {
+      "name": "required file exists: tools/checks/providers/check_gemini_runtime_asset_pack.mjs",
+      "status": "pass",
+      "detail": {
+        "file": "tools/checks/providers/check_gemini_runtime_asset_pack.mjs"
+      }
+    },
+    {
+      "name": "required file exists: evals/suites/beta_provider_canary_gemini.yaml",
+      "status": "pass",
+      "detail": {
+        "file": "evals/suites/beta_provider_canary_gemini.yaml"
+      }
+    },
+    {
+      "name": "required file exists: release/scopes/beta/beta_provider_canary_gemini_scope.yaml",
+      "status": "pass",
+      "detail": {
+        "file": "release/scopes/beta/beta_provider_canary_gemini_scope.yaml"
+      }
+    },
+    {
+      "name": "required file exists: docs/providers/provider_canary_gemini.md",
+      "status": "pass",
+      "detail": {
+        "file": "docs/providers/provider_canary_gemini.md"
+      }
+    },
+    {
+      "name": "required file exists: docs/providers/gemini_autonomous_runtime_asset_pack.ko.md",
+      "status": "pass",
+      "detail": {
+        "file": "docs/providers/gemini_autonomous_runtime_asset_pack.ko.md"
+      }
+    },
+    {
+      "name": "required file exists: docs/providers/gemini_readiness_review.ko.md",
+      "status": "pass",
+      "detail": {
+        "file": "docs/providers/gemini_readiness_review.ko.md"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-provider-canary-gemini/gemini_live_canary_preflight_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-provider-canary-gemini/gemini_live_canary_preflight_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-provider-canary-gemini/gemini_provider_canary_gate_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-provider-canary-gemini/gemini_provider_canary_gate_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-provider-canary-gemini/request_response_mapping_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-provider-canary-gemini/request_response_mapping_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-provider-canary-gemini/structured_output_validation_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-provider-canary-gemini/structured_output_validation_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-provider-canary-gemini/tool_calling_dry_run_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-provider-canary-gemini/tool_calling_dry_run_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-provider-canary-gemini/safety_fixture_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-provider-canary-gemini/safety_fixture_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-provider-canary-gemini/redaction_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-provider-canary-gemini/redaction_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-provider-canary-gemini/provider_trace_samples.jsonl",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-provider-canary-gemini/provider_trace_samples.jsonl"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-structured-output-canary-gemini/structured_output_gate_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-structured-output-canary-gemini/structured_output_gate_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-structured-output-canary-gemini/structured_output_trace_samples.jsonl",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-structured-output-canary-gemini/structured_output_trace_samples.jsonl"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-tool-calling-canary-gemini/tool_calling_gate_report.json",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-tool-calling-canary-gemini/tool_calling_gate_report.json"
+      }
+    },
+    {
+      "name": "required file exists: evidence/beta-tool-calling-canary-gemini/tool_calling_trace_samples.jsonl",
+      "status": "pass",
+      "detail": {
+        "file": "evidence/beta-tool-calling-canary-gemini/tool_calling_trace_samples.jsonl"
+      }
+    },
+    {
+      "name": "provider matrix has gemini entry",
+      "status": "pass",
+      "detail": {
+        "providers": [
+          "openai",
+          "gemini",
+          "vllm",
+          "ollama"
+        ]
+      }
+    },
+    {
+      "name": "gemini provider points to adapter",
+      "status": "pass",
+      "detail": {
+        "adapter_path": "adapters/api/gemini/adapter.yaml"
+      }
+    },
+    {
+      "name": "gemini provider matrix records live text canary without strong claims",
+      "status": "pass",
+      "detail": {
+        "status": "provider_canary_checked",
+        "provider_canary": "executed",
+        "no_tool_text_path": "canary_checked",
+        "provider_trace": "canary_checked",
+        "provider_execution": "canary_only",
+        "verified": false,
+        "runtime_execution": false,
+        "production_monitoring": false
+      }
+    },
+    {
+      "name": "gemini provider matrix records structured output live canary without strong claims",
+      "status": "pass",
+      "detail": {
+        "structured_output_canary": "executed",
+        "structured_output_path": "canary_checked",
+        "json_schema_response_validation": "canary_checked",
+        "structured_outputs": "canary_only",
+        "verified": false,
+        "runtime_execution": false,
+        "production_monitoring": false
+      }
+    },
+    {
+      "name": "gemini local dry-run report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "local_dry_run_status": "pass"
+      }
+    },
+    {
+      "name": "gemini live text canary executed and passed when present",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "provider_execution": true,
+        "live_cases_total": 3,
+        "live_cases_failed": 0,
+        "raw_response_stored": false
+      }
+    },
+    {
+      "name": "gemini live preflight recorded",
+      "status": "pass",
+      "detail": {
+        "status": "ready",
+        "blocking_checks": 0
+      }
+    },
+    {
+      "name": "gemini structured output freshness gate recorded",
+      "status": "pass",
+      "detail": {
+        "structured_output_shape_decision": {
+          "target_shape": "generationConfig.responseJsonSchema",
+          "response_mime_type": "application/json",
+          "official_sources_required_before_shape_change": [
+            "https://ai.google.dev/api/generate-content",
+            "https://ai.google.dev/gemini-api/docs/structured-output"
+          ],
+          "note": "The live text canary does not validate live structured output or live tool calling."
+        }
+      }
+    },
+    {
+      "name": "gemini gate blocks strong claims",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "can_enter_provider_verified_claim": false
+      }
+    },
+    {
+      "name": "structured output evidence pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "schema_validations_failed": 0
+      }
+    },
+    {
+      "name": "tool calling dry-run evidence pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "tool_argument_validations_failed": 0,
+        "reinjections_failed": 0,
+        "blocked_tools_executed": 0
+      }
+    },
+    {
+      "name": "safety fixture evidence pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "blocked_response_handling_checked": true
+      }
+    },
+    {
+      "name": "gemini structured output live canary pass or explicit blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "provider_execution": true,
+        "live_cases_total": 2,
+        "live_cases_failed": 0
+      }
+    },
+    {
+      "name": "gemini structured output gate pass or blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "gemini tool calling live canary pass or explicit blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "provider_execution": true,
+        "live_cases_total": 2,
+        "live_cases_failed": 0
+      }
+    },
+    {
+      "name": "gemini tool calling gate pass or blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "gemini tool calling thought signature evidence pass when live pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "thought_signatures_captured": 2,
+        "thought_signatures_reinjected": 2,
+        "expected_final_responses": 2,
+        "raw_response_stored": false
+      }
+    },
+    {
+      "name": "harness-core gemini runtime does not import prompt-stack assets",
+      "status": "pass",
+      "detail": {
+        "prompt_stack_imports": []
+      }
+    },
+    {
+      "name": "gemini provider matrix records tool calling live state without overclaim",
+      "status": "pass",
+      "detail": {
+        "tool_live_canary_passed": true,
+        "tool_calling_canary": "executed",
+        "tool_call_path": "canary_checked",
+        "tool_argument_schema_validation": "canary_checked",
+        "mock_tool_output_reinjection": "canary_checked",
+        "tool_output_reclassification": "canary_checked",
+        "tool_calling": "canary_only",
+        "verified": false,
+        "runtime_execution": false,
+        "production_monitoring": false
+      }
+    }
+  ],
+  "failures": [],
+  "claims_allowed": [
+    "gemini-runtime-asset-pack-checked",
+    "gemini-request-mapping-dry-run-checked",
+    "gemini-structured-output-dry-run-checked",
+    "gemini-tool-calling-dry-run-checked",
+    "gemini-safety-fixture-checked",
+    "gemini-provider-canary-executed",
+    "gemini-provider-trace-captured",
+    "gemini-structured-output-live-canary-executed",
+    "gemini-provider-structured-output-path-checked",
+    "gemini-json-schema-response-live-validated",
+    "gemini-structured-output-trace-captured",
+    "gemini-tool-calling-live-canary-executed",
+    "gemini-provider-tool-call-path-checked",
+    "gemini-tool-argument-schema-live-validated",
+    "gemini-function-response-reinjection-live-checked",
+    "gemini-tool-approval-boundary-checked",
+    "gemini-tool-output-reclassification-checked",
+    "gemini-tool-calling-trace-captured",
+    "gemini-tool-calling-redaction-checked"
+  ],
+  "claims_blocked": [
+    "provider-verified",
+    "adapter-checked",
+    "release-gated",
+    "production-ready",
+    "live Gemini canary passed"
+  ]
+}

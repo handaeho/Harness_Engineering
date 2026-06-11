@@ -1,23 +1,23 @@
 {
-  "version": "v36",
+  "version": "current package",
   "generated_at": "2026-05-21T00:07:02.612Z",
   "wip_limit": 1,
   "active_feature_id": null,
   "features": [
     {
-      "id": "V36-F01",
-      "name": "v36 active package closure",
+      "id": "CP-F01",
+      "name": "current package active package closure",
       "status": "done",
       "subsystem": "Verification",
       "definition_of_done": [
-        "current stable pointer is v36",
+        "current stable pointer is current package",
         "active package is separated from evidence",
         "final validation record is current"
       ],
       "verification": "records/final_validation_record.json"
     },
     {
-      "id": "V36-F02",
+      "id": "CP-F02",
       "name": "autonomous agent asset preservation",
       "status": "done",
       "subsystem": "Instructions",
@@ -29,7 +29,7 @@
       "verification": "records/assembled_bundle_integrity.json"
     },
     {
-      "id": "V36-F03",
+      "id": "CP-F03",
       "name": "Codex runtime separation",
       "status": "done",
       "subsystem": "Scope",
@@ -41,7 +41,7 @@
       "verification": "records/codex_runtime_integrity.json"
     },
     {
-      "id": "V36-F04",
+      "id": "CP-F04",
       "name": "state verification scope lifecycle primitives",
       "status": "done",
       "subsystem": "State",
@@ -53,22 +53,22 @@
         "init",
         "clean-state checklist"
       ],
-      "verification": "harness/validate_current_v36.mjs"
+      "verification": "harness/validate_current.mjs"
     },
     {
-      "id": "V36-F05",
+      "id": "CP-F05",
       "name": "evidence preservation",
       "status": "done",
       "subsystem": "Lifecycle",
       "definition_of_done": [
-        "raw evidence is outside v36 active package",
-        "cleanup/process artifacts are preserved under _evidence/v36",
+        "raw evidence is outside current package active package",
+        "cleanup/process artifacts are preserved under _evidence/<current_package>",
         "evidence checksums match"
       ],
-      "verification": "_evidence/v36/evidence_checksums.json"
+      "verification": "_evidence/<current_package>/evidence_checksums.json"
     },
     {
-      "id": "V36-F06",
+      "id": "CP-F06",
       "name": "production-grade proof follow-ups",
       "status": "open",
       "subsystem": "Verification",

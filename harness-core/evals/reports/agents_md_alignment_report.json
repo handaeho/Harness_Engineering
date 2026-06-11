@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "stage": "v2.0.0-rc.1-agents-md-and-system-of-record-alignment",
-  "generated_at": "2026-06-09T02:55:34.902Z",
+  "generated_at": "2026-06-11T06:23:52.770Z",
   "agents_md_exists": true,
   "asset_class_manifest_exists": true,
   "system_of_record_aligned": true,
@@ -39,7 +39,9 @@
       "status": "pass",
       "detail": {
         "agent_index": [
-          "AGENTS.md"
+          "AGENTS.md",
+          "START_HERE_FOR_AGENTS.ko.md",
+          "AGENT_BOOTSTRAP.ko.md"
         ],
         "machine_manifest": [
           "stack.yaml",
@@ -72,11 +74,30 @@
       "status": "pass",
       "detail": {
         "classes": [
+          "agent_instructions",
           "core_source",
           "evidence",
           "human_docs",
           "generated_or_ignored",
           "reference_baseline"
+        ]
+      }
+    },
+    {
+      "name": "agent instructions are separate from human docs",
+      "status": "pass",
+      "detail": {
+        "agent_instructions": [
+          "AGENTS.md",
+          "START_HERE_FOR_AGENTS.ko.md",
+          "AGENT_BOOTSTRAP.ko.md"
+        ],
+        "human_docs": [
+          "README.md",
+          "NAME_MIGRATION.md",
+          "docs/",
+          "FINAL_HANDOFF.ko.md",
+          "FINAL_NEW_CONVERSATION_PROMPT.ko.md"
         ]
       }
     },

@@ -8,7 +8,7 @@
 - post-release drift monitoring은 운영 시 별도 추적이 필요하다.
 
 ## claim 제한
-`v36/`은 current stable package이며 local validation, assembled bundle validation, Codex runtime validation, 보존된 evidence 기준으로 설명한다. 운영 환경 관측이나 containment 검증이 완료된 것처럼 표현하지 않는다.
+`<current_package>/`은 current stable package이며 local validation, assembled bundle validation, Codex runtime validation, 보존된 evidence 기준으로 설명한다. 운영 환경 관측이나 containment 검증이 완료된 것처럼 표현하지 않는다.
 
 ## 후속 관리
 후속 항목은 `records/followup_backlog.json`에서 관리한다. 작업 시작 전에는 active scope와 validation 기준을 먼저 정한다.

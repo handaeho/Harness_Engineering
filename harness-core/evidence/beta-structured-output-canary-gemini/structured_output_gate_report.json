@@ -1,0 +1,154 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-structured-output-live-canary",
+  "provider": "gemini",
+  "can_enter_schema_output_verified_claim": false,
+  "can_enter_provider_verified_claim": false,
+  "can_enter_adapter_checked_claim": false,
+  "can_enter_release_gated_claim": false,
+  "reason": "Gemini structured output live canary passed, but strong promotion claims remain blocked.",
+  "checks": [
+    {
+      "name": "runner pass or explicit blocked status",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "provider_execution": true,
+        "local_dry_run_status": "pass"
+      }
+    },
+    {
+      "name": "local dry-run status pass",
+      "status": "pass",
+      "detail": {
+        "local_dry_run_status": "pass"
+      }
+    },
+    {
+      "name": "trace samples exist",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tools are not used",
+      "status": "pass",
+      "detail": {
+        "tools_used": false
+      }
+    },
+    {
+      "name": "structured output surface used",
+      "status": "pass",
+      "detail": {
+        "structured_output_used": true
+      }
+    },
+    {
+      "name": "local model and external side effects are false",
+      "status": "pass",
+      "detail": {
+        "local_model_execution": false,
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "store false and raw response not stored",
+      "status": "pass",
+      "detail": {
+        "store_false_enforced": true,
+        "raw_response_stored": false
+      }
+    },
+    {
+      "name": "redaction passed",
+      "status": "pass",
+      "detail": {
+        "redaction_status": "pass"
+      }
+    },
+    {
+      "name": "schema validation report exists and is coherent",
+      "status": "pass",
+      "detail": {
+        "schema_validations_total": 2,
+        "schema_validations_failed": 0
+      }
+    },
+    {
+      "name": "provider execution true for pass",
+      "status": "pass",
+      "detail": {
+        "provider_execution": true
+      }
+    },
+    {
+      "name": "all live cases passed",
+      "status": "pass",
+      "detail": {
+        "live_cases_total": 2,
+        "live_cases_passed": 2,
+        "live_cases_failed": 0
+      }
+    },
+    {
+      "name": "all schema validations passed",
+      "status": "pass",
+      "detail": {
+        "schema_validations_total": 2,
+        "schema_validations_passed": 2,
+        "schema_validations_failed": 0
+      }
+    },
+    {
+      "name": "mapping report pass",
+      "status": "pass",
+      "detail": {
+        "request_mapping": {
+          "model_from_env": true,
+          "tools_present": false,
+          "structured_output_present": true,
+          "response_json_schema_seen": true,
+          "response_format_seen": false,
+          "store_false": true,
+          "max_output_tokens_bounded": true
+        },
+        "response_mapping": {
+          "output_text_extracted": true,
+          "parsed_json_present": true,
+          "raw_response_hash_present": true,
+          "raw_response_stored": false
+        }
+      }
+    },
+    {
+      "name": "forbidden strong claims are not allowed",
+      "status": "pass",
+      "detail": {
+        "claims_allowed": [
+          "gemini-structured-output-dry-run-checked",
+          "gemini-json-schema-local-validation-checked",
+          "gemini-structured-output-live-canary-executed",
+          "gemini-provider-structured-output-path-checked",
+          "gemini-json-schema-response-live-validated",
+          "gemini-structured-output-trace-captured",
+          "gemini-structured-output-redaction-checked"
+        ]
+      }
+    }
+  ],
+  "claims_allowed": [
+    "gemini-structured-output-live-canary-executed",
+    "gemini-provider-structured-output-path-checked",
+    "gemini-json-schema-response-live-validated",
+    "gemini-structured-output-trace-captured"
+  ],
+  "claims_blocked": [
+    "provider-verified",
+    "adapter-checked",
+    "release-gated",
+    "production-ready",
+    "tool-call-verified",
+    "schema-output-verified",
+    "integration-verified"
+  ]
+}

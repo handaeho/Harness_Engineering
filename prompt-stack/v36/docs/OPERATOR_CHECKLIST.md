@@ -1,7 +1,7 @@
 ﻿# Current Package Operator Checklist
 
 ## 시작 전
-- current stable pointer가 `v36/`인지 확인한다.
+- current stable pointer가 `<current_package>/`인지 확인한다.
 - 작업이 autonomous asset인지 Codex runtime asset인지 구분한다.
 - state, verification, lifecycle 영향 범위를 확인한다.
 

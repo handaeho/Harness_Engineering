@@ -20,6 +20,7 @@ function p(...parts) {
 
 const adapterPaths = [
   "adapters/api/openai/adapter.yaml",
+  "adapters/api/gemini/adapter.yaml",
   "adapters/local/vllm/adapter.yaml",
   "adapters/local/ollama/adapter.yaml"
 ];

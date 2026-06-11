@@ -1,0 +1,49 @@
+adapter_id: gemini.api.skeleton
+target_runtime: gemini_native_api
+status: skeleton
+supported_features:
+  message_mapping: dry_run_checked
+  no_tool_text_canary: dry_run_checked
+  structured_output_canary: dry_run_checked
+  tool_calling_canary: dry_run_checked
+  safety_blocked_response_fixture: dry_run_checked
+  tool_calling: canary_only
+  structured_outputs: canary_only
+unsupported_features:
+  openai_compatibility_as_native_proof: not_allowed
+  production_telemetry: not_in_alpha_scope
+  release_gate_execution: not_in_alpha_scope
+  live_provider_claim_without_credentials: forbidden
+requires_verification:
+  - native GenerateContent contents and parts mapping
+  - systemInstruction mapping
+  - functionDeclarations and functionCallingConfig mapping
+  - responseJsonSchema structured output mapping
+  - local JSON Schema validation of structured output
+  - function argument schema validation
+  - functionResponse reinjection dry-run
+  - safety blocked-response fixture handling
+  - credentialed Gemini provider canary requires GEMINI_API_KEY, GEMINI_MODEL, and explicit network approval
+message_mapping:
+  core_role_contract: adapter_defined
+  system_instruction_layer: systemInstruction
+  user_layer: contents.parts.text
+  model_layer: contents.parts.text_or_functionCall
+  tool_result_layer: contents.parts.functionResponse
+tool_mapping:
+  core_tool_policy: runtime_owned
+  function_schema: tools.functionDeclarations
+  approval_gate: runtime_owned
+  function_calling_config: toolConfig.functionCallingConfig
+  mock_tool_output_reinjection: contents.parts.functionResponse
+  tool_argument_ajv_validation: canary_guard_checked
+  tool_output_reclassification: canary_guard_checked
+structured_output_mapping:
+  output_contract_schema: core/spec/output_contract.schema.json
+  response_mime_type: generationConfig.responseMimeType
+  response_json_schema: generationConfig.responseJsonSchema
+  ajv_revalidation: canary_guard_checked
+known_risks:
+  - Gemini API surface freshness must be checked against official Google documentation before changing request shapes.
+  - Local dry-run evidence does not prove live Gemini provider behavior.
+  - Gemini OpenAI compatibility evidence must not be used as native Gemini API proof.

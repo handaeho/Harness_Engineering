@@ -12,7 +12,7 @@ export const ADAPTER_COVERAGE_STAGE = "v2.0.0-post-export-adapter-checked-covera
 export const ADAPTER_FINAL_STAGE = "v2.0.0-post-export-adapter-checked-final-gate";
 export const GENERAL_PREFLIGHT_STAGE = "v2.0.0-post-export-general-readiness-stability-preflight";
 export const EXPORT_REFRESH_STAGE = "v2.0.0-final-export-refresh-after-strict-paths";
-export const SCOPE = "openai_api_lane_plus_ollama_qwen3_local_lane";
+export const SCOPE = "openai_api_lane_plus_ollama_qwen3_local_lane_plus_native_gemini_api_lane";
 export const EXPORT_PACKAGE = "exports/v2.0.0-rc.1-postrc-openai-local-provider-diverse-strict-refresh.zip";
 
 const MAINTAINED_CLAIMS = [
@@ -200,6 +200,11 @@ function commonProviderSources(root) {
     ollama_structured: source(root, "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json"),
     ollama_tool_mock: source(root, "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json"),
     ollama_redaction: source(root, "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json"),
+    gemini_asset_pack: source(root, "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json"),
+    gemini_text_canary: source(root, "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json"),
+    gemini_structured_canary: source(root, "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json"),
+    gemini_tool_calling_canary: source(root, "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json"),
+    gemini_tool_calling_gate: source(root, "evidence/beta-tool-calling-canary-gemini/tool_calling_gate_report.json"),
     capability_matrix: source(root, "adapters/provider_capability_matrix.yaml")
   };
 }
@@ -221,6 +226,18 @@ export function completeProviderVerifiedCoverage(root) {
       "openai_api_lane",
       "OpenAI provider error handling can only be reviewed statically in this stage because OpenAI API calls are forbidden.",
       "Complete an execution-backed provider error-handling review in a future approved provider lane."
+    ),
+    missing(
+      "gemini_provider_replay_regression_not_replay_verified",
+      "native_gemini_api_lane",
+      "Gemini text, structured-output, and tool-calling live canaries passed, but replay/regression-grade provider verification is not recorded.",
+      "Record a Gemini replay/regression suite or explicitly approve a weaker canary-only acceptance boundary before provider-verified."
+    ),
+    missing(
+      "gemini_provider_error_handling_not_execution_backed",
+      "native_gemini_api_lane",
+      "Gemini error-handling and safety-metadata behavior are not execution-backed at provider-verified depth.",
+      "Run a Gemini provider error-handling and safety-metadata review in a separately approved provider lane."
     ),
     missing(
       "provider_verified_final_gate_not_ready",
@@ -260,11 +277,34 @@ export function completeProviderVerifiedCoverage(root) {
     new_local_model_execution: false,
     provider_verified_ready: false
   };
+  const geminiAssetPack = readJsonIfExists(root, "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json") || {};
+  const geminiToolCanary = readJsonIfExists(root, "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json") || {};
+  const geminiSummary = {
+    status: "partial",
+    stage,
+    lane: "native_gemini_api_lane",
+    provider_contract_reviewed: exists(root, "adapters/api/gemini/adapter.yaml"),
+    capability_matrix_reviewed: exists(root, "adapters/provider_capability_matrix.yaml"),
+    execution_evidence_equivalent_to_openai_local: geminiAssetPack.execution_evidence_equivalent_to_openai_local === true,
+    live_text_canary_passed: geminiAssetPack.live_text_execution_evidence_equivalent_to_openai === true,
+    structured_output_live_canary_passed: geminiAssetPack.structured_output_live_evidence_equivalent_to_openai === true,
+    tool_calling_live_canary_passed: geminiAssetPack.tool_calling_live_evidence_equivalent_to_openai === true,
+    tool_calling_final_responses_received: geminiToolCanary.final_responses_received || 0,
+    tool_calling_expected_final_responses: geminiToolCanary.expected_final_responses || 0,
+    thought_signature_reinjection_checked: (geminiToolCanary.thought_signatures_reinjected || 0) >= (geminiToolCanary.expected_final_responses || 1),
+    replay_regression_reviewed: "missing",
+    error_handling_reviewed: "missing_execution_backed_review",
+    live_safety_metadata_reviewed: "missing",
+    redaction_storage_reviewed: geminiAssetPack.status === "pass" && geminiToolCanary.raw_response_stored === false,
+    provider_verified_ready: false,
+    source_evidence: sources
+  };
   const errorReview = {
     status: "partial",
     stage,
     openai_api_lane: "static_only_no_new_call",
     ollama_qwen3_local_lane: "partial_static_and_prior_smoke_only",
+    native_gemini_api_lane: geminiSummary.error_handling_reviewed,
     provider_verified_sufficient: false,
     blockers: blockers.filter((item) => item.id.includes("error")).map((item) => item.id)
   };
@@ -273,6 +313,7 @@ export function completeProviderVerifiedCoverage(root) {
     stage,
     openai_api_lane: openaiSummary.replay_regression_reviewed,
     ollama_qwen3_local_lane: ollamaSummary.replay_regression_reviewed,
+    native_gemini_api_lane: geminiSummary.replay_regression_reviewed,
     provider_verified_sufficient: false,
     blockers: blockers.filter((item) => item.id.includes("replay")).map((item) => item.id)
   };
@@ -281,6 +322,7 @@ export function completeProviderVerifiedCoverage(root) {
     stage,
     openai_api_lane: openaiSummary.redaction_storage_reviewed,
     ollama_qwen3_local_lane: ollamaSummary.redaction_storage_reviewed,
+    native_gemini_api_lane: geminiSummary.redaction_storage_reviewed,
     raw_request_stored: false,
     raw_response_stored: false,
     secrets_logged: false
@@ -300,6 +342,7 @@ export function completeProviderVerifiedCoverage(root) {
   writeJsonRel(root, `${dir}/provider_verified_coverage_completion_report.json`, report);
   writeJsonRel(root, `${dir}/openai_provider_coverage_completion_summary.json`, openaiSummary);
   writeJsonRel(root, `${dir}/ollama_provider_coverage_completion_summary.json`, ollamaSummary);
+  writeJsonRel(root, `${dir}/gemini_provider_coverage_completion_summary.json`, geminiSummary);
   writeJsonRel(root, `${dir}/provider_error_handling_review.json`, errorReview);
   writeJsonRel(root, `${dir}/provider_replay_regression_review.json`, replayReview);
   writeJsonRel(root, `${dir}/provider_redaction_storage_review.json`, redactionReview);
@@ -309,6 +352,7 @@ export function completeProviderVerifiedCoverage(root) {
     `stage: ${stage}`,
     "status: keep_blocked_recommended",
     "mode: coverage_completion_no_forbidden_execution",
+    "scope: openai_api_lane_plus_ollama_qwen3_local_lane_plus_native_gemini_api_lane",
     "provider_verified_allowed: false",
     "openai_model_api_call: false",
     "new_local_model_execution: false",
@@ -337,6 +381,7 @@ export function completeProviderVerifiedCoverage(root) {
   writeMd(root, "docs/providers/provider_verified_coverage_completion.ko.md", "Provider-Verified Coverage Completion", [
     "OpenAI는 새 API 호출 없이 기존 evidence와 static contract review만 사용했습니다.",
     "Ollama는 기존 bounded local smoke/replay evidence를 사용했고 새 local generation은 수행하지 않았습니다.",
+    "Gemini는 기존 live text, structured output, tool-calling canary evidence를 반영했고 새 provider 호출은 수행하지 않았습니다.",
     "",
     "결론: provider-level error handling과 replay/regression coverage가 final-gate 수준으로 충분하지 않아 `provider-verified`는 계속 blocked입니다."
   ]);
@@ -350,6 +395,7 @@ export function checkProviderVerifiedCoverageCompletion(root) {
   const report = readJsonIfExists(root, `${dir}/provider_verified_coverage_completion_report.json`);
   const openai = readJsonIfExists(root, `${dir}/openai_provider_coverage_completion_summary.json`);
   const ollama = readJsonIfExists(root, `${dir}/ollama_provider_coverage_completion_summary.json`);
+  const gemini = readJsonIfExists(root, `${dir}/gemini_provider_coverage_completion_summary.json`);
   const errorReview = readJsonIfExists(root, `${dir}/provider_error_handling_review.json`);
   const replayReview = readJsonIfExists(root, `${dir}/provider_replay_regression_review.json`);
   const redaction = readJsonIfExists(root, `${dir}/provider_redaction_storage_review.json`);
@@ -359,6 +405,9 @@ export function checkProviderVerifiedCoverageCompletion(root) {
   addCheck(checks, "coverage report recorded", report?.status === "keep_blocked_recommended" && report?.provider_verified_allowed === false, report || {});
   addCheck(checks, "openai summary partial without new call", openai?.status === "partial" && openai?.no_new_openai_call === true, openai || {});
   addCheck(checks, "ollama summary partial without new execution", ollama?.status === "partial" && ollama?.new_local_model_execution === false, ollama || {});
+  addCheck(checks, "gemini summary records live canary equivalence but not provider-verified", gemini?.status === "partial"
+    && gemini?.execution_evidence_equivalent_to_openai_local === true
+    && gemini?.provider_verified_ready === false, gemini || {});
   addCheck(checks, "error handling remains partial", errorReview?.status === "partial" && errorReview?.provider_verified_sufficient === false, errorReview || {});
   addCheck(checks, "replay regression remains partial", replayReview?.status === "partial" && replayReview?.provider_verified_sufficient === false, replayReview || {});
   addCheck(checks, "redaction storage passed", redaction?.status === "pass", redaction || {});
@@ -487,6 +536,7 @@ export function completeAdapterCheckedCoverage(root) {
   const dir = ADAPTER_COVERAGE_DIR;
   const blockers = [
     missing("openai_adapter_full_conformance_missing", "openai_adapter", "OpenAI adapter has canary evidence, but no post-export full conformance execution is recorded and OpenAI rerun is forbidden.", "Run or approve OpenAI adapter conformance in a future provider-approved lane."),
+    missing("gemini_adapter_full_conformance_missing", "gemini_adapter", "Gemini adapter has text, structured-output, and tool-calling canary evidence, but no post-export full adapter conformance execution is recorded.", "Run or approve Gemini adapter conformance in a future provider-approved lane."),
     missing("vllm_execution_coverage_out_of_scope", "vllm_adapter", "vLLM is a placeholder adapter and no execution coverage is available.", "Keep vLLM out of active-adapters claim scope or execute separately before broad adapter-checked."),
     missing("cross_adapter_contract_static_only", "all_adapters", "Cross-adapter contract review is static/dry-run only in this stage.", "Record stronger cross-adapter regression evidence before opening adapter-checked.")
   ];
@@ -498,6 +548,21 @@ export function completeAdapterCheckedCoverage(root) {
     canary_evidence_exists: statusPass(root, "evidence/beta-provider-canary-openai/provider_canary_report.json"),
     structured_output_evidence_exists: statusPass(root, "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json"),
     tool_calling_evidence_exists: statusPass(root, "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json"),
+    full_conformance_evidence_exists: false,
+    adapter_checked_ready: false
+  };
+  const geminiAssetPack = readJsonIfExists(root, "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json") || {};
+  const geminiToolCanary = readJsonIfExists(root, "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json") || {};
+  const gemini = {
+    status: "partial",
+    stage,
+    adapter: "gemini.api.skeleton",
+    contract_documented: exists(root, "adapters/api/gemini/adapter.yaml"),
+    live_text_canary_exists: geminiAssetPack.live_text_execution_evidence_equivalent_to_openai === true,
+    structured_output_evidence_exists: geminiAssetPack.structured_output_live_evidence_equivalent_to_openai === true,
+    tool_calling_evidence_exists: geminiAssetPack.tool_calling_live_evidence_equivalent_to_openai === true,
+    thought_signature_reinjection_checked: (geminiToolCanary.thought_signatures_reinjected || 0) >= (geminiToolCanary.expected_final_responses || 1),
+    execution_evidence_equivalent_to_openai_local: geminiAssetPack.execution_evidence_equivalent_to_openai_local === true,
     full_conformance_evidence_exists: false,
     adapter_checked_ready: false
   };
@@ -528,7 +593,7 @@ export function completeAdapterCheckedCoverage(root) {
   const cross = {
     status: "partial",
     stage,
-    adapters_reviewed: ["openai.api.skeleton", "ollama.local.skeleton", "vllm.local.skeleton"],
+    adapters_reviewed: ["openai.api.skeleton", "gemini.api.skeleton", "ollama.local.skeleton", "vllm.local.skeleton"],
     dry_run_or_static_only: true,
     adapter_checked_sufficient: false
   };
@@ -543,6 +608,7 @@ export function completeAdapterCheckedCoverage(root) {
   };
   writeJsonRel(root, `${dir}/adapter_checked_coverage_completion_report.json`, report);
   writeJsonRel(root, `${dir}/openai_adapter_coverage_summary.json`, openai);
+  writeJsonRel(root, `${dir}/gemini_adapter_coverage_summary.json`, gemini);
   writeJsonRel(root, `${dir}/ollama_adapter_coverage_summary.json`, ollama);
   writeJsonRel(root, `${dir}/structured_output_mapping_smoke_report.json`, structured);
   writeJsonRel(root, `${dir}/tool_calling_mock_mapping_smoke_report.json`, toolMock);
@@ -552,7 +618,7 @@ export function completeAdapterCheckedCoverage(root) {
   writeYaml(root, "release/scopes/post-export/post_export_adapter_checked_coverage_completion_scope.yaml", [`stage: ${stage}`, "status: blocked_by_missing_openai_full_conformance", "adapter_checked_allowed: false", "openai_provider_rerun: false", "new_local_model_execution: false"]);
   writeYaml(root, "release/claims/post-export/post_export_adapter_checked_coverage_claim_boundary.yaml", [`stage: ${stage}`, "status: pass", "provider_verified_allowed: false", "adapter_checked_allowed: false", "production_ready_allowed: false", "stable_allowed: false", "release_gated_allowed: false"]);
   writeYaml(root, "release/blockers/post-export/post_export_adapter_checked_blocker_update.yaml", [`stage: ${stage}`, "status: blocked_by_missing_openai_full_conformance", "adapter_checked_allowed: false", "blockers:", ...blockers.map((item) => `  - ${item.id}`)]);
-  writeMd(root, "docs/adapters/adapter_checked_coverage_completion.ko.md", "Adapter-Checked Coverage Completion", ["기존 OpenAI/Ollama adapter evidence와 static/dry-run review를 사용했습니다.", "OpenAI full conformance와 cross-adapter regression이 부족해 `adapter-checked`는 계속 blocked입니다."]);
+  writeMd(root, "docs/adapters/adapter_checked_coverage_completion.ko.md", "Adapter-Checked Coverage Completion", ["기존 OpenAI/Ollama adapter evidence와 Gemini live canary evidence를 사용했습니다.", "새 provider call 또는 새 local model execution은 수행하지 않았습니다.", "OpenAI/Gemini full conformance와 cross-adapter regression이 부족해 `adapter-checked`는 계속 blocked입니다."]);
   writeMd(root, "docs/adapters/adapter_checked_remaining_gaps.ko.md", "Adapter-Checked Remaining Gaps", blockers.map((item) => `- ${item.id}: ${item.next_action}`));
   return report;
 }
@@ -562,12 +628,16 @@ export function checkAdapterCheckedCoverageCompletion(root) {
   const dir = ADAPTER_COVERAGE_DIR;
   const report = readJsonIfExists(root, `${dir}/adapter_checked_coverage_completion_report.json`);
   const openai = readJsonIfExists(root, `${dir}/openai_adapter_coverage_summary.json`);
+  const gemini = readJsonIfExists(root, `${dir}/gemini_adapter_coverage_summary.json`);
   const ollama = readJsonIfExists(root, `${dir}/ollama_adapter_coverage_summary.json`);
   const cross = readJsonIfExists(root, `${dir}/cross_adapter_contract_review.json`);
   const unresolved = readJsonIfExists(root, `${dir}/unresolved_items.json`);
   const checks = [];
   addCheck(checks, "coverage report blocked by missing openai full conformance", report?.status === "blocked_by_missing_openai_full_conformance", report || {});
   addCheck(checks, "openai full conformance missing recorded", openai?.full_conformance_evidence_exists === false, openai || {});
+  addCheck(checks, "gemini canary evidence recorded but full conformance missing", gemini?.execution_evidence_equivalent_to_openai_local === true
+    && gemini?.full_conformance_evidence_exists === false
+    && gemini?.adapter_checked_ready === false, gemini || {});
   addCheck(checks, "ollama smoke evidence reused without new execution", ollama?.new_local_model_execution === false, ollama || {});
   addCheck(checks, "cross adapter review partial", cross?.status === "partial" && cross?.adapter_checked_sufficient === false, cross || {});
   addCheck(checks, "unresolved blockers recorded", unresolved?.unresolved_items_count > 0, unresolved || {});

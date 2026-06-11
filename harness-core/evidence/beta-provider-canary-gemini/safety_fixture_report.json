@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary",
+  "api_lane": "native_gemini_api",
+  "safety_settings_request_shape_checked": true,
+  "blocked_response_handling_checked": true,
+  "cases_total": 1,
+  "cases_passed": 1,
+  "cases_failed": 0,
+  "cases": [
+    {
+      "case_id": "gemini_safety_blocked_response_fixture",
+      "fixture_file": "adapters/api/gemini/safety_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "request_surface": {
+        "ok": true,
+        "native_gemini_surface": true,
+        "safety_settings_present": true,
+        "unique_categories": true,
+        "invalid_settings": [],
+        "tools_present": false,
+        "store_false_enforced": true
+      },
+      "blocked_response_handled": true,
+      "block_reason": "SAFETY",
+      "failures": []
+    }
+  ]
+}

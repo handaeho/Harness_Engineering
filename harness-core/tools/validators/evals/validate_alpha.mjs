@@ -135,6 +135,7 @@ check("adapter.yaml files validate against schemas/adapter.schema.json", () => {
   const schema = loadSchema(p("schemas", "adapter.schema.json"));
   const adapters = [
     "adapters/api/openai/adapter.yaml",
+    "adapters/api/gemini/adapter.yaml",
     "adapters/local/vllm/adapter.yaml",
     "adapters/local/ollama/adapter.yaml"
   ];

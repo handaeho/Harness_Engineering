@@ -1,0 +1,189 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-tool-calling-live-canary",
+  "provider": "gemini",
+  "can_enter_tool_call_verified_claim": false,
+  "can_enter_provider_verified_claim": false,
+  "can_enter_adapter_checked_claim": false,
+  "can_enter_release_gated_claim": false,
+  "reason": "Gemini tool calling live canary passed, but strong promotion claims remain blocked.",
+  "checks": [
+    {
+      "name": "runner pass or explicit blocked status",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "provider_execution": true,
+        "local_dry_run_status": "pass"
+      }
+    },
+    {
+      "name": "local dry-run status pass",
+      "status": "pass",
+      "detail": {
+        "local_dry_run_status": "pass"
+      }
+    },
+    {
+      "name": "trace samples exist",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "tool calling surface used",
+      "status": "pass",
+      "detail": {
+        "tool_calling_used": true,
+        "function_tools_used": true
+      }
+    },
+    {
+      "name": "built-in tools remote MCP local model and external side effects are false",
+      "status": "pass",
+      "detail": {
+        "built_in_tools_used": false,
+        "remote_mcp_used": false,
+        "local_model_execution": false,
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "store false raw response not stored",
+      "status": "pass",
+      "detail": {
+        "store_false_enforced": true,
+        "raw_response_stored": false
+      }
+    },
+    {
+      "name": "mock tools only and blocked tools not executed",
+      "status": "pass",
+      "detail": {
+        "mock_tools_only": true,
+        "blocked_tools_executed": 0
+      }
+    },
+    {
+      "name": "redaction passed",
+      "status": "pass",
+      "detail": {
+        "redaction_status": "pass"
+      }
+    },
+    {
+      "name": "argument validation report coherent",
+      "status": "pass",
+      "detail": {
+        "tool_argument_validations_total": 4,
+        "tool_argument_validations_failed": 0
+      }
+    },
+    {
+      "name": "provider execution true for pass",
+      "status": "pass",
+      "detail": {
+        "provider_execution": true
+      }
+    },
+    {
+      "name": "all live cases passed",
+      "status": "pass",
+      "detail": {
+        "live_cases_total": 2,
+        "live_cases_passed": 2,
+        "live_cases_failed": 0
+      }
+    },
+    {
+      "name": "tool argument validations passed",
+      "status": "pass",
+      "detail": {
+        "tool_argument_validations_total": 4,
+        "tool_argument_validations_failed": 0
+      }
+    },
+    {
+      "name": "final responses received",
+      "status": "pass",
+      "detail": {
+        "final_responses_received": 2,
+        "expected_final_responses": 2
+      }
+    },
+    {
+      "name": "tool outputs reclassified untrusted",
+      "status": "pass",
+      "detail": {
+        "tool_outputs_reclassified_untrusted": 2,
+        "mock_tools_executed": 2
+      }
+    },
+    {
+      "name": "thought signatures captured and reinjected without raw storage",
+      "status": "pass",
+      "detail": {
+        "thought_signatures_captured": 2,
+        "thought_signatures_reinjected": 2,
+        "expected_final_responses": 2,
+        "raw_request_body_recorded": false,
+        "raw_response_recorded": false
+      }
+    },
+    {
+      "name": "mapping report pass",
+      "status": "pass",
+      "detail": {
+        "request_mapping": {
+          "model_from_env": true,
+          "tools_present": true,
+          "function_tools_present": true,
+          "built_in_tools_present": false,
+          "structured_output_present": false,
+          "store_false": true
+        },
+        "response_mapping": {
+          "provider_response_id_present": true,
+          "tool_calls_extracted": true,
+          "final_response_text_extracted": true,
+          "raw_response_hash_present": true,
+          "raw_response_stored": false
+        }
+      }
+    },
+    {
+      "name": "forbidden strong claims are not allowed",
+      "status": "pass",
+      "detail": {
+        "claims_allowed": [
+          "gemini-tool-calling-dry-run-checked",
+          "gemini-tool-argument-schema-local-validation-checked",
+          "gemini-function-response-reinjection-dry-run-checked",
+          "gemini-tool-calling-live-canary-executed",
+          "gemini-provider-tool-call-path-checked",
+          "gemini-tool-argument-schema-live-validated",
+          "gemini-function-response-reinjection-live-checked",
+          "gemini-tool-approval-boundary-checked",
+          "gemini-tool-output-reclassification-checked",
+          "gemini-tool-calling-trace-captured",
+          "gemini-tool-calling-redaction-checked"
+        ]
+      }
+    }
+  ],
+  "claims_allowed": [
+    "gemini-tool-calling-live-canary-executed",
+    "gemini-provider-tool-call-path-checked",
+    "gemini-tool-argument-schema-live-validated",
+    "gemini-function-response-reinjection-live-checked",
+    "gemini-tool-calling-trace-captured"
+  ],
+  "claims_blocked": [
+    "provider-verified",
+    "adapter-checked",
+    "release-gated",
+    "production-ready",
+    "tool-call-verified",
+    "schema-output-verified",
+    "integration-verified"
+  ]
+}

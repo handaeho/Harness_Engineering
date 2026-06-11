@@ -1,0 +1,146 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary",
+  "api_lane": "native_gemini_api",
+  "request_mapping": {
+    "contents_parts_used": true,
+    "system_instruction_used": true,
+    "tools_present": false,
+    "structured_output_present": false,
+    "store_false": true,
+    "max_output_tokens_bounded": true
+  },
+  "response_mapping": {
+    "output_text_extracted": true,
+    "raw_response_hash_present": true,
+    "raw_response_stored": false
+  },
+  "cases_total": 3,
+  "cases_passed": 3,
+  "cases_failed": 0,
+  "cases": [
+    {
+      "case_id": "gemini_simple_text_response",
+      "fixture_file": "adapters/api/gemini/canary_cases.jsonl",
+      "fixture_line": 1,
+      "status": "pass",
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "native_gemini_surface": true,
+        "tools_used": false,
+        "structured_output_used": false,
+        "safety_settings_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true,
+        "input_text_only": true,
+        "system_instruction_text_only": true,
+        "contents_parts_used": true,
+        "system_instruction_used": true
+      },
+      "response_mapping": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "dac54f5696f538cc5a17fcda9ed07102e43127bc65a19eba60fa19276f0c2b8c",
+        "output_text_preview": "GEMINI_CANARY_OK",
+        "output_text_hash": "6dd1c0645c7e081092364c7d1bf35b2fe1dfa9b5e21f9bbf4f16b5b209a173bf",
+        "status": "completed",
+        "blocked": false,
+        "block_reason": null,
+        "finish_reason": "STOP",
+        "function_calls_total": 0,
+        "usage": {
+          "promptTokenCount": 1,
+          "candidatesTokenCount": 1,
+          "totalTokenCount": 2
+        },
+        "raw_response_hash": "20564e2038f74200e31decc21f0e52a8d0287a830d81c22537b60a6d4c840819",
+        "raw_response_stored": false
+      },
+      "failures": []
+    },
+    {
+      "case_id": "gemini_korean_instruction_following",
+      "fixture_file": "adapters/api/gemini/canary_cases.jsonl",
+      "fixture_line": 2,
+      "status": "pass",
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "native_gemini_surface": true,
+        "tools_used": false,
+        "structured_output_used": false,
+        "safety_settings_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true,
+        "input_text_only": true,
+        "system_instruction_text_only": true,
+        "contents_parts_used": true,
+        "system_instruction_used": true
+      },
+      "response_mapping": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "61576551adc7b46eb75f2cdbdb7631325622d1b355d6cd5ed5d8453458247c32",
+        "output_text_preview": "GEMINI_CANARY_KO_OK",
+        "output_text_hash": "cb6f33236fb3cce24121cf9e015b811fa1334aac7a781b58833d45956b647cc7",
+        "status": "completed",
+        "blocked": false,
+        "block_reason": null,
+        "finish_reason": "STOP",
+        "function_calls_total": 0,
+        "usage": {
+          "promptTokenCount": 1,
+          "candidatesTokenCount": 1,
+          "totalTokenCount": 2
+        },
+        "raw_response_hash": "124147875b98e1a1e33b51b4a19e483f79b0781ca325eb43480aa1718edebe79",
+        "raw_response_stored": false
+      },
+      "failures": []
+    },
+    {
+      "case_id": "gemini_no_tool_surface_assertion",
+      "fixture_file": "adapters/api/gemini/canary_cases.jsonl",
+      "fixture_line": 3,
+      "status": "pass",
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "native_gemini_surface": true,
+        "tools_used": false,
+        "structured_output_used": false,
+        "safety_settings_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "thinking_config_present": true,
+        "thinking_config_bounded": true,
+        "input_text_only": true,
+        "system_instruction_text_only": true,
+        "contents_parts_used": true,
+        "system_instruction_used": true
+      },
+      "response_mapping": {
+        "provider_response_id_present": true,
+        "provider_response_id_hash": "0b2ca7472b8e002ce989726758bd40a914cf9cb4451806be5c246316ee5a4638",
+        "output_text_preview": "GEMINI_NO_TOOL_OK",
+        "output_text_hash": "d5356dd867587e8dd89918fef857b157fc3912da72474980aa7f9da7a0ef98c3",
+        "status": "completed",
+        "blocked": false,
+        "block_reason": null,
+        "finish_reason": "STOP",
+        "function_calls_total": 0,
+        "usage": {
+          "promptTokenCount": 1,
+          "candidatesTokenCount": 1,
+          "totalTokenCount": 2
+        },
+        "raw_response_hash": "8ab4038664567075be7618b68f80d3746ebafb31e8daa7d59a227c474e39d26f",
+        "raw_response_stored": false
+      },
+      "failures": []
+    }
+  ]
+}

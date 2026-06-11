@@ -1,0 +1,65 @@
+id: beta_provider_canary_gemini
+stage: v2.0.0-gemini-runtime-dry-run-provider-canary
+mode: gemini_native_generate_content_static_and_optional_live_canary
+runner: tools/runners/providers/run_gemini_provider_canary.mjs
+live_preflight_checker: tools/checks/providers/check_gemini_live_canary_preflight.mjs
+checker: tools/checks/providers/check_provider_canary_gemini.mjs
+asset_pack_checker: tools/checks/providers/check_gemini_runtime_asset_pack.mjs
+scope: release/scopes/beta/beta_provider_canary_gemini_scope.yaml
+fixtures:
+  - adapters/api/gemini/canary_cases.jsonl
+  - adapters/api/gemini/structured_output_cases.jsonl
+  - adapters/api/gemini/tool_calling_cases.jsonl
+  - adapters/api/gemini/safety_cases.jsonl
+assertions:
+  api_lane: native_gemini_api
+  local_dry_run_status: pass
+  request_response_mapping_status: pass
+  structured_output_status: pass
+  tool_calling_dry_run_status: pass
+  safety_fixture_status: pass
+  local_model_execution: false
+  external_side_effects: false
+  redaction_passed: true
+  live_text_canary_only: true
+  structured_output_live_canary: separate_future_stage
+  tool_calling_live_canary: separate_future_stage
+blocked_statuses:
+  - blocked_by_missing_credential
+  - blocked_by_missing_model
+  - blocked_by_live_execution_not_enabled
+  - blocked_by_network_approval_missing
+claims_allowed_after_dry_run:
+  - gemini-request-mapping-dry-run-checked
+  - gemini-structured-output-dry-run-checked
+  - gemini-tool-calling-dry-run-checked
+  - gemini-safety-fixture-checked
+claims_allowed_after_live_pass:
+  - gemini-provider-canary-executed
+  - gemini-provider-trace-captured
+claims_not_allowed:
+  - adapter-checked
+  - provider-verified
+  - runtime-verified
+  - tool-call-verified
+  - schema-output-verified
+  - telemetry-connected
+  - production-ready
+  - production-monitored
+  - containment-verified
+  - replay-verified
+  - benchmark-backed
+  - provider-diverse
+  - integration-verified
+  - release-gated
+official_sources:
+  - https://ai.google.dev/api/generate-content
+  - https://ai.google.dev/gemini-api/docs/text-generation
+  - https://ai.google.dev/gemini-api/docs/function-calling
+  - https://ai.google.dev/gemini-api/docs/structured-output
+  - https://ai.google.dev/gemini-api/docs/safety-settings
+structured_output_doc_freshness_gate:
+  required_before_request_shape_change: true
+  target_shape: generationConfig.responseJsonSchema
+  alternate_doc_shape_seen: generationConfig.responseFormat
+  decision: keep_existing_target_shape_until_live_structured_output_stage

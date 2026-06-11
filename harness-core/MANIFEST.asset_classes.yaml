@@ -2,6 +2,14 @@ version: 1
 stage: v2.0.0-post-final-dossier-project-rename-to-harness-core
 
 asset_classes:
+  agent_instructions:
+    description: Agent-consumed runtime instructions. Content must be imperative operating rules, not human-facing explanation.
+    paths:
+      - AGENTS.md
+      - START_HERE_FOR_AGENTS.ko.md
+      - AGENT_BOOTSTRAP.ko.md
+    edit_policy: editable_with_runtime_instruction_boundary_check
+
   core_source:
     description: Core machine-readable or executable harness source.
     paths:
@@ -31,12 +39,10 @@ asset_classes:
     description: Human-readable docs, plans, handoffs, and explanations.
     paths:
       - README.md
-      - AGENTS.md
       - NAME_MIGRATION.md
       - docs/
       - FINAL_HANDOFF.ko.md
       - FINAL_NEW_CONVERSATION_PROMPT.ko.md
-      - session_handoff_2026-05-22.md
     edit_policy: editable_with_claim_boundary_check
 
   generated_or_ignored:
@@ -55,6 +61,8 @@ asset_classes:
 source_of_truth:
   agent_index:
     - AGENTS.md
+    - START_HERE_FOR_AGENTS.ko.md
+    - AGENT_BOOTSTRAP.ko.md
 
   machine_manifest:
     - stack.yaml

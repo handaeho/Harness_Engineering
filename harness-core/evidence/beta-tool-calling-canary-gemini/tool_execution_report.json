@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-tool-calling-live-canary",
+  "mock_tools_only": true,
+  "mock_tools_executed": 2,
+  "blocked_tools_executed": 0,
+  "tool_outputs_reclassified_untrusted": 2,
+  "final_responses_received": 2,
+  "expected_final_responses": 2,
+  "cases": [
+    {
+      "case_id": "gemini_lookup_tool_call_dry_run",
+      "status": "pass",
+      "executed_tools": [
+        {
+          "tool_name": "canary_lookup",
+          "output_classification": "untrusted_tool_output",
+          "external_side_effect": false
+        }
+      ],
+      "final_response_received": true,
+      "failures": []
+    },
+    {
+      "case_id": "gemini_calculator_tool_call_dry_run",
+      "status": "pass",
+      "executed_tools": [
+        {
+          "tool_name": "canary_calculator",
+          "output_classification": "untrusted_tool_output",
+          "external_side_effect": false
+        }
+      ],
+      "final_response_received": true,
+      "failures": []
+    }
+  ]
+}

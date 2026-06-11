@@ -6,6 +6,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const workspace = path.resolve(root, "..");
 const packageName = path.basename(root);
 const evidenceRoot = path.join(workspace, "_evidence", packageName);
+const displayPackageName = "<current_package>";
+const displayEvidenceRoot = path.posix.join("_evidence", displayPackageName);
 const checks = [];
 
 function slash(p) {
@@ -83,6 +85,22 @@ const requiredActive = [
   "codex/skills/eval-ops/SKILL.md",
   "codex/skills/grounded-research/SKILL.md",
   "codex/skills/orchestration-control/SKILL.md",
+  "codex/skills/harness-creator-adapter/SKILL.md",
+  "codex/validation/skill_routing_scenarios.json",
+  "codex/validation/codex_runtime_tests.json",
+  "gemini/AGENTS.md",
+  "gemini/GEMINI.md",
+  "gemini/GEMINI_RUNTIME_GUIDE.md",
+  "gemini/actor_packets/README.md",
+  "gemini/skills/coding-core/SKILL.md",
+  "gemini/skills/design-analysis/SKILL.md",
+  "gemini/skills/eval-ops/SKILL.md",
+  "gemini/skills/grounded-research/SKILL.md",
+  "gemini/skills/orchestration-control/SKILL.md",
+  "gemini/skills/harness-creator-adapter/SKILL.md",
+  "gemini/validation/gemini_runtime_tests.json",
+  "gemini/validation/skill_routing_scenarios.json",
+  "gemini/validation/gemini_doc_grounding_sources.json",
   "state/feature_list.json",
   "state/progress.md",
   "state/decision_log.md",
@@ -111,11 +129,12 @@ const requiredActive = [
   "docs/PLANS.md",
   "docs/OPERATOR_CHECKLIST.md",
   "harness/README.md",
-  "harness/validate_current_v36.mjs",
   "harness/validate_current.mjs",
   "harness/validate_assembled_bundle.mjs",
   "harness/validate_codex_runtime.mjs",
+  "harness/validate_gemini_runtime.mjs",
   "harness/run_smoke_validation.mjs",
+  "harness/run_development_exercise.mjs",
   "validation/current_validation_suite.json",
   "validation/current_validation_result.json",
   "validation/validation_readme.md",
@@ -138,14 +157,14 @@ for (const rel of requiredActive) {
 }
 
 const requiredEvidence = [
-  ["README.md", "_evidence/v36/README.md"],
-  ["evidence_manifest.json", "_evidence/v36/evidence_manifest.json"],
-  ["evidence_checksums.json", "_evidence/v36/evidence_checksums.json"],
-  ["source_clone", "_evidence/v36/source_clone"],
-  ["actor_outputs", "_evidence/v36/actor_outputs"],
-  ["release_decision", "_evidence/v36/release_decision"],
-  ["validation_runs", "_evidence/v36/validation_runs"],
-  ["phase_reports", "_evidence/v36/phase_reports"],
+  ["README.md", path.posix.join(displayEvidenceRoot, "README.md")],
+  ["evidence_manifest.json", path.posix.join(displayEvidenceRoot, "evidence_manifest.json")],
+  ["evidence_checksums.json", path.posix.join(displayEvidenceRoot, "evidence_checksums.json")],
+  ["source_clone", path.posix.join(displayEvidenceRoot, "source_clone")],
+  ["actor_outputs", path.posix.join(displayEvidenceRoot, "actor_outputs")],
+  ["release_decision", path.posix.join(displayEvidenceRoot, "release_decision")],
+  ["validation_runs", path.posix.join(displayEvidenceRoot, "validation_runs")],
+  ["phase_reports", path.posix.join(displayEvidenceRoot, "phase_reports")],
 ];
 
 for (const [rel, display] of requiredEvidence) {
@@ -166,7 +185,7 @@ for (const file of jsonFiles) {
 
 for (const rel of ["evidence_manifest.json", "evidence_checksums.json"]) {
   const actual = path.join("_evidence", packageName, rel);
-  const display = path.join("_evidence", packageName, rel);
+  const display = path.posix.join(displayEvidenceRoot, rel);
   try {
     JSON.parse(readWorkspace(actual));
     check(`evidence_json_parse:${displayPath(display)}`, true, displayPath(display));
@@ -234,18 +253,12 @@ const forbiddenActivePaths = [
   "records/harness_creator_adapter_reinforcement_result.json",
   "records/structure_normalization_execution.json",
   "records/structure_normalization_pre_action_snapshot.json",
-  "records/v36_root_path_registry_canonicalization.json",
-  "records/v36_structure_normalization_dry_run.json",
-  "records/v36_structure_normalization_inventory.json",
   "reports/HARNESS_CREATOR_ADAPTER_AUDIT.md",
   "reports/HARNESS_CREATOR_ADAPTER_FINAL_SANITY_CHECK.md",
   "reports/HARNESS_CREATOR_ADAPTER_REINFORCEMENT_REPORT.md",
   "reports/HARD_CLEANUP_FINAL_REPORT.md",
   "reports/HARD_CLEANUP_INVENTORY.md",
   "reports/STRUCTURE_NORMALIZATION_EXECUTION_REPORT.md",
-  "reports/V36_ROOT_PATH_REGISTRY_CANONICALIZATION.md",
-  "reports/V36_STRUCTURE_NORMALIZATION_DRY_RUN.md",
-  "reports/V36_STRUCTURE_NORMALIZATION_INVENTORY.md",
 ];
 for (const rel of forbiddenActivePaths) {
   check(`forbidden_active_path_absent:${rel}`, !existsInRoot(rel), rel, "P0");
@@ -302,8 +315,27 @@ for (const term of [
 }
 
 check("codex_runtime_not_mirror", !existsInRoot("autonomous/99_total/codex"), "autonomous/99_total/codex absent", "P0");
+check("gemini_runtime_not_mirror", !existsInRoot("autonomous/99_total/gemini"), "autonomous/99_total/gemini absent", "P0");
+check("gemini_not_nested_in_codex_runtime", !existsInRoot("codex/gemini"), "codex/gemini absent", "P0");
+check("runtime_surface_boundaries_doc_exists", existsInRoot("docs/RUNTIME_SURFACE_BOUNDARIES.md"), "docs/RUNTIME_SURFACE_BOUNDARIES.md", "P0");
 check("evidence_manifest_nonempty", JSON.parse(readWorkspace(path.join("_evidence", packageName, "evidence_manifest.json"))).moved_files > 0, "evidence_manifest.moved_files", "P0");
 check("active_artifact_map_exists", existsInRoot("records/artifact_map.json"), "records/artifact_map.json", "P1");
+
+const versionSpecificToken = ["v", "36"].join("");
+const versionSpecificMatches = [];
+for (const file of listFiles(root)) {
+  const buffer = fs.readFileSync(file);
+  if (buffer.includes(0)) continue;
+  if (buffer.toString("utf8").toLowerCase().includes(versionSpecificToken)) {
+    versionSpecificMatches.push(slash(path.relative(root, file)));
+  }
+}
+check(
+  "version_specific_content_absent",
+  versionSpecificMatches.length === 0,
+  versionSpecificMatches.length === 0 ? "no version-specific content token found" : versionSpecificMatches.join(", "),
+  "P0"
+);
 
 const result = {
   validation_name: "current_package_practical_structure_validation",

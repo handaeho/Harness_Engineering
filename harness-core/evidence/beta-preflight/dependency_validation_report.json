@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "generated_at": "2026-06-09T02:56:04.400Z",
+  "generated_at": "2026-06-11T09:45:39.483Z",
   "stage": "v2.0.0-beta-preflight",
   "parser_status": {
     "yaml": {
@@ -52,7 +52,7 @@
       "name": "all JSON files parse",
       "status": "pass",
       "detail": {
-        "checked": 1536
+        "checked": 1577
       }
     },
     {
@@ -60,6 +60,9 @@
       "status": "pass",
       "detail": {
         "checked": [
+          "CURRENT_STATE.yaml",
+          "MANIFEST.asset_classes.yaml",
+          "adapters/api/gemini/adapter.yaml",
           "adapters/api/openai/adapter.yaml",
           "adapters/local/ollama/adapter.yaml",
           "adapters/local/vllm/adapter.yaml",
@@ -77,7 +80,6 @@
           "archive/legacy-reference-surface/release/post_stable_v36_baseline_refresh_for_local_verification_scope.yaml",
           "archive/legacy-reference-surface/release/post_stable_v36_baseline_snapshot_exclusion_policy.yaml",
           "core/spec/harness.spec.yaml",
-          "CURRENT_STATE.yaml",
           "evals/suites/adapter_conformance_design.yaml",
           "evals/suites/alpha_hardening.yaml",
           "evals/suites/beta_additional_openai_redteam_preflight.yaml",
@@ -100,6 +102,7 @@
           "evals/suites/beta_openai_tool_calling_replay_rerun.yaml",
           "evals/suites/beta_production_telemetry_connection_preflight.yaml",
           "evals/suites/beta_production_telemetry_design.yaml",
+          "evals/suites/beta_provider_canary_gemini.yaml",
           "evals/suites/beta_provider_canary_openai.yaml",
           "evals/suites/beta_redteam_mock_runtime_dry_run.yaml",
           "evals/suites/beta_redteam_suite_design.yaml",
@@ -210,7 +213,6 @@
           "evidence/rc1-openai-scope-bundle/rc1_capability_matrix_snapshot.yaml",
           "evidence/rc1-openai-scope-bundle/rc1_release_gate_snapshot.yaml",
           "evidence/rc1-release-gate-actual-openai-scope-preflight/rc1_release_gate_actual_command_plan_snapshot.yaml",
-          "MANIFEST.asset_classes.yaml",
           "observability/langfuse/connection_preflight_policy.yaml",
           "observability/langfuse/dashboard_plan.yaml",
           "observability/langfuse/integration_plan.yaml",
@@ -229,8 +231,8 @@
           "observability/production_monitoring_incident_response_policy.yaml",
           "observability/production_monitoring_operator_values.yaml",
           "observability/production_monitoring_operator_values_template.yaml",
-          "observability/production_monitoring_owner_assignments.yaml",
           "observability/production_monitoring_owner_assignment_template.yaml",
+          "observability/production_monitoring_owner_assignments.yaml",
           "observability/production_monitoring_recommended_defaults.yaml",
           "observability/production_monitoring_retention_policy.yaml",
           "observability/production_monitoring_retention_values.yaml",
@@ -254,8 +256,8 @@
           "profiles/agents/local_runtime_operator.yaml",
           "profiles/agents/release_gate_reviewer.yaml",
           "release/approvals/general/approval_phrase_index.yaml",
-          "release/blockers/beta/beta_release_blockers.yaml",
           "release/blockers/beta/beta_release_blocker_p0_p1_reevaluation_scope.yaml",
+          "release/blockers/beta/beta_release_blockers.yaml",
           "release/blockers/containment/containment_blocker_mock_dry_run_update.yaml",
           "release/blockers/containment/containment_blocker_update.yaml",
           "release/blockers/containment/containment_dedicated_verification_blocker_update.yaml",
@@ -331,8 +333,8 @@
           "release/claims/post-combined/post_combined_provider_verified_claim_boundary.yaml",
           "release/claims/post-combined/post_combined_provider_verified_preflight_claim_boundary.yaml",
           "release/claims/post-combined/post_combined_strict_paths_claim_boundary.yaml",
-          "release/claims/post-export/post_export_active_adapters_checked_claim_boundary.yaml",
           "release/claims/post-export/post_export_active_adapter_contract_claim_boundary.yaml",
+          "release/claims/post-export/post_export_active_adapters_checked_claim_boundary.yaml",
           "release/claims/post-export/post_export_active_provider_lanes_verified_claim_boundary.yaml",
           "release/claims/post-export/post_export_active_scoped_final_claim_state.yaml",
           "release/claims/post-export/post_export_active_scoped_production_ready_claim_boundary.yaml",
@@ -542,6 +544,7 @@
           "release/scopes/beta/beta_openai_tool_calling_replay_rerun_scope.yaml",
           "release/scopes/beta/beta_production_telemetry_connection_preflight_scope.yaml",
           "release/scopes/beta/beta_production_telemetry_design_scope.yaml",
+          "release/scopes/beta/beta_provider_canary_gemini_scope.yaml",
           "release/scopes/beta/beta_provider_canary_openai_scope.yaml",
           "release/scopes/beta/beta_redteam_mock_runtime_dry_run_scope.yaml",
           "release/scopes/beta/beta_redteam_suite_design_scope.yaml",
@@ -728,6 +731,9 @@
           "schemas/telemetry.schema.json",
           "schemas/trace.schema.json",
           "schemas/validation_report.schema.json",
+          "adapters/api/gemini/tool_schemas/blocked_external_post.schema.json",
+          "adapters/api/gemini/tool_schemas/canary_calculator.schema.json",
+          "adapters/api/gemini/tool_schemas/canary_lookup.schema.json",
           "adapters/api/openai/tool_schemas/blocked_external_post.schema.json",
           "adapters/api/openai/tool_schemas/canary_calculator.schema.json",
           "adapters/api/openai/tool_schemas/canary_lookup.schema.json",
@@ -777,6 +783,7 @@
       "detail": {
         "checked": [
           "adapters/api/openai/adapter.yaml",
+          "adapters/api/gemini/adapter.yaml",
           "adapters/local/vllm/adapter.yaml",
           "adapters/local/ollama/adapter.yaml"
         ]
@@ -857,6 +864,7 @@
       "detail": {
         "providers_checked": [
           "openai",
+          "gemini",
           "vllm",
           "ollama"
         ]

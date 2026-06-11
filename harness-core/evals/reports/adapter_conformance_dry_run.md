@@ -8,10 +8,10 @@ Mode: dry_run_no_provider_execution
 - Local model execution: false
 - Runtime execution: false
 - Tool call execution: false
-- Cases total: 12
-- Cases passed: 12
+- Cases total: 14
+- Cases passed: 14
 - Cases failed: 0
-- Adapters checked: ollama.local.skeleton, openai.api.skeleton, vllm.local.skeleton
+- Adapters checked: gemini.api.skeleton, ollama.local.skeleton, openai.api.skeleton, vllm.local.skeleton
 
 ## Claim Boundary
 

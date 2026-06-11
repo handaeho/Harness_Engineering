@@ -23,6 +23,20 @@
       "next_action": "Complete an execution-backed provider error-handling review in a future approved provider lane."
     },
     {
+      "id": "gemini_provider_replay_regression_not_replay_verified",
+      "lane": "native_gemini_api_lane",
+      "status": "blocked_or_partial",
+      "reason": "Gemini text, structured-output, and tool-calling live canaries passed, but replay/regression-grade provider verification is not recorded.",
+      "next_action": "Record a Gemini replay/regression suite or explicitly approve a weaker canary-only acceptance boundary before provider-verified."
+    },
+    {
+      "id": "gemini_provider_error_handling_not_execution_backed",
+      "lane": "native_gemini_api_lane",
+      "status": "blocked_or_partial",
+      "reason": "Gemini error-handling and safety-metadata behavior are not execution-backed at provider-verified depth.",
+      "next_action": "Run a Gemini provider error-handling and safety-metadata review in a separately approved provider lane."
+    },
+    {
       "id": "provider_verified_final_gate_not_ready",
       "lane": "all_lanes",
       "status": "blocked_or_partial",
@@ -36,7 +50,7 @@
   "telemetry_sink_write": false,
   "npm_install_or_ci": false,
   "actual_export_write": false,
-  "v36_modified": false,
+  "reference_baseline_source_modified": false,
   "dist_modified": false,
-  "evidence_v36_baseline_modified": false
+  "evidence_reference_baseline_modified": false
 }

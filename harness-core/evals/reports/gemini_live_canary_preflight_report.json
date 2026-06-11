@@ -1,0 +1,121 @@
+{
+  "status": "ready",
+  "stage": "v2.0.0-gemini-live-provider-canary-preflight",
+  "provider": "gemini",
+  "api_lane": "native_gemini_api",
+  "live_provider_execution": false,
+  "network_call_performed": false,
+  "env_presence": {
+    "GEMINI_API_KEY": true,
+    "GEMINI_MODEL": true,
+    "GEMINI_PROVIDER_CANARY_ENABLE_LIVE": true,
+    "GEMINI_PROVIDER_CANARY_NETWORK_APPROVAL": true
+  },
+  "live_credential_gate_open": true,
+  "fail_closed": false,
+  "structured_output_shape_decision": {
+    "target_shape": "generationConfig.responseJsonSchema",
+    "response_mime_type": "application/json",
+    "official_sources_required_before_shape_change": [
+      "https://ai.google.dev/api/generate-content",
+      "https://ai.google.dev/gemini-api/docs/structured-output"
+    ],
+    "note": "The live text canary does not validate live structured output or live tool calling."
+  },
+  "checks": [
+    {
+      "name": "GEMINI_API_KEY present",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {
+        "present": true
+      }
+    },
+    {
+      "name": "GEMINI_MODEL present",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {
+        "present": true
+      }
+    },
+    {
+      "name": "GEMINI_PROVIDER_CANARY_ENABLE_LIVE equals 1",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {
+        "present_and_enabled": true
+      }
+    },
+    {
+      "name": "network approval boundary recorded",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {
+        "required_boundary": "separate user/tool approval before live network execution",
+        "env_marker_present": true,
+        "note": "This marker records operator intent only; sandbox/tool approval remains a separate runtime gate."
+      }
+    },
+    {
+      "name": "raw request and response storage remains disabled",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {
+        "raw_response_stored_false": true
+      }
+    },
+    {
+      "name": "redaction policy is part of canary runner",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {}
+    },
+    {
+      "name": "structured output target shape is explicit",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {
+        "target_shape": "generationConfig.responseJsonSchema with generationConfig.responseMimeType=application/json"
+      }
+    },
+    {
+      "name": "structured output source freshness gate is recorded",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {
+        "required_sources": [
+          "https://ai.google.dev/api/generate-content",
+          "https://ai.google.dev/gemini-api/docs/structured-output"
+        ]
+      }
+    },
+    {
+      "name": "live text canary remains separate from live structured/tool claims",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {}
+    },
+    {
+      "name": "direct live runner requires network approval marker",
+      "status": "pass",
+      "blocks_live_canary": false,
+      "detail": {
+        "runner_live_guard": "GEMINI_PROVIDER_CANARY_NETWORK_APPROVAL=1 required in addition to credential/model/live-enable env."
+      }
+    }
+  ],
+  "blocking_checks": [],
+  "claims_allowed_when_ready": [
+    "gemini-live-canary-preflight-ready"
+  ],
+  "claims_blocked": [
+    "provider-verified",
+    "adapter-checked",
+    "release-gated",
+    "production-ready",
+    "live Gemini canary passed",
+    "tool-call-verified",
+    "schema-output-verified"
+  ]
+}

@@ -1,6 +1,6 @@
 ﻿# Current Package Release Notes
 
-`v36/`은 현재 stable prompt harness package다.
+`<current_package>/`은 현재 stable prompt harness package다.
 
 ## 포함 범위
 - autonomous agent assets

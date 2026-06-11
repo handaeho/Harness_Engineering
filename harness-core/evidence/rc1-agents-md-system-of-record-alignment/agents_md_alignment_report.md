@@ -12,6 +12,7 @@ Stage: v2.0.0-rc.1-agents-md-and-system-of-record-alignment
 - pass: stack.yaml source_of_truth includes required records
 - pass: AGENTS.md mentions required operating sections
 - pass: asset class manifest contains required classes
+- pass: agent instructions are separate from human docs
 - pass: asset class manifest classifies generated and reference baseline paths
 - pass: docs required by alignment exist
 

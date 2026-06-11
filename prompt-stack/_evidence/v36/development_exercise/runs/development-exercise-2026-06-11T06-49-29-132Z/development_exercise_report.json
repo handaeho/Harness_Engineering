@@ -1,0 +1,199 @@
+{
+  "run_id": "development-exercise-2026-06-11T06-49-29-132Z",
+  "package_name": "v36",
+  "generated_at": "2026-06-11T06:49:29.212Z",
+  "scratch_root": "/var/folders/_q/ys41jpw17s53ffnmgrhw61qh0000gn/T/prompt-stack-v36-RrJl1e",
+  "task": "deterministic feature flag evaluator",
+  "acceptance_criteria": [
+    "disabled flag returns off",
+    "blocklist has highest priority",
+    "allowlist enables targeted user",
+    "country targeting excludes non-target country",
+    "zero rollout excludes ordinary user",
+    "enabled full rollout selects weighted variant"
+  ],
+  "status": "pass",
+  "lanes": [
+    {
+      "lane_id": "codex",
+      "label": "prompt-stack codex runtime",
+      "scratch_dir": "/var/folders/_q/ys41jpw17s53ffnmgrhw61qh0000gn/T/prompt-stack-v36-RrJl1e/codex",
+      "command": "node featureFlagEvaluator.test.mjs",
+      "exit_code": 0,
+      "stdout": "6/6 tests passed",
+      "stderr": "",
+      "duration_ms": 25,
+      "tests_total": 6,
+      "tests_passed": 6,
+      "status": "pass",
+      "instruction_profile": {
+        "sources": [
+          {
+            "file": "prompt-stack/v36/codex/AGENTS.md",
+            "exists": true,
+            "bytes": 32318
+          },
+          {
+            "file": "prompt-stack/v36/codex/CODEX_RUNTIME_GUIDE.md",
+            "exists": true,
+            "bytes": 2437
+          },
+          {
+            "file": "prompt-stack/v36/codex/skills/coding-core/SKILL.md",
+            "exists": true,
+            "bytes": 2812
+          }
+        ],
+        "required_terms": [
+          {
+            "term": "bounded",
+            "present": true
+          },
+          {
+            "term": "verify",
+            "present": true
+          },
+          {
+            "term": "claim boundary",
+            "present": true
+          },
+          {
+            "term": "narrow",
+            "present": true
+          }
+        ]
+      },
+      "claim_boundary": "Local scratch implementation only. Six local tests passed. No integration, security, performance, package, or production claim is allowed."
+    },
+    {
+      "lane_id": "gemini",
+      "label": "prompt-stack gemini runtime",
+      "scratch_dir": "/var/folders/_q/ys41jpw17s53ffnmgrhw61qh0000gn/T/prompt-stack-v36-RrJl1e/gemini",
+      "command": "node featureFlagEvaluator.test.mjs",
+      "exit_code": 0,
+      "stdout": "6/6 tests passed",
+      "stderr": "",
+      "duration_ms": 24,
+      "tests_total": 6,
+      "tests_passed": 6,
+      "status": "pass",
+      "instruction_profile": {
+        "sources": [
+          {
+            "file": "prompt-stack/v36/gemini/GEMINI.md",
+            "exists": true,
+            "bytes": 3067
+          },
+          {
+            "file": "prompt-stack/v36/gemini/GEMINI_RUNTIME_GUIDE.md",
+            "exists": true,
+            "bytes": 3646
+          },
+          {
+            "file": "prompt-stack/v36/gemini/skills/coding-core/SKILL.md",
+            "exists": true,
+            "bytes": 2050
+          }
+        ],
+        "required_terms": [
+          {
+            "term": "GEMINI.md",
+            "present": true
+          },
+          {
+            "term": ".gemini/skills",
+            "present": true
+          },
+          {
+            "term": "SKILL.md",
+            "present": true
+          },
+          {
+            "term": "claim boundary",
+            "present": true
+          }
+        ]
+      },
+      "claim_boundary": "Local scratch implementation only. Six local tests passed. Gemini CLI auto-discovery is not exercised by this run."
+    },
+    {
+      "lane_id": "harness-core",
+      "label": "harness-core operating harness",
+      "scratch_dir": "/var/folders/_q/ys41jpw17s53ffnmgrhw61qh0000gn/T/prompt-stack-v36-RrJl1e/harness-core",
+      "command": "node featureFlagEvaluator.test.mjs",
+      "exit_code": 0,
+      "stdout": "6/6 tests passed",
+      "stderr": "",
+      "duration_ms": 25,
+      "tests_total": 6,
+      "tests_passed": 6,
+      "status": "pass",
+      "instruction_profile": {
+        "sources": [
+          {
+            "file": "harness-core/AGENTS.md",
+            "exists": true,
+            "bytes": 5054
+          },
+          {
+            "file": "harness-core/START_HERE_FOR_AGENTS.ko.md",
+            "exists": true,
+            "bytes": 3153
+          },
+          {
+            "file": "harness-core/docs/providers/provider_canary_gemini.md",
+            "exists": true,
+            "bytes": 2389
+          },
+          {
+            "file": "harness-core/release/scopes/beta/beta_provider_canary_gemini_scope.yaml",
+            "exists": true,
+            "bytes": 2430
+          }
+        ],
+        "required_terms": [
+          {
+            "term": "evidence",
+            "present": true
+          },
+          {
+            "term": "gate",
+            "present": true
+          },
+          {
+            "term": "claim",
+            "present": true
+          },
+          {
+            "term": "preflight",
+            "present": true
+          }
+        ]
+      },
+      "claim_boundary": "Local scratch implementation with harness-style evidence. Six local tests passed. This shows gate/evidence usefulness, not product-development superiority."
+    }
+  ],
+  "comparative_assessment": [
+    {
+      "lane_id": "codex",
+      "result": "6/6 local tests passed",
+      "observed_fit": "Best fit for direct bounded code work. Lowest procedure overhead among the three lanes."
+    },
+    {
+      "lane_id": "gemini",
+      "result": "6/6 local tests passed",
+      "observed_fit": "Comparable for direct code work when the package is installed into the documented Gemini CLI layout."
+    },
+    {
+      "lane_id": "harness-core",
+      "result": "6/6 local tests passed",
+      "observed_fit": "Useful as gate and evidence substrate. Heavier than needed as the sole product-development instruction surface."
+    }
+  ],
+  "limitations": [
+    "Single small task only.",
+    "No live model execution.",
+    "No Gemini CLI auto-discovery execution.",
+    "No integration, security, performance, package, or production verification."
+  ]
+}

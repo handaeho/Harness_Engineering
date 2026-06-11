@@ -1,7 +1,7 @@
 {
   "status": "keep_blocked_recommended",
   "stage": "v2.0.0-post-export-provider-verified-coverage-completion",
-  "scope": "openai_api_lane_plus_ollama_qwen3_local_lane",
+  "scope": "openai_api_lane_plus_ollama_qwen3_local_lane_plus_native_gemini_api_lane",
   "ready_for_provider_verified_final_gate": false,
   "can_enter_provider_verified_final_gate": false,
   "blockers": [
@@ -18,6 +18,20 @@
       "status": "blocked_or_partial",
       "reason": "OpenAI provider error handling can only be reviewed statically in this stage because OpenAI API calls are forbidden.",
       "next_action": "Complete an execution-backed provider error-handling review in a future approved provider lane."
+    },
+    {
+      "id": "gemini_provider_replay_regression_not_replay_verified",
+      "lane": "native_gemini_api_lane",
+      "status": "blocked_or_partial",
+      "reason": "Gemini text, structured-output, and tool-calling live canaries passed, but replay/regression-grade provider verification is not recorded.",
+      "next_action": "Record a Gemini replay/regression suite or explicitly approve a weaker canary-only acceptance boundary before provider-verified."
+    },
+    {
+      "id": "gemini_provider_error_handling_not_execution_backed",
+      "lane": "native_gemini_api_lane",
+      "status": "blocked_or_partial",
+      "reason": "Gemini error-handling and safety-metadata behavior are not execution-backed at provider-verified depth.",
+      "next_action": "Run a Gemini provider error-handling and safety-metadata review in a separately approved provider lane."
     },
     {
       "id": "provider_verified_final_gate_not_ready",
@@ -106,6 +120,36 @@
       "status": "pass",
       "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
     },
+    "gemini_asset_pack": {
+      "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+    },
+    "gemini_text_canary": {
+      "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+    },
+    "gemini_structured_canary": {
+      "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-structured-output-live-canary"
+    },
+    "gemini_tool_calling_canary": {
+      "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-tool-calling-live-canary"
+    },
+    "gemini_tool_calling_gate": {
+      "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-gemini-tool-calling-live-canary"
+    },
     "capability_matrix": {
       "path": "adapters/provider_capability_matrix.yaml",
       "exists": true,
@@ -116,23 +160,17 @@
   "protected_path_status": {
     "git_status": {
       "exit_code": 0,
-      "stdout": "M harness-core/evidence/v36-baseline/checksums.json\n M harness-core/evidence/v36-baseline/file_inventory.json",
+      "stdout": "",
       "stderr": ""
     },
-    "observed_dirty_paths": [
-      "harness-core/evidence/v36-baseline/checksums.json",
-      "harness-core/evidence/v36-baseline/file_inventory.json"
-    ],
-    "v36_dirty_paths": [],
+    "observed_dirty_paths": [],
+    "reference_baseline_source_dirty_paths": [],
     "dist_dirty_paths": [],
     "node_modules_dirty_paths": [],
-    "evidence_v36_baseline_dirty_paths": [
-      "harness-core/evidence/v36-baseline/checksums.json",
-      "harness-core/evidence/v36-baseline/file_inventory.json"
-    ],
-    "v36_modified": false,
+    "evidence_reference_baseline_dirty_paths": [],
+    "reference_baseline_source_modified": false,
     "dist_modified": false,
-    "evidence_v36_baseline_modified": false
+    "evidence_reference_baseline_modified": false
   },
   "new_local_model_execution": false,
   "openai_model_api_call": false,
@@ -140,9 +178,9 @@
   "telemetry_sink_write": false,
   "npm_install_or_ci": false,
   "actual_export_write": false,
-  "v36_modified": false,
+  "reference_baseline_source_modified": false,
   "dist_modified": false,
-  "evidence_v36_baseline_modified": false,
+  "evidence_reference_baseline_modified": false,
   "provider_verified_allowed": false,
   "adapter_checked_allowed": false,
   "production_ready_allowed": false,

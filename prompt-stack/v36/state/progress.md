@@ -8,7 +8,7 @@ Metadata:
 - claim_strength: current-local
 
 ## Current State
-The active package is the current stable package. The active package is simplified for use, and raw evidence is separated under `_evidence/v36/`.
+The active package is the current stable package. The active package is simplified for use, and raw evidence is separated under `_evidence/<current_package>/`.
 
 ## Done
 - Autonomous source assets and Codex runtime assets are separated.
@@ -25,9 +25,9 @@ The active package is the current stable package. The active package is simplifi
 - evidence checksum drift: 0
 
 ## Current Boundaries
-- Current stable pointer remains `v36`.
-- Active package path: `prompt-stack/v36/`.
-- Evidence package path: `prompt-stack/_evidence/v36/`.
+- Current stable pointer remains `current package`.
+- Active package path: `prompt-stack/<current_package>/`.
+- Evidence package path: `prompt-stack/_evidence/<current_package>/`.
 - Production telemetry, containment proof, and broader provider diversity remain follow-up items.
 
 ## Next Session Should

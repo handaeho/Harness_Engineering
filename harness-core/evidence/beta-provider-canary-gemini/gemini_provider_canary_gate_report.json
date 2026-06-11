@@ -1,0 +1,144 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary-gate",
+  "api_lane": "native_gemini_api",
+  "can_enter_provider_verified_claim": false,
+  "can_enter_adapter_checked_claim": false,
+  "can_enter_release_gated_claim": false,
+  "reason": "Gemini live text canary and local dry-run checks passed, but stronger release claims remain blocked.",
+  "checks": [
+    {
+      "name": "run_gemini_provider_canary.mjs pass or explicit blocked status",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "provider_execution": true,
+        "local_dry_run_status": "pass"
+      }
+    },
+    {
+      "name": "local dry-run status pass",
+      "status": "pass",
+      "detail": {
+        "local_dry_run_status": "pass"
+      }
+    },
+    {
+      "name": "request/response mapping pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "request_mapping": {
+          "contents_parts_used": true,
+          "system_instruction_used": true,
+          "tools_present": false,
+          "structured_output_present": false,
+          "store_false": true,
+          "max_output_tokens_bounded": true
+        },
+        "response_mapping": {
+          "output_text_extracted": true,
+          "raw_response_hash_present": true,
+          "raw_response_stored": false
+        }
+      }
+    },
+    {
+      "name": "structured output local schema validation pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "schema_validations_total": 2,
+        "schema_validations_failed": 0
+      }
+    },
+    {
+      "name": "tool calling dry-run pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "tool_argument_validations_total": 2,
+        "tool_argument_validations_failed": 0,
+        "reinjections_checked": 2,
+        "reinjections_failed": 0,
+        "blocked_tools_executed": 0
+      }
+    },
+    {
+      "name": "safety fixture pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "safety_settings_request_shape_checked": true,
+        "blocked_response_handling_checked": true
+      }
+    },
+    {
+      "name": "redaction report pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "redaction_passed": true,
+        "api_key_recorded": false
+      }
+    },
+    {
+      "name": "provider trace samples exist",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "no local model execution",
+      "status": "pass",
+      "detail": {
+        "local_model_execution": false
+      }
+    },
+    {
+      "name": "no external side effects",
+      "status": "pass",
+      "detail": {
+        "external_side_effects": false
+      }
+    },
+    {
+      "name": "forbidden claims are not allowed",
+      "status": "pass",
+      "detail": {
+        "claims_allowed": [
+          "gemini-adapter-skeleton-created",
+          "gemini-request-mapping-dry-run-checked",
+          "gemini-response-mapping-dry-run-checked",
+          "gemini-structured-output-dry-run-checked",
+          "gemini-json-schema-local-validation-checked",
+          "gemini-tool-calling-dry-run-checked",
+          "gemini-tool-argument-schema-local-validation-checked",
+          "gemini-function-response-reinjection-dry-run-checked",
+          "gemini-safety-fixture-checked",
+          "gemini-redaction-dry-run-checked",
+          "gemini-provider-canary-executed",
+          "gemini-provider-trace-captured"
+        ]
+      }
+    },
+    {
+      "name": "unresolved items match live provider block state",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "unresolved_items_count": 0
+      }
+    }
+  ],
+  "claims_allowed": [
+    "gemini-provider-canary-executed",
+    "gemini-provider-trace-captured"
+  ],
+  "claims_blocked": [
+    "provider-verified",
+    "adapter-checked",
+    "release-gated",
+    "production-ready",
+    "live Gemini canary passed"
+  ]
+}

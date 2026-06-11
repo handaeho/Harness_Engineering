@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-06-11T00:00:00.000Z",
+  "stage": "gemini-provider-readiness-review",
+  "owner_layer": "harness-core inspection",
+  "claim_strength": "inspection_only",
+  "status": "recorded",
+  "inspected_paths": [
+    "adapters/provider_capability_matrix.yaml",
+    "schemas/adapter.schema.json",
+    "adapters/api/openai/adapter.yaml",
+    "adapters/api/openai/request_mapper.mjs",
+    "adapters/api/openai/response_mapper.mjs",
+    "adapters/api/openai/structured_output_mapper.mjs",
+    "adapters/api/openai/tool_calling_mapper.mjs",
+    "tools/checks/providers/check_provider_canary_openai.mjs"
+  ],
+  "current_gemini_state": {
+    "capability_matrix_entry": "deferred_providers.gemini: roadmap",
+    "adapter_path_exists": false,
+    "live_provider_call_executed": false,
+    "credentialed_canary_executed": false,
+    "adapter_checked": false,
+    "provider_verified": false
+  },
+  "recommended_lanes": {
+    "native_gemini_api": {
+      "priority": "primary",
+      "required_fields": [
+        "systemInstruction",
+        "contents/parts",
+        "functionDeclarations",
+        "functionCallingConfig",
+        "structured output JSON schema",
+        "safetySettings"
+      ]
+    },
+    "openai_compatibility": {
+      "priority": "compatibility_only",
+      "claim_boundary": "must not be used as native Gemini optimization proof"
+    }
+  },
+  "blocked_claims": [
+    "provider_verified",
+    "adapter_checked",
+    "release_gated",
+    "production_ready",
+    "live Gemini canary passed"
+  ],
+  "next_required_evidence": [
+    "official Google documentation mapping record",
+    "Gemini adapter skeleton",
+    "native mapper dry run",
+    "structured output validation case",
+    "function calling validation and reinjection case",
+    "safety blocked-response handling case",
+    "redaction and storage review",
+    "credentialed canary with explicit approval"
+  ]
+}

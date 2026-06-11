@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-06-11T07:45:00.000Z",
+  "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary",
+  "source": "operator_live_run_output_and_redacted_trace_inspection",
+  "provider_execution": true,
+  "live_execution_enabled": true,
+  "local_dry_run_status": "pass",
+  "live_text_canary_status": "fail",
+  "live_cases_total": 3,
+  "live_cases_passed": 0,
+  "live_cases_failed": 3,
+  "root_cause": "MAX_TOKENS truncation before complete sentinel token emission",
+  "observations": [
+    {
+      "case_id": "gemini_simple_text_response",
+      "expected_contains": "GEMINI_CANARY_OK",
+      "redacted_output_preview": "GEMINI",
+      "finish_reason": "MAX_TOKENS"
+    },
+    {
+      "case_id": "gemini_korean_instruction_following",
+      "expected_contains": "GEMINI_CANARY_KO_OK",
+      "redacted_output_preview": "GEM",
+      "finish_reason": "MAX_TOKENS"
+    },
+    {
+      "case_id": "gemini_no_tool_surface_assertion",
+      "expected_contains": "GEMINI_NO_TOOL_OK",
+      "redacted_output_preview": "GEMINI",
+      "finish_reason": "MAX_TOKENS"
+    }
+  ],
+  "diagnosis": [
+    "Credential, model, live-enable marker, and network-approval marker were present in the operator run.",
+    "Provider calls were made.",
+    "Local dry-run mapping, structured-output dry-run, tool-calling dry-run, safety fixture, and redaction checks passed.",
+    "The live provider response was truncated before the expected sentinel strings were fully emitted.",
+    "The trace showed Gemini thinking token usage before a short candidate output, which makes the previous text canary default maxOutputTokens too small for Gemini 3 thinking models."
+  ],
+  "fix_applied": [
+    "Text canary default maxOutputTokens increased from 32 to 128.",
+    "Gemini 3 text canary requests now use generationConfig.thinkingConfig.thinkingLevel=minimal by default unless overridden.",
+    "Gemini 2.5 Flash text canary requests now use generationConfig.thinkingConfig.thinkingBudget=0 by default unless overridden.",
+    "Live runner now records a MAX_TOKENS failure detail when provider output truncates."
+  ],
+  "claim_boundary": [
+    "This is a failed live text canary investigation, not a provider-verified pass.",
+    "No raw request body or raw response body is stored.",
+    "The subsequent local dry-run may regenerate gemini_provider_canary_report.json; this investigation record preserves the failed live-run diagnosis."
+  ]
+}

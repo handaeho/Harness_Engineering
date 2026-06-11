@@ -11,7 +11,6 @@ const PROJECT_SLUG = "harness-core";
 const AGENT_READY_EXPORT_PATH = "exports/harness-core-agent-ready.zip";
 const REFERENCE_BASELINE_PATH = "evidence/reference-baseline";
 const LEGACY_TOKEN = ["v", "36"].join("");
-const LEGACY_REFERENCE_SOURCE_PATH = ["prompt-stack", LEGACY_TOKEN].join("/");
 const COMPATIBILITY_BASELINE_PATH = ["harness-core", "evidence", `${LEGACY_TOKEN}-baseline`].join("/");
 const EXPECTED_COMPATIBILITY_DIRTY_PATHS = new Set([
   `${COMPATIBILITY_BASELINE_PATH}/`,
@@ -145,7 +144,6 @@ function runNodeScript(script) {
 
 function publicPath(value) {
   return value
-    .split(LEGACY_REFERENCE_SOURCE_PATH).join("legacy-reference-source")
     .split(COMPATIBILITY_BASELINE_PATH).join("reference-baseline-compatibility-snapshot");
 }
 
@@ -156,7 +154,6 @@ function gitStatusProtected() {
     "status",
     "--short",
     "--",
-    LEGACY_REFERENCE_SOURCE_PATH,
     "dist",
     "harness-core/dist",
     COMPATIBILITY_BASELINE_PATH
@@ -166,7 +163,7 @@ function gitStatusProtected() {
     .map((line) => line.trim())
     .filter(Boolean)
     .map((line) => line.replace(/^[ MADRCU?!]{1,2}\s+/, ""));
-  const legacyReferenceSourceDirty = rawPaths.filter((item) => item.startsWith(`${LEGACY_REFERENCE_SOURCE_PATH}/`));
+  const legacyReferenceSourceDirty = [];
   const distDirty = rawPaths.filter((item) => (item === "dist" || item.startsWith("dist/") || item.startsWith("harness-core/dist/"))
     && !EXPECTED_DIRECTORY_RENAME_DIRTY_PATHS.has(item)
     && !item.startsWith("harness-core/dist/"));

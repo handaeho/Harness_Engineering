@@ -9,6 +9,10 @@ policy:
     - not_applicable
     - roadmap
     - skeleton
+    - provider_canary_blocked
+    - blocked_by_missing_credential
+    - blocked_by_missing_model
+    - canary_guard_checked
     - failed_http_429
     - failed_trace_recorded
     - failure_path_checked
@@ -48,6 +52,37 @@ providers:
     tool_calling_rerun: canary_rerun_checked
     canary_replay_suite: canary_suite_checked
     replay_evidence: canary_suite_recorded
+    tool_calling: canary_only
+    structured_outputs: canary_only
+    evals_api: needs_verification
+    tracing: needs_verification
+    provider_execution: canary_only
+    local_model_execution: false
+    runtime_execution: false
+    telemetry: false
+    redteam: false
+    replay: false
+    production_monitoring: false
+    production_telemetry: false
+    verified: false
+
+  gemini:
+    adapter_path: adapters/api/gemini/adapter.yaml
+    status: provider_canary_checked
+    message_mapping: dry_run_checked
+    provider_canary: executed
+    no_tool_text_path: canary_checked
+    provider_trace: canary_checked
+    trace: canary_checked
+    redaction: canary_checked
+    structured_output_canary: executed
+    structured_output_path: canary_checked
+    json_schema_response_validation: canary_checked
+    tool_calling_canary: executed
+    tool_call_path: canary_checked
+    tool_argument_schema_validation: canary_checked
+    mock_tool_output_reinjection: canary_checked
+    tool_output_reclassification: canary_checked
     tool_calling: canary_only
     structured_outputs: canary_only
     evals_api: needs_verification
@@ -103,7 +138,6 @@ providers:
 
 deferred_providers:
   anthropic: roadmap
-  gemini: roadmap
   hf_transformers: roadmap
   mcp: roadmap
   agents_md: roadmap
