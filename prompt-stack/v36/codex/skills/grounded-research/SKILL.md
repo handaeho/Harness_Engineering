@@ -1,6 +1,6 @@
 ---
 name: grounded-research
-description: Use for source-grounded research: document investigation, evidence-backed synthesis, citations, freshness checks, source comparison, and latest-fact questions. Do not use for direct code patches, architecture decisions without source gaps, eval/release gates, harness creation, or multi-agent coordination.
+description: Use for Codex source-grounded research when trust depends on official docs, repo documents, uploaded artifacts, citations, freshness checks, source comparison, or latest product/API facts. Triggers include OpenAI/Codex documentation checks, SDK/API uncertainty, conflicting docs, provenance requests, and evidence-backed synthesis. Do not use for direct code patches, architecture decisions without source gaps, eval/release gates, harness creation, or multi-agent coordination.
 ---
 
 # Grounded Research Instructions
@@ -24,6 +24,8 @@ Use:
 6. Separate source facts from inference.
 7. Surface conflict, uncertainty, stale risk, and missing evidence.
 8. Hand off to `coding-core`, `design-analysis`, or `eval-ops` when research changes into implementation, design, or gate judgment.
+
+For source ledger shape, freshness classification, citation boundaries, and Codex/Agent Skills official-source handling, read `references/grounded-research.md` when external or document-grounded facts govern the answer.
 
 ## Research Rules
 

@@ -1,6 +1,6 @@
 ---
 name: orchestration-control
-description: Use for multi-agent and coordination control in a Gemini-aware runtime: delegation topology, A2A lifecycle, handoff contracts, agent capability fit, join quality, and long-running coordination. Do not use for single-agent code patches, pure research, architecture analysis, eval gates, or harness artifact creation.
+description: Use for Gemini-aware multi-agent and coordination control when explicit delegation, parallel agents, A2A lifecycle, handoff contracts, capability fit, join quality, or long-running coordination is required. Triggers include user-requested subagents, parallel Gemini API research/design/review, native-vs-compatibility split work, and joined provider/runtime verdicts. Do not use for single-agent code patches, pure research, architecture analysis, eval gates, or harness artifact creation.
 ---
 
 # Orchestration Control Instructions
@@ -23,6 +23,8 @@ Use:
 5. Join outputs against a concrete contract.
 6. Reject stale, partial, or incompatible outputs instead of blending them into false certainty.
 7. Report lifecycle state and next owner.
+
+For Gemini lane-owned delegation, live-call authority, source-ledger handoffs, and joined evidence boundaries, read `references/orchestration-control.md` when any work is delegated or run in parallel.
 
 ## Gemini Coordination Rules
 

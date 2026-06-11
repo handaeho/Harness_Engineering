@@ -1,6 +1,6 @@
 ---
 name: coding-core
-description: Use for bounded code execution in a Gemini-aware runtime: code changes, bug fixes, debugging, refactoring, tests, code review, and code-adjacent documentation. Do not use for pure research, broad architecture strategy, eval/release gates, harness asset creation, or multi-agent coordination.
+description: Use for bounded Gemini-aware code execution when the user asks for code changes, bug fixes, debugging, refactoring, tests, code review, mapper changes, or code-adjacent documentation. Triggers include Gemini API request/response mapping, function calling, structured output, safety settings, failing tests, stack traces, and narrow implementation tasks. Do not use for pure research, broad architecture strategy, eval/release gates, harness asset creation, or multi-agent coordination.
 ---
 
 # Coding Core Instructions
@@ -22,6 +22,8 @@ Use:
 4. Patch the smallest responsible unit while preserving local style and contracts.
 5. Run focused tests, validation runners, or static checks.
 6. Report changed artifacts, checks run, skipped checks, assumptions, and remaining risk.
+
+For Gemini lane selection, mapper active slices, local JSON validation, and claim-boundary reporting, read `references/coding-core.md` when the task touches Gemini API behavior or cross-file code paths.
 
 ## Gemini Rules
 

@@ -6,6 +6,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const skills = ["coding-core","design-analysis","eval-ops","grounded-research","orchestration-control","harness-creator-adapter"];
 const checks = [];
 function read(rel){ return fs.existsSync(path.join(root, rel)) ? fs.readFileSync(path.join(root, rel), "utf8") : ""; }
+function readJson(rel){ try { return JSON.parse(read(rel)); } catch { return null; } }
+function exists(rel){ return fs.existsSync(path.join(root, rel)); }
 function check(name, pass, detail){ checks.push({ name, pass:Boolean(pass), detail }); }
 const forbiddenAgentProse = [
   "this file is",
@@ -26,11 +28,20 @@ const forbiddenAgentProse = [
   "## status",
   "reserved for"
 ];
-check("codex_agents_exists", fs.existsSync(path.join(root, "codex", "AGENTS.md")), "codex/AGENTS.md");
+check("codex_agents_exists", exists("codex/AGENTS.md"), "codex/AGENTS.md");
 const guide = read("codex/CODEX_RUNTIME_GUIDE.md");
 check("codex_runtime_guide_exists", guide.length > 0, "codex/CODEX_RUNTIME_GUIDE.md");
 check("codex_runtime_non_mirror_policy", /not a textual mirror|not a copy|not a mirror|do not mirror|not.*mirror/i.test(guide), "guide must reject autonomous mirror assumption");
-for (const s of skills) check(`skill_exists:${s}`, fs.existsSync(path.join(root, "codex", "skills", s, "SKILL.md")), `codex/skills/${s}/SKILL.md`);
+check("codex_skill_routing_exists", exists("codex/validation/skill_routing_scenarios.json"), "codex/validation/skill_routing_scenarios.json");
+check("codex_doc_sources_exists", exists("codex/validation/codex_doc_grounding_sources.json"), "codex/validation/codex_doc_grounding_sources.json");
+for (const s of skills) {
+  const skillPath = `codex/skills/${s}/SKILL.md`;
+  const referencePath = `codex/skills/${s}/references/${s}.md`;
+  const skillText = read(skillPath);
+  check(`skill_exists:${s}`, exists(skillPath), skillPath);
+  check(`skill_reference_exists:${s}`, exists(referencePath), referencePath);
+  check(`skill_mentions_reference:${s}`, skillText.includes(`references/${s}.md`), `${skillPath} -> ${referencePath}`);
+}
 const agentFacingFiles = [
   "codex/AGENTS.md",
   "codex/CODEX_RUNTIME_GUIDE.md",
@@ -49,7 +60,34 @@ const combined = guide + "\n" + read("codex/AGENTS.md");
 for (const term of ["safety", "approval", "tool", "retrieval", "memory", "multi-agent", "release"]) {
   check(`boundary_term:${term}`, combined.toLowerCase().includes(term), term);
 }
-check("no_codex_inside_autonomous_99_total", !fs.existsSync(path.join(root, "autonomous", "99_total", "codex")), "autonomous/99_total/codex must not exist");
+const routing = readJson("codex/validation/skill_routing_scenarios.json");
+check("routing_scenarios_valid_json", routing && Array.isArray(routing.scenarios), "skill_routing_scenarios.json");
+check("routing_scenarios_positive_count", (routing?.scenarios || []).length >= skills.length, "at least one scenario per skill");
+for (const skill of skills) {
+  check(
+    `routing_expected_skill:${skill}`,
+    (routing?.scenarios || []).some((scenario) => scenario.expected_skill === skill),
+    skill
+  );
+}
+
+const sources = readJson("codex/validation/codex_doc_grounding_sources.json");
+const officialSources = sources?.sources || [];
+check("source_ledger_has_official_sources", officialSources.length >= 5, "official Codex and Agent Skills source ledger");
+check(
+  "source_ledger_official_sources_only",
+  officialSources.every((source) => typeof source.url === "string"
+    && (source.url.startsWith("https://developers.openai.com/codex/")
+      || source.url.startsWith("https://agentskills.io/"))),
+  officialSources.map((source) => source.url)
+);
+check(
+  "source_ledger_research_separate",
+  officialSources.every((source) => !String(source.url).includes("arxiv.org")),
+  officialSources.map((source) => source.url)
+);
+
+check("no_codex_inside_autonomous_99_total", !exists("autonomous/99_total/codex"), "autonomous/99_total/codex must not exist");
 const result = { generated_at:new Date().toISOString(), validation_name:"codex_runtime_integrity", mirror_policy:"behavioral alignment, safety preservation, runtime fitness", total_checks:checks.length, passed_checks:checks.filter(c=>c.pass).length, failed_checks:checks.filter(c=>!c.pass).length, status:checks.every(c=>c.pass) ? "pass" : "fail", checks };
 fs.mkdirSync(path.join(root, "records"), { recursive:true });
 fs.writeFileSync(path.join(root, "records", "codex_runtime_integrity.json"), JSON.stringify(result, null, 2) + "\n");

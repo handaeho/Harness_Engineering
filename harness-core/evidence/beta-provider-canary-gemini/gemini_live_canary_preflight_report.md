@@ -1,6 +1,6 @@
 # Gemini Live Provider Canary Preflight
 
-Status: ready
+Status: blocked
 
 Stage: v2.0.0-gemini-live-provider-canary-preflight
 
@@ -8,7 +8,7 @@ Stage: v2.0.0-gemini-live-provider-canary-preflight
 - API lane: native_gemini_api
 - Live provider execution: false
 - Network call performed: false
-- Blocking checks: 0
+- Blocking checks: 4
 
 ## Structured Output Shape
 
@@ -18,10 +18,10 @@ Stage: v2.0.0-gemini-live-provider-canary-preflight
 
 ## Checks
 
-- pass: GEMINI_API_KEY present
-- pass: GEMINI_MODEL present
-- pass: GEMINI_PROVIDER_CANARY_ENABLE_LIVE equals 1
-- pass: network approval boundary recorded
+- blocked: GEMINI_API_KEY present
+- blocked: GEMINI_MODEL present
+- blocked: GEMINI_PROVIDER_CANARY_ENABLE_LIVE equals 1
+- blocked: network approval boundary recorded
 - pass: raw request and response storage remains disabled
 - pass: redaction policy is part of canary runner
 - pass: structured output target shape is explicit

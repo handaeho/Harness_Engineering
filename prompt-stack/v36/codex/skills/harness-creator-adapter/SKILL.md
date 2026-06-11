@@ -1,6 +1,6 @@
 ---
 name: harness-creator-adapter
-description: Use for harness asset creation or adaptation: Instructions, State, Verification, Scope, Lifecycle, handoff, validation, benchmark, clean-state, and artifact-map work. Do not use for ordinary code fixes, release decisions, pure research, architecture design, or mirroring autonomous source assets into Codex runtime.
+description: Use for Codex runtime harness asset creation or adaptation when the work changes Instructions, State, Verification, Scope, Lifecycle, handoff, validation, benchmark, clean-state, artifact-map, or skill assets. Triggers include new validation fixtures, runtime guides, source ledgers, benchmark cases, claim-boundary artifacts, and active/evidence separation repairs. Do not use for ordinary code fixes, release decisions, pure research, architecture design, or mirroring autonomous source assets into Codex runtime.
 ---
 
 # Harness Creator Adapter Instructions
@@ -23,6 +23,8 @@ Use:
 5. Write execution-oriented instructions only.
 6. Run existing validation runners when available.
 7. Report changed artifact, subsystem, owner layer, validation, claim boundary, and remaining risk.
+
+For owner-layer routing, active/evidence separation, source-ledger assets, benchmark fixtures, and validator updates, read `references/harness-creator-adapter.md` when adding or changing runtime harness assets.
 
 ## Harness Rules
 

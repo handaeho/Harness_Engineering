@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-06-11T00:00:00.000Z",
+  "validation_name": "skill_forward_benchmark_cases",
+  "claim_strength": "local_forward_test_spec",
+  "scope": "prompt-stack/<current_package>/codex and prompt-stack/<current_package>/gemini skill assets",
+  "cases": [
+    {
+      "case_id": "SFB-CODEX-001",
+      "runtime": "codex",
+      "skill": "coding-core",
+      "input_task": "Review a small failing test diff, identify the active slice, propose the smallest code fix, and name the verification command without making release claims.",
+      "expected_reference": "codex/skills/coding-core/references/coding-core.md",
+      "required_observations": ["active slice", "review mode", "targeted verification", "claim boundary"]
+    },
+    {
+      "case_id": "SFB-CODEX-002",
+      "runtime": "codex",
+      "skill": "harness-creator-adapter",
+      "input_task": "Add a local runtime validation fixture while preserving active/evidence separation and no autonomous mirror behavior.",
+      "expected_reference": "codex/skills/harness-creator-adapter/references/harness-creator-adapter.md",
+      "required_observations": ["owner layer", "active/evidence separation", "validator", "no mirror"]
+    },
+    {
+      "case_id": "SFB-CODEX-003",
+      "runtime": "codex",
+      "skill": "orchestration-control",
+      "input_task": "Coordinate explicitly requested subagent forward-tests and produce a joined verdict without treating subagent output as verification.",
+      "expected_reference": "codex/skills/orchestration-control/references/orchestration-control.md",
+      "required_observations": ["admission", "delegation contract", "join rules", "split verdict"]
+    },
+    {
+      "case_id": "SFB-GEMINI-001",
+      "runtime": "gemini",
+      "skill": "coding-core",
+      "input_task": "Patch a Gemini request mapper active slice for function calling while preserving native Gemini lane semantics and local argument validation.",
+      "expected_reference": "gemini/skills/coding-core/references/coding-core.md",
+      "required_observations": ["native_gemini_api", "functionDeclarations", "functionCallingConfig", "local validation"]
+    },
+    {
+      "case_id": "SFB-GEMINI-002",
+      "runtime": "gemini",
+      "skill": "eval-ops",
+      "input_task": "Judge whether static Gemini runtime validation is enough to claim live provider verification.",
+      "expected_reference": "gemini/skills/eval-ops/references/eval-ops.md",
+      "required_observations": ["local_static_runtime_validation", "credentialed_canary_executed", "provider_verified", "downgrade"]
+    },
+    {
+      "case_id": "SFB-GEMINI-003",
+      "runtime": "gemini",
+      "skill": "grounded-research",
+      "input_task": "Refresh a Gemini CLI skill discovery source ledger using official sources only and separate source facts from inference.",
+      "expected_reference": "gemini/skills/grounded-research/references/grounded-research.md",
+      "required_observations": ["official sources", ".gemini/skills", ".agents/skills", "Need Verification"]
+    }
+  ]
+}

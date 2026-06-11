@@ -1,6 +1,6 @@
 ---
 name: eval-ops
-description: Use for evaluation and operational quality control: scorecards, regression review, drift/anomaly analysis, benchmark comparison, release-readiness, and prompt/workflow quality gates. Do not use for ordinary code patches, pure research, architecture design, harness asset creation, or multi-agent topology.
+description: Use for Codex evaluation and operational quality control when the user asks whether behavior, prompts, workflows, candidates, benchmark runs, regressions, drift signals, scorecards, or release/readiness claims satisfy a quality bar. Triggers include pass/fail/hold verdicts, claim-boundary review, benchmark comparison, replay evidence, and release language. Do not use for ordinary code patches, pure research, architecture design, harness asset creation, or multi-agent topology.
 ---
 
 # Evaluation Operations Instructions
@@ -23,6 +23,8 @@ Use:
 5. Separate document completeness, benchmark registry, benchmark execution, replay verification, release gates, and production monitoring.
 6. Downgrade unsupported claims before returning a verdict.
 7. Return pass, fail, hold, or blocked with missing evidence and next required run.
+
+For proof classes, gate records, replay/benchmark verdicts, and release-language downgrades, read `references/eval-ops.md` when the task asks for readiness, benchmark quality, or evidence sufficiency.
 
 ## Evaluation Rules
 

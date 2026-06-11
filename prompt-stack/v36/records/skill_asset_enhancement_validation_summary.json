@@ -1,0 +1,397 @@
+{
+  "generated_at": "2026-06-11T10:06:00.255Z",
+  "validation_name": "skill_asset_enhancement_forward_benchmark",
+  "claim_strength": "local_forward_results_normalized",
+  "status": "pass",
+  "cases_total": 6,
+  "cases_passed": 6,
+  "cases_pending_forward_result": 0,
+  "forward_results_present": true,
+  "evidence_input": "_evidence/<current_package>/validation_runs/skill_asset_enhancement/subagent_forward_results.json",
+  "cases": [
+    {
+      "case_id": "SFB-CODEX-001",
+      "runtime": "codex",
+      "skill": "coding-core",
+      "expected_reference": "codex/skills/coding-core/references/coding-core.md",
+      "status": "pass",
+      "static_checks": [
+        {
+          "name": "skill_exists",
+          "pass": true
+        },
+        {
+          "name": "reference_exists",
+          "pass": true
+        },
+        {
+          "name": "skill_mentions_reference",
+          "pass": true
+        },
+        {
+          "name": "routing_scenario_exists",
+          "pass": true
+        }
+      ],
+      "forward_checks": [
+        {
+          "name": "forward_observation:active slice",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:review mode",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:targeted verification",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:claim boundary",
+          "pass": true
+        }
+      ],
+      "observed_result": {
+        "case_id": "SFB-CODEX-001",
+        "agent_id": "019eb621-f809-7af0-9e3e-cfa580fed2a8",
+        "selected_skill": "coding-core",
+        "references_used": [
+          "prompt-stack/<current_package>/codex/skills/coding-core/SKILL.md",
+          "prompt-stack/<current_package>/codex/skills/coding-core/references/coding-core.md"
+        ],
+        "observations": [
+          "Active slice should be the failing test diff plus the narrowest implicated files, symbols, and logs.",
+          "Response should identify the failing behavior, propose the smallest responsible code change, preserve public contracts, and avoid broad refactors.",
+          "Verification should name the smallest targeted test command first, expanding only if risk justifies it.",
+          "Review mode and targeted verification are explicit in the selected reference.",
+          "The claim boundary must remain inspection-only until checks execute."
+        ],
+        "claim_boundary": "Inspection-only / Plausible. Name verification command, but do not claim fixed, locally checked, integration verified, or release-ready unless executed evidence exists.",
+        "gaps": [
+          "No concrete diff or test output was provided, so the exact fix and command can only be framed as a pattern."
+        ]
+      }
+    },
+    {
+      "case_id": "SFB-CODEX-002",
+      "runtime": "codex",
+      "skill": "harness-creator-adapter",
+      "expected_reference": "codex/skills/harness-creator-adapter/references/harness-creator-adapter.md",
+      "status": "pass",
+      "static_checks": [
+        {
+          "name": "skill_exists",
+          "pass": true
+        },
+        {
+          "name": "reference_exists",
+          "pass": true
+        },
+        {
+          "name": "skill_mentions_reference",
+          "pass": true
+        },
+        {
+          "name": "routing_scenario_exists",
+          "pass": true
+        }
+      ],
+      "forward_checks": [
+        {
+          "name": "forward_observation:owner layer",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:active/evidence separation",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:validator",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:no mirror",
+          "pass": true
+        }
+      ],
+      "observed_result": {
+        "case_id": "SFB-CODEX-002",
+        "agent_id": "019eb621-f809-7af0-9e3e-cfa580fed2a8",
+        "selected_skill": "harness-creator-adapter",
+        "references_used": [
+          "prompt-stack/<current_package>/codex/skills/harness-creator-adapter/SKILL.md",
+          "prompt-stack/<current_package>/codex/skills/harness-creator-adapter/references/harness-creator-adapter.md"
+        ],
+        "observations": [
+          "The task is harness asset creation: a local runtime validation fixture belongs to Codex runtime validation scope, not ordinary coding.",
+          "The agent should name the harness gap, owner layer, target subsystem, and smallest useful fixture artifact.",
+          "It must keep active runtime assets separate from evidence/archive/report material and must not mirror autonomous source prose into Codex runtime files.",
+          "Owner layer, active/evidence separation, validator routing, and no mirror behavior are explicit in the selected reference."
+        ],
+        "claim_boundary": "Harness-designed at most unless validators are run. Source coverage, fixture presence, or runner readiness is not replay verification or release proof.",
+        "gaps": [
+          "Read-only forward-test did not add the fixture or run validators."
+        ]
+      }
+    },
+    {
+      "case_id": "SFB-CODEX-003",
+      "runtime": "codex",
+      "skill": "orchestration-control",
+      "expected_reference": "codex/skills/orchestration-control/references/orchestration-control.md",
+      "status": "pass",
+      "static_checks": [
+        {
+          "name": "skill_exists",
+          "pass": true
+        },
+        {
+          "name": "reference_exists",
+          "pass": true
+        },
+        {
+          "name": "skill_mentions_reference",
+          "pass": true
+        },
+        {
+          "name": "routing_scenario_exists",
+          "pass": true
+        }
+      ],
+      "forward_checks": [
+        {
+          "name": "forward_observation:admission",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:delegation contract",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:join rules",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:split verdict",
+          "pass": true
+        }
+      ],
+      "observed_result": {
+        "case_id": "SFB-CODEX-003",
+        "agent_id": "019eb621-f809-7af0-9e3e-cfa580fed2a8",
+        "selected_skill": "orchestration-control",
+        "references_used": [
+          "prompt-stack/<current_package>/codex/skills/orchestration-control/SKILL.md",
+          "prompt-stack/<current_package>/codex/skills/orchestration-control/references/orchestration-control.md"
+        ],
+        "observations": [
+          "Explicitly requested subagent forward-tests trigger orchestration-control.",
+          "Admission should confirm that parallel work is justified before fan-out.",
+          "The delegation contract should name roles, input artifacts, forbidden assumptions, stop conditions, output schema, and validation owner.",
+          "Join rules should reject stale, partial, blocked, failed, or incompatible branches.",
+          "The agent should define roles, read-only scope, input artifacts, forbidden assumptions, stop conditions, output schema, validation owner, and join artifact before fan-out.",
+          "Joined verdict must reconcile subagent outputs against the join contract, preserve split verdicts, and reject stale, partial, blocked, failed, or incompatible branches.",
+          "Subagent output is input, not verification, and split verdict handling is explicit in the selected reference."
+        ],
+        "claim_boundary": "Subagent output is input, not verification. Joined verdict can be diagnostic or contract-satisfied, but only locally verified if the coordinating agent independently verifies the evidence.",
+        "gaps": [
+          "Forward-test was read-only and did not create branch artifacts beyond this normalized evidence record."
+        ]
+      }
+    },
+    {
+      "case_id": "SFB-GEMINI-001",
+      "runtime": "gemini",
+      "skill": "coding-core",
+      "expected_reference": "gemini/skills/coding-core/references/coding-core.md",
+      "status": "pass",
+      "static_checks": [
+        {
+          "name": "skill_exists",
+          "pass": true
+        },
+        {
+          "name": "reference_exists",
+          "pass": true
+        },
+        {
+          "name": "skill_mentions_reference",
+          "pass": true
+        },
+        {
+          "name": "routing_scenario_exists",
+          "pass": true
+        }
+      ],
+      "forward_checks": [
+        {
+          "name": "forward_observation:native_gemini_api",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:functionDeclarations",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:functionCallingConfig",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:local validation",
+          "pass": true
+        }
+      ],
+      "observed_result": {
+        "case_id": "SFB-GEMINI-001",
+        "agent_id": "019eb622-25b7-7843-af3c-d71a5c71ad43",
+        "selected_skill": "coding-core",
+        "references_used": [
+          "prompt-stack/<current_package>/gemini/skills/coding-core/SKILL.md",
+          "prompt-stack/<current_package>/gemini/skills/coding-core/references/coding-core.md"
+        ],
+        "observations": [
+          "Task is a bounded mapper/code active-slice patch involving Gemini function calling.",
+          "Use native_gemini_api by default unless OpenAI compatibility is explicitly requested.",
+          "Preserve systemInstruction, contents/parts, functionDeclarations, functionCallingConfig, structured output schema, and safetySettings.",
+          "Treat function calls as model requests; runtime owns approval, execution, argument validation, redaction, and reinjection.",
+          "Local validation is required before accepting arguments or structured JSON as machine-readable truth.",
+          "Prefer mapper unit tests, fixture dry-runs, schema validation, redaction checks, and static validators."
+        ],
+        "claim_boundary": "Can claim local/static or dry-run mapper validation only after such checks run; cannot claim live Gemini/provider verification without explicit credentialed live execution.",
+        "gaps": [
+          "No files edited per read-only constraint.",
+          "No tests or live provider calls run."
+        ]
+      }
+    },
+    {
+      "case_id": "SFB-GEMINI-002",
+      "runtime": "gemini",
+      "skill": "eval-ops",
+      "expected_reference": "gemini/skills/eval-ops/references/eval-ops.md",
+      "status": "pass",
+      "static_checks": [
+        {
+          "name": "skill_exists",
+          "pass": true
+        },
+        {
+          "name": "reference_exists",
+          "pass": true
+        },
+        {
+          "name": "skill_mentions_reference",
+          "pass": true
+        },
+        {
+          "name": "routing_scenario_exists",
+          "pass": true
+        }
+      ],
+      "forward_checks": [
+        {
+          "name": "forward_observation:local_static_runtime_validation",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:credentialed_canary_executed",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:provider_verified",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:downgrade",
+          "pass": true
+        }
+      ],
+      "observed_result": {
+        "case_id": "SFB-GEMINI-002",
+        "agent_id": "019eb622-25b7-7843-af3c-d71a5c71ad43",
+        "selected_skill": "eval-ops",
+        "references_used": [
+          "prompt-stack/<current_package>/gemini/skills/eval-ops/SKILL.md",
+          "prompt-stack/<current_package>/gemini/skills/eval-ops/references/eval-ops.md"
+        ],
+        "observations": [
+          "Static Gemini runtime validation maps only to local_static_runtime_validation.",
+          "credentialed_canary_executed is a separate proof class and requires explicit live execution.",
+          "Provider verification requires executed live provider evidence, not planned assets or static checks.",
+          "Structured output claims require live schema-shaped response plus local JSON-schema validation.",
+          "Function-calling claims require argument validation, approval decision, mock or approved tool execution, output reclassification, redaction, and reinjection evidence.",
+          "Native Gemini and OpenAI compatibility evidence must remain separate.",
+          "Unsupported provider claims must be downgraded before verdict language is returned."
+        ],
+        "claim_boundary": "Static validation is not enough to claim provider_verified, adapter_checked, release_gated, production_ready, or live canary success.",
+        "gaps": [
+          "No executed canary evidence, response metadata, blocked-output evidence, or adapter conformance evidence inspected."
+        ]
+      }
+    },
+    {
+      "case_id": "SFB-GEMINI-003",
+      "runtime": "gemini",
+      "skill": "grounded-research",
+      "expected_reference": "gemini/skills/grounded-research/references/grounded-research.md",
+      "status": "pass",
+      "static_checks": [
+        {
+          "name": "skill_exists",
+          "pass": true
+        },
+        {
+          "name": "reference_exists",
+          "pass": true
+        },
+        {
+          "name": "skill_mentions_reference",
+          "pass": true
+        },
+        {
+          "name": "routing_scenario_exists",
+          "pass": true
+        }
+      ],
+      "forward_checks": [
+        {
+          "name": "forward_observation:official sources",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:.gemini/skills",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:.agents/skills",
+          "pass": true
+        },
+        {
+          "name": "forward_observation:Need Verification",
+          "pass": true
+        }
+      ],
+      "observed_result": {
+        "case_id": "SFB-GEMINI-003",
+        "agent_id": "019eb622-25b7-7843-af3c-d71a5c71ad43",
+        "selected_skill": "grounded-research",
+        "references_used": [
+          "prompt-stack/<current_package>/gemini/skills/grounded-research/SKILL.md",
+          "prompt-stack/<current_package>/gemini/skills/grounded-research/references/grounded-research.md"
+        ],
+        "observations": [
+          "Task is source-ledger research for Gemini CLI skill discovery, so official Google sources are required.",
+          "Ledger entries should record title, URL, checked date, visible last-updated date, supported claims, and limitations.",
+          "Relevant official-source targets include Gemini CLI GEMINI.md, .gemini/skills, .agents/skills, and skill lifecycle behavior.",
+          "Source facts must be separated from inference; stale, conflicting, or missing evidence should be marked Need Verification.",
+          "Third-party summaries are not primary evidence when official docs exist."
+        ],
+        "claim_boundary": "Can claim official-docs-checked only after official sources are actually consulted; source review still does not prove live provider behavior.",
+        "gaps": [
+          "Network/provider calls were disallowed for the read-only forward-test.",
+          "Ledger refresh itself was not written by the subagent because work was read-only."
+        ]
+      }
+    }
+  ]
+}

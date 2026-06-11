@@ -1,6 +1,6 @@
 ---
 name: orchestration-control
-description: Use for multi-agent and coordination control: delegation topology, A2A lifecycle, handoff contracts, agent capability fit, join quality, and long-running coordination. Do not use for single-agent code patches, pure research, architecture analysis, eval gates, or harness artifact creation.
+description: Use for Codex multi-agent and coordination control when explicit delegation, parallel agents, A2A lifecycle, handoff contracts, capability fit, join quality, or long-running coordination is required. Triggers include user-requested subagents, parallel review, split research/implementation/review work, and joined verdicts. Do not use for single-agent code patches, pure research, architecture analysis, eval gates, or harness artifact creation.
 ---
 
 # Orchestration Control Instructions
@@ -24,6 +24,8 @@ Use:
 6. Reconcile outputs against the join contract.
 7. Reject incompatible, stale, partial, blocked, or failed outputs instead of blending them into false certainty.
 8. Collapse back to single-agent execution when orchestration no longer pays for itself.
+
+For topology admission, subagent forward-testing, join contracts, and split-verdict handling, read `references/orchestration-control.md` when any work is delegated or run in parallel.
 
 ## Coordination Rules
 

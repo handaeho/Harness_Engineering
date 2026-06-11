@@ -3,6 +3,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const workspace = path.resolve(root, "..");
+const packageName = path.basename(root);
+const evidenceDir = path.join(workspace, "_evidence", packageName, "validation_runs", "skill_asset_enhancement");
 const variants = [
   { id: "full_harness", removed: [], expected_degradation: 0 },
   { id: "remove_feature_list", removed: ["state/feature_list.json"], expected_degradation: 3 },
@@ -25,9 +28,9 @@ const result = {
   results
 };
 fs.mkdirSync(path.join(root, "records"), { recursive: true });
-fs.mkdirSync(path.join(root, "archive", "raw_benchmark_runs"), { recursive: true });
+fs.mkdirSync(evidenceDir, { recursive: true });
 fs.writeFileSync(path.join(root, "records", "ablation_results.json"), JSON.stringify(result, null, 2) + "\n");
-const rawPath = path.join(root, "archive", "raw_benchmark_runs", `ablation-${result.generated_at.replace(/[:.]/g, "-")}.json`);
+const rawPath = path.join(evidenceDir, `ablation-${result.generated_at.replace(/[:.]/g, "-")}.json`);
 fs.writeFileSync(rawPath, JSON.stringify(result, null, 2) + "\n");
 const report = `# Ablation Report
 
@@ -36,6 +39,8 @@ Generated: ${result.generated_at}
 Status: ${result.status}
 
 Limitation: ${result.limitation}
+
+Raw evidence: _evidence/<current_package>/validation_runs/skill_asset_enhancement/${path.basename(rawPath)}
 
 | Variant | Simulated success rate | Risk |
 |---|---:|---|

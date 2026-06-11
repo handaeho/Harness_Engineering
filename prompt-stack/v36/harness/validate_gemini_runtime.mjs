@@ -64,10 +64,23 @@ check("gemini_doc_sources_exists", exists("gemini/validation/gemini_doc_groundin
 check("runtime_surface_boundaries_exists", exists("docs/RUNTIME_SURFACE_BOUNDARIES.md"), "docs/RUNTIME_SURFACE_BOUNDARIES.md");
 
 for (const skill of skills) {
+  const skillPath = `gemini/skills/${skill}/SKILL.md`;
+  const referencePath = `gemini/skills/${skill}/references/${skill}.md`;
+  const skillText = read(skillPath);
   check(
     `skill_exists:${skill}`,
-    exists(`gemini/skills/${skill}/SKILL.md`),
-    `gemini/skills/${skill}/SKILL.md`
+    exists(skillPath),
+    skillPath
+  );
+  check(
+    `skill_reference_exists:${skill}`,
+    exists(referencePath),
+    referencePath
+  );
+  check(
+    `skill_mentions_reference:${skill}`,
+    skillText.includes(`references/${skill}.md`),
+    `${skillPath} -> ${referencePath}`
   );
 }
 
@@ -144,6 +157,11 @@ check(
     && (source.url.startsWith("https://ai.google.dev/gemini-api/docs")
       || source.url.startsWith("https://github.com/google-gemini/gemini-cli/"))),
   officialSources.map((source) => source.url)
+);
+check(
+  "source_ledger_no_need_verification_markers",
+  !JSON.stringify(sources || {}).includes("Need Verification"),
+  "observed last-updated dates refreshed or checked"
 );
 
 check(

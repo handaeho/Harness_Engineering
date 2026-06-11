@@ -1,6 +1,6 @@
 ---
 name: coding-core
-description: Use for bounded code execution: code changes, bug fixes, debugging, refactoring, tests, code review, and performance/security/documentation updates tied to code. Do not use for pure research, broad architecture strategy, eval/release gates, harness asset creation, or multi-agent coordination.
+description: Use for bounded Codex code execution when the user asks for code changes, bug fixes, debugging, refactoring, tests, code review, or code-adjacent documentation tied to behavior. Triggers include failing tests, stack traces, diffs, PR review, regression fixes, security fixes, performance fixes, and narrow implementation tasks. Do not use for pure research, broad architecture strategy, release/eval gates, harness asset creation, or multi-agent coordination.
 ---
 
 # Coding Core Instructions
@@ -23,6 +23,8 @@ Use:
 5. Add or update tests when behavior changes and a suitable test surface exists.
 6. Run the strongest targeted checks available: format, lint, typecheck, unit test, integration test, build, smoke, or repro.
 7. If a required check cannot run, state why and downgrade completion language.
+
+For deeper review, active-slice, verification, and handoff patterns, read `references/coding-core.md` when the task includes a diff review, test design, security/performance risk, or cross-file behavior change.
 
 ## Engineering Rules
 

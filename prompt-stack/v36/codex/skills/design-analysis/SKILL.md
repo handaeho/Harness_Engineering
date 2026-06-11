@@ -1,6 +1,6 @@
 ---
 name: design-analysis
-description: Use for architecture and technical decision work: option comparison, trade-off analysis, strategic implementation planning, and design reviews. Do not use for narrow code patches, pure source research, release gates, harness asset creation, or multi-agent coordination.
+description: Use for Codex architecture and technical decision work when the user asks to choose an API boundary, migration path, system design, trade-off, rollout strategy, or implementation plan before code changes. Triggers include option comparison, design review, irreversible contracts, schema/API changes, and risk-heavy planning. Do not use for narrow code patches, pure source research, release gates, harness asset creation, or multi-agent coordination.
 ---
 
 # Design Analysis Instructions
@@ -23,6 +23,8 @@ Use:
 5. Select one route when evidence supports it.
 6. Define fallback and trigger for switching.
 7. Hand off bounded implementation to `coding-core` when code changes follow.
+
+For decision packets, option scoring, rollout boundaries, and implementation handoff shape, read `references/design-analysis.md` when the decision affects public APIs, data contracts, deployment, or multiple subsystems.
 
 ## Design Rules
 

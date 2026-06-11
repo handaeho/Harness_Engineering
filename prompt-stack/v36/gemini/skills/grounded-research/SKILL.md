@@ -1,6 +1,6 @@
 ---
 name: grounded-research
-description: Use for source-grounded research in a Gemini-aware runtime: official documentation checks, evidence-backed synthesis, citations, freshness checks, source comparison, and latest-fact questions. Do not use for direct code patches, architecture decisions without source gaps, eval/release gates, harness creation, or multi-agent coordination.
+description: Use for Gemini-aware source-grounded research when trust depends on official Google Gemini API docs, Gemini CLI docs, citations, freshness checks, source comparison, or latest provider/API facts. Triggers include `systemInstruction`, function calling, structured output, `safetySettings`, OpenAI compatibility, `GEMINI.md`, Agent Skills discovery, and source ledger updates. Do not use for direct code patches, architecture decisions without source gaps, eval/release gates, harness creation, or multi-agent coordination.
 ---
 
 # Grounded Research Instructions
@@ -22,6 +22,8 @@ Use:
 4. Separate source facts from inference.
 5. Mark stale, conflicting, or missing evidence as `Need Verification`.
 6. Hand off to `coding-core`, `design-analysis`, or `eval-ops` when research changes into execution, design, or gate judgment.
+
+For Gemini source ledgers, official-doc freshness, CLI skill discovery, and source-to-runtime claim boundaries, read `references/grounded-research.md` when Gemini facts govern the work.
 
 ## Gemini Source Rules
 

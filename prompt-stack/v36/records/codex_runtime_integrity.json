@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-11T09:45:49.589Z",
+  "generated_at": "2026-06-11T10:06:00.357Z",
   "validation_name": "codex_runtime_integrity",
   "mirror_policy": "behavioral alignment, safety preservation, runtime fitness",
-  "total_checks": 18,
-  "passed_checks": 18,
+  "total_checks": 43,
+  "passed_checks": 43,
   "failed_checks": 0,
   "status": "pass",
   "checks": [
@@ -23,9 +23,29 @@
       "detail": "guide must reject autonomous mirror assumption"
     },
     {
+      "name": "codex_skill_routing_exists",
+      "pass": true,
+      "detail": "codex/validation/skill_routing_scenarios.json"
+    },
+    {
+      "name": "codex_doc_sources_exists",
+      "pass": true,
+      "detail": "codex/validation/codex_doc_grounding_sources.json"
+    },
+    {
       "name": "skill_exists:coding-core",
       "pass": true,
       "detail": "codex/skills/coding-core/SKILL.md"
+    },
+    {
+      "name": "skill_reference_exists:coding-core",
+      "pass": true,
+      "detail": "codex/skills/coding-core/references/coding-core.md"
+    },
+    {
+      "name": "skill_mentions_reference:coding-core",
+      "pass": true,
+      "detail": "codex/skills/coding-core/SKILL.md -> codex/skills/coding-core/references/coding-core.md"
     },
     {
       "name": "skill_exists:design-analysis",
@@ -33,9 +53,29 @@
       "detail": "codex/skills/design-analysis/SKILL.md"
     },
     {
+      "name": "skill_reference_exists:design-analysis",
+      "pass": true,
+      "detail": "codex/skills/design-analysis/references/design-analysis.md"
+    },
+    {
+      "name": "skill_mentions_reference:design-analysis",
+      "pass": true,
+      "detail": "codex/skills/design-analysis/SKILL.md -> codex/skills/design-analysis/references/design-analysis.md"
+    },
+    {
       "name": "skill_exists:eval-ops",
       "pass": true,
       "detail": "codex/skills/eval-ops/SKILL.md"
+    },
+    {
+      "name": "skill_reference_exists:eval-ops",
+      "pass": true,
+      "detail": "codex/skills/eval-ops/references/eval-ops.md"
+    },
+    {
+      "name": "skill_mentions_reference:eval-ops",
+      "pass": true,
+      "detail": "codex/skills/eval-ops/SKILL.md -> codex/skills/eval-ops/references/eval-ops.md"
     },
     {
       "name": "skill_exists:grounded-research",
@@ -43,14 +83,44 @@
       "detail": "codex/skills/grounded-research/SKILL.md"
     },
     {
+      "name": "skill_reference_exists:grounded-research",
+      "pass": true,
+      "detail": "codex/skills/grounded-research/references/grounded-research.md"
+    },
+    {
+      "name": "skill_mentions_reference:grounded-research",
+      "pass": true,
+      "detail": "codex/skills/grounded-research/SKILL.md -> codex/skills/grounded-research/references/grounded-research.md"
+    },
+    {
       "name": "skill_exists:orchestration-control",
       "pass": true,
       "detail": "codex/skills/orchestration-control/SKILL.md"
     },
     {
+      "name": "skill_reference_exists:orchestration-control",
+      "pass": true,
+      "detail": "codex/skills/orchestration-control/references/orchestration-control.md"
+    },
+    {
+      "name": "skill_mentions_reference:orchestration-control",
+      "pass": true,
+      "detail": "codex/skills/orchestration-control/SKILL.md -> codex/skills/orchestration-control/references/orchestration-control.md"
+    },
+    {
       "name": "skill_exists:harness-creator-adapter",
       "pass": true,
       "detail": "codex/skills/harness-creator-adapter/SKILL.md"
+    },
+    {
+      "name": "skill_reference_exists:harness-creator-adapter",
+      "pass": true,
+      "detail": "codex/skills/harness-creator-adapter/references/harness-creator-adapter.md"
+    },
+    {
+      "name": "skill_mentions_reference:harness-creator-adapter",
+      "pass": true,
+      "detail": "codex/skills/harness-creator-adapter/SKILL.md -> codex/skills/harness-creator-adapter/references/harness-creator-adapter.md"
     },
     {
       "name": "agent_consumed_assets_are_runtime_instructions",
@@ -91,6 +161,73 @@
       "name": "boundary_term:release",
       "pass": true,
       "detail": "release"
+    },
+    {
+      "name": "routing_scenarios_valid_json",
+      "pass": true,
+      "detail": "skill_routing_scenarios.json"
+    },
+    {
+      "name": "routing_scenarios_positive_count",
+      "pass": true,
+      "detail": "at least one scenario per skill"
+    },
+    {
+      "name": "routing_expected_skill:coding-core",
+      "pass": true,
+      "detail": "coding-core"
+    },
+    {
+      "name": "routing_expected_skill:design-analysis",
+      "pass": true,
+      "detail": "design-analysis"
+    },
+    {
+      "name": "routing_expected_skill:eval-ops",
+      "pass": true,
+      "detail": "eval-ops"
+    },
+    {
+      "name": "routing_expected_skill:grounded-research",
+      "pass": true,
+      "detail": "grounded-research"
+    },
+    {
+      "name": "routing_expected_skill:orchestration-control",
+      "pass": true,
+      "detail": "orchestration-control"
+    },
+    {
+      "name": "routing_expected_skill:harness-creator-adapter",
+      "pass": true,
+      "detail": "harness-creator-adapter"
+    },
+    {
+      "name": "source_ledger_has_official_sources",
+      "pass": true,
+      "detail": "official Codex and Agent Skills source ledger"
+    },
+    {
+      "name": "source_ledger_official_sources_only",
+      "pass": true,
+      "detail": [
+        "https://developers.openai.com/codex/codex-manual.md",
+        "https://developers.openai.com/codex/skills.md",
+        "https://developers.openai.com/codex/guides/agents-md.md",
+        "https://developers.openai.com/codex/subagents.md",
+        "https://agentskills.io/specification"
+      ]
+    },
+    {
+      "name": "source_ledger_research_separate",
+      "pass": true,
+      "detail": [
+        "https://developers.openai.com/codex/codex-manual.md",
+        "https://developers.openai.com/codex/skills.md",
+        "https://developers.openai.com/codex/guides/agents-md.md",
+        "https://developers.openai.com/codex/subagents.md",
+        "https://agentskills.io/specification"
+      ]
     },
     {
       "name": "no_codex_inside_autonomous_99_total",

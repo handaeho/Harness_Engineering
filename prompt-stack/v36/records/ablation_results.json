@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-06-11T10:04:54.630Z",
+  "ablation_type": "deterministic_simulated_harness_ablation",
+  "status": "pass_with_limitations",
+  "limitation": "No real agent sessions were run by this script.",
+  "results": [
+    {
+      "id": "full_harness",
+      "removed": [],
+      "expected_degradation": 0,
+      "simulated_success_rate": 1,
+      "simulated_resume_success": true,
+      "simulated_premature_completion_risk": "controlled",
+      "claim_strength": "simulated_deterministic_not_real_agent_ablation"
+    },
+    {
+      "id": "remove_feature_list",
+      "removed": [
+        "state/feature_list.json"
+      ],
+      "expected_degradation": 3,
+      "simulated_success_rate": 0.45999999999999996,
+      "simulated_resume_success": false,
+      "simulated_premature_completion_risk": "controlled",
+      "claim_strength": "simulated_deterministic_not_real_agent_ablation"
+    },
+    {
+      "id": "remove_progress",
+      "removed": [
+        "state/progress.md"
+      ],
+      "expected_degradation": 2,
+      "simulated_success_rate": 0.64,
+      "simulated_resume_success": false,
+      "simulated_premature_completion_risk": "controlled",
+      "claim_strength": "simulated_deterministic_not_real_agent_ablation"
+    },
+    {
+      "id": "remove_evaluator",
+      "removed": [
+        "verification/evaluator-rubric.md"
+      ],
+      "expected_degradation": 3,
+      "simulated_success_rate": 0.45999999999999996,
+      "simulated_resume_success": true,
+      "simulated_premature_completion_risk": "high",
+      "claim_strength": "simulated_deterministic_not_real_agent_ablation"
+    },
+    {
+      "id": "remove_clean_state_checklist",
+      "removed": [
+        "lifecycle/clean-state-checklist.md"
+      ],
+      "expected_degradation": 2,
+      "simulated_success_rate": 0.64,
+      "simulated_resume_success": true,
+      "simulated_premature_completion_risk": "controlled",
+      "claim_strength": "simulated_deterministic_not_real_agent_ablation"
+    }
+  ]
+}
