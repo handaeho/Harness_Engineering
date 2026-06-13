@@ -13,7 +13,7 @@ Stage: v2.0.0-beta-tool-calling-canary-openai
 
 - pass: validate_alpha.mjs pass
 - pass: scan_prohibited_claims.mjs pass
-- pass: compare_v36_baseline.mjs pass
+- pass: check_reference_baseline_integrity.mjs pass
 - pass: run_adapter_conformance_dry_run.mjs pass
 - pass: run_beta_mock_execution.mjs pass
 - pass: check_openai_credentialed_canary.mjs pass
@@ -42,7 +42,7 @@ Stage: v2.0.0-beta-tool-calling-canary-openai
 - pass: all tool argument validations passed
 - pass: final responses received
 - pass: request response mapping report pass
-- pass: v36 modified false by checksum comparison
+- pass: reference baseline source modified false by checksum comparison
 
 ## Claim Boundary
 

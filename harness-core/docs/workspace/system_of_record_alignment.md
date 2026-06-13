@@ -15,4 +15,6 @@ This stage adds a root `AGENTS.md` entrypoint and aligns it with `stack.yaml`, `
 
 ## Claim Boundary
 
-The alignment allows System of Record and documentation claims only. It does not allow `stable`, `release-gated`, `production-ready`, `production-monitored`, `provider-diverse`, `provider-verified`, `adapter-checked`, `local-model-verified`, or `integration-verified`.
+The alignment allows System of Record and documentation claims only. It does not itself allow `stable`, `release-gated`, `production-ready`, `production-monitored`, `provider-diverse`, `adapter-checked`, `local-model-verified`, or `integration-verified`.
+
+Bare `provider-verified` is controlled separately by the release-grade provider-verified gate. It is allowed only when `evidence/release-grade-provider-verified-gate/release_grade_provider_verified_gate_report.json` has `status: pass` and `provider_verified_allowed: true`.

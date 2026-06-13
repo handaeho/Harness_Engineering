@@ -1,0 +1,816 @@
+{
+  "status": "hold",
+  "stage": "v2.0.0-release-grade-vllm-evidence-package",
+  "generated_at": "2026-06-13T05:35:51.915Z",
+  "purpose": "Operator-facing evidence package for the version2 local-vllm-adapter-checked to production-ready/stable/release-gated follow-up path.",
+  "vllm_execution_evidence_complete": false,
+  "provider_verified_allowed": true,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "required_artifacts": [
+    {
+      "id": "vllm_operator_env_guard",
+      "path": "evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json",
+      "exists": true,
+      "status": "hold",
+      "stage": "v2.0.0-release-grade-vllm-operator-env-guard",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "fail",
+          "detail": {
+            "status": "hold",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider",
+          "status": "pass",
+          "detail": {
+            "expected": "vllm",
+            "actual": "vllm"
+          }
+        },
+        {
+          "name": "flag:can_enter_vllm_live_evidence_gate",
+          "status": "fail",
+          "detail": {
+            "expected": true,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:local_endpoint_probe",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:local_model_execution",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_request_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_response_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:secrets_logged",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:api_key_value_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "vllm_endpoint_readiness",
+      "path": "evidence/post-stable-vllm-endpoint-readiness-preflight/local_endpoint_readiness_preflight_report.json",
+      "exists": true,
+      "status": "fail",
+      "stage": "v2.0.0-post-rc-local-endpoint-readiness-preflight",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/post-stable-vllm-endpoint-readiness-preflight/local_endpoint_readiness_preflight_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "fail",
+          "detail": {
+            "status": "fail",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider",
+          "status": "pass",
+          "detail": {
+            "expected": "vllm",
+            "actual": "vllm"
+          }
+        },
+        {
+          "name": "flag:can_enter_local_no_tool_canary",
+          "status": "fail",
+          "detail": {
+            "expected": true,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:local_endpoint_probe",
+          "status": "fail",
+          "detail": {
+            "expected": true,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:local_model_execution",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_request_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_response_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:secrets_logged",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "vllm_no_tool_canary",
+      "path": "evidence/post-stable-local-vllm-no-tool-canary/vllm_no_tool_canary_report.json",
+      "exists": false,
+      "status": null,
+      "stage": null,
+      "checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evidence/post-stable-local-vllm-no-tool-canary/vllm_no_tool_canary_report.json"
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "vllm_no_tool_check",
+      "path": "evals/reports/vllm_no_tool_canary_check_report.json",
+      "exists": false,
+      "status": null,
+      "stage": null,
+      "checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evals/reports/vllm_no_tool_canary_check_report.json"
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "vllm_adapter_conformance",
+      "path": "evidence/post-stable-vllm-adapter-conformance-local-execution/vllm_adapter_conformance_report.json",
+      "exists": false,
+      "status": null,
+      "stage": null,
+      "checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evidence/post-stable-vllm-adapter-conformance-local-execution/vllm_adapter_conformance_report.json"
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "vllm_adapter_conformance_check",
+      "path": "evals/reports/vllm_adapter_conformance_check_report.json",
+      "exists": false,
+      "status": null,
+      "stage": null,
+      "checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evals/reports/vllm_adapter_conformance_check_report.json"
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "adapter_coverage_completion",
+      "path": "evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json",
+      "exists": true,
+      "status": "ready_for_adapter_checked_final_gate",
+      "stage": "v2.0.0-release-grade-adapter-coverage-completion",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "ready_for_adapter_checked_final_gate",
+            "allowed_statuses": [
+              "ready_for_adapter_checked_final_gate"
+            ]
+          }
+        },
+        {
+          "name": "flag:ready_for_adapter_checked_final_gate",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:can_enter_adapter_checked_final_gate",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:provider_verified_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "adapter_coverage_completion_check",
+      "path": "evals/reports/release_grade_adapter_coverage_completion_check_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-adapter-coverage-completion",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evals/reports/release_grade_adapter_coverage_completion_check_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:ready_for_adapter_checked_final_gate",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "adapter_vllm_preflight",
+      "path": "evidence/release-grade-adapter-vllm-preflight/release_grade_adapter_vllm_preflight_report.json",
+      "exists": true,
+      "status": "hold",
+      "stage": "v2.0.0-release-grade-adapter-vllm-preflight",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/release-grade-adapter-vllm-preflight/release_grade_adapter_vllm_preflight_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "fail",
+          "detail": {
+            "status": "hold",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider_verified_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "id": "adapter_checked_final_gate",
+      "path": "evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider_verified_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:production_ready_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:stable_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:release_gated_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "adapter_checked_final_gate_check",
+      "path": "evals/reports/release_grade_adapter_checked_final_gate_check_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evals/reports/release_grade_adapter_checked_final_gate_check_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "general_release_gate_after_adapter",
+      "path": "evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-general-release-gate",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "hold",
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider_verified_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "general_release_gate_check",
+      "path": "evals/reports/release_grade_general_release_gate_check_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-general-release-gate",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evals/reports/release_grade_general_release_gate_check_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "hold",
+              "pass"
+            ]
+          }
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "ordering_checks": [
+    {
+      "name": "general release gate refreshed after adapter final gate",
+      "status": "pass",
+      "detail": {
+        "adapter_final_generated_at": "2026-06-13T03:25:33.230Z",
+        "general_release_generated_at": "2026-06-13T05:20:03.434Z"
+      }
+    }
+  ],
+  "missing_or_incomplete_artifacts": [
+    {
+      "id": "vllm_operator_env_guard",
+      "path": "evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json",
+      "status": "hold",
+      "failed_checks": [
+        {
+          "name": "status allowed",
+          "status": "fail",
+          "detail": {
+            "status": "hold",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:can_enter_vllm_live_evidence_gate",
+          "status": "fail",
+          "detail": {
+            "expected": true,
+            "actual": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_endpoint_readiness",
+      "path": "evidence/post-stable-vllm-endpoint-readiness-preflight/local_endpoint_readiness_preflight_report.json",
+      "status": "fail",
+      "failed_checks": [
+        {
+          "name": "status allowed",
+          "status": "fail",
+          "detail": {
+            "status": "fail",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:can_enter_local_no_tool_canary",
+          "status": "fail",
+          "detail": {
+            "expected": true,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:local_endpoint_probe",
+          "status": "fail",
+          "detail": {
+            "expected": true,
+            "actual": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_no_tool_canary",
+      "path": "evidence/post-stable-local-vllm-no-tool-canary/vllm_no_tool_canary_report.json",
+      "status": null,
+      "failed_checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evidence/post-stable-local-vllm-no-tool-canary/vllm_no_tool_canary_report.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_no_tool_check",
+      "path": "evals/reports/vllm_no_tool_canary_check_report.json",
+      "status": null,
+      "failed_checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evals/reports/vllm_no_tool_canary_check_report.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_adapter_conformance",
+      "path": "evidence/post-stable-vllm-adapter-conformance-local-execution/vllm_adapter_conformance_report.json",
+      "status": null,
+      "failed_checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evidence/post-stable-vllm-adapter-conformance-local-execution/vllm_adapter_conformance_report.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_adapter_conformance_check",
+      "path": "evals/reports/vllm_adapter_conformance_check_report.json",
+      "status": null,
+      "failed_checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evals/reports/vllm_adapter_conformance_check_report.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "adapter_vllm_preflight",
+      "path": "evidence/release-grade-adapter-vllm-preflight/release_grade_adapter_vllm_preflight_report.json",
+      "status": "hold",
+      "failed_checks": [
+        {
+          "name": "status allowed",
+          "status": "fail",
+          "detail": {
+            "status": "hold",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "stale_or_unordered_artifacts": [],
+  "claim_promotion_readiness": {
+    "provider_verified": "open_by_provider_gate",
+    "adapter_checked": "hold",
+    "general_release": "blocked_until_adapter_checked_passes",
+    "approval_text_stored": false
+  },
+  "operator_packet": {
+    "required_env": [
+      {
+        "name": "VLLM_ENDPOINT_URL",
+        "required": true,
+        "example": "http://127.0.0.1:8000/v1",
+        "rule": "Must be a localhost-only OpenAI-compatible base URL with no credentials, query, or hash."
+      },
+      {
+        "name": "VLLM_MODEL",
+        "required": true,
+        "example": "<exact id from GET /v1/models>",
+        "rule": "Must match the served model id exactly. Use ASCII quotes only."
+      },
+      {
+        "name": "VLLM_AUTH_REQUIRED",
+        "required": true,
+        "example": "no",
+        "rule": "Must be yes or no."
+      },
+      {
+        "name": "VLLM_API_KEY",
+        "required": false,
+        "example": "<local endpoint token>",
+        "rule": "Set only when VLLM_AUTH_REQUIRED=yes. The value must never be stored in evidence."
+      }
+    ],
+    "full_run_command": "npm run vllm-release-grade-evidence-gate",
+    "manual_run_commands": [
+      "npm run preflight:vllm-operator-env",
+      "npm run preflight:vllm-live-canary",
+      "npm run canary:vllm-no-tool",
+      "npm run check:vllm-no-tool",
+      "npm run run:vllm-adapter-conformance",
+      "npm run check:vllm-adapter-conformance",
+      "npm run check:release-grade-adapter-vllm",
+      "npm run check:release-grade-vllm-evidence-package",
+      "npm run general-release-grade-gate",
+      "npm run check:release-grade-vllm-evidence-package",
+      "npm run apply:release-grade-claim-state-sync",
+      "npm run check:release-grade-claim-state-sync",
+      "npm run check:final-precommit-convergence",
+      "npm run general-release-grade-gate",
+      "npm run check:release-grade-vllm-evidence-package",
+      "npm run apply:release-grade-claim-state-sync",
+      "npm run check:release-grade-claim-state-sync",
+      "npm run check:final-precommit-convergence"
+    ],
+    "general_release_gate_refresh_required_after_adapter_checked": true,
+    "evidence_package_command_must_run_last": false,
+    "claim_state_sync_command_must_run_after_package": true,
+    "final_sync_command_must_run_last": true
+  },
+  "submission_files": [
+    "evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json",
+    "evidence/post-stable-vllm-endpoint-readiness-preflight/local_endpoint_readiness_preflight_report.json",
+    "evidence/post-stable-vllm-endpoint-readiness-preflight/endpoint_probe_summary.json",
+    "evidence/post-stable-local-vllm-no-tool-canary/vllm_no_tool_canary_report.json",
+    "evals/reports/vllm_no_tool_canary_check_report.json",
+    "evidence/post-stable-vllm-adapter-conformance-local-execution/vllm_adapter_conformance_report.json",
+    "evals/reports/vllm_adapter_conformance_check_report.json",
+    "evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json",
+    "evals/reports/release_grade_adapter_coverage_completion_check_report.json",
+    "evidence/release-grade-adapter-vllm-preflight/release_grade_adapter_vllm_preflight_report.json",
+    "evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json",
+    "evals/reports/release_grade_adapter_checked_final_gate_check_report.json",
+    "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_report.json",
+    "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_check_report.json",
+    "evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json",
+    "evals/reports/release_grade_general_release_gate_check_report.json",
+    "evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json"
+  ],
+  "redaction_policy": {
+    "raw_request_storage_allowed": false,
+    "raw_response_storage_allowed": false,
+    "secret_storage_allowed": false
+  },
+  "allowed_claims_after_pass": [],
+  "blocked_claims": [
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "next_actions": [
+    "Run npm run vllm-release-grade-evidence-gate with VLLM_ENDPOINT_URL, VLLM_MODEL, and VLLM_AUTH_REQUIRED set.",
+    "If the wrapper stops, inspect the first failed artifact listed in missing_or_incomplete_artifacts.",
+    "If running manually, run general-release-grade-gate after adapter-checked final gate and before the first package check.",
+    "Rerun npm run check:release-grade-vllm-evidence-package after the vLLM and general-gate commands finish."
+  ]
+}

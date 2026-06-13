@@ -1,0 +1,114 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-source-ledger",
+  "generated_at": "2026-06-13T02:25:53.643Z",
+  "checker": "check_release_grade_source_ledger.mjs",
+  "ledger_path": "core/source_authority/release_grade_source_ledger.json",
+  "schema_path": "schemas/source_authority_ledger.schema.json",
+  "source_count": 10,
+  "required_source_ids": [
+    "RGS-OPENAI-AGENTS-TRACING",
+    "RGS-OPENAI-AGENTS-TOOLS",
+    "RGS-GEMINI-FUNCTION-CALLING",
+    "RGS-GEMINI-STRUCTURED-OUTPUT",
+    "RGS-GEMINI-SAFETY",
+    "RGS-GEMINI-OPENAI-COMPAT",
+    "RGS-OTEL-GENAI",
+    "RGS-LANGFUSE-TRACING",
+    "RGS-OWASP-LLM-TOP10-2025",
+    "RGS-NIST-AI-600-1"
+  ],
+  "checks": [
+    {
+      "name": "ledger file exists",
+      "status": "pass",
+      "detail": {
+        "path": "core/source_authority/release_grade_source_ledger.json"
+      }
+    },
+    {
+      "name": "schema file exists",
+      "status": "pass",
+      "detail": {
+        "path": "schemas/source_authority_ledger.schema.json"
+      }
+    },
+    {
+      "name": "ledger JSON parses",
+      "status": "pass",
+      "detail": {
+        "path": "core/source_authority/release_grade_source_ledger.json"
+      }
+    },
+    {
+      "name": "ledger validates against source schema",
+      "status": "pass",
+      "detail": {
+        "schema": "schemas/source_authority_ledger.schema.json"
+      }
+    },
+    {
+      "name": "required source ids present",
+      "status": "pass",
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "name": "source ids are unique",
+      "status": "pass",
+      "detail": {
+        "duplicate_ids": []
+      }
+    },
+    {
+      "name": "authorities are official source classes",
+      "status": "pass",
+      "detail": {
+        "untrusted": []
+      }
+    },
+    {
+      "name": "claim boundaries do not open strong claims",
+      "status": "pass",
+      "detail": {
+        "violations": []
+      }
+    },
+    {
+      "name": "checked_on matches current verification date",
+      "status": "pass",
+      "detail": {
+        "checked_on": "2026-06-12"
+      }
+    },
+    {
+      "name": "source entries use release-grade ledger shape",
+      "status": "pass",
+      "detail": {
+        "incomplete_sources": []
+      }
+    },
+    {
+      "name": "source checked_on matches ledger checked_on",
+      "status": "pass",
+      "detail": {
+        "mismatches": []
+      }
+    }
+  ],
+  "failures": [],
+  "provider_execution": false,
+  "local_model_execution": false,
+  "telemetry_sink_write": false,
+  "openai_provider_rerun": false,
+  "claims_opened": [],
+  "claim_boundary_note": "Source-ledger validation opens no claims by itself. Current provider-verified allowance is determined only by the provider-verified gate.",
+  "blocked_claims_maintained": [
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ]
+}

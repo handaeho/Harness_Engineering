@@ -159,6 +159,17 @@ function addCheck(checks, name, pass, detail = {}) {
   checks.push({ name, status: pass ? "pass" : "fail", detail });
 }
 
+function claimMembershipMatches(record, claim, expectedOpen, options = {}) {
+  const allowed = Array.isArray(record?.allowed_claims) ? record.allowed_claims : [];
+  const blocked = Array.isArray(record?.blocked_claims) ? record.blocked_claims : [];
+  const requireAllowedClaim = options.requireAllowedClaim !== false;
+  if (expectedOpen) {
+    return blocked.includes(claim) === false
+      && (requireAllowedClaim === false || allowed.includes(claim) === true);
+  }
+  return allowed.includes(claim) === false && blocked.includes(claim) === true;
+}
+
 function collectFiles(relRoot, files = []) {
   const abs = p(relRoot);
   if (!fs.existsSync(abs)) return files;
@@ -468,6 +479,62 @@ function summarizeGitStatus(stdout) {
 const generatedAt = new Date().toISOString();
 const currentStateYaml = readYaml("CURRENT_STATE.yaml");
 const currentStateJson = readJson("CURRENT_STATE.json");
+const finalClaimState = readJson("evidence/post-active-scoped-final-release-dossier/final_release_claim_state.json");
+const providerGate = readJson("evidence/release-grade-provider-verified-gate/release_grade_provider_verified_gate_report.json");
+const adapterFinalGate = readJson("evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json");
+const generalReleaseGate = readJson("evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json");
+const ollamaPackage = readJson("evidence/release-grade-ollama-evidence-package/ollama_evidence_package_report.json");
+const vllmPackage = readJson("evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json");
+const providerVerifiedClaimOpen = providerGate?.status === "pass"
+  && providerGate?.provider_verified_allowed === true
+  && currentStateYaml?.allowed_claims?.includes("provider-verified") === true
+  && currentStateYaml?.blocked_claims?.includes("provider-verified") !== true
+  && currentStateJson?.allowed_claims?.includes("provider-verified") === true
+  && currentStateJson?.blocked_claims?.includes("provider-verified") !== true
+  && finalClaimState?.allowed_claims?.includes("provider-verified") === true
+  && finalClaimState?.blocked_claims?.includes("provider-verified") !== true
+  && finalClaimState?.provider_verified_allowed === true;
+const adapterCheckedGatePassed = providerGate?.status === "pass"
+  && providerGate?.provider_verified_allowed === true
+  && adapterFinalGate?.status === "pass"
+  && adapterFinalGate?.adapter_checked_allowed === true
+  && ollamaPackage?.status === "pass"
+  && ollamaPackage?.adapter_checked_allowed === true
+  && ollamaPackage?.local_vllm_version2_follow_up?.claim === "local-vllm-adapter-checked"
+  && ollamaPackage?.local_vllm_version2_follow_up?.required_before_version1_release_gated === false;
+const generalReleaseGatePassed = adapterCheckedGatePassed
+  && generalReleaseGate?.status === "pass"
+  && generalReleaseGate?.approval_event?.approval_present === true
+  && generalReleaseGate?.production_ready_allowed === true
+  && generalReleaseGate?.stable_allowed === true
+  && generalReleaseGate?.release_gated_allowed === true
+  && ollamaPackage?.production_ready_allowed === true
+  && ollamaPackage?.stable_allowed === true
+  && ollamaPackage?.release_gated_allowed === true;
+const adapterCheckedClaimOpen = adapterCheckedGatePassed
+  && claimMembershipMatches(currentStateYaml, "adapter-checked", true)
+  && claimMembershipMatches(currentStateJson, "adapter-checked", true)
+  && claimMembershipMatches(finalClaimState, "adapter-checked", true)
+  && finalClaimState?.adapter_checked_allowed === true;
+const productionReadyClaimOpen = generalReleaseGatePassed
+  && claimMembershipMatches(currentStateYaml, "production-ready", true)
+  && claimMembershipMatches(currentStateJson, "production-ready", true)
+  && claimMembershipMatches(finalClaimState, "production-ready", true)
+  && finalClaimState?.production_ready_allowed === true;
+const stableClaimOpen = generalReleaseGatePassed
+  && claimMembershipMatches(currentStateYaml, "stable", true)
+  && claimMembershipMatches(currentStateJson, "stable", true)
+  && claimMembershipMatches(finalClaimState, "stable", true)
+  && finalClaimState?.stable_allowed === true;
+const releaseGatedClaimOpen = generalReleaseGatePassed
+  && claimMembershipMatches(currentStateYaml, "release-gated", true)
+  && claimMembershipMatches(currentStateJson, "release-gated", true)
+  && claimMembershipMatches(finalClaimState, "release-gated", true)
+  && finalClaimState?.release_gated_allowed === true;
+const bareReleaseGatedClaimOpen = false
+  && claimMembershipMatches(currentStateYaml, "bare release-gated", true, { requireAllowedClaim: false })
+  && claimMembershipMatches(currentStateJson, "bare release-gated", true, { requireAllowedClaim: false })
+  && claimMembershipMatches(finalClaimState, "bare release-gated", true, { requireAllowedClaim: false });
 const stack = readYaml("stack.yaml");
 const activeScan = activeSurfaceScan();
 const evidenceLegacyPaths = topLevelEvidenceLegacyPaths();
@@ -544,12 +611,52 @@ addCheck(checks, "prohibited claim scan passes", scanProhibitedClaims.status ===
 addCheck(checks, "git diff check passes", gitDiffCheck.status === "pass", { exit_code: gitDiffCheck.exit_code, stderr: gitDiffCheck.stderr.trim() });
 addCheck(checks, "git cached diff check passes", gitDiffCachedCheck.status === "pass", { exit_code: gitDiffCachedCheck.exit_code, stderr: gitDiffCachedCheck.stderr.trim() });
 addCheck(checks, "git tracked old project path count is zero", trackedOldPathCount === 0, { tracked_old_path_count: trackedOldPathCount });
-addCheck(checks, "provider verified remains false", currentStateJson?.blocked_claims?.includes("provider-verified") === true
+addCheck(checks, "provider verified follows release-grade provider gate", providerVerifiedClaimOpen === true
   && currentStateJson?.harness_core_final_precommit_convergence?.commit_performed === false);
-addCheck(checks, "adapter checked remains false", currentStateJson?.blocked_claims?.includes("adapter-checked") === true);
-addCheck(checks, "production ready remains false", currentStateJson?.blocked_claims?.includes("production-ready") === true);
-addCheck(checks, "stable remains false", currentStateJson?.blocked_claims?.includes("stable") === true);
-addCheck(checks, "release gated remains false", currentStateJson?.blocked_claims?.includes("release-gated") === true);
+addCheck(checks, "adapter checked matches release-grade gate evidence", adapterCheckedClaimOpen === adapterCheckedGatePassed, {
+  expected_open: adapterCheckedGatePassed,
+  current_state_yaml_allowed: currentStateYaml?.allowed_claims?.includes("adapter-checked") === true,
+  current_state_yaml_blocked: currentStateYaml?.blocked_claims?.includes("adapter-checked") === true,
+  current_state_json_allowed: currentStateJson?.allowed_claims?.includes("adapter-checked") === true,
+  current_state_json_blocked: currentStateJson?.blocked_claims?.includes("adapter-checked") === true,
+  final_claim_state_flag: finalClaimState?.adapter_checked_allowed ?? null,
+  adapter_final_status: adapterFinalGate?.status || null,
+  ollama_package_status: ollamaPackage?.status || null,
+  local_vllm_version2_follow_up: ollamaPackage?.local_vllm_version2_follow_up || null,
+  vllm_package_status: vllmPackage?.status || null
+});
+addCheck(checks, "production ready matches release-grade gate evidence", productionReadyClaimOpen === generalReleaseGatePassed, {
+  expected_open: generalReleaseGatePassed,
+  current_state_json_allowed: currentStateJson?.allowed_claims?.includes("production-ready") === true,
+  current_state_json_blocked: currentStateJson?.blocked_claims?.includes("production-ready") === true,
+  final_claim_state_flag: finalClaimState?.production_ready_allowed ?? null,
+  general_release_status: generalReleaseGate?.status || null
+});
+addCheck(checks, "stable matches release-grade gate evidence", stableClaimOpen === generalReleaseGatePassed, {
+  expected_open: generalReleaseGatePassed,
+  current_state_json_allowed: currentStateJson?.allowed_claims?.includes("stable") === true,
+  current_state_json_blocked: currentStateJson?.blocked_claims?.includes("stable") === true,
+  final_claim_state_flag: finalClaimState?.stable_allowed ?? null,
+  general_release_status: generalReleaseGate?.status || null
+});
+addCheck(checks, "release gated matches release-grade gate evidence", releaseGatedClaimOpen === generalReleaseGatePassed, {
+  expected_open: generalReleaseGatePassed,
+  current_state_json_allowed: currentStateJson?.allowed_claims?.includes("release-gated") === true,
+  current_state_json_blocked: currentStateJson?.blocked_claims?.includes("release-gated") === true,
+  final_claim_state_flag: finalClaimState?.release_gated_allowed ?? null,
+  general_release_status: generalReleaseGate?.status || null
+});
+addCheck(checks, "bare release-gated remains blocked for version1 release gate", bareReleaseGatedClaimOpen === false
+  && claimMembershipMatches(currentStateYaml, "bare release-gated", false)
+  && claimMembershipMatches(currentStateJson, "bare release-gated", false)
+  && claimMembershipMatches(finalClaimState, "bare release-gated", false), {
+  expected_open: false,
+  current_state_json_allowed: currentStateJson?.allowed_claims?.includes("bare release-gated") === true,
+  current_state_json_blocked: currentStateJson?.blocked_claims?.includes("bare release-gated") === true,
+  final_claim_state_allowed: finalClaimState?.allowed_claims?.includes("bare release-gated") === true,
+  final_claim_state_blocked: finalClaimState?.blocked_claims?.includes("bare release-gated") === true,
+  general_release_status: generalReleaseGate?.status || null
+});
 addCheck(checks, "commit not performed", currentStateJson?.harness_core_final_precommit_convergence?.commit_performed === false, {
   commit_performed: currentStateJson?.harness_core_final_precommit_convergence?.commit_performed ?? null
 });
@@ -604,11 +711,20 @@ const report = {
     "clean-export-finalized",
     "git-final-readiness-recorded"
   ],
-  provider_verified_allowed: false,
-  adapter_checked_allowed: false,
-  production_ready_allowed: false,
-  stable_allowed: false,
-  release_gated_allowed: false,
+  provider_verified_allowed: providerVerifiedClaimOpen,
+  adapter_checked_allowed: adapterCheckedClaimOpen,
+  production_ready_allowed: productionReadyClaimOpen,
+  stable_allowed: stableClaimOpen,
+  release_gated_allowed: releaseGatedClaimOpen,
+  bare_release_gated_allowed: bareReleaseGatedClaimOpen,
+  release_grade_expected_claim_flags: {
+    provider_verified_allowed: providerGate?.status === "pass" && providerGate?.provider_verified_allowed === true,
+    adapter_checked_allowed: adapterCheckedGatePassed,
+    production_ready_allowed: generalReleaseGatePassed,
+    stable_allowed: generalReleaseGatePassed,
+    release_gated_allowed: generalReleaseGatePassed,
+    bare_release_gated_allowed: false
+  },
   checks,
   failures,
   unresolved_items_count: failures.length
@@ -693,11 +809,12 @@ const gateReport = {
   commit_ready: report.commit_ready,
   commit_performed: false,
   commit_approval_required: true,
-  provider_verified_allowed: false,
-  adapter_checked_allowed: false,
-  production_ready_allowed: false,
-  stable_allowed: false,
-  release_gated_allowed: false,
+  provider_verified_allowed: providerVerifiedClaimOpen,
+  adapter_checked_allowed: adapterCheckedClaimOpen,
+  production_ready_allowed: productionReadyClaimOpen,
+  stable_allowed: stableClaimOpen,
+  release_gated_allowed: releaseGatedClaimOpen,
+  bare_release_gated_allowed: bareReleaseGatedClaimOpen,
   unresolved_items_count: failures.length,
   unresolved_items: failures
 };

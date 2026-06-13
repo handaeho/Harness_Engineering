@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+  "provider_verified_allowed": true,
+  "adapter_checked_allowed": true,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "allowed_claims": [
+    "provider-diverse",
+    "local-model-verified",
+    "post-export-active-provider-lanes-verified",
+    "post-export-active-adapters-checked",
+    "post-export-active-scoped-production-ready",
+    "post-export-active-scoped-stable",
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated",
+    "provider-verified",
+    "adapter-checked"
+  ],
+  "blocked_claims": [
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "claim_update_rule": "Only status=pass may add bare adapter-checked to allowed_claims; hold keeps adapter-checked blocked."
+}

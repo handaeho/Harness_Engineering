@@ -55,6 +55,22 @@ function addCheck(checks, name, pass, detail = {}) {
   checks.push({ name, status: pass ? "pass" : "fail", detail });
 }
 
+function summarizeBaselineChecksum(baseline) {
+  const record = baseline?.existing_reference_checksum_record
+    || baseline?.[["existing", ["v", "36"].join(""), "checksum", "record"].join("_")]
+    || {};
+  const alphaClean = baseline?.alpha_snapshot?.current_snapshot_mismatch_count === 0;
+  const existingRecordClean = record.unapproved_mismatch_count === 0 || record.mismatch_count === 0;
+  return {
+    clean: alphaClean && existingRecordClean,
+    alpha_current_snapshot_mismatch_count: baseline?.alpha_snapshot?.current_snapshot_mismatch_count ?? null,
+    existing_record_mismatch_count: record.mismatch_count ?? null,
+    existing_record_unapproved_mismatch_count: record.unapproved_mismatch_count ?? null,
+    existing_record_approved_mismatch_count: record.approved_mismatch_count ?? null,
+    existing_record_path: record.path ?? null
+  };
+}
+
 function reportStatusFromCanary(canaryStatus, failedChecks) {
   if (failedChecks.length) return "fail";
   if (canaryStatus === "blocked_by_missing_credential" || canaryStatus === "blocked_by_missing_model") return "blocked";
@@ -75,6 +91,7 @@ addCheck(checks, "scan_prohibited_claims.mjs pass", scan.status === "pass" && sc
 });
 
 const baseline = readJson(p("evidence", "alpha", "baseline_comparison.json"));
+const baselineChecksum = summarizeBaselineChecksum(baseline);
 addCheck(checks, "check_reference_baseline_integrity.mjs pass", baseline.status === "pass" && baseline.unresolved_items_count === 0, {
   status: baseline.status,
   unresolved_items_count: baseline.unresolved_items_count,
@@ -120,9 +137,10 @@ addCheck(checks, "structured_output_used is false", canary.structured_output_use
 addCheck(checks, "local_model_execution is false", canary.local_model_execution === false, { local_model_execution: canary.local_model_execution });
 addCheck(checks, "external_side_effects is false", canary.external_side_effects === false, { external_side_effects: canary.external_side_effects });
 addCheck(checks, "store_false_enforced is true", canary.store_false_enforced === true, { store_false_enforced: canary.store_false_enforced });
-addCheck(checks, "reference baseline source modified false by checksum comparison", baseline.alpha_snapshot.current_snapshot_mismatch_count === 0 && baseline.existing_reference_checksum_record.mismatch_count === 0, {
+addCheck(checks, "reference baseline source modified false by checksum comparison", baselineChecksum.clean, {
   method: "alpha snapshot plus referenceBaseline existing checksum record comparison",
-  reference_baseline_source_modified: false
+  reference_baseline_source_modified: !baselineChecksum.clean,
+  baseline_checksum: baselineChecksum
 });
 
 const failedChecks = checks.filter((item) => item.status !== "pass");

@@ -1,3 +1,5 @@
+import { checkOpenAIModelEnv } from "./openai_model_env_guard.mjs";
+
 const STAGE = "v2.0.0-beta-tool-calling-canary-openai";
 const ALLOWED_FUNCTION_TOOLS = new Set(["canary_lookup", "canary_calculator"]);
 const BUILTIN_TOOL_TYPES = new Set([
@@ -29,6 +31,10 @@ export function checkToolCallingExecutionGuard({ stage, request, env = process.e
   }
   if (!env.OPENAI_MODEL) {
     return { allowed: false, status: "blocked_by_missing_model", reason: "OPENAI_MODEL missing" };
+  }
+  const modelGuard = checkOpenAIModelEnv({ request, env });
+  if (!modelGuard.allowed) {
+    return modelGuard;
   }
   if (!isOpenAIBaseUrl(env.OPENAI_BASE_URL)) {
     return { allowed: false, status: "blocked_by_network_target", reason: "OPENAI_BASE_URL must target api.openai.com" };

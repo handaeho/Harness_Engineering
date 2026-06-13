@@ -1,0 +1,132 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+  "adapter_checked_allowed": true,
+  "checks": [
+    {
+      "name": "release_grade_adapter_checked_final_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "adapter_checked_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stage matches",
+      "status": "pass",
+      "detail": {
+        "report_stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+        "boundary_stage": "v2.0.0-release-grade-adapter-checked-final-gate"
+      }
+    },
+    {
+      "name": "status pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "adapter_checked_final_gate_executed": true
+      }
+    },
+    {
+      "name": "provider and adapter claims allowed",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+        "provider_verified_allowed": true,
+        "adapter_checked_allowed": true,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "allowed_claims": [
+          "provider-diverse",
+          "local-model-verified",
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-adapters-checked",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-stable",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated",
+          "provider-verified",
+          "adapter-checked"
+        ],
+        "blocked_claims": [
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "claim_update_rule": "Only status=pass may add bare adapter-checked to allowed_claims; hold keeps adapter-checked blocked."
+      }
+    },
+    {
+      "name": "stronger release claims still blocked",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+        "provider_verified_allowed": true,
+        "adapter_checked_allowed": true,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "allowed_claims": [
+          "provider-diverse",
+          "local-model-verified",
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-adapters-checked",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-stable",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated",
+          "provider-verified",
+          "adapter-checked"
+        ],
+        "blocked_claims": [
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "claim_update_rule": "Only status=pass may add bare adapter-checked to allowed_claims; hold keeps adapter-checked blocked."
+      }
+    },
+    {
+      "name": "unresolved items empty",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+        "unresolved_items_count": 0,
+        "unresolved_items": []
+      }
+    },
+    {
+      "name": "no new live execution by final gate",
+      "status": "pass",
+      "detail": {
+        "new_openai_provider_call": false,
+        "new_gemini_provider_call": false,
+        "new_local_model_execution_by_this_gate": false,
+        "telemetry_sink_write": false
+      }
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0
+}

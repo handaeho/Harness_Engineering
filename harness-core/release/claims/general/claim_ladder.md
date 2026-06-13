@@ -50,6 +50,9 @@
 - `owner-action-matrix-drafted`: blocker owner/action matrix was drafted.
 - `rollback-plan-drafted`: rollback plan was drafted for release gate dry-run failures and claim downgrades.
 - `release-decision-record-drafted`: release decision record was drafted with a do-not-release-gate decision.
+- `release-grade-source-ledger-checked`: official source ledger schema and source-id checks passed without provider execution.
+- `release-grade-provider-gate-attempt-recorded`: provider verification gate evaluated existing evidence and recorded `pass` or `hold`.
+- `release-grade-adapter-vllm-preflight-recorded`: adapter coverage matrix and vLLM execution requirement were recorded before any bare adapter claim.
 
 ## Upgrade Rule
 
@@ -132,6 +135,53 @@ Hardening rules:
 - Rollback plan draft is not rollback plan finalized.
 - Owner/action matrix draft is not operational readiness.
 - Beta evidence bundle pass is not production readiness.
+- Source ledger pass is not provider verification.
+- Provider gate `pass` is required for bare provider-verified.
+- Provider gate `hold` or `blocked` is not provider verified.
+- Adapter/vLLM preflight `hold` is not adapter checked.
+- vLLM manifest readiness is not vLLM execution evidence.
+
+## Release-Grade Reinforcement Claims
+
+`release-grade-source-ledger-checked` means `core/source_authority/release_grade_source_ledger.json` passed schema, required-source, official-authority, date, and claim-boundary checks.
+
+It allows:
+- official source authority ledger readiness statement
+
+It does not allow:
+- `provider-verified`
+- `adapter-checked`
+- `production-ready`
+- `stable`
+- bare `release-gated`
+- telemetry connection or production monitoring claims
+
+`release-grade-provider-gate-attempt-recorded` means `check_release_grade_provider_verified_gate.mjs` produced a provider gate report from source-ledger, provider behavior, schema/tool roundtrip, replay/regression, redaction, trace, and provider error-handling evidence. Only `status: pass` may open bare `provider-verified`; `hold` or `blocked` keeps it blocked.
+
+It allows:
+- provider gate attempt status statement
+- explicit blocker list for provider verification
+- `provider-verified` only when the gate report status is `pass`
+
+It does not allow:
+- `provider-verified` when status is `hold` or `blocked`
+- `adapter-checked`
+- `production-ready`
+- `stable`
+- bare `release-gated`
+
+`release-grade-adapter-vllm-preflight-recorded` means `check_release_grade_adapter_vllm_preflight.mjs` recorded OpenAI, Gemini, Ollama, vLLM, and common adapter coverage readiness. Bare `adapter-checked` remains blocked until vLLM endpoint execution evidence exists.
+
+It allows:
+- adapter/vLLM preflight status statement
+- explicit vLLM execution blocker statement
+
+It does not allow:
+- `adapter-checked` without vLLM execution evidence
+- `provider-verified`
+- `production-ready`
+- `stable`
+- bare `release-gated`
 
 ## Adapter Dry-run Claim
 

@@ -1,0 +1,110 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-provider-error-handling",
+  "generated_at": "2026-06-12T02:58:09.997Z",
+  "provider_verified_sufficient": true,
+  "provider_verified_error_handling_sufficient": true,
+  "live_execution": true,
+  "raw_request_storage_allowed": false,
+  "raw_response_storage_allowed": false,
+  "secret_storage_allowed": false,
+  "providers": {
+    "openai": {
+      "status": "pass",
+      "provider_verified_error_handling_sufficient": true,
+      "provider_execution": true,
+      "raw_response_stored": false,
+      "redaction_passed": true,
+      "checks": [
+        {
+          "name": "openai base live canaries pass",
+          "status": "pass",
+          "detail": {
+            "no_tool_status": "pass",
+            "structured_status": "pass",
+            "tool_status": "pass"
+          }
+        },
+        {
+          "name": "openai malformed model env blocked locally",
+          "status": "pass",
+          "detail": {
+            "allowed": false,
+            "status": "blocked_by_malformed_model_env",
+            "reason": "OPENAI_MODEL contains smart quotes; use ASCII quotes or no quotes"
+          }
+        },
+        {
+          "name": "openai provider error live approval present",
+          "status": "pass",
+          "detail": {}
+        },
+        {
+          "name": "openai credential present",
+          "status": "pass",
+          "detail": {}
+        },
+        {
+          "name": "openai invalid model provider error classified",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "provider_error_received": true,
+            "provider_error": {
+              "status": 400,
+              "type": "invalid_request_error",
+              "code": "model_not_found",
+              "param": "model",
+              "message_preview": "The requested model 'harness-core-invalid-model-for-error-handling' does not exist."
+            },
+            "reason": "expected provider error observed"
+          }
+        }
+      ]
+    },
+    "gemini": {
+      "status": "pass",
+      "provider_verified_error_handling_sufficient": true,
+      "provider_execution": true,
+      "raw_response_stored": false,
+      "redaction_passed": true,
+      "checks": [
+        {
+          "name": "gemini base live canaries pass",
+          "status": "pass",
+          "detail": {
+            "no_tool_status": "pass",
+            "structured_status": "pass",
+            "tool_status": "pass"
+          }
+        },
+        {
+          "name": "gemini provider error live approval present",
+          "status": "pass",
+          "detail": {}
+        },
+        {
+          "name": "gemini credential present",
+          "status": "pass",
+          "detail": {}
+        },
+        {
+          "name": "gemini invalid model provider error classified",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "provider_error_received": true,
+            "provider_error": {
+              "status": 404,
+              "code": 404,
+              "status_text": "NOT_FOUND",
+              "message_preview": "models/harness-core-invalid-model-for-error-handling is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported meth..."
+            },
+            "reason": "expected provider error observed"
+          }
+        }
+      ]
+    }
+  },
+  "blockers": []
+}

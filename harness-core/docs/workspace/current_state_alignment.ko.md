@@ -6,9 +6,9 @@
 
 검증 기준은 `tools/checks/workspace/check_current_state_alignment.mjs`이다.
 
-계속 금지되는 bare/general claim:
+현재 gate 기준 claim 상태:
 
-- `provider-verified`
+- `provider-verified`: release-grade provider-verified gate pass로 허용
 - `adapter-checked`
 - `production-ready`
 - `stable`

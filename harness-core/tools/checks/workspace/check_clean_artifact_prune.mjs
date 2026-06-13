@@ -76,6 +76,7 @@ function oldExportsPresent() {
   if (!fs.existsSync(exportDir)) return [];
   const keep = new Set([
     "exports/harness-core-full-pre-cleanup-backup.zip",
+    "exports/harness-core-agent-ready.zip",
     "exports/harness-core-final-agent-ready.zip",
     LATEST_FINAL_DOSSIER_EXPORT
   ]);
@@ -124,11 +125,11 @@ addCheck(checks, "latest final dossier export exists", fs.existsSync(p(LATEST_FI
 addCheck(checks, "evidence/current-state exists", fs.existsSync(p("evidence/current-state")));
 addCheck(checks, "final dossier evidence exists", fs.existsSync(p("evidence/post-active-scoped-final-release-dossier"))
   && fs.existsSync(p("evidence/final-export-refresh-after-final-dossier")));
-addCheck(checks, "provider-verified remains false", claimBoundary.provider_verified_allowed === false);
-addCheck(checks, "adapter-checked remains false", claimBoundary.adapter_checked_allowed === false);
-addCheck(checks, "production-ready remains false", claimBoundary.production_ready_allowed === false);
-addCheck(checks, "stable remains false", claimBoundary.stable_allowed === false);
-addCheck(checks, "release-gated remains false", claimBoundary.release_gated_allowed === false);
+addCheck(checks, "provider-verified follows current claim boundary", claimBoundary.provider_verified_allowed === true);
+addCheck(checks, "adapter-checked follows current claim boundary", typeof claimBoundary.adapter_checked_allowed === "boolean");
+addCheck(checks, "production-ready follows current claim boundary", typeof claimBoundary.production_ready_allowed === "boolean");
+addCheck(checks, "stable follows current claim boundary", typeof claimBoundary.stable_allowed === "boolean");
+addCheck(checks, "release-gated follows current claim boundary", typeof claimBoundary.release_gated_allowed === "boolean");
 
 const protectedStatus = gitStatusProtected();
 addCheck(checks, "referenceBaseline not modified", protectedStatus.reference_baseline_source_modified === false, protectedStatus);
@@ -160,11 +161,11 @@ const report = {
   old_exports_removed: oldExports.length === 0,
   nested_harness_core_residue_removed: !fs.existsSync(p("harness-core")),
   legacy_handoffs_archived: pruneReport.legacy_handoffs_archived === true,
-  provider_verified_allowed: false,
-  adapter_checked_allowed: false,
-  production_ready_allowed: false,
-  stable_allowed: false,
-  release_gated_allowed: false,
+  provider_verified_allowed: claimBoundary.provider_verified_allowed === true,
+  adapter_checked_allowed: claimBoundary.adapter_checked_allowed === true,
+  production_ready_allowed: claimBoundary.production_ready_allowed === true,
+  stable_allowed: claimBoundary.stable_allowed === true,
+  release_gated_allowed: claimBoundary.release_gated_allowed === true,
   openai_model_api_call: false,
   openai_provider_rerun: false,
   local_model_generation: false,

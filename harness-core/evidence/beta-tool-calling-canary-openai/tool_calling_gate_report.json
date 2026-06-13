@@ -23,7 +23,7 @@
       }
     },
     {
-      "name": "compare_v36_baseline.mjs pass",
+      "name": "check_reference_baseline_integrity.mjs pass",
       "status": "pass",
       "detail": {
         "status": "pass",
@@ -36,7 +36,7 @@
       "status": "pass",
       "detail": {
         "status": "pass",
-        "cases_total": 12,
+        "cases_total": 14,
         "cases_failed": 0
       }
     },
@@ -251,11 +251,19 @@
       }
     },
     {
-      "name": "v36 modified false by checksum comparison",
+      "name": "reference baseline source modified false by checksum comparison",
       "status": "pass",
       "detail": {
-        "method": "alpha snapshot plus v36 existing checksum record comparison",
-        "v36_modified": false
+        "method": "alpha snapshot plus referenceBaseline existing checksum record comparison",
+        "reference_baseline_source_modified": false,
+        "baseline_checksum": {
+          "clean": true,
+          "alpha_current_snapshot_mismatch_count": 0,
+          "existing_record_mismatch_count": 56,
+          "existing_record_unapproved_mismatch_count": 0,
+          "existing_record_approved_mismatch_count": 56,
+          "existing_record_path": "prompt-stack/v36/records/file_checksums.json"
+        }
       }
     }
   ],

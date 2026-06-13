@@ -20,28 +20,26 @@
     "production-monitored",
     "telemetry-connected",
     "containment-verified",
-    "rc1-openai-scope-release-gated"
-  ],
-  "blocked_claims": [
+    "rc1-openai-scope-release-gated",
     "provider-verified",
     "adapter-checked",
     "production-ready",
     "stable",
-    "release-gated",
+    "release-gated"
+  ],
+  "blocked_claims": [
     "bare release-gated"
   ],
   "canonicalization_rules": [
-    "Use post-export-active-scoped-stable, not stable.",
-    "Use post-export-active-scoped-production-ready, not production-ready.",
-    "Use post-export-active-provider-lanes-verified, not provider-verified.",
-    "Use post-export-active-adapters-checked, not adapter-checked.",
-    "Use rc1-openai-scope-release-gated, not release-gated."
+    "Use provider-verified only when release-grade provider gate status is pass.",
+    "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+    "Use release-gated only when release-grade general release gate passes with explicit approval."
   ],
-  "provider_verified_allowed": false,
-  "adapter_checked_allowed": false,
-  "production_ready_allowed": false,
-  "stable_allowed": false,
-  "release_gated_allowed": false,
+  "provider_verified_allowed": true,
+  "adapter_checked_allowed": true,
+  "production_ready_allowed": true,
+  "stable_allowed": true,
+  "release_gated_allowed": true,
   "bare_release_gated_allowed": false,
   "weak_claims_recorded": [
     "post-final-dossier-agent-application-layer-recorded",
@@ -60,7 +58,23 @@
     "root-vs-export-command-surface-finalized",
     "reference-baseline-final-integrity-checked",
     "clean-export-finalized",
-    "git-final-readiness-recorded"
+    "git-final-readiness-recorded",
+    "release-grade-source-ledger-checked",
+    "release-grade-reinforcement-completion-audit-recorded",
+    "release-grade-claim-state-sync-checked",
+    "release-grade-provider-gate-attempt-recorded",
+    "release-grade-vllm-operator-env-guard-recorded",
+    "release-grade-vllm-operator-env-guard-regression-checked",
+    "release-grade-adapter-vllm-preflight-recorded",
+    "release-grade-adapter-ollama-preflight-recorded",
+    "release-grade-adapter-coverage-completion-recorded",
+    "release-grade-adapter-checked-final-gate-recorded",
+    "release-grade-ollama-evidence-package-recorded",
+    "release-grade-vllm-evidence-package-recorded",
+    "release-grade-vllm-evidence-package-regression-checked",
+    "release-grade-vllm-operator-packet-checked",
+    "local-vllm-adapter-checked-version2-follow-up-recorded",
+    "release-grade-general-release-gate-recorded"
   ],
   "new_local_model_execution": false,
   "openai_model_api_call": false,

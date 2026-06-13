@@ -454,6 +454,9 @@ function checkerStatusPassish(report) {
 }
 
 function writeFinalSurfaceGateReport(cleanExportSurfaceReport = null) {
+  const currentState = readJsonIfExists("CURRENT_STATE.json");
+  const providerVerifiedAllowed = currentState?.allowed_claims?.includes("provider-verified") === true
+    && currentState?.blocked_claims?.includes("provider-verified") !== true;
   const noLegacySurfaceReport = readJsonIfExists(`${FINAL_SURFACE_EVIDENCE_DIR}/harness_core_no_legacy_surface_report.json`);
   const referenceBaselineReport = readJsonIfExists(`${FINAL_SURFACE_EVIDENCE_DIR}/reference_baseline_integrity_report.json`);
   const gitReadinessReport = readJsonIfExists(`${FINAL_SURFACE_EVIDENCE_DIR}/git_readiness_report.json`);
@@ -484,7 +487,7 @@ function writeFinalSurfaceGateReport(cleanExportSurfaceReport = null) {
     clean_export_sha256_embedded_in_archive: false,
     commit_performed: false,
     commit_approval_required: true,
-    provider_verified_allowed: false,
+    provider_verified_allowed: providerVerifiedAllowed,
     adapter_checked_allowed: false,
     production_ready_allowed: false,
     stable_allowed: false,
@@ -578,7 +581,8 @@ const report = {
   secret_values_included: bad.secret_value_path.length > 0,
   old_label_present: oldLabelMatches.length > 0,
   old_label_matches: oldLabelMatches,
-  provider_verified_allowed: false,
+  provider_verified_allowed: readJsonIfExists("CURRENT_STATE.json")?.allowed_claims?.includes("provider-verified") === true
+    && readJsonIfExists("CURRENT_STATE.json")?.blocked_claims?.includes("provider-verified") !== true,
   adapter_checked_allowed: false,
   production_ready_allowed: false,
   stable_allowed: false,
@@ -615,7 +619,7 @@ const cleanExportSurfaceReport = {
   archive_legacy_handoffs_included: report.archive_legacy_handoffs_included,
   nested_harness_core_included: report.nested_harness_core_included,
   old_label_present: report.old_label_present,
-  provider_verified_allowed: false,
+  provider_verified_allowed: report.provider_verified_allowed,
   adapter_checked_allowed: false,
   production_ready_allowed: false,
   stable_allowed: false,

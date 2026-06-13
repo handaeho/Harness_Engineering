@@ -1,0 +1,152 @@
+{
+  "status": "hold",
+  "stage": "v2.0.0-release-grade-vllm-evidence-package",
+  "unresolved_items_count": 7,
+  "unresolved_items": [
+    {
+      "id": "vllm_operator_env_guard",
+      "lane": "vllm_adapter",
+      "status": "hold",
+      "reason": "Required vLLM release-grade evidence artifact is missing or incomplete.",
+      "path": "evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json",
+      "failed_checks": [
+        {
+          "name": "status allowed",
+          "status": "fail",
+          "detail": {
+            "status": "hold",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:can_enter_vllm_live_evidence_gate",
+          "status": "fail",
+          "detail": {
+            "expected": true,
+            "actual": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_endpoint_readiness",
+      "lane": "vllm_adapter",
+      "status": "hold",
+      "reason": "Required vLLM release-grade evidence artifact is missing or incomplete.",
+      "path": "evidence/post-stable-vllm-endpoint-readiness-preflight/local_endpoint_readiness_preflight_report.json",
+      "failed_checks": [
+        {
+          "name": "status allowed",
+          "status": "fail",
+          "detail": {
+            "status": "fail",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:can_enter_local_no_tool_canary",
+          "status": "fail",
+          "detail": {
+            "expected": true,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:local_endpoint_probe",
+          "status": "fail",
+          "detail": {
+            "expected": true,
+            "actual": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_no_tool_canary",
+      "lane": "vllm_adapter",
+      "status": "hold",
+      "reason": "Required vLLM release-grade evidence artifact is missing or incomplete.",
+      "path": "evidence/post-stable-local-vllm-no-tool-canary/vllm_no_tool_canary_report.json",
+      "failed_checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evidence/post-stable-local-vllm-no-tool-canary/vllm_no_tool_canary_report.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_no_tool_check",
+      "lane": "vllm_adapter",
+      "status": "hold",
+      "reason": "Required vLLM release-grade evidence artifact is missing or incomplete.",
+      "path": "evals/reports/vllm_no_tool_canary_check_report.json",
+      "failed_checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evals/reports/vllm_no_tool_canary_check_report.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_adapter_conformance",
+      "lane": "vllm_adapter",
+      "status": "hold",
+      "reason": "Required vLLM release-grade evidence artifact is missing or incomplete.",
+      "path": "evidence/post-stable-vllm-adapter-conformance-local-execution/vllm_adapter_conformance_report.json",
+      "failed_checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evidence/post-stable-vllm-adapter-conformance-local-execution/vllm_adapter_conformance_report.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vllm_adapter_conformance_check",
+      "lane": "vllm_adapter",
+      "status": "hold",
+      "reason": "Required vLLM release-grade evidence artifact is missing or incomplete.",
+      "path": "evals/reports/vllm_adapter_conformance_check_report.json",
+      "failed_checks": [
+        {
+          "name": "exists",
+          "status": "fail",
+          "detail": {
+            "path": "evals/reports/vllm_adapter_conformance_check_report.json"
+          }
+        }
+      ]
+    },
+    {
+      "id": "adapter_vllm_preflight",
+      "lane": "vllm_adapter",
+      "status": "hold",
+      "reason": "Required vLLM release-grade evidence artifact is missing or incomplete.",
+      "path": "evidence/release-grade-adapter-vllm-preflight/release_grade_adapter_vllm_preflight_report.json",
+      "failed_checks": [
+        {
+          "name": "status allowed",
+          "status": "fail",
+          "detail": {
+            "status": "hold",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

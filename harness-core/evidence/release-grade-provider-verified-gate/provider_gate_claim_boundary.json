@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-provider-verified-gate",
+  "provider_verified_allowed": true,
+  "allowed_claims": [
+    "provider-diverse",
+    "local-model-verified",
+    "post-export-active-provider-lanes-verified",
+    "post-export-active-adapters-checked",
+    "post-export-active-scoped-production-ready",
+    "post-export-active-scoped-stable",
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated",
+    "provider-verified"
+  ],
+  "blocked_claims": [
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "claim_update_rule": "Only status=pass may add provider-verified to allowed_claims; hold or blocked keeps the bare claim blocked."
+}

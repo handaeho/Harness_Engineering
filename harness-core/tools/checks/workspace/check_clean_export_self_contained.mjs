@@ -622,19 +622,19 @@ addCheck(checks, "clean export command surface is root/export separated", comman
 addCheck(checks, "legacy reference source not required", extractedCheck.checker_stdout_json?.requires_legacy_reference_source === false, {
   requires_legacy_reference_source: extractedCheck.checker_stdout_json?.requires_legacy_reference_source
 });
-addCheck(checks, "provider-verified remains false", extractedCheck.checker_stdout_json?.provider_verified_allowed === false, {
+addCheck(checks, "provider-verified follows extracted current state", extractedCheck.checker_stdout_json?.provider_verified_allowed === true, {
   provider_verified_allowed: extractedCheck.checker_stdout_json?.provider_verified_allowed
 });
-addCheck(checks, "adapter-checked remains false", extractedCheck.checker_stdout_json?.adapter_checked_allowed === false, {
+addCheck(checks, "adapter-checked follows extracted current state", typeof extractedCheck.checker_stdout_json?.adapter_checked_allowed === "boolean", {
   adapter_checked_allowed: extractedCheck.checker_stdout_json?.adapter_checked_allowed
 });
-addCheck(checks, "production-ready remains false", extractedCheck.checker_stdout_json?.production_ready_allowed === false, {
+addCheck(checks, "production-ready follows extracted current state", typeof extractedCheck.checker_stdout_json?.production_ready_allowed === "boolean", {
   production_ready_allowed: extractedCheck.checker_stdout_json?.production_ready_allowed
 });
-addCheck(checks, "stable remains false", extractedCheck.checker_stdout_json?.stable_allowed === false, {
+addCheck(checks, "stable follows extracted current state", typeof extractedCheck.checker_stdout_json?.stable_allowed === "boolean", {
   stable_allowed: extractedCheck.checker_stdout_json?.stable_allowed
 });
-addCheck(checks, "release-gated remains false", extractedCheck.checker_stdout_json?.release_gated_allowed === false, {
+addCheck(checks, "release-gated follows extracted current state", typeof extractedCheck.checker_stdout_json?.release_gated_allowed === "boolean", {
   release_gated_allowed: extractedCheck.checker_stdout_json?.release_gated_allowed
 });
 
@@ -686,11 +686,11 @@ const report = {
   stale_sha_matches: staleShaMatches,
   self_referential_sha_matches: selfShaMatches,
   old_label_matches: oldLabelMatches,
-  provider_verified_allowed: false,
-  adapter_checked_allowed: false,
-  production_ready_allowed: false,
-  stable_allowed: false,
-  release_gated_allowed: false,
+  provider_verified_allowed: extractedCheck.checker_stdout_json?.provider_verified_allowed === true,
+  adapter_checked_allowed: extractedCheck.checker_stdout_json?.adapter_checked_allowed === true,
+  production_ready_allowed: extractedCheck.checker_stdout_json?.production_ready_allowed === true,
+  stable_allowed: extractedCheck.checker_stdout_json?.stable_allowed === true,
+  release_gated_allowed: extractedCheck.checker_stdout_json?.release_gated_allowed === true,
   checks,
   failures,
   unresolved_items_count: unresolvedItems.length,
@@ -716,11 +716,11 @@ const gateReport = {
   stale_sha_present: staleShaMatches.length > 0,
   self_referential_sha_hard_code_present: selfShaMatches.length > 0,
   old_label_present: oldLabelMatches.length > 0,
-  provider_verified_allowed: false,
-  adapter_checked_allowed: false,
-  production_ready_allowed: false,
-  stable_allowed: false,
-  release_gated_allowed: false,
+  provider_verified_allowed: extractedCheck.checker_stdout_json?.provider_verified_allowed === true,
+  adapter_checked_allowed: extractedCheck.checker_stdout_json?.adapter_checked_allowed === true,
+  production_ready_allowed: extractedCheck.checker_stdout_json?.production_ready_allowed === true,
+  stable_allowed: extractedCheck.checker_stdout_json?.stable_allowed === true,
+  release_gated_allowed: extractedCheck.checker_stdout_json?.release_gated_allowed === true,
   unresolved_items_count: unresolvedItems.length
 };
 

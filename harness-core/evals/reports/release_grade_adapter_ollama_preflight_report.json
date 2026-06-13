@@ -1,0 +1,397 @@
+{
+  "candidate_id": "release-grade-adapter-ollama-preflight-2026-06-13",
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-adapter-ollama-preflight",
+  "generated_at": "2026-06-13T03:25:32.941Z",
+  "adapter_policy": "ollama_adapter_checked_is_version1_release_prerequisite",
+  "source_ledger": {
+    "path": "evidence/release-grade-source-ledger/release_grade_source_ledger_report.json",
+    "report_status": "pass",
+    "ledger_exists": true,
+    "required_ids_present": true,
+    "missing_ids": [],
+    "source_count": 10
+  },
+  "coverage_matrix": {
+    "openai_adapter_exists": true,
+    "gemini_adapter_exists": true,
+    "ollama_adapter_exists": true,
+    "ollama_requirements_present": true,
+    "ollama_evidence": {
+      "local_model_final_gate": {
+        "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+        "exists": true,
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+        "checks": [
+          {
+            "name": "exists",
+            "status": "pass",
+            "detail": {
+              "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json"
+            }
+          },
+          {
+            "name": "status pass",
+            "status": "pass",
+            "detail": {
+              "status": "pass"
+            }
+          },
+          {
+            "name": "flag:local_model_verified_allowed",
+            "status": "pass",
+            "detail": {
+              "expected": true,
+              "actual": true
+            }
+          }
+        ],
+        "pass": true
+      },
+      "structured_output_smoke": {
+        "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+        "exists": true,
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary",
+        "checks": [
+          {
+            "name": "exists",
+            "status": "pass",
+            "detail": {
+              "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json"
+            }
+          },
+          {
+            "name": "status pass",
+            "status": "pass",
+            "detail": {
+              "status": "pass"
+            }
+          },
+          {
+            "name": "flag:provider",
+            "status": "pass",
+            "detail": {
+              "expected": "ollama",
+              "actual": "ollama"
+            }
+          },
+          {
+            "name": "flag:raw_request_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:raw_response_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:secrets_logged",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          }
+        ],
+        "pass": true
+      },
+      "tool_calling_mock_smoke": {
+        "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+        "exists": true,
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary",
+        "checks": [
+          {
+            "name": "exists",
+            "status": "pass",
+            "detail": {
+              "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json"
+            }
+          },
+          {
+            "name": "status pass",
+            "status": "pass",
+            "detail": {
+              "status": "pass"
+            }
+          },
+          {
+            "name": "flag:provider",
+            "status": "pass",
+            "detail": {
+              "expected": "ollama",
+              "actual": "ollama"
+            }
+          },
+          {
+            "name": "flag:raw_request_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:raw_response_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:secrets_logged",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          }
+        ],
+        "pass": true
+      },
+      "replay_regression_smoke": {
+        "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+        "exists": true,
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-replay-regression-smoke",
+        "checks": [
+          {
+            "name": "exists",
+            "status": "pass",
+            "detail": {
+              "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json"
+            }
+          },
+          {
+            "name": "status pass",
+            "status": "pass",
+            "detail": {
+              "status": "pass"
+            }
+          },
+          {
+            "name": "flag:raw_request_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:raw_response_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:secrets_logged",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          }
+        ],
+        "pass": true
+      },
+      "redaction_storage_audit": {
+        "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+        "exists": true,
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit",
+        "checks": [
+          {
+            "name": "exists",
+            "status": "pass",
+            "detail": {
+              "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json"
+            }
+          },
+          {
+            "name": "status pass",
+            "status": "pass",
+            "detail": {
+              "status": "pass"
+            }
+          },
+          {
+            "name": "flag:raw_request_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:raw_response_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:secrets_logged",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          }
+        ],
+        "pass": true
+      },
+      "adapter_conformance": {
+        "path": "evidence/post-stable-local-ollama-adapter-conformance/local_ollama_adapter_conformance_report.json",
+        "exists": true,
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-adapter-conformance-dependency-install-and-local-ollama-validation",
+        "checks": [
+          {
+            "name": "exists",
+            "status": "pass",
+            "detail": {
+              "path": "evidence/post-stable-local-ollama-adapter-conformance/local_ollama_adapter_conformance_report.json"
+            }
+          },
+          {
+            "name": "status pass",
+            "status": "pass",
+            "detail": {
+              "status": "pass"
+            }
+          },
+          {
+            "name": "flag:provider",
+            "status": "pass",
+            "detail": {
+              "expected": "ollama",
+              "actual": "ollama"
+            }
+          },
+          {
+            "name": "flag:raw_request_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:raw_response_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          }
+        ],
+        "pass": true
+      },
+      "adapter_conformance_execution": {
+        "path": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+        "exists": true,
+        "status": "pass",
+        "stage": "v2.0.0-post-stable-adapter-conformance-local-ollama-execution",
+        "checks": [
+          {
+            "name": "exists",
+            "status": "pass",
+            "detail": {
+              "path": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json"
+            }
+          },
+          {
+            "name": "status pass",
+            "status": "pass",
+            "detail": {
+              "status": "pass"
+            }
+          },
+          {
+            "name": "flag:raw_request_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:raw_response_stored",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          },
+          {
+            "name": "flag:secrets_logged",
+            "status": "pass",
+            "detail": {
+              "expected": false,
+              "actual": false
+            }
+          }
+        ],
+        "pass": true
+      }
+    },
+    "local_vllm_adapter_exists": true,
+    "local_vllm_version2_follow_up": {
+      "claim": "local-vllm-adapter-checked",
+      "required_before_version1_release_gated": false,
+      "status": "deferred_until_version2"
+    }
+  },
+  "blockers": [],
+  "unresolved_items_count": 0,
+  "live_execution": {
+    "new_openai_provider_call": false,
+    "new_gemini_provider_call": false,
+    "new_local_model_execution": false,
+    "ollama_endpoint_probe": false,
+    "telemetry_sink_write": false,
+    "approval_required_for_new_local_execution": true
+  },
+  "allowed_claims": [
+    "provider-diverse",
+    "local-model-verified",
+    "post-export-active-provider-lanes-verified",
+    "post-export-active-adapters-checked",
+    "post-export-active-scoped-production-ready",
+    "post-export-active-scoped-stable",
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated",
+    "provider-verified"
+  ],
+  "blocked_claims": [
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "provider_verified_allowed": true,
+  "ollama_adapter_checked_candidate_ready": true,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "bare_release_gated_allowed": false
+}

@@ -1,0 +1,32 @@
+id: release_grade_vllm_operator_env_guard
+stage: v2.0.0-release-grade-vllm-operator-env-guard
+mode: no_live_environment_guard
+command: npm run check:vllm-operator-env
+strict_command: npm run preflight:vllm-operator-env
+regression_command: npm run check:vllm-operator-env-regression
+expected_statuses:
+  - pass
+  - hold
+  - fail
+required_inputs:
+  - VLLM_ENDPOINT_URL
+  - VLLM_MODEL
+  - VLLM_AUTH_REQUIRED
+conditional_inputs:
+  - VLLM_API_KEY when VLLM_AUTH_REQUIRED=yes
+forbidden_execution:
+  openai_provider_call: true
+  gemini_provider_call: true
+  local_endpoint_probe: true
+  new_local_model_execution: true
+  telemetry_sink_write: true
+forbidden_storage:
+  raw_request: true
+  raw_response: true
+  api_key_value: true
+  authorization_header: true
+outputs:
+  - evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json
+  - evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_regression_report.json
+  - evals/reports/release_grade_vllm_operator_env_guard_report.json
+  - evals/reports/release_grade_vllm_operator_env_guard_regression_report.json

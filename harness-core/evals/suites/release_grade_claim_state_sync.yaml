@@ -1,0 +1,51 @@
+id: release_grade_claim_state_sync
+stage: v2.0.0-release-grade-claim-state-sync
+mode: no_live_sor_claim_state_sync
+check_only_command: npm run run:release-grade-claim-state-sync
+apply_command: npm run apply:release-grade-claim-state-sync
+checker_command: npm run check:release-grade-claim-state-sync
+expected_statuses:
+  - pass
+  - hold
+  - fail
+required_inputs:
+  - CURRENT_STATE.yaml
+  - CURRENT_STATE.json
+  - evidence/post-active-scoped-final-release-dossier/final_release_claim_state.json
+  - evidence/release-grade-provider-verified-gate/release_grade_provider_verified_gate_report.json
+  - evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json
+  - evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json
+  - evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json
+target_files:
+  - CURRENT_STATE.yaml
+  - CURRENT_STATE.json
+  - evidence/post-active-scoped-final-release-dossier/final_release_claim_state.json
+  - docs/claims/final_release_claim_state.ko.md
+forbidden_execution:
+  openai_provider_call: true
+  gemini_provider_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  telemetry_sink_write: true
+  raw_request_storage: true
+  raw_response_storage: true
+  secret_storage: true
+claim_effect:
+  opens_only_when_gate_evidence_allows:
+    - provider-verified
+    - adapter-checked
+    - production-ready
+    - stable
+    - release-gated
+  keeps_blocked_without_evidence:
+    - adapter-checked
+    - production-ready
+    - stable
+    - release-gated
+    - bare release-gated
+outputs:
+  - evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_report.json
+  - evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_check_report.json
+  - evidence/release-grade-claim-state-sync/unresolved_items.json
+  - evals/reports/release_grade_claim_state_sync_report.json
+  - evals/reports/release_grade_claim_state_sync_check_report.json

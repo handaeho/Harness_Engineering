@@ -1,0 +1,160 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-provider-replay-regression",
+  "generated_at": "2026-06-12T01:01:53.174Z",
+  "provider_verified_replay_regression_sufficient": true,
+  "replay_verified_allowed": false,
+  "raw_request_storage_allowed": false,
+  "raw_response_storage_allowed": false,
+  "providers": {
+    "openai": {
+      "status": "pass",
+      "replay_verified_allowed": false,
+      "provider_verified_replay_regression_sufficient": true,
+      "evidence_class": "release_grade_provider_regression_from_current_live_canary_and_canary_suite",
+      "checks": [
+        {
+          "name": "openai no-tool live canary pass",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+          }
+        },
+        {
+          "name": "openai structured-output live canary pass",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-beta-structured-output-canary-openai"
+          }
+        },
+        {
+          "name": "openai tool-calling live canary pass",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-beta-tool-calling-canary-openai"
+          }
+        },
+        {
+          "name": "openai canary suite consistency pass",
+          "status": "pass",
+          "detail": {
+            "suite_gate": {
+              "path": "evidence/beta-openai-canary-replay-suite/suite_gate_report.json",
+              "exists": true,
+              "status": "pass",
+              "stage": "v2.0.0-beta-openai-canary-replay-suite"
+            },
+            "suite_summary": {
+              "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+              "exists": true,
+              "status": "pass",
+              "stage": "v2.0.0-beta-openai-canary-replay-suite"
+            }
+          }
+        },
+        {
+          "name": "openai no raw response stored",
+          "status": "pass",
+          "detail": {}
+        },
+        {
+          "name": "openai redaction passed",
+          "status": "pass",
+          "detail": {}
+        },
+        {
+          "name": "openai stronger replay claims remain blocked",
+          "status": "pass",
+          "detail": {
+            "can_enter_replay_verified_claim": false,
+            "claims_blocked": [
+              "replay-verified",
+              "tool-call-verified",
+              "schema-output-verified",
+              "provider-verified",
+              "adapter-checked",
+              "provider-diverse",
+              "integration-verified",
+              "release-gated",
+              "production-monitored",
+              "local-model-verified"
+            ]
+          }
+        }
+      ]
+    },
+    "gemini": {
+      "status": "pass",
+      "replay_verified_allowed": false,
+      "provider_verified_replay_regression_sufficient": true,
+      "evidence_class": "release_grade_provider_regression_from_current_live_canary_and_runtime_asset_pack",
+      "checks": [
+        {
+          "name": "gemini provider canary pass",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+          }
+        },
+        {
+          "name": "gemini structured-output live canary pass",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-gemini-structured-output-live-canary"
+          }
+        },
+        {
+          "name": "gemini tool-calling live canary pass",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-gemini-tool-calling-live-canary"
+          }
+        },
+        {
+          "name": "gemini runtime asset pack pass",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+            "exists": true,
+            "status": "pass",
+            "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+          }
+        },
+        {
+          "name": "gemini no raw response stored",
+          "status": "pass",
+          "detail": {}
+        },
+        {
+          "name": "gemini redaction passed",
+          "status": "pass",
+          "detail": {}
+        }
+      ]
+    }
+  },
+  "blocked_claims": [
+    "replay-verified",
+    "release-gated",
+    "production-ready",
+    "stable"
+  ]
+}

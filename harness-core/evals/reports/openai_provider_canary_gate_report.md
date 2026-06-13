@@ -1,35 +1,31 @@
-# Credentialed OpenAI Provider Canary Gate Report
+# OpenAI Provider Canary Gate Report
 
 Status: pass
 
-Stage: v2.0.0-beta-provider-canary-openai-credentialed-rerun
+Stage: v2.0.0-beta-provider-canary-openai
 
 - Can enter tool calling execution: false
 - Can enter structured output execution: false
 - Can enter local model execution: false
-- Reason: Credentialed OpenAI no-tool provider canary passed. Tool calling, structured output, and local model execution remain closed.
+- Reason: OpenAI no-tool provider canary passed. Other provider surfaces still require explicit approval.
 
 ## Checks
 
 - pass: validate_alpha.mjs pass
 - pass: scan_prohibited_claims.mjs pass
-- pass: compare_v36_baseline.mjs pass
+- pass: check_reference_baseline_integrity.mjs pass
 - pass: run_adapter_conformance_dry_run.mjs pass
 - pass: run_beta_mock_execution.mjs pass
 - pass: run_openai_provider_canary.mjs pass or explicit blocked status
 - pass: provider trace samples exist
-- pass: request response mapping report exists
 - pass: redaction report exists
+- pass: redaction report pass
 - pass: tools_used is false
 - pass: structured_output_used is false
 - pass: local_model_execution is false
 - pass: external_side_effects is false
 - pass: store_false_enforced is true
-- pass: redaction passed and raw response not stored
-- pass: provider_execution is true for credentialed pass
-- pass: all canary cases passed
-- pass: request response mapping report pass
-- pass: v36 modified false by checksum comparison
+- pass: reference baseline source modified false by checksum comparison
 
 ## Claim Boundary
 

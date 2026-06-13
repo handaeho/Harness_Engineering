@@ -2,17 +2,19 @@ version: v2.0.0
 state_label: v2.0.0-rc.1-postrc-final-dossier
 scope: active_scoped_final_dossier
 stage: v2.0.0-harness-core-final-precommit-convergence-autopilot
-
 project:
   name: HARNESS Core
   slug: harness-core
   legacy_names: []
   description: Evidence-gated autonomous agent engineering harness.
-
+package_metadata:
+  package_json_version: 2.0.0-rc.1-postrc-final-dossier
+  package_version_role: private_workspace_metadata
+  source_of_truth_version: CURRENT_STATE.version
+  source_of_truth_state_label: CURRENT_STATE.state_label
 operation_mode:
   primary: root_workspace
   secondary: agent_ready_export
-
 root_workspace:
   purpose: primary_operating_mode
   entrypoint: START_HERE_FOR_AGENTS.ko.md
@@ -20,36 +22,35 @@ root_workspace:
   current_state_yaml: CURRENT_STATE.yaml
   bootstrap: AGENT_BOOTSTRAP.ko.md
   first_command: node tools/checks/workspace/check_agent_ready_self_contained.mjs
-
 agent_ready_export:
   purpose: transfer_or_archive_mode
   path: exports/harness-core-agent-ready.zip
   checksum_report_path: evidence/clean-artifact-prune/agent_ready_clean_export_report.json
   intended_recipient: different_agent_conversation_or_machine
-  note: Use this HARNESS Core zip when handing the harness to a different agent, conversation, or machine. The exact archive SHA256 is recorded outside the archive after build to avoid a self-referential checksum.
-
+  note: Use this HARNESS Core zip when handing the harness to a different agent,
+    conversation, or machine. The exact archive SHA256 is recorded outside the
+    archive after build to avoid a self-referential checksum.
 latest_dossier_export:
   path: exports/v2.0.0-rc.1-postrc-final-dossier-export.zip
   sha256: 4f863c921cf1e00098f88913ba0810e8808cfff1dca824a2feeb9d1a0a48c424
   intended_recipient: dossier_archive
-  note: This dossier export is retained as evidence, but is not included inside the clean agent-ready export.
-
+  note: This dossier export is retained as evidence, but is not included inside
+    the clean agent-ready export.
 reference_baseline:
   status: available
   role: historical_reference_snapshot
   active_source_of_truth: false
   path: evidence/reference-baseline
-  policy: Used only as an integrity reference snapshot. It is not the current operating asset.
+  policy: Used only as an integrity reference snapshot. It is not the current
+    operating asset.
   integrity_checker: tools/checks/workspace/check_reference_baseline_integrity.mjs
   legacy_source_required: false
   source_scan_performed: false
   checksum_recalculated: false
-
 final_dossier:
   path: evidence/post-active-scoped-final-release-dossier/final_release_dossier.json
   claim_state_path: evidence/post-active-scoped-final-release-dossier/final_release_claim_state.json
   export_report_path: evidence/final-export-refresh-after-final-dossier/final_export_refresh_after_final_dossier_report.json
-
 allowed_claims:
   - provider-diverse
   - local-model-verified
@@ -63,27 +64,23 @@ allowed_claims:
   - telemetry-connected
   - containment-verified
   - rc1-openai-scope-release-gated
-
-blocked_claims:
   - provider-verified
   - adapter-checked
   - production-ready
   - stable
   - release-gated
+blocked_claims:
   - bare release-gated
-
 protected_paths:
   - dist/**
   - node_modules/**
   - evidence/reference-baseline/**
-
 canonicalization_rules:
-  - Use post-export-active-scoped-stable, not stable.
-  - Use post-export-active-scoped-production-ready, not production-ready.
-  - Use post-export-active-provider-lanes-verified, not provider-verified.
-  - Use post-export-active-adapters-checked, not adapter-checked.
-  - Use rc1-openai-scope-release-gated, not release-gated.
-
+  - Use provider-verified only when release-grade provider gate status is pass.
+  - Use adapter-checked only when release-grade adapter final gate and Ollama
+    evidence package pass.
+  - Use release-gated only when release-grade general release gate passes with
+    explicit approval.
 agent_application_layer:
   start_here: START_HERE_FOR_AGENTS.ko.md
   bootstrap: AGENT_BOOTSTRAP.ko.md
@@ -95,7 +92,6 @@ agent_application_layer:
     - profiles/agents/local_runtime_operator.yaml
     - profiles/agents/release_gate_reviewer.yaml
   alignment_checker: tools/checks/workspace/check_current_state_alignment.mjs
-
 execution_boundary:
   openai_model_api_call: false
   openai_provider_rerun: false
@@ -109,7 +105,6 @@ execution_boundary:
   raw_request_storage: false
   raw_response_storage: false
   secret_storage: false
-
 self_contained_agent_ready_check:
   stage: v2.0.0-post-clean-export-self-contained-agent-check
   checker: tools/checks/workspace/check_agent_ready_self_contained.mjs
@@ -128,7 +123,6 @@ self_contained_agent_ready_check:
     - reference-baseline-integrity-checked
     - legacy-reference-policy-recorded
     - active-docs-reference-name-aligned
-
 harness_core_final_surface_git_readiness:
   stage: v2.0.0-post-rename-harness-core-final-surface-and-git-readiness
   no_legacy_surface_checker: tools/checks/workspace/check_harness_core_no_legacy_surface.mjs
@@ -143,7 +137,6 @@ harness_core_final_surface_git_readiness:
     - reference-baseline-integrity-checked
     - harness-core-git-readiness-recorded
     - harness-core-agent-ready-export-refreshed
-
 harness_core_final_precommit_convergence:
   stage: v2.0.0-harness-core-final-precommit-convergence-autopilot
   checker: tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs
@@ -158,9 +151,95 @@ harness_core_final_precommit_convergence:
     - reference-baseline-final-integrity-checked
     - clean-export-finalized
     - git-final-readiness-recorded
-
+release_grade_reinforcement:
+  stage: v2.0.0-release-grade-ollama-adapter-gated-flow
+  source_ledger: core/source_authority/release_grade_source_ledger.json
+  source_ledger_checker: tools/checks/workspace/check_release_grade_source_ledger.mjs
+  completion_audit_checker: tools/checks/workspace/check_release_grade_reinforcement_completion_audit.mjs
+  claim_state_sync_runner: tools/runners/workspace/run_release_grade_claim_state_sync.mjs
+  claim_state_sync_checker: tools/checks/workspace/check_release_grade_claim_state_sync.mjs
+  provider_gate_checker: tools/checks/providers/check_release_grade_provider_verified_gate.mjs
+  adapter_vllm_operator_env_guard_checker: tools/checks/local/check_vllm_operator_env_guard.mjs
+  adapter_vllm_operator_env_guard_regression_checker: tools/checks/local/check_vllm_operator_env_guard_regression.mjs
+  adapter_vllm_preflight_checker: tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs
+  adapter_coverage_runner: tools/runners/adapters/run_release_grade_adapter_coverage_completion.mjs
+  adapter_coverage_checker: tools/checks/adapters/check_release_grade_adapter_coverage_completion.mjs
+  adapter_checked_final_gate_runner: tools/runners/adapters/run_release_grade_adapter_checked_final_gate.mjs
+  adapter_checked_final_gate_checker: tools/checks/adapters/check_release_grade_adapter_checked_final_gate.mjs
+  adapter_vllm_evidence_package_checker: tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs
+  adapter_vllm_evidence_package_regression_checker: tools/checks/adapters/check_release_grade_vllm_evidence_package_regression.mjs
+  adapter_vllm_operator_packet_checker: tools/checks/adapters/check_release_grade_vllm_operator_packet.mjs
+  adapter_vllm_evidence_gate_script: npm run vllm-release-grade-evidence-gate
+  general_release_gate_runner: tools/runners/release/run_release_grade_general_release_gate.mjs
+  general_release_gate_checker: tools/checks/release/check_release_grade_general_release_gate.mjs
+  provider_gate_evidence_dir: evidence/release-grade-provider-verified-gate
+  provider_replay_regression_evidence_dir: evidence/release-grade-provider-replay-regression
+  provider_error_handling_evidence_dir: evidence/release-grade-provider-error-handling
+  completion_audit_evidence_dir: evidence/release-grade-reinforcement-completion-audit
+  completion_audit_report: evidence/release-grade-reinforcement-completion-audit/release_grade_reinforcement_completion_audit_report.json
+  claim_state_sync_evidence_dir: evidence/release-grade-claim-state-sync
+  claim_state_sync_report: evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_report.json
+  claim_state_sync_check_report: evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_check_report.json
+  adapter_vllm_operator_env_guard_evidence_dir: evidence/release-grade-vllm-operator-env-guard
+  adapter_vllm_operator_env_guard_regression_report: evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_regression_report.json
+  adapter_vllm_evidence_dir: evidence/release-grade-adapter-vllm-preflight
+  adapter_coverage_evidence_dir: evidence/release-grade-adapter-coverage-completion
+  adapter_checked_final_gate_evidence_dir: evidence/release-grade-adapter-checked-final-gate
+  adapter_vllm_evidence_package_dir: evidence/release-grade-vllm-evidence-package
+  adapter_vllm_evidence_package_regression_report: evidence/release-grade-vllm-evidence-package/vllm_evidence_package_regression_report.json
+  adapter_vllm_operator_packet_evidence_dir: evidence/release-grade-vllm-operator-packet
+  general_release_gate_evidence_dir: evidence/release-grade-general-release-gate
+  general_release_approval_request: release/approvals/general/release_grade_general_release_approval_request.md
+  provider_verified_claim_rule: status pass opens provider-verified; hold or
+    blocked keeps provider-verified blocked
+  adapter_checked_claim_rule: Ollama evidence package is required before
+    adapter-checked can open; local-vllm-adapter-checked is deferred to version2
+    after release-gated.
+  general_release_claim_rule: provider-verified and adapter-checked must both
+    pass, and explicit release approval is required before
+    production-ready/stable/release-gated can open; bare release-gated remains
+    blocked in version1.
+  adapter_vllm_evidence_ordering_guard: general-release-grade-gate generated_at
+    must be greater than or equal to adapter-checked final gate generated_at
+  claim_promotion_readiness_surface: evidence/release-grade-ollama-evidence-package/ollama_evidence_package_report.json#claim_promotion_readiness
+  new_live_execution_default: false
+  weak_claims_recordable:
+    - release-grade-source-ledger-checked
+    - release-grade-reinforcement-completion-audit-recorded
+    - release-grade-claim-state-sync-checked
+    - release-grade-provider-gate-attempt-recorded
+    - release-grade-vllm-operator-env-guard-recorded
+    - release-grade-vllm-operator-env-guard-regression-checked
+    - release-grade-adapter-vllm-preflight-recorded
+    - release-grade-adapter-coverage-completion-recorded
+    - release-grade-adapter-checked-final-gate-recorded
+    - release-grade-vllm-evidence-package-recorded
+    - release-grade-vllm-evidence-package-regression-checked
+    - release-grade-vllm-operator-packet-checked
+    - release-grade-general-release-gate-recorded
+    - release-grade-adapter-ollama-preflight-recorded
+    - release-grade-ollama-evidence-package-recorded
+    - local-vllm-adapter-checked-version2-follow-up-recorded
+  adapter_ollama_preflight_checker: tools/checks/adapters/check_release_grade_adapter_ollama_preflight.mjs
+  adapter_ollama_evidence_package_checker: tools/checks/adapters/check_release_grade_ollama_evidence_package.mjs
+  adapter_ollama_evidence_gate_script: npm run ollama-release-grade-evidence-gate
+  adapter_ollama_preflight_evidence_dir: evidence/release-grade-adapter-ollama-preflight
+  adapter_ollama_evidence_package_dir: evidence/release-grade-ollama-evidence-package
+  adapter_ollama_evidence_ordering_guard: general-release-grade-gate generated_at
+    must be greater than or equal to adapter-checked final gate generated_at
+  local_vllm_version2_follow_up:
+    claim: local-vllm-adapter-checked
+    required_before_version1_release_gated: false
+    gate_script: npm run local-vllm-release-grade-v2-gate
+    evidence_package: evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json
+    adapter_gate_script: npm run local-vllm-adapter-checked-v2-gate
+    release_flow:
+      - local-vllm-adapter-checked
+      - production-ready
+      - stable
+      - release-gated
 next_options:
-  - provider-verified future completion
-  - adapter-checked future completion
-  - bare production-ready/stable criteria redesign
+  - ollama-adapter-checked release-grade completion
+  - general release approval after ollama adapter-checked final gate
+  - local-vllm-adapter-checked version2 follow-up
   - current final dossier/export maintenance

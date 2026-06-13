@@ -1,11 +1,11 @@
 {
   "status": "pass",
   "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-  "generated_at": "2026-06-11T09:45:39.170Z",
+  "generated_at": "2026-06-13T05:35:32.577Z",
   "weak_claim_recorded": "self-contained-clean-export-checked",
   "export_path": "exports/harness-core-agent-ready.zip",
-  "export_sha256": "65981e4f2f21f8cd9d8cff872b1576a284d1ca6cab1c29b86ab283e3a6c92754",
-  "export_entry_count": 56,
+  "export_sha256": "8d03bdc1b83b5bc2e9c58e955a1a8ed43c4e6365ebbfae06b8c16809b7618fb1",
+  "export_entry_count": 84,
   "required_entries_missing": [],
   "current_state_json_included": true,
   "current_state_yaml_included": true,
@@ -26,7 +26,7 @@
     "checker_stdout_json": {
       "status": "pass",
       "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-      "generated_at": "2026-06-11T09:45:39.103Z",
+      "generated_at": "2026-06-13T05:35:32.518Z",
       "checker": "check_agent_ready_self_contained.mjs",
       "weak_claims_recorded": [
         "self-contained-agent-ready-check-recorded",
@@ -79,7 +79,7 @@
         "archive_legacy_handoffs_present": false,
         "ds_store_paths": []
       },
-      "provider_verified_allowed": false,
+      "provider_verified_allowed": true,
       "adapter_checked_allowed": false,
       "production_ready_allowed": false,
       "stable_allowed": false,
@@ -568,7 +568,8 @@
               "production-monitored",
               "telemetry-connected",
               "containment-verified",
-              "rc1-openai-scope-release-gated"
+              "rc1-openai-scope-release-gated",
+              "provider-verified"
             ]
           }
         },
@@ -619,7 +620,6 @@
           "status": "pass",
           "detail": {
             "blocked_claims": [
-              "provider-verified",
               "adapter-checked",
               "production-ready",
               "stable",
@@ -629,10 +629,10 @@
           }
         },
         {
-          "name": "strong bare claims not allowed",
+          "name": "strong bare claims stay gate-aligned",
           "status": "pass",
           "detail": {
-            "provider_verified_allowed": false,
+            "provider_verified_allowed": true,
             "adapter_checked_allowed": false,
             "production_ready_allowed": false,
             "stable_allowed": false,
@@ -701,7 +701,7 @@
             "checker_stdout_json": {
               "status": "pass",
               "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-              "generated_at": "2026-06-11T09:45:39.097Z",
+              "generated_at": "2026-06-13T05:35:32.512Z",
               "weak_claim_recorded": "reference-baseline-integrity-checked",
               "checker": "check_reference_baseline_integrity.mjs",
               "reference_baseline_path": "evidence/reference-baseline",
@@ -877,7 +877,7 @@
     "checker_stdout_json": {
       "status": "pass",
       "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-      "generated_at": "2026-06-11T09:45:39.154Z",
+      "generated_at": "2026-06-13T05:35:32.560Z",
       "weak_claim_recorded": "reference-baseline-integrity-checked",
       "checker": "check_reference_baseline_integrity.mjs",
       "reference_baseline_path": "evidence/reference-baseline",
@@ -1043,11 +1043,11 @@
           "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
           "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
           "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-          "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
           "node tools/checks/workspace/check_current_state_alignment.mjs",
           "node tools/scanners/release/scan_prohibited_claims.mjs",
           "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
           "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+          "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
           "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
           "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
@@ -1081,6 +1081,10 @@
           "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
           "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
           "node tools/checks/workspace/check_external_project_template_contract.mjs",
+          "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+          "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+          "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+          "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
           "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
           "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
@@ -1103,12 +1107,10 @@
           "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
           "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
           "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
           "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_mode_commands": [
           "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-          "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
           "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
         ],
         "export_first_command_is_self_contained": true,
@@ -1152,11 +1154,11 @@
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_current_state_alignment.mjs",
                 "node tools/scanners/release/scan_prohibited_claims.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1190,6 +1192,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1212,12 +1218,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
@@ -1262,11 +1266,11 @@
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_current_state_alignment.mjs",
                 "node tools/scanners/release/scan_prohibited_claims.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1300,6 +1304,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1322,12 +1330,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
@@ -1372,11 +1378,11 @@
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_current_state_alignment.mjs",
                 "node tools/scanners/release/scan_prohibited_claims.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1410,6 +1416,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1432,12 +1442,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
@@ -1482,11 +1490,11 @@
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_current_state_alignment.mjs",
                 "node tools/scanners/release/scan_prohibited_claims.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1520,6 +1528,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1542,12 +1554,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
@@ -1592,11 +1602,11 @@
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_current_state_alignment.mjs",
                 "node tools/scanners/release/scan_prohibited_claims.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1630,6 +1640,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
@@ -1652,12 +1666,10 @@
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_mode_commands": [
                 "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                 "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
               ],
               "export_first_command_is_self_contained": true,
@@ -1705,7 +1717,7 @@
   "stale_sha_matches": [],
   "self_referential_sha_matches": [],
   "old_label_matches": [],
-  "provider_verified_allowed": false,
+  "provider_verified_allowed": true,
   "adapter_checked_allowed": false,
   "production_ready_allowed": false,
   "stable_allowed": false,
@@ -2096,7 +2108,7 @@
         "checker_stdout_json": {
           "status": "pass",
           "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-          "generated_at": "2026-06-11T09:45:39.103Z",
+          "generated_at": "2026-06-13T05:35:32.518Z",
           "checker": "check_agent_ready_self_contained.mjs",
           "weak_claims_recorded": [
             "self-contained-agent-ready-check-recorded",
@@ -2149,7 +2161,7 @@
             "archive_legacy_handoffs_present": false,
             "ds_store_paths": []
           },
-          "provider_verified_allowed": false,
+          "provider_verified_allowed": true,
           "adapter_checked_allowed": false,
           "production_ready_allowed": false,
           "stable_allowed": false,
@@ -2638,7 +2650,8 @@
                   "production-monitored",
                   "telemetry-connected",
                   "containment-verified",
-                  "rc1-openai-scope-release-gated"
+                  "rc1-openai-scope-release-gated",
+                  "provider-verified"
                 ]
               }
             },
@@ -2689,7 +2702,6 @@
               "status": "pass",
               "detail": {
                 "blocked_claims": [
-                  "provider-verified",
                   "adapter-checked",
                   "production-ready",
                   "stable",
@@ -2699,10 +2711,10 @@
               }
             },
             {
-              "name": "strong bare claims not allowed",
+              "name": "strong bare claims stay gate-aligned",
               "status": "pass",
               "detail": {
-                "provider_verified_allowed": false,
+                "provider_verified_allowed": true,
                 "adapter_checked_allowed": false,
                 "production_ready_allowed": false,
                 "stable_allowed": false,
@@ -2771,7 +2783,7 @@
                 "checker_stdout_json": {
                   "status": "pass",
                   "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-                  "generated_at": "2026-06-11T09:45:39.097Z",
+                  "generated_at": "2026-06-13T05:35:32.512Z",
                   "weak_claim_recorded": "reference-baseline-integrity-checked",
                   "checker": "check_reference_baseline_integrity.mjs",
                   "reference_baseline_path": "evidence/reference-baseline",
@@ -2957,7 +2969,7 @@
         "checker_stdout_json": {
           "status": "pass",
           "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
-          "generated_at": "2026-06-11T09:45:39.154Z",
+          "generated_at": "2026-06-13T05:35:32.560Z",
           "weak_claim_recorded": "reference-baseline-integrity-checked",
           "checker": "check_reference_baseline_integrity.mjs",
           "reference_baseline_path": "evidence/reference-baseline",
@@ -3126,11 +3138,11 @@
               "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
               "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
               "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-              "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
               "node tools/checks/workspace/check_current_state_alignment.mjs",
               "node tools/scanners/release/scan_prohibited_claims.mjs",
               "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
               "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+              "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
               "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
               "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
@@ -3164,6 +3176,10 @@
               "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
               "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
               "node tools/checks/workspace/check_external_project_template_contract.mjs",
+              "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+              "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+              "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+              "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
               "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
               "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
@@ -3186,12 +3202,10 @@
               "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
               "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
               "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
               "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_mode_commands": [
               "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-              "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
               "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
             ],
             "export_first_command_is_self_contained": true,
@@ -3235,11 +3249,11 @@
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_current_state_alignment.mjs",
                     "node tools/scanners/release/scan_prohibited_claims.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3273,6 +3287,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                    "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                    "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                    "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3295,12 +3313,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
@@ -3345,11 +3361,11 @@
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_current_state_alignment.mjs",
                     "node tools/scanners/release/scan_prohibited_claims.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3383,6 +3399,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                    "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                    "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                    "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3405,12 +3425,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
@@ -3455,11 +3473,11 @@
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_current_state_alignment.mjs",
                     "node tools/scanners/release/scan_prohibited_claims.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3493,6 +3511,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                    "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                    "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                    "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3515,12 +3537,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
@@ -3565,11 +3585,11 @@
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_current_state_alignment.mjs",
                     "node tools/scanners/release/scan_prohibited_claims.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3603,6 +3623,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                    "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                    "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                    "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3625,12 +3649,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
@@ -3675,11 +3697,11 @@
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_current_state_alignment.mjs",
                     "node tools/scanners/release/scan_prohibited_claims.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+                    "node tools/checks/workspace/check_asset_purpose_boundaries.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3713,6 +3735,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_external_project_template_contract.mjs",
+                    "node tools/checks/workspace/check_release_grade_source_ledger.mjs",
+                    "node tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+                    "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+                    "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
@@ -3735,12 +3761,10 @@
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_mode_commands": [
                     "node tools/checks/workspace/check_agent_ready_self_contained.mjs",
-                    "node tools/checks/workspace/check_reference_baseline_integrity.mjs",
                     "node tools/checks/workspace/check_reference_baseline_integrity.mjs"
                   ],
                   "export_first_command_is_self_contained": true,
@@ -3782,35 +3806,35 @@
       }
     },
     {
-      "name": "provider-verified remains false",
+      "name": "provider-verified follows extracted current state",
       "status": "pass",
       "detail": {
-        "provider_verified_allowed": false
+        "provider_verified_allowed": true
       }
     },
     {
-      "name": "adapter-checked remains false",
+      "name": "adapter-checked follows extracted current state",
       "status": "pass",
       "detail": {
         "adapter_checked_allowed": false
       }
     },
     {
-      "name": "production-ready remains false",
+      "name": "production-ready follows extracted current state",
       "status": "pass",
       "detail": {
         "production_ready_allowed": false
       }
     },
     {
-      "name": "stable remains false",
+      "name": "stable follows extracted current state",
       "status": "pass",
       "detail": {
         "stable_allowed": false
       }
     },
     {
-      "name": "release-gated remains false",
+      "name": "release-gated follows extracted current state",
       "status": "pass",
       "detail": {
         "release_gated_allowed": false

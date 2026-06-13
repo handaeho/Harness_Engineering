@@ -1,0 +1,99 @@
+{
+  "status": "hold",
+  "stage": "v2.0.0-release-grade-vllm-operator-env-guard",
+  "generated_at": "2026-06-13T02:25:53.800Z",
+  "strict": false,
+  "provider": "vllm",
+  "endpoint_url": null,
+  "endpoint_url_present": false,
+  "model_name": null,
+  "model_name_present": false,
+  "auth_required": "no",
+  "api_key_present": false,
+  "api_key_value_stored": false,
+  "raw_authorization_header_recorded": false,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "secrets_logged": false,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "external_provider_call": false,
+  "telemetry_sink_write": false,
+  "can_enter_vllm_live_evidence_gate": false,
+  "provider_verified_allowed_by_this_artifact": false,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "claims_allowed": [],
+  "claims_blocked": [
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "checks": [
+    {
+      "name": "endpoint URL is present",
+      "status": "hold",
+      "detail": {
+        "endpoint_url_present": false,
+        "default_endpoint_hint": "http://127.0.0.1:8000/v1"
+      }
+    },
+    {
+      "name": "model name is present",
+      "status": "hold",
+      "detail": {
+        "model_name_present": false
+      }
+    },
+    {
+      "name": "auth requirement is exactly yes or no",
+      "status": "pass",
+      "detail": {
+        "auth_required": "no"
+      }
+    },
+    {
+      "name": "api key is not required",
+      "status": "pass",
+      "detail": {
+        "auth_required": "no",
+        "api_key_present": false,
+        "api_key_value_stored": false
+      }
+    },
+    {
+      "name": "timeout is bounded",
+      "status": "pass",
+      "detail": {
+        "timeout_ms": 90000
+      }
+    }
+  ],
+  "failures": [],
+  "holds": [
+    {
+      "name": "endpoint URL is present",
+      "status": "hold",
+      "detail": {
+        "endpoint_url_present": false,
+        "default_endpoint_hint": "http://127.0.0.1:8000/v1"
+      }
+    },
+    {
+      "name": "model name is present",
+      "status": "hold",
+      "detail": {
+        "model_name_present": false
+      }
+    }
+  ],
+  "next_actions": [
+    "Set VLLM_ENDPOINT_URL to a localhost OpenAI-compatible base URL such as http://127.0.0.1:8000/v1.",
+    "Set VLLM_MODEL to the exact served model id using ASCII quotes only.",
+    "Set VLLM_AUTH_REQUIRED to yes or no. If yes, set VLLM_API_KEY without storing the token in evidence."
+  ]
+}

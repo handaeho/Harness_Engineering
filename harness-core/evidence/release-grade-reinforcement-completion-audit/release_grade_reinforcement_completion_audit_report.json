@@ -1,0 +1,593 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-reinforcement-completion-audit",
+  "generated_at": "2026-06-13T05:35:37.045Z",
+  "objective": "prompt-stack and harness-core release-grade reinforcement assets are evidence-gated and claim gates open or close by actual evidence.",
+  "goal_complete": true,
+  "completion_policy": "pass only when all requirements are complete, adapter-checked is opened by Ollama evidence, general release claims are opened by explicit approval-backed gate evidence, and local-vllm-adapter-checked is preserved as the version2 follow-up",
+  "requirements_total": 11,
+  "requirements_complete": 11,
+  "requirements_hold": 0,
+  "requirements_fail": 0,
+  "requirements": [
+    {
+      "id": "sor_claim_alignment",
+      "area": "harness-core",
+      "status": "complete",
+      "summary": "SOR, final claim state, and current-state alignment agree with release-grade gate evidence for provider, adapter, and general release claims.",
+      "evidence": [
+        {
+          "base": "harness-core",
+          "path": "CURRENT_STATE.yaml",
+          "exists": true,
+          "status": null,
+          "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
+          "generated_at": null
+        },
+        {
+          "base": "harness-core",
+          "path": "CURRENT_STATE.json",
+          "exists": true,
+          "status": null,
+          "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
+          "generated_at": null
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/post-active-scoped-final-release-dossier/final_release_claim_state.json",
+          "exists": true,
+          "status": "recorded",
+          "stage": null,
+          "generated_at": "2026-06-12T03:00:40.991Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/current-state/current_state_alignment_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
+          "generated_at": "2026-06-13T05:35:31.891Z"
+        }
+      ],
+      "detail": {
+        "provider_verified_open": true,
+        "adapter_checked_expected_open": true,
+        "general_release_expected_open": true,
+        "release_grade_sor_claims_aligned": true,
+        "claim_expectations": [
+          {
+            "claim": "provider-verified",
+            "expected_open": true,
+            "final_flag": "provider_verified_allowed",
+            "require_allowed_claim": true
+          },
+          {
+            "claim": "adapter-checked",
+            "expected_open": true,
+            "final_flag": "adapter_checked_allowed",
+            "require_allowed_claim": true
+          },
+          {
+            "claim": "production-ready",
+            "expected_open": true,
+            "final_flag": "production_ready_allowed",
+            "require_allowed_claim": true
+          },
+          {
+            "claim": "stable",
+            "expected_open": true,
+            "final_flag": "stable_allowed",
+            "require_allowed_claim": true
+          },
+          {
+            "claim": "release-gated",
+            "expected_open": true,
+            "final_flag": "release_gated_allowed",
+            "require_allowed_claim": true
+          },
+          {
+            "claim": "bare release-gated",
+            "expected_open": false,
+            "final_flag": null,
+            "require_allowed_claim": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "claim_state_sync_control",
+      "area": "harness-core",
+      "status": "complete",
+      "summary": "Release-grade claim-state sync report and checker prove CURRENT_STATE, JSON SOR, and final claim state match current gate-derived claim expectations.",
+      "evidence": [
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-claim-state-sync",
+          "generated_at": "2026-06-13T05:20:14.494Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_check_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-claim-state-sync-check",
+          "generated_at": "2026-06-13T05:35:28.829Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "docs/workspace/release_grade_claim_state_sync.md",
+          "exists": true,
+          "status": null,
+          "stage": null,
+          "generated_at": null
+        },
+        {
+          "base": "harness-core",
+          "path": "evals/suites/release_grade_claim_state_sync.yaml",
+          "exists": true,
+          "status": null,
+          "stage": null,
+          "generated_at": null
+        }
+      ],
+      "detail": {
+        "sync_status": "pass",
+        "sync_check_status": "pass",
+        "sync_required_after_apply": false,
+        "sync_check_unresolved_items_count": 0,
+        "expected_provider_verified_allowed": true,
+        "expected_adapter_checked_allowed": true,
+        "expected_general_release_allowed": true,
+        "sync_expected_claim_state": {
+          "allowed_claims": [
+            "provider-diverse",
+            "local-model-verified",
+            "post-export-active-provider-lanes-verified",
+            "post-export-active-adapters-checked",
+            "post-export-active-scoped-production-ready",
+            "post-export-active-scoped-stable",
+            "post-rc-openai-only-stable",
+            "post-rc-openai-only-production-ready",
+            "production-monitored",
+            "telemetry-connected",
+            "containment-verified",
+            "rc1-openai-scope-release-gated",
+            "provider-verified",
+            "adapter-checked",
+            "production-ready",
+            "stable",
+            "release-gated"
+          ],
+          "blocked_claims": [
+            "bare release-gated"
+          ],
+          "canonicalization_rules": [
+            "Use provider-verified only when release-grade provider gate status is pass.",
+            "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+            "Use release-gated only when release-grade general release gate passes with explicit approval."
+          ],
+          "provider_verified_allowed": true,
+          "adapter_checked_allowed": true,
+          "production_ready_allowed": true,
+          "stable_allowed": true,
+          "release_gated_allowed": true,
+          "bare_release_gated_allowed": false
+        },
+        "sync_check_expected_claim_state": {
+          "allowed_claims": [
+            "provider-diverse",
+            "local-model-verified",
+            "post-export-active-provider-lanes-verified",
+            "post-export-active-adapters-checked",
+            "post-export-active-scoped-production-ready",
+            "post-export-active-scoped-stable",
+            "post-rc-openai-only-stable",
+            "post-rc-openai-only-production-ready",
+            "production-monitored",
+            "telemetry-connected",
+            "containment-verified",
+            "rc1-openai-scope-release-gated",
+            "provider-verified",
+            "adapter-checked",
+            "production-ready",
+            "stable",
+            "release-gated"
+          ],
+          "blocked_claims": [
+            "bare release-gated"
+          ],
+          "canonicalization_rules": [
+            "Use provider-verified only when release-grade provider gate status is pass.",
+            "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+            "Use release-gated only when release-grade general release gate passes with explicit approval."
+          ],
+          "provider_verified_allowed": true,
+          "adapter_checked_allowed": true,
+          "production_ready_allowed": true,
+          "stable_allowed": true,
+          "release_gated_allowed": true,
+          "bare_release_gated_allowed": false
+        }
+      }
+    },
+    {
+      "id": "harness_source_ledger",
+      "area": "harness-core",
+      "status": "complete",
+      "summary": "Official release-grade source ledger exists and covers OpenAI, Gemini, OTel, Langfuse, OWASP, and NIST source classes.",
+      "evidence": [
+        {
+          "base": "harness-core",
+          "path": "core/source_authority/release_grade_source_ledger.json",
+          "exists": true,
+          "status": null,
+          "stage": null,
+          "generated_at": "2026-06-12T00:00:00.000Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-source-ledger/release_grade_source_ledger_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-source-ledger",
+          "generated_at": "2026-06-13T02:25:53.643Z"
+        }
+      ],
+      "detail": {
+        "source_count": 10,
+        "missing_source_ids": []
+      }
+    },
+    {
+      "id": "provider_verified_gate",
+      "area": "harness-core",
+      "status": "complete",
+      "summary": "Provider-verified gate passes with provider behavior, schema/tool roundtrip, replay/regression, redaction, trace, and error-handling evidence.",
+      "evidence": [
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-provider-verified-gate/release_grade_provider_verified_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-verified-gate",
+          "generated_at": "2026-06-13T02:25:53.723Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling",
+          "generated_at": "2026-06-12T02:58:09.997Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression",
+          "generated_at": "2026-06-12T01:01:53.174Z"
+        }
+      ],
+      "detail": {
+        "provider_verified_allowed": true,
+        "blockers": []
+      }
+    },
+    {
+      "id": "adapter_checked_gate_prepared",
+      "area": "harness-core",
+      "status": "complete",
+      "summary": "Adapter-checked gate assets, scripts, and coverage/final-gate reports exist for the version1 Ollama path.",
+      "evidence": [
+        {
+          "base": "harness-core",
+          "path": "package.json",
+          "exists": true,
+          "status": null,
+          "stage": null,
+          "generated_at": null
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-adapter-ollama-preflight/release_grade_adapter_ollama_preflight_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-adapter-ollama-preflight",
+          "generated_at": "2026-06-13T03:25:32.941Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-adapter-vllm-preflight/release_grade_adapter_vllm_preflight_report.json",
+          "exists": true,
+          "status": "hold",
+          "stage": "v2.0.0-release-grade-adapter-vllm-preflight",
+          "generated_at": "2026-06-13T02:25:54.122Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json",
+          "exists": true,
+          "status": "ready_for_adapter_checked_final_gate",
+          "stage": "v2.0.0-release-grade-adapter-coverage-completion",
+          "generated_at": "2026-06-13T03:25:33.037Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+          "generated_at": "2026-06-13T03:25:33.230Z"
+        }
+      ],
+      "detail": {
+        "adapter_checked_allowed": true,
+        "ollama_preflight_status": "pass",
+        "local_vllm_version2_follow_up": {
+          "claim": "local-vllm-adapter-checked",
+          "required_before_version1_release_gated": false,
+          "status": "deferred_until_version2"
+        }
+      }
+    },
+    {
+      "id": "local_vllm_version2_follow_up",
+      "area": "harness-core",
+      "status": "complete",
+      "summary": "local-vllm-adapter-checked is declared as the version2 follow-up and is not a version1 release blocker.",
+      "evidence": [
+        {
+          "base": "harness-core",
+          "path": "package.json",
+          "exists": true,
+          "status": null,
+          "stage": null,
+          "generated_at": null
+        },
+        {
+          "base": "harness-core",
+          "path": "adapters/local/vllm/adapter.yaml",
+          "exists": true,
+          "status": null,
+          "stage": null,
+          "generated_at": null
+        },
+        {
+          "base": "harness-core",
+          "path": "docs/adapters/release_grade_adapter_vllm_preflight.md",
+          "exists": true,
+          "status": null,
+          "stage": null,
+          "generated_at": null
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json",
+          "exists": true,
+          "status": "hold",
+          "stage": "v2.0.0-release-grade-vllm-operator-env-guard",
+          "generated_at": "2026-06-13T02:25:53.800Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-vllm-operator-env-guard-regression",
+          "generated_at": "2026-06-13T02:25:54.040Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-vllm-operator-packet/vllm_operator_packet_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-vllm-operator-packet",
+          "generated_at": "2026-06-13T05:22:22.770Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json",
+          "exists": true,
+          "status": "hold",
+          "stage": "v2.0.0-release-grade-vllm-evidence-package",
+          "generated_at": "2026-06-13T05:22:27.689Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-vllm-evidence-package/vllm_evidence_package_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-vllm-evidence-package-regression",
+          "generated_at": "2026-06-13T02:25:54.841Z"
+        }
+      ],
+      "detail": {
+        "v2_script_present": true,
+        "vllm_adapter_manifest_exists": true,
+        "follow_up": {
+          "claim": "local-vllm-adapter-checked",
+          "required_before_version1_release_gated": false,
+          "status": "deferred_until_version2"
+        },
+        "current_vllm_package_status": "hold"
+      }
+    },
+    {
+      "id": "general_release_gate",
+      "area": "harness-core",
+      "status": "complete",
+      "summary": "Bare production-ready/stable/release-gated remain closed until provider-verified, adapter-checked, and explicit release approval all pass.",
+      "evidence": [
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-general-release-gate",
+          "generated_at": "2026-06-13T05:20:03.434Z"
+        }
+      ],
+      "detail": {
+        "approval_present": true,
+        "adapter_checked_allowed": true,
+        "production_ready_allowed": true,
+        "stable_allowed": true,
+        "release_gated_allowed": true
+      }
+    },
+    {
+      "id": "prompt_stack_source_boundary",
+      "area": "current prompt-stack package",
+      "status": "complete",
+      "summary": "Current prompt-stack package has official runtime source ledger and provider-boundary tests that reject prompt-package-as-provider-proof claims.",
+      "evidence": [
+        {
+          "base": "current prompt-stack package",
+          "path": "validation/release_grade_runtime_source_ledger.json",
+          "exists": true,
+          "status": null,
+          "stage": null,
+          "generated_at": "2026-06-12T00:00:00.000Z"
+        },
+        {
+          "base": "current prompt-stack package",
+          "path": "validation/prompt_package_provider_boundary_tests.json",
+          "exists": true,
+          "status": null,
+          "stage": null,
+          "generated_at": "2026-06-11T00:00:00.000Z"
+        }
+      ],
+      "detail": {
+        "source_count": 10,
+        "missing_source_ids": [],
+        "boundary_tests": 4
+      }
+    },
+    {
+      "id": "prompt_stack_runtime_validation",
+      "area": "current prompt-stack package",
+      "status": "complete",
+      "summary": "Current prompt-stack package current, assembled, Codex, Gemini, smoke, and skill-forward validation evidence is passing.",
+      "evidence": [
+        {
+          "base": "current prompt-stack package",
+          "path": "validation/current_validation_result.json",
+          "exists": true,
+          "status": "pass",
+          "stage": null,
+          "generated_at": "2026-06-12T05:03:24.600Z"
+        },
+        {
+          "base": "current prompt-stack package",
+          "path": "records/assembled_bundle_integrity.json",
+          "exists": true,
+          "status": "pass",
+          "stage": null,
+          "generated_at": "2026-06-12T05:03:24.629Z"
+        },
+        {
+          "base": "current prompt-stack package",
+          "path": "records/codex_runtime_integrity.json",
+          "exists": true,
+          "status": "pass",
+          "stage": null,
+          "generated_at": "2026-06-12T05:03:24.654Z"
+        },
+        {
+          "base": "current prompt-stack package",
+          "path": "records/gemini_runtime_integrity.json",
+          "exists": true,
+          "status": "pass",
+          "stage": null,
+          "generated_at": "2026-06-12T05:03:24.677Z"
+        },
+        {
+          "base": "prompt-stack",
+          "path": "_evidence/v36/validation_runs/skill_asset_enhancement/skill_forward_benchmark_result.json",
+          "exists": true,
+          "status": "pass",
+          "generated_at": "2026-06-12T05:03:24.606Z"
+        }
+      ],
+      "detail": {
+        "current_checks": "228/228",
+        "codex_checks": "46/46",
+        "gemini_checks": "73/73",
+        "skill_forward_cases": "6/6"
+      }
+    },
+    {
+      "id": "raw_storage_secret_boundary",
+      "area": "cross-cutting",
+      "status": "complete",
+      "summary": "No raw request/response, authorization header, API key value, or unredacted payload is permitted in release-grade evidence.",
+      "evidence": [
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-provider-verified-gate/release_grade_provider_verified_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-verified-gate",
+          "generated_at": "2026-06-13T02:25:53.723Z"
+        },
+        {
+          "base": "harness-core",
+          "path": "evidence/release-grade-ollama-evidence-package/ollama_evidence_package_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-ollama-evidence-package",
+          "generated_at": "2026-06-13T05:20:11.771Z"
+        }
+      ],
+      "detail": {
+        "provider_redaction_status": "pass",
+        "evidence_package_redaction_policy": {
+          "raw_request_storage_allowed": false,
+          "raw_response_storage_allowed": false,
+          "secret_storage_allowed": false
+        }
+      }
+    },
+    {
+      "id": "final_precommit_convergence",
+      "area": "harness-core",
+      "status": "complete",
+      "summary": "Final precommit convergence passes without opening stronger bare claims; owner commit approval is still required.",
+      "evidence": [
+        {
+          "base": "harness-core",
+          "path": "evidence/harness-core-final-precommit-convergence/final_precommit_convergence_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot",
+          "generated_at": "2026-06-13T05:35:31.463Z"
+        }
+      ],
+      "detail": {
+        "commit_ready": true,
+        "commit_approval_required": true,
+        "clean_export_sha256": "8d03bdc1b83b5bc2e9c58e955a1a8ed43c4e6365ebbfae06b8c16809b7618fb1"
+      }
+    }
+  ],
+  "blockers": [],
+  "claim_state": {
+    "provider_verified_allowed": true,
+    "adapter_checked_allowed": true,
+    "production_ready_allowed": true,
+    "stable_allowed": true,
+    "release_gated_allowed": true
+  },
+  "live_execution": {
+    "performed_by_this_audit": false,
+    "provider_call": false,
+    "local_model_execution": false,
+    "telemetry_sink_write": false
+  },
+  "next_actions": []
+}

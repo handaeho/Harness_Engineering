@@ -101,6 +101,50 @@ Latest dossier evidence export:
 
 The final dossier/export alignment did not perform an OpenAI provider call, local model generation, telemetry sink write, redteam rerun, adapter conformance rerun, release gate rerun, or production deployment.
 
+Release-grade reinforcement checks are available for source authority,
+provider-claim gating, adapter/vLLM readiness, vLLM operator environment
+guarding, and vLLM evidence packaging.
+These checks do not perform live provider calls, local model generation, or
+telemetry writes:
+
+```bash
+npm run release-grade-preflight
+```
+
+For a cross-surface completion audit over HARNESS Core and the current prompt-stack package,
+run:
+
+```bash
+npm run check:release-grade-completion-audit
+```
+
+`status: hold` from this audit means the current evidence is coherent but not
+complete enough to open every requested bare/general release claim.
+
+A `hold` result from provider, adapter, or vLLM evidence package checks keeps
+the matching bare/general claim blocked. After a vLLM execution attempt, run:
+
+```bash
+npm run check:release-grade-vllm-evidence-package
+```
+
+Review `claim_promotion_readiness` and `ordering_checks` in
+`evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json`
+before opening or discussing bare `adapter-checked` or stronger general claims.
+`npm run release-grade-preflight` also runs the no-live regression checkers for
+the vLLM operator environment guard and evidence package.
+
+For the complete vLLM adapter evidence path, run:
+
+```bash
+npm run check:release-grade-vllm-operator-packet
+npm run vllm-release-grade-evidence-gate
+```
+
+The full path starts with `npm run preflight:vllm-operator-env`, which fails
+early for malformed vLLM environment values such as smart-quoted model ids,
+non-localhost endpoints, or missing auth token presence.
+
 ## Self-Contained Agent Check
 
 Root workspace mode is the default mode for work in this repository directory. In root workspace mode, run this first command from the repository root:
@@ -160,8 +204,11 @@ The self-contained stage records only weak claims: `self-contained-agent-ready-c
 - telemetry-connected
 - containment-verified
 - rc1-openai-scope-release-gated
+- provider-verified
 
-These claims remain blocked as bare/general claims: `provider-verified`, `adapter-checked`, `production-ready`, `stable`, `release-gated`, and `bare release-gated`.
+Bare `provider-verified` is open only because the release-grade provider gate has `status: pass`.
+
+These claims remain blocked as bare/general claims: `adapter-checked`, `production-ready`, `stable`, `release-gated`, and `bare release-gated`.
 
 Scoped claims must not be canonicalized into bare claims. `post-export-active-scoped-stable` is not bare `stable`; `post-export-active-scoped-production-ready` is not bare `production-ready`; `rc1-openai-scope-release-gated` is not bare `release-gated`.
 
@@ -176,6 +223,13 @@ node tools/scanners/release/scan_prohibited_claims.mjs
 node tools/checks/workspace/check_reference_baseline_integrity.mjs
 node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs
 node tools/checks/workspace/check_external_project_template_contract.mjs
+node tools/checks/workspace/check_release_grade_source_ledger.mjs
+node tools/checks/workspace/check_release_grade_reinforcement_completion_audit.mjs
+node tools/checks/providers/check_release_grade_provider_verified_gate.mjs
+node tools/checks/local/check_vllm_operator_env_guard.mjs
+node tools/checks/local/check_vllm_operator_env_guard_regression.mjs
+node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs
+node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs
 ```
 
 Agent-ready export mode:

@@ -77,7 +77,8 @@ check("source_ledger_has_official_sources", officialSources.length >= 5, "offici
 check(
   "source_ledger_official_sources_only",
   officialSources.every((source) => typeof source.url === "string"
-    && (source.url.startsWith("https://developers.openai.com/codex/")
+    && (source.url === "https://developers.openai.com/codex"
+      || source.url.startsWith("https://developers.openai.com/codex/")
       || source.url.startsWith("https://agentskills.io/"))),
   officialSources.map((source) => source.url)
 );
@@ -85,6 +86,26 @@ check(
   "source_ledger_research_separate",
   officialSources.every((source) => !String(source.url).includes("arxiv.org")),
   officialSources.map((source) => source.url)
+);
+
+const releaseGradeSources = readJson("validation/release_grade_runtime_source_ledger.json");
+check(
+  "release_grade_runtime_sources_available",
+  Array.isArray(releaseGradeSources?.sources) && releaseGradeSources.sources.length >= 10,
+  "validation/release_grade_runtime_source_ledger.json"
+);
+check(
+  "release_grade_runtime_source_shape",
+  (releaseGradeSources?.sources || []).every((source) => source.checked_on === releaseGradeSources.checked_on
+    && typeof source.observed_last_updated === "string"
+    && source.observed_last_updated.length > 0),
+  "source entries carry source-level checked_on and observed_last_updated"
+);
+check(
+  "codex_prompt_package_not_provider_proof",
+  JSON.stringify(releaseGradeSources || {}).includes("does not prove provider")
+    || JSON.stringify(releaseGradeSources || {}).includes("not provider"),
+  "prompt-stack Codex runtime must not imply provider proof"
 );
 
 check("no_codex_inside_autonomous_99_total", !exists("autonomous/99_total/codex"), "autonomous/99_total/codex must not exist");

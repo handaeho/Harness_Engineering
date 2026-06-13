@@ -1,0 +1,193 @@
+{
+  "generated_at": "2026-06-12T00:00:00.000Z",
+  "validation_name": "release_grade_source_authority_ledger",
+  "claim_strength": "official_source_ledger_static",
+  "checked_on": "2026-06-12",
+  "sources": [
+    {
+      "id": "RGS-OPENAI-AGENTS-TRACING",
+      "url": "https://openai.github.io/openai-agents-python/tracing/",
+      "authority": "official_openai_agents_sdk_docs",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "checked on 2026-06-12; page exposes no page-level last-updated in fetched view",
+      "supports": [
+        "agent trace concepts",
+        "trace/span boundary expectations",
+        "observability integration design"
+      ],
+      "applies_to": [
+        "provider_trace",
+        "telemetry_mapping",
+        "release_grade_provider_gate"
+      ],
+      "claim_boundary": "Supports tracing contract design only; does not prove live telemetry or production monitoring."
+    },
+    {
+      "id": "RGS-OPENAI-AGENTS-TOOLS",
+      "url": "https://openai.github.io/openai-agents-python/tools/",
+      "authority": "official_openai_agents_sdk_docs",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "checked on 2026-06-12; page exposes no page-level last-updated in fetched view",
+      "supports": [
+        "tool schema boundary",
+        "function tool invocation expectations",
+        "tool result handling"
+      ],
+      "applies_to": [
+        "tool_calling",
+        "schema_roundtrip",
+        "provider_contract"
+      ],
+      "claim_boundary": "Supports tool contract review only; does not prove tool-call verification."
+    },
+    {
+      "id": "RGS-GEMINI-FUNCTION-CALLING",
+      "url": "https://ai.google.dev/gemini-api/docs/function-calling",
+      "authority": "official_google_gemini_api_docs",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "Last updated 2026-06-10 UTC; checked on 2026-06-12",
+      "supports": [
+        "functionDeclarations",
+        "functionCallingConfig",
+        "function response reinjection"
+      ],
+      "applies_to": [
+        "gemini_native_api",
+        "tool_calling",
+        "provider_contract"
+      ],
+      "claim_boundary": "Supports native Gemini tool mapping; OpenAI compatibility evidence is not native Gemini proof."
+    },
+    {
+      "id": "RGS-GEMINI-STRUCTURED-OUTPUT",
+      "url": "https://ai.google.dev/gemini-api/docs/structured-output",
+      "authority": "official_google_gemini_api_docs",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "Last updated 2026-06-05 UTC; checked on 2026-06-12",
+      "supports": [
+        "responseMimeType",
+        "responseSchema",
+        "JSON schema response contracts"
+      ],
+      "applies_to": [
+        "gemini_native_api",
+        "structured_output",
+        "schema_roundtrip"
+      ],
+      "claim_boundary": "Supports structured-output mapping; live behavior still requires provider evidence."
+    },
+    {
+      "id": "RGS-GEMINI-SAFETY",
+      "url": "https://ai.google.dev/gemini-api/docs/safety-settings",
+      "authority": "official_google_gemini_api_docs",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "Last updated 2026-06-01 UTC; checked on 2026-06-12",
+      "supports": [
+        "safetySettings",
+        "blocked prompt handling",
+        "blocked response handling"
+      ],
+      "applies_to": [
+        "gemini_native_api",
+        "provider_error_handling",
+        "redteam_boundary"
+      ],
+      "claim_boundary": "Supports safety fixture design; does not replace redteam or containment evidence."
+    },
+    {
+      "id": "RGS-GEMINI-OPENAI-COMPAT",
+      "url": "https://ai.google.dev/gemini-api/docs/openai",
+      "authority": "official_google_gemini_api_docs",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "Last updated 2026-05-18 UTC; checked on 2026-06-12",
+      "supports": [
+        "OpenAI compatibility lane boundary",
+        "base URL and compatibility behavior",
+        "compatibility claim separation"
+      ],
+      "applies_to": [
+        "openai_compatibility",
+        "provider_boundary",
+        "adapter_claim_boundary"
+      ],
+      "claim_boundary": "Compatibility docs do not prove native Gemini API conformance."
+    },
+    {
+      "id": "RGS-OTEL-GENAI",
+      "url": "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+      "authority": "official_opentelemetry_semantic_conventions",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "Semantic conventions 1.41.1, status Development; checked on 2026-06-12",
+      "supports": [
+        "GenAI span attribute mapping",
+        "token and model metadata naming",
+        "trace portability"
+      ],
+      "applies_to": [
+        "otel_mapping",
+        "telemetry_mapping",
+        "trace_result"
+      ],
+      "claim_boundary": "Supports telemetry schema design only; no live sink connection is implied."
+    },
+    {
+      "id": "RGS-LANGFUSE-TRACING",
+      "url": "https://langfuse.com/docs/tracing",
+      "authority": "official_langfuse_docs",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "redirected from /docs/tracing to /docs/observability/overview; checked on 2026-06-12",
+      "supports": [
+        "LLM tracing model",
+        "trace and observation relationship",
+        "redacted telemetry sink design"
+      ],
+      "applies_to": [
+        "langfuse_mapping",
+        "production_monitoring_boundary",
+        "telemetry_connection"
+      ],
+      "claim_boundary": "Supports Langfuse integration design; production monitoring still requires executed monitoring evidence."
+    },
+    {
+      "id": "RGS-OWASP-LLM-TOP10-2025",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/",
+      "authority": "official_owasp_genai_security_project",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "resource date 2024-11-17; checked on 2026-06-12",
+      "supports": [
+        "LLM application risk taxonomy",
+        "redteam case coverage",
+        "prompt and tool security controls"
+      ],
+      "applies_to": [
+        "redteam_boundary",
+        "tool_security",
+        "release_grade_risk_review"
+      ],
+      "claim_boundary": "Supports risk classification; does not prove redteam pass or containment."
+    },
+    {
+      "id": "RGS-NIST-AI-600-1",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "authority": "official_nist_genai_profile",
+      "checked_on": "2026-06-12",
+      "observed_last_updated": "publication date July 2024; checked on 2026-06-12",
+      "supports": [
+        "GenAI risk management profile",
+        "governance and monitoring control language",
+        "release claim risk boundary"
+      ],
+      "applies_to": [
+        "risk_governance",
+        "release_gate",
+        "monitoring_boundary"
+      ],
+      "claim_boundary": "Supports governance mapping; it is not execution evidence."
+    }
+  ],
+  "limitations": [
+    "The ledger records source authority and freshness checks only.",
+    "The ledger does not execute provider calls, local model generation, telemetry writes, redteam cases, or release gates.",
+    "Bare production-ready, stable, and release-gated claims remain blocked until provider and adapter gates pass with evidence."
+  ]
+}

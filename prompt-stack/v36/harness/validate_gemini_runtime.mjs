@@ -164,6 +164,31 @@ check(
   "observed last-updated dates refreshed or checked"
 );
 
+const releaseGradeSources = readJson("validation/release_grade_runtime_source_ledger.json");
+check(
+  "release_grade_runtime_sources_available",
+  Array.isArray(releaseGradeSources?.sources) && releaseGradeSources.sources.length >= 10,
+  "validation/release_grade_runtime_source_ledger.json"
+);
+check(
+  "release_grade_runtime_source_shape",
+  (releaseGradeSources?.sources || []).every((source) => source.checked_on === releaseGradeSources.checked_on
+    && typeof source.observed_last_updated === "string"
+    && source.observed_last_updated.length > 0),
+  "source entries carry source-level checked_on and observed_last_updated"
+);
+check(
+  "release_grade_runtime_sources_include_openai_compat_boundary",
+  (releaseGradeSources?.sources || []).some((source) => source.id === "PSR-GEMINI-OPENAI-COMPAT"),
+  "Gemini OpenAI compatibility source boundary"
+);
+check(
+  "gemini_prompt_package_not_provider_proof",
+  JSON.stringify(releaseGradeSources || {}).includes("live Gemini provider evidence")
+    || JSON.stringify(releaseGradeSources || {}).includes("does not prove provider"),
+  "prompt-stack Gemini runtime must not imply provider proof"
+);
+
 check(
   "no_gemini_inside_autonomous_99_total",
   !exists("autonomous/99_total/gemini"),

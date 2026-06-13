@@ -1,0 +1,33 @@
+id: release_grade_vllm_operator_packet
+stage: v2.0.0-release-grade-vllm-operator-packet
+mode: no_live_operator_packet_validation
+command: npm run check:release-grade-vllm-operator-packet
+expected_statuses:
+  - pass
+required_inputs:
+  - package.json
+  - evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json
+  - docs/adapters/release_grade_vllm_operator_env_guard.md
+  - docs/adapters/release_grade_adapter_vllm_preflight.md
+  - docs/adapters/release_grade_vllm_evidence_package.md
+  - docs/workspace/release_grade_claim_state_sync.md
+  - docs/release/release_grade_general_release_gate.md
+forbidden_execution:
+  openai_provider_call: true
+  gemini_provider_call: true
+  local_endpoint_probe: true
+  local_model_execution: true
+  telemetry_sink_write: true
+claim_effect:
+  claims_opened: []
+  blocked_claims_maintained:
+    - adapter-checked
+    - production-ready
+    - stable
+    - release-gated
+    - bare release-gated
+ordering_rule: adapter evidence, general snapshot, package, sync, refreshed general gate, package, final sync
+outputs:
+  - evidence/release-grade-vllm-operator-packet/vllm_operator_packet_report.json
+  - evidence/release-grade-vllm-operator-packet/unresolved_items.json
+  - evals/reports/release_grade_vllm_operator_packet_report.json

@@ -8,7 +8,8 @@
 - Active scoped terminal archive is sealed.
 - Final release dossier is recorded.
 - Final dossier export is recorded.
-- Bare/general claims remain blocked.
+- Bare `provider-verified` is open by release-grade provider gate evidence.
+- Other bare/general release claims remain blocked.
 
 ## Allowed Scoped/Qualified Claims
 
@@ -24,10 +25,10 @@
 - `telemetry-connected`
 - `containment-verified`
 - `rc1-openai-scope-release-gated`
+- `provider-verified`
 
 ## Blocked Bare/General Claims
 
-- `provider-verified`
 - `adapter-checked`
 - `production-ready`
 - `stable`
@@ -52,7 +53,37 @@
 
 ## Next Options
 
-1. provider-verified future completion
+1. vLLM execution for adapter-checked final gate
 2. adapter-checked future completion
-3. bare production-ready/stable criteria redesign
+3. general release approval after adapter-checked final gate
 4. 현재 final dossier/export를 최종본으로 보관
+
+vLLM 실행 후 제출/검토할 파일 목록은 아래 checker가 생성한다:
+
+```bash
+npm run check:release-grade-vllm-evidence-package
+```
+
+전체 vLLM evidence path의 첫 단계는 아래 환경 guard다:
+
+```bash
+npm run preflight:vllm-operator-env
+```
+
+검토 시 `evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json`의
+`claim_promotion_readiness`와 `ordering_checks`를 우선 확인한다.
+
+전체 vLLM adapter evidence path는 아래 명령이다:
+
+```bash
+npm run check:release-grade-vllm-operator-packet
+npm run vllm-release-grade-evidence-gate
+```
+
+전체 release-grade reinforcement 상태는 아래 audit으로 확인한다:
+
+```bash
+npm run check:release-grade-completion-audit
+```
+
+`status: hold`이면 provider-verified는 열린 상태일 수 있지만, vLLM evidence 또는 general release approval 부족으로 전체 목표 완료는 아니다.

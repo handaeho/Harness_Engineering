@@ -1,0 +1,33 @@
+id: release-grade-provider-verified-gate
+stage: v2.0.0-release-grade-provider-verified-gate
+status: designed
+gate_owner: release_gate_reviewer
+required_inputs:
+  - core/source_authority/release_grade_source_ledger.json
+  - evidence/release-grade-source-ledger/release_grade_source_ledger_report.json
+  - evidence/beta-provider-canary-openai/provider_canary_report.json
+  - evidence/beta-structured-output-canary-openai/structured_output_canary_report.json
+  - evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json
+  - evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json
+  - evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json
+  - evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json
+  - evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json
+pass_required:
+  - provider behavior evidence for OpenAI, Gemini, and Ollama
+  - schema roundtrip evidence for OpenAI, Gemini, and Ollama
+  - tool roundtrip evidence for OpenAI, Gemini, and Ollama
+  - replay or regression evidence for each provider lane
+  - redaction evidence for each provider lane
+  - trace evidence for each provider lane
+  - provider error-handling evidence for each provider lane
+claim_update_rule:
+  pass: provider-verified may be added to allowed_claims
+  hold: provider-verified remains blocked
+  fail: provider-verified remains blocked and checker failure must be repaired
+execution_boundary:
+  new_provider_calls: false
+  local_model_execution: false
+  telemetry_sink_write: false
+  raw_request_storage: false
+  raw_response_storage: false
+

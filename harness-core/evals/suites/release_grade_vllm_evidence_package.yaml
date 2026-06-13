@@ -1,0 +1,40 @@
+id: release_grade_vllm_evidence_package
+stage: v2.0.0-release-grade-vllm-evidence-package
+mode: evidence_package_no_live_execution
+command: npm run check:release-grade-vllm-evidence-package
+regression_command: npm run check:release-grade-vllm-evidence-package-regression
+full_operator_command: npm run vllm-release-grade-evidence-gate
+expected_statuses:
+  - pass
+  - hold
+required_inputs:
+  - evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json
+  - evidence/post-stable-vllm-endpoint-readiness-preflight/local_endpoint_readiness_preflight_report.json
+  - evidence/post-stable-local-vllm-no-tool-canary/vllm_no_tool_canary_report.json
+  - evidence/post-stable-vllm-adapter-conformance-local-execution/vllm_adapter_conformance_report.json
+  - evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json
+  - evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json
+  - evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json
+ordering_rule: general-release-grade-gate runs after adapter-checked final gate and before evidence package check
+ordering_guard:
+  required: true
+  rule: release-grade-general-release-gate generated_at must be >= adapter-checked final gate generated_at
+claim_promotion_readiness:
+  provider_verified: mirrors provider gate
+  adapter_checked: opens only after vLLM evidence package and adapter final gate pass
+  general_release: opens only after explicit general release approval and general gate pass
+forbidden_execution:
+  openai_provider_call: true
+  gemini_provider_call: true
+  new_local_model_execution: true
+  telemetry_sink_write: true
+outputs:
+  - evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json
+  - evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_regression_report.json
+  - evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json
+  - evidence/release-grade-vllm-evidence-package/vllm_evidence_package_regression_report.json
+  - evidence/release-grade-vllm-evidence-package/unresolved_items.json
+  - evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_report.json
+  - evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_check_report.json
+  - evals/reports/release_grade_vllm_evidence_package_report.json
+  - evals/reports/release_grade_vllm_evidence_package_regression_report.json

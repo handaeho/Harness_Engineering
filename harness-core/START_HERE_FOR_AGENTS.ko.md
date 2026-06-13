@@ -66,13 +66,48 @@ HARNESS Core 내부에 프로젝트별 파일을 추가하지 않는다.
 
 ## Claim Boundary
 
-강한 claim은 계속 닫혀 있다:
+현재 허용된 bare/general claim:
 
 - `provider-verified`
+
+단, `provider-verified`는 release-grade provider gate `status: pass` 증거에 의해서만 열린다.
+
+아래 강한 claim은 계속 닫혀 있다:
+
 - `adapter-checked`
 - `production-ready`
 - `stable`
 - `release-gated`
+
+`adapter-checked`를 열려면 vLLM endpoint 실행 후 아래 패키지 checker가 `pass`여야 한다:
+
+```bash
+npm run check:release-grade-vllm-evidence-package
+```
+
+전체 실행 전에는 아래 환경 guard가 먼저 통과해야 한다:
+
+```bash
+npm run preflight:vllm-operator-env
+```
+
+이후 `evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json`의
+`claim_promotion_readiness`와 `ordering_checks`를 먼저 확인한다.
+
+전체 vLLM adapter evidence path는 아래 명령으로 실행한다:
+
+```bash
+npm run check:release-grade-vllm-operator-packet
+npm run vllm-release-grade-evidence-gate
+```
+
+전체 보강 상태를 HARNESS Core와 current prompt-stack package까지 함께 감사하려면 아래를 실행한다:
+
+```bash
+npm run check:release-grade-completion-audit
+```
+
+이 audit의 `hold`는 현재 claim gate가 증거 부족을 올바르게 차단하고 있다는 뜻이며, 전체 목표 완료 판정이 아니다.
 
 승인 없이 실행하지 않는다:
 

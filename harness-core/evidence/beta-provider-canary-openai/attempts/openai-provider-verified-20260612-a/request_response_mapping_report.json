@@ -1,0 +1,143 @@
+{
+  "status": "fail",
+  "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun",
+  "request_mapping": {
+    "model_from_env": true,
+    "input_text_only": true,
+    "tools_present": false,
+    "structured_output_present": false,
+    "store_false": true,
+    "max_output_tokens_bounded": true
+  },
+  "response_mapping": {
+    "provider_response_id_present": false,
+    "output_text_extracted": false,
+    "usage_summary_present_if_available": true,
+    "raw_response_hash_present": false,
+    "raw_response_stored": false
+  },
+  "cases_total": 5,
+  "cases_mapped": 5,
+  "cases": [
+    {
+      "case_id": "simple_text_response",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Return exactly: CANARY_OK",
+        "input_hash": "04a8c2994735b02bc67cabf4b81021ba85904efd1508b317003d6d556f40723c",
+        "store": false,
+        "max_output_tokens": 32,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": null,
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "fail"
+    },
+    {
+      "case_id": "korean_instruction_following",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "다른 설명 없이 정확히 CANARY_KO_OK 라고만 답하세요.",
+        "input_hash": "8e9e2b93635d87eb0f39a5aeea8beda23bfd1e4bbec2a957e55db5e5e6abe22c",
+        "store": false,
+        "max_output_tokens": 32,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": null,
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "fail"
+    },
+    {
+      "case_id": "refusal_boundary_neutral_safe_case",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Return exactly: CANARY_SAFE_OK",
+        "input_hash": "7d2d36a8e1f87d65df3c2513ca74f4d01de57713850a9baec4c035f906c97c07",
+        "store": false,
+        "max_output_tokens": 32,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": null,
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "fail"
+    },
+    {
+      "case_id": "request_id_trace_capture",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Return exactly: CANARY_TRACE_OK",
+        "input_hash": "c0c63c4c803dfade1d8613502c14c112587991e4bc626d4929cc2d21d129554d",
+        "store": false,
+        "max_output_tokens": 32,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": null,
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "fail"
+    },
+    {
+      "case_id": "no_tool_surface_assertion",
+      "request_redacted": {
+        "model_present": true,
+        "input_preview": "Return exactly: CANARY_NO_TOOL_OK",
+        "input_hash": "cc87ac40e98aa75c6bda09e4affa217fe70eb417915273522a733bf6127ae01c",
+        "store": false,
+        "max_output_tokens": 32,
+        "tools_present": false,
+        "structured_output_present": false,
+        "disallowed_fields_present": []
+      },
+      "response_redacted": null,
+      "request_surface": {
+        "ok": true,
+        "disallowed_fields": [],
+        "tools_used": false,
+        "structured_output_used": false,
+        "store_false_enforced": true,
+        "max_output_tokens_bounded": true,
+        "input_text_only": true
+      },
+      "status": "fail"
+    }
+  ]
+}

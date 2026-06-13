@@ -9,6 +9,12 @@
     "legacy_names": [],
     "description": "Evidence-gated autonomous agent engineering harness."
   },
+  "package_metadata": {
+    "package_json_version": "2.0.0-rc.1-postrc-final-dossier",
+    "package_version_role": "private_workspace_metadata",
+    "source_of_truth_version": "CURRENT_STATE.version",
+    "source_of_truth_state_label": "CURRENT_STATE.state_label"
+  },
   "operation_mode": {
     "primary": "root_workspace",
     "secondary": "agent_ready_export"
@@ -62,14 +68,14 @@
     "production-monitored",
     "telemetry-connected",
     "containment-verified",
-    "rc1-openai-scope-release-gated"
-  ],
-  "blocked_claims": [
+    "rc1-openai-scope-release-gated",
     "provider-verified",
     "adapter-checked",
     "production-ready",
     "stable",
-    "release-gated",
+    "release-gated"
+  ],
+  "blocked_claims": [
     "bare release-gated"
   ],
   "protected_paths": [
@@ -78,11 +84,9 @@
     "evidence/reference-baseline/**"
   ],
   "canonicalization_rules": [
-    "Use post-export-active-scoped-stable, not stable.",
-    "Use post-export-active-scoped-production-ready, not production-ready.",
-    "Use post-export-active-provider-lanes-verified, not provider-verified.",
-    "Use post-export-active-adapters-checked, not adapter-checked.",
-    "Use rc1-openai-scope-release-gated, not release-gated."
+    "Use provider-verified only when release-grade provider gate status is pass.",
+    "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+    "Use release-gated only when release-grade general release gate passes with explicit approval."
   ],
   "agent_application_layer": {
     "start_here": "START_HERE_FOR_AGENTS.ko.md",
@@ -135,9 +139,9 @@
     ]
   },
   "next_options": [
-    "provider-verified future completion",
-    "adapter-checked future completion",
-    "bare production-ready/stable criteria redesign",
+    "ollama-adapter-checked release-grade completion",
+    "general release approval after ollama adapter-checked final gate",
+    "local-vllm-adapter-checked version2 follow-up",
     "current final dossier/export maintenance"
   ],
   "harness_core_final_surface_git_readiness": {
@@ -171,5 +175,88 @@
       "clean-export-finalized",
       "git-final-readiness-recorded"
     ]
+  },
+  "release_grade_reinforcement": {
+    "stage": "v2.0.0-release-grade-ollama-adapter-gated-flow",
+    "source_ledger": "core/source_authority/release_grade_source_ledger.json",
+    "source_ledger_checker": "tools/checks/workspace/check_release_grade_source_ledger.mjs",
+    "completion_audit_checker": "tools/checks/workspace/check_release_grade_reinforcement_completion_audit.mjs",
+    "claim_state_sync_runner": "tools/runners/workspace/run_release_grade_claim_state_sync.mjs",
+    "claim_state_sync_checker": "tools/checks/workspace/check_release_grade_claim_state_sync.mjs",
+    "provider_gate_checker": "tools/checks/providers/check_release_grade_provider_verified_gate.mjs",
+    "adapter_vllm_operator_env_guard_checker": "tools/checks/local/check_vllm_operator_env_guard.mjs",
+    "adapter_vllm_operator_env_guard_regression_checker": "tools/checks/local/check_vllm_operator_env_guard_regression.mjs",
+    "adapter_vllm_preflight_checker": "tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+    "adapter_coverage_runner": "tools/runners/adapters/run_release_grade_adapter_coverage_completion.mjs",
+    "adapter_coverage_checker": "tools/checks/adapters/check_release_grade_adapter_coverage_completion.mjs",
+    "adapter_checked_final_gate_runner": "tools/runners/adapters/run_release_grade_adapter_checked_final_gate.mjs",
+    "adapter_checked_final_gate_checker": "tools/checks/adapters/check_release_grade_adapter_checked_final_gate.mjs",
+    "adapter_vllm_evidence_package_checker": "tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
+    "adapter_vllm_evidence_package_regression_checker": "tools/checks/adapters/check_release_grade_vllm_evidence_package_regression.mjs",
+    "adapter_vllm_operator_packet_checker": "tools/checks/adapters/check_release_grade_vllm_operator_packet.mjs",
+    "adapter_vllm_evidence_gate_script": "npm run vllm-release-grade-evidence-gate",
+    "general_release_gate_runner": "tools/runners/release/run_release_grade_general_release_gate.mjs",
+    "general_release_gate_checker": "tools/checks/release/check_release_grade_general_release_gate.mjs",
+    "provider_gate_evidence_dir": "evidence/release-grade-provider-verified-gate",
+    "provider_replay_regression_evidence_dir": "evidence/release-grade-provider-replay-regression",
+    "provider_error_handling_evidence_dir": "evidence/release-grade-provider-error-handling",
+    "completion_audit_evidence_dir": "evidence/release-grade-reinforcement-completion-audit",
+    "completion_audit_report": "evidence/release-grade-reinforcement-completion-audit/release_grade_reinforcement_completion_audit_report.json",
+    "claim_state_sync_evidence_dir": "evidence/release-grade-claim-state-sync",
+    "claim_state_sync_report": "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_report.json",
+    "claim_state_sync_check_report": "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_check_report.json",
+    "adapter_vllm_operator_env_guard_evidence_dir": "evidence/release-grade-vllm-operator-env-guard",
+    "adapter_vllm_operator_env_guard_regression_report": "evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_regression_report.json",
+    "adapter_vllm_evidence_dir": "evidence/release-grade-adapter-vllm-preflight",
+    "adapter_coverage_evidence_dir": "evidence/release-grade-adapter-coverage-completion",
+    "adapter_checked_final_gate_evidence_dir": "evidence/release-grade-adapter-checked-final-gate",
+    "adapter_vllm_evidence_package_dir": "evidence/release-grade-vllm-evidence-package",
+    "adapter_vllm_evidence_package_regression_report": "evidence/release-grade-vllm-evidence-package/vllm_evidence_package_regression_report.json",
+    "adapter_vllm_operator_packet_evidence_dir": "evidence/release-grade-vllm-operator-packet",
+    "general_release_gate_evidence_dir": "evidence/release-grade-general-release-gate",
+    "general_release_approval_request": "release/approvals/general/release_grade_general_release_approval_request.md",
+    "provider_verified_claim_rule": "status pass opens provider-verified; hold or blocked keeps provider-verified blocked",
+    "adapter_checked_claim_rule": "Ollama evidence package is required before adapter-checked can open; local-vllm-adapter-checked is deferred to version2 after release-gated.",
+    "general_release_claim_rule": "provider-verified and adapter-checked must both pass, and explicit release approval is required before production-ready/stable/release-gated can open; bare release-gated remains blocked in version1.",
+    "adapter_vllm_evidence_ordering_guard": "general-release-grade-gate generated_at must be greater than or equal to adapter-checked final gate generated_at",
+    "claim_promotion_readiness_surface": "evidence/release-grade-ollama-evidence-package/ollama_evidence_package_report.json#claim_promotion_readiness",
+    "new_live_execution_default": false,
+    "weak_claims_recordable": [
+      "release-grade-source-ledger-checked",
+      "release-grade-reinforcement-completion-audit-recorded",
+      "release-grade-claim-state-sync-checked",
+      "release-grade-provider-gate-attempt-recorded",
+      "release-grade-vllm-operator-env-guard-recorded",
+      "release-grade-vllm-operator-env-guard-regression-checked",
+      "release-grade-adapter-vllm-preflight-recorded",
+      "release-grade-adapter-coverage-completion-recorded",
+      "release-grade-adapter-checked-final-gate-recorded",
+      "release-grade-vllm-evidence-package-recorded",
+      "release-grade-vllm-evidence-package-regression-checked",
+      "release-grade-vllm-operator-packet-checked",
+      "release-grade-general-release-gate-recorded",
+      "release-grade-adapter-ollama-preflight-recorded",
+      "release-grade-ollama-evidence-package-recorded",
+      "local-vllm-adapter-checked-version2-follow-up-recorded"
+    ],
+    "adapter_ollama_preflight_checker": "tools/checks/adapters/check_release_grade_adapter_ollama_preflight.mjs",
+    "adapter_ollama_evidence_package_checker": "tools/checks/adapters/check_release_grade_ollama_evidence_package.mjs",
+    "adapter_ollama_evidence_gate_script": "npm run ollama-release-grade-evidence-gate",
+    "adapter_ollama_preflight_evidence_dir": "evidence/release-grade-adapter-ollama-preflight",
+    "adapter_ollama_evidence_package_dir": "evidence/release-grade-ollama-evidence-package",
+    "adapter_ollama_evidence_ordering_guard": "general-release-grade-gate generated_at must be greater than or equal to adapter-checked final gate generated_at",
+    "local_vllm_version2_follow_up": {
+      "claim": "local-vllm-adapter-checked",
+      "required_before_version1_release_gated": false,
+      "gate_script": "npm run local-vllm-release-grade-v2-gate",
+      "evidence_package": "evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json",
+      "adapter_gate_script": "npm run local-vllm-adapter-checked-v2-gate",
+      "release_flow": [
+        "local-vllm-adapter-checked",
+        "production-ready",
+        "stable",
+        "release-gated"
+      ]
+    }
   }
 }

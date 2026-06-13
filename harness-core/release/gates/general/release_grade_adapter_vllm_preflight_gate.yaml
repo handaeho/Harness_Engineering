@@ -1,0 +1,29 @@
+id: release-grade-adapter-vllm-preflight
+stage: v2.0.0-release-grade-adapter-vllm-preflight
+status: designed
+gate_owner: release_gate_reviewer
+vllm_policy: execution_required_for_bare_adapter_checked
+required_inputs:
+  - core/source_authority/release_grade_source_ledger.json
+  - adapters/api/openai/adapter.yaml
+  - adapters/api/gemini/adapter.yaml
+  - adapters/local/ollama/adapter.yaml
+  - adapters/local/vllm/adapter.yaml
+  - evidence/post-export-adapter-checked-coverage-completion/adapter_checked_coverage_completion_report.json
+pass_required:
+  - OpenAI adapter coverage complete
+  - Gemini adapter coverage complete
+  - Ollama adapter coverage complete
+  - vLLM execution evidence present
+  - cross-adapter regression evidence present
+claim_update_rule:
+  pass: adapter-checked may enter owner decision gate
+  hold: adapter-checked remains blocked
+  fail: adapter-checked remains blocked and checker failure must be repaired
+execution_boundary:
+  vllm_endpoint_probe: false
+  local_model_execution: false
+  telemetry_sink_write: false
+  raw_request_storage: false
+  raw_response_storage: false
+

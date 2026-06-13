@@ -14,7 +14,7 @@ Stage: v2.0.0-beta-openai-canary-replay-suite
 
 - pass: validate_alpha.mjs pass
 - pass: scan_prohibited_claims.mjs pass
-- pass: compare_v36_baseline.mjs pass
+- pass: check_reference_baseline_integrity.mjs pass
 - pass: check_openai_credentialed_canary.mjs pass
 - pass: check_openai_structured_output_canary.mjs pass
 - pass: check_openai_tool_calling_canary.mjs pass
@@ -35,4 +35,4 @@ Stage: v2.0.0-beta-openai-canary-replay-suite
 - pass: structured_output required trace events present
 - pass: tool_calling required trace events present
 - pass: no replay/provider-diverse/release-gated claims allowed
-- pass: v36 modified false by checksum comparison
+- pass: reference baseline source modified false by checksum comparison

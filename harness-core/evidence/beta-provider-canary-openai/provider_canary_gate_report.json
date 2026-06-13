@@ -1,10 +1,10 @@
 {
   "status": "pass",
-  "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun",
+  "stage": "v2.0.0-beta-provider-canary-openai",
   "can_enter_tool_calling_execution": false,
   "can_enter_structured_output_execution": false,
   "can_enter_local_model_execution": false,
-  "reason": "Credentialed OpenAI no-tool provider canary passed. Tool calling, structured output, and local model execution remain closed.",
+  "reason": "OpenAI no-tool provider canary passed. Other provider surfaces still require explicit approval.",
   "checks": [
     {
       "name": "validate_alpha.mjs pass",
@@ -23,7 +23,7 @@
       }
     },
     {
-      "name": "compare_v36_baseline.mjs pass",
+      "name": "check_reference_baseline_integrity.mjs pass",
       "status": "pass",
       "detail": {
         "status": "pass",
@@ -36,7 +36,7 @@
       "status": "pass",
       "detail": {
         "status": "pass",
-        "cases_total": 12,
+        "cases_total": 14,
         "cases_failed": 0
       }
     },
@@ -56,7 +56,6 @@
         "status": "pass",
         "provider_execution": true,
         "cases_total": 5,
-        "cases_passed": 5,
         "cases_failed": 0
       }
     },
@@ -66,14 +65,17 @@
       "detail": {}
     },
     {
-      "name": "request response mapping report exists",
+      "name": "redaction report exists",
       "status": "pass",
       "detail": {}
     },
     {
-      "name": "redaction report exists",
+      "name": "redaction report pass",
       "status": "pass",
-      "detail": {}
+      "detail": {
+        "redaction_passed": true,
+        "api_key_recorded": false
+      }
     },
     {
       "name": "tools_used is false",
@@ -111,57 +113,19 @@
       }
     },
     {
-      "name": "redaction passed and raw response not stored",
+      "name": "reference baseline source modified false by checksum comparison",
       "status": "pass",
       "detail": {
-        "redaction_passed": true,
-        "raw_response_recorded": false,
-        "raw_response_stored": false
-      }
-    },
-    {
-      "name": "provider_execution is true for credentialed pass",
-      "status": "pass",
-      "detail": {
-        "provider_execution": true
-      }
-    },
-    {
-      "name": "all canary cases passed",
-      "status": "pass",
-      "detail": {
-        "cases_total": 5,
-        "cases_passed": 5,
-        "cases_failed": 0
-      }
-    },
-    {
-      "name": "request response mapping report pass",
-      "status": "pass",
-      "detail": {
-        "request_mapping": {
-          "model_from_env": true,
-          "input_text_only": true,
-          "tools_present": false,
-          "structured_output_present": false,
-          "store_false": true,
-          "max_output_tokens_bounded": true
-        },
-        "response_mapping": {
-          "provider_response_id_present": true,
-          "output_text_extracted": true,
-          "usage_summary_present_if_available": true,
-          "raw_response_hash_present": true,
-          "raw_response_stored": false
+        "method": "alpha snapshot plus referenceBaseline existing checksum record comparison",
+        "reference_baseline_source_modified": false,
+        "baseline_checksum": {
+          "clean": true,
+          "alpha_current_snapshot_mismatch_count": 0,
+          "existing_record_mismatch_count": 56,
+          "existing_record_unapproved_mismatch_count": 0,
+          "existing_record_approved_mismatch_count": 56,
+          "existing_record_path": "prompt-stack/v36/records/file_checksums.json"
         }
-      }
-    },
-    {
-      "name": "v36 modified false by checksum comparison",
-      "status": "pass",
-      "detail": {
-        "method": "alpha snapshot plus v36 existing checksum record comparison",
-        "v36_modified": false
       }
     }
   ],

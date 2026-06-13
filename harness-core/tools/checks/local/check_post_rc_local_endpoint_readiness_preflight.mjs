@@ -7,17 +7,22 @@ const STAGE = "v2.0.0-post-rc-local-endpoint-readiness-preflight";
 const DEFAULT_EVIDENCE_DIR = "post-rc-local-endpoint-readiness-preflight";
 const DEFAULT_REPORT_PREFIX = "post_rc_local_endpoint_readiness_preflight";
 const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
+const SMART_QUOTES = /[\u2018\u2019\u201C\u201D]/;
+const ASCII_SURROUNDING_QUOTES = /^["']|["']$/;
+const CONTROL_CHARS = /[\u0000-\u001F\u007F]/;
 const CLAIMS_BLOCKED = [
-  "provider-diverse",
-  "provider-verified",
   "adapter-checked",
-  "local-model-verified",
   "local-no-tool-canary-executed",
   "vllm-no-tool-canary-executed",
   "ollama-no-tool-canary-executed",
   "production-ready",
   "stable",
   "release-gated"
+];
+const CLAIMS_NOT_OPENED_BY_THIS_PREFLIGHT = [
+  "provider-diverse",
+  "provider-verified",
+  "local-model-verified"
 ];
 
 const args = process.argv.slice(2);
@@ -42,7 +47,8 @@ const apiShape = argValue("api-shape", process.env.LOCAL_ENDPOINT_API_SHAPE || "
 const authRequired = argValue("auth-required", process.env.LOCAL_ENDPOINT_AUTH_REQUIRED || "no").toLowerCase();
 const operatorSignal = argValue("operator-signal", process.env.LOCAL_ENDPOINT_OPERATOR_SIGNAL || "");
 const timeoutMs = Number(argValue("timeout-ms", process.env.LOCAL_ENDPOINT_TIMEOUT_MS || "5000"));
-const authTokenPresent = Boolean(process.env.LOCAL_ENDPOINT_API_KEY);
+const authToken = process.env.LOCAL_ENDPOINT_API_KEY || (provider === "vllm" ? process.env.VLLM_API_KEY : "");
+const authTokenPresent = Boolean(authToken);
 const evidenceDir = normalizeRelativePath(argValue(
   "evidence-dir",
   process.env.LOCAL_ENDPOINT_EVIDENCE_DIR || DEFAULT_EVIDENCE_DIR
@@ -110,8 +116,8 @@ async function fetchModels(baseUrl) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   const headers = {};
-  if (authRequired === "yes" && process.env.LOCAL_ENDPOINT_API_KEY) {
-    headers.Authorization = `Bearer ${process.env.LOCAL_ENDPOINT_API_KEY}`;
+  if (authRequired === "yes" && authToken) {
+    headers.Authorization = `Bearer ${authToken}`;
   }
 
   try {
@@ -153,6 +159,11 @@ addCheck(checks, "operator readiness signal is present", isReadySignal(operatorS
 });
 addCheck(checks, "provider type is supported", ["ollama", "vllm"].includes(provider), { provider });
 addCheck(checks, "model name is present", Boolean(modelName), { model_name_present: Boolean(modelName) });
+if (modelName) {
+  addCheck(checks, "model name has no smart quotes", !SMART_QUOTES.test(modelName), {});
+  addCheck(checks, "model name has no embedded shell quotes", !ASCII_SURROUNDING_QUOTES.test(modelName), {});
+  addCheck(checks, "model name has no control characters", !CONTROL_CHARS.test(modelName), {});
+}
 addCheck(checks, "endpoint URL parses", endpoint.ok, { endpoint_url_present: Boolean(endpointUrl) });
 if (endpoint.ok) {
   addCheck(checks, "endpoint is localhost-only", isLocalEndpoint(endpoint.parsed), {
@@ -222,6 +233,7 @@ const probeSummary = {
 const claimBoundary = {
   status,
   stage: STAGE,
+  claim_scope: "local endpoint readiness preflight only",
   can_enter_local_no_tool_canary: status === "pass",
   local_endpoint_probe_allowed_after_operator_signal: true,
   local_endpoint_probe: localEndpointProbe,
@@ -236,6 +248,7 @@ const claimBoundary = {
       "post-rc-local-endpoint-probe-checked"
     ]
     : [],
+  claims_not_opened_by_this_preflight: CLAIMS_NOT_OPENED_BY_THIS_PREFLIGHT,
   claims_blocked: CLAIMS_BLOCKED
 };
 
@@ -258,9 +271,11 @@ const report = {
   raw_response_stored: false,
   secrets_logged: false,
   can_enter_local_no_tool_canary: status === "pass",
+  claim_scope: claimBoundary.claim_scope,
   checks,
   probe_summary: probeSummary,
   claims_allowed: claimBoundary.claims_allowed,
+  claims_not_opened_by_this_preflight: CLAIMS_NOT_OPENED_BY_THIS_PREFLIGHT,
   claims_blocked: CLAIMS_BLOCKED,
   failures: failed
 };
@@ -309,6 +324,7 @@ ${checks.map((check) => `- ${check.status}: ${check.name}`).join("\n")}
 ## Claim Boundary
 
 - Allows after pass: ${claimBoundary.claims_allowed.join(", ") || "none"}
+- Not opened by this preflight: ${CLAIMS_NOT_OPENED_BY_THIS_PREFLIGHT.join(", ")}
 - Still blocked: ${CLAIMS_BLOCKED.join(", ")}
 `;
 

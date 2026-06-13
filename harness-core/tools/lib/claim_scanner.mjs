@@ -438,7 +438,10 @@ export const allowedPositiveClaims = [
   "active-docs-reference-name-aligned",
   "harness-core-final-surface-checked",
   "harness-core-git-readiness-recorded",
-  "harness-core-agent-ready-export-refreshed"
+  "harness-core-agent-ready-export-refreshed",
+  "release-grade-source-ledger-checked",
+  "release-grade-provider-gate-attempt-recorded",
+  "release-grade-adapter-vllm-preflight-recorded"
 ];
 
 const allowedContextPattern = /(not|never|blocked|blocks|prohibited|forbidden|deferred|later|before|without|must not|does not|is not|are not|allowed only if|not_allowed|claim_not_allowed|claims_not_allowed|forbidden_claims|blocked_claims|claims_blocked|prohibited_claim|prohibited_positive_claim|blocked_claims_found_as_positive|conditional_future_claims|claim_still_not_allowed|checklist|enum|fixture|policy|rule|does_not_allow|does_not_unblock|does_not_unlock|still_blocks|still_not_allowed|blocked|still_blocked|disallow|absent|can enter|why_not_stable|not_stable_notice|local_endpoint_deferred|AGENTS\\.md blocked claim list|current claim status|금지|차단|조건|정의|보류|미허용|불가|없음|검토)/i;

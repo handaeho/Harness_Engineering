@@ -1,0 +1,81 @@
+{
+  "candidate_id": "release-grade-adapter-vllm-preflight-2026-06-11",
+  "status": "hold",
+  "stage": "v2.0.0-release-grade-adapter-vllm-preflight",
+  "generated_at": "2026-06-13T02:25:54.122Z",
+  "vllm_policy": "execution_required_for_bare_adapter_checked",
+  "source_ledger": {
+    "path": "evidence/release-grade-source-ledger/release_grade_source_ledger_report.json",
+    "report_status": "pass",
+    "ledger_exists": true,
+    "required_ids_present": true,
+    "missing_ids": [],
+    "source_count": 10
+  },
+  "coverage_matrix": {
+    "openai_adapter_exists": true,
+    "gemini_adapter_exists": true,
+    "ollama_adapter_exists": true,
+    "vllm_adapter_exists": true,
+    "vllm_requirements_present": true,
+    "vllm_execution_evidence": [],
+    "adapter_coverage_completion_source": {
+      "path": "evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json",
+      "exists": true,
+      "status": "hold",
+      "stage": "v2.0.0-release-grade-adapter-coverage-completion"
+    },
+    "adapter_coverage_completion_status": "hold"
+  },
+  "blockers": [
+    {
+      "id": "vllm_execution_required_for_bare_adapter_checked",
+      "lane": "vllm_adapter",
+      "status": "hold",
+      "reason": "vLLM remains execution-required for bare adapter-checked; no vLLM execution evidence was found."
+    },
+    {
+      "id": "adapter_coverage_completion_not_ready",
+      "lane": "all_adapters",
+      "status": "hold",
+      "reason": "Existing adapter coverage completion report is not ready for the final adapter gate."
+    }
+  ],
+  "unresolved_items_count": 2,
+  "live_execution": {
+    "new_openai_provider_call": false,
+    "new_gemini_provider_call": false,
+    "new_local_model_execution": false,
+    "vllm_endpoint_probe": false,
+    "telemetry_sink_write": false,
+    "approval_required_for_vllm_execution": true
+  },
+  "allowed_claims": [
+    "provider-diverse",
+    "local-model-verified",
+    "post-export-active-provider-lanes-verified",
+    "post-export-active-adapters-checked",
+    "post-export-active-scoped-production-ready",
+    "post-export-active-scoped-stable",
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated",
+    "provider-verified"
+  ],
+  "blocked_claims": [
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "provider_verified_allowed": true,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "bare_release_gated_allowed": false
+}

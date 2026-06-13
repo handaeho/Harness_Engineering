@@ -1,0 +1,510 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-claim-state-sync-check",
+  "generated_at": "2026-06-13T05:35:28.829Z",
+  "checker": "check_release_grade_claim_state_sync.mjs",
+  "sync_report_status": "pass",
+  "sync_report_generated_at": "2026-06-13T05:20:14.494Z",
+  "expected_claim_state": {
+    "allowed_claims": [
+      "provider-diverse",
+      "local-model-verified",
+      "post-export-active-provider-lanes-verified",
+      "post-export-active-adapters-checked",
+      "post-export-active-scoped-production-ready",
+      "post-export-active-scoped-stable",
+      "post-rc-openai-only-stable",
+      "post-rc-openai-only-production-ready",
+      "production-monitored",
+      "telemetry-connected",
+      "containment-verified",
+      "rc1-openai-scope-release-gated",
+      "provider-verified",
+      "adapter-checked",
+      "production-ready",
+      "stable",
+      "release-gated"
+    ],
+    "blocked_claims": [
+      "bare release-gated"
+    ],
+    "canonicalization_rules": [
+      "Use provider-verified only when release-grade provider gate status is pass.",
+      "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+      "Use release-gated only when release-grade general release gate passes with explicit approval."
+    ],
+    "provider_verified_allowed": true,
+    "adapter_checked_allowed": true,
+    "production_ready_allowed": true,
+    "stable_allowed": true,
+    "release_gated_allowed": true,
+    "bare_release_gated_allowed": false
+  },
+  "comparisons": {
+    "current_state_yaml": {
+      "status": "pass",
+      "checks": [
+        {
+          "name": "allowed_claims match expected release-grade claim state",
+          "status": "pass",
+          "detail": {
+            "actual": [
+              "provider-diverse",
+              "local-model-verified",
+              "post-export-active-provider-lanes-verified",
+              "post-export-active-adapters-checked",
+              "post-export-active-scoped-production-ready",
+              "post-export-active-scoped-stable",
+              "post-rc-openai-only-stable",
+              "post-rc-openai-only-production-ready",
+              "production-monitored",
+              "telemetry-connected",
+              "containment-verified",
+              "rc1-openai-scope-release-gated",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated"
+            ],
+            "expected": [
+              "provider-diverse",
+              "local-model-verified",
+              "post-export-active-provider-lanes-verified",
+              "post-export-active-adapters-checked",
+              "post-export-active-scoped-production-ready",
+              "post-export-active-scoped-stable",
+              "post-rc-openai-only-stable",
+              "post-rc-openai-only-production-ready",
+              "production-monitored",
+              "telemetry-connected",
+              "containment-verified",
+              "rc1-openai-scope-release-gated",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated"
+            ]
+          }
+        },
+        {
+          "name": "blocked_claims match expected release-grade claim state",
+          "status": "pass",
+          "detail": {
+            "actual": [
+              "bare release-gated"
+            ],
+            "expected": [
+              "bare release-gated"
+            ]
+          }
+        },
+        {
+          "name": "canonicalization_rules match expected release-grade claim state",
+          "status": "pass",
+          "detail": {
+            "actual": [
+              "Use provider-verified only when release-grade provider gate status is pass.",
+              "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+              "Use release-gated only when release-grade general release gate passes with explicit approval."
+            ],
+            "expected": [
+              "Use provider-verified only when release-grade provider gate status is pass.",
+              "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+              "Use release-gated only when release-grade general release gate passes with explicit approval."
+            ]
+          }
+        },
+        {
+          "name": "provider-verified membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "provider-verified",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "adapter-checked membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "adapter-checked",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "production-ready membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "production-ready",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "stable membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "stable",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "release-gated membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "release-gated",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "bare release-gated membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "bare release-gated",
+            "expected_open": false,
+            "actual_allowed": false,
+            "actual_blocked": true
+          }
+        }
+      ],
+      "failures": []
+    },
+    "current_state_json": {
+      "status": "pass",
+      "checks": [
+        {
+          "name": "allowed_claims match expected release-grade claim state",
+          "status": "pass",
+          "detail": {
+            "actual": [
+              "provider-diverse",
+              "local-model-verified",
+              "post-export-active-provider-lanes-verified",
+              "post-export-active-adapters-checked",
+              "post-export-active-scoped-production-ready",
+              "post-export-active-scoped-stable",
+              "post-rc-openai-only-stable",
+              "post-rc-openai-only-production-ready",
+              "production-monitored",
+              "telemetry-connected",
+              "containment-verified",
+              "rc1-openai-scope-release-gated",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated"
+            ],
+            "expected": [
+              "provider-diverse",
+              "local-model-verified",
+              "post-export-active-provider-lanes-verified",
+              "post-export-active-adapters-checked",
+              "post-export-active-scoped-production-ready",
+              "post-export-active-scoped-stable",
+              "post-rc-openai-only-stable",
+              "post-rc-openai-only-production-ready",
+              "production-monitored",
+              "telemetry-connected",
+              "containment-verified",
+              "rc1-openai-scope-release-gated",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated"
+            ]
+          }
+        },
+        {
+          "name": "blocked_claims match expected release-grade claim state",
+          "status": "pass",
+          "detail": {
+            "actual": [
+              "bare release-gated"
+            ],
+            "expected": [
+              "bare release-gated"
+            ]
+          }
+        },
+        {
+          "name": "canonicalization_rules match expected release-grade claim state",
+          "status": "pass",
+          "detail": {
+            "actual": [
+              "Use provider-verified only when release-grade provider gate status is pass.",
+              "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+              "Use release-gated only when release-grade general release gate passes with explicit approval."
+            ],
+            "expected": [
+              "Use provider-verified only when release-grade provider gate status is pass.",
+              "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+              "Use release-gated only when release-grade general release gate passes with explicit approval."
+            ]
+          }
+        },
+        {
+          "name": "provider-verified membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "provider-verified",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "adapter-checked membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "adapter-checked",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "production-ready membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "production-ready",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "stable membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "stable",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "release-gated membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "release-gated",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "bare release-gated membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "bare release-gated",
+            "expected_open": false,
+            "actual_allowed": false,
+            "actual_blocked": true
+          }
+        }
+      ],
+      "failures": []
+    },
+    "final_release_claim_state": {
+      "status": "pass",
+      "checks": [
+        {
+          "name": "allowed_claims match expected release-grade claim state",
+          "status": "pass",
+          "detail": {
+            "actual": [
+              "provider-diverse",
+              "local-model-verified",
+              "post-export-active-provider-lanes-verified",
+              "post-export-active-adapters-checked",
+              "post-export-active-scoped-production-ready",
+              "post-export-active-scoped-stable",
+              "post-rc-openai-only-stable",
+              "post-rc-openai-only-production-ready",
+              "production-monitored",
+              "telemetry-connected",
+              "containment-verified",
+              "rc1-openai-scope-release-gated",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated"
+            ],
+            "expected": [
+              "provider-diverse",
+              "local-model-verified",
+              "post-export-active-provider-lanes-verified",
+              "post-export-active-adapters-checked",
+              "post-export-active-scoped-production-ready",
+              "post-export-active-scoped-stable",
+              "post-rc-openai-only-stable",
+              "post-rc-openai-only-production-ready",
+              "production-monitored",
+              "telemetry-connected",
+              "containment-verified",
+              "rc1-openai-scope-release-gated",
+              "provider-verified",
+              "adapter-checked",
+              "production-ready",
+              "stable",
+              "release-gated"
+            ]
+          }
+        },
+        {
+          "name": "blocked_claims match expected release-grade claim state",
+          "status": "pass",
+          "detail": {
+            "actual": [
+              "bare release-gated"
+            ],
+            "expected": [
+              "bare release-gated"
+            ]
+          }
+        },
+        {
+          "name": "canonicalization_rules match expected release-grade claim state",
+          "status": "pass",
+          "detail": {
+            "actual": [
+              "Use provider-verified only when release-grade provider gate status is pass.",
+              "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+              "Use release-gated only when release-grade general release gate passes with explicit approval."
+            ],
+            "expected": [
+              "Use provider-verified only when release-grade provider gate status is pass.",
+              "Use adapter-checked only when release-grade adapter final gate and Ollama evidence package pass.",
+              "Use release-gated only when release-grade general release gate passes with explicit approval."
+            ]
+          }
+        },
+        {
+          "name": "provider-verified membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "provider-verified",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "provider_verified_allowed matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "adapter-checked membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "adapter-checked",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "adapter_checked_allowed matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "production-ready membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "production-ready",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "production_ready_allowed matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "stable membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "stable",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "stable_allowed matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "release-gated membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "release-gated",
+            "expected_open": true,
+            "actual_allowed": true,
+            "actual_blocked": false
+          }
+        },
+        {
+          "name": "release_gated_allowed matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "bare release-gated membership matches release-grade evidence",
+          "status": "pass",
+          "detail": {
+            "claim": "bare release-gated",
+            "expected_open": false,
+            "actual_allowed": false,
+            "actual_blocked": true
+          }
+        }
+      ],
+      "failures": []
+    }
+  },
+  "failures": [],
+  "unresolved_items_count": 0,
+  "live_execution": {
+    "provider_call": false,
+    "local_model_execution": false,
+    "telemetry_sink_write": false,
+    "raw_request_storage": false,
+    "raw_response_storage": false,
+    "secret_storage": false
+  },
+  "next_action": "No SOR claim-state sync action is required."
+}

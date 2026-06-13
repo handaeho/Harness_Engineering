@@ -1,0 +1,18 @@
+stage: v2.0.0-release-grade-general-release-gate
+status: hold_until_prerequisites_and_approval
+command: npm run general-release-grade-gate
+claim_update_rule: >
+  Bare production-ready, stable, and release-gated may open only when
+  provider-verified and adapter-checked are both open, final precommit has
+  passed, and explicit approval is present.
+approval_env: RELEASE_GRADE_GENERAL_RELEASE_APPROVAL
+approval_request: release/approvals/general/release_grade_general_release_approval_request.md
+forbidden_execution:
+  openai_provider_call: true
+  gemini_provider_call: true
+  new_local_model_execution: true
+  telemetry_sink_write: true
+current_boundary:
+  production_ready_allowed: false
+  stable_allowed: false
+  release_gated_allowed: false

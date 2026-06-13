@@ -1,3 +1,5 @@
+import { checkOpenAIModelEnv } from "./openai_model_env_guard.mjs";
+
 const STAGE = "v2.0.0-beta-structured-output-canary-openai";
 
 function isOpenAIBaseUrl(value) {
@@ -19,6 +21,10 @@ export function checkStructuredOutputExecutionGuard({ stage, request, env = proc
   }
   if (!env.OPENAI_MODEL) {
     return { allowed: false, status: "blocked_by_missing_model", reason: "OPENAI_MODEL missing" };
+  }
+  const modelGuard = checkOpenAIModelEnv({ request, env });
+  if (!modelGuard.allowed) {
+    return modelGuard;
   }
   if (!isOpenAIBaseUrl(env.OPENAI_BASE_URL)) {
     return { allowed: false, status: "blocked_by_network_target", reason: "OPENAI_BASE_URL must target api.openai.com" };

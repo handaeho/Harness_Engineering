@@ -11,6 +11,9 @@ const DEFAULT_EVIDENCE_DIR = "post-rc-local-no-tool-canary";
 const DEFAULT_READINESS_EVIDENCE_DIR = "post-rc-local-endpoint-readiness-preflight";
 const DEFAULT_REPORT_PREFIX = "post_rc_local_no_tool_canary";
 const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
+const SMART_QUOTES = /[\u2018\u2019\u201C\u201D]/;
+const ASCII_SURROUNDING_QUOTES = /^["']|["']$/;
+const CONTROL_CHARS = /[\u0000-\u001F\u007F]/;
 const CLAIMS_ALLOWED_AFTER_PASS = [
   "post-rc-local-no-tool-canary-completed",
   "post-rc-local-model-no-tool-path-checked",
@@ -238,11 +241,18 @@ addCheck(checks, "readiness stage matches expected stage", readiness?.stage === 
 });
 addCheck(checks, "provider type is supported", ["ollama", "vllm"].includes(provider), { provider });
 addCheck(checks, "model name is present", Boolean(modelName), { model_name_present: Boolean(modelName) });
+if (modelName) {
+  addCheck(checks, "model name has no smart quotes", !SMART_QUOTES.test(modelName), {});
+  addCheck(checks, "model name has no embedded shell quotes", !ASCII_SURROUNDING_QUOTES.test(modelName), {});
+  addCheck(checks, "model name has no control characters", !CONTROL_CHARS.test(modelName), {});
+}
 addCheck(checks, "endpoint URL parses", endpoint.ok, { endpoint_url_present: Boolean(endpointUrl) });
 if (endpoint.ok) {
   addCheck(checks, "endpoint is localhost-only", isLocalEndpoint(endpoint.parsed), {
     endpoint_host: endpoint.parsed.hostname
   });
+  addCheck(checks, "endpoint has no embedded credentials", !endpoint.parsed.username && !endpoint.parsed.password, {});
+  addCheck(checks, "endpoint has no query or hash", !endpoint.parsed.search && !endpoint.parsed.hash, {});
 }
 addCheck(checks, "auth token presence matches auth requirement", authRequired !== "yes" || authTokenPresent, {
   auth_required: authRequired,

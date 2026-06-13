@@ -1,0 +1,137 @@
+{
+  "status": "fail",
+  "stage": "v2.0.0-post-rc-local-endpoint-readiness-preflight",
+  "provider": "vllm",
+  "api_shape": "OpenAI-compatible",
+  "model_name": "",
+  "endpoint_url": "http://127.0.0.1:8000/v1",
+  "auth_required": "no",
+  "auth_token_present": false,
+  "operator_signal_present": true,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "external_provider_call": false,
+  "telemetry_sink_write": false,
+  "synthetic_trace_generation": false,
+  "raw_request_stored": false,
+  "raw_response_stored": false,
+  "secrets_logged": false,
+  "can_enter_local_no_tool_canary": false,
+  "claim_scope": "local endpoint readiness preflight only",
+  "checks": [
+    {
+      "name": "operator readiness signal is present",
+      "status": "pass",
+      "detail": {
+        "operator_signal_present": true
+      }
+    },
+    {
+      "name": "provider type is supported",
+      "status": "pass",
+      "detail": {
+        "provider": "vllm"
+      }
+    },
+    {
+      "name": "model name is present",
+      "status": "fail",
+      "detail": {
+        "model_name_present": false
+      }
+    },
+    {
+      "name": "endpoint URL parses",
+      "status": "pass",
+      "detail": {
+        "endpoint_url_present": true
+      }
+    },
+    {
+      "name": "endpoint is localhost-only",
+      "status": "pass",
+      "detail": {
+        "endpoint_host": "127.0.0.1"
+      }
+    },
+    {
+      "name": "endpoint has no embedded credentials",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "endpoint has no query or hash",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "api shape is OpenAI-compatible",
+      "status": "pass",
+      "detail": {
+        "api_shape": "OpenAI-compatible"
+      }
+    },
+    {
+      "name": "auth requirement is explicit",
+      "status": "pass",
+      "detail": {
+        "auth_required": "no"
+      }
+    },
+    {
+      "name": "auth token presence matches auth requirement",
+      "status": "pass",
+      "detail": {
+        "auth_required": "no",
+        "auth_token_present": false
+      }
+    },
+    {
+      "name": "timeout is bounded",
+      "status": "pass",
+      "detail": {
+        "timeout_ms": 5000
+      }
+    }
+  ],
+  "probe_summary": {
+    "status": "fail",
+    "stage": "v2.0.0-post-rc-local-endpoint-readiness-preflight",
+    "provider": "vllm",
+    "endpoint_host": "127.0.0.1",
+    "endpoint_path": "/v1",
+    "model_name": "",
+    "local_endpoint_probe": false,
+    "local_model_execution": false,
+    "raw_request_stored": false,
+    "raw_response_stored": false,
+    "http_status": null,
+    "data_array_present": false,
+    "models_count": 0,
+    "target_model_present": false
+  },
+  "claims_allowed": [],
+  "claims_not_opened_by_this_preflight": [
+    "provider-diverse",
+    "provider-verified",
+    "local-model-verified"
+  ],
+  "claims_blocked": [
+    "adapter-checked",
+    "local-no-tool-canary-executed",
+    "vllm-no-tool-canary-executed",
+    "ollama-no-tool-canary-executed",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "failures": [
+    {
+      "name": "model name is present",
+      "status": "fail",
+      "detail": {
+        "model_name_present": false
+      }
+    }
+  ]
+}

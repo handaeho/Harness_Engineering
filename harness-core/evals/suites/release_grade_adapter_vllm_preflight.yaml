@@ -1,0 +1,13 @@
+id: release_grade_adapter_vllm_preflight
+stage: v2.0.0-release-grade-adapter-vllm-preflight
+type: adapter_claim_preflight
+command: node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs
+expected_statuses:
+  - pass
+  - hold
+vllm_policy: execution_required_for_bare_adapter_checked
+claim_boundary:
+  vllm_endpoint_probe: false
+  local_model_execution: false
+  adapter_checked_allowed_without_vllm_execution: false
+

@@ -1,0 +1,183 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-vllm-evidence-package-regression",
+  "generated_at": "2026-06-13T02:25:54.841Z",
+  "checker_under_test": "tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
+  "fixture_execution": {
+    "live_provider_call": false,
+    "local_model_execution": false,
+    "telemetry_sink_write": false,
+    "temp_fixture_roots_retained": false
+  },
+  "cases_total": 5,
+  "cases_passed": 5,
+  "cases_failed": 0,
+  "cases": [
+    {
+      "id": "adapter_only_pass_keeps_general_blocked",
+      "status": "pass",
+      "exit_code": 0,
+      "assertion": {
+        "pass": true,
+        "expected": "adapter-checked opens while general release claims remain blocked without approval"
+      },
+      "observed": {
+        "status": "pass",
+        "provider_verified_allowed": true,
+        "adapter_checked_allowed": true,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "claim_promotion_readiness": {
+          "provider_verified": "open_by_provider_gate",
+          "adapter_checked": "open_by_adapter_checked_final_gate",
+          "general_release": "awaiting_explicit_general_release_approval_or_general_gate_pass",
+          "approval_text_stored": false
+        },
+        "missing_or_incomplete_count": 0,
+        "stale_or_unordered_count": 0,
+        "blocked_claims": [
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "allowed_claims_after_pass": [
+          "adapter-checked"
+        ]
+      }
+    },
+    {
+      "id": "approved_general_release_opens_general_claims",
+      "status": "pass",
+      "exit_code": 0,
+      "assertion": {
+        "pass": true,
+        "expected": "general release claims open only when the general release gate passes with approval"
+      },
+      "observed": {
+        "status": "pass",
+        "provider_verified_allowed": true,
+        "adapter_checked_allowed": true,
+        "production_ready_allowed": true,
+        "stable_allowed": true,
+        "release_gated_allowed": true,
+        "claim_promotion_readiness": {
+          "provider_verified": "open_by_provider_gate",
+          "adapter_checked": "open_by_adapter_checked_final_gate",
+          "general_release": "open_by_general_release_gate",
+          "approval_text_stored": false
+        },
+        "missing_or_incomplete_count": 0,
+        "stale_or_unordered_count": 0,
+        "blocked_claims": [],
+        "allowed_claims_after_pass": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated"
+        ]
+      }
+    },
+    {
+      "id": "stale_general_gate_holds_package",
+      "status": "pass",
+      "exit_code": 0,
+      "assertion": {
+        "pass": true,
+        "expected": "stale general release gate evidence cannot be used after adapter final gate"
+      },
+      "observed": {
+        "status": "hold",
+        "provider_verified_allowed": true,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "claim_promotion_readiness": {
+          "provider_verified": "open_by_provider_gate",
+          "adapter_checked": "hold",
+          "general_release": "blocked_until_adapter_checked_passes",
+          "approval_text_stored": false
+        },
+        "missing_or_incomplete_count": 0,
+        "stale_or_unordered_count": 1,
+        "blocked_claims": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "allowed_claims_after_pass": []
+      }
+    },
+    {
+      "id": "missing_vllm_no_tool_holds_package",
+      "status": "pass",
+      "exit_code": 0,
+      "assertion": {
+        "pass": true,
+        "expected": "missing vLLM no-tool execution evidence keeps adapter-checked blocked"
+      },
+      "observed": {
+        "status": "hold",
+        "provider_verified_allowed": true,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "claim_promotion_readiness": {
+          "provider_verified": "open_by_provider_gate",
+          "adapter_checked": "hold",
+          "general_release": "blocked_until_adapter_checked_passes",
+          "approval_text_stored": false
+        },
+        "missing_or_incomplete_count": 1,
+        "stale_or_unordered_count": 0,
+        "blocked_claims": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "allowed_claims_after_pass": []
+      }
+    },
+    {
+      "id": "missing_operator_env_guard_holds_package",
+      "status": "pass",
+      "exit_code": 0,
+      "assertion": {
+        "pass": true,
+        "expected": "missing vLLM operator environment guard keeps adapter-checked blocked"
+      },
+      "observed": {
+        "status": "hold",
+        "provider_verified_allowed": true,
+        "adapter_checked_allowed": false,
+        "production_ready_allowed": false,
+        "stable_allowed": false,
+        "release_gated_allowed": false,
+        "claim_promotion_readiness": {
+          "provider_verified": "open_by_provider_gate",
+          "adapter_checked": "hold",
+          "general_release": "blocked_until_adapter_checked_passes",
+          "approval_text_stored": false
+        },
+        "missing_or_incomplete_count": 1,
+        "stale_or_unordered_count": 0,
+        "blocked_claims": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "allowed_claims_after_pass": []
+      }
+    }
+  ],
+  "failures": []
+}

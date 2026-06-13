@@ -1,0 +1,183 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-vllm-operator-env-guard-regression",
+  "generated_at": "2026-06-13T02:25:54.040Z",
+  "checker_under_test": "tools/checks/local/check_vllm_operator_env_guard.mjs",
+  "fixture_execution": {
+    "live_provider_call": false,
+    "local_endpoint_probe": false,
+    "local_model_execution": false,
+    "telemetry_sink_write": false,
+    "temp_fixture_roots_retained": false
+  },
+  "cases_total": 6,
+  "cases_passed": 6,
+  "cases_failed": 0,
+  "cases": [
+    {
+      "id": "valid_local_no_auth_passes",
+      "status": "pass",
+      "exit_code": 0,
+      "assertion": {
+        "pass": true,
+        "expected": "valid localhost no-auth config passes without live execution"
+      },
+      "observed": {
+        "status": "pass",
+        "endpoint_url": "http://127.0.0.1:8000/v1",
+        "model_name_present": true,
+        "auth_required": "no",
+        "api_key_present": false,
+        "can_enter_vllm_live_evidence_gate": true,
+        "claims_blocked": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "failure_names": [],
+        "hold_names": []
+      }
+    },
+    {
+      "id": "missing_model_non_strict_holds",
+      "status": "pass",
+      "exit_code": 0,
+      "assertion": {
+        "pass": true,
+        "expected": "non-strict missing model records hold but does not fail preflight"
+      },
+      "observed": {
+        "status": "hold",
+        "endpoint_url": "http://127.0.0.1:8000/v1",
+        "model_name_present": false,
+        "auth_required": "no",
+        "api_key_present": false,
+        "can_enter_vllm_live_evidence_gate": false,
+        "claims_blocked": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "failure_names": [],
+        "hold_names": [
+          "model name is present"
+        ]
+      }
+    },
+    {
+      "id": "smart_quote_model_fails",
+      "status": "pass",
+      "exit_code": 1,
+      "assertion": {
+        "pass": true,
+        "expected": "smart-quoted model id fails before live execution"
+      },
+      "observed": {
+        "status": "fail",
+        "endpoint_url": "http://127.0.0.1:8000/v1",
+        "model_name_present": true,
+        "auth_required": "no",
+        "api_key_present": false,
+        "can_enter_vllm_live_evidence_gate": false,
+        "claims_blocked": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "failure_names": [
+          "model name has no smart quotes"
+        ],
+        "hold_names": []
+      }
+    },
+    {
+      "id": "remote_endpoint_fails",
+      "status": "pass",
+      "exit_code": 1,
+      "assertion": {
+        "pass": true,
+        "expected": "non-localhost endpoint fails"
+      },
+      "observed": {
+        "status": "fail",
+        "endpoint_url": "https://example.com/v1",
+        "model_name_present": true,
+        "auth_required": "no",
+        "api_key_present": false,
+        "can_enter_vllm_live_evidence_gate": false,
+        "claims_blocked": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "failure_names": [
+          "endpoint is localhost-only"
+        ],
+        "hold_names": []
+      }
+    },
+    {
+      "id": "auth_yes_without_key_fails",
+      "status": "pass",
+      "exit_code": 1,
+      "assertion": {
+        "pass": true,
+        "expected": "auth-required yes requires token presence"
+      },
+      "observed": {
+        "status": "fail",
+        "endpoint_url": "http://127.0.0.1:8000/v1",
+        "model_name_present": true,
+        "auth_required": "yes",
+        "api_key_present": false,
+        "can_enter_vllm_live_evidence_gate": false,
+        "claims_blocked": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "failure_names": [
+          "api key presence matches auth requirement"
+        ],
+        "hold_names": []
+      }
+    },
+    {
+      "id": "auth_yes_with_key_passes_without_storing_secret",
+      "status": "pass",
+      "exit_code": 0,
+      "assertion": {
+        "pass": true,
+        "expected": "auth presence can pass while secret value remains unstored"
+      },
+      "observed": {
+        "status": "pass",
+        "endpoint_url": "http://localhost:8000/v1",
+        "model_name_present": true,
+        "auth_required": "yes",
+        "api_key_present": true,
+        "can_enter_vllm_live_evidence_gate": true,
+        "claims_blocked": [
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ],
+        "failure_names": [],
+        "hold_names": []
+      }
+    }
+  ],
+  "failures": []
+}

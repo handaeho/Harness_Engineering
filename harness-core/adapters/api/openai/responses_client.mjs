@@ -1,3 +1,16 @@
+import { previewText } from "./redaction_policy.mjs";
+
+function summarizeProviderError(status, body) {
+  const errorBody = body?.error && typeof body.error === "object" ? body.error : {};
+  return {
+    status,
+    type: typeof errorBody.type === "string" ? errorBody.type : null,
+    code: typeof errorBody.code === "string" ? errorBody.code : null,
+    param: typeof errorBody.param === "string" ? errorBody.param : null,
+    message_preview: typeof errorBody.message === "string" ? previewText(errorBody.message, 220) : null
+  };
+}
+
 export async function createTextOnlyResponse(request, env = process.env) {
   const baseUrl = (env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/+$/, "");
   const timeoutMs = Number.parseInt(env.OPENAI_TIMEOUT_MS || "30000", 10);
@@ -26,7 +39,7 @@ export async function createTextOnlyResponse(request, env = process.env) {
     if (!response.ok) {
       const error = new Error(`OpenAI Responses API returned HTTP ${response.status}`);
       error.status = response.status;
-      error.body = body;
+      error.provider_error = summarizeProviderError(response.status, body);
       throw error;
     }
 

@@ -1,0 +1,1125 @@
+{
+  "candidate_id": "release-grade-provider-verified-2026-06-11",
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-provider-verified-gate",
+  "generated_at": "2026-06-13T02:25:53.723Z",
+  "claim_update_rule": "Only status=pass may add provider-verified to allowed_claims; hold or blocked keeps the bare claim blocked.",
+  "providers": {
+    "openai": {
+      "lane": "openai_api_lane",
+      "evidence": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        "canary_replay_suite": {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "storage_redaction": {
+          "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      },
+      "behavior_pass": true,
+      "schema_pass": true,
+      "tool_pass": true,
+      "replay_regression_pass": true,
+      "redaction_pass": true,
+      "trace_pass": true,
+      "error_handling_pass": true
+    },
+    "gemini": {
+      "lane": "native_gemini_api_lane",
+      "evidence": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-structured-output-live-canary"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-tool-calling-live-canary"
+        },
+        "runtime_asset_pack": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      },
+      "behavior_pass": true,
+      "schema_pass": true,
+      "tool_pass": true,
+      "replay_regression_pass": true,
+      "redaction_pass": true,
+      "trace_pass": true,
+      "error_handling_pass": true
+    },
+    "ollama": {
+      "lane": "ollama_qwen3_local_lane",
+      "evidence": {
+        "local_model_final_gate": {
+          "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+        },
+        "structured_output": {
+          "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+        },
+        "tool_calling_mock": {
+          "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+        },
+        "replay_regression": {
+          "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+        },
+        "storage_redaction": {
+          "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+        }
+      },
+      "behavior_pass": true,
+      "schema_pass": true,
+      "tool_pass": true,
+      "replay_regression_pass": true,
+      "redaction_pass": true,
+      "trace_pass": true,
+      "error_handling_pass": true
+    }
+  },
+  "evidence_inputs": {
+    "source_ledger": {
+      "path": "evidence/release-grade-source-ledger/release_grade_source_ledger_report.json",
+      "report_status": "pass",
+      "ledger_exists": true,
+      "required_ids_present": true,
+      "missing_ids": [],
+      "source_count": 10
+    },
+    "prior_provider_verified_completion": {
+      "path": "evidence/post-export-provider-verified-coverage-completion/provider_verified_coverage_completion_report.json",
+      "exists": true,
+      "status": "keep_blocked_recommended",
+      "stage": "v2.0.0-post-export-provider-verified-coverage-completion"
+    },
+    "prior_provider_verified_final_gate": {
+      "path": "evidence/post-export-provider-verified-final-gate/provider_verified_final_gate_report.json",
+      "exists": true,
+      "status": "blocked_by_provider_verified_coverage_not_ready",
+      "stage": "v2.0.0-post-export-provider-verified-final-gate"
+    }
+  },
+  "live_execution": {
+    "new_openai_provider_call": false,
+    "new_gemini_provider_call": false,
+    "new_local_model_execution": false,
+    "telemetry_sink_write": false,
+    "approval_required_for_new_live_calls": true
+  },
+  "redaction_result": {
+    "status": "pass",
+    "raw_request_storage_allowed": false,
+    "raw_response_storage_allowed": false,
+    "secret_storage_allowed": false
+  },
+  "schema_result": {
+    "status": "pass"
+  },
+  "tool_result": {
+    "status": "pass"
+  },
+  "trace_result": {
+    "status": "pass",
+    "otel_mapping_source": "core/source_authority/release_grade_source_ledger.json#RGS-OTEL-GENAI",
+    "langfuse_mapping_source": "core/source_authority/release_grade_source_ledger.json#RGS-LANGFUSE-TRACING"
+  },
+  "checks": [
+    {
+      "name": "release-grade source ledger passes",
+      "status": "pass",
+      "detail": {
+        "path": "evidence/release-grade-source-ledger/release_grade_source_ledger_report.json",
+        "report_status": "pass",
+        "ledger_exists": true,
+        "required_ids_present": true,
+        "missing_ids": [],
+        "source_count": 10
+      }
+    },
+    {
+      "name": "openai_api_lane provider behavior",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        "canary_replay_suite": {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "storage_redaction": {
+          "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "openai_api_lane schema result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        "canary_replay_suite": {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "storage_redaction": {
+          "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "openai_api_lane tool result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        "canary_replay_suite": {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "storage_redaction": {
+          "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "openai_api_lane replay regression result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        "canary_replay_suite": {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "storage_redaction": {
+          "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "openai_api_lane redaction result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        "canary_replay_suite": {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "storage_redaction": {
+          "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "openai_api_lane trace result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        "canary_replay_suite": {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "storage_redaction": {
+          "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "openai_api_lane error handling result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-openai/provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-provider-canary-openai-credentialed-rerun"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-openai/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-structured-output-canary-openai"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-openai/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-tool-calling-canary-openai"
+        },
+        "canary_replay_suite": {
+          "path": "evidence/beta-openai-canary-replay-suite/suite_replay_summary.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-openai-canary-replay-suite"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "storage_redaction": {
+          "path": "evidence/beta-cross-suite-storage-redaction-audit/storage_redaction_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-beta-cross-suite-storage-redaction-audit"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "native_gemini_api_lane provider behavior",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-structured-output-live-canary"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-tool-calling-live-canary"
+        },
+        "runtime_asset_pack": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "native_gemini_api_lane schema result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-structured-output-live-canary"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-tool-calling-live-canary"
+        },
+        "runtime_asset_pack": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "native_gemini_api_lane tool result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-structured-output-live-canary"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-tool-calling-live-canary"
+        },
+        "runtime_asset_pack": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "native_gemini_api_lane replay regression result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-structured-output-live-canary"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-tool-calling-live-canary"
+        },
+        "runtime_asset_pack": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "native_gemini_api_lane redaction result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-structured-output-live-canary"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-tool-calling-live-canary"
+        },
+        "runtime_asset_pack": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "native_gemini_api_lane trace result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-structured-output-live-canary"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-tool-calling-live-canary"
+        },
+        "runtime_asset_pack": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "native_gemini_api_lane error handling result",
+      "status": "pass",
+      "detail": {
+        "no_tool_text": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_provider_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-dry-run-provider-canary"
+        },
+        "structured_output": {
+          "path": "evidence/beta-structured-output-canary-gemini/structured_output_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-structured-output-live-canary"
+        },
+        "tool_calling": {
+          "path": "evidence/beta-tool-calling-canary-gemini/tool_calling_canary_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-tool-calling-live-canary"
+        },
+        "runtime_asset_pack": {
+          "path": "evidence/beta-provider-canary-gemini/gemini_runtime_asset_pack_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-gemini-runtime-asset-pack-check"
+        },
+        "release_grade_replay_regression": {
+          "path": "evidence/release-grade-provider-replay-regression/provider_replay_regression_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-replay-regression"
+        },
+        "provider_error_handling_review": {
+          "path": "evidence/release-grade-provider-error-handling/provider_error_handling_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-release-grade-provider-error-handling"
+        }
+      }
+    },
+    {
+      "name": "ollama_qwen3_local_lane provider behavior",
+      "status": "pass",
+      "detail": {
+        "local_model_final_gate": {
+          "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+        },
+        "structured_output": {
+          "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+        },
+        "tool_calling_mock": {
+          "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+        },
+        "replay_regression": {
+          "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+        },
+        "storage_redaction": {
+          "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+        }
+      }
+    },
+    {
+      "name": "ollama_qwen3_local_lane schema result",
+      "status": "pass",
+      "detail": {
+        "local_model_final_gate": {
+          "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+        },
+        "structured_output": {
+          "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+        },
+        "tool_calling_mock": {
+          "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+        },
+        "replay_regression": {
+          "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+        },
+        "storage_redaction": {
+          "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+        }
+      }
+    },
+    {
+      "name": "ollama_qwen3_local_lane tool result",
+      "status": "pass",
+      "detail": {
+        "local_model_final_gate": {
+          "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+        },
+        "structured_output": {
+          "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+        },
+        "tool_calling_mock": {
+          "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+        },
+        "replay_regression": {
+          "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+        },
+        "storage_redaction": {
+          "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+        }
+      }
+    },
+    {
+      "name": "ollama_qwen3_local_lane replay regression result",
+      "status": "pass",
+      "detail": {
+        "local_model_final_gate": {
+          "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+        },
+        "structured_output": {
+          "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+        },
+        "tool_calling_mock": {
+          "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+        },
+        "replay_regression": {
+          "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+        },
+        "storage_redaction": {
+          "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+        }
+      }
+    },
+    {
+      "name": "ollama_qwen3_local_lane redaction result",
+      "status": "pass",
+      "detail": {
+        "local_model_final_gate": {
+          "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+        },
+        "structured_output": {
+          "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+        },
+        "tool_calling_mock": {
+          "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+        },
+        "replay_regression": {
+          "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+        },
+        "storage_redaction": {
+          "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+        }
+      }
+    },
+    {
+      "name": "ollama_qwen3_local_lane trace result",
+      "status": "pass",
+      "detail": {
+        "local_model_final_gate": {
+          "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+        },
+        "structured_output": {
+          "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+        },
+        "tool_calling_mock": {
+          "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+        },
+        "replay_regression": {
+          "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+        },
+        "storage_redaction": {
+          "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+        }
+      }
+    },
+    {
+      "name": "ollama_qwen3_local_lane error handling result",
+      "status": "pass",
+      "detail": {
+        "local_model_final_gate": {
+          "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-model-verification-final-gate"
+        },
+        "structured_output": {
+          "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary"
+        },
+        "tool_calling_mock": {
+          "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary"
+        },
+        "replay_regression": {
+          "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-replay-regression-smoke"
+        },
+        "storage_redaction": {
+          "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+          "exists": true,
+          "status": "pass",
+          "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit"
+        }
+      }
+    }
+  ],
+  "blockers": [],
+  "unresolved_items_count": 0,
+  "allowed_claims": [
+    "provider-diverse",
+    "local-model-verified",
+    "post-export-active-provider-lanes-verified",
+    "post-export-active-adapters-checked",
+    "post-export-active-scoped-production-ready",
+    "post-export-active-scoped-stable",
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated",
+    "provider-verified"
+  ],
+  "blocked_claims": [
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "provider_verified_allowed": true,
+  "adapter_checked_allowed": false,
+  "production_ready_allowed": false,
+  "stable_allowed": false,
+  "release_gated_allowed": false,
+  "bare_release_gated_allowed": false
+}

@@ -1,0 +1,155 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-general-release-gate",
+  "generated_at": "2026-06-13T05:20:03.434Z",
+  "claim_update_rule": "Production-ready, stable, and release-gated may open only when provider-verified and adapter-checked are both open, final precommit has passed, and explicit approval is present. Bare release-gated remains a separate blocked claim.",
+  "production_ready_allowed": true,
+  "stable_allowed": true,
+  "release_gated_allowed": true,
+  "bare_release_gated_allowed": false,
+  "provider_verified_allowed": true,
+  "adapter_checked_allowed": true,
+  "evidence_inputs": {
+    "source_ledger": {
+      "path": "evidence/release-grade-source-ledger/release_grade_source_ledger_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-source-ledger"
+    },
+    "provider_gate": {
+      "path": "evidence/release-grade-provider-verified-gate/release_grade_provider_verified_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-provider-verified-gate"
+    },
+    "adapter_final_gate": {
+      "path": "evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-adapter-checked-final-gate"
+    },
+    "adapter_final_gate_check": {
+      "path": "evals/reports/release_grade_adapter_checked_final_gate_check_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-adapter-checked-final-gate"
+    },
+    "final_precommit": {
+      "path": "evidence/harness-core-final-precommit-convergence/final_precommit_convergence_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot"
+    },
+    "current_state": {
+      "path": "CURRENT_STATE.json",
+      "exists": true,
+      "status": null,
+      "stage": "v2.0.0-harness-core-final-precommit-convergence-autopilot"
+    }
+  },
+  "approval_event": {
+    "required": true,
+    "approval_present": true,
+    "approval_phrase_sha256": "9af48b0bf74eea91d630384d8e06c675736b629f45360d9a1f3da4f4491aba71",
+    "supplied_approval_sha256": "9af48b0bf74eea91d630384d8e06c675736b629f45360d9a1f3da4f4491aba71",
+    "approval_text_stored": false
+  },
+  "live_execution": {
+    "new_openai_provider_call": false,
+    "new_gemini_provider_call": false,
+    "new_local_model_execution_by_this_gate": false,
+    "telemetry_sink_write": false,
+    "release_approval_side_effect": false
+  },
+  "checks": [
+    {
+      "name": "source ledger pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "provider gate pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "provider_verified_allowed": true
+      }
+    },
+    {
+      "name": "adapter final gate pass",
+      "status": "pass",
+      "detail": {
+        "adapter_final_status": "pass",
+        "adapter_checked_allowed": true,
+        "adapter_final_check_status": "pass"
+      }
+    },
+    {
+      "name": "current state prerequisite claims are open",
+      "status": "pass",
+      "detail": {
+        "missing_allowed_claims": [],
+        "provider_verified_blocked": false,
+        "adapter_checked_blocked": false
+      }
+    },
+    {
+      "name": "general claims not already open before this gate",
+      "status": "pass",
+      "detail": {
+        "currently_allowed_general_claims": [],
+        "currently_blocked_general_claims": [
+          "production-ready",
+          "stable",
+          "release-gated",
+          "bare release-gated"
+        ]
+      }
+    },
+    {
+      "name": "final precommit convergence pass",
+      "status": "pass",
+      "detail": {
+        "status": "pass",
+        "commit_ready": true,
+        "provider_verified_allowed": true,
+        "adapter_checked_allowed": true,
+        "expected_adapter_checked_allowed": true
+      }
+    },
+    {
+      "name": "explicit general release approval present",
+      "status": "pass",
+      "detail": {
+        "approval_present": true,
+        "approval_sha256": "9af48b0bf74eea91d630384d8e06c675736b629f45360d9a1f3da4f4491aba71"
+      }
+    }
+  ],
+  "blockers": [],
+  "unresolved_items_count": 0,
+  "allowed_claims": [
+    "provider-diverse",
+    "local-model-verified",
+    "post-export-active-provider-lanes-verified",
+    "post-export-active-adapters-checked",
+    "post-export-active-scoped-production-ready",
+    "post-export-active-scoped-stable",
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated",
+    "provider-verified",
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "blocked_claims": [
+    "bare release-gated"
+  ]
+}

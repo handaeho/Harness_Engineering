@@ -3,7 +3,7 @@
 ## 이 하네스가 무엇인지
 
 HARNESS Core는 프롬프트 묶음이 아니라 에이전트 작업을 evidence, gate, claim boundary로 제어하는 운영 레이어다. 핵심 목적은 에이전트가 현재 증거보다 강한 claim을 하지 않게 하고, 작업 결과를 다음 에이전트가 이어받을 수 있는 형태로 남기는 것이다.
-`harness-core`는 legacy name이며 과거 evidence/reference에서만 사용한다.
+`harness-core`는 현재 canonical directory/slug다. 과거 이름 관련 reference는 migration/archive evidence에서만 다룬다.
 
 ## 에이전트에 어떻게 적용되는지
 
@@ -14,7 +14,7 @@ HARNESS Core는 프롬프트 묶음이 아니라 에이전트 작업을 evidence
 ### Root workspace mode
 
 기본 방식입니다. `harness-core/` 디렉토리 자체를 에이전트 프로젝트 루트로 사용합니다.
-로컬 디렉토리명이 legacy name으로 남아 있어도 공식 프로젝트 이름은 HARNESS Core입니다. 에이전트는 zip을 풀지 않고 루트 워크스페이스에서 바로 시작합니다.
+`harness-core`는 현재 canonical directory/slug이며 공식 프로젝트 이름은 HARNESS Core입니다. 에이전트는 zip을 풀지 않고 루트 워크스페이스에서 바로 시작합니다.
 
 첫 명령:
 
@@ -37,6 +37,8 @@ node tools/checks/workspace/check_agent_ready_self_contained.mjs
 ## Codex goal에서 어떻게 사용하는지
 
 Codex goal executor는 `profiles/agents/codex_goal_executor.yaml`을 적용한다. 시작 시 `CURRENT_STATE.yaml`, `AGENT_BOOTSTRAP.ko.md`, `AGENTS.md`, `release/claims/general/claim_ladder.md`를 읽고, 종료 전 `node tools/checks/workspace/check_current_state_alignment.mjs`, `node tools/scanners/release/scan_prohibited_claims.mjs`, `node tools/checks/workspace/check_reference_baseline_integrity.mjs`를 실행한다.
+
+release-grade claim 보강을 다룰 때는 `node tools/checks/workspace/check_release_grade_source_ledger.mjs`, `node tools/checks/workspace/check_release_grade_reinforcement_completion_audit.mjs`, `node tools/checks/providers/check_release_grade_provider_verified_gate.mjs`, `node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs`를 추가 실행한다. `hold`는 claim 승격 실패가 아니라 bare claim을 계속 막는 gate 관측값이다.
 
 ## ChatGPT 리뷰어가 어떻게 사용하는지
 

@@ -65,7 +65,9 @@ function loadJsonl(file) {
 }
 
 function statusIsBlocked(status) {
-  return status === "blocked_by_missing_credential" || status === "blocked_by_missing_model";
+  return status === "blocked_by_missing_credential"
+    || status === "blocked_by_missing_model"
+    || status === "blocked_by_malformed_model_env";
 }
 
 function writeReports(report, mappingReport, redactionReport, traceEvents, unresolvedItems) {
@@ -310,10 +312,24 @@ for (const record of canaryRecords) {
       }
       redactionOk = redactionOk && redactionPassed(sanitizedRequest) && redactionPassed(sanitizedResponse);
     } catch (error) {
-      caseFailures.push(`provider request failed: ${error.message}`);
+      const providerError = error.provider_error || {
+        status: error.status || null,
+        type: null,
+        code: null,
+        param: null,
+        message_preview: String(error.message).slice(0, 220)
+      };
+      const providerErrorLabel = [
+        `HTTP ${providerError.status || "unknown"}`,
+        providerError.type,
+        providerError.code,
+        providerError.param ? `param:${providerError.param}` : null
+      ].filter(Boolean).join(" ");
+      caseFailures.push(`provider request failed: ${providerErrorLabel || error.message}`);
       trace.record("provider_canary_failed", {
         case_id: testCase.case_id,
-        error_message: String(error.message).slice(0, 240)
+        error_message: String(error.message).slice(0, 240),
+        provider_error: providerError
       }, true);
     }
   }

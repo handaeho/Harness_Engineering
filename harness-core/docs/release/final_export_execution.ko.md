@@ -8,4 +8,5 @@ Status: `pass`
 - legacy-reference-source modified: false
 - evidence/reference-baseline 추가 refresh: false
 - provider-diverse allowed: true
-- provider-verified / adapter-checked / production-ready / stable / release-gated: blocked
+- provider-verified: allowed by release-grade provider gate evidence
+- adapter-checked / production-ready / stable / release-gated: blocked

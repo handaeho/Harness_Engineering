@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-adapter-ollama-preflight",
+  "adapter_policy": "ollama_adapter_checked_is_version1_release_prerequisite",
+  "provider_verified_allowed": true,
+  "ollama_adapter_checked_candidate_ready": true,
+  "adapter_checked_allowed": false,
+  "allowed_claims": [
+    "provider-diverse",
+    "local-model-verified",
+    "post-export-active-provider-lanes-verified",
+    "post-export-active-adapters-checked",
+    "post-export-active-scoped-production-ready",
+    "post-export-active-scoped-stable",
+    "post-rc-openai-only-stable",
+    "post-rc-openai-only-production-ready",
+    "production-monitored",
+    "telemetry-connected",
+    "containment-verified",
+    "rc1-openai-scope-release-gated",
+    "provider-verified"
+  ],
+  "blocked_claims": [
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated",
+    "bare release-gated"
+  ],
+  "local_vllm_version2_follow_up": {
+    "claim": "local-vllm-adapter-checked",
+    "required_before_version1_release_gated": false,
+    "status": "deferred_until_version2"
+  }
+}

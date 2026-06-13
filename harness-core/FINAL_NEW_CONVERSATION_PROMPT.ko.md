@@ -15,11 +15,15 @@ Start by reading:
 
 Reference baseline integrity는 `node tools/checks/workspace/check_reference_baseline_integrity.mjs`로 확인하세요.
 
-Do not claim bare `provider-verified`, `adapter-checked`, `production-ready`, `stable`, `release-gated`, or bare release-gated unless a separately approved future gate has executed and passed.
+Bare `provider-verified` is open only by release-grade provider gate evidence. Do not claim bare `adapter-checked`, `production-ready`, `stable`, `release-gated`, or bare release-gated unless the corresponding release-grade gate has executed and passed.
+
+Before any vLLM execution attempt, run `npm run check:release-grade-vllm-operator-packet` and `npm run preflight:vllm-operator-env`. After the attempt, run `npm run check:release-grade-vllm-evidence-package` and review `claim_promotion_readiness` plus `ordering_checks` in `evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json` before discussing bare `adapter-checked` or stronger general claims. For the complete path, use `npm run vllm-release-grade-evidence-gate`.
+
+Use `npm run check:release-grade-completion-audit` to audit the full HARNESS Core plus current prompt-stack package reinforcement state. Treat `status: hold` as incomplete but correctly gated, not as completion.
 
 다음 중 무엇을 진행할지 물어봐 주세요.
 
-1. provider-verified future completion
+1. vLLM execution for adapter-checked final gate
 2. adapter-checked future completion
-3. bare production-ready/stable criteria redesign
+3. general release approval after adapter-checked final gate
 4. 현재 final dossier/export를 최종본으로 보관

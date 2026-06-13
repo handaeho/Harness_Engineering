@@ -1,0 +1,23 @@
+id: release_grade_general_release_gate
+stage: v2.0.0-release-grade-general-release-gate
+mode: evidence_gate_no_live_execution
+command: npm run general-release-grade-gate
+required_inputs:
+  - evidence/release-grade-source-ledger/release_grade_source_ledger_report.json
+  - evidence/release-grade-provider-verified-gate/release_grade_provider_verified_gate_report.json
+  - evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json
+  - evals/reports/release_grade_adapter_checked_final_gate_check_report.json
+  - evidence/harness-core-final-precommit-convergence/final_precommit_convergence_report.json
+approval:
+  required: true
+  env: RELEASE_GRADE_GENERAL_RELEASE_APPROVAL
+  request: release/approvals/general/release_grade_general_release_approval_request.md
+forbidden_execution:
+  openai_provider_call: true
+  gemini_provider_call: true
+  new_local_model_execution: true
+  telemetry_sink_write: true
+outputs:
+  - evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json
+  - evidence/release-grade-general-release-gate/general_release_claim_boundary.json
+  - evals/reports/release_grade_general_release_gate_check_report.json

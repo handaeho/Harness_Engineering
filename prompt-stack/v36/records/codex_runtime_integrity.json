@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-11T10:06:00.357Z",
+  "generated_at": "2026-06-12T05:03:24.654Z",
   "validation_name": "codex_runtime_integrity",
   "mirror_policy": "behavioral alignment, safety preservation, runtime fitness",
-  "total_checks": 43,
-  "passed_checks": 43,
+  "total_checks": 46,
+  "passed_checks": 46,
   "failed_checks": 0,
   "status": "pass",
   "checks": [
@@ -211,10 +211,10 @@
       "name": "source_ledger_official_sources_only",
       "pass": true,
       "detail": [
-        "https://developers.openai.com/codex/codex-manual.md",
-        "https://developers.openai.com/codex/skills.md",
-        "https://developers.openai.com/codex/guides/agents-md.md",
-        "https://developers.openai.com/codex/subagents.md",
+        "https://developers.openai.com/codex",
+        "https://developers.openai.com/codex/skills",
+        "https://developers.openai.com/codex/guides/agents-md",
+        "https://developers.openai.com/codex/subagents",
         "https://agentskills.io/specification"
       ]
     },
@@ -222,12 +222,27 @@
       "name": "source_ledger_research_separate",
       "pass": true,
       "detail": [
-        "https://developers.openai.com/codex/codex-manual.md",
-        "https://developers.openai.com/codex/skills.md",
-        "https://developers.openai.com/codex/guides/agents-md.md",
-        "https://developers.openai.com/codex/subagents.md",
+        "https://developers.openai.com/codex",
+        "https://developers.openai.com/codex/skills",
+        "https://developers.openai.com/codex/guides/agents-md",
+        "https://developers.openai.com/codex/subagents",
         "https://agentskills.io/specification"
       ]
+    },
+    {
+      "name": "release_grade_runtime_sources_available",
+      "pass": true,
+      "detail": "validation/release_grade_runtime_source_ledger.json"
+    },
+    {
+      "name": "release_grade_runtime_source_shape",
+      "pass": true,
+      "detail": "source entries carry source-level checked_on and observed_last_updated"
+    },
+    {
+      "name": "codex_prompt_package_not_provider_proof",
+      "pass": true,
+      "detail": "prompt-stack Codex runtime must not imply provider proof"
     },
     {
       "name": "no_codex_inside_autonomous_99_total",

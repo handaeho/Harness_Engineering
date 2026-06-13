@@ -141,6 +141,8 @@ const requiredActive = [
   "validation/current_validation_suite.json",
   "validation/current_validation_result.json",
   "validation/skill_forward_benchmark_cases.json",
+  "validation/release_grade_runtime_source_ledger.json",
+  "validation/prompt_package_provider_boundary_tests.json",
   "validation/validation_readme.md",
   "records/current_state.json",
   "records/release_manifest.json",
@@ -323,6 +325,54 @@ check("codex_runtime_not_mirror", !existsInRoot("autonomous/99_total/codex"), "a
 check("gemini_runtime_not_mirror", !existsInRoot("autonomous/99_total/gemini"), "autonomous/99_total/gemini absent", "P0");
 check("gemini_not_nested_in_codex_runtime", !existsInRoot("codex/gemini"), "codex/gemini absent", "P0");
 check("runtime_surface_boundaries_doc_exists", existsInRoot("docs/RUNTIME_SURFACE_BOUNDARIES.md"), "docs/RUNTIME_SURFACE_BOUNDARIES.md", "P0");
+const releaseGradeRuntimeSources = parseJsonRoot("validation/release_grade_runtime_source_ledger.json");
+const releaseGradeSourceIds = new Set((releaseGradeRuntimeSources.sources || []).map((source) => source.id));
+check(
+  "release_grade_runtime_source_ledger_has_official_sources",
+  Array.isArray(releaseGradeRuntimeSources.sources) && releaseGradeRuntimeSources.sources.length >= 10,
+  "validation/release_grade_runtime_source_ledger.json",
+  "P0"
+);
+check(
+  "release_grade_runtime_source_ledger_has_gemini_openai_compat",
+  releaseGradeSourceIds.has("PSR-GEMINI-OPENAI-COMPAT"),
+  "Gemini OpenAI compatibility source required",
+  "P0"
+);
+check(
+  "release_grade_runtime_source_ledger_shape",
+  (releaseGradeRuntimeSources.sources || []).every((source) => [
+    "id",
+    "url",
+    "authority",
+    "checked_on",
+    "observed_last_updated",
+    "supports",
+    "applies_to",
+    "claim_boundary"
+  ].every((field) => Object.hasOwn(source, field)) && source.checked_on === releaseGradeRuntimeSources.checked_on),
+  "source entries must carry checked_on, observed_last_updated, supports, applies_to, and claim_boundary",
+  "P0"
+);
+check(
+  "release_grade_runtime_source_ledger_keeps_prompt_boundary",
+  (releaseGradeRuntimeSources.sources || []).every((source) => /not prove|does not prove|not provider|not live|not production|not schema-output|not release/i.test(source.claim_boundary || "")),
+  "source claim boundaries must avoid provider proof claims",
+  "P0"
+);
+const providerBoundaryTests = parseJsonRoot("validation/prompt_package_provider_boundary_tests.json");
+check(
+  "prompt_package_provider_boundary_tests_exist",
+  Array.isArray(providerBoundaryTests.tests) && providerBoundaryTests.tests.length >= 4,
+  "validation/prompt_package_provider_boundary_tests.json",
+  "P0"
+);
+check(
+  "prompt_package_provider_boundary_tests_reject_collapsed_claims",
+  (providerBoundaryTests.tests || []).every((test) => test.expected_verdict === "reject"),
+  "all prompt package/provider collapsed claims must reject",
+  "P0"
+);
 check("evidence_manifest_nonempty", JSON.parse(readWorkspace(path.join("_evidence", packageName, "evidence_manifest.json"))).moved_files > 0, "evidence_manifest.moved_files", "P0");
 check("active_artifact_map_exists", existsInRoot("records/artifact_map.json"), "records/artifact_map.json", "P1");
 

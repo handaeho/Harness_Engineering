@@ -1,0 +1,46 @@
+{
+  "openai": {
+    "adapter_id": "openai.api.skeleton",
+    "dry_run": {
+      "cases_total": 5,
+      "cases_passed": 5,
+      "all_passed": true
+    },
+    "provider_gate_runtime_coverage": "pass"
+  },
+  "gemini": {
+    "adapter_id": "gemini.api.skeleton",
+    "dry_run": {
+      "cases_total": 2,
+      "cases_passed": 2,
+      "all_passed": true
+    },
+    "provider_gate_runtime_coverage": "pass"
+  },
+  "ollama": {
+    "adapter_id": "ollama.local.skeleton",
+    "dry_run": {
+      "cases_total": 3,
+      "cases_passed": 3,
+      "all_passed": true
+    },
+    "local_model_final_gate": "pass",
+    "structured_output": "pass",
+    "tool_calling": "pass",
+    "replay_regression": "pass",
+    "redaction_storage": "pass",
+    "local_adapter_conformance": "pass",
+    "local_adapter_conformance_execution": "pass"
+  },
+  "local_vllm_version2_follow_up": {
+    "adapter_id": "vllm.local.skeleton",
+    "adapter_manifest_exists": true,
+    "claim": "local-vllm-adapter-checked",
+    "required_before_version1_release_gated": false,
+    "status": "deferred_until_version2"
+  },
+  "common": {
+    "adapter_dry_run_status": "pass",
+    "required_adapters_checked": true
+  }
+}

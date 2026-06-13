@@ -87,14 +87,6 @@ const REQUIRED_FINAL_SURFACE_WEAK_CLAIMS = [
   "harness-core-agent-ready-export-refreshed"
 ];
 
-const BLOCKED_STRONG_CLAIMS = [
-  "provider-verified",
-  "adapter-checked",
-  "production-ready",
-  "stable",
-  "release-gated"
-];
-
 const EXECUTION_FLAGS_MUST_BE_FALSE = [
   "openai_model_api_call",
   "openai_provider_rerun",
@@ -192,12 +184,14 @@ function walkForBasename(dir, basename, found = []) {
 
 function extractClaimFlagsFromCurrentState(currentState) {
   const allowed = currentState?.allowed_claims || [];
+  const blocked = currentState?.blocked_claims || [];
   return {
     provider_verified_allowed: allowed.includes("provider-verified"),
     adapter_checked_allowed: allowed.includes("adapter-checked"),
     production_ready_allowed: allowed.includes("production-ready"),
     stable_allowed: allowed.includes("stable"),
-    release_gated_allowed: allowed.includes("release-gated")
+    release_gated_allowed: allowed.includes("release-gated"),
+    bare_release_gated_allowed: allowed.includes("bare release-gated") && blocked.includes("bare release-gated") !== true
   };
 }
 
@@ -245,6 +239,26 @@ const currentState = readJson("CURRENT_STATE.json");
 const currentStateYamlExists = hasPath("CURRENT_STATE.yaml");
 const currentStateJsonValid = currentState !== null;
 const claimFlags = extractClaimFlagsFromCurrentState(currentState);
+const providerVerifiedClaimOpen = claimFlags.provider_verified_allowed === true
+  && currentState?.allowed_claims?.includes("provider-verified") === true
+  && currentState?.blocked_claims?.includes("provider-verified") !== true
+  && currentState?.release_grade_reinforcement?.provider_verified_claim_rule === "status pass opens provider-verified; hold or blocked keeps provider-verified blocked";
+function claimMembershipMatchesFlag(claim, allowedFlag, options = {}) {
+  const allowed = currentState?.allowed_claims || [];
+  const blocked = currentState?.blocked_claims || [];
+  const requireAllowedClaim = options.requireAllowedClaim !== false;
+  if (allowedFlag) {
+    return blocked.includes(claim) === false
+      && (requireAllowedClaim === false || allowed.includes(claim) === true);
+  }
+  return allowed.includes(claim) === false && blocked.includes(claim) === true;
+}
+const strongBareClaimsGateAligned = providerVerifiedClaimOpen === true
+  && claimMembershipMatchesFlag("adapter-checked", claimFlags.adapter_checked_allowed)
+  && claimMembershipMatchesFlag("production-ready", claimFlags.production_ready_allowed)
+  && claimMembershipMatchesFlag("stable", claimFlags.stable_allowed)
+  && claimMembershipMatchesFlag("release-gated", claimFlags.release_gated_allowed)
+  && claimMembershipMatchesFlag("bare release-gated", claimFlags.bare_release_gated_allowed, { requireAllowedClaim: false });
 const startHereText = hasPath("START_HERE_FOR_AGENTS.ko.md") ? readText("START_HERE_FOR_AGENTS.ko.md") : "";
 const bootstrapText = hasPath("AGENT_BOOTSTRAP.ko.md") ? readText("AGENT_BOOTSTRAP.ko.md") : "";
 const agentsText = hasPath("AGENTS.md") ? readText("AGENTS.md") : "";
@@ -325,13 +339,10 @@ addCheck(checks, "weak final surface claims recordable", arrayIncludesAll(curren
   required: REQUIRED_FINAL_SURFACE_WEAK_CLAIMS,
   weak_claims_recordable: currentState?.harness_core_final_surface_git_readiness?.weak_claims_recordable || null
 });
-addCheck(checks, "strong bare claims remain blocked", arrayIncludesAll(currentState?.blocked_claims, [
-  ...BLOCKED_STRONG_CLAIMS,
-  "bare release-gated"
-]), {
+addCheck(checks, "strong bare claims match current release-grade flags", strongBareClaimsGateAligned, {
+  claim_flags: claimFlags,
   blocked_claims: currentState?.blocked_claims || null
 });
-addCheck(checks, "strong bare claims not allowed", Object.values(claimFlags).every((value) => value === false), claimFlags);
 addCheck(checks, "forbidden execution flags remain false", EXECUTION_FLAGS_MUST_BE_FALSE.every((flag) => currentState?.execution_boundary?.[flag] === false), {
   execution_boundary: currentState?.execution_boundary || null
 });
@@ -412,8 +423,7 @@ const claimBoundaryCheck = {
   status: arrayIncludesAll(currentState?.allowed_claims, REQUIRED_SCOPED_ALLOWED_CLAIMS)
     && arrayIncludesAll(currentState?.self_contained_agent_ready_check?.weak_claims_recordable, REQUIRED_WEAK_CLAIMS)
     && arrayIncludesAll(currentState?.harness_core_final_surface_git_readiness?.weak_claims_recordable, REQUIRED_FINAL_SURFACE_WEAK_CLAIMS)
-    && arrayIncludesAll(currentState?.blocked_claims, [...BLOCKED_STRONG_CLAIMS, "bare release-gated"])
-    && Object.values(claimFlags).every((value) => value === false)
+    && strongBareClaimsGateAligned
     ? "pass"
     : "fail",
   stage: STAGE,
@@ -426,6 +436,7 @@ const claimBoundaryCheck = {
   production_ready_allowed: claimFlags.production_ready_allowed,
   stable_allowed: claimFlags.stable_allowed,
   release_gated_allowed: claimFlags.release_gated_allowed,
+  bare_release_gated_allowed: claimFlags.bare_release_gated_allowed,
   blocked_claims: currentState?.blocked_claims || null
 };
 
@@ -472,6 +483,7 @@ const report = {
   production_ready_allowed: claimFlags.production_ready_allowed,
   stable_allowed: claimFlags.stable_allowed,
   release_gated_allowed: claimFlags.release_gated_allowed,
+  bare_release_gated_allowed: claimFlags.bare_release_gated_allowed,
   checks,
   failures,
   unresolved_items_count: unresolvedItems.length,
@@ -488,11 +500,12 @@ const gateReport = {
   dependency_free: report.dependency_free,
   reference_baseline_check_passed: report.reference_baseline_check_passed,
   requires_legacy_reference_source: false,
-  provider_verified_allowed: false,
-  adapter_checked_allowed: false,
-  production_ready_allowed: false,
-  stable_allowed: false,
-  release_gated_allowed: false,
+  provider_verified_allowed: claimFlags.provider_verified_allowed,
+  adapter_checked_allowed: claimFlags.adapter_checked_allowed,
+  production_ready_allowed: claimFlags.production_ready_allowed,
+  stable_allowed: claimFlags.stable_allowed,
+  release_gated_allowed: claimFlags.release_gated_allowed,
+  bare_release_gated_allowed: claimFlags.bare_release_gated_allowed,
   unresolved_items_count: unresolvedItems.length
 };
 

@@ -1,0 +1,430 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-vllm-operator-packet",
+  "generated_at": "2026-06-13T05:35:46.492Z",
+  "purpose": "No-live validation of the operator packet needed to collect and submit vLLM adapter evidence.",
+  "live_execution": {
+    "provider_call": false,
+    "local_endpoint_probe": false,
+    "local_model_execution": false,
+    "telemetry_sink_write": false
+  },
+  "package_report": {
+    "path": "evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json",
+    "exists": true,
+    "status": "hold",
+    "missing_or_incomplete_artifacts": 7,
+    "stale_or_unordered_artifacts": 0
+  },
+  "operator_packet": {
+    "required_env": [
+      {
+        "name": "VLLM_ENDPOINT_URL",
+        "required": true,
+        "example": "http://127.0.0.1:8000/v1",
+        "rule": "Must be a localhost-only OpenAI-compatible base URL with no credentials, query, or hash."
+      },
+      {
+        "name": "VLLM_MODEL",
+        "required": true,
+        "example": "<exact id from GET /v1/models>",
+        "rule": "Must match the served model id exactly. Use ASCII quotes only."
+      },
+      {
+        "name": "VLLM_AUTH_REQUIRED",
+        "required": true,
+        "example": "no",
+        "rule": "Must be yes or no."
+      },
+      {
+        "name": "VLLM_API_KEY",
+        "required": false,
+        "example": "<local endpoint token>",
+        "rule": "Set only when VLLM_AUTH_REQUIRED=yes. The value must never be stored in evidence."
+      }
+    ],
+    "full_run_command": "npm run vllm-release-grade-evidence-gate",
+    "manual_run_commands": [
+      "npm run preflight:vllm-operator-env",
+      "npm run preflight:vllm-live-canary",
+      "npm run canary:vllm-no-tool",
+      "npm run check:vllm-no-tool",
+      "npm run run:vllm-adapter-conformance",
+      "npm run check:vllm-adapter-conformance",
+      "npm run check:release-grade-adapter-vllm",
+      "npm run check:release-grade-vllm-evidence-package",
+      "npm run general-release-grade-gate",
+      "npm run check:release-grade-vllm-evidence-package",
+      "npm run apply:release-grade-claim-state-sync",
+      "npm run check:release-grade-claim-state-sync",
+      "npm run check:final-precommit-convergence",
+      "npm run general-release-grade-gate",
+      "npm run check:release-grade-vllm-evidence-package",
+      "npm run apply:release-grade-claim-state-sync",
+      "npm run check:release-grade-claim-state-sync",
+      "npm run check:final-precommit-convergence"
+    ],
+    "submission_files": [
+      "evidence/release-grade-vllm-operator-env-guard/vllm_operator_env_guard_report.json",
+      "evidence/post-stable-vllm-endpoint-readiness-preflight/local_endpoint_readiness_preflight_report.json",
+      "evidence/post-stable-vllm-endpoint-readiness-preflight/endpoint_probe_summary.json",
+      "evidence/post-stable-local-vllm-no-tool-canary/vllm_no_tool_canary_report.json",
+      "evals/reports/vllm_no_tool_canary_check_report.json",
+      "evidence/post-stable-vllm-adapter-conformance-local-execution/vllm_adapter_conformance_report.json",
+      "evals/reports/vllm_adapter_conformance_check_report.json",
+      "evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json",
+      "evals/reports/release_grade_adapter_coverage_completion_check_report.json",
+      "evidence/release-grade-adapter-vllm-preflight/release_grade_adapter_vllm_preflight_report.json",
+      "evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json",
+      "evals/reports/release_grade_adapter_checked_final_gate_check_report.json",
+      "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_report.json",
+      "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_check_report.json",
+      "evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json",
+      "evals/reports/release_grade_general_release_gate_check_report.json",
+      "evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json"
+    ]
+  },
+  "claim_boundary": {
+    "claims_opened": [],
+    "blocked_claims_maintained": [
+      "adapter-checked",
+      "production-ready",
+      "stable",
+      "release-gated",
+      "bare release-gated"
+    ],
+    "claim_update_rule": "This packet check opens no provider, adapter, or general release claim."
+  },
+  "checks": [
+    {
+      "name": "package script: preflight:vllm-operator-env",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/local/check_vllm_operator_env_guard.mjs --strict",
+        "actual": "node tools/checks/local/check_vllm_operator_env_guard.mjs --strict --endpoint-url=${VLLM_ENDPOINT_URL:-http://127.0.0.1:8000/v1} --model=${VLLM_MODEL:-} --auth-required=${VLLM_AUTH_REQUIRED:-no}"
+      }
+    },
+    {
+      "name": "package script: preflight:vllm-live-canary",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/local/check_post_rc_local_endpoint_readiness_preflight.mjs --provider=vllm",
+        "actual": "node tools/checks/local/check_post_rc_local_endpoint_readiness_preflight.mjs --provider=vllm --endpoint-url=${VLLM_ENDPOINT_URL:-http://127.0.0.1:8000/v1} --model=${VLLM_MODEL:-} --auth-required=${VLLM_AUTH_REQUIRED:-no} --operator-signal=ready --evidence-dir=post-stable-vllm-endpoint-readiness-preflight --report-prefix=post_stable_vllm_endpoint_readiness_preflight"
+      }
+    },
+    {
+      "name": "package script: canary:vllm-no-tool",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/runners/local/run_vllm_no_tool_canary.mjs",
+        "actual": "node tools/runners/local/run_vllm_no_tool_canary.mjs"
+      }
+    },
+    {
+      "name": "package script: check:vllm-no-tool",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/local/check_vllm_no_tool_canary.mjs",
+        "actual": "node tools/checks/local/check_vllm_no_tool_canary.mjs"
+      }
+    },
+    {
+      "name": "package script: run:vllm-adapter-conformance",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/runners/adapters/run_vllm_adapter_conformance_local_execution.mjs",
+        "actual": "node tools/runners/adapters/run_vllm_adapter_conformance_local_execution.mjs"
+      }
+    },
+    {
+      "name": "package script: check:vllm-adapter-conformance",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/adapters/check_vllm_adapter_conformance_local_execution.mjs",
+        "actual": "node tools/checks/adapters/check_vllm_adapter_conformance_local_execution.mjs"
+      }
+    },
+    {
+      "name": "package script: run:release-grade-adapter-coverage",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/runners/adapters/run_release_grade_adapter_coverage_completion.mjs",
+        "actual": "node tools/runners/adapters/run_release_grade_adapter_coverage_completion.mjs"
+      }
+    },
+    {
+      "name": "package script: check:release-grade-adapter-coverage",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/adapters/check_release_grade_adapter_coverage_completion.mjs",
+        "actual": "node tools/checks/adapters/check_release_grade_adapter_coverage_completion.mjs"
+      }
+    },
+    {
+      "name": "package script: check:release-grade-adapter-vllm",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs",
+        "actual": "node tools/checks/adapters/check_release_grade_adapter_vllm_preflight.mjs"
+      }
+    },
+    {
+      "name": "package script: run:release-grade-adapter-checked-final",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/runners/adapters/run_release_grade_adapter_checked_final_gate.mjs",
+        "actual": "node tools/runners/adapters/run_release_grade_adapter_checked_final_gate.mjs"
+      }
+    },
+    {
+      "name": "package script: check:release-grade-adapter-checked-final",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/adapters/check_release_grade_adapter_checked_final_gate.mjs",
+        "actual": "node tools/checks/adapters/check_release_grade_adapter_checked_final_gate.mjs"
+      }
+    },
+    {
+      "name": "package script: run:release-grade-claim-state-sync",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/runners/workspace/run_release_grade_claim_state_sync.mjs",
+        "actual": "node tools/runners/workspace/run_release_grade_claim_state_sync.mjs"
+      }
+    },
+    {
+      "name": "package script: apply:release-grade-claim-state-sync",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/runners/workspace/run_release_grade_claim_state_sync.mjs --apply",
+        "actual": "node tools/runners/workspace/run_release_grade_claim_state_sync.mjs --apply"
+      }
+    },
+    {
+      "name": "package script: check:release-grade-claim-state-sync",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/workspace/check_release_grade_claim_state_sync.mjs",
+        "actual": "node tools/checks/workspace/check_release_grade_claim_state_sync.mjs"
+      }
+    },
+    {
+      "name": "package script: check:final-precommit-convergence",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs",
+        "actual": "node tools/checks/workspace/check_harness_core_final_precommit_convergence.mjs"
+      }
+    },
+    {
+      "name": "package script: general-release-grade-gate",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "npm run run:release-grade-general-release && npm run check:release-grade-general-release",
+        "actual": "npm run run:release-grade-general-release && npm run check:release-grade-general-release"
+      }
+    },
+    {
+      "name": "package script: check:release-grade-vllm-evidence-package",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs",
+        "actual": "node tools/checks/adapters/check_release_grade_vllm_evidence_package.mjs"
+      }
+    },
+    {
+      "name": "package script: local-vllm-adapter-checked-v2-gate",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "npm run preflight:vllm-operator-env",
+        "actual": "npm run preflight:vllm-operator-env && npm run preflight:vllm-live-canary && npm run canary:vllm-no-tool && npm run check:vllm-no-tool && npm run run:vllm-adapter-conformance && npm run check:vllm-adapter-conformance && npm run check:release-grade-adapter-vllm && npm run check:release-grade-vllm-evidence-package"
+      }
+    },
+    {
+      "name": "package script: local-vllm-release-grade-v2-gate",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "npm run local-vllm-adapter-checked-v2-gate",
+        "actual": "npm run local-vllm-adapter-checked-v2-gate && npm run general-release-grade-gate && npm run check:release-grade-vllm-evidence-package && npm run apply:release-grade-claim-state-sync && npm run check:release-grade-claim-state-sync && npm run check:final-precommit-convergence && npm run general-release-grade-gate && npm run check:release-grade-vllm-evidence-package && npm run apply:release-grade-claim-state-sync && npm run check:release-grade-claim-state-sync && npm run check:final-precommit-convergence"
+      }
+    },
+    {
+      "name": "package script: vllm-release-grade-evidence-gate",
+      "status": "pass",
+      "detail": {
+        "expected_fragment": "npm run local-vllm-release-grade-v2-gate",
+        "actual": "npm run local-vllm-release-grade-v2-gate"
+      }
+    },
+    {
+      "name": "local vllm adapter v2 gate starts with vllm operator guard",
+      "status": "pass",
+      "detail": {
+        "actual": "npm run preflight:vllm-operator-env && npm run preflight:vllm-live-canary && npm run canary:vllm-no-tool && npm run check:vllm-no-tool && npm run run:vllm-adapter-conformance && npm run check:vllm-adapter-conformance && npm run check:release-grade-adapter-vllm && npm run check:release-grade-vllm-evidence-package"
+      }
+    },
+    {
+      "name": "full vllm v2 release gate runs adapter, package, sync, refreshed general, package, then final sync",
+      "status": "pass",
+      "detail": {
+        "actual": "npm run local-vllm-adapter-checked-v2-gate && npm run general-release-grade-gate && npm run check:release-grade-vllm-evidence-package && npm run apply:release-grade-claim-state-sync && npm run check:release-grade-claim-state-sync && npm run check:final-precommit-convergence && npm run general-release-grade-gate && npm run check:release-grade-vllm-evidence-package && npm run apply:release-grade-claim-state-sync && npm run check:release-grade-claim-state-sync && npm run check:final-precommit-convergence"
+      }
+    },
+    {
+      "name": "vllm release-grade evidence gate points to v2 flow",
+      "status": "pass",
+      "detail": {
+        "actual": "npm run local-vllm-release-grade-v2-gate"
+      }
+    },
+    {
+      "name": "vllm evidence package report exists",
+      "status": "pass",
+      "detail": {
+        "path": "evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json"
+      }
+    },
+    {
+      "name": "vllm evidence package status is pass or hold",
+      "status": "pass",
+      "detail": {
+        "status": "hold"
+      }
+    },
+    {
+      "name": "operator packet required env is complete",
+      "status": "pass",
+      "detail": {
+        "required_env_names": [
+          "VLLM_ENDPOINT_URL",
+          "VLLM_MODEL",
+          "VLLM_AUTH_REQUIRED",
+          "VLLM_API_KEY"
+        ]
+      }
+    },
+    {
+      "name": "operator packet full command is canonical",
+      "status": "pass",
+      "detail": {
+        "full_run_command": "npm run vllm-release-grade-evidence-gate"
+      }
+    },
+    {
+      "name": "operator packet manual commands are complete and ordered",
+      "status": "pass",
+      "detail": {
+        "manual_run_commands": [
+          "npm run preflight:vllm-operator-env",
+          "npm run preflight:vllm-live-canary",
+          "npm run canary:vllm-no-tool",
+          "npm run check:vllm-no-tool",
+          "npm run run:vllm-adapter-conformance",
+          "npm run check:vllm-adapter-conformance",
+          "npm run check:release-grade-adapter-vllm",
+          "npm run check:release-grade-vllm-evidence-package",
+          "npm run general-release-grade-gate",
+          "npm run check:release-grade-vllm-evidence-package",
+          "npm run apply:release-grade-claim-state-sync",
+          "npm run check:release-grade-claim-state-sync",
+          "npm run check:final-precommit-convergence",
+          "npm run general-release-grade-gate",
+          "npm run check:release-grade-vllm-evidence-package",
+          "npm run apply:release-grade-claim-state-sync",
+          "npm run check:release-grade-claim-state-sync",
+          "npm run check:final-precommit-convergence"
+        ]
+      }
+    },
+    {
+      "name": "operator packet requires general gate refresh after adapter",
+      "status": "pass",
+      "detail": {
+        "general_release_gate_refresh_required_after_adapter_checked": true
+      }
+    },
+    {
+      "name": "operator packet requires post-package claim-state sync and final sync last",
+      "status": "pass",
+      "detail": {
+        "evidence_package_command_must_run_last": false,
+        "claim_state_sync_command_must_run_after_package": true,
+        "final_sync_command_must_run_last": true
+      }
+    },
+    {
+      "name": "submission file list is complete",
+      "status": "pass",
+      "detail": {
+        "missing_submission_files": []
+      }
+    },
+    {
+      "name": "redaction policy forbids raw and secret storage",
+      "status": "pass",
+      "detail": {
+        "redaction_policy": {
+          "raw_request_storage_allowed": false,
+          "raw_response_storage_allowed": false,
+          "secret_storage_allowed": false
+        }
+      }
+    },
+    {
+      "name": "operator packet checker opens no claims",
+      "status": "pass",
+      "detail": {
+        "package_allowed_claims_after_pass": []
+      }
+    },
+    {
+      "name": "doc exists: docs/adapters/release_grade_vllm_operator_env_guard.md",
+      "status": "pass",
+      "detail": {
+        "path": "docs/adapters/release_grade_vllm_operator_env_guard.md"
+      }
+    },
+    {
+      "name": "doc exists: docs/adapters/release_grade_adapter_vllm_preflight.md",
+      "status": "pass",
+      "detail": {
+        "path": "docs/adapters/release_grade_adapter_vllm_preflight.md"
+      }
+    },
+    {
+      "name": "doc exists: docs/adapters/release_grade_vllm_evidence_package.md",
+      "status": "pass",
+      "detail": {
+        "path": "docs/adapters/release_grade_vllm_evidence_package.md"
+      }
+    },
+    {
+      "name": "doc exists: docs/workspace/release_grade_claim_state_sync.md",
+      "status": "pass",
+      "detail": {
+        "path": "docs/workspace/release_grade_claim_state_sync.md"
+      }
+    },
+    {
+      "name": "doc exists: docs/release/release_grade_general_release_gate.md",
+      "status": "pass",
+      "detail": {
+        "path": "docs/release/release_grade_general_release_gate.md"
+      }
+    },
+    {
+      "name": "doc exists: docs/workspace/release_grade_reinforcement_completion_audit.md",
+      "status": "pass",
+      "detail": {
+        "path": "docs/workspace/release_grade_reinforcement_completion_audit.md"
+      }
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0,
+  "next_actions": [
+    "Use npm run vllm-release-grade-evidence-gate after VLLM_ENDPOINT_URL, VLLM_MODEL, and VLLM_AUTH_REQUIRED are set.",
+    "If the wrapper stops, rerun npm run check:release-grade-vllm-evidence-package and inspect the first missing artifact.",
+    "Submit only the files listed in operator_packet.submission_files; do not include raw request bodies, raw response bodies, auth headers, or secrets."
+  ]
+}

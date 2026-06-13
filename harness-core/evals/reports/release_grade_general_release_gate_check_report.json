@@ -1,0 +1,106 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-general-release-gate",
+  "production_ready_allowed": true,
+  "stable_allowed": true,
+  "release_gated_allowed": true,
+  "checks": [
+    {
+      "name": "release_grade_general_release_gate_report.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "general_release_claim_boundary.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "unresolved_items.json exists",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "stage matches",
+      "status": "pass",
+      "detail": {
+        "report_stage": "v2.0.0-release-grade-general-release-gate",
+        "boundary_stage": "v2.0.0-release-grade-general-release-gate"
+      }
+    },
+    {
+      "name": "status is pass or hold",
+      "status": "pass",
+      "detail": {
+        "status": "pass"
+      }
+    },
+    {
+      "name": "provider/adapter prerequisite flags coherent",
+      "status": "pass",
+      "detail": {
+        "provider_verified_allowed": true,
+        "adapter_checked_allowed": true
+      }
+    },
+    {
+      "name": "general claims opened only on pass",
+      "status": "pass",
+      "detail": {
+        "allowed_claims": [
+          "provider-diverse",
+          "local-model-verified",
+          "post-export-active-provider-lanes-verified",
+          "post-export-active-adapters-checked",
+          "post-export-active-scoped-production-ready",
+          "post-export-active-scoped-stable",
+          "post-rc-openai-only-stable",
+          "post-rc-openai-only-production-ready",
+          "production-monitored",
+          "telemetry-connected",
+          "containment-verified",
+          "rc1-openai-scope-release-gated",
+          "provider-verified",
+          "adapter-checked",
+          "production-ready",
+          "stable",
+          "release-gated"
+        ],
+        "approval_event": {
+          "required": true,
+          "approval_present": true,
+          "approval_phrase_sha256": "9af48b0bf74eea91d630384d8e06c675736b629f45360d9a1f3da4f4491aba71",
+          "supplied_approval_sha256": "9af48b0bf74eea91d630384d8e06c675736b629f45360d9a1f3da4f4491aba71",
+          "approval_text_stored": false
+        },
+        "unresolved_items_count": 0
+      }
+    },
+    {
+      "name": "approval text not stored",
+      "status": "pass",
+      "detail": {
+        "approval_event": {
+          "required": true,
+          "approval_present": true,
+          "approval_phrase_sha256": "9af48b0bf74eea91d630384d8e06c675736b629f45360d9a1f3da4f4491aba71",
+          "supplied_approval_sha256": "9af48b0bf74eea91d630384d8e06c675736b629f45360d9a1f3da4f4491aba71",
+          "approval_text_stored": false
+        }
+      }
+    },
+    {
+      "name": "no live execution by gate",
+      "status": "pass",
+      "detail": {
+        "new_openai_provider_call": false,
+        "new_gemini_provider_call": false,
+        "new_local_model_execution_by_this_gate": false,
+        "telemetry_sink_write": false,
+        "release_approval_side_effect": false
+      }
+    }
+  ],
+  "failures": [],
+  "unresolved_items_count": 0
+}

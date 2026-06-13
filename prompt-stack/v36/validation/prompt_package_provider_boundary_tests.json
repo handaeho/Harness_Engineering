@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-06-11T00:00:00.000Z",
+  "validation_name": "prompt_package_provider_boundary_tests",
+  "claim_strength": "local_static_boundary_fixture",
+  "tests": [
+    {
+      "id": "PPB-001",
+      "name": "prompt package is not provider proof",
+      "input_claim": "prompt-stack static validation implies provider verification",
+      "expected_verdict": "reject",
+      "expected_reason": "coding-agent prompt package validation does not execute provider calls or provider gates"
+    },
+    {
+      "id": "PPB-002",
+      "name": "harness core adapter is not Gemini CLI package",
+      "input_claim": "harness-core Gemini adapter proves Gemini CLI skill activation",
+      "expected_verdict": "reject",
+      "expected_reason": "provider adapter assets and Gemini CLI prompt package assets are separate runtime surfaces"
+    },
+    {
+      "id": "PPB-003",
+      "name": "static schema mapping is not live provider behavior",
+      "input_claim": "structured output schema text proves live schema-output behavior",
+      "expected_verdict": "reject",
+      "expected_reason": "schema text requires executed provider or local evidence before stronger claims"
+    },
+    {
+      "id": "PPB-004",
+      "name": "compatibility lane is not native conformance",
+      "input_claim": "OpenAI compatibility behavior proves native Gemini API conformance",
+      "expected_verdict": "reject",
+      "expected_reason": "compatibility and native Gemini API lanes remain separate"
+    }
+  ]
+}
+

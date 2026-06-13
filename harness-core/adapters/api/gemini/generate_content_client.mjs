@@ -1,3 +1,15 @@
+import { previewText } from "./redaction_policy.mjs";
+
+function summarizeProviderError(status, body) {
+  const errorBody = body?.error && typeof body.error === "object" ? body.error : {};
+  return {
+    status,
+    code: typeof errorBody.code === "number" ? errorBody.code : null,
+    status_text: typeof errorBody.status === "string" ? errorBody.status : null,
+    message_preview: typeof errorBody.message === "string" ? previewText(errorBody.message, 220) : null
+  };
+}
+
 export async function createGenerateContent(request, env = process.env) {
   if (!env.GEMINI_API_KEY) {
     throw new Error("GEMINI_API_KEY is required for Gemini provider execution");
@@ -25,7 +37,7 @@ export async function createGenerateContent(request, env = process.env) {
     const message = json?.error?.message || text.slice(0, 240) || `HTTP ${response.status}`;
     const error = new Error(`Gemini generateContent failed: ${response.status} ${message}`);
     error.status = response.status;
-    error.response = json;
+    error.provider_error = summarizeProviderError(response.status, json);
     throw error;
   }
   return json;

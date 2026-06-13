@@ -1,0 +1,28 @@
+{
+  "status": "fail",
+  "stage": "v2.0.0-post-rc-local-endpoint-readiness-preflight",
+  "claim_scope": "local endpoint readiness preflight only",
+  "can_enter_local_no_tool_canary": false,
+  "local_endpoint_probe_allowed_after_operator_signal": true,
+  "local_endpoint_probe": false,
+  "local_model_execution": false,
+  "local_model_verified_allowed": false,
+  "provider_diverse_allowed": false,
+  "provider_verified_allowed": false,
+  "adapter_checked_allowed": false,
+  "claims_allowed": [],
+  "claims_not_opened_by_this_preflight": [
+    "provider-diverse",
+    "provider-verified",
+    "local-model-verified"
+  ],
+  "claims_blocked": [
+    "adapter-checked",
+    "local-no-tool-canary-executed",
+    "vllm-no-tool-canary-executed",
+    "ollama-no-tool-canary-executed",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ]
+}

@@ -1,4 +1,21 @@
 approval_phrases:
+  - lane: release_grade_general_release
+    phrase: I approve opening release-grade general production-ready, stable, and release-gated claims.
+    unlocks_gate: v2.0.0-release-grade-general-release-gate
+    approval_request: release/approvals/general/release_grade_general_release_approval_request.md
+    unlocks_claims_after_prerequisites:
+      - production-ready
+      - stable
+      - release-gated
+    does_not_unlock_claims:
+      - bare release-gated
+      - local-vllm-adapter-checked
+    does_not_execute:
+      - openai_provider_call
+      - gemini_provider_call
+      - new_local_model_execution
+      - local_endpoint_probe
+      - telemetry_sink_write
   - lane: openai_limited_redteam_execution
     phrase: I explicitly approve v2.0.0-beta-openai-redteam-limited-execution
     unlocks_execution: v2.0.0-beta-openai-redteam-limited-execution

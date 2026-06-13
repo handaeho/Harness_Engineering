@@ -1,0 +1,30 @@
+id: release_grade_reinforcement_completion_audit
+stage: v2.0.0-release-grade-reinforcement-completion-audit
+mode: no_live_cross_surface_completion_audit
+command: npm run check:release-grade-completion-audit
+expected_statuses:
+  - pass
+  - hold
+  - fail
+required_inputs:
+  - CURRENT_STATE.yaml
+  - CURRENT_STATE.json
+  - evidence/post-active-scoped-final-release-dossier/final_release_claim_state.json
+  - evidence/release-grade-source-ledger/release_grade_source_ledger_report.json
+  - evidence/release-grade-provider-verified-gate/release_grade_provider_verified_gate_report.json
+  - evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_report.json
+  - evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_check_report.json
+  - evidence/release-grade-vllm-evidence-package/vllm_evidence_package_report.json
+  - ../prompt-stack/v36/validation/release_grade_runtime_source_ledger.json
+  - ../prompt-stack/v36/validation/prompt_package_provider_boundary_tests.json
+forbidden_execution:
+  openai_provider_call: true
+  gemini_provider_call: true
+  local_endpoint_probe: true
+  new_local_model_execution: true
+  telemetry_sink_write: true
+claim_completion_rule: pass only when all audited requirements are complete, SOR claim-state sync passes, vLLM evidence opens adapter-checked, and explicit approval-backed general release gate opens production-ready/stable/release-gated
+outputs:
+  - evidence/release-grade-reinforcement-completion-audit/release_grade_reinforcement_completion_audit_report.json
+  - evidence/release-grade-reinforcement-completion-audit/unresolved_items.json
+  - evals/reports/release_grade_reinforcement_completion_audit_report.json

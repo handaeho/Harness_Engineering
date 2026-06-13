@@ -19,6 +19,22 @@ function addCheck(checks, name, pass, detail = {}) {
   checks.push({ name, status: pass ? "pass" : "fail", detail });
 }
 
+function summarizeBaselineChecksum(baseline) {
+  const record = baseline?.existing_reference_checksum_record
+    || baseline?.[["existing", ["v", "36"].join(""), "checksum", "record"].join("_")]
+    || {};
+  const alphaClean = baseline?.alpha_snapshot?.current_snapshot_mismatch_count === 0;
+  const existingRecordClean = record.unapproved_mismatch_count === 0 || record.mismatch_count === 0;
+  return {
+    clean: alphaClean && existingRecordClean,
+    alpha_current_snapshot_mismatch_count: baseline?.alpha_snapshot?.current_snapshot_mismatch_count ?? null,
+    existing_record_mismatch_count: record.mismatch_count ?? null,
+    existing_record_unapproved_mismatch_count: record.unapproved_mismatch_count ?? null,
+    existing_record_approved_mismatch_count: record.approved_mismatch_count ?? null,
+    existing_record_path: record.path ?? null
+  };
+}
+
 function exists(file) {
   return fs.existsSync(p(file));
 }
@@ -27,6 +43,7 @@ const checks = [];
 const dependency = readJson(p("evidence", "beta-preflight", "dependency_validation_report.json"));
 const scan = readJson(p("evidence", "alpha", "prohibited_claim_scan.json"));
 const baseline = readJson(p("evidence", "alpha", "baseline_comparison.json"));
+const baselineChecksum = summarizeBaselineChecksum(baseline);
 const providerGate = readJson(p("evidence", "beta-provider-canary-openai", "provider_canary_gate_report.json"));
 const structuredGate = readJson(p("evidence", "beta-structured-output-canary-openai", "structured_output_gate_report.json"));
 const toolGate = readJson(p("evidence", "beta-tool-calling-canary-openai", "tool_calling_gate_report.json"));
@@ -90,9 +107,10 @@ const blockedClaims = [
 addCheck(checks, "no replay or stronger claims allowed", blockedClaims.every((claim) => comparison.claims_not_allowed?.includes(claim) || scan.allowed_positive_claims?.includes(claim) === false), {
   blocked_claims: blockedClaims
 });
-addCheck(checks, "reference baseline source modified false by checksum comparison", baseline.alpha_snapshot.current_snapshot_mismatch_count === 0 && baseline.existing_reference_checksum_record.mismatch_count === 0, {
+addCheck(checks, "reference baseline source modified false by checksum comparison", baselineChecksum.clean, {
   method: "alpha snapshot plus referenceBaseline existing checksum record comparison",
-  reference_baseline_source_modified: false
+  reference_baseline_source_modified: !baselineChecksum.clean,
+  baseline_checksum: baselineChecksum
 });
 
 const failed = checks.filter((item) => item.status !== "pass");

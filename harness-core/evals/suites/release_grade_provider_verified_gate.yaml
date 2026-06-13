@@ -1,0 +1,14 @@
+id: release_grade_provider_verified_gate
+stage: v2.0.0-release-grade-provider-verified-gate
+type: release_grade_claim_gate
+command: node tools/checks/providers/check_release_grade_provider_verified_gate.mjs
+expected_statuses:
+  - pass
+  - hold
+claim_update_rule: provider-verified may be allowed only when status is pass.
+claim_boundary:
+  new_provider_calls: false
+  local_model_execution: false
+  telemetry_sink_write: false
+  hold_keeps_provider_verified_blocked: true
+

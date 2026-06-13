@@ -53,6 +53,16 @@ function writeJson(relPath, data) {
   fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`);
 }
 
+function readJsonIfExists(relPath) {
+  const file = p(relPath);
+  if (!fs.existsSync(file) || !fs.statSync(file).isFile()) return null;
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8").replace(/^\uFEFF/, ""));
+  } catch {
+    return null;
+  }
+}
+
 function runGit(args) {
   const result = spawnSync("git", ["-C", gitRoot, ...args], {
     encoding: "utf8",
@@ -71,6 +81,7 @@ function addCheck(checks, name, pass, detail = {}) {
 
 const checks = [];
 const actualDirectoryExists = fs.existsSync(root) && path.basename(root) === PROJECT_SLUG;
+const claimBoundary = readJsonIfExists("evidence/current-state/current_state_claim_boundary.json") || {};
 
 if (!gitMetadata.git_metadata_present) {
   addCheck(checks, "git metadata absent", true, {
@@ -105,11 +116,11 @@ if (!gitMetadata.git_metadata_present) {
     checks,
     failures: [],
     unresolved_items_count: 0,
-    provider_verified_allowed: false,
-    adapter_checked_allowed: false,
-    production_ready_allowed: false,
-    stable_allowed: false,
-    release_gated_allowed: false
+    provider_verified_allowed: claimBoundary.provider_verified_allowed === true,
+    adapter_checked_allowed: claimBoundary.adapter_checked_allowed === true,
+    production_ready_allowed: claimBoundary.production_ready_allowed === true,
+    stable_allowed: claimBoundary.stable_allowed === true,
+    release_gated_allowed: claimBoundary.release_gated_allowed === true
   };
   writeJson(`${EVIDENCE_DIR}/git_readiness_report.json`, report);
   console.log(JSON.stringify(report, null, 2));
@@ -159,11 +170,11 @@ const report = {
   checks,
   failures,
   unresolved_items_count: failures.length,
-  provider_verified_allowed: false,
-  adapter_checked_allowed: false,
-  production_ready_allowed: false,
-  stable_allowed: false,
-  release_gated_allowed: false
+  provider_verified_allowed: claimBoundary.provider_verified_allowed === true,
+  adapter_checked_allowed: claimBoundary.adapter_checked_allowed === true,
+  production_ready_allowed: claimBoundary.production_ready_allowed === true,
+  stable_allowed: claimBoundary.stable_allowed === true,
+  release_gated_allowed: claimBoundary.release_gated_allowed === true
 };
 
 writeJson(`${EVIDENCE_DIR}/git_readiness_report.json`, report);

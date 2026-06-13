@@ -1,0 +1,782 @@
+{
+  "status": "pass",
+  "stage": "v2.0.0-release-grade-ollama-evidence-package",
+  "generated_at": "2026-06-13T05:35:43.319Z",
+  "purpose": "Evidence package for the version1 Ollama adapter-checked to production-ready/stable/release-gated path.",
+  "ollama_adapter_evidence_complete": true,
+  "provider_verified_allowed": true,
+  "adapter_checked_allowed": true,
+  "production_ready_allowed": true,
+  "stable_allowed": true,
+  "release_gated_allowed": true,
+  "bare_release_gated_allowed": false,
+  "local_vllm_version2_follow_up": {
+    "claim": "local-vllm-adapter-checked",
+    "required_before_version1_release_gated": false,
+    "status": "deferred_until_version2"
+  },
+  "required_artifacts": [
+    {
+      "id": "ollama_adapter_preflight",
+      "path": "evidence/release-grade-adapter-ollama-preflight/release_grade_adapter_ollama_preflight_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-adapter-ollama-preflight",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/release-grade-adapter-ollama-preflight/release_grade_adapter_ollama_preflight_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider_verified_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:ollama_adapter_checked_candidate_ready",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "ollama_local_model_final_gate",
+      "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-model-verification-final-gate",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:local_model_verified_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "ollama_structured_output",
+      "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-structured-output-smoke-canary",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider",
+          "status": "pass",
+          "detail": {
+            "expected": "ollama",
+            "actual": "ollama"
+          }
+        },
+        {
+          "name": "flag:raw_request_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_response_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:secrets_logged",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "ollama_tool_calling",
+      "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-tool-calling-mock-smoke-canary",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider",
+          "status": "pass",
+          "detail": {
+            "expected": "ollama",
+            "actual": "ollama"
+          }
+        },
+        {
+          "name": "flag:raw_request_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_response_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:secrets_logged",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "ollama_replay_regression",
+      "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-replay-regression-smoke",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:raw_request_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_response_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:secrets_logged",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "ollama_redaction_storage",
+      "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-local-redaction-storage-cross-suite-audit",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:raw_request_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_response_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:secrets_logged",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "ollama_adapter_conformance",
+      "path": "evidence/post-stable-local-ollama-adapter-conformance/local_ollama_adapter_conformance_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-adapter-conformance-dependency-install-and-local-ollama-validation",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/post-stable-local-ollama-adapter-conformance/local_ollama_adapter_conformance_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider",
+          "status": "pass",
+          "detail": {
+            "expected": "ollama",
+            "actual": "ollama"
+          }
+        },
+        {
+          "name": "flag:raw_request_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_response_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "ollama_adapter_conformance_execution",
+      "path": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-post-stable-adapter-conformance-local-ollama-execution",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:raw_request_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:raw_response_stored",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:secrets_logged",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "adapter_coverage_completion",
+      "path": "evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json",
+      "exists": true,
+      "status": "ready_for_adapter_checked_final_gate",
+      "stage": "v2.0.0-release-grade-adapter-coverage-completion",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "ready_for_adapter_checked_final_gate",
+            "allowed_statuses": [
+              "ready_for_adapter_checked_final_gate"
+            ]
+          }
+        },
+        {
+          "name": "flag:ready_for_adapter_checked_final_gate",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:can_enter_adapter_checked_final_gate",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:provider_verified_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "adapter_coverage_completion_check",
+      "path": "evals/reports/release_grade_adapter_coverage_completion_check_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-adapter-coverage-completion",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evals/reports/release_grade_adapter_coverage_completion_check_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:ready_for_adapter_checked_final_gate",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "adapter_checked_final_gate",
+      "path": "evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider_verified_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:production_ready_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:stable_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        },
+        {
+          "name": "flag:release_gated_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": false,
+            "actual": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "adapter_checked_final_gate_check",
+      "path": "evals/reports/release_grade_adapter_checked_final_gate_check_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-adapter-checked-final-gate",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evals/reports/release_grade_adapter_checked_final_gate_check_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "general_release_gate_after_adapter",
+      "path": "evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-general-release-gate",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "hold",
+              "pass"
+            ]
+          }
+        },
+        {
+          "name": "flag:provider_verified_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        },
+        {
+          "name": "flag:adapter_checked_allowed",
+          "status": "pass",
+          "detail": {
+            "expected": true,
+            "actual": true
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "general_release_gate_check",
+      "path": "evals/reports/release_grade_general_release_gate_check_report.json",
+      "exists": true,
+      "status": "pass",
+      "stage": "v2.0.0-release-grade-general-release-gate",
+      "checks": [
+        {
+          "name": "exists",
+          "status": "pass",
+          "detail": {
+            "path": "evals/reports/release_grade_general_release_gate_check_report.json"
+          }
+        },
+        {
+          "name": "status allowed",
+          "status": "pass",
+          "detail": {
+            "status": "pass",
+            "allowed_statuses": [
+              "hold",
+              "pass"
+            ]
+          }
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "ordering_checks": [
+    {
+      "name": "general release gate refreshed after adapter final gate",
+      "status": "pass",
+      "detail": {
+        "adapter_final_generated_at": "2026-06-13T03:25:33.230Z",
+        "general_release_generated_at": "2026-06-13T05:20:03.434Z"
+      }
+    }
+  ],
+  "missing_or_incomplete_artifacts": [],
+  "stale_or_unordered_artifacts": [],
+  "claim_promotion_readiness": {
+    "provider_verified": "open_by_provider_gate",
+    "adapter_checked": "open_by_ollama_adapter_checked_final_gate",
+    "general_release": "open_by_general_release_gate",
+    "local_vllm_adapter_checked": "version2_follow_up",
+    "approval_text_stored": false
+  },
+  "operator_packet": {
+    "full_run_command": "npm run ollama-release-grade-evidence-gate",
+    "manual_run_commands": [
+      "npm run check:release-grade-adapter-ollama",
+      "npm run run:release-grade-adapter-coverage",
+      "npm run check:release-grade-adapter-coverage",
+      "npm run run:release-grade-adapter-checked-final",
+      "npm run check:release-grade-adapter-checked-final",
+      "npm run general-release-grade-gate",
+      "npm run check:release-grade-ollama-evidence-package",
+      "npm run apply:release-grade-claim-state-sync",
+      "npm run check:release-grade-claim-state-sync",
+      "npm run general-release-grade-gate",
+      "npm run check:release-grade-ollama-evidence-package",
+      "npm run apply:release-grade-claim-state-sync",
+      "npm run check:release-grade-claim-state-sync"
+    ],
+    "general_release_gate_refresh_required_after_adapter_checked": true,
+    "evidence_package_command_must_run_last": false,
+    "claim_state_sync_command_must_run_after_package": true,
+    "final_sync_command_must_run_last": true
+  },
+  "submission_files": [
+    "evidence/release-grade-adapter-ollama-preflight/release_grade_adapter_ollama_preflight_report.json",
+    "evidence/post-stable-local-model-verification-final-gate/local_model_verification_final_gate_report.json",
+    "evidence/post-stable-local-structured-output-smoke-canary/local_structured_output_smoke_report.json",
+    "evidence/post-stable-local-tool-calling-mock-smoke-canary/local_tool_calling_mock_smoke_report.json",
+    "evidence/post-stable-local-replay-regression-smoke/local_replay_regression_smoke_report.json",
+    "evidence/post-stable-local-redaction-storage-cross-suite-audit/local_redaction_storage_audit_report.json",
+    "evidence/post-stable-local-ollama-adapter-conformance/local_ollama_adapter_conformance_report.json",
+    "evidence/post-stable-adapter-conformance-local-ollama-execution/adapter_conformance_local_ollama_execution_report.json",
+    "evidence/release-grade-adapter-coverage-completion/release_grade_adapter_coverage_completion_report.json",
+    "evals/reports/release_grade_adapter_coverage_completion_check_report.json",
+    "evidence/release-grade-adapter-checked-final-gate/release_grade_adapter_checked_final_gate_report.json",
+    "evals/reports/release_grade_adapter_checked_final_gate_check_report.json",
+    "evidence/release-grade-general-release-gate/release_grade_general_release_gate_report.json",
+    "evals/reports/release_grade_general_release_gate_check_report.json",
+    "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_report.json",
+    "evidence/release-grade-claim-state-sync/release_grade_claim_state_sync_check_report.json",
+    "evidence/release-grade-ollama-evidence-package/ollama_evidence_package_report.json"
+  ],
+  "redaction_policy": {
+    "raw_request_storage_allowed": false,
+    "raw_response_storage_allowed": false,
+    "secret_storage_allowed": false
+  },
+  "allowed_claims_after_pass": [
+    "adapter-checked",
+    "production-ready",
+    "stable",
+    "release-gated"
+  ],
+  "blocked_claims": [
+    "bare release-gated"
+  ],
+  "next_actions": [
+    "Review the general release gate decision record and SOR alignment before claiming release-grade general readiness.",
+    "Start local-vllm-adapter-checked only as the version2 follow-up."
+  ]
+}
