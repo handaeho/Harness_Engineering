@@ -1,11 +1,11 @@
 # HARNESS Core 정형 프로젝트 입력 템플릿
 
-이 문서는 사용자가 새 프로젝트를 완전 자율형 에이전트에게 맡기기 전에 작성하는 입력 양식입니다.
-HARNESS Core 안의 이 파일은 reference template입니다. canonical path는 `docs/guides/PROJECT_INPUT_TEMPLATE.ko.md`입니다. 실제로 채운 입력은 새 프로젝트 루트의 `PROJECT_INPUT.md`에 저장하거나, 에이전트에게 보내는 요청 본문에 그대로 붙여 넣습니다.
+이 문서는 사용자가 새 프로젝트를 완전 자율형 에이전트에게 맡기기 전에 사용할 수 있는 선택형 입력 양식입니다.
+HARNESS Core 안의 이 파일은 reference template입니다. canonical path는 `docs/guides/PROJECT_INPUT_TEMPLATE.ko.md`입니다. 실제로 채운 입력은 새 프로젝트 루트의 `.harness/project/PROJECT_INPUT.md`에 저장하거나, 에이전트에게 보내는 요청 본문에 그대로 붙여 넣을 수 있습니다.
 
-목표는 간단합니다. 사용자는 아래 템플릿을 채우고, 에이전트는 이를 바탕으로 `PROJECT_INPUT.md`, `PROJECT_BRIEF.md`, `CURRENT_STATE.yaml`, `release/scope.yaml`, `release/claim_boundary.yaml`, `evidence/`, `tools/`를 생성하거나 갱신합니다.
+사용자가 반드시 이 양식을 채워야 하는 것은 아닙니다. 짧은 자연어 제품 요청만 받은 경우에도 에이전트는 필요한 값을 스스로 추출하거나 보수적으로 가정해서 `.harness/project/PROJECT_INPUT.md`, `.harness/project/PROJECT_BRIEF.md`, `.harness/project/CURRENT_STATE.yaml`, `.harness/project/release/scope.yaml`, `.harness/project/release/claim_boundary.yaml`, `.harness/project/evidence/`, `.harness/project/tools/`를 생성하거나 갱신해야 합니다.
 
-모르는 항목은 비워두지 말고 `미정`이라고 적습니다. 불필요한 항목은 `해당 없음`이라고 적습니다.
+사용자가 직접 이 양식을 작성하는 경우, 모르는 항목은 비워두지 말고 `미정`이라고 적습니다. 불필요한 항목은 `해당 없음`이라고 적습니다.
 
 ## 1. 빠른 입력 양식
 
@@ -53,6 +53,32 @@ HARNESS Core 안의 이 파일은 reference template입니다. canonical path는
 배포 또는 실행 환경:
 
 추가로 중요한 맥락:
+```
+
+## 1.1. 템플릿 선택
+
+자연어 요청만으로 시작할 때는 아래 중 하나를 사용합니다.
+
+```text
+MVP:
+.harness/harness-core/templates/external-project/USER_COMMAND_TEMPLATE_MVP.ko.md
+
+Production-grade:
+.harness/harness-core/templates/external-project/USER_COMMAND_TEMPLATE_PRODUCTION.ko.md
+```
+
+Production-grade 요청은 아래 항목을 에이전트가 추출하거나 결정해서 `.harness/project/`에 기록해야 합니다.
+
+```text
+프레임워크/언어/런타임:
+데이터베이스 종류:
+schema/migration/seed 전략:
+환경 변수와 secret 저장 방식:
+로컬/테스트/운영 실행 명령:
+인증/인가/권한 모델:
+로그/health/readiness/관측성:
+배포/백업/복구/rollback 전제:
+unit/integration/db/smoke/security/acceptance test:
 ```
 
 ## 2. 완성 입력 양식
@@ -362,20 +388,20 @@ UI는 복잡한 대시보드보다 간단하고 빠른 작업 도구 느낌이 �
 에이전트는 이 입력을 받으면 최소한 아래 산출물을 만들어야 합니다.
 
 ```text
-PROJECT_BRIEF.md
-PROJECT_INPUT.md
-CURRENT_STATE.yaml
-release/scope.yaml
-release/claim_boundary.yaml
-release/blocker_register.yaml
-evidence/current-state/
-evidence/runs/
-evidence/gates/
-evidence/checks/
-tools/check_project_current_state.mjs
-tools/check_project_claims.mjs
-tools/check_project_precommit.mjs
-docs/handoff/
+.harness/project/PROJECT_BRIEF.md
+.harness/project/PROJECT_INPUT.md
+.harness/project/CURRENT_STATE.yaml
+.harness/project/release/scope.yaml
+.harness/project/release/claim_boundary.yaml
+.harness/project/release/blocker_register.yaml
+.harness/project/evidence/current-state/
+.harness/project/evidence/runs/
+.harness/project/evidence/gates/
+.harness/project/evidence/checks/
+.harness/project/tools/check_project_current_state.mjs
+.harness/project/tools/check_project_claims.mjs
+.harness/project/tools/check_project_precommit.mjs
+.harness/project/docs/handoff/
 ```
 
-제품 코드는 프로젝트 언어와 프레임워크의 표준 구조에 둡니다. HARNESS Core는 `.harness/harness-core/` 아래에 둔 reference이며, 프로젝트별 코드나 checker를 그 안에 추가하지 않습니다.
+제품 코드는 프로젝트 언어와 프레임워크의 표준 구조에 둡니다. HARNESS Core는 `.harness/harness-core/` 아래에 둔 reference이며, 프로젝트별 하네스 상태나 checker를 그 안에 추가하지 않습니다.

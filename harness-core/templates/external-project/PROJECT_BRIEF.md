@@ -5,7 +5,8 @@
 - Name: `<PROJECT_NAME>`
 - Slug: `<project-slug>`
 - Harness reference: `.harness/harness-core/`
-- Source input: `PROJECT_INPUT.md`
+- Project harness state: `.harness/project/`
+- Source input: `.harness/project/PROJECT_INPUT.md`
 - Source input template: `.harness/harness-core/docs/guides/PROJECT_INPUT_TEMPLATE.ko.md`
 
 ## Goal
@@ -36,9 +37,9 @@
 
 ## Verification Plan
 
-- Project current-state check: `node tools/check_project_current_state.mjs`
-- Project claim check: `node tools/check_project_claims.mjs`
-- Project precommit check: `node tools/check_project_precommit.mjs`
+- Project current-state check: `node .harness/project/tools/check_project_current_state.mjs`
+- Project claim check: `node .harness/project/tools/check_project_claims.mjs`
+- Project precommit check: `node .harness/project/tools/check_project_precommit.mjs`
 
 ## Claim Boundary
 

@@ -30,18 +30,18 @@ claims:
     - release-gated
 
 evidence:
-  current_state_dir: evidence/current-state
-  runs_dir: evidence/runs
-  gates_dir: evidence/gates
-  checks_dir: evidence/checks
+  current_state_dir: .harness/project/evidence/current-state
+  runs_dir: .harness/project/evidence/runs
+  gates_dir: .harness/project/evidence/gates
+  checks_dir: .harness/project/evidence/checks
 
 release:
-  scope: release/scope.yaml
-  claim_boundary: release/claim_boundary.yaml
-  blocker_register: release/blocker_register.yaml
+  scope: .harness/project/release/scope.yaml
+  claim_boundary: .harness/project/release/claim_boundary.yaml
+  blocker_register: .harness/project/release/blocker_register.yaml
 
 verification:
   required_commands:
-    - node tools/check_project_current_state.mjs
-    - node tools/check_project_claims.mjs
-    - node tools/check_project_precommit.mjs
+    - node .harness/project/tools/check_project_current_state.mjs
+    - node .harness/project/tools/check_project_claims.mjs
+    - node .harness/project/tools/check_project_precommit.mjs

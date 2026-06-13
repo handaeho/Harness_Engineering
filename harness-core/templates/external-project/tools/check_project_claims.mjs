@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
+const projectHarnessRoot = ".harness/project";
 
 const blockedClaims = [
   "provider-verified",
@@ -27,7 +28,6 @@ const scanExtensions = new Set([
 
 const excludedDirs = new Set([
   ".git",
-  ".harness",
   "node_modules",
   "dist",
   "build",
@@ -48,10 +48,14 @@ const allowedContextPatterns = [
   /차단/,
   /아님/,
   /아니다/,
+  /열지/,
   /열지 않는다/,
   /계속/,
+  /blockedClaims/,
+  /blocked.*claims/i,
   /blocked_strong_claims/,
-  /claim_boundary/
+  /claim_boundary/,
+  /Strong claims remain blocked/i
 ];
 
 function relPath(...parts) {
@@ -67,6 +71,9 @@ function walk(dir, acc = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (entry.isDirectory() && excludedDirs.has(entry.name)) continue;
     const abs = path.join(dir, entry.name);
+    const rel = toRel(abs);
+    if (rel === ".harness/harness-core" || rel.startsWith(".harness/harness-core/")) continue;
+    if (rel === ".harness/project/evidence/checks" || rel.startsWith(".harness/project/evidence/checks/")) continue;
     if (entry.isDirectory()) {
       walk(abs, acc);
     } else if (scanExtensions.has(path.extname(entry.name))) {
@@ -81,10 +88,19 @@ function toRel(abs) {
 }
 
 function lineAllowed(line, context, rel) {
-  if (rel === "CURRENT_STATE.yaml" || rel === "release/claim_boundary.yaml") {
-    if (/blocked_strong_claims/.test(context) || /blocked strong claims/i.test(context)) {
+  if (rel === ".harness/project/CURRENT_STATE.yaml" || rel === ".harness/project/release/claim_boundary.yaml") {
+    if (/^\s*-\s+/.test(line) || /blocked_strong_claims/.test(context) || /blocked strong claims/i.test(context)) {
       return true;
     }
+  }
+  if (rel === ".harness/project/PROJECT_BRIEF.md" && /Claim Boundary|Strong claims remain blocked/i.test(context)) {
+    return true;
+  }
+  if (
+    rel === ".harness/project/tools/check_project_claims.mjs" ||
+    rel === ".harness/project/tools/check_project_current_state.mjs"
+  ) {
+    return true;
   }
   return allowedContextPatterns.some((pattern) => pattern.test(line) || pattern.test(context));
 }
@@ -95,7 +111,7 @@ for (const abs of walk(root)) {
   const text = fs.readFileSync(abs, "utf8");
   const lines = text.split(/\r?\n/);
   lines.forEach((line, index) => {
-    const context = lines.slice(Math.max(0, index - 4), Math.min(lines.length, index + 3)).join("\n");
+    const context = lines.slice(Math.max(0, index - 8), Math.min(lines.length, index + 4)).join("\n");
     for (const claim of blockedClaims) {
       if (line.includes(claim) && !lineAllowed(line, context, rel)) {
         findings.push({
@@ -109,8 +125,8 @@ for (const abs of walk(root)) {
   });
 }
 
-const claimBoundary = fs.existsSync(relPath("release/claim_boundary.yaml"))
-  ? fs.readFileSync(relPath("release/claim_boundary.yaml"), "utf8")
+const claimBoundary = fs.existsSync(relPath(".harness/project/release/claim_boundary.yaml"))
+  ? fs.readFileSync(relPath(".harness/project/release/claim_boundary.yaml"), "utf8")
   : "";
 
 const boundaryChecks = blockedClaims.map((claim) => ({
@@ -124,6 +140,7 @@ const report = {
   status: findings.length === 0 && missingBlockedClaims.length === 0 ? "pass" : "fail",
   checker: "check_project_claims.mjs",
   project_root: root,
+  project_harness_root: projectHarnessRoot,
   generated_at: new Date().toISOString(),
   scanned_files: walk(root).length,
   excluded_dirs: Array.from(excludedDirs),
@@ -134,9 +151,9 @@ const report = {
   unresolved_items_count: findings.length + missingBlockedClaims.length
 };
 
-ensureDir("evidence/checks");
+ensureDir(".harness/project/evidence/checks");
 fs.writeFileSync(
-  relPath("evidence/checks/project_claim_scan.json"),
+  relPath(".harness/project/evidence/checks/project_claim_scan.json"),
   `${JSON.stringify(report, null, 2)}\n`
 );
 

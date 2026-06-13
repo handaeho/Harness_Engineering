@@ -2,19 +2,20 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
+const projectHarnessRoot = ".harness/project";
 
 const requiredFiles = [
-  "AGENTS.md",
-  "README.md",
-  "PROJECT_INPUT.md",
-  "PROJECT_BRIEF.md",
-  "CURRENT_STATE.yaml",
-  "release/scope.yaml",
-  "release/claim_boundary.yaml",
-  "release/blocker_register.yaml",
-  "tools/check_project_current_state.mjs",
-  "tools/check_project_claims.mjs",
-  "tools/check_project_precommit.mjs",
+  ".harness/project/AGENTS.md",
+  ".harness/project/README.md",
+  ".harness/project/PROJECT_INPUT.md",
+  ".harness/project/PROJECT_BRIEF.md",
+  ".harness/project/CURRENT_STATE.yaml",
+  ".harness/project/release/scope.yaml",
+  ".harness/project/release/claim_boundary.yaml",
+  ".harness/project/release/blocker_register.yaml",
+  ".harness/project/tools/check_project_current_state.mjs",
+  ".harness/project/tools/check_project_claims.mjs",
+  ".harness/project/tools/check_project_precommit.mjs",
   ".harness/harness-core/AGENTS.md",
   ".harness/harness-core/START_HERE_FOR_AGENTS.ko.md",
   ".harness/harness-core/AGENT_BOOTSTRAP.ko.md",
@@ -24,13 +25,13 @@ const requiredFiles = [
 ];
 
 const requiredDirs = [
-  "docs",
-  "evidence/current-state",
-  "evidence/runs",
-  "evidence/gates",
-  "evidence/checks",
-  "release",
-  "tools",
+  ".harness/project/docs",
+  ".harness/project/evidence/current-state",
+  ".harness/project/evidence/runs",
+  ".harness/project/evidence/gates",
+  ".harness/project/evidence/checks",
+  ".harness/project/release",
+  ".harness/project/tools",
   ".harness/harness-core"
 ];
 
@@ -72,26 +73,26 @@ for (const dir of requiredDirs) {
   addCheck(checks, `${dir} exists`, exists(dir), { path: dir });
 }
 
-const currentState = readText("CURRENT_STATE.yaml");
+const currentState = readText(".harness/project/CURRENT_STATE.yaml");
 const harnessState = readText(".harness/harness-core/CURRENT_STATE.yaml");
 
 addCheck(
   checks,
-  "project CURRENT_STATE records vendored harness path",
+  "project harness CURRENT_STATE records vendored harness path",
   currentState.includes(".harness/harness-core"),
   { expected: ".harness/harness-core" }
 );
 
 addCheck(
   checks,
-  "project CURRENT_STATE uses project_root operation mode",
+  "project harness CURRENT_STATE uses project_root operation mode",
   currentState.includes("primary: project_root"),
   { expected: "primary: project_root" }
 );
 
 addCheck(
   checks,
-  "HARNESS Core CURRENT_STATE is separate from project CURRENT_STATE",
+  "HARNESS Core CURRENT_STATE is separate from project harness CURRENT_STATE",
   currentState.length > 0 && harnessState.length > 0 && currentState !== harnessState,
   {}
 );
@@ -100,7 +101,7 @@ for (const claim of blockedClaims) {
   addCheck(
     checks,
     `blocked claim recorded: ${claim}`,
-    currentState.includes(claim) && readText("release/claim_boundary.yaml").includes(claim),
+    currentState.includes(claim) && readText(".harness/project/release/claim_boundary.yaml").includes(claim),
     { claim }
   );
 }
@@ -111,15 +112,16 @@ const report = {
   checker: "check_project_current_state.mjs",
   project_root: root,
   harness_reference: ".harness/harness-core",
+  project_harness_root: projectHarnessRoot,
   generated_at: new Date().toISOString(),
   checks,
   failures,
   unresolved_items_count: failures.length
 };
 
-ensureDir("evidence/checks");
+ensureDir(".harness/project/evidence/checks");
 fs.writeFileSync(
-  relPath("evidence/checks/project_current_state_check.json"),
+  relPath(".harness/project/evidence/checks/project_current_state_check.json"),
   `${JSON.stringify(report, null, 2)}\n`
 );
 

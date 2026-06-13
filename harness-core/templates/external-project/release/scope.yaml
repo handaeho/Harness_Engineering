@@ -2,10 +2,7 @@ scope_id: project-bootstrap-scope
 status: draft
 
 allowed_paths:
-  - AGENTS.md
   - README.md
-  - PROJECT_BRIEF.md
-  - CURRENT_STATE.yaml
   - src/**
   - app/**
   - pages/**
@@ -15,9 +12,7 @@ allowed_paths:
   - tests/**
   - __tests__/**
   - docs/**
-  - evidence/**
-  - release/**
-  - tools/**
+  - .harness/project/**
   - package.json
   - pyproject.toml
   - Cargo.toml
@@ -33,4 +28,4 @@ forbidden_paths:
 notes:
   - Product code should follow the framework standard layout.
   - HARNESS Core is a vendored reference at .harness/harness-core.
-  - Project-specific checkers belong in tools/.
+  - Project-specific harness state, evidence, release files, and checkers belong in .harness/project/.

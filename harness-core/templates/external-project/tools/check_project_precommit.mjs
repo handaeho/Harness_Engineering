@@ -28,8 +28,8 @@ function ensureDir(rel) {
 }
 
 const checks = [
-  run("node", ["tools/check_project_current_state.mjs"]),
-  run("node", ["tools/check_project_claims.mjs"])
+  run("node", [".harness/project/tools/check_project_current_state.mjs"]),
+  run("node", [".harness/project/tools/check_project_claims.mjs"])
 ];
 
 if (fs.existsSync(relPath(".git"))) {
@@ -56,9 +56,9 @@ const report = {
   unresolved_items_count: failures.length
 };
 
-ensureDir("evidence/checks");
+ensureDir(".harness/project/evidence/checks");
 fs.writeFileSync(
-  relPath("evidence/checks/project_precommit_check.json"),
+  relPath(".harness/project/evidence/checks/project_precommit_check.json"),
   `${JSON.stringify(report, null, 2)}\n`
 );
 
