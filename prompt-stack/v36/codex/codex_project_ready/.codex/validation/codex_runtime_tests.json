@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-06-12T00:00:00.000+09:00",
+  "validation_name": "codex_runtime_tests",
+  "claim_strength": "local_static_runtime_validation_spec",
+  "tests": [
+    {
+      "id": "CR-001",
+      "name": "codex project instruction entrypoint exists",
+      "expected": "AGENTS.md present at repository root"
+    },
+    {
+      "id": "CR-002",
+      "name": "runtime guide exists",
+      "expected": ".codex/CODEX_RUNTIME_GUIDE.md present"
+    },
+    {
+      "id": "CR-003",
+      "name": "skills executable",
+      "expected": "each .agents/skills/*/SKILL.md present"
+    },
+    {
+      "id": "CR-004",
+      "name": "skill frontmatter valid",
+      "expected": "each SKILL.md has name and description"
+    },
+    {
+      "id": "CR-005",
+      "name": "Codex skill layout",
+      "expected": "repository skills are under .agents/skills, not .codex/skills"
+    },
+    {
+      "id": "CR-006",
+      "name": "boundaries preserved",
+      "expected": "approval, sandbox, tool, retrieval, memory, subagent, and release boundaries present"
+    },
+    {
+      "id": "CR-007",
+      "name": "source ledger exists",
+      "expected": ".codex/validation/codex_doc_grounding_sources.json records official OpenAI Codex sources"
+    },
+    {
+      "id": "CR-008",
+      "name": "claim boundaries present",
+      "expected": "local_static_runtime_validation is separated from loaded/discovered/executed proof classes"
+    }
+  ]
+}

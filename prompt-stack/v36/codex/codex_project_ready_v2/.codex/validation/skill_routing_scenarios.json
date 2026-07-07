@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-06-12T00:00:00.000+09:00",
+  "validation_name": "codex_skill_routing_scenarios",
+  "claim_strength": "local_runtime_skill_routing_test_spec",
+  "scope": "<project>/.agents/skills",
+  "scenarios": [
+    {
+      "case_id": "CSR-001",
+      "name": "bounded implementation",
+      "input_task": "Implement the smallest repository change and add tests for the failing behavior.",
+      "expected_skill": "coding-core",
+      "non_expected_skills": [
+        "grounded-research",
+        "eval-ops",
+        "harness-creator-adapter"
+      ],
+      "expected_workflow": "Read target files, patch narrowly, run focused checks, and report changed files and proof class.",
+      "completion_report": "Changed files, behavior fixed, tests run, skipped checks, and claim boundary."
+    },
+    {
+      "case_id": "CSR-002",
+      "name": "architecture decision",
+      "input_task": "Choose the repository migration strategy before editing code.",
+      "expected_skill": "design-analysis",
+      "non_expected_skills": [
+        "coding-core",
+        "eval-ops",
+        "harness-creator-adapter"
+      ],
+      "expected_workflow": "Compare options, select a route, define fallback and verification path.",
+      "completion_report": "Decision, selected route, rejected alternatives, verification plan, and remaining risk."
+    },
+    {
+      "case_id": "CSR-003",
+      "name": "official Codex docs check",
+      "input_task": "Check the latest official Codex AGENTS.md and skills docs before updating the runtime guide.",
+      "expected_skill": "grounded-research",
+      "non_expected_skills": [
+        "coding-core",
+        "eval-ops",
+        "orchestration-control"
+      ],
+      "expected_workflow": "Retrieve official OpenAI sources, synthesize with citations, and hand off implementation if needed.",
+      "completion_report": "Source-backed summary, source ledger, freshness note, limitations, and implementation handoff."
+    },
+    {
+      "case_id": "CSR-004",
+      "name": "release claim review",
+      "input_task": "Decide whether this Codex runtime package can be called skill-discovery-confirmed based only on static file validation.",
+      "expected_skill": "eval-ops",
+      "non_expected_skills": [
+        "coding-core",
+        "design-analysis",
+        "harness-creator-adapter"
+      ],
+      "expected_workflow": "Inspect available evidence, compare to runtime-discovery requirements, downgrade unsupported claims, and issue a hold verdict.",
+      "completion_report": "Verdict, evidence inspected, missing Codex runtime output, blocked claims, and next required run."
+    },
+    {
+      "case_id": "CSR-005",
+      "name": "Codex harness asset creation",
+      "input_task": "Create Codex runtime validation fixtures and artifact map entries without changing Gemini source assets.",
+      "expected_skill": "harness-creator-adapter",
+      "non_expected_skills": [
+        "coding-core",
+        "eval-ops",
+        "grounded-research"
+      ],
+      "expected_workflow": "Identify subsystem and owner layer, create the smallest Codex runtime artifact, validate non-mirror and claim boundary.",
+      "completion_report": "Changed artifact, subsystem, owner layer, validation path, claim boundary, and remaining risk."
+    },
+    {
+      "case_id": "CSR-006",
+      "name": "Codex subagent coordination",
+      "input_task": "Coordinate separate official-doc research, implementation, and review agents for a Codex migration.",
+      "expected_skill": "orchestration-control",
+      "non_expected_skills": [
+        "coding-core",
+        "grounded-research",
+        "harness-creator-adapter"
+      ],
+      "expected_workflow": "Check single-agent sufficiency, assign ownership, define join contract, track lifecycle, integrate and verify.",
+      "completion_report": "Topology, roles, lifecycle state, join result, unresolved gaps, and validation owner."
+    }
+  ]
+}

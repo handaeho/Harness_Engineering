@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-06-12T00:00:00.000+09:00",
+  "validation_name": "codex_doc_grounding_sources",
+  "claim_strength": "official_source_ledger_static",
+  "source_authority": "official_openai_codex_documentation",
+  "checked_on": "2026-06-12",
+  "sources": [
+    {
+      "id": "CDS-001",
+      "title": "Codex Documentation",
+      "url": "https://developers.openai.com/codex",
+      "observed_last_updated": "checked on 2026-06-12",
+      "supports": [
+        "Codex documentation navigation",
+        "Codex CLI/IDE/App/Web surfaces",
+        "configuration and skills documentation paths"
+      ]
+    },
+    {
+      "id": "CDS-002",
+      "title": "Custom instructions with AGENTS.md",
+      "url": "https://developers.openai.com/codex/guides/agents-md",
+      "observed_last_updated": "checked on 2026-06-12",
+      "supports": [
+        "AGENTS.md instruction discovery",
+        "global and project instruction precedence",
+        "AGENTS.override.md",
+        "project_doc_max_bytes",
+        "fallback filenames",
+        "verification commands"
+      ]
+    },
+    {
+      "id": "CDS-003",
+      "title": "Agent Skills",
+      "url": "https://developers.openai.com/codex/skills",
+      "observed_last_updated": "checked on 2026-06-12",
+      "supports": [
+        "SKILL.md structure",
+        "name and description metadata",
+        "implicit and explicit skill activation",
+        ".agents/skills repository skill discovery"
+      ]
+    },
+    {
+      "id": "CDS-004",
+      "title": "Config basics",
+      "url": "https://developers.openai.com/codex/config-basic",
+      "observed_last_updated": "checked on 2026-06-12",
+      "supports": [
+        "~/.codex/config.toml",
+        "project .codex/config.toml",
+        "configuration precedence",
+        "trusted project boundary"
+      ]
+    }
+  ],
+  "limitations": [
+    "This ledger supports local static runtime validation only.",
+    "It does not prove Codex loaded AGENTS.md or discovered skills.",
+    "It does not prove commands, tests, CI, provider behavior, release gates, or production readiness."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-06-11T00:00:00.000Z",
+  "validation_name": "gemini_runtime_tests",
+  "claim_strength": "local_static_runtime_validation_spec",
+  "tests": [
+    {
+      "id": "GR-001",
+      "name": "gemini context entrypoint exists",
+      "expected": "GEMINI.md present at repository root"
+    },
+    {
+      "id": "GR-002",
+      "name": "guide exists",
+      "expected": ".gemini/GEMINI_RUNTIME_GUIDE.md present"
+    },
+    {
+      "id": "GR-003",
+      "name": "skills executable",
+      "expected": "each .gemini/skills/*/SKILL.md present"
+    },
+    {
+      "id": "GR-004",
+      "name": "Gemini CLI skill layout",
+      "expected": "GEMINI.md and runtime rules preserve .gemini/skills discovery"
+    },
+    {
+      "id": "GR-005",
+      "name": "not mirror",
+      "expected": "Gemini validation does not require text parity with autonomous or Codex source"
+    },
+    {
+      "id": "GR-006",
+      "name": "native and compatibility lanes",
+      "expected": "native_gemini_api and openai_compatibility are both present and separated"
+    },
+    {
+      "id": "GR-007",
+      "name": "Gemini API fields",
+      "expected": "systemInstruction, contents/parts, functionDeclarations, functionCallingConfig, structured output, and safetySettings are present"
+    },
+    {
+      "id": "GR-008",
+      "name": "boundaries preserved",
+      "expected": "safety, approval, tool, retrieval, memory, multi-agent, and release boundaries present"
+    },
+    {
+      "id": "GR-009",
+      "name": "source ledger exists",
+      "expected": ".gemini/validation/gemini_doc_grounding_sources.json records official Google Gemini API and Gemini CLI sources"
+    },
+    {
+      "id": "GR-010",
+      "name": "engineering convention connected",
+      "expected": "GEMINI.md and coding-core reference .gemini/ENGINEERING_CONVENTION.md"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-06-11T00:00:00.000Z",
+  "validation_name": "gemini_skill_routing_scenarios",
+  "claim_strength": "local_runtime_skill_routing_test_spec",
+  "scope": "<project>/.gemini/skills",
+  "scenarios": [
+    {
+      "case_id": "GSR-001",
+      "name": "native Gemini API design",
+      "input_task": "Design the native Gemini API request boundary for system instructions, function calling, structured output, and safety settings before editing code.",
+      "expected_skill": "design-analysis",
+      "non_expected_skills": ["coding-core", "eval-ops", "harness-creator-adapter"],
+      "expected_workflow": "Compare native_gemini_api and openai_compatibility, select the target lane, define interfaces, validation, fallback, and claim boundary.",
+      "completion_report": "Decision, selected lane, rejected lane, API surface, verification plan, and remaining risk."
+    },
+    {
+      "case_id": "GSR-002",
+      "name": "bounded mapper implementation",
+      "input_task": "Implement the smallest Gemini request mapper change and add tests for systemInstruction and contents/parts.",
+      "expected_skill": "coding-core",
+      "non_expected_skills": ["grounded-research", "eval-ops", "harness-creator-adapter"],
+      "expected_workflow": "Read target mapper, patch narrowly, add focused tests, run checks, and report lane plus proof class.",
+      "completion_report": "Changed files, Gemini lane, behavior fixed, tests run, skipped checks, and claim boundary."
+    },
+    {
+      "case_id": "GSR-003",
+      "name": "official Gemini docs check",
+      "input_task": "Check the latest official Gemini function calling and structured output docs before updating the runtime guide.",
+      "expected_skill": "grounded-research",
+      "non_expected_skills": ["coding-core", "eval-ops", "orchestration-control"],
+      "expected_workflow": "Define evidence target, retrieve official Google sources, synthesize with citations, and hand off implementation if needed.",
+      "completion_report": "Source-backed summary, source ledger, freshness note, limitations, and implementation handoff."
+    },
+    {
+      "case_id": "GSR-004",
+      "name": "Gemini release claim review",
+      "input_task": "Decide whether this Gemini runtime can be called provider-verified based only on static file validation.",
+      "expected_skill": "eval-ops",
+      "non_expected_skills": ["coding-core", "design-analysis", "harness-creator-adapter"],
+      "expected_workflow": "Inspect available evidence, compare it to provider-verification requirements, downgrade unsupported claims, and issue a hold verdict.",
+      "completion_report": "Verdict, evidence inspected, missing live canary evidence, blocked claims, and next required run."
+    },
+    {
+      "case_id": "GSR-005",
+      "name": "Gemini harness asset creation",
+      "input_task": "Create Gemini runtime validation fixtures and artifact map entries without changing autonomous source assets.",
+      "expected_skill": "harness-creator-adapter",
+      "non_expected_skills": ["coding-core", "eval-ops", "grounded-research"],
+      "expected_workflow": "Identify subsystem and owner layer, create the smallest Gemini runtime artifact, validate non-mirror and claim boundary.",
+      "completion_report": "Changed artifact, subsystem, owner layer, validation path, claim boundary, and remaining risk."
+    },
+    {
+      "case_id": "GSR-006",
+      "name": "Gemini multi-agent migration",
+      "input_task": "Coordinate separate official-doc research, adapter design, implementation, and review agents for a Gemini provider migration.",
+      "expected_skill": "orchestration-control",
+      "non_expected_skills": ["coding-core", "grounded-research", "harness-creator-adapter"],
+      "expected_workflow": "Check single-agent sufficiency, assign lane ownership, define join contract, track lifecycle, integrate and verify.",
+      "completion_report": "Topology, roles, lane ownership, lifecycle state, join result, unresolved gaps, and validation owner."
+    }
+  ]
+}
